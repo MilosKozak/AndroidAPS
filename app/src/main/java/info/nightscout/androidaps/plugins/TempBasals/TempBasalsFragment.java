@@ -44,7 +44,7 @@ public class TempBasalsFragment extends Fragment implements PluginBase, TempBasa
     RecyclerView recyclerView;
     LinearLayoutManager llm;
 
-    TextView iobTotal;
+    TextView tempBasalTotalView;
 
     public long lastCalculationTimestamp = 0;
     public IobTotal lastCalculation;
@@ -205,7 +205,8 @@ public class TempBasalsFragment extends Fragment implements PluginBase, TempBasa
         IobTotal total = new IobTotal();
         for (Integer pos = 0; pos < tempBasals.size(); pos++) {
             TempBasal t = tempBasals.get(pos);
-            total.plus(t.iobCalc(now));
+            IobTotal calc = t.iobCalc(now);
+            total.plus(calc);
         }
 
         lastCalculationTimestamp = new Date().getTime();
@@ -248,9 +249,8 @@ public class TempBasalsFragment extends Fragment implements PluginBase, TempBasa
 
         @Override
         public void onBindViewHolder(TempBasalsViewHolder holder, int position) {
-            // TODO: implement locales
-            DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT, new Locale("cs", "CZ"));
-            DateFormat enddf = DateFormat.getTimeInstance(DateFormat.SHORT, new Locale("cs", "CZ"));
+            DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT);
+            DateFormat enddf = DateFormat.getTimeInstance(DateFormat.SHORT);
             TempBasal tempBasal = tempBasals.get(position);
             if (tempBasal.timeEnd != null) {
                 holder.date.setText(df.format(tempBasal.timeStart) + " - " + enddf.format(tempBasals.get(position).timeEnd));
@@ -348,8 +348,8 @@ public class TempBasalsFragment extends Fragment implements PluginBase, TempBasa
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(tempBasals);
         recyclerView.setAdapter(adapter);
 
-        iobTotal = (TextView) view.findViewById(R.id.tempbasals_iobtotal);
-
+        tempBasalTotalView = (TextView) view.findViewById(R.id.tempbasals_totaltempiob);
+        updateGUI();
         return view;
     }
 
@@ -374,9 +374,10 @@ public class TempBasalsFragment extends Fragment implements PluginBase, TempBasa
                 @Override
                 public void run() {
                     recyclerView.swapAdapter(new RecyclerViewAdapter(tempBasals), false);
-                    if (lastCalculation != null)
-                        iobTotal.setText(formatNumber2decimalplaces.format(lastCalculation.basaliob));
-
+                    if (lastCalculation != null) {
+                        String totalText = formatNumber2decimalplaces.format(lastCalculation.basaliob) + "U";
+                        tempBasalTotalView.setText(totalText);
+                    }
                 }
             });
     }

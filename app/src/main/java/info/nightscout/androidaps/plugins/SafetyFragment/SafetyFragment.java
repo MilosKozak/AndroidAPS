@@ -14,7 +14,7 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.ConstraintsInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.plugins.APSResult;
+import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.utils.Round;
 import info.nightscout.utils.SafeParse;
@@ -62,22 +62,34 @@ public class SafetyFragment extends Fragment implements PluginBase, ConstraintsI
         return fragment;
     }
 
+    @Override
+    public boolean isLoopEnabled() {
+        return true;
+    }
+
     /**
      * Constraints interface
      **/
     @Override
-    public boolean isAutomaticProcessingEnabled() {
+    public boolean isClosedModeEnabled() {
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
+        String mode = SP.getString("aps_mode", "open");
+        return mode.equals("closed");
+    }
+
+    @Override
+    public boolean isAutosensModeEnabled() {
         return true;
     }
 
     @Override
-    public boolean manualConfirmationNeeded() {
-        return false;
+    public boolean isAMAModeEnabled() {
+        return true;
     }
 
     @Override
     public APSResult applyBasalConstraints(APSResult result) {
-        result.rate = applyBasalConstraints(result.rate);
+        result.rate = Math.min(applyBasalConstraints(result.rate), result.rate);
         return result;
     }
 
@@ -183,6 +195,11 @@ public class SafetyFragment extends Fragment implements PluginBase, ConstraintsI
             carbs = 0;
         }
         return carbs;
+    }
+
+    @Override
+    public Double applyMaxIOBConstraints(Double maxIob) {
+        return maxIob;
     }
 
 }

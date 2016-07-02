@@ -22,7 +22,6 @@ import java.util.Date;
 
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
-import info.nightscout.androidaps.MainActivity;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.PumpInterface;
@@ -30,9 +29,9 @@ import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.interfaces.APSInterface;
 import info.nightscout.androidaps.interfaces.TempBasalsInterface;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
-import info.nightscout.androidaps.plugins.APSResult;
+import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.plugins.ScriptReader;
+import info.nightscout.androidaps.plugins.Loop.ScriptReader;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsFragment;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.utils.DateUtil;
@@ -179,7 +178,7 @@ public class OpenAPSMAFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable("lastrun", lastRun);
+        //outState.putParcelable("lastrun", lastRun);
     }
 
     private void registerBus() {
@@ -272,6 +271,8 @@ public class OpenAPSMAFragment extends Fragment implements View.OnClickListener,
         IobTotal iobTotal = IobTotal.combine(bolusIob, basalIob).round();
 
         TreatmentsFragment.MealData mealData = treatments.getMealData();
+
+        maxIob = MainApp.getConfigBuilder().applyMaxIOBConstraints(maxIob);
 
         determineBasalAdapterJS.setData(profile, maxIob, maxBasal, minBg, maxBg, pump, iobTotal, glucoseStatus, mealData);
 

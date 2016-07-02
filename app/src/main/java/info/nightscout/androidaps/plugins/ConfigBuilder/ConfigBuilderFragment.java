@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -45,10 +46,11 @@ import info.nightscout.androidaps.interfaces.ProfileInterface;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.interfaces.TempBasalsInterface;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
-import info.nightscout.androidaps.plugins.APSResult;
+import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.DeviceStatus;
 import info.nightscout.androidaps.plugins.Loop.LoopFragment;
 import info.nightscout.androidaps.plugins.OpenAPSMA.DetermineBasalResult;
+import info.nightscout.client.data.DbLogger;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.utils.DateUtil;
 
@@ -66,6 +68,8 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
     ListView apsListView;
     ListView constraintsListView;
     ListView generalListView;
+    TextView nsclientVerView;
+    TextView nightscoutVerView;
 
     PluginCustomAdapter bgsourceDataAdapter = null;
     PluginCustomAdapter pumpDataAdapter = null;
@@ -84,6 +88,11 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
     TreatmentsInterface activeTreatments;
     TempBasalsInterface activeTempBasals;
     LoopFragment activeLoop;
+
+    public String nightscoutVersionName = "";
+    public Integer nightscoutVersionCode = 0;
+    public String nsClientVersionName = "";
+    public Integer nsClientVersionCode = 0;
 
     ArrayList<PluginBase> pluginList;
 
@@ -124,7 +133,13 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
         apsListView = (ListView) view.findViewById(R.id.configbuilder_apslistview);
         constraintsListView = (ListView) view.findViewById(R.id.configbuilder_constraintslistview);
         generalListView = (ListView) view.findViewById(R.id.configbuilder_generallistview);
+        nsclientVerView = (TextView) view.findViewById(R.id.configbuilder_nsclientversion);
+        nightscoutVerView = (TextView) view.findViewById(R.id.configbuilder_nightscoutversion);
 
+        nsclientVerView.setText(nsClientVersionName);
+        nightscoutVerView.setText(nightscoutVersionName);
+        if (nsClientVersionCode < 117) nsclientVerView.setTextColor(Color.RED);
+        if (nightscoutVersionCode < 900) nightscoutVerView.setTextColor(Color.RED);
         setViews();
         return view;
     }
@@ -709,34 +724,60 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
      * Constraints interface
      **/
     @Override
-    public boolean isAutomaticProcessingEnabled() {
+    public boolean isLoopEnabled() {
         boolean result = true;
 
-        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsList(PluginBase.CONSTRAINTS);
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
             if (!p.isEnabled()) continue;
-            result = result && constrain.isAutomaticProcessingEnabled();
+            result = result && constrain.isLoopEnabled();
         }
         return result;
     }
 
     @Override
-    public boolean manualConfirmationNeeded() {
-        boolean result = false;
+    public boolean isClosedModeEnabled() {
+        boolean result = true;
 
-        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsList(PluginBase.CONSTRAINTS);
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
             if (!p.isEnabled()) continue;
-            result = result || constrain.manualConfirmationNeeded();
+            result = result && constrain.isClosedModeEnabled();
+        }
+        return result;
+    }
+
+    @Override
+    public boolean isAutosensModeEnabled() {
+        boolean result = true;
+
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
+        for (PluginBase p : constraintsPlugins) {
+            ConstraintsInterface constrain = (ConstraintsInterface) p;
+            if (!p.isEnabled()) continue;
+            result = result && constrain.isAutosensModeEnabled();
+        }
+        return result;
+    }
+
+    @Override
+    public boolean isAMAModeEnabled() {
+        boolean result = true;
+
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
+        for (PluginBase p : constraintsPlugins) {
+            ConstraintsInterface constrain = (ConstraintsInterface) p;
+            if (!p.isEnabled()) continue;
+            result = result && constrain.isAMAModeEnabled();
         }
         return result;
     }
 
     @Override
     public APSResult applyBasalConstraints(APSResult result) {
-        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsList(PluginBase.CONSTRAINTS);
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
             if (!p.isEnabled()) continue;
@@ -748,11 +789,11 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
     @Override
     public Double applyBasalConstraints(Double absoluteRate) {
         Double rateAfterConstrain = absoluteRate;
-        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsList(PluginBase.CONSTRAINTS);
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
             if (!p.isEnabled()) continue;
-            rateAfterConstrain = constrain.applyBasalConstraints(rateAfterConstrain);
+            rateAfterConstrain = Math.min(constrain.applyBasalConstraints(rateAfterConstrain), rateAfterConstrain);
         }
         return rateAfterConstrain;
     }
@@ -760,11 +801,11 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
     @Override
     public Integer applyBasalConstraints(Integer percentRate) {
         Integer rateAfterConstrain = percentRate;
-        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsList(PluginBase.CONSTRAINTS);
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
             if (!p.isEnabled()) continue;
-            rateAfterConstrain = constrain.applyBasalConstraints(rateAfterConstrain);
+            rateAfterConstrain = Math.min(constrain.applyBasalConstraints(rateAfterConstrain), rateAfterConstrain);
         }
         return rateAfterConstrain;
     }
@@ -772,11 +813,11 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
     @Override
     public Double applyBolusConstraints(Double insulin) {
         Double insulinAfterConstrain = insulin;
-        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsList(PluginBase.CONSTRAINTS);
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
             if (!p.isEnabled()) continue;
-            insulinAfterConstrain = constrain.applyBolusConstraints(insulinAfterConstrain);
+            insulinAfterConstrain = Math.min(constrain.applyBolusConstraints(insulinAfterConstrain), insulinAfterConstrain);
         }
         return insulinAfterConstrain;
     }
@@ -784,13 +825,25 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
     @Override
     public Integer applyCarbsConstraints(Integer carbs) {
         Integer carbsAfterConstrain = carbs;
-        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsList(PluginBase.CONSTRAINTS);
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
             if (!p.isEnabled()) continue;
-            carbsAfterConstrain = constrain.applyCarbsConstraints(carbsAfterConstrain);
+            carbsAfterConstrain = Math.min(constrain.applyCarbsConstraints(carbsAfterConstrain), carbsAfterConstrain);
         }
         return carbsAfterConstrain;
+    }
+
+    @Override
+    public Double applyMaxIOBConstraints(Double maxIob) {
+        Double maxIobAfterConstrain = maxIob;
+        ArrayList<PluginBase> constraintsPlugins = MainActivity.getSpecificPluginsListByInterface(ConstraintsInterface.class);
+        for (PluginBase p : constraintsPlugins) {
+            ConstraintsInterface constrain = (ConstraintsInterface) p;
+            if (!p.isEnabled()) continue;
+            maxIobAfterConstrain = Math.min(constrain.applyMaxIOBConstraints(maxIobAfterConstrain), maxIobAfterConstrain);
+        }
+        return maxIobAfterConstrain;
     }
 
     public static void uploadTempBasalStartAbsolute(Double absolute, double durationInMinutes) {
@@ -809,12 +862,7 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
             Intent intent = new Intent(Intents.ACTION_DATABASE);
             intent.putExtras(bundle);
             intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-            context.sendBroadcast(intent);
-            List<ResolveInfo> q = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-            if (q.size() < 1) {
-                log.error("DBADD No receivers");
-            } else if (Config.logNSUpload)
-                log.debug("DBADD dbAdd " + q.size() + " receivers " + data.toString());
+            DbLogger.dbAdd(intent, data.toString(), ConfigBuilderFragment.class);
         } catch (JSONException e) {
         }
     }
@@ -836,11 +884,7 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
             intent.putExtras(bundle);
             intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
             context.sendBroadcast(intent);
-            List<ResolveInfo> q = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-            if (q.size() < 1) {
-                log.error("DBADD No receivers");
-            } else if (Config.logNSUpload)
-                log.debug("DBADD dbAdd " + q.size() + " receivers " + data.toString());
+            DbLogger.dbAdd(intent, data.toString(), ConfigBuilderFragment.class);
         } catch (JSONException e) {
         }
     }
@@ -860,11 +904,7 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
             intent.putExtras(bundle);
             intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
             context.sendBroadcast(intent);
-            List<ResolveInfo> q = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-            if (q.size() < 1) {
-                log.error("DBADD No receivers");
-            } else if (Config.logNSUpload)
-                log.debug("DBADD dbAdd " + q.size() + " receivers " + data.toString());
+            DbLogger.dbAdd(intent, data.toString(), ConfigBuilderFragment.class);
         } catch (JSONException e) {
         }
     }
@@ -889,11 +929,7 @@ public class ConfigBuilderFragment extends Fragment implements PluginBase, PumpI
             intent.putExtras(bundle);
             intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
             context.sendBroadcast(intent);
-            List<ResolveInfo> q = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-            if (q.size() < 1) {
-                log.error("DBADD No receivers");
-            } else if (Config.logNSUpload)
-                log.debug("DBADD dbAdd " + q.size() + " receivers " + data.toString());
+            DbLogger.dbAdd(intent, data.toString(), ConfigBuilderFragment.class);
         } catch (JSONException e) {
         }
     }

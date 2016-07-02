@@ -26,6 +26,7 @@ import java.util.List;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainActivity;
 import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.events.EventNewBG;
@@ -34,18 +35,21 @@ import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
+import info.nightscout.androidaps.plugins.Objectives.ObjectivesFragment;
+import info.nightscout.androidaps.plugins.Overview.OverviewFragment;
 import info.nightscout.androidaps.plugins.SourceNSClient.SourceNSClientFragment;
 import info.nightscout.androidaps.plugins.SourceXdrip.SourceXdripFragment;
 import info.nightscout.androidaps.receivers.NSClientDataReceiver;
 import info.nightscout.androidaps.receivers.xDripReceiver;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.client.data.NSSgv;
+import info.nightscout.utils.ToastUtils;
 
 
 public class DataService extends IntentService {
     private static Logger log = LoggerFactory.getLogger(DataService.class);
 
-    boolean xDripEnabled = true;
+    boolean xDripEnabled = false;
     boolean nsClientEnabled = true;
 
     public DataService() {
@@ -78,7 +82,11 @@ public class DataService extends IntentService {
                     Intents.ACTION_NEW_TREATMENT.equals(action) ||
                     Intents.ACTION_CHANGED_TREATMENT.equals(action) ||
                     Intents.ACTION_REMOVED_TREATMENT.equals(action) ||
-                    Intents.ACTION_NEW_SGV.equals(action)
+                    Intents.ACTION_NEW_SGV.equals(action) ||
+                    Intents.ACTION_NEW_STATUS.equals(action) ||
+                    Intents.ACTION_NEW_DEVICESTATUS.equals(action) ||
+                    Intents.ACTION_NEW_CAL.equals(action) ||
+                    Intents.ACTION_NEW_MBG.equals(action)
                     ) {
                 handleNewDataFromNSClient(intent);
                 NSClientDataReceiver.completeWakefulIntent(intent);
@@ -145,6 +153,67 @@ public class DataService extends IntentService {
         if (bundles == null) return;
 
 
+        if (intent.getAction().equals(Intents.ACTION_NEW_STATUS)) {
+            if (Config.logIncommingData)
+                log.debug("Received status: " + bundles);
+            if (bundles.containsKey("nsclientversioncode")) {
+                ConfigBuilderFragment configBuilderFragment = MainApp.getConfigBuilder();
+                if (configBuilderFragment != null) {
+                    configBuilderFragment.nightscoutVersionCode = bundles.getInt("nightscoutversioncode"); // for ver 1.2.3 contains 10203
+                    configBuilderFragment.nightscoutVersionName = bundles.getString("nightscoutversionname");
+                    configBuilderFragment.nsClientVersionCode = bundles.getInt("nsclientversioncode"); // for ver 1.17 contains 117
+                    configBuilderFragment.nsClientVersionName = bundles.getString("nsclientversionname");
+                    log.debug("Got versions: NSClient: " + configBuilderFragment.nsClientVersionName + " Nightscout: " + configBuilderFragment.nightscoutVersionName);
+                    if (configBuilderFragment.nsClientVersionCode < 117)
+                        ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.resources.getString(R.string.unsupportedclientver));
+                }
+            } else {
+                ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.resources.getString(R.string.unsupportedclientver));
+            }
+            if (bundles.containsKey("status")) {
+                try {
+                    JSONObject statusJson = new JSONObject(bundles.getString("status"));
+                    if (statusJson.has("settings")) {
+                        JSONObject settings = statusJson.getJSONObject("settings");
+                        if (settings.has("thresholds")) {
+                            JSONObject thresholds = settings.getJSONObject("thresholds");
+                            OverviewFragment overviewFragment = (OverviewFragment) MainActivity.getSpecificPlugin(OverviewFragment.class);
+                            if (overviewFragment != null && thresholds.has("bgTargetTop")) {
+                                overviewFragment.bgTargetHigh = thresholds.getDouble("bgTargetTop");
+                            }
+                            if (overviewFragment != null && thresholds.has("bgTargetBottom")) {
+                                overviewFragment.bgTargetLow = thresholds.getDouble("bgTargetBottom");
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        if (intent.getAction().equals(Intents.ACTION_NEW_DEVICESTATUS)) {
+            if (nsClientEnabled) {
+                try {
+                    if (bundles.containsKey("devicestatuses")) {
+                        String devicestatusesstring = bundles.getString("devicestatuses");
+                        JSONArray jsonArray = new JSONArray(devicestatusesstring);
+                        if (jsonArray.length() > 0) {
+                            JSONObject devicestatusJson = jsonArray.getJSONObject(0);
+                            if (devicestatusJson.has("pump")) {
+                                // Objectives 0
+                                ObjectivesFragment objectivesFragment = (ObjectivesFragment) MainActivity.getSpecificPlugin(ObjectivesFragment.class);
+                                if (objectivesFragment != null) {
+                                    objectivesFragment.pumpStatusIsAvailableInNS = true;
+                                    objectivesFragment.saveProgress();
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         // Handle profile
         if (intent.getAction().equals(Intents.ACTION_NEW_PROFILE)) {
             try {
@@ -219,10 +288,8 @@ public class DataService extends IntentService {
                     MainApp.bus().post(new EventTreatmentChange());
                 }
 
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-            } catch (Exception e1) {
-                e1.printStackTrace();
             }
 
         }
@@ -278,10 +345,8 @@ public class DataService extends IntentService {
                     MainApp.bus().post(new EventTreatmentChange());
                 }
 
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-            } catch (Exception e1) {
-                e1.printStackTrace();
             }
         }
 
@@ -305,10 +370,8 @@ public class DataService extends IntentService {
                 }
                 MainApp.bus().post(new EventTreatmentChange());
 
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-            } catch (Exception e1) {
-                e1.printStackTrace();
             }
         }
 
@@ -347,12 +410,16 @@ public class DataService extends IntentService {
                             }
                         }
                     }
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
-                } catch (Exception e1) {
-                    e1.printStackTrace();
                 }
                 MainApp.bus().post(new EventNewBG());
+            }
+            // Objectives 0
+            ObjectivesFragment objectivesFragment = (ObjectivesFragment) MainActivity.getSpecificPlugin(ObjectivesFragment.class);
+            if (objectivesFragment != null) {
+                objectivesFragment.bgIsAvailableInNS = true;
+                objectivesFragment.saveProgress();
             }
         }
     }
