@@ -225,5 +225,7 @@
     <string name="openapsma_maxiob_summary">Maximum amount of non-bolus IOB OpenAPS can deliver</string>
     <string name="openapsma_maxbasal_title">Max Basal</string>
     <string name="openapsma_maxbasaliob_title">Max Basal IOB</string>
+    <string name="aps_modeValues_closed" translatable="false">closed</string>
+    <string name="aps_modeValues_open" translatable="false">open</string>
 
 </resources>

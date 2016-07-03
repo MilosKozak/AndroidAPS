@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidAPS</string>
-    <string name="apsmode_title">Maximale Menge von nicht Bolus </string>
+    <string name="apsmode_title">APS Modus</string>
     <string name="bgavailableinns">BZ verfügbar in NS</string>
     <string name="cancel">Abbrechen</string>
     <string name="carbs">Kohlehydrate</string>
