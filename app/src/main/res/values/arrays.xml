@@ -6,7 +6,7 @@
         <item>@string/openloop</item>
     </string-array>
     <string-array name="aps_modeValues">
-        <item>closed</item>
-        <item>open</item>
+        <item>@string/closedloop</item>
+        <item>@string/openloop</item>
     </string-array>
 </resources>
