@@ -1,5 +1,6 @@
 package info.nightscout.androidaps.plugins.Overview;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -37,7 +38,6 @@ import java.util.List;
 
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
-import info.nightscout.androidaps.MainActivity;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.PumpEnactResult;
@@ -48,13 +48,12 @@ import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.events.EventNewBG;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
-import info.nightscout.androidaps.events.EventRefreshOpenLoop;
 import info.nightscout.androidaps.events.EventTempBasalChange;
 import info.nightscout.androidaps.events.EventTreatmentChange;
-import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.plugins.Loop.LoopFragment;
-import info.nightscout.androidaps.plugins.Objectives.ObjectivesFragment;
+import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
+import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
+import info.nightscout.androidaps.plugins.Objectives.ObjectivesPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.IobTotal;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewExtendedBolusDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewTempBasalDialog;
@@ -66,8 +65,14 @@ import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.Round;
 
 
-public class OverviewFragment extends Fragment implements PluginBase {
+public class OverviewFragment extends Fragment {
     private static Logger log = LoggerFactory.getLogger(OverviewFragment.class);
+
+    private static OverviewPlugin overviewPlugin = new OverviewPlugin();
+
+    public static OverviewPlugin getPlugin() {
+        return overviewPlugin;
+    }
 
     TextView bgView;
     TextView timeAgoView;
@@ -87,86 +92,23 @@ public class OverviewFragment extends Fragment implements PluginBase {
     Button setExtenedButton;
     Button acceptTempButton;
 
-    boolean visibleNow = false;
-    Handler loopHandler = new Handler();
-    Runnable refreshLoop = null;
+    Handler sLoopHandler = new Handler();
+    Runnable sRefreshLoop = null;
 
-    Handler mHandler;
-    public static HandlerThread mHandlerThread;
-
-    public Double bgTargetLow = 80d;
-    public Double bgTargetHigh = 180d;
+    private static Handler sHandler;
+    private static HandlerThread sHandlerThread;
 
     public OverviewFragment() {
         super();
-        mHandlerThread = new HandlerThread(OverviewFragment.class.getSimpleName());
-        mHandlerThread.start();
-        mHandler = new Handler(mHandlerThread.getLooper());
-        registerBus();
-    }
-
-    @Override
-    public String getName() {
-        return MainApp.instance().getString(R.string.overview);
-    }
-
-    @Override
-    public boolean isEnabled(int type) {
-        return true;
-    }
-
-    @Override
-    public boolean isVisibleInTabs(int type) {
-        return true;
-    }
-
-    @Override
-    public boolean canBeHidden(int type) {
-        return false;
-    }
-
-    @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
-        // Always enabled
-    }
-
-    @Override
-    public void setFragmentVisible(int type, boolean fragmentVisible) {
-        // Always visible
-    }
-
-    @Override
-    public int getType() {
-        return PluginBase.GENERAL;
+        if (sHandlerThread == null) {
+            sHandlerThread = new HandlerThread(OverviewFragment.class.getSimpleName());
+            sHandlerThread.start();
+            sHandler = new Handler(sHandlerThread.getLooper());
+        }
     }
 
     public static OverviewFragment newInstance() {
-        OverviewFragment fragment = new OverviewFragment();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (refreshLoop == null) {
-            refreshLoop = new Runnable() {
-                @Override
-                public void run() {
-                    if (visibleNow) {
-                        Activity activity = getActivity();
-                        if (activity != null)
-                            activity.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    updateGUI();
-                                }
-                            });
-                    }
-                    loopHandler.postDelayed(refreshLoop, 60 * 1000l);
-                }
-            };
-            loopHandler.postDelayed(refreshLoop, 60 * 1000l);
-        }
+        return new OverviewFragment();
     }
 
     @Override
@@ -204,7 +146,7 @@ public class OverviewFragment extends Fragment implements PluginBase {
             @Override
             public void onClick(View view) {
                 FragmentManager manager = getFragmentManager();
-                WizardDialog wizardDialog = new WizardDialog();
+                WizardDialog wizardDialog = new WizardDialog(getContext());
                 wizardDialog.show(manager, "WizardDialog");
             }
         });
@@ -212,9 +154,9 @@ public class OverviewFragment extends Fragment implements PluginBase {
         cancelTempButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final PumpInterface pump = MainApp.getConfigBuilder().getActivePump();
+                final PumpInterface pump = MainApp.getConfigBuilder();
                 if (pump.isTempBasalInProgress()) {
-                    mHandler.post(new Runnable() {
+                    sHandler.post(new Runnable() {
                         @Override
                         public void run() {
                             pump.cancelTempBasal();
@@ -247,36 +189,30 @@ public class OverviewFragment extends Fragment implements PluginBase {
             @Override
             public void onClick(View view) {
                 MainApp.getConfigBuilder().getActiveLoop().invoke(false);
-                final LoopFragment.LastRun finalLastRun = MainApp.getConfigBuilder().getActiveLoop().lastRun;
+                final LoopPlugin.LastRun finalLastRun = LoopPlugin.lastRun;
                 if (finalLastRun != null && finalLastRun.lastAPSRun != null && finalLastRun.constraintsProcessed.changeRequested) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setTitle(getContext().getString(R.string.confirmation));
                     builder.setMessage(getContext().getString(R.string.setbasalquestion) + "\n" + finalLastRun.constraintsProcessed);
                     builder.setPositiveButton(getContext().getString(R.string.ok), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            mHandler.post(new Runnable() {
+                            sHandler.post(new Runnable() {
                                 @Override
                                 public void run() {
+                                    hideTempRecommendation();
                                     PumpEnactResult applyResult = MainApp.getConfigBuilder().applyAPSRequest(finalLastRun.constraintsProcessed);
                                     if (applyResult.enacted) {
                                         finalLastRun.setByPump = applyResult;
                                         finalLastRun.lastEnact = new Date();
                                         finalLastRun.lastOpenModeAccept = new Date();
                                         MainApp.getConfigBuilder().uploadDeviceStatus();
-                                        ObjectivesFragment objectivesFragment = (ObjectivesFragment) MainApp.getSpecificPlugin(ObjectivesFragment.class);
-                                        if (objectivesFragment != null) {
-                                            objectivesFragment.manualEnacts++;
-                                            objectivesFragment.saveProgress();
+                                        ObjectivesPlugin objectivesPlugin = (ObjectivesPlugin) MainApp.getSpecificPlugin(ObjectivesPlugin.class);
+                                        if (objectivesPlugin != null) {
+                                            objectivesPlugin.manualEnacts++;
+                                            objectivesPlugin.saveProgress();
                                         }
                                     }
-                                    Activity activity = getActivity();
-                                    if (activity != null)
-                                        activity.runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                updateGUI();
-                                            }
-                                        });
+                                    updateGUIIfVisible();
                                 }
                             });
                         }
@@ -292,87 +228,69 @@ public class OverviewFragment extends Fragment implements PluginBase {
         return view;
     }
 
-    private void registerBus() {
-        try {
-            MainApp.bus().unregister(this);
-        } catch (RuntimeException x) {
-            // Ignore
-        }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MainApp.bus().unregister(this);
+        sLoopHandler.removeCallbacksAndMessages(null);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         MainApp.bus().register(this);
+        sRefreshLoop = new Runnable() {
+            @Override
+            public void run() {
+                updateGUIIfVisible();
+                sLoopHandler.postDelayed(sRefreshLoop, 60 * 1000L);
+            }
+        };
+        sLoopHandler.postDelayed(sRefreshLoop, 60 * 1000L);
     }
 
     @Subscribe
     public void onStatusEvent(final EventPreferenceChange ev) {
-        Activity activity = getActivity();
-        if (activity != null)
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    updateGUI();
-                }
-            });
-        else
-            log.debug("EventPreferenceChange: Activity is null");
+        updateGUIIfVisible();
     }
 
     @Subscribe
     public void onStatusEvent(final EventRefreshGui ev) {
-        Activity activity = getActivity();
-        if (activity != null)
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    updateGUI();
-                }
-            });
-        else
-            log.debug("EventRefreshGui: Activity is null");
+        updateGUIIfVisible();
     }
 
     @Subscribe
     public void onStatusEvent(final EventTreatmentChange ev) {
-        Activity activity = getActivity();
-        if (activity != null)
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    updateGUI();
-                }
-            });
-        else
-            log.debug("EventTreatmentChange: Activity is null");
+        updateGUIIfVisible();
     }
 
     @Subscribe
     public void onStatusEvent(final EventTempBasalChange ev) {
-        Activity activity = getActivity();
-        if (activity != null)
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    updateGUI();
-                }
-            });
-        else
-            log.debug("EventTempBasalChange: Activity is null");
+        updateGUIIfVisible();
     }
 
     @Subscribe
     public void onStatusEvent(final EventNewBG ev) {
-        Activity activity = getActivity();
-        if (activity != null)
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    updateGUI();
-                }
-            });
-        else
-            log.debug("EventNewBG: Activity is null");
+        updateGUIIfVisible();
     }
 
     @Subscribe
-    public void onStatusEvent(final EventRefreshOpenLoop ev) {
+    public void onStatusEvent(final EventNewOpenLoopNotification ev) {
+        updateGUIIfVisible();
+    }
+
+    private void hideTempRecommendation() {
+        Activity activity = getActivity();
+        if (activity != null)
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    acceptTempLayout.setVisibility(View.GONE);
+                }
+            });
+    }
+
+    private void updateGUIIfVisible() {
         Activity activity = getActivity();
         if (activity != null)
             activity.runOnUiThread(new Runnable() {
@@ -381,22 +299,9 @@ public class OverviewFragment extends Fragment implements PluginBase {
                     updateGUI();
                 }
             });
-        else
-            log.debug("EventNewBG: Activity is null");
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-
-        if (isVisibleToUser) {
-            updateGUI();
-            visibleNow = true;
-        } else {
-            visibleNow = false;
-        }
-    }
-
+    @SuppressLint("SetTextI18n")
     public void updateGUI() {
         BgReading actualBG = MainApp.getDbHelper().actualBg();
         BgReading lastBG = MainApp.getDbHelper().lastBg();
@@ -408,7 +313,7 @@ public class OverviewFragment extends Fragment implements PluginBase {
             return;
 
         // open loop mode
-        final LoopFragment.LastRun finalLastRun = MainApp.getConfigBuilder().getActiveLoop().lastRun;
+        final LoopPlugin.LastRun finalLastRun = LoopPlugin.lastRun;
         if (Config.APS) {
             apsModeView.setVisibility(View.VISIBLE);
             if (MainApp.getConfigBuilder().isClosedModeEnabled())
@@ -418,8 +323,7 @@ public class OverviewFragment extends Fragment implements PluginBase {
             apsModeView.setVisibility(View.GONE);
         }
 
-        boolean showAcceptButton = true;
-        showAcceptButton = showAcceptButton && !MainApp.getConfigBuilder().isClosedModeEnabled(); // Open mode needed
+        boolean showAcceptButton = !MainApp.getConfigBuilder().isClosedModeEnabled(); // Open mode needed
         showAcceptButton = showAcceptButton && finalLastRun != null && finalLastRun.lastAPSRun != null; // aps result must exist
         showAcceptButton = showAcceptButton && (finalLastRun.lastOpenModeAccept == null || finalLastRun.lastOpenModeAccept.getTime() < finalLastRun.lastAPSRun.getTime()); // never accepted or before last result
         showAcceptButton = showAcceptButton && finalLastRun.constraintsProcessed.changeRequested; // change is requested
@@ -433,7 +337,7 @@ public class OverviewFragment extends Fragment implements PluginBase {
 
         // **** Temp button ****
         NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
-        PumpInterface pump = MainApp.getConfigBuilder().getActivePump();
+        PumpInterface pump = MainApp.getConfigBuilder();
 
         if (pump.isTempBasalInProgress()) {
             TempBasal activeTemp = pump.getTempBasal();
@@ -465,7 +369,7 @@ public class OverviewFragment extends Fragment implements PluginBase {
         String units = profile.getUnits();
 
         // **** BG value ****
-        if (profile != null && lastBG != null && bgView != null) {
+        if (lastBG != null && bgView != null) {
             bgView.setText(lastBG.valueToUnitsToString(profile.getUnits()));
             DatabaseHelper.GlucoseStatus glucoseStatus = MainApp.getDbHelper().getGlucoseStatusData();
             if (glucoseStatus != null)
@@ -487,14 +391,13 @@ public class OverviewFragment extends Fragment implements PluginBase {
 
         // iob
         MainApp.getConfigBuilder().getActiveTreatments().updateTotalIOB();
-        IobTotal bolusIob = MainApp.getConfigBuilder().getActiveTreatments().getLastCalculation();
+        IobTotal bolusIob = MainApp.getConfigBuilder().getActiveTreatments().getLastCalculation().round();
         if (bolusIob == null) bolusIob = new IobTotal();
         MainApp.getConfigBuilder().getActiveTempBasals().updateTotalIOB();
-        IobTotal basalIob = MainApp.getConfigBuilder().getActiveTempBasals().getLastCalculation();
+        IobTotal basalIob = MainApp.getConfigBuilder().getActiveTempBasals().getLastCalculation().round();
         if (basalIob == null) basalIob = new IobTotal();
-        IobTotal iobTotal = IobTotal.combine(bolusIob, basalIob).round();
 
-        String iobtext = getString(R.string.treatments_iob_label_string) + " " + DecimalFormatter.to2Decimal(iobTotal.iob) + "U ("
+        String iobtext = getString(R.string.treatments_iob_label_string) + " " + DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U ("
                 + getString(R.string.bolus) + ": " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U "
                 + getString(R.string.basal) + ": " + DecimalFormatter.to2Decimal(basalIob.basaliob) + "U)";
         iobView.setText(iobtext);
@@ -511,10 +414,10 @@ public class OverviewFragment extends Fragment implements PluginBase {
 
         int hoursToFetch = 6;
         long toTime = calendar.getTimeInMillis() + 100000; // little bit more to avoid wrong rounding
-        long fromTime = toTime - hoursToFetch * 60 * 60 * 1000l;
+        long fromTime = toTime - hoursToFetch * 60 * 60 * 1000L;
 
-        Double lowLine = NSProfile.fromMgdlToUnits(bgTargetLow, units);
-        Double highLine = NSProfile.fromMgdlToUnits(bgTargetHigh, units);
+        Double lowLine = NSProfile.fromMgdlToUnits(OverviewPlugin.bgTargetLow, units);
+        Double highLine = NSProfile.fromMgdlToUnits(OverviewPlugin.bgTargetHigh, units);
 
         BarGraphSeries<DataPoint> basalsSeries = null;
         LineGraphSeries<DataPoint> seriesLow = null;
@@ -527,6 +430,20 @@ public class OverviewFragment extends Fragment implements PluginBase {
         // remove old data from graph
         bgGraph.removeAllSeries();
 
+        // **** HIGH and LOW targets graph ****
+        DataPoint[] lowDataPoints = new DataPoint[]{
+                new DataPoint(fromTime, lowLine),
+                new DataPoint(toTime, lowLine)
+        };
+        DataPoint[] highDataPoints = new DataPoint[]{
+                new DataPoint(fromTime, highLine),
+                new DataPoint(toTime, highLine)
+        };
+        bgGraph.addSeries(seriesLow = new LineGraphSeries<DataPoint>(lowDataPoints));
+        seriesLow.setColor(Color.RED);
+        bgGraph.addSeries(seriesHigh = new LineGraphSeries<DataPoint>(highDataPoints));
+        seriesHigh.setColor(Color.RED);
+
         // **** TEMP BASALS graph ****
         class BarDataPoint extends DataPoint {
             public BarDataPoint(double x, double y, boolean isTempBasal) {
@@ -538,15 +455,18 @@ public class OverviewFragment extends Fragment implements PluginBase {
         }
 
         Double maxAllowedBasal = MainApp.getConfigBuilder().applyBasalConstraints(Constants.basalAbsoluteOnlyForCheckLimit);
+        Double maxBasalValueFound = 0d;
 
         long now = new Date().getTime();
         List<BarDataPoint> basalArray = new ArrayList<BarDataPoint>();
         for (long time = fromTime; time < now; time += 5 * 60 * 1000L) {
-            TempBasal tb = MainApp.getConfigBuilder().getActivePump().getTempBasal(new Date(time));
+            TempBasal tb = MainApp.getConfigBuilder().getTempBasal(new Date(time));
+            Double basal = 0d;
             if (tb != null)
-                basalArray.add(new BarDataPoint(time, tb.tempBasalConvertedToAbsolute(new Date(time)), true));
+                basalArray.add(new BarDataPoint(time, basal = tb.tempBasalConvertedToAbsolute(new Date(time)), true));
             else
-                basalArray.add(new BarDataPoint(time, profile.getBasal(NSProfile.secondsFromMidnight(new Date(time))), false));
+                basalArray.add(new BarDataPoint(time, basal = profile.getBasal(NSProfile.secondsFromMidnight(new Date(time))), false));
+            maxBasalValueFound = Math.max(maxBasalValueFound, basal);
         }
         BarDataPoint[] basal = new BarDataPoint[basalArray.size()];
         basal = basalArray.toArray(basal);
@@ -555,17 +475,10 @@ public class OverviewFragment extends Fragment implements PluginBase {
             @Override
             public int get(DataPoint data) {
                 BarDataPoint point = (BarDataPoint) data;
-                if (point.isTempBasal) return Color.CYAN;
-                else return Color.BLUE;
+                if (point.isTempBasal) return Color.BLUE;
+                else return Color.CYAN;
             }
         });
-
-        // set second scale
-        bgGraph.getSecondScale().addSeries(basalsSeries);
-        bgGraph.getSecondScale().setMinY(0);
-        bgGraph.getSecondScale().setMaxY(maxAllowedBasal * 4);
-        bgGraph.getGridLabelRenderer().setVerticalLabelsSecondScaleColor(MainApp.instance().getResources().getColor(R.color.background_material_dark)); // same color as backround = hide
-
 
         // **** BG graph ****
         List<BgReading> bgReadingsArray = MainApp.getDbHelper().getDataFromTime(fromTime);
@@ -609,20 +522,6 @@ public class OverviewFragment extends Fragment implements PluginBase {
             seriesOutOfRange.setColor(Color.RED);
         }
 
-        // **** HIGH and LOW targets graph ****
-        DataPoint[] lowDataPoints = new DataPoint[]{
-                new DataPoint(fromTime, lowLine),
-                new DataPoint(toTime, lowLine)
-        };
-        DataPoint[] highDataPoints = new DataPoint[]{
-                new DataPoint(fromTime, highLine),
-                new DataPoint(toTime, highLine)
-        };
-        bgGraph.addSeries(seriesLow = new LineGraphSeries<DataPoint>(lowDataPoints));
-        seriesLow.setColor(Color.RED);
-        bgGraph.addSeries(seriesHigh = new LineGraphSeries<DataPoint>(highDataPoints));
-        seriesHigh.setColor(Color.RED);
-
         // **** NOW line ****
         DataPoint[] nowPoints = new DataPoint[]{
                 new DataPoint(now, 0),
@@ -645,7 +544,7 @@ public class OverviewFragment extends Fragment implements PluginBase {
         List<Treatment> treatments = MainApp.getConfigBuilder().getActiveTreatments().getTreatments();
         List<Treatment> filteredTreatments = new ArrayList<Treatment>();
 
-        for (int tx = 0; tx < treatments.size(); tx ++) {
+        for (int tx = 0; tx < treatments.size(); tx++) {
             Treatment t = treatments.get(tx);
             if (t.getTimeIndex() < fromTime || t.getTimeIndex() > now) continue;
             t.setYValue(bgReadingsArray);
@@ -672,7 +571,14 @@ public class OverviewFragment extends Fragment implements PluginBase {
         bgGraph.getViewport().setMinY(0);
         bgGraph.getViewport().setYAxisBoundsManual(true);
         bgGraph.getGridLabelRenderer().setNumVerticalLabels(numOfHorizLines);
-        // TODO: add treatments
+
+        // set second scale
+        bgGraph.getSecondScale().addSeries(basalsSeries);
+        bgGraph.getSecondScale().setMinY(0);
+        bgGraph.getSecondScale().setMaxY(maxBgValue / lowLine * maxBasalValueFound * 1.2d);
+        bgGraph.getGridLabelRenderer().setVerticalLabelsSecondScaleColor(MainApp.instance().getResources().getColor(R.color.background_material_dark)); // same color as backround = hide
+
+
     }
 
 }

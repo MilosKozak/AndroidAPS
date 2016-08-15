@@ -6,10 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.Date;
 
 import info.nightscout.androidaps.MainApp;
-import info.nightscout.androidaps.db.HistoryRecord;
+import info.nightscout.androidaps.db.DanaRHistoryRecord;
+import info.nightscout.androidaps.plugins.DanaR.events.EventDanaRSyncStatus;
 
 public class MsgHistoryAll extends MessageBase {
     private static Logger log = LoggerFactory.getLogger(MsgHistoryAll.class);
@@ -25,60 +27,94 @@ public class MsgHistoryAll extends MessageBase {
         Date datetime = dateTimeFromBuff(bytes, 1);             // 5 bytes
         Date datetimewihtsec = dateTimeSecFromBuff(bytes, 1);   // 6 bytes
 
+        double dailyBasal = intFromBuff(bytes, 4, 2) * 0.01d;
+        double dailyBolus = intFromBuff(bytes, 6, 2) * 0.01d;
         byte paramByte5 = (byte) intFromBuff(bytes, 4, 1);
         byte paramByte6 = (byte) intFromBuff(bytes, 5, 1);
         byte paramByte7 = (byte) intFromBuff(bytes, 6, 1);
         byte paramByte8 = (byte) intFromBuff(bytes, 7, 1);
         double value = (double) intFromBuff(bytes, 8, 2);
 
-        HistoryRecord historyRecord = new HistoryRecord();
+        EventDanaRSyncStatus ev = new EventDanaRSyncStatus();
 
-        historyRecord.setRecordCode(recordCode);
-        historyRecord.setBytes(bytes);
+        DanaRHistoryRecord danaRHistoryRecord = new DanaRHistoryRecord();
+
+        danaRHistoryRecord.setRecordCode(recordCode);
+        danaRHistoryRecord.setBytes(bytes);
+
+        String messageType = "";
 
         switch (recordCode) {
             case RecordTypes.RECORD_TYPE_BOLUS:
-                historyRecord.setRecordDate(datetime);
+                danaRHistoryRecord.setRecordDate(datetime);
                 switch (0xF0 & paramByte8) {
                     case 0xA0:
-                        historyRecord.setBolusType("DS");
+                        danaRHistoryRecord.setBolusType("DS");
+                        messageType += "DS bolus";
                         break;
                     case 0xC0:
-                        historyRecord.setBolusType("E");
+                        danaRHistoryRecord.setBolusType("E");
+                        messageType += "E bolus";
                         break;
                     case 0x80:
-                        historyRecord.setBolusType("S");
+                        danaRHistoryRecord.setBolusType("S");
+                        messageType += "S bolus";
                         break;
                     case 0x90:
-                        historyRecord.setBolusType("DE");
+                        danaRHistoryRecord.setBolusType("DE");
+                        messageType += "DE bolus";
                         break;
                     default:
-                        historyRecord.setBolusType("None");
+                        danaRHistoryRecord.setBolusType("None");
                         break;
                 }
-                historyRecord.setRecordDuration(((int) paramByte8 & 0x0F) * 60 + (int) paramByte7);
-                historyRecord.setRecordValue(value * 0.01);
+                danaRHistoryRecord.setRecordDuration(((int) paramByte8 & 0x0F) * 60 + (int) paramByte7);
+                danaRHistoryRecord.setRecordValue(value * 0.01);
                 break;
             case RecordTypes.RECORD_TYPE_DAILY:
-                historyRecord.setRecordDate(date);
-                historyRecord.setRecordDailyBasal((double) ((int) paramByte5 * 0xFF + (int) paramByte6) * 0.01);
-                historyRecord.setRecordDailyBolus((double) ((int) paramByte7 * 0xFF + (int) paramByte8) / 0.01);
+                messageType += "dailyinsulin";
+                danaRHistoryRecord.setRecordDate(date);
+                danaRHistoryRecord.setRecordDailyBasal(dailyBasal);
+                danaRHistoryRecord.setRecordDailyBolus(dailyBolus);
                 break;
             case RecordTypes.RECORD_TYPE_PRIME:
+                messageType += "prime";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
+                danaRHistoryRecord.setRecordValue(value * 0.01);
+                break;
             case RecordTypes.RECORD_TYPE_ERROR:
+                messageType += "error";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
+                danaRHistoryRecord.setRecordValue(value * 0.01);
+                break;
             case RecordTypes.RECORD_TYPE_REFILL:
+                messageType += "refill";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
+                danaRHistoryRecord.setRecordValue(value * 0.01);
+                break;
             case RecordTypes.RECORD_TYPE_BASALHOUR:
+                messageType += "basal hour";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
+                danaRHistoryRecord.setRecordValue(value * 0.01);
+                break;
             case RecordTypes.RECORD_TYPE_TB:
-                historyRecord.setRecordDate(datetimewihtsec);
-                historyRecord.setRecordValue(value * 0.01);
+                messageType += "tb";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
+                danaRHistoryRecord.setRecordValue(value * 0.01);
                 break;
             case RecordTypes.RECORD_TYPE_GLUCOSE:
+                messageType += "glucose";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
+                danaRHistoryRecord.setRecordValue(value);
+                break;
             case RecordTypes.RECORD_TYPE_CARBO:
-                historyRecord.setRecordDate(datetimewihtsec);
-                historyRecord.setRecordValue(value);
+                messageType += "carbo";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
+                danaRHistoryRecord.setRecordValue(value);
                 break;
             case RecordTypes.RECORD_TYPE_ALARM:
-                historyRecord.setRecordDate(datetimewihtsec);
+                messageType += "alarm";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
                 String strAlarm = "None";
                 switch ((int) paramByte8) {
                     case 67:
@@ -94,24 +130,31 @@ public class MsgHistoryAll extends MessageBase {
                         strAlarm = "Shutdown";
                         break;
                 }
-                historyRecord.setRecordAlarm(strAlarm);
-                historyRecord.setRecordValue(value * 0.01);
+                danaRHistoryRecord.setRecordAlarm(strAlarm);
+                danaRHistoryRecord.setRecordValue(value * 0.01);
                 break;
             case RecordTypes.RECORD_TYPE_SUSPEND:
-                historyRecord.setRecordDate(datetimewihtsec);
+                messageType += "suspend";
+                danaRHistoryRecord.setRecordDate(datetimewihtsec);
                 String strRecordValue = "Off";
                 if ((int) paramByte8 == 79)
                     strRecordValue = "On";
-                historyRecord.setStringRecordValue(strRecordValue);
+                danaRHistoryRecord.setStringRecordValue(strRecordValue);
                 break;
         }
 
         try {
-            Dao<HistoryRecord, String> daoHistoryRecords = MainApp.getDbHelper().getDaoHistory();
-            daoHistoryRecords.createIfNotExists(historyRecord);
+            Dao<DanaRHistoryRecord, String> daoHistoryRecords = MainApp.getDbHelper().getDaoDanaRHistory();
+            daoHistoryRecords.createIfNotExists(danaRHistoryRecord);
         } catch (SQLException e) {
             log.error(e.getMessage(), e);
         }
+
+        DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+        ev.message = df.format(new Date(danaRHistoryRecord.getRecordDate()));
+        ev.message += " " + messageType;
+        MainApp.bus().post(ev);
+
         return;
     }
 }

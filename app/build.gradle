@@ -23,8 +23,8 @@ android {
         applicationId "info.nightscout.androidaps"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 1009
-        versionName "1.0.09"
+        versionCode 1010
+        versionName "1.0.10"
     }
     buildTypes {
         release {
@@ -36,25 +36,16 @@ android {
         careportal {
             buildConfigField "boolean", "APS", "false"
             buildConfigField "boolean", "PUMPDRIVERS", "false"
-            buildConfigField "boolean", "OBJECTIVES", "false"
             buildConfigField "boolean", "CLOSEDLOOP", "false"
         }
         openloop {
             buildConfigField "boolean", "APS", "true"
             buildConfigField "boolean", "PUMPDRIVERS", "true"
-            buildConfigField "boolean", "OBJECTIVES", "false"
             buildConfigField "boolean", "CLOSEDLOOP", "false"
         }
         full {
-           buildConfigField "boolean", "APS", "true"
-            buildConfigField "boolean", "PUMPDRIVERS", "true"
-           buildConfigField "boolean", "OBJECTIVES", "true"
-           buildConfigField "boolean", "CLOSEDLOOP", "true"
-        }
-        full_noobjectives {
             buildConfigField "boolean", "APS", "true"
             buildConfigField "boolean", "PUMPDRIVERS", "true"
-            buildConfigField "boolean", "OBJECTIVES", "false"
             buildConfigField "boolean", "CLOSEDLOOP", "true"
         }
     }

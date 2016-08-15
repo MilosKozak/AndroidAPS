@@ -28,9 +28,6 @@ import java.util.List;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.events.EventNewBG;
-import info.nightscout.androidaps.events.EventTempBasalChange;
-import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.Round;
 
@@ -38,8 +35,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static Logger log = LoggerFactory.getLogger(DatabaseHelper.class);
 
     public static final String DATABASE_NAME = "AndroidAPSDb";
+    public static final String DATABASE_BGREADINGS = "BgReadings";
+    public static final String DATABASE_TEMPBASALS = "TempBasals";
+    public static final String DATABASE_TREATMENTS = "Treatments";
+    public static final String DATABASE_DANARHISTORY = "DanaRHistory";
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -53,7 +54,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTableIfNotExists(connectionSource, TempBasal.class);
             TableUtils.createTableIfNotExists(connectionSource, Treatment.class);
             TableUtils.createTableIfNotExists(connectionSource, BgReading.class);
-            TableUtils.createTableIfNotExists(connectionSource, HistoryRecord.class);
+            TableUtils.createTableIfNotExists(connectionSource, DanaRHistoryRecord.class);
         } catch (SQLException e) {
             log.error(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
@@ -67,7 +68,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, TempBasal.class, true);
             TableUtils.dropTable(connectionSource, Treatment.class, true);
             TableUtils.dropTable(connectionSource, BgReading.class, true);
-            TableUtils.dropTable(connectionSource, HistoryRecord.class, true);
+            TableUtils.dropTable(connectionSource, DanaRHistoryRecord.class, true);
             onCreate(database, connectionSource);
         } catch (SQLException e) {
             log.error(DatabaseHelper.class.getName(), "Can't drop databases", e);
@@ -85,21 +86,21 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     public void cleanUpDatabases() {
         // TODO: call it somewhere
-        log.debug("Before BgReadings size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "BgReadings"));
+        log.debug("Before BgReadings size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), DATABASE_BGREADINGS));
         getWritableDatabase().delete("BgReadings", "timeIndex" + " < '" + (new Date().getTime() - Constants.hoursToKeepInDatabase * 60 * 60 * 1000L) + "'", null);
-        log.debug("After BgReadings size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "BgReadings"));
+        log.debug("After BgReadings size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), DATABASE_BGREADINGS));
 
-        log.debug("Before TempBasals size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "TempBasals"));
+        log.debug("Before TempBasals size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), DATABASE_TEMPBASALS));
         getWritableDatabase().delete("TempBasals", "timeIndex" + " < '" + (new Date().getTime() - Constants.hoursToKeepInDatabase * 60 * 60 * 1000L) + "'", null);
-        log.debug("After TempBasals size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "TempBasals"));
+        log.debug("After TempBasals size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), DATABASE_TEMPBASALS));
 
-        log.debug("Before Treatments size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "Treatments"));
+        log.debug("Before Treatments size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), DATABASE_TREATMENTS));
         getWritableDatabase().delete("Treatments", "timeIndex" + " < '" + (new Date().getTime() - Constants.hoursToKeepInDatabase * 60 * 60 * 1000L) + "'", null);
-        log.debug("After Treatments size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "Treatments"));
+        log.debug("After Treatments size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), DATABASE_TREATMENTS));
 
-        log.debug("Before History size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "History"));
-        getWritableDatabase().delete("History", "recordDate" + " < '" + (new Date().getTime() - Constants.hoursToKeepInDatabase * 60 * 60 * 1000L) + "'", null);
-        log.debug("After History size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "History"));
+        log.debug("Before History size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "DanaRHistory"));
+        getWritableDatabase().delete("History", "recordDate" + " < '" + (new Date().getTime() - Constants.daysToKeepHistoryInDatabase * 24 * 60 * 60 * 1000L) + "'", null);
+        log.debug("After History size: " + DatabaseUtils.queryNumEntries(getReadableDatabase(), "DanaRHistory"));
     }
 
     public void resetDatabases() {
@@ -107,14 +108,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, TempBasal.class, true);
             TableUtils.dropTable(connectionSource, Treatment.class, true);
             TableUtils.dropTable(connectionSource, BgReading.class, true);
-            TableUtils.dropTable(connectionSource, HistoryRecord.class, true);
+            TableUtils.dropTable(connectionSource, DanaRHistoryRecord.class, true);
             TableUtils.createTableIfNotExists(connectionSource, TempBasal.class);
             TableUtils.createTableIfNotExists(connectionSource, Treatment.class);
             TableUtils.createTableIfNotExists(connectionSource, BgReading.class);
-            TableUtils.createTableIfNotExists(connectionSource, HistoryRecord.class);
-            MainApp.bus().post(new EventNewBG());
-            MainApp.bus().post(new EventTreatmentChange());
-            MainApp.bus().post(new EventTempBasalChange());
+            TableUtils.createTableIfNotExists(connectionSource, DanaRHistoryRecord.class);
+//            MainApp.bus().post(new EventNewBG());
+//            MainApp.bus().post(new EventTreatmentChange());
+//            MainApp.bus().post(new EventTempBasalChange());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -142,8 +143,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return getDao(BgReading.class);
     }
 
-    public Dao<HistoryRecord, String> getDaoHistory() throws SQLException {
-        return getDao(HistoryRecord.class);
+    public Dao<DanaRHistoryRecord, String> getDaoDanaRHistory() throws SQLException {
+        return getDao(DanaRHistoryRecord.class);
     }
 
     /*
@@ -214,13 +215,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
         @Override
         public String toString() {
-            return MainApp.sResources.getString(R.string.glucose) + " " +  DecimalFormatter.to0Decimal(glucose) + " mg/dl\n" +
+            return MainApp.sResources.getString(R.string.glucose) + " " + DecimalFormatter.to0Decimal(glucose) + " mg/dl\n" +
                     MainApp.sResources.getString(R.string.delta) + " " + DecimalFormatter.to0Decimal(delta) + " mg/dl\n" +
                     MainApp.sResources.getString(R.string.avgdelta) + " " + DecimalFormatter.to2Decimal(avgdelta) + " mg/dl";
         }
 
         public Spanned toSpanned() {
-            return Html.fromHtml("<b>" + MainApp.sResources.getString(R.string.glucose) + "</b>: " +  DecimalFormatter.to0Decimal(glucose) + " mg/dl<br>" +
+            return Html.fromHtml("<b>" + MainApp.sResources.getString(R.string.glucose) + "</b>: " + DecimalFormatter.to0Decimal(glucose) + " mg/dl<br>" +
                     "<b>" + MainApp.sResources.getString(R.string.delta) + "</b>: " + DecimalFormatter.to0Decimal(delta) + " mg/dl<br>" +
                     "<b>" + MainApp.sResources.getString(R.string.avgdelta) + "</b>: " + DecimalFormatter.to2Decimal(avgdelta) + " mg/dl");
         }
@@ -236,6 +237,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             dest.writeDouble(delta);
             dest.writeDouble(glucose);
         }
+
         public final Parcelable.Creator<GlucoseStatus> CREATOR = new Parcelable.Creator<GlucoseStatus>() {
             public GlucoseStatus createFromParcel(Parcel in) {
                 return new GlucoseStatus(in);
@@ -252,7 +254,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             glucose = in.readDouble();
         }
 
-        public GlucoseStatus() {}
+        public GlucoseStatus() {
+        }
 
         public GlucoseStatus(Double glucose, Double delta, Double avgdelta) {
             this.glucose = glucose;

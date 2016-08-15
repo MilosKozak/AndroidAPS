@@ -6,9 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import info.nightscout.androidaps.Config;
+import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.db.Treatment;
-import info.nightscout.androidaps.plugins.DanaR.events.EventDanaRBolusProgress;
-import info.nightscout.utils.DecimalFormatter;
+import info.nightscout.androidaps.plugins.Overview.events.EventOverviewBolusProgress;
 
 public class MsgBolusProgress extends MessageBase {
     private static Logger log = LoggerFactory.getLogger(MsgBolusProgress.class);
@@ -35,9 +36,10 @@ public class MsgBolusProgress extends MessageBase {
         progress = intFromBuff(bytes, 0, 2);
         Double done = (amount * 100 - progress) / 100d;
         t.insulin = done;
-        EventDanaRBolusProgress bolusingEvent = EventDanaRBolusProgress.getInstance();
-        bolusingEvent.sStatus = "Delivering " + DecimalFormatter.to1Decimal(done) + "U";
+        EventOverviewBolusProgress bolusingEvent = EventOverviewBolusProgress.getInstance();
+        bolusingEvent.status = String.format(MainApp.sResources.getString(R.string.bolusdelivering), done);
         bolusingEvent.t = t;
+        bolusingEvent.percent = Math.min((int) (done / amount * 100), 100);
 
         if (Config.logDanaMessageDetail) {
             log.debug("Bolus remaining: " + progress + " delivered: " + done);

@@ -5,8 +5,10 @@ import com.squareup.otto.Bus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.db.Treatment;
-import info.nightscout.androidaps.plugins.DanaR.events.EventDanaRBolusProgress;
+import info.nightscout.androidaps.plugins.Overview.events.EventOverviewBolusProgress;
 
 public class MsgBolusStop extends MessageBase {
     private static Logger log = LoggerFactory.getLogger(MsgBolusStop.class);
@@ -32,13 +34,14 @@ public class MsgBolusStop extends MessageBase {
 
     @Override
     public void handleMessage(byte[] bytes) {
-        EventDanaRBolusProgress bolusingEvent = EventDanaRBolusProgress.getInstance();
+        EventOverviewBolusProgress bolusingEvent = EventOverviewBolusProgress.getInstance();
         stopped = true;
         if (!forced) {
             t.insulin = amount;
-            bolusingEvent.sStatus = "Delivered";
+            bolusingEvent.status = MainApp.sResources.getString(R.string.overview_bolusprogress_delivered);
+            bolusingEvent.percent = 100;
         } else {
-            bolusingEvent.sStatus = "Stopped";
+            bolusingEvent.status = MainApp.sResources.getString(R.string.overview_bolusprogress_stoped);
         }
         bus.post(bolusingEvent);
     }

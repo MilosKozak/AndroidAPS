@@ -14,12 +14,13 @@ import java.util.List;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.data.Iob;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.Overview.GraphSeriesExtension.DataPointWithLabelInterface;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 
-@DatabaseTable(tableName = "Treatments")
+@DatabaseTable(tableName = DatabaseHelper.DATABASE_TREATMENTS)
 public class Treatment implements DataPointWithLabelInterface {
     private static Logger log = LoggerFactory.getLogger(Treatment.class);
 
@@ -41,10 +42,10 @@ public class Treatment implements DataPointWithLabelInterface {
     public Date created_at;
 
     @DatabaseField
-    public Double insulin;
+    public Double insulin = 0d;
 
     @DatabaseField
-    public Double carbs;
+    public Double carbs = 0d;
 
     public void copyFrom(Treatment t) {
         this._id = t._id;
@@ -137,7 +138,7 @@ public class Treatment implements DataPointWithLabelInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ConfigBuilderFragment.uploadCareportalEntryToNS(data);
+        ConfigBuilderPlugin.uploadCareportalEntryToNS(data);
     }
 
  }

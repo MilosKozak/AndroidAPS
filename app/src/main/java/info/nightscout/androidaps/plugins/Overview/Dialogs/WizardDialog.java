@@ -1,5 +1,6 @@
 package info.nightscout.androidaps.plugins.Overview.Dialogs;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -38,6 +40,7 @@ import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.interfaces.TempBasalsInterface;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.IobTotal;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.utils.DateUtil;
@@ -77,10 +80,18 @@ public class WizardDialog extends DialogFragment implements OnClickListener {
     Handler mHandler;
     public static HandlerThread mHandlerThread;
 
+    Context parentContext;
+
     public WizardDialog() {
-        mHandlerThread = new HandlerThread(NewExtendedBolusDialog.class.getSimpleName());
+        mHandlerThread = new HandlerThread(WizardDialog.class.getSimpleName());
         mHandlerThread.start();
         mHandler = new Handler(mHandlerThread.getLooper());
+    }
+
+
+    public WizardDialog(Context context) {
+        this();
+        parentContext = context;
     }
 
     final private TextWatcher textWatcher = new TextWatcher() {
@@ -102,6 +113,20 @@ public class WizardDialog extends DialogFragment implements OnClickListener {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             calculateInsulin();
+        }
+    };
+
+    final AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            calculateInsulin();
+            wizardDialogDeliverButton.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+            ToastUtils.showToastInUiThread(parentContext, MainApp.sResources.getString(R.string.noprofileselected));
+            wizardDialogDeliverButton.setVisibility(View.GONE);
         }
     };
 
@@ -143,6 +168,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener {
         bgCheckbox.setOnCheckedChangeListener(onCheckedChangeListener);
         basalIobCheckbox.setOnCheckedChangeListener(onCheckedChangeListener);
         bolusIobCheckbox.setOnCheckedChangeListener(onCheckedChangeListener);
+        profileSpinner.setOnItemSelectedListener(onItemSelectedListener);
 
         Integer maxCarbs = MainApp.getConfigBuilder().applyCarbsConstraints(Constants.carbsOnlyForCheckLimit);
         Double maxCorrection = MainApp.getConfigBuilder().applyBolusConstraints(Constants.bolusOnlyForCheckLimit);
@@ -171,10 +197,10 @@ public class WizardDialog extends DialogFragment implements OnClickListener {
                     confirmMessage += "\n" + getString(R.string.carbs) + ": " + carbsAfterConstraints + "g";
 
                     if (insulinAfterConstraints - calculatedTotalInsulin != 0 || carbsAfterConstraints != calculatedCarbs) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                        builder.setTitle(getContext().getString(R.string.treatmentdeliveryerror));
+                        AlertDialog.Builder builder = new AlertDialog.Builder(parentContext);
+                        builder.setTitle(MainApp.sResources.getString(R.string.treatmentdeliveryerror));
                         builder.setMessage(getString(R.string.constraints_violation) + "\n" + getString(R.string.changeyourinput));
-                        builder.setPositiveButton(getContext().getString(R.string.ok), null);
+                        builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
                         builder.show();
                         return;
                     }
@@ -182,17 +208,18 @@ public class WizardDialog extends DialogFragment implements OnClickListener {
                     final Double finalInsulinAfterConstraints = insulinAfterConstraints;
                     final Integer finalCarbsAfterConstraints = carbsAfterConstraints;
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    builder.setTitle(getContext().getString(R.string.confirmation));
+                    AlertDialog.Builder builder = new AlertDialog.Builder(parentContext);
+                    builder.setTitle(MainApp.sResources.getString(R.string.confirmation));
                     builder.setMessage(confirmMessage);
                     builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             if (finalInsulinAfterConstraints > 0 || finalCarbsAfterConstraints > 0) {
-                                final ConfigBuilderFragment pump = MainApp.getConfigBuilder();
+                                final ConfigBuilderPlugin pump = MainApp.getConfigBuilder();
                                 mHandler.post(new Runnable() {
                                     @Override
                                     public void run() {
                                         PumpEnactResult result = pump.deliverTreatmentFromBolusWizard(
+                                                parentContext,
                                                 finalInsulinAfterConstraints,
                                                 finalCarbsAfterConstraints,
                                                 SafeParse.stringToDouble(bgInput.getText().toString()),
@@ -201,10 +228,10 @@ public class WizardDialog extends DialogFragment implements OnClickListener {
                                                 boluscalcJSON
                                         );
                                         if (!result.success) {
-                                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                            builder.setTitle(getContext().getString(R.string.treatmentdeliveryerror));
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(parentContext);
+                                            builder.setTitle(MainApp.sResources.getString(R.string.treatmentdeliveryerror));
                                             builder.setMessage(result.comment);
-                                            builder.setPositiveButton(getContext().getString(R.string.ok), null);
+                                            builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
                                             builder.show();
                                         }
                                     }
@@ -222,7 +249,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener {
     }
 
     private void initDialog() {
-        NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
+        NSProfile profile = ConfigBuilderPlugin.getActiveProfile().getProfile();
 
         if (profile == null) {
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.noprofile));

@@ -17,6 +17,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
+
 /**
  * Created by mike on 28.06.2016.
  */
@@ -41,17 +44,27 @@ public class PlusMinusEditText implements View.OnKeyListener,
 
     private class UpdateCounterTask implements Runnable {
         private boolean mInc;
+        private int repeated = 0;
+        private int multiplier = 1;
+
+        private final int doubleLimit = 5;
 
         public UpdateCounterTask(boolean inc) {
             mInc = inc;
         }
 
         public void run() {
+            Message msg = new Message();
+            if (repeated % doubleLimit == 0) multiplier *= 2;
+            repeated++;
+            msg.arg1 = multiplier;
+            msg.arg2 = repeated;
             if (mInc) {
-                mHandler.sendEmptyMessage(MSG_INC);
+                msg.what = MSG_INC;
             } else {
-                mHandler.sendEmptyMessage(MSG_DEC);
+                msg.what = MSG_DEC;
             }
+            mHandler.sendMessage(msg);
         }
     }
 
@@ -75,10 +88,10 @@ public class PlusMinusEditText implements View.OnKeyListener,
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case MSG_INC:
-                        inc();
+                        inc(msg.arg1);
                         return;
                     case MSG_DEC:
-                        dec();
+                        dec(msg.arg1);
                         return;
                 }
                 super.handleMessage(msg);
@@ -107,15 +120,23 @@ public class PlusMinusEditText implements View.OnKeyListener,
         this.step = step;
     }
 
-    private void inc() {
-        value += step;
-        if (value > maxValue) value = maxValue;
+    private void inc(int multiplier) {
+        value += step * multiplier;
+        if (value > maxValue) {
+            value = maxValue;
+            ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.youareonallowedlimit));
+            stopUpdating();
+        }
         updateEditText();
     }
 
-    private void dec() {
-        value -= step;
-        if (value < minValue) value = minValue;
+    private void dec( int multiplier) {
+        value -= step * multiplier;
+        if (value < minValue) {
+            value = minValue;
+            ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.youareonallowedlimit));
+            stopUpdating();
+        }
         updateEditText();
     }
 
@@ -128,7 +149,7 @@ public class PlusMinusEditText implements View.OnKeyListener,
 
     private void startUpdating(boolean inc) {
         if (mUpdater != null) {
-            log.debug(getClass().getSimpleName(), "Another executor is still active");
+            log.debug("Another executor is still active");
             return;
         }
         mUpdater = Executors.newSingleThreadScheduledExecutor();
@@ -137,17 +158,19 @@ public class PlusMinusEditText implements View.OnKeyListener,
     }
 
     private void stopUpdating() {
-        mUpdater.shutdownNow();
-        mUpdater = null;
+        if (mUpdater != null) {
+            mUpdater.shutdownNow();
+            mUpdater = null;
+        }
     }
 
     @Override
     public void onClick(View v) {
         if (mUpdater == null) {
             if (v == plusImage) {
-                inc();
+                inc(1);
             } else {
-                dec();
+                dec(1);
             }
         }
     }

@@ -31,18 +31,20 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.db.DanaRHistoryRecord;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.events.EventNewBG;
 import info.nightscout.androidaps.events.EventNewBasalProfile;
 import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
-import info.nightscout.androidaps.plugins.Objectives.ObjectivesFragment;
-import info.nightscout.androidaps.plugins.Overview.OverviewFragment;
-import info.nightscout.androidaps.plugins.SmsCommunicator.Events.EventNewSMS;
-import info.nightscout.androidaps.plugins.SmsCommunicator.SmsCommunicatorFragment;
-import info.nightscout.androidaps.plugins.SourceNSClient.SourceNSClientFragment;
-import info.nightscout.androidaps.plugins.SourceXdrip.SourceXdripFragment;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.DanaR.History.DanaRNSHistorySync;
+import info.nightscout.androidaps.plugins.Objectives.ObjectivesPlugin;
+import info.nightscout.androidaps.plugins.Overview.OverviewPlugin;
+import info.nightscout.androidaps.plugins.SmsCommunicator.SmsCommunicatorPlugin;
+import info.nightscout.androidaps.plugins.SmsCommunicator.events.EventNewSMS;
+import info.nightscout.androidaps.plugins.SourceNSClient.SourceNSClientPlugin;
+import info.nightscout.androidaps.plugins.SourceXdrip.SourceXdripPlugin;
 import info.nightscout.androidaps.receivers.DataReceiver;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.client.data.NSSgv;
@@ -54,10 +56,6 @@ public class DataService extends IntentService {
 
     boolean xDripEnabled = false;
     boolean nsClientEnabled = true;
-    SmsCommunicatorFragment smsCommunicatorFragment = null;
-
-    private static final ScheduledExecutorService worker = Executors.newSingleThreadScheduledExecutor();
-    private static ScheduledFuture<?> scheduledDisconnection = null;
 
     public DataService() {
         super("DataService");
@@ -69,19 +67,13 @@ public class DataService extends IntentService {
         if (Config.logFunctionCalls)
             log.debug("onHandleIntent " + intent);
 
-        if (MainApp.getConfigBuilder() != null) {
-            if (MainApp.getConfigBuilder().getActiveBgSource().getClass().equals(SourceXdripFragment.class)) {
-                xDripEnabled = true;
-                nsClientEnabled = false;
-            }
-            if (MainApp.getConfigBuilder().getActiveBgSource().getClass().equals(SourceNSClientFragment.class)) {
-                xDripEnabled = false;
-                nsClientEnabled = true;
-            }
-
-            if (MainApp.getSpecificPlugin(SmsCommunicatorFragment.class) != null) {
-                smsCommunicatorFragment = (SmsCommunicatorFragment) MainApp.getSpecificPlugin(SmsCommunicatorFragment.class);
-            }
+        if (ConfigBuilderPlugin.getActiveBgSource().getClass().equals(SourceXdripPlugin.class)) {
+            xDripEnabled = true;
+            nsClientEnabled = false;
+        }
+        if (ConfigBuilderPlugin.getActiveBgSource().getClass().equals(SourceNSClientPlugin.class)) {
+            xDripEnabled = false;
+            nsClientEnabled = true;
         }
 
         if (intent != null) {
@@ -103,10 +95,10 @@ public class DataService extends IntentService {
             } else if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(action)) {
                 handleNewSMS(intent);
             }
-            DataReceiver.completeWakefulIntent(intent);
         }
         if (Config.logFunctionCalls)
-            log.debug("onHandleIntent exit");
+            log.debug("onHandleIntent exit " + intent);
+        DataReceiver.completeWakefulIntent(intent);
     }
 
 /*
@@ -148,7 +140,7 @@ public class DataService extends IntentService {
         bgReading.timeIndex = bundle.getLong(Intents.EXTRA_TIMESTAMP);
         bgReading.raw = bundle.getDouble(Intents.EXTRA_RAW);
 
-        if (bgReading.timeIndex < new Date().getTime() - Constants.hoursToKeepInDatabase * 60 * 60 * 1000l) {
+        if (bgReading.timeIndex < new Date().getTime() - Constants.hoursToKeepInDatabase * 60 * 60 * 1000L) {
             if (Config.logIncommingBG)
                 log.debug("Ignoring old XDRIPREC BG " + bgReading.toString());
             return;
@@ -158,7 +150,7 @@ public class DataService extends IntentService {
             log.debug("XDRIPREC BG " + bgReading.toString());
 
         try {
-            MainApp.instance().getDbHelper().getDaoBgReadings().createIfNotExists(bgReading);
+            MainApp.getDbHelper().getDaoBgReadings().createIfNotExists(bgReading);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -176,16 +168,13 @@ public class DataService extends IntentService {
             if (Config.logIncommingData)
                 log.debug("Received status: " + bundles);
             if (bundles.containsKey("nsclientversioncode")) {
-                ConfigBuilderFragment configBuilderFragment = MainApp.getConfigBuilder();
-                if (configBuilderFragment != null) {
-                    configBuilderFragment.nightscoutVersionCode = bundles.getInt("nightscoutversioncode"); // for ver 1.2.3 contains 10203
-                    configBuilderFragment.nightscoutVersionName = bundles.getString("nightscoutversionname");
-                    configBuilderFragment.nsClientVersionCode = bundles.getInt("nsclientversioncode"); // for ver 1.17 contains 117
-                    configBuilderFragment.nsClientVersionName = bundles.getString("nsclientversionname");
-                    log.debug("Got versions: NSClient: " + configBuilderFragment.nsClientVersionName + " Nightscout: " + configBuilderFragment.nightscoutVersionName);
-                    if (configBuilderFragment.nsClientVersionCode < 118)
-                        ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.unsupportedclientver));
-                }
+                ConfigBuilderPlugin.nightscoutVersionCode = bundles.getInt("nightscoutversioncode"); // for ver 1.2.3 contains 10203
+                ConfigBuilderPlugin.nightscoutVersionName = bundles.getString("nightscoutversionname");
+                ConfigBuilderPlugin.nsClientVersionCode = bundles.getInt("nsclientversioncode"); // for ver 1.17 contains 117
+                ConfigBuilderPlugin.nsClientVersionName = bundles.getString("nsclientversionname");
+                log.debug("Got versions: NSClient: " + ConfigBuilderPlugin.nsClientVersionName + " Nightscout: " + ConfigBuilderPlugin.nightscoutVersionName);
+                if (ConfigBuilderPlugin.nsClientVersionCode < 118)
+                    ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.unsupportedclientver));
             } else {
                 ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.unsupportedclientver));
             }
@@ -196,12 +185,11 @@ public class DataService extends IntentService {
                         JSONObject settings = statusJson.getJSONObject("settings");
                         if (settings.has("thresholds")) {
                             JSONObject thresholds = settings.getJSONObject("thresholds");
-                            OverviewFragment overviewFragment = (OverviewFragment) MainApp.getSpecificPlugin(OverviewFragment.class);
-                            if (overviewFragment != null && thresholds.has("bgTargetTop")) {
-                                overviewFragment.bgTargetHigh = thresholds.getDouble("bgTargetTop");
+                            if (thresholds.has("bgTargetTop")) {
+                                OverviewPlugin.bgTargetHigh = thresholds.getDouble("bgTargetTop");
                             }
-                            if (overviewFragment != null && thresholds.has("bgTargetBottom")) {
-                                overviewFragment.bgTargetLow = thresholds.getDouble("bgTargetBottom");
+                            if (thresholds.has("bgTargetBottom")) {
+                                OverviewPlugin.bgTargetLow = thresholds.getDouble("bgTargetBottom");
                             }
                         }
                     }
@@ -213,6 +201,15 @@ public class DataService extends IntentService {
         if (intent.getAction().equals(Intents.ACTION_NEW_DEVICESTATUS)) {
             if (nsClientEnabled) {
                 try {
+                    if (bundles.containsKey("devicestatus")) {
+                        String devicestatusesstring = bundles.getString("devicestatus");
+                        JSONObject devicestatusJson = new JSONObject(bundles.getString("devicestatus"));
+                        if (devicestatusJson.has("pump")) {
+                            // Objectives 0
+                            ObjectivesPlugin.pumpStatusIsAvailableInNS = true;
+                            ObjectivesPlugin.saveProgress();
+                        }
+                    }
                     if (bundles.containsKey("devicestatuses")) {
                         String devicestatusesstring = bundles.getString("devicestatuses");
                         JSONArray jsonArray = new JSONArray(devicestatusesstring);
@@ -220,11 +217,8 @@ public class DataService extends IntentService {
                             JSONObject devicestatusJson = jsonArray.getJSONObject(0);
                             if (devicestatusJson.has("pump")) {
                                 // Objectives 0
-                                ObjectivesFragment objectivesFragment = (ObjectivesFragment) MainApp.getSpecificPlugin(ObjectivesFragment.class);
-                                if (objectivesFragment != null) {
-                                    objectivesFragment.pumpStatusIsAvailableInNS = true;
-                                    objectivesFragment.saveProgress();
-                                }
+                                ObjectivesPlugin.pumpStatusIsAvailableInNS = true;
+                                ObjectivesPlugin.saveProgress();
                             }
                         }
                     }
@@ -243,7 +237,7 @@ public class DataService extends IntentService {
                     log.error("Config builder not ready on receive profile");
                     return;
                 }
-                PumpInterface pump = MainApp.getConfigBuilder().getActivePump();
+                PumpInterface pump = MainApp.getConfigBuilder();
                 if (pump != null) {
                     SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                     if (SP.getBoolean("syncprofiletopump", false))
@@ -366,11 +360,8 @@ public class DataService extends IntentService {
                 MainApp.bus().post(new EventNewBG());
             }
             // Objectives 0
-            ObjectivesFragment objectivesFragment = (ObjectivesFragment) MainApp.getSpecificPlugin(ObjectivesFragment.class);
-            if (objectivesFragment != null) {
-                objectivesFragment.bgIsAvailableInNS = true;
-                objectivesFragment.saveProgress();
-            }
+            ObjectivesPlugin.bgIsAvailableInNS = true;
+            ObjectivesPlugin.saveProgress();
         }
 
         if (intent.getAction().equals(Intents.ACTION_NEW_MBG)) {
@@ -380,6 +371,7 @@ public class DataService extends IntentService {
 
     private void handleAddedTreatment(String trstring) throws JSONException, SQLException {
         JSONObject trJson = new JSONObject(trstring);
+        handleDanaRHistoryRecords(trJson); // update record _id in history
         if (!trJson.has("insulin") && !trJson.has("carbs")) {
             if (Config.logIncommingData)
                 log.debug("ADD: Uninterested treatment: " + trstring);
@@ -407,7 +399,6 @@ public class DataService extends IntentService {
                 if (Config.logIncommingData)
                     log.debug("Records updated: " + updated);
             }
-            return;
         } else {
             if (Config.logIncommingData)
                 log.debug("ADD: New treatment: " + trstring);
@@ -429,6 +420,7 @@ public class DataService extends IntentService {
 
     private void handleChangedTreatment(String trstring) throws JSONException, SQLException {
         JSONObject trJson = new JSONObject(trstring);
+        handleDanaRHistoryRecords(trJson); // update record _id in history
         if (!trJson.has("insulin") && !trJson.has("carbs")) {
             if (Config.logIncommingData)
                 log.debug("CHANGE: Uninterested treatment: " + trstring);
@@ -469,6 +461,30 @@ public class DataService extends IntentService {
                 log.debug("CHANGE: Stored treatment: " + treatment.log());
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void handleDanaRHistoryRecords(JSONObject trJson) throws JSONException, SQLException {
+        if (trJson.has(DanaRNSHistorySync.DANARSIGNATURE)) {
+            Dao<DanaRHistoryRecord, String> daoHistoryRecords = MainApp.getDbHelper().getDaoDanaRHistory();
+            QueryBuilder<DanaRHistoryRecord, String> queryBuilder = daoHistoryRecords.queryBuilder();
+            Where where = queryBuilder.where();
+            where.ge("bytes", trJson.get(DanaRNSHistorySync.DANARSIGNATURE));
+            PreparedQuery<DanaRHistoryRecord> preparedQuery = queryBuilder.prepare();
+            List<DanaRHistoryRecord> list = daoHistoryRecords.query(preparedQuery);
+            if (list.size() == 0) {
+                // Record does not exists. Ignore
+            } else if (list.size() == 1) {
+                DanaRHistoryRecord record = list.get(0);
+                if (record.get_id() == null || record.get_id() != trJson.getString("_id")) {
+                    if (Config.logIncommingData)
+                        log.debug("Updating _id in DanaR history database: " + trJson.getString("_id"));
+                    record.set_id(trJson.getString("_id"));
+                    daoHistoryRecords.update(record);
+                } else {
+                    // already set
+                }
+            }
         }
     }
 
@@ -539,24 +555,6 @@ public class DataService extends IntentService {
     }
 
     public void scheduleTreatmentChange() {
-/*
-        class DisconnectRunnable implements Runnable {
-            public void run() {
-                if (Config.logIncommingData)
-                    log.debug("Firing EventTreatmentChange");
-                MainApp.bus().post(new EventTreatmentChange());
-                scheduledDisconnection = null;
-            }
-        }
-        // prepare task for execution in 5 sec
-        // cancel waiting task to prevent sending multiple disconnections
-        if (scheduledDisconnection != null)
-            scheduledDisconnection.cancel(false);
-        Runnable task = new DisconnectRunnable();
-        final int sec = 5;
-        scheduledDisconnection = worker.schedule(task, sec, TimeUnit.SECONDS);
-        log.debug("Scheduling EventTreatmentChange");
-*/
         MainApp.bus().post(new EventTreatmentChange());
     }
 

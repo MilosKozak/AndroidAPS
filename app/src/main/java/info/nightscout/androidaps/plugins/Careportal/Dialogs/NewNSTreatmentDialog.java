@@ -47,6 +47,7 @@ import info.nightscout.androidaps.Services.Intents;
 import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.plugins.Careportal.CareportalFragment;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewExtendedBolusDialog;
 import info.nightscout.client.data.DbLogger;
 import info.nightscout.client.data.NSProfile;
@@ -61,7 +62,7 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
 
     private FragmentActivity context;
 
-    private CareportalFragment.OptionsToShow options;
+    private static CareportalFragment.OptionsToShow options;
 
     NSProfile profile;
     String units;
@@ -513,7 +514,7 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
         builder.setMessage(confirmText);
         builder.setPositiveButton(getContext().getString(R.string.ok), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                ConfigBuilderFragment.uploadCareportalEntryToNS(data);
+                ConfigBuilderPlugin.uploadCareportalEntryToNS(data);
             }
         });
         builder.setNegativeButton(getContext().getString(R.string.cancel), null);

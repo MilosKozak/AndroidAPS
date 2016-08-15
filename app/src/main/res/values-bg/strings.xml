@@ -6,7 +6,7 @@
     <string name="apsmode_title">APS режим</string>
     <string name="avgdelta">Ср. изменение</string>
     <string name="basal">Базал</string>
-    <string name="bgavailableinns">КЗ достъпна в NS</string>
+    <string name="objectives_bgavailableinns">КЗ достъпна в NS</string>
     <string name="bolus">Болус</string>
     <string name="bolusconstraintapplied">Приложено ограничение на болус</string>
     <string name="cancel">Откажи</string>
@@ -65,7 +65,7 @@
     <string name="delta">Изменение:</string>
     <string name="duration">Време</string>
     <string name="en_lang">English</string>
-    <string name="entertreatmentquestion">Въведи ново treatment:</string>
+    <string name="entertreatmentquestion">Enter new treatment:</string>
     <string name="glucose">КЗ:</string>
     <string name="loop">Loop </string>
     <string name="loop_aps_label">APS</string>
@@ -74,9 +74,9 @@
     <string name="loopdisabled">Loop отказан от ограниченията</string>
     <string name="lowsuspend">Low Suspend</string>
     <string name="lowsuspend_low_title">Граница за ниска КЗ</string>
-    <string name="manualenacts">Manual enacts</string>
+    <string name="objectives_manualenacts">Manual enacts</string>
     <string name="lowsuspend_lowprojected">Low projected</string>
-    <string name="minimalduration">Минимална продължителност</string>
+    <string name="objectives_minimalduration">Минимална продължителност</string>
     <string name="nav_backup">Архивиране</string>
     <string name="nav_exit">Изход</string>
     <string name="nav_preferences">Опции</string>
@@ -124,12 +124,12 @@
     <string name="overview_newtempbasal_percent_label">% (100% = current)</string>
     <string name="overview_bolus_label">Болус</string>
     <string name="profileviewer">NS профил</string>
-    <string name="pumpstatusavailableinns">Статус на помпа в NS</string>
+    <string name="objectives_pumpstatusavailableinns">Статус на помпа в NS</string>
     <string name="rate">Стойност</string>
     <string name="reason">Основание</string>
     <string name="refreshfromnightscout">Искате ли да обновите treatments от Nightscout</string>
     <string name="safety">Безопасност</string>
-    <string name="setextendedbolusquestion">Задай нов комб. болусs:</string>
+    <string name="setextendedbolusquestion">Задай нов удължен болусs:</string>
     <string name="setbasalquestion">Приложи нов временен базал:</string>
     <string name="simpleprofile">Simple profile</string>
     <string name="tempbasals">Временен базал</string>
@@ -155,8 +155,8 @@
     <string name="treatments_wizard_correction_label">Корекция</string>
     <string name="treatments_wizard_total_label">ОБЩО</string>
     <string name="treatments_wizard_unit_label">Ед.</string>
-    <string name="treatmentssafety_maxbolus_title">Макс. възможен болус</string>
-    <string name="treatmentssafety_maxcarbs_title">Макс. възможни въглехидрати</string>
+    <string name="treatmentssafety_maxbolus_title">Макс. лимит на болус</string>
+    <string name="treatmentssafety_maxcarbs_title">Макс. лимит на въглехидрати</string>
     <string name="treatmentssafety_title">Tratments safety</string>
     <string name="unsupportedclientver">Неподържана версия на NSClient</string>
     <string name="virtualpump">Виртуална помпа</string>
@@ -173,7 +173,7 @@
     <string name="overview_tempbasal_button">Временен базал</string>
     <string name="nsprofileview_isf_label">ISF (Инс.чувствителност):</string>
     <string name="nsclientnotinstalled">NSClient не е инсталиран. Записът е загубен!</string>
-    <string name="lowsuspend_lowprojectedmessage">Прогнозирана ниска КЗ: Временен базал0%</string>
+    <string name="lowsuspend_lowprojectedmessage">Прогнозирана ниска КЗ: Временен базал 0%</string>
     <string name="lowsuspend_lowmessage">Опасно ниска КЗ: Временен базал 0%</string>
     <string name="lowsuspend_cancelmessage">LowSuspend: Cancel low temp</string>
     <string name="lowsuspend_low">Low Suspend</string>
@@ -197,9 +197,9 @@
     <string name="de_lang">Deutsch</string>
     <string name="openapsma_high_summary">Макс. стойност, която е в границите</string>
     <string name="openapsma_low_summary">Мин. стойност, която е в границите</string>
-    <string name="openapsma_maxbasal_summary">Макс. временен базал [Е/ч] може да бъде до</string>
+    <string name="openapsma_maxbasal_summary">Макс. лимит на временен базал [Е/ч] </string>
     <string name="bg_lang">Български</string>
-    <string name="openapsma_maxiob_summary">Максимална стойност на не болус IOB, който openAPS може да зададе</string>
+    <string name="openapsma_maxiob_summary">Макс. лимит на не болус IOB подаван от openAPS</string>
     <string name="minago">min ago</string>
     <string name="connected">Свързан</string>
     <string name="devicenotfound">Избраното устройство не съществува</string>
@@ -216,11 +216,11 @@
     <string name="syncprofiletopump_title">Синхронизирай помпата с профила в Nightscout</string>
     <string name="nobtadapter">Няма bluetooth адаптер</string>
     <string name="nightscout">Nightscout</string>
-    <string name="dismiss">DISMISS</string>
+    <string name="dismiss">ПРЕКРАТИ</string>
     <string name="end_user_license_agreement">End User License Agreement</string>
     <string name="end_user_license_agreement_text">MUST NOT BE USED TO MAKE MEDICAL DECISIONS. THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
-    <string formatted="false" name="bolusdelivered">Болус %.2fU беше доставен успешно</string>
+    <string name="bolusdelivered" formatted="false">Болус %.2fU беше подаден успешно</string>
     <string name="bolusfailed">Болусът не е доставен</string>
     <string name="canceltemp">Откажи временен базал</string>
     <string name="virtualpump_lastconnection_label">Последно свързване:</string>
@@ -229,7 +229,7 @@
     <string name="smscommunicator_allowednumbers">Позволени телефонни номера</string>
     <string name="smscommunicator_remotebolusingallowed">Разреши болус чрез SMS</string>
     <string name="success">Успех</string>
-    <string formatted="false" name="replywithcode">За да доставите болус %.2fU отговорете с код  %s</string>
+    <string name="replywithcode" formatted="false">За да доставите болус %.2fU отговорете с код  %s</string>
     <string name="remotebolusnotallowed">Отдалечен болус не е разрешен</string>
     <string name="reloadprofile">Обнови профила</string>
     <string name="percent">Процент</string>
@@ -248,5 +248,58 @@
     <string name="careportal_temporarytargetcancel">Отакажи временна цел</string>
     <string name="comment">Коментар</string>
     <string name="absolute">Абсолютна</string>
+    <string name="overview_bolusiprogress_occlusion">Запушване</string>
+    <string name="overview_bolusprogress_delivered">Доставено</string>
+    <string name="overview_bolusprogress_goingtodeliver" formatted="false">Подаване на %.2fU Е инсулин</string>
+    <string name="overview_bolusprogress_stop">Стоп</string>
+    <string name="overview_bolusprogress_stoped">Спрян</string>
+    <string name="overview_bolusprogress_stoppressed">НАТИСНАТ СТОП</string>
+    <string name="openapsma_target_bg">КЗ цел за изчисления</string>
+    <string name="pumpbusy">Помпата е заета</string>
+    <string name="waitingforpump">Изчаква за помпа</string>
+    <string name="wrongpumppassword">Грешна парола за помпата!</string>
+    <string name="youareonallowedlimit">Достигнахте лимита</string>
+    <string name="danar_alarm">аларма</string>
+    <string name="danar_basalhour">базален по часове</string>
+    <string name="danar_carbohydrate">въглехидрати</string>
+    <string name="danar_error">грешка</string>
+    <string name="danar_glucose">кръвна захар</string>
+    <string name="danar_history">История</string>
+    <string name="danar_history_alarm">Аларми</string>
+    <string name="danar_history_basalhours">Базален по часове</string>
+    <string name="danar_history_bolus">Болуси</string>
+    <string name="danar_history_carbohydrates">Въглехидрати</string>
+    <string name="danar_history_connectingfor" formatted="false">Свъзва се за %d сек.</string>
+    <string name="danar_history_dailyinsulin">Инсулин за деня</string>
+    <string name="danar_history_errors">Грешки</string>
+    <string name="danar_history_glucose">Кръвна захар</string>
+    <string name="danar_history_refill">Пълнене</string>
+    <string name="danar_history_syspend">Прекъсване</string>
+    <string name="danar_historyreload">Презареждане</string>
+    <string name="danar_iob_label">IOB на помпата</string>
+    <string name="danar_password">Парола за помпа</string>
+    <string name="danar_refill">пълнене</string>
+    <string name="danar_totaluploaded" formatted="false">Общо %d записа са изпратени</string>
+    <string name="enacted">Приложено</string>
+    <string name="danar_sbolus">S bolus</string>
+    <string name="failedupdatebasalprofile">Не може да се обнови базалния профил</string>
+    <string name="hoursago">ч. преди</string>
+    <string name="objectives_0_gate">Потвърдете, че КЗ и данните от помпата са достъпни в Nightscout</string>
+    <string name="danar_debolus">DE bolus</string>
+    <string name="danar_dsbolus">DS bolus</string>
+    <string name="danar_ebolus">E bolus</string>
+    <string name="mm640g">MM 640g</string>
+    <string name="objectives_0_objective">Настройка на визуализацията и наблюдението, а също и анализиране на базалните нужди и коефициенти</string>
+    <string name="objectives_1_gate">Стартиране в Open loop режим за няколко дни и ръчно прилагане на много временни базали</string>
+    <string name="objectives_1_objective">Стартиране на Open Loop </string>
+    <string name="objectives_2_gate">Определяне на макс. лимит на базалния инсулин и настройване в помпата и програмата</string>
+    <string name="objectives_2_objective">Разбиране на вашият open loop режим, включително препоръчваните временни базали</string>
+    <string name="objectives_3_gate">Стартиране на Closed loop с макс. IOB=0 без твърде много събития тип Low suspend</string>
+    <string name="objectives_6_objective">Активиране на допълнителни функции за дневно използване, включително и advanced meal assist </string>
+    <string name="objectives_3_objective">Стартиране на Close loop в режим Low Suspend</string>
+    <string name="objectives_4_gate">Стартирайте за няколко дни и поне една нощ без аларми за ниска КЗ</string>
+    <string name="objectives_4_objective">Настройване на Closed Loop, повишаване на максималният IOB над 0 и понижаване на целевите нива на КЗ</string>
+    <string name="objectives_5_gate">Една седмица успешно дневно използване с редовно въвеждане на въглехидрати</string>
+    <string name="objectives_5_objective">Настройване на базалния инсулин и коефициенти ако е необходимо и активиране на auto-sens</string>
+    <string name="uploading">Uploading</string>
 </resources>
-

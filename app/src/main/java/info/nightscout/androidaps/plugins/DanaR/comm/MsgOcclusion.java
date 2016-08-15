@@ -13,8 +13,9 @@ import java.util.Date;
 
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.Services.Intents;
-import info.nightscout.androidaps.plugins.DanaR.events.EventDanaRBolusProgress;
+import info.nightscout.androidaps.plugins.Overview.events.EventOverviewBolusProgress;
 import info.nightscout.client.data.DbLogger;
 import info.nightscout.utils.DateUtil;
 
@@ -29,9 +30,9 @@ public class MsgOcclusion extends MessageBase {
     public void handleMessage(byte[] bytes) {
         if (Config.logDanaMessageDetail)
             log.debug("Oclusion detected");
-        EventDanaRBolusProgress bolusingEvent = EventDanaRBolusProgress.getInstance();
+        EventOverviewBolusProgress bolusingEvent = EventOverviewBolusProgress.getInstance();
         MsgBolusStop.stopped = true;
-        bolusingEvent.sStatus = "Oclusion";
+        bolusingEvent.status = MainApp.sResources.getString(R.string.overview_bolusiprogress_occlusion);
         MainApp.bus().post(bolusingEvent);
         sendToNSClient();
     }
@@ -45,7 +46,7 @@ public class MsgOcclusion extends MessageBase {
         try {
             data.put("eventType", "Announcement");
             data.put("created_at", DateUtil.toISOString(new Date()));
-            data.put("notes", "Occlusion detected");
+            data.put("notes", MainApp.sResources.getString(R.string.overview_bolusiprogress_occlusion));
             data.put("isAnnouncement", true);
         } catch (JSONException e) {
             e.printStackTrace();
