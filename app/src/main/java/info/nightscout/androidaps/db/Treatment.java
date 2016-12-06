@@ -47,11 +47,15 @@ public class Treatment implements DataPointWithLabelInterface {
     @DatabaseField
     public Double carbs = 0d;
 
+    @DatabaseField
+    public boolean mealBolus = true; // true for meal bolus , false for correction bolus
+
     public void copyFrom(Treatment t) {
         this._id = t._id;
         this.created_at = t.created_at;
         this.insulin = t.insulin;
         this.carbs = t.carbs;
+        this.mealBolus = t.mealBolus;
     }
 
     public Iob iobCalc(Date time, Double dia) {
@@ -74,7 +78,7 @@ public class Treatment implements DataPointWithLabelInterface {
             } else if (minAgo < end) {
                 Double x2 = (minAgo - 75) / 5;
                 result.iobContrib = this.insulin * (0.001323 * x2 * x2 - 0.054233 * x2 + 0.55556);
-                result.activityContrib = this.insulin * (2 / dia / 60 - (minAgo - peak) * 2 / dia / 60 / (60 * dia - peak));
+                result.activityContrib = this.insulin * (2 / dia / 60 - (minAgo - peak) * 2 / dia / 60 / (60 * 3 - peak));
             }
         }
         return result;
@@ -90,6 +94,7 @@ public class Treatment implements DataPointWithLabelInterface {
                 ", _id: " + _id +
                 ", insulin: " + insulin +
                 ", carbs: " + carbs +
+                ", mealBolus: " + mealBolus +
                 ", created_at: " +
                 "}";
     }
@@ -112,7 +117,8 @@ public class Treatment implements DataPointWithLabelInterface {
     public String getLabel() {
         String label = "";
         if (insulin > 0) label += DecimalFormatter.to2Decimal(insulin) + "U";
-        if (carbs > 0) label += (label.equals("") ? "" : " ") + DecimalFormatter.to0Decimal(carbs) + "g";
+        if (carbs > 0)
+            label += (label.equals("") ? "" : " ") + DecimalFormatter.to0Decimal(carbs) + "g";
         return label;
     }
 
@@ -130,7 +136,10 @@ public class Treatment implements DataPointWithLabelInterface {
     public void sendToNSClient() {
         JSONObject data = new JSONObject();
         try {
-            data.put("eventType", "Meal Bolus");
+            if (mealBolus)
+                data.put("eventType", "Meal Bolus");
+            else
+                data.put("eventType", "Correction Bolus");
             if (insulin != 0d) data.put("insulin", insulin);
             if (carbs != 0d) data.put("carbs", carbs.intValue());
             data.put("created_at", DateUtil.toISOString(created_at));
@@ -141,4 +150,4 @@ public class Treatment implements DataPointWithLabelInterface {
         ConfigBuilderPlugin.uploadCareportalEntryToNS(data);
     }
 
- }
+}

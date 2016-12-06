@@ -132,6 +132,10 @@ public class ObjectivesPlugin implements PluginBase, ConstraintsInterface {
 
 
     public void initializeData() {
+        bgIsAvailableInNS = false;
+        pumpStatusIsAvailableInNS = false;
+        manualEnacts = 0;
+
         objectives = new ArrayList<>();
         objectives.add(new Objective(0,
                 MainApp.sResources.getString(R.string.objectives_0_objective),
@@ -242,7 +246,7 @@ public class ObjectivesPlugin implements PluginBase, ConstraintsInterface {
 
     @Override
     public Double applyMaxIOBConstraints(Double maxIob) {
-        if (objectives.get(4).started.getTime() > 0)
+        if (objectives.get(4).started.getTime() > 0 || objectives.get(2).accomplished.getTime() == 0)
             return maxIob;
         else {
             if (Config.logConstraintsChanges)

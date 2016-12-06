@@ -3,15 +3,18 @@ package info.nightscout.androidaps.plugins.Overview;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +30,12 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.PointsGraphSeries;
 import com.squareup.otto.Subscribe;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -46,29 +52,37 @@ import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.db.TempBasal;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.events.EventNewBG;
+import info.nightscout.androidaps.events.EventNewBasalProfile;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.events.EventTempBasalChange;
 import info.nightscout.androidaps.events.EventTreatmentChange;
+import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.plugins.Careportal.Dialogs.NewNSTreatmentDialog;
+import info.nightscout.androidaps.plugins.Careportal.OptionsToShow;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
 import info.nightscout.androidaps.plugins.Objectives.ObjectivesPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.IobTotal;
-import info.nightscout.androidaps.plugins.Overview.Dialogs.NewExtendedBolusDialog;
-import info.nightscout.androidaps.plugins.Overview.Dialogs.NewTempBasalDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewTreatmentDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.WizardDialog;
 import info.nightscout.androidaps.plugins.Overview.GraphSeriesExtension.PointsWithLabelGraphSeries;
 import info.nightscout.client.data.NSProfile;
+import info.nightscout.utils.BolusWizard;
+import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.Round;
+import info.nightscout.utils.SafeParse;
+import info.nightscout.utils.ToastUtils;
 
 
 public class OverviewFragment extends Fragment {
     private static Logger log = LoggerFactory.getLogger(OverviewFragment.class);
 
     private static OverviewPlugin overviewPlugin = new OverviewPlugin();
+    private SharedPreferences prefs;
 
     public static OverviewPlugin getPlugin() {
         return overviewPlugin;
@@ -78,19 +92,20 @@ public class OverviewFragment extends Fragment {
     TextView timeAgoView;
     TextView deltaView;
     TextView runningTempView;
+    TextView baseBasalView;
+    TextView activeProfileView;
     TextView iobView;
     TextView apsModeView;
     GraphView bgGraph;
 
     LinearLayout cancelTempLayout;
-    LinearLayout setTempLayout;
     LinearLayout acceptTempLayout;
+    LinearLayout quickWizardLayout;
     Button cancelTempButton;
     Button treatmentButton;
     Button wizardButton;
-    Button setTempButton;
-    Button setExtenedButton;
     Button acceptTempButton;
+    Button quickWizardButton;
 
     Handler sLoopHandler = new Handler();
     Runnable sRefreshLoop = null;
@@ -107,31 +122,31 @@ public class OverviewFragment extends Fragment {
         }
     }
 
-    public static OverviewFragment newInstance() {
-        return new OverviewFragment();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         View view = inflater.inflate(R.layout.overview_fragment, container, false);
         bgView = (TextView) view.findViewById(R.id.overview_bg);
         timeAgoView = (TextView) view.findViewById(R.id.overview_timeago);
         deltaView = (TextView) view.findViewById(R.id.overview_delta);
         runningTempView = (TextView) view.findViewById(R.id.overview_runningtemp);
+        baseBasalView = (TextView) view.findViewById(R.id.overview_basebasal);
+        activeProfileView = (TextView) view.findViewById(R.id.overview_activeprofile);
+
         iobView = (TextView) view.findViewById(R.id.overview_iob);
         apsModeView = (TextView) view.findViewById(R.id.overview_apsmode);
         bgGraph = (GraphView) view.findViewById(R.id.overview_bggraph);
         cancelTempButton = (Button) view.findViewById(R.id.overview_canceltemp);
         treatmentButton = (Button) view.findViewById(R.id.overview_treatment);
         wizardButton = (Button) view.findViewById(R.id.overview_wizard);
-        setExtenedButton = (Button) view.findViewById(R.id.overview_extendedbolus);
-        setTempButton = (Button) view.findViewById(R.id.overview_settempbasal);
         cancelTempButton = (Button) view.findViewById(R.id.overview_canceltemp);
-        setTempLayout = (LinearLayout) view.findViewById(R.id.overview_settemplayout);
         cancelTempLayout = (LinearLayout) view.findViewById(R.id.overview_canceltemplayout);
         acceptTempButton = (Button) view.findViewById(R.id.overview_accepttempbutton);
         acceptTempLayout = (LinearLayout) view.findViewById(R.id.overview_accepttemplayout);
+        quickWizardButton = (Button) view.findViewById(R.id.overview_quickwizard);
+        quickWizardLayout = (LinearLayout) view.findViewById(R.id.overview_quickwizardlayout);
 
         treatmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,8 +161,16 @@ public class OverviewFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager manager = getFragmentManager();
-                WizardDialog wizardDialog = new WizardDialog(getContext());
+                WizardDialog wizardDialog = new WizardDialog();
+                wizardDialog.setContext(getContext());
                 wizardDialog.show(manager, "WizardDialog");
+            }
+        });
+
+        quickWizardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                processQuickWizard();
             }
         });
 
@@ -167,23 +190,6 @@ public class OverviewFragment extends Fragment {
             }
         });
 
-        setTempButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager manager = getFragmentManager();
-                NewTempBasalDialog newTempDialog = new NewTempBasalDialog();
-                newTempDialog.show(manager, "NewTempDialog");
-            }
-        });
-
-        setExtenedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager manager = getFragmentManager();
-                NewExtendedBolusDialog newExtendedDialog = new NewExtendedBolusDialog();
-                newExtendedDialog.show(manager, "NewExtendedDialog");
-            }
-        });
 
         acceptTempButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -226,6 +232,100 @@ public class OverviewFragment extends Fragment {
 
         updateGUI();
         return view;
+    }
+
+    void processQuickWizard() {
+        final BgReading lastBG = MainApp.getDbHelper().lastBg();
+        if (MainApp.getConfigBuilder() == null || ConfigBuilderPlugin.getActiveProfile() == null) // app not initialized yet
+            return;
+        final NSProfile profile = ConfigBuilderPlugin.getActiveProfile().getProfile();
+
+        QuickWizard.QuickWizardEntry quickWizardEntry = getPlugin().quickWizard.getActive();
+        if (quickWizardEntry != null && lastBG != null) {
+            quickWizardLayout.setVisibility(View.VISIBLE);
+            String text = MainApp.sResources.getString(R.string.bolus) + ": " + quickWizardEntry.buttonText();
+            BolusWizard wizard = new BolusWizard();
+            wizard.doCalc(profile.getDefaultProfile(), quickWizardEntry.carbs(), lastBG.valueToUnits(profile.getUnits()), 0d, true, true);
+
+            final JSONObject boluscalcJSON = new JSONObject();
+            try {
+                boluscalcJSON.put("eventTime", DateUtil.toISOString(new Date()));
+                boluscalcJSON.put("targetBGLow", wizard.targetBGLow);
+                boluscalcJSON.put("targetBGHigh", wizard.targetBGHigh);
+                boluscalcJSON.put("isf", wizard.sens);
+                boluscalcJSON.put("ic", wizard.ic);
+                boluscalcJSON.put("iob", -(wizard.insulingFromBolusIOB + wizard.insulingFromBasalsIOB));
+                boluscalcJSON.put("bolusiobused", true);
+                boluscalcJSON.put("basaliobused", true);
+                boluscalcJSON.put("bg", lastBG.valueToUnits(profile.getUnits()));
+                boluscalcJSON.put("insulinbg", wizard.insulinFromBG);
+                boluscalcJSON.put("insulinbgused", true);
+                boluscalcJSON.put("bgdiff", wizard.bgDiff);
+                boluscalcJSON.put("insulincarbs", wizard.insulinFromCarbs);
+                boluscalcJSON.put("carbs", quickWizardEntry.carbs());
+                boluscalcJSON.put("othercorrection", 0d);
+                boluscalcJSON.put("insulin", wizard.calculatedTotalInsulin);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (wizard.calculatedTotalInsulin > 0d && quickWizardEntry.carbs() > 0d) {
+                DecimalFormat formatNumber2decimalplaces = new DecimalFormat("0.00");
+                String confirmMessage = getString(R.string.entertreatmentquestion);
+
+                Double insulinAfterConstraints = MainApp.getConfigBuilder().applyBolusConstraints(wizard.calculatedTotalInsulin);
+                Integer carbsAfterConstraints = MainApp.getConfigBuilder().applyCarbsConstraints(quickWizardEntry.carbs());
+
+                confirmMessage += "\n" + getString(R.string.bolus) + ": " + formatNumber2decimalplaces.format(insulinAfterConstraints) + "U";
+                confirmMessage += "\n" + getString(R.string.carbs) + ": " + carbsAfterConstraints + "g";
+
+                if (insulinAfterConstraints - wizard.calculatedTotalInsulin != 0 || carbsAfterConstraints != quickWizardEntry.carbs()) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle(MainApp.sResources.getString(R.string.treatmentdeliveryerror));
+                    builder.setMessage(getString(R.string.constraints_violation) + "\n" + getString(R.string.changeyourinput));
+                    builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
+                    builder.show();
+                    return;
+                }
+
+                final Double finalInsulinAfterConstraints = insulinAfterConstraints;
+                final Integer finalCarbsAfterConstraints = carbsAfterConstraints;
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle(MainApp.sResources.getString(R.string.confirmation));
+                builder.setMessage(confirmMessage);
+                builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        if (finalInsulinAfterConstraints > 0 || finalCarbsAfterConstraints > 0) {
+                            final ConfigBuilderPlugin pump = MainApp.getConfigBuilder();
+                            sHandler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    PumpEnactResult result = pump.deliverTreatmentFromBolusWizard(
+                                            getContext(),
+                                            finalInsulinAfterConstraints,
+                                            finalCarbsAfterConstraints,
+                                            lastBG.valueToUnits(profile.getUnits()),
+                                            "Manual",
+                                            0,
+                                            boluscalcJSON
+                                    );
+                                    if (!result.success) {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                        builder.setTitle(MainApp.sResources.getString(R.string.treatmentdeliveryerror));
+                                        builder.setMessage(result.comment);
+                                        builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
+                                        builder.show();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+                builder.setNegativeButton(getString(R.string.cancel), null);
+                builder.show();
+            }
+        }
+
     }
 
     @Override
@@ -280,6 +380,9 @@ public class OverviewFragment extends Fragment {
         updateGUIIfVisible();
     }
 
+    @Subscribe
+    public void onStatusEvent(final EventNewBasalProfile ev) { updateGUIIfVisible(); }
+
     private void hideTempRecommendation() {
         Activity activity = getActivity();
         if (activity != null)
@@ -313,13 +416,51 @@ public class OverviewFragment extends Fragment {
         if (bgGraph == null)
             return;
 
+        if (getActivity() == null)
+            return;
+
         // open loop mode
         final LoopPlugin.LastRun finalLastRun = LoopPlugin.lastRun;
         if (Config.APS) {
             apsModeView.setVisibility(View.VISIBLE);
-            if (MainApp.getConfigBuilder().isClosedModeEnabled())
-                apsModeView.setText(MainApp.sResources.getString(R.string.closedloop));
-            else apsModeView.setText(MainApp.sResources.getString(R.string.openloop));
+            apsModeView.setBackgroundResource(R.drawable.loopmodeborder);
+            apsModeView.setTextColor(Color.BLACK);
+            final LoopPlugin activeloop = MainApp.getConfigBuilder().getActiveLoop();
+            if(activeloop != null && activeloop.isEnabled(activeloop.getType())) {
+                if (MainApp.getConfigBuilder().isClosedModeEnabled()) {
+                    apsModeView.setText(MainApp.sResources.getString(R.string.closedloop));
+                } else {
+                    apsModeView.setText(MainApp.sResources.getString(R.string.openloop));
+                }
+            } else {
+                apsModeView.setBackgroundResource(R.drawable.loopmodedisabledborder);
+                apsModeView.setText(MainApp.sResources.getString(R.string.disabledloop));
+                apsModeView.setTextColor(Color.WHITE);
+
+            }
+
+
+            apsModeView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                    if (activeloop == null){
+                        log.error("no active loop?");
+                        return true;
+                    } else if (activeloop.isEnabled(PluginBase.LOOP)){
+                        activeloop.setFragmentEnabled(PluginBase.LOOP, false);
+                        activeloop.setFragmentVisible(PluginBase.LOOP, false);
+                    } else {
+                        activeloop.setFragmentEnabled(PluginBase.LOOP, true);
+                        activeloop.setFragmentVisible(PluginBase.LOOP, true);
+                    }
+                    MainApp.getConfigBuilder().storeSettings();
+                    MainApp.bus().post(new EventRefreshGui(false));
+                    return true;
+                }
+            });
+            apsModeView.setLongClickable(true);
+
         } else {
             apsModeView.setVisibility(View.GONE);
         }
@@ -343,31 +484,57 @@ public class OverviewFragment extends Fragment {
         if (pump.isTempBasalInProgress()) {
             TempBasal activeTemp = pump.getTempBasal();
             cancelTempLayout.setVisibility(View.VISIBLE);
-            setTempLayout.setVisibility(View.GONE);
             cancelTempButton.setText(MainApp.instance().getString(R.string.cancel) + ": " + activeTemp.toString());
+            runningTempView.setVisibility(View.VISIBLE);
             runningTempView.setText(activeTemp.toString());
         } else {
             cancelTempLayout.setVisibility(View.GONE);
-            setTempLayout.setVisibility(View.VISIBLE);
-            Double currentBasal = pump.getBaseBasalRate();
-            runningTempView.setText(DecimalFormatter.to2Decimal(currentBasal) + " U/h");
+            runningTempView.setVisibility(View.GONE);
         }
+        baseBasalView.setText(DecimalFormatter.to2Decimal(pump.getBaseBasalRate()) + " U/h");
+
+        if (profile != null && profile.getActiveProfile() != null)
+            activeProfileView.setText(profile.getActiveProfile());
+
+        activeProfileView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                NewNSTreatmentDialog newDialog = new NewNSTreatmentDialog();
+                final OptionsToShow profileswitch = new OptionsToShow(R.id.careportal_profileswitch, R.string.careportal_profileswitch, true, false, false, false, false, false, false, true, false);
+                profileswitch.executeProfileSwitch = true;
+                newDialog.setOptions(profileswitch);
+                newDialog.show(getFragmentManager(), "NewNSTreatmentDialog");
+                return true;
+            }
+        });
+        activeProfileView.setLongClickable(true);
 
         if (profile == null) {
             // disable all treatment buttons because we are not able to check constraints without profile
-            setExtenedButton.setVisibility(View.INVISIBLE);
-            setTempLayout.setVisibility(View.INVISIBLE);
             wizardButton.setVisibility(View.INVISIBLE);
             treatmentButton.setVisibility(View.INVISIBLE);
             return;
         } else {
-            setExtenedButton.setVisibility(View.VISIBLE);
-            setTempLayout.setVisibility(View.VISIBLE);
             wizardButton.setVisibility(View.VISIBLE);
             treatmentButton.setVisibility(View.VISIBLE);
         }
 
         String units = profile.getUnits();
+
+        // QuickWizard button
+        QuickWizard.QuickWizardEntry quickWizardEntry = getPlugin().quickWizard.getActive();
+        if (quickWizardEntry != null && lastBG != null) {
+            quickWizardLayout.setVisibility(View.VISIBLE);
+            String text = MainApp.sResources.getString(R.string.bolus) + ": " + quickWizardEntry.buttonText() + " " + DecimalFormatter.to0Decimal(quickWizardEntry.carbs()) + "g";
+            BolusWizard wizard = new BolusWizard();
+            wizard.doCalc(profile.getDefaultProfile(), quickWizardEntry.carbs(), lastBG.valueToUnits(profile.getUnits()), 0d, true, true);
+            text += " " + DecimalFormatter.to2Decimal(wizard.calculatedTotalInsulin) + "U";
+            quickWizardButton.setText(text);
+            if (wizard.calculatedTotalInsulin <= 0)
+                quickWizardLayout.setVisibility(View.GONE);
+        } else
+            quickWizardLayout.setVisibility(View.GONE);
 
         // **** BG value ****
         if (lastBG != null && bgView != null) {
@@ -417,8 +584,16 @@ public class OverviewFragment extends Fragment {
         long toTime = calendar.getTimeInMillis() + 100000; // little bit more to avoid wrong rounding
         long fromTime = toTime - hoursToFetch * 60 * 60 * 1000L;
 
-        Double lowLine = NSProfile.fromMgdlToUnits(OverviewPlugin.bgTargetLow, units);
-        Double highLine = NSProfile.fromMgdlToUnits(OverviewPlugin.bgTargetHigh, units);
+        Double lowLine = SafeParse.stringToDouble(prefs.getString("low_mark", "0"));
+        Double highLine = SafeParse.stringToDouble(prefs.getString("high_mark", "0"));
+
+        if (lowLine < 1){
+            lowLine = NSProfile.fromMgdlToUnits(OverviewPlugin.bgTargetLow, units);
+        }
+
+        if(highLine < 1){
+            highLine = NSProfile.fromMgdlToUnits(OverviewPlugin.bgTargetHigh, units);
+        }
 
         BarGraphSeries<DataPoint> basalsSeries = null;
         LineGraphSeries<DataPoint> seriesLow = null;
@@ -501,6 +676,7 @@ public class OverviewFragment extends Fragment {
         }
         maxBgValue = NSProfile.fromMgdlToUnits(maxBgValue, units);
         maxBgValue = units.equals(Constants.MGDL) ? Round.roundTo(maxBgValue, 40d) + 80 : Round.roundTo(maxBgValue, 2d) + 4;
+        if(highLine > maxBgValue) maxBgValue = highLine;
         Integer numOfHorizLines = units.equals(Constants.MGDL) ? (int) (maxBgValue / 40 + 1) : (int) (maxBgValue / 2 + 1);
 
         BgReading[] inRange = new BgReading[inRangeArray.size()];

@@ -71,10 +71,6 @@ public class DanaRFragment extends Fragment implements FragmentBase {
         }
     }
 
-    public static DanaRFragment newInstance() {
-        return new DanaRFragment();
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -201,12 +197,12 @@ public class DanaRFragment extends Fragment implements FragmentBase {
                     if (DanaRPlugin.getDanaRPump().lastConnection.getTime() != 0) {
                         Long agoMsec = new Date().getTime() - DanaRPlugin.getDanaRPump().lastConnection.getTime();
                         int agoMin = (int) (agoMsec / 60d / 1000d);
-                        lastConnectionView.setText(formatTime.format(DanaRPlugin.getDanaRPump().lastConnection) + " (" + agoMin + " " + getString(R.string.minago) + ")");
+                        lastConnectionView.setText(formatTime.format(DanaRPlugin.getDanaRPump().lastConnection) + " (" + agoMin + " " + MainApp.sResources.getString(R.string.minago) + ")");
                         SetWarnColor.setColor(lastConnectionView, agoMin, 16d, 31d);
                     }
                     if (DanaRPlugin.getDanaRPump().lastBolusTime.getTime() != 0) {
                         Long agoMsec = new Date().getTime() - DanaRPlugin.getDanaRPump().lastBolusTime.getTime();
-                        double agoHours = (int) (agoMsec / 60d / 60d / 1000d);
+                        double agoHours =  agoMsec / 60d / 60d / 1000d;
                         if (agoHours < 6) // max 6h back
                             lastBolusView.setText(formatTime.format(DanaRPlugin.getDanaRPump().lastBolusTime) + " (" + DecimalFormatter.to1Decimal(agoHours) + " " + getString(R.string.hoursago) + ") " + DecimalFormatter.to2Decimal(danaRPlugin.getDanaRPump().lastBolusAmount) + " U");
                         else lastBolusView.setText("");

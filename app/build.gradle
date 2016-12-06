@@ -14,6 +14,26 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
+def generateGitBuild = { ->
+
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append('"')
+    try {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'describe', '--always'
+            standardOutput = stdout
+        }
+        String commitObject = stdout.toString().trim()
+        stringBuilder.append(commitObject)
+    } catch (ignored) {
+        stringBuilder.append('NoGitSystemAvailable')
+    }
+    stringBuilder.append('-')
+    stringBuilder.append((new Date()).format('yyyy.MM.dd'))
+    stringBuilder.append('"')
+    return stringBuilder.toString()
+}
 
 android {
     compileSdkVersion 23
@@ -23,8 +43,12 @@ android {
         applicationId "info.nightscout.androidaps"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 1014
-        versionName "1.0.14"
+        versionCode 1020
+        versionName "1.0.20"
+        buildConfigField "String", "BUILDVERSION", generateGitBuild()
+    }
+    lintOptions {
+        disable 'MissingTranslation'
     }
     buildTypes {
         release {
@@ -33,32 +57,63 @@ android {
         }
     }
     productFlavors {
-        danarcontrol {
-            buildConfigField "boolean", "APS", "false"
-            buildConfigField "boolean", "PUMPDRIVERS", "true"
-            buildConfigField "boolean", "CLOSEDLOOP", "false"
-        }
-        careportal {
-            buildConfigField "boolean", "APS", "false"
-            buildConfigField "boolean", "PUMPDRIVERS", "false"
-            buildConfigField "boolean", "CLOSEDLOOP", "false"
-        }
-        openloop {
-            buildConfigField "boolean", "APS", "true"
-            buildConfigField "boolean", "PUMPDRIVERS", "true"
-            buildConfigField "boolean", "CLOSEDLOOP", "false"
-        }
+        flavorDimensions "standard", "wear"
         full {
+            dimension "standard"
             buildConfigField "boolean", "APS", "true"
             buildConfigField "boolean", "PUMPDRIVERS", "true"
             buildConfigField "boolean", "CLOSEDLOOP", "true"
+            buildConfigField "int", "MAXBOLUS", "17"
+        }
+        fullteenage {
+            dimension "standard"
+            buildConfigField "boolean", "APS", "true"
+            buildConfigField "boolean", "PUMPDRIVERS", "true"
+            buildConfigField "boolean", "CLOSEDLOOP", "true"
+            buildConfigField "int", "MAXBOLUS", "10"
+        }
+        fullchild {
+            dimension "standard"
+            buildConfigField "boolean", "APS", "true"
+            buildConfigField "boolean", "PUMPDRIVERS", "true"
+            buildConfigField "boolean", "CLOSEDLOOP", "true"
+            buildConfigField "int", "MAXBOLUS", "5"
+        }
+        danarcontrol {
+            dimension "standard"
+            buildConfigField "boolean", "APS", "false"
+            buildConfigField "boolean", "PUMPDRIVERS", "true"
+            buildConfigField "boolean", "CLOSEDLOOP", "false"
+            buildConfigField "int", "MAXBOLUS", "17"
+        }
+        careportal {
+            dimension "standard"
+            buildConfigField "boolean", "APS", "false"
+            buildConfigField "boolean", "PUMPDRIVERS", "false"
+            buildConfigField "boolean", "CLOSEDLOOP", "false"
+            buildConfigField "int", "MAXBOLUS", "17"
+        }
+        openloop {
+            dimension "standard"
+            buildConfigField "boolean", "APS", "true"
+            buildConfigField "boolean", "PUMPDRIVERS", "true"
+            buildConfigField "boolean", "CLOSEDLOOP", "false"
+            buildConfigField "int", "MAXBOLUS", "17"
+        }
+        wear {
+            dimension "wear"
+            buildConfigField "boolean", "WEAR", "true"
+        }
+        nowear {
+            dimension "wear"
+            buildConfigField "boolean", "WEAR", "false"
         }
     }
 }
 
 dependencies {
+    wearWearApp project(path: ':wear', configuration: 'fullRelease')
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.7@aar') {
         transitive = true;
     }
@@ -76,4 +131,6 @@ dependencies {
     compile 'com.jjoe64:graphview:4.0.1'
     compile 'com.eclipsesource.j2v8:j2v8:3.1.6@aar'
     compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.1.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-wearable:7.5.0'
 }

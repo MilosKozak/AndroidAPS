@@ -38,12 +38,13 @@ import info.nightscout.androidaps.interfaces.ProfileInterface;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.interfaces.TempBasalsInterface;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
+import info.nightscout.androidaps.plugins.DanaR.comm.MsgError;
 import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.DeviceStatus;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.DetermineBasalResult;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.BolusProgressDialog;
-import info.nightscout.androidaps.plugins.Overview.Dialogs.NewExtendedBolusDialog;
+import info.nightscout.androidaps.plugins.Actions.dialogs.NewExtendedBolusDialog;
 import info.nightscout.client.data.DbLogger;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.utils.DateUtil;
@@ -293,10 +294,15 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     /*
-    * Pump interface
-    *
-    * Config builder return itself as a pump and check constraints before it passes command to pump driver
-    */
+        * Pump interface
+        *
+        * Config builder return itself as a pump and check constraints before it passes command to pump driver
+        */
+    @Override
+    public boolean isInitialized() {
+        return activePump.isInitialized();
+    }
+
     @Override
     public boolean isTempBasalInProgress() {
         return activePump.isTempBasalInProgress();
@@ -349,7 +355,8 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
 
         BolusProgressDialog bolusProgressDialog = null;
         if (context != null) {
-            bolusProgressDialog = new BolusProgressDialog(insulin);
+            bolusProgressDialog = new BolusProgressDialog();
+            bolusProgressDialog.setInsulin(insulin);
             bolusProgressDialog.show(((AppCompatActivity) context).getSupportFragmentManager(), "BolusProgress");
         }
 
@@ -371,6 +378,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
             if (carbTime == 0)
                 t.carbs = (double) result.carbsDelivered; // with different carbTime record will come back from nightscout
             t.created_at = new Date();
+            t.mealBolus = result.carbsDelivered > 0;
             try {
                 MainApp.getDbHelper().getDaoTreatments().create(t);
             } catch (SQLException e) {
@@ -387,13 +395,18 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
 
     @Override
     public PumpEnactResult deliverTreatment(Double insulin, Integer carbs, Context context) {
+        return deliverTreatment(insulin, carbs, context, true);
+    }
+
+    public PumpEnactResult deliverTreatment(Double insulin, Integer carbs, Context context, boolean createTreatment) {
         mWakeLock.acquire();
         insulin = applyBolusConstraints(insulin);
         carbs = applyCarbsConstraints(carbs);
 
         BolusProgressDialog bolusProgressDialog = null;
         if (context != null) {
-            bolusProgressDialog = new BolusProgressDialog(insulin);
+            bolusProgressDialog = new BolusProgressDialog();
+            bolusProgressDialog.setInsulin(insulin);
             bolusProgressDialog.show(((AppCompatActivity) context).getSupportFragmentManager(), "BolusProgress");
         }
 
@@ -412,11 +425,12 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
         if (Config.logCongigBuilderActions)
             log.debug("deliverTreatment insulin: " + insulin + " carbs: " + carbs + " success: " + result.success + " enacted: " + result.enacted + " bolusDelivered: " + result.bolusDelivered);
 
-        if (result.success) {
+        if (result.success && createTreatment) {
             Treatment t = new Treatment();
             t.insulin = result.bolusDelivered;
             t.carbs = (double) result.carbsDelivered;
             t.created_at = new Date();
+            t.mealBolus = t.carbs > 0;
             try {
                 MainApp.getDbHelper().getDaoTreatments().create(t);
             } catch (SQLException e) {
@@ -429,6 +443,8 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
         mWakeLock.release();
         return result;
     }
+
+
 
     @Override
     public void stopBolusDelivering() {
@@ -522,9 +538,16 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
         request.rate = applyBasalConstraints(request.rate);
         PumpEnactResult result;
 
+        if (!isInitialized()) {
+            result = new PumpEnactResult();
+            result.comment = MainApp.sResources.getString(R.string.pumpNotInitialized);
+            result.enacted = false;
+            result.success = false;
+        }
+
         if (Config.logCongigBuilderActions)
             log.debug("applyAPSRequest: " + request.toString());
-        if ((request.rate == 0 && request.duration == 0) || Math.abs(request.rate - getBaseBasalRate()) < 0.1) {
+        if ((request.rate == 0 && request.duration == 0) || Math.abs(request.rate - getBaseBasalRate()) < 0.05) {
             if (isTempBasalInProgress()) {
                 if (Config.logCongigBuilderActions)
                     log.debug("applyAPSRequest: cancelTempBasal()");
@@ -539,7 +562,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
                 if (Config.logCongigBuilderActions)
                     log.debug("applyAPSRequest: Basal set correctly");
             }
-        } else if (isTempBasalInProgress() && Math.abs(request.rate - getTempBasalAbsoluteRate()) < 0.1) {
+        } else if (isTempBasalInProgress() && Math.abs(request.rate - getTempBasalAbsoluteRate()) < 0.05) {
             result = new PumpEnactResult();
             result.absolute = getTempBasalAbsoluteRate();
             result.duration = activePump.getTempBasal().getPlannedRemainingMinutes();
@@ -715,6 +738,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
             data.put("absolute", absolute);
             data.put("created_at", DateUtil.toISOString(new Date()));
             data.put("enteredBy", MainApp.instance().getString(R.string.app_name));
+            data.put("notes", MainApp.sResources.getString(R.string.androidaps_tempbasalstartnote) + " " + absolute + "u/h " + durationInMinutes +" min"); // ECOR
             Bundle bundle = new Bundle();
             bundle.putString("action", "dbAdd");
             bundle.putString("collection", "treatments");
@@ -744,6 +768,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
                 data.put("percent", percent - 100);
                 data.put("created_at", DateUtil.toISOString(new Date()));
                 data.put("enteredBy", MainApp.instance().getString(R.string.app_name));
+                data.put("notes", MainApp.sResources.getString(R.string.androidaps_tempbasalstartnote) + " " + percent + "% " + durationInMinutes +" min"); // ECOR
                 Bundle bundle = new Bundle();
                 bundle.putString("action", "dbAdd");
                 bundle.putString("collection", "treatments");
@@ -766,6 +791,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
             data.put("eventType", "Temp Basal");
             data.put("created_at", DateUtil.toISOString(new Date()));
             data.put("enteredBy", MainApp.instance().getString(R.string.app_name));
+            data.put("notes", MainApp.sResources.getString(R.string.androidaps_tempbasalendnote)); // ECOR
             Bundle bundle = new Bundle();
             bundle.putString("action", "dbAdd");
             bundle.putString("collection", "treatments");
@@ -894,6 +920,49 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
             e.printStackTrace();
         }
 
+    }
+
+    public void uploadError(String error) {
+        Context context = MainApp.instance().getApplicationContext();
+        Bundle bundle = new Bundle();
+        bundle.putString("action", "dbAdd");
+        bundle.putString("collection", "treatments");
+        JSONObject data = new JSONObject();
+        try {
+            data.put("eventType", "Announcement");
+            data.put("created_at", DateUtil.toISOString(new Date()));
+            data.put("notes", error);
+            data.put("isAnnouncement", true);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        bundle.putString("data", data.toString());
+        Intent intent = new Intent(Intents.ACTION_DATABASE);
+        intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        context.sendBroadcast(intent);
+        DbLogger.dbAdd(intent, data.toString(), MsgError.class);
+    }
+
+    public void uploadAppStart() {
+        Context context = MainApp.instance().getApplicationContext();
+        Bundle bundle = new Bundle();
+        bundle.putString("action", "dbAdd");
+        bundle.putString("collection", "treatments");
+        JSONObject data = new JSONObject();
+        try {
+            data.put("eventType", "Note");
+            data.put("created_at", DateUtil.toISOString(new Date()));
+            data.put("notes", MainApp.sResources.getString(R.string.androidaps_start));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        bundle.putString("data", data.toString());
+        Intent intent = new Intent(Intents.ACTION_DATABASE);
+        intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        context.sendBroadcast(intent);
+        DbLogger.dbAdd(intent, data.toString(), ConfigBuilderPlugin.class);
     }
 
 }

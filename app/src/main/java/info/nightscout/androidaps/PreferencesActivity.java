@@ -37,7 +37,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
             String lang = sharedPreferences.getString("language", "en");
             LocaleHelper.setLocale(getApplicationContext(), lang);
             recreate();
-            MainApp.bus().post(new EventRefreshGui());
+            MainApp.bus().post(new EventRefreshGui(true));
         }
         updatePrefSummary(myPreferenceFragment.getPreference(key));
     }
@@ -77,6 +77,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_quickwizard);
             addPreferencesFromResource(R.xml.pref_language);
             if (Config.CAREPORTALENABLED)
                 addPreferencesFromResource(R.xml.pref_careportal);
@@ -97,6 +98,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                 addPreferencesFromResource(R.xml.pref_mm640g);
             if (Config.SMSCOMMUNICATORENABLED)
                 addPreferencesFromResource(R.xml.pref_smscommunicator);
+            addPreferencesFromResource(R.xml.pref_others);
             initSummary(getPreferenceScreen());
         }
 

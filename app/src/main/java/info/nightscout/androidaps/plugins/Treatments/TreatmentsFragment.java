@@ -3,7 +3,9 @@ package info.nightscout.androidaps.plugins.Treatments;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
@@ -34,6 +36,7 @@ import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.androidaps.interfaces.FragmentBase;
 import info.nightscout.client.data.NSProfile;
 import info.nightscout.utils.DecimalFormatter;
+import info.nightscout.utils.ToastUtils;
 
 public class TreatmentsFragment extends Fragment implements View.OnClickListener, FragmentBase {
     private static Logger log = LoggerFactory.getLogger(TreatmentsFragment.class);
@@ -80,6 +83,7 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
             Iob iob = treatments.get(position).iobCalc(new Date(), profile.getDia());
             holder.iob.setText(DecimalFormatter.to2Decimal(iob.iobContrib) + " U");
             holder.activity.setText(DecimalFormatter.to3Decimal(iob.activityContrib) + " U");
+            holder.mealOrCorrection.setText(treatments.get(position).mealBolus ? MainApp.sResources.getString(R.string.mealbolus) : MainApp.sResources.getString(R.string.correctionbous));
             if (iob.iobContrib != 0)
                 holder.dateLinearLayout.setBackgroundColor(MainApp.instance().getResources().getColor(R.color.colorAffectingIOB));
             else
@@ -103,6 +107,7 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
             TextView carbs;
             TextView iob;
             TextView activity;
+            TextView mealOrCorrection;
             LinearLayout dateLinearLayout;
 
             TreatmentsViewHolder(View itemView) {
@@ -113,6 +118,7 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
                 carbs = (TextView) itemView.findViewById(R.id.treatments_carbs);
                 iob = (TextView) itemView.findViewById(R.id.treatments_iob);
                 activity = (TextView) itemView.findViewById(R.id.treatments_activity);
+                mealOrCorrection = (TextView) itemView.findViewById(R.id.treatments_mealorcorrection);
                 dateLinearLayout = (LinearLayout) itemView.findViewById(R.id.treatments_datelinearlayout);
             }
         }
@@ -145,21 +151,26 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.treatments_reshreshfromnightscout:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
-                builder.setTitle(this.getContext().getString(R.string.confirmation));
-                builder.setMessage(this.getContext().getString(R.string.refreshfromnightscout));
-                builder.setPositiveButton(this.getContext().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        MainApp.getDbHelper().resetTreatments();
-                        treatmentsPlugin.initializeData();
-                        updateGUI();
-                        Intent restartNSClient = new Intent(Intents.ACTION_RESTART);
-                        MainApp.instance().getApplicationContext().sendBroadcast(restartNSClient);
-                    }
-                });
-                builder.setNegativeButton(this.getContext().getString(R.string.cancel), null);
-                builder.show();
-
+                SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean nsUploadOnly = SP.getBoolean("ns_upload_only", false);
+                if(nsUploadOnly){
+                    ToastUtils.showToastInUiThread(getContext(),this.getContext().getString(R.string.ns_upload_only_enabled));
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
+                    builder.setTitle(this.getContext().getString(R.string.confirmation));
+                    builder.setMessage(this.getContext().getString(R.string.refreshfromnightscout));
+                    builder.setPositiveButton(this.getContext().getString(R.string.ok), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            MainApp.getDbHelper().resetTreatments();
+                            treatmentsPlugin.initializeData();
+                            updateGUI();
+                            Intent restartNSClient = new Intent(Intents.ACTION_RESTART);
+                            MainApp.instance().getApplicationContext().sendBroadcast(restartNSClient);
+                        }
+                    });
+                    builder.setNegativeButton(this.getContext().getString(R.string.cancel), null);
+                    builder.show();
+                }
                 break;
         }
     }
@@ -184,6 +195,9 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
 
     public void updateGUI() {
         Activity activity = getActivity();
+        NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
+        if (profile == null)
+            return;
         if (activity != null && recyclerView != null)
             activity.runOnUiThread(new Runnable() {
                 @Override

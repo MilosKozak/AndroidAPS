@@ -1,12 +1,18 @@
 package info.nightscout.androidaps;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -20,6 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import info.nightscout.androidaps.events.EventAppExit;
+import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.plugins.DanaR.Services.ExecutionService;
@@ -34,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static KeepAliveReceiver keepAliveReceiver;
 
+    static final int CASE_STORAGE = 0x1;
+    static final int CASE_SMS = 0x2;
+
+    private boolean askForSMS = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         LocaleHelper.onCreate(this, "en");
         setContentView(R.layout.activity_main);
         checkEula();
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
+            askForPermission(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE}, CASE_STORAGE);
+        }
         if (Config.logFunctionCalls)
             log.debug("onCreate");
 
@@ -76,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         LocaleHelper.setLocale(getApplicationContext(), lang);
         recreate();
         try { // activity may be destroyed
-            setUpTabs(true);
+            setUpTabs(ev.isSwitchToLast());
         } catch (IllegalStateException e) {
             e.printStackTrace();
         }
@@ -110,7 +126,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.nav_resetdb:
-                MainApp.getDbHelper().resetDatabases();
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.nav_resetdb)
+                        .setMessage(R.string.reset_db_confirm)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override public void onClick(DialogInterface dialog, int which) {
+                                MainApp.getDbHelper().resetDatabases();
+                            }
+                        })
+                        .create()
+                        .show();
                 break;
             case R.id.nav_export:
                 ImportExportPrefs.verifyStoragePermissions(this);
@@ -150,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     private void registerBus() {
         try {
             MainApp.bus().unregister(this);
@@ -169,4 +194,70 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //check for sms permission if enable in prefernces
+    @Subscribe
+    public void onStatusEvent(final EventPreferenceChange ev) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
+            SharedPreferences smssettings = PreferenceManager.getDefaultSharedPreferences(this);
+            synchronized (this){
+                if (smssettings.getBoolean("smscommunicator_remotecommandsallowed", false)) {
+                    setAskForSMS();
+                }
+            }
+        }
+    }
+
+    private synchronized void setAskForSMS() {
+        askForSMS = true;
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        askForSMSPermissions();
+    }
+
+    private synchronized void askForSMSPermissions(){
+        if (askForSMS) { //only when settings were changed an MainActivity resumes.
+            askForSMS = false;
+            SharedPreferences smssettings = PreferenceManager.getDefaultSharedPreferences(this);
+            if (smssettings.getBoolean("smscommunicator_remotecommandsallowed", false)) {
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
+                    askForPermission(new String[]{Manifest.permission.RECEIVE_SMS,
+                            Manifest.permission.SEND_SMS,
+                            Manifest.permission.RECEIVE_MMS}, CASE_SMS);
+                }
+            }
+        }
+    }
+
+    private void askForPermission(String[] permission, Integer requestCode) {
+        boolean test = false;
+        for (int i=0; i < permission.length; i++) {
+            test = test || (ContextCompat.checkSelfPermission(this, permission[i]) != PackageManager.PERMISSION_GRANTED);
+        }
+        if (test) {
+            ActivityCompat.requestPermissions(this, permission, requestCode);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (permissions.length != 0) {
+            if (ActivityCompat.checkSelfPermission(this, permissions[0]) == PackageManager.PERMISSION_GRANTED) {
+                switch (requestCode) {
+                    case CASE_STORAGE:
+                        //show dialog after permission is granted
+                        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                        alert.setMessage(R.string.alert_dialog_storage_permission_text);
+                        alert.setPositiveButton(R.string.ok, null);
+                        alert.show();
+                        break;
+                    case CASE_SMS:
+                        break;
+                }
+            }
+        }
+    }
 }

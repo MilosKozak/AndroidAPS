@@ -40,7 +40,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public static final String DATABASE_TREATMENTS = "Treatments";
     public static final String DATABASE_DANARHISTORY = "DanaRHistory";
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -159,6 +159,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             QueryBuilder<BgReading, Long> queryBuilder = daoBgReadings.queryBuilder();
             queryBuilder.orderBy("timeIndex", false);
             queryBuilder.limit(1L);
+            queryBuilder.where().gt("value", 38);
             PreparedQuery<BgReading> preparedQuery = queryBuilder.prepare();
             bgList = daoBgReadings.query(preparedQuery);
 
@@ -196,6 +197,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             queryBuilder.orderBy("timeIndex", true);
             Where where = queryBuilder.where();
             where.ge("timeIndex", mills);
+            queryBuilder.where().gt("value", 38);
             PreparedQuery<BgReading> preparedQuery = queryBuilder.prepare();
             bgReadings = daoBgreadings.query(preparedQuery);
             return bgReadings;
@@ -281,6 +283,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             List<BgReading> bgReadings;
             QueryBuilder<BgReading, Long> queryBuilder = daoBgreadings.queryBuilder();
             queryBuilder.orderBy("timeIndex", false);
+            queryBuilder.where().gt("value", 38);
             queryBuilder.limit(4l);
             PreparedQuery<BgReading> preparedQuery = queryBuilder.prepare();
             bgReadings = daoBgreadings.query(preparedQuery);
@@ -291,7 +294,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 return null;
             }
 
-            int minutes = 5;
+            double minutes = 5;
             double change;
             double avg;
 
@@ -300,14 +303,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 BgReading last = bgReadings.get(sizeRecords - 3);
                 BgReading last1 = bgReadings.get(sizeRecords - 2);
                 BgReading last2 = bgReadings.get(sizeRecords - 1);
-                if (last2.value > 30) {
-                    minutes = 3 * 5;
+                if (last2.value > 38) {
+                    minutes = (now.timeIndex - last2.timeIndex)/(60d*1000);
                     change = now.value - last2.value;
-                } else if (last1.value > 30) {
-                    minutes = 2 * 5;
+                } else if (last1.value > 38) {
+                    minutes = (now.timeIndex - last1.timeIndex)/(60d*1000);;
                     change = now.value - last1.value;
-                } else if (last.value > 30) {
-                    minutes = 5;
+                } else if (last.value > 38) {
+                    minutes = (now.timeIndex - last.timeIndex)/(60d*1000);
                     change = now.value - last.value;
                 } else {
                     change = 0;
@@ -316,7 +319,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 avg = change / minutes * 5;
 
                 result.glucose = now.value;
-                result.delta = now.value - last.value;
+                result.delta = (now.value - last.value)*5*60*1000/(now.getTimeIndex() - last.getTimeIndex());
                 result.avgdelta = avg;
             }
         } catch (SQLException e) {

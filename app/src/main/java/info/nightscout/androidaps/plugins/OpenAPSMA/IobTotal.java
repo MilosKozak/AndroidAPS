@@ -42,8 +42,8 @@ public class IobTotal {
 
     public static IobTotal combine(IobTotal bolusIOB, IobTotal basalIob) {
         IobTotal result = new IobTotal();
-        result.iob = bolusIOB.iob;
-        result.activity = bolusIOB.activity;
+        result.iob = bolusIOB.iob + basalIob.basaliob;
+        result.activity = bolusIOB.activity + basalIob.activity;
         result.bolussnooze = bolusIOB.bolussnooze;
         result.basaliob = basalIob.basaliob;
         result.netbasalinsulin = basalIob.netbasalinsulin;
@@ -64,7 +64,7 @@ public class IobTotal {
     public JSONObject json() {
         JSONObject json = new JSONObject();
         try {
-            json.put("iob", iob + basaliob);
+            json.put("iob", iob);
             json.put("basaliob", basaliob);
             json.put("activity", activity);
             json.put("time", DateUtil.toISOString(new Date()));

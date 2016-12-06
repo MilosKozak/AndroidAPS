@@ -8,7 +8,7 @@
     <string name="basal">Базал</string>
     <string name="objectives_bgavailableinns">КЗ достъпна в NS</string>
     <string name="bolus">Болус</string>
-    <string name="bolusconstraintapplied">Приложено ограничение на болус</string>
+    <string name="bolusconstraintapplied">Приложено ограничение за болус</string>
     <string name="cancel">Откажи</string>
     <string name="carbs">Въглехидрати</string>
     <string name="carbsconstraintapplied">Приложено ограничениe за въгл.</string>
@@ -72,10 +72,7 @@
     <string name="loop_constraintsprocessed_label">След приложени ограничения</string>
     <string name="loop_setbypump_label">Зададено на помпата</string>
     <string name="loopdisabled">Loop отказан от ограниченията</string>
-    <string name="lowsuspend">Low Suspend</string>
-    <string name="lowsuspend_low_title">Граница за ниска КЗ</string>
     <string name="objectives_manualenacts">Manual enacts</string>
-    <string name="lowsuspend_lowprojected">Low projected</string>
     <string name="objectives_minimalduration">Минимална продължителност</string>
     <string name="nav_backup">Архивиране</string>
     <string name="nav_exit">Изход</string>
@@ -173,10 +170,6 @@
     <string name="overview_tempbasal_button">Временен базал</string>
     <string name="nsprofileview_isf_label">ISF (Инс.чувствителност):</string>
     <string name="nsclientnotinstalled">NSClient не е инсталиран. Записът е загубен!</string>
-    <string name="lowsuspend_lowprojectedmessage">Прогнозирана ниска КЗ: Временен базал 0%</string>
-    <string name="lowsuspend_lowmessage">Опасно ниска КЗ: Временен базал 0%</string>
-    <string name="lowsuspend_cancelmessage">LowSuspend: Cancel low temp</string>
-    <string name="lowsuspend_low">Low Suspend</string>
     <string name="careportal_newnstreatment_eventtype">Тип събитие</string>
     <string name="careportal_newnstreatment_glucosetype">КЗ тип</string>
     <string name="openapsma">OpenAPS MA</string>
@@ -194,7 +187,7 @@
     <string name="export_to">Експортирай настройки до</string>
     <string name="nav_export">Експорт настройки</string>
     <string name="nav_import">Импорт настройки</string>
-    <string name="de_lang">Deutsch</string>
+    <string name="de_lang">German</string>
     <string name="openapsma_high_summary">Макс. стойност, която е в границите</string>
     <string name="openapsma_low_summary">Мин. стойност, която е в границите</string>
     <string name="openapsma_maxbasal_summary">Макс. лимит на временен базал [Е/ч] </string>
@@ -247,7 +240,7 @@
     <string name="careportal_temporarytargetcancel">Отакажи временна цел</string>
     <string name="comment">Коментар</string>
     <string name="absolute">Абсолютна</string>
-    <string name="overview_bolusiprogress_occlusion">Запушване</string>
+    <string name="occlusion">Запушване</string>
     <string name="overview_bolusprogress_delivered">Доставено</string>
     <string name="overview_bolusprogress_goingtodeliver" formatted="false">Подаване на %.2fU Е инсулин</string>
     <string name="overview_bolusprogress_stop">Стоп</string>
@@ -301,7 +294,61 @@
     <string name="objectives_5_gate">Една седмица успешно дневно използване с редовно въвеждане на въглехидрати</string>
     <string name="objectives_5_objective">Настройване на базалния инсулин и коефициенти ако е необходимо и активиране на auto-sens</string>
     <string name="uploading">Uploading</string>
-    <string name="bolusdelivering">Подава  %.2fU</string>
-    <string name="es_lang">Español</string>
+    <string name="bolusdelivering" formatted="false">Подава  %.2fU</string>
+    <string name="es_lang">Spanish</string>
     <string name="noprofileselected">Не е избран профил</string>
+    <string name="ko_lang">Korean</string>
+    <string name="openapsma_valueoutofrange" formatted="false">%s е недопустима стойност</string>
+    <string name="overview_editquickwizard_buttontext">Текст на бутон:</string>
+    <string name="correctionbous">Корекция</string>
+    <string name="disabledloop">Loop забранен</string>
+    <string name="overview_editquickwizard_carbs">Въглехидрати:</string>
+    <string name="overview_editquickwizard_valid">Валидно:</string>
+    <string name="overview_editquickwizardlistactivity_add">Добави</string>
+    <string name="overview_quickwizard_item_edit_button">Редактирай</string>
+    <string name="overview_quickwizard_item_remove_button">Премахни</string>
+    <string name="quickwizard">Бърз болус</string>
+    <string name="quickwizardsettings">Настройки за бърз болус</string>
+    <string name="remotebasalnotallowed">Не са позволени отдалечени настройки</string>
+    <string name="smscommunicator_basalreplywithcode" formatted="false">To start basal %.2fU/h reply with code %s</string>
+    <string name="smscommunicator_basalstopreplywithcode" formatted="false">To stop temp basal reply with code %s</string>
+    <string name="smscommunicator_loophasbeendisabled">Loop has been disabled</string>
+    <string name="smscommunicator_loophasbeenenabled">Loop has been enabled</string>
+    <string name="smscommunicator_loopisdisabled">Loop is disabled</string>
+    <string name="smscommunicator_loopisenabled">Loop is enabled</string>
+    <string name="smscommunicator_remotecommandsallowed">Позволи команди през SMS</string>
+    <string name="smscommunicator_tempbasalcanceled">Temp basal canceled</string>
+    <string name="smscommunicator_tempbasalcancelfailed">Canceling temp basal failed</string>
+    <string name="smscommunicator_tempbasalfailed">Temp basal start failed</string>
+    <string name="smscommunicator_tempbasalset" formatted="false">Temp basal %.2fU/h for %d min started successfully</string>
+    <string name="smscommunicator_unknowncommand">Uknonwn command or wrong reply</string>
+    <string name="mealbolus">Болус за хранене</string>
+    <string name="actions">Действия</string>
+    <string name="androidaps_start">Стартиран AndroidAPS</string>
+    <string name="base_profile_label">Базов профил</string>
+    <string name="button1">Бутон 1</string>
+    <string name="button2">Бутон 2</string>
+    <string name="button3">Бутон 3</string>
+    <string name="circadian_percentage_profile">Процентен профил</string>
+    <string name="send_to_pump">Изпрати към помпата</string>
+    <string name="edit_base_basal">Редактирай базални стойности</string>
+    <string name="dia">"DIA "</string>
+    <string name="edit_base_ic">Редактирай Инс./ВХ</string>
+    <string name="edit_base_isf">Редактирай Инс. чувствителност</string>
+    <string name="fillbolus_title">Fill/Prime стандарта стойност</string>
+    <string name="fillwarning">Моля, уверете се, че стойността съответсва на вашият сет! Този инсулин не се включва в IOB!</string>
+    <string name="mgdl">mg/dl</string>
+    <string name="mmol">mmol/l</string>
+    <string name="othersettings_title">Друго:</string>
+    <string name="percentagefactor_hint">% с който базовият профил ще бъде променен.</string>
+    <string name="primefill">Prime/Fill</string>
+    <string name="pumpNotInitialized">Помпата не е инициализирана!</string>
+    <string name="reset_db_confirm">Наистина ли искате да нулиратe базата данни?</string>
+    <string name="target_range">Целеви диапазон:</string>
+    <string name="timeshift_hint">Брой часове, с които ще бъде преместен профила!</string>
+    <string name="units">Мерни единици:</string>
+    <string name="ns_upload_only">NS upload only (изключва синхронизацията)</string>
+    <string name="ns_upload_only_enabled">Моля изключете "NS upload only" за да използвате това.</string>
+    <string name="ns_upload_only_summary">NS upload only. Not effective on SGV unless a local source like xDrip is selected. Not effective on Profiles while NS-Profiles is used.</string>
+    <string name="absorption_rate">Усвояване на ВХ (ч):</string>
 </resources>

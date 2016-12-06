@@ -29,7 +29,7 @@ public class NSProfile {
         this.activeProfile = activeProfile;
     }
 
-    JSONObject getDefaultProfile() {
+    public JSONObject getDefaultProfile() {
         String defaultProfileName = null;
         JSONObject store;
         JSONObject profile = null;
@@ -137,18 +137,18 @@ public class NSProfile {
         if (profile != null) {
             try {
                 units = profile.getString("units");
-                return units;
+                return units.toLowerCase();
             } catch (JSONException e) {
                 log.error("Profile not found. Failing over to main JSON");
                 try {
-                    json.getString("units");
+                    return json.getString("units").toLowerCase();
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                     Crashlytics.log("Profile failover failed too");
                 }
             }
         }
-        return "mg/dl";
+        return Constants.MGDL;
     }
 
     public TimeZone getTimeZone() {
@@ -347,6 +347,19 @@ public class NSProfile {
 
     public String getActiveProfile() {
         return activeProfile;
+    }
+
+    public void setActiveProfile(String newProfile) {
+        try {
+            JSONObject store = json.getJSONObject("store");
+            if (newProfile != null && store.has(newProfile)) {
+                activeProfile = newProfile;
+            } else {
+                log.error("Attempt to set wrong active profile");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public Double getMaxDailyBasal() {

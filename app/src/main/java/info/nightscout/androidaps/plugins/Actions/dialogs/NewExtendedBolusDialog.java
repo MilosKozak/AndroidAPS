@@ -1,4 +1,4 @@
-package info.nightscout.androidaps.plugins.Overview.Dialogs;
+package info.nightscout.androidaps.plugins.Actions.dialogs;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -67,6 +67,13 @@ public class NewExtendedBolusDialog extends DialogFragment implements View.OnCli
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if (getDialog() != null)
+            getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.overview_newextendedbolus_okbutton:
@@ -92,7 +99,7 @@ public class NewExtendedBolusDialog extends DialogFragment implements View.OnCli
 
                     final Context context = getContext();
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle(this.getContext().getString(R.string.confirmation));
+                    builder.setTitle(context.getString(R.string.confirmation));
                     builder.setMessage(confirmMessage);
                     builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -103,9 +110,9 @@ public class NewExtendedBolusDialog extends DialogFragment implements View.OnCli
                                     PumpEnactResult result = pump.setExtendedBolus(finalInsulin, finalDurationInMinutes);
                                     if (!result.success) {
                                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                                        builder.setTitle(getContext().getString(R.string.treatmentdeliveryerror));
+                                        builder.setTitle(context.getString(R.string.treatmentdeliveryerror));
                                         builder.setMessage(result.comment);
-                                        builder.setPositiveButton(getContext().getString(R.string.ok), null);
+                                        builder.setPositiveButton(context.getString(R.string.ok), null);
                                         builder.show();
                                     }
                                 }

@@ -97,6 +97,7 @@ public class TempBasal {
 
                     Iob aIOB = tempBolusPart.iobCalc(time, profile.getDia());
                     result.basaliob += aIOB.iobContrib;
+                    result.activity += aIOB.activityContrib;
                     Double dia_ago = time.getTime() - profile.getDia() * 60 * 60 * 1000;
                     if (date > dia_ago && date <= time.getTime()) {
                         result.netbasalinsulin += tempBolusPart.insulin;
@@ -200,6 +201,27 @@ public class TempBasal {
             return percent + "% @" +
                     formatDateToJustTime.format(timeStart) +
                     " " + getRealDuration() + "/" + duration + "min";
+        }
+    }
+
+    public String toStringShort() {
+        String extended = isExtended ? "E" : "";
+
+        if (isAbsolute) {
+            return extended + DecimalFormatter.to2Decimal(absolute) + "U/h ";
+        } else { // percent
+            return percent + "% ";
+        }
+    }
+
+    public String toStringMedium() {
+        String extended = isExtended ? "E" : "";
+
+        if (isAbsolute) {
+            return extended + DecimalFormatter.to2Decimal(absolute) + "U/h ("
+                    + getRealDuration() + "/" + duration + ") ";
+        } else { // percent
+            return percent + "% (" + getRealDuration() + "/" + duration + ") ";
         }
     }
 

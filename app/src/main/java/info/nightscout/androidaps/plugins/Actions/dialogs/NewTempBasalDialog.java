@@ -1,4 +1,4 @@
-package info.nightscout.androidaps.plugins.Overview.Dialogs;
+package info.nightscout.androidaps.plugins.Actions.dialogs;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -92,6 +92,13 @@ public class NewTempBasalDialog extends DialogFragment implements View.OnClickLi
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if (getDialog() != null)
+            getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.overview_newtempbasal_okbutton:
@@ -144,9 +151,9 @@ public class NewTempBasalDialog extends DialogFragment implements View.OnClickLi
                                     }
                                     if (!result.success) {
                                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                                        builder.setTitle(getContext().getString(R.string.treatmentdeliveryerror));
+                                        builder.setTitle(MainApp.sResources.getString(R.string.treatmentdeliveryerror));
                                         builder.setMessage(result.comment);
-                                        builder.setPositiveButton(getContext().getString(R.string.ok), null);
+                                        builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
                                         builder.show();
                                     }
                                 }

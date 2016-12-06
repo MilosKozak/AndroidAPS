@@ -16,7 +16,9 @@ import java.util.ArrayList;
 
 import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.interfaces.PluginBase;
+import info.nightscout.androidaps.plugins.Actions.ActionsFragment;
 import info.nightscout.androidaps.plugins.Careportal.CareportalFragment;
+import info.nightscout.androidaps.plugins.CircadianPercentageProfile.CircadianPercentageProfileFragment;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.DanaR.DanaRFragment;
@@ -34,6 +36,7 @@ import info.nightscout.androidaps.plugins.SourceXdrip.SourceXdripFragment;
 import info.nightscout.androidaps.plugins.TempBasals.TempBasalsFragment;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsFragment;
 import info.nightscout.androidaps.plugins.VirtualPump.VirtualPumpFragment;
+import info.nightscout.androidaps.plugins.Wear.WearFragment;
 import io.fabric.sdk.android.Fabric;
 
 
@@ -53,6 +56,9 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
+        Crashlytics.setString("BUILDVERSION", BuildConfig.BUILDVERSION);
+        log.info("Version: " + BuildConfig.VERSION_NAME);
+        log.info("BuildVersion: " + BuildConfig.BUILDVERSION);
 
         sBus = new Bus(ThreadEnforcer.ANY);
         sInstance = this;
@@ -62,6 +68,7 @@ public class MainApp extends Application {
             pluginsList = new ArrayList<>();
             // Register all tabs in app here
             pluginsList.add(OverviewFragment.getPlugin());
+            pluginsList.add(ActionsFragment.getPlugin());
             if (Config.DANAR) pluginsList.add(DanaRFragment.getPlugin());
             if (Config.MM640G) pluginsList.add(MM640gFragment.getPlugin());
             if (Config.CAREPORTALENABLED) pluginsList.add(CareportalFragment.getPlugin());
@@ -70,6 +77,7 @@ public class MainApp extends Application {
             if (Config.OPENAPSMAENABLED) pluginsList.add(OpenAPSMAFragment.getPlugin());
             pluginsList.add(NSProfileViewerFragment.getPlugin());
             pluginsList.add(SimpleProfileFragment.getPlugin());
+            pluginsList.add(CircadianPercentageProfileFragment.getPlugin());
             pluginsList.add(TreatmentsFragment.getPlugin());
             pluginsList.add(TempBasalsFragment.getPlugin());
             pluginsList.add(SafetyFragment.getPlugin());
@@ -78,10 +86,14 @@ public class MainApp extends Application {
             pluginsList.add(SourceNSClientFragment.getPlugin());
             if (Config.SMSCOMMUNICATORENABLED)
                 pluginsList.add(SmsCommunicatorFragment.getPlugin());
+
+            if (Config.WEAR) pluginsList.add(WearFragment.getPlugin(this));
+
             pluginsList.add(sConfigBuilder = ConfigBuilderFragment.getPlugin());
 
             MainApp.getConfigBuilder().initialize();
         }
+        MainApp.getConfigBuilder().uploadAppStart();
     }
 
     public static Bus bus() {

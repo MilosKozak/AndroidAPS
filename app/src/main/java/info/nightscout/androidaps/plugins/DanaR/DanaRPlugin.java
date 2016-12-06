@@ -20,6 +20,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
@@ -147,6 +148,11 @@ public class DanaRPlugin implements PluginBase, PumpInterface, ConstraintsInterf
     public void setFragmentVisible(int type, boolean fragmentVisible) {
         if (type == PluginBase.PUMP)
             this.fragmentPumpVisible = fragmentVisible;
+    }
+
+    @Override
+    public boolean isInitialized() {
+        return getDanaRPump().lastConnection.getTime() > 0;
     }
 
     // Pump interface
@@ -592,19 +598,20 @@ public class DanaRPlugin implements PluginBase, PumpInterface, ConstraintsInterf
             battery.put("percent", getDanaRPump().batteryRemaining);
             status.put("status", "normal");
             status.put("timestamp", DateUtil.toISOString(getDanaRPump().lastConnection));
+            extended.put("Version", BuildConfig.VERSION_NAME + "-" + BuildConfig.BUILDVERSION);
+            extended.put("PumpIOB", getDanaRPump().iob);
+            extended.put("LastBolus", getDanaRPump().lastBolusTime.toLocaleString());
+            extended.put("LastBolusAmount", getDanaRPump().lastBolusAmount);
             if (isTempBasalInProgress()) {
                 extended.put("TempBasalAbsoluteRate", getTempBasalAbsoluteRate());
                 extended.put("TempBasalStart", getTempBasal().timeStart.toLocaleString());
                 extended.put("TempBasalRemaining", getTempBasal().getPlannedRemainingMinutes());
                 extended.put("IsExtended", getTempBasal().isExtended);
-                extended.put("BaseBasalRate", getBaseBasalRate());
-                try {
-                    extended.put("ActiveProfile", MainApp.getConfigBuilder().getActiveProfile().getProfile().getActiveProfile());
-                } catch (Exception e) {}
             }
-            extended.put("PumpIOB", getDanaRPump().iob);
-            extended.put("LastBolus", getDanaRPump().lastBolusTime.toLocaleString());
-            extended.put("LastBolusAmount", getDanaRPump().lastBolusAmount);
+            extended.put("BaseBasalRate", getBaseBasalRate());
+            try {
+                extended.put("ActiveProfile", MainApp.getConfigBuilder().getActiveProfile().getProfile().getActiveProfile());
+            } catch (Exception e) {}
 
             pump.put("battery", battery);
             pump.put("status", status);
@@ -706,7 +713,6 @@ public class DanaRPlugin implements PluginBase, PumpInterface, ConstraintsInterf
 
     // Reply for sms communicator
     public String shortStatus() {
-        final DateFormat formatTime = DateFormat.getTimeInstance(DateFormat.SHORT);
         String ret = "";
         if (getDanaRPump().lastConnection.getTime() != 0) {
             Long agoMsec = new Date().getTime() - getDanaRPump().lastConnection.getTime();
@@ -714,7 +720,7 @@ public class DanaRPlugin implements PluginBase, PumpInterface, ConstraintsInterf
             ret += "LastConn: " + agoMin + " minago\n";
         }
         if (getDanaRPump().lastBolusTime.getTime() != 0) {
-            ret += "LastBolus: " + DecimalFormatter.to2Decimal(getDanaRPump().lastBolusAmount) + "U @" + formatTime.format(getDanaRPump().lastBolusTime) + "\n";
+            ret += "LastBolus: " + DecimalFormatter.to2Decimal(getDanaRPump().lastBolusAmount) + "U @" + android.text.format.DateFormat.format("HH:mm", getDanaRPump().lastBolusTime) + "\n";
         }
         if (isRealTempBasalInProgress()) {
             ret += "Temp: " + getRealTempBasal().toString() + "\n";

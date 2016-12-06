@@ -40,7 +40,7 @@ public class BolusProgressDialog extends DialogFragment implements View.OnClickL
         super();
     }
 
-    public BolusProgressDialog(double amount) {
+    public void setInsulin(double amount) {
         this.amount = amount;
         bolusEnded = false;
     }
@@ -54,17 +54,18 @@ public class BolusProgressDialog extends DialogFragment implements View.OnClickL
         statusView = (TextView) view.findViewById(R.id.overview_bolusprogress_status);
         stopPressedView = (TextView) view.findViewById(R.id.overview_bolusprogress_stoppressed);
         progressBar = (ProgressBar) view.findViewById(R.id.overview_bolusprogress_progressbar);
-
         stopButton.setOnClickListener(this);
         progressBar.setMax(100);
         statusView.setText(MainApp.sResources.getString(R.string.waitingforpump));
-
+        setCancelable(false);
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        if (getDialog() != null)
+            getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         MainApp.bus().register(this);
         running = true;
         if (bolusEnded) dismiss();
