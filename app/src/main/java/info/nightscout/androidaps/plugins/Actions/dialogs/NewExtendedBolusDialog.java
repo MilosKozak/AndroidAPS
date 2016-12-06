@@ -27,6 +27,8 @@ import info.nightscout.utils.SafeParse;
 public class NewExtendedBolusDialog extends DialogFragment implements View.OnClickListener {
 
     Button okButton;
+	PlusMinusEditText editCarbs;
+	EditText carbsInput;
     EditText insulinEdit;
     RadioButton h05Radio;
     RadioButton h10Radio;
@@ -51,6 +53,7 @@ public class NewExtendedBolusDialog extends DialogFragment implements View.OnCli
         getDialog().setTitle(getString(R.string.overview_extendedbolus_button));
 
         View view = inflater.inflate(R.layout.overview_newextendedbolus_dialog, container, false);
+		carbsInput = (EditText) view.findViewById(R.id.overview_newextendedbolus_carbsamount);
         okButton = (Button) view.findViewById(R.id.overview_newextendedbolus_okbutton);
         insulinEdit = (EditText) view.findViewById(R.id.overview_newextendedbolus_insulin);
         h05Radio = (RadioButton) view.findViewById(R.id.overview_newextendedbolus_05h);
@@ -59,7 +62,9 @@ public class NewExtendedBolusDialog extends DialogFragment implements View.OnCli
         h30Radio = (RadioButton) view.findViewById(R.id.overview_newextendedbolus_3h);
         h40Radio = (RadioButton) view.findViewById(R.id.overview_newextendedbolus_4h);
 
+		Integer maxCarbs = MainApp.getConfigBuilder().applyCarbsConstraints(Constants.carbsOnlyForCheckLimit);
         Double maxInsulin = MainApp.getConfigBuilder().applyBolusConstraints(Constants.bolusOnlyForCheckLimit);
+		editCarbs = new PlusMinusEditText(view, R.id.overview_newextendedbolus_carbsamount, R.id.overview_newextendedbolus_carbsamount_plus, R.id.overview_newextendedbolus_carbsamount_minus, 0d, 0d, (double) maxCarbs, 1d, new DecimalFormat("0"), false);
         editInsulin = new PlusMinusEditText(view, R.id.overview_newextendedbolus_insulin, R.id.overview_newextendedbolus_insulin_plus, R.id.overview_newextendedbolus_insulin_minus, 0d, 0d, maxInsulin, 0.1d, new DecimalFormat("0.00"), false);
 
         okButton.setOnClickListener(this);
@@ -78,6 +83,7 @@ public class NewExtendedBolusDialog extends DialogFragment implements View.OnCli
         switch (view.getId()) {
             case R.id.overview_newextendedbolus_okbutton:
                 try {
+					Integer carbs = SafeParse.stringToInt(carbsInput.getText().toString());
                     Double insulin = SafeParse.stringToDouble(insulinEdit.getText().toString());
                     int durationInMinutes = 30;
                     if (h10Radio.isChecked()) durationInMinutes = 60;
@@ -88,6 +94,7 @@ public class NewExtendedBolusDialog extends DialogFragment implements View.OnCli
                     String confirmMessage = getString(R.string.setextendedbolusquestion);
 
                     Double insulinAfterConstraint = MainApp.getConfigBuilder().applyBolusConstraints(insulin);
+					confirmMessage += " Carbs " + carbs + " g  ";
                     confirmMessage += " " + insulinAfterConstraint + " U  ";
                     confirmMessage += getString(R.string.duration) + " " + durationInMinutes + "min ?";
                     if (insulinAfterConstraint - insulin != 0d)
