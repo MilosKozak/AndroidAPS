@@ -1,26 +1,42 @@
+branches:
+  only:
+    - master
+
 language: android
-jdk:
-    - oraclejdk8
+sudo: false
+env:
+  matrix:
+    - ANDROID_TARGET=android-22  ANDROID_ABI=default/armeabi-v7a
+
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - platform-tools
-    # - tools
-
-    # The BuildTools version used by your project
-    - tools
-    - build-tools-23.0.3
-
-    # The SDK version used to compile your project
+    - build-tools-23.0.1
     - android-23
-
-    # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
+    - android-22
+    - sys-img-armeabi-v7a-$ANDROID_TARGET
+    - extra-android-support
     - extra-android-m2repository
-    - addon-google_apis-google-23
 
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-23
+before_script:
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+  - adb logcat -v time > logcat.txt &
+
+script:
+  - ./gradlew build testDebug connectedCheck --continue --info
+
+after_script:
+  - travis_fold:start:logcat
+  - cat logcat.txt
+  - travis_fold:end:logcat
+
+after_success:
+  - ./gradlew jacocoTestReport coveralls
+  - ./scripts/publish_snapshot.sh
+
+cache:
+  directories:
+    - $HOME/.gradle
+    - $HOME/.m2/repository
