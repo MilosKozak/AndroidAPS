@@ -1,66 +1,49 @@
-# 어떤 언어를 사용할 지 정의 합니다.
 language: android
 jdk: oraclejdk8
+# Use the Travis Container-Based Infrastructure
+sudo: false
 
-android:
-  components:
-    - build-tools-23.0.1
-    - android-23
-    - android-22
-    - add-on
-    - extra
-    - extra-android-m2repository
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    - sys-img-armeabi-v7a-addon-google_apis-google-21
-before_install:
-  - export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
-  - export JAVA8_HOME=/usr/lib/jvm/java-8-oracle
-  - export JAVA_HOME=$JAVA8_HOME
-
-  # NDK 관련 Install & 환경변수 설정
-##  - git clone https://github.com/urho3d/android-ndk.git $HOME/android-ndk-root
-##  - export ANDROID_NDK_HOME=$HOME/android-ndk-root
-##  - echo "ndk.dir=$ANDROID_NDK_HOME" > local.properties
-
-
-before_script:
-  # UI Test를 위해서 Launch Eumlator
-  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
-  - emulator -avd test -no-skin -no-audio -no-window -gpu off &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
-
-
-##deploy:
-##  api_key: $GITHUB_TOKEN
-##  file: app/build/outputs/apk/app-release.apk
-##  provider: releases
-##  skip_cleanup: true
-
-##  on:
-##    repo: [REPOSITORY NAME]
-##    tags: true
+cache:
+  directories:
+    - ${TRAVIS_BUILD_DIR}/gradle/caches/
+    - ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
 
 env:
   global:
-##    - NDK_VERSION=r11c
-##  matrix:
-    - ANDROID_TARGET=android-23
-    - ANDROID_ABI=google_apis/armeabi-v7a
-##    - GITHUB_TOKEN=[GITHUB API KEY]
+    - ANDROID_API_LEVEL=23
+    - EMULATOR_API_LEVEL=21
+    - ANDROID_BUILD_TOOLS_VERSION=23.0.2
+    - ANDROID_ABI=armeabi-v7a
+    - ANDROID_TAG=google_apis
+    - ADB_INSTALL_TIMEOUT=20 # minutes (2 minutes by default)
 
-# 빌드에 사용할 스크립트입니다.
-##script:
-##    - ./build.sh
+android:
+  components:
+    - tools # to get the new `repository-11.xml`
+    - platform-tools
+    - tools # to install Android SDK tools 25.1.x
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+    - android-$EMULATOR_API_LEVEL
+    # For Google APIs
+    - addon-google_apis-google-$ANDROID_API_LEVEL
+    - addon-google_apis-google-$EMULATOR_API_LEVEL
+    # Google Play Services
+    - extra-google-google_play_services
+    # Support library
+    - extra-android-support
+    # Latest artifacts in local repository
+    - extra-google-m2repository
+    - extra-android-m2repository
+    # Specify at least one system image
+    - sys-img-armeabi-v7a-google_apis-$ANDROID_API_LEVEL
+    - sys-img-armeabi-v7a-google_apis-$EMULATOR_API_LEVEL
 
-after_success:
-    # Branch Merge & Push
-    # 아래 예제 스크립트는 test, build가 성공적으로 되었을때 특정브랜치에
-    # merge 후 push하는 예제입니다.
-    # travis_relese Branch Merge & Push
-##    - ./deploy.sh "$TRAVIS_BRANCH"
+before_script:
+  # Create and start emulator
+  - echo no | android create avd --force -n test -t "android-"$EMULATOR_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
 
-sudo: false
-
+script:
+  - ./gradlew clean check connectedCheck -x library:signArchives -PdisablePreDex
