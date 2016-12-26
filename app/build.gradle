@@ -42,7 +42,7 @@ android {
     defaultConfig {
         applicationId "info.nightscout.androidaps"
         minSdkVersion 21
-        targetSdkVersion 25
+        targetSdkVersion 23
         versionCode 1020
         versionName "1.0.20"
         buildConfigField "String", "BUILDVERSION", generateGitBuild()
