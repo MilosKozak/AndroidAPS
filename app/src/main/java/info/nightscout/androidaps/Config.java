@@ -9,7 +9,6 @@ public class Config {
     // PLUGINS
     public static final boolean OPENAPSMAENABLED = APS;
     public static final boolean LOOPENABLED = APS;
-    public static final boolean WEAR = BuildConfig.WEAR;
 
     public static final boolean CAREPORTALENABLED = true;
     public static final boolean SMSCOMMUNICATORENABLED = true;

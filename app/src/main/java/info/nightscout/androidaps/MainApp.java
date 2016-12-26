@@ -36,7 +36,6 @@ import info.nightscout.androidaps.plugins.SourceXdrip.SourceXdripFragment;
 import info.nightscout.androidaps.plugins.TempBasals.TempBasalsFragment;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsFragment;
 import info.nightscout.androidaps.plugins.VirtualPump.VirtualPumpFragment;
-import info.nightscout.androidaps.plugins.Wear.WearFragment;
 import io.fabric.sdk.android.Fabric;
 
 
@@ -87,7 +86,6 @@ public class MainApp extends Application {
             if (Config.SMSCOMMUNICATORENABLED)
                 pluginsList.add(SmsCommunicatorFragment.getPlugin());
 
-            if (Config.WEAR) pluginsList.add(WearFragment.getPlugin(this));
 
             pluginsList.add(sConfigBuilder = ConfigBuilderFragment.getPlugin());
 
