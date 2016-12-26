@@ -13,7 +13,7 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
+    - sys-img-armeabi-v7a-addon-google_apis-google-21
 before_install:
   - export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
   - export JAVA8_HOME=/usr/lib/jvm/java-8-oracle
