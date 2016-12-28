@@ -210,13 +210,13 @@ public class SmsCommunicatorPlugin implements PluginBase {
                     int agoMin = (int) (agoMsec / 60d / 1000d);
 
                     if (actualBG != null) {
-                        reply = MainApp.sResources.getString(R.string.actualbg) + " " + actualBG.valueToUnitsToString(units) + ", ";
+                        reply = "BG: " + actualBG.valueToUnitsToString(units) + ", ";
                     } else if (lastBG != null) {
-                        reply = MainApp.sResources.getString(R.string.lastbg) + " " + lastBG.valueToUnitsToString(units) + " " + agoMin + MainApp.sResources.getString(R.string.minago) + ", ";
+                        reply = "Last BG: " + lastBG.valueToUnitsToString(units) + " " + agoMin + "m ago, ";
                     }
                     DatabaseHelper.GlucoseStatus glucoseStatus = MainApp.getDbHelper().getGlucoseStatusData();
                     if (glucoseStatus != null)
-                        reply += MainApp.sResources.getString(R.string.delta) + ": " + NSProfile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units + ", ";
+                        reply += "Delta: " + NSProfile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units + ", ";
 
                     MainApp.getConfigBuilder().getActiveTreatments().updateTotalIOB();
                     IobTotal bolusIob = MainApp.getConfigBuilder().getActiveTreatments().getLastCalculation().round();
@@ -225,9 +225,9 @@ public class SmsCommunicatorPlugin implements PluginBase {
                     IobTotal basalIob = MainApp.getConfigBuilder().getActiveTempBasals().getLastCalculation().round();
                     if (basalIob == null) basalIob = new IobTotal();
 
-                    reply += MainApp.sResources.getString(R.string.treatments_iob_label_string) + " " + DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U ("
-                            + MainApp.sResources.getString(R.string.bolus) + ": " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U "
-                            + MainApp.sResources.getString(R.string.basal) + ": " + DecimalFormatter.to2Decimal(basalIob.basaliob) + "U)";
+                    reply += "IOB: " + DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U ("
+                            + "Bolus: " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U "
+                            + "Basal: " + DecimalFormatter.to2Decimal(basalIob.basaliob) + "U)";
 
                     sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                     receivedSms.processed = true;
