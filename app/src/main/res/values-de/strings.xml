@@ -228,7 +228,7 @@
     <string name="danar_invalidinput">ungültige Eingabe</string>
     <string name="danar_valuenotsetproperly">Wert nicht korrekt gesetzt</string>
     <string name="devicenotfound">ausgewähltes Gerät nicht gefunden</string>
-    <string name="dismiss">ABWEISEN</string>
+    <string name="dismiss">VERWERFEN</string>
     <string name="enacted">Verordnet</string>
     <string name="end_user_license_agreement">Einbenutzervereinbarung</string>
     <string name="end_user_license_agreement_i_understand">Ich verstehe und stimme zu</string>
@@ -291,4 +291,27 @@
     <string name="primefill">Füllen</string>
     <string name="uploading">Hochladen</string>
     <string name="es_lang">Spanish</string>
+    <string name="basal_rate">Basalrate:</string>
+    <string name="base_profile_label">Basisprofil:</string>
+    <string name="batterydischarged">Pumpen Batterie entladen</string>
+    <string name="androidaps_tempbasalendnote">Basal Temp Ende</string>
+    <string name="androidaps_tempbasalstartnote"></string>
+    <string name="danar_historyreload">neu laden</string>
+    <string name="high_mark">Hoch Markierung</string>
+    <string name="low_mark">Niedrig Markierung</string>
+    <string name="lowbattery">Niedrige Batterie</string>
+    <string name="pumpbusy">Pumpe ist beschäftigt</string>
+    <string name="pumperror">Pumpen Fehler</string>
+    <string name="pumpshutdown"></string>
+    <string name="send_to_pump">an Pumpe senden</string>
+    <string name="target_range">Zielbereich:</string>
+    <string name="units">Einheiten:</string>
+    <string name="wrongpumpdriverselected">Falscher Pumpentreiber ausgewählt</string>
+    <string name="old_data">veraltete Daten</string>
+    <string name="danar_refill">Befüllen</string>
+    <string name="danar_disableeasymode">EasyUI mode in Pumpe deaktivieren</string>
+    <string name="danar_basalhour">basal Stunde</string>
+    <string name="button1">Knopf 1</string>
+    <string name="button2">Knopf 2</string>
+    <string name="button3">Knopf 3</string>
 </resources>
