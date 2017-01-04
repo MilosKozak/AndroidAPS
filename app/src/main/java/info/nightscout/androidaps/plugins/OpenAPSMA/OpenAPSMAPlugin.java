@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
@@ -25,6 +26,7 @@ import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.interfaces.TempBasalsInterface;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
+import info.nightscout.androidaps.plugins.DanaR.comm.MsgOcclusion;
 import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.ScriptReader;
 import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSMAUpdateGui;
@@ -47,8 +49,12 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
     DetermineBasalAdapterJS lastDetermineBasalAdapterJS = null;
     Date lastAPSRun = null;
     DetermineBasalResult lastAPSResult = null;
-
-    boolean fragmentEnabled = false;
+	// Some tests by Rumen
+	//setting some debugs to play around - only 'full' will allow it
+	public boolean debugStatus = true;
+    
+	
+	boolean fragmentEnabled = false;
     boolean fragmentVisible = true;
 
     @Override
@@ -122,12 +128,18 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
             return;
         }
 
-        if (glucoseStatus == null) {
+        if (glucoseStatus == null && debugStatus != true) {
             MainApp.bus().post(new EventOpenAPSMAUpdateResultGui(MainApp.instance().getString(R.string.openapsma_noglucosedata)));
             if (Config.logAPSResult)
                 log.debug(MainApp.instance().getString(R.string.openapsma_noglucosedata));
             return;
-        }
+        } else {
+			glucoseStatus = new DatabaseHelper.GlucoseStatus();
+			glucoseStatus.glucose = 140;
+			glucoseStatus.delta = 10;
+			glucoseStatus.avgdelta = 4;
+			
+		}
 
         if (profile == null) {
             MainApp.bus().post(new EventOpenAPSMAUpdateResultGui(MainApp.instance().getString(R.string.openapsma_noprofile)));

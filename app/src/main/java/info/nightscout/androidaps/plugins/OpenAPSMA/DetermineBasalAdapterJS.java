@@ -22,7 +22,7 @@ import info.nightscout.androidaps.plugins.Loop.ScriptReader;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsFragment;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.client.data.NSProfile;
-
+// eddited by Rumen on 04.01.2017 to add mealCOB
 public class DetermineBasalAdapterJS implements Parcelable {
     private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterJS.class);
 
@@ -140,6 +140,7 @@ public class DetermineBasalAdapterJS implements Parcelable {
         mMealData = new V8Object(mV8rt);
         mMealData.add("carbs", 0);
         mMealData.add("boluses", 0);
+		mMealData.add("mealCOB", 0);
         mV8rt.add(PARAM_meal_data, mMealData);
     }
 
@@ -300,6 +301,7 @@ public class DetermineBasalAdapterJS implements Parcelable {
 
         mMealData.add("carbs", mealData.carbs);
         mMealData.add("boluses", mealData.boluses);
+		mMealData.add("mealCOB", mealData.COB);
     }
 
 
