@@ -13,7 +13,20 @@
   THE SOFTWARE.
 */
 // IMPORTANT REMOVE AVGDELTA OVERRIDES BEFORE CALCULATING EVENTUALBG
-
+// Calculating COB
+var calculateCOB = function calculateCOB(){
+	// Get time now
+	var now = time.getTime();
+	// get last carbs input 
+	// get time of last carbs input
+	// get absorption rate from profile
+	// calculate remaining carbs (COB) = carbs input - (hours passed since last input * carb_ratio)
+	//if cob>0 return cob, else return 0
+	var now = time.getTime();
+    //var dia_ago = now - 1.5*profile_data.dia*60*60*1000;
+    //var treatmentDate = new Date(tz(treatment.timestamp));
+    //var treatmentTime = treatmentDate.getTime();
+}
 //var round_basal = require('round-basal.js');
 //import of round-basal.js
 var endsWith = function endsWith(text, val) {
@@ -273,7 +286,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     COBpredBGs.push(bg);
     aCOBpredBGs.push(bg);
     IOBpredBGs.push(bg);
-    console.error('Meal data:'+meal_data.carbs);
+    console.error('Meal data carbs:'+meal_data.carbs);
 	console.error('Meal data COB:'+meal_data.mealCOB);
     // carb impact and duration are 0 unless changed below
     var ci = 0;
@@ -358,9 +371,9 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
         rT.snoozeBG = snoozeBG;
     }
 
-    rT.COB=meal_data.mealCOB;
+    rT.COB=meal_data.COB;
     rT.IOB=iob_data.iob;
-    rT.reason="COB: " + meal_data.mealCOB + ", Dev: " + deviation + ", BGI: " + bgi + ", ISF: " + convert_bg(sens, profile) + ", Target: " + convert_bg(target_bg, profile) + "; ";
+    rT.reason="COB: " + Math.round(meal_data.mealCOB) + ", Dev: " + deviation + ", BGI: " + bgi + ", ISF: " + convert_bg(sens, profile) + ", Target: " + convert_bg(target_bg, profile) + "; ";
     if (bg < threshold) { // low glucose suspend mode: BG is < ~80
         rT.reason += "BG " + convert_bg(bg, profile) + "<" + convert_bg(threshold, profile);
         if ((glucose_status.delta <= 0 && minDelta <= 0) || (glucose_status.delta < expectedDelta && minDelta < expectedDelta) || bg < 60 ) {
