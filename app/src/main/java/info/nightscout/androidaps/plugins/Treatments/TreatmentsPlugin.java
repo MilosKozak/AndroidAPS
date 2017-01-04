@@ -26,6 +26,8 @@ import info.nightscout.client.data.NSProfile;
 /**
  * Created by mike on 05.08.2016.
  */
+ 
+ // Eddited by Rumen on 04.01.2017 to add COB to mealdata
 public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
     private static Logger log = LoggerFactory.getLogger(TreatmentsPlugin.class);
 
@@ -141,6 +143,7 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
     public class MealData {
         public double boluses = 0d;
         public double carbs = 0d;
+		public double COB = 0d;
     }
 
     @Override
@@ -149,14 +152,24 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
         NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
         if (profile == null)
             return result;
-
+		double carbsAbsorptionRate = profile.getCarbAbsorbtionRate();
         for (Treatment treatment : treatments) {
             long now = new Date().getTime();
             long dia_ago = now - (new Double(profile.getDia() * 60 * 60 * 1000l)).longValue();
             long t = treatment.created_at.getTime();
+			// int hours   = (int) ((milliseconds / (1000*60*60)) % 24);
+			//now in hours
+			int hours   = (int) ((now / (1000*60*60)) % 24);
+			int t_hours  = (int) ((t / (1000*60*60)) % 24);
+			int carbs_ago =  hours - t_hours ;
+			
             if (t > dia_ago && t <= now) {
                 if (treatment.carbs >= 1) {
                     result.carbs += treatment.carbs;
+					// check for negatives 
+						if (carbs_ago >= 0){
+							result.COB +=  treatment.carbs - Math.round(carbsAbsorptionRate*carbs_ago);//Math.round((treatment.carbs - (treatment.carbs * carbs_ago)))
+						}
                 }
                 if (treatment.insulin >= 0.1 && treatment.mealBolus) {
                     result.boluses += treatment.insulin;
