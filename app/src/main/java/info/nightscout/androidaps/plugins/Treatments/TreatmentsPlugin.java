@@ -350,10 +350,9 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
             long t = treatment.created_at.getTime();
 			long diff =  t - now;
 			long diff_minutes = diff / (60 * 1000) % 60; // negative value of minutes since treatment
-            long diff_hours = diff / (1000*60*60) % 24; // negative value of houts since treatment
-            // carbsAbsorbtionrate / 60 = carbs absorbed per minute
-            // diff_minutes * (carbsAbsorptionrate / 60 ) = carbs absorbed for minutes since treatment (always negative )
-			double carbsAbsorbed = carbsAbsorptionRate / 60;
+            long diff_hours = diff / (1000*60*60) % 24; // negative value of hours since treatment
+            
+			double carbsAbsorbed = carbsAbsorptionRate / 60; // carbs absorbed per minute
             if (t > dia_ago && t <= now) {
                 if (treatment.carbs >= 1) {
                     result.carbs += treatment.carbs;
