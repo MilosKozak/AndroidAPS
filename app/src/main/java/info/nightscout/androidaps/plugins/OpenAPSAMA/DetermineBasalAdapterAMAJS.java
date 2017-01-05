@@ -1,7 +1,4 @@
-package info.nightscout.androidaps.plugins.OpenAPSMA;
-
-import android.os.Parcel;
-import android.os.Parcelable;
+package info.nightscout.androidaps.plugins.OpenAPSAMA;
 
 import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8;
@@ -16,15 +13,15 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 import info.nightscout.androidaps.Config;
+import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.plugins.Loop.ScriptReader;
-import info.nightscout.androidaps.plugins.Treatments.TreatmentsFragment;
+import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.client.data.NSProfile;
 
-public class DetermineBasalAdapterJS implements Parcelable {
-    private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterJS.class);
+public class DetermineBasalAdapterAMAJS {
+    private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterAMAJS.class);
 
 
     private ScriptReader mScriptReader = null;
@@ -34,62 +31,27 @@ public class DetermineBasalAdapterJS implements Parcelable {
     private V8Object mIobData;
     private V8Object mMealData;
     private V8Object mCurrentTemp;
+    private V8Object mAutosensData = null;
 
     private final String PARAM_currentTemp = "currentTemp";
     private final String PARAM_iobData = "iobData";
     private final String PARAM_glucoseStatus = "glucose_status";
     private final String PARAM_profile = "profile";
     private final String PARAM_meal_data = "meal_data";
+    private final String PARAM_autosens_data = "autosens_data";
 
     private String storedCurrentTemp = null;
-    public String storedIobData = null;
+    private String storedIobData = null;
     private String storedGlucoseStatus = null;
     private String storedProfile = null;
     private String storedMeal_data = null;
+    private String storedAutosens_data = null;
 
     /**
-     *   Parcelable implementation
-     *   result string for display only
-     **/
-    protected DetermineBasalAdapterJS(Parcel in) {
-        storedCurrentTemp = in.readString();
-        storedIobData = in.readString();
-        storedGlucoseStatus = in.readString();
-        storedProfile = in.readString();
-        storedMeal_data = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(storedCurrentTemp);
-        dest.writeString(storedIobData);
-        dest.writeString(storedGlucoseStatus);
-        dest.writeString(storedProfile);
-        dest.writeString(storedMeal_data);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<DetermineBasalAdapterJS> CREATOR = new Creator<DetermineBasalAdapterJS>() {
-        @Override
-        public DetermineBasalAdapterJS createFromParcel(Parcel in) {
-            return new DetermineBasalAdapterJS(in);
-        }
-
-        @Override
-        public DetermineBasalAdapterJS[] newArray(int size) {
-            return new DetermineBasalAdapterJS[size];
-        }
-    };
-
-    /**
-     *  Main code
+     * Main code
      */
 
-    public DetermineBasalAdapterJS(ScriptReader scriptReader) throws IOException {
+    public DetermineBasalAdapterAMAJS(ScriptReader scriptReader) throws IOException {
         mV8rt = V8.createV8Runtime();
         mScriptReader = scriptReader;
 
@@ -140,17 +102,22 @@ public class DetermineBasalAdapterJS implements Parcelable {
         mMealData = new V8Object(mV8rt);
         mMealData.add("carbs", 0);
         mMealData.add("boluses", 0);
+        mMealData.add("mealCOB", 0.0d);
         mV8rt.add(PARAM_meal_data, mMealData);
+        // Autosens data
+        mV8rt.executeVoidScript("autosens_data = undefined");
     }
 
-    public DetermineBasalResult invoke() {
+    public DetermineBasalResultAMA invoke() {
+
         mV8rt.executeVoidScript(
                 "console.error(\"determine_basal(\"+\n" +
                         "JSON.stringify(" + PARAM_glucoseStatus + ")+ \", \" +\n" +
-                        "JSON.stringify(" + PARAM_currentTemp +   ")+ \", \" +\n" +
-                        "JSON.stringify(" + PARAM_iobData +       ")+ \", \" +\n" +
-                        "JSON.stringify(" + PARAM_profile +       ")+ \", \" +\n" +
-                        "JSON.stringify(" + PARAM_meal_data +     ")+ \") \");"
+                        "JSON.stringify(" + PARAM_currentTemp + ")+ \", \" +\n" +
+                        "JSON.stringify(" + PARAM_iobData + ")+ \", \" +\n" +
+                        "JSON.stringify(" + PARAM_profile + ")+ \", \" +\n" +
+                        "JSON.stringify(" + PARAM_autosens_data + ")+ \", \" +\n" +
+                        "JSON.stringify(" + PARAM_meal_data + ")+ \") \");"
         );
         mV8rt.executeVoidScript(
                 "var rT = determine_basal(" +
@@ -158,9 +125,9 @@ public class DetermineBasalAdapterJS implements Parcelable {
                         PARAM_currentTemp + ", " +
                         PARAM_iobData + ", " +
                         PARAM_profile + ", " +
-                        "undefined, " +
+                        PARAM_autosens_data + ", " +
                         PARAM_meal_data + ", " +
-                        "setTempBasal" +
+                        "tempBasalFunctions" +
                         ");");
 
 
@@ -170,19 +137,20 @@ public class DetermineBasalAdapterJS implements Parcelable {
 
         V8Object v8ObjectReuslt = mV8rt.getObject("rT");
 
-        DetermineBasalResult result = null;
+        DetermineBasalResultAMA result = null;
         try {
-            result = new DetermineBasalResult(v8ObjectReuslt, new JSONObject(ret));
+            result = new DetermineBasalResultAMA(v8ObjectReuslt, new JSONObject(ret));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        // Store input params for Parcelable
         storedGlucoseStatus = mV8rt.executeStringScript("JSON.stringify(" + PARAM_glucoseStatus + ");");
         storedIobData = mV8rt.executeStringScript("JSON.stringify(" + PARAM_iobData + ");");
         storedCurrentTemp = mV8rt.executeStringScript("JSON.stringify(" + PARAM_currentTemp + ");");
         storedProfile = mV8rt.executeStringScript("JSON.stringify(" + PARAM_profile + ");");
         storedMeal_data = mV8rt.executeStringScript("JSON.stringify(" + PARAM_meal_data + ");");
+        if (mAutosensData != null)
+            storedAutosens_data = mV8rt.executeStringScript("JSON.stringify(" + PARAM_autosens_data + ");");
 
         return result;
     }
@@ -207,10 +175,21 @@ public class DetermineBasalAdapterJS implements Parcelable {
         return storedMeal_data;
     }
 
+    String getAutosensDataParam() {
+        return storedAutosens_data;
+    }
+
     private void loadScript() throws IOException {
+        mV8rt.executeVoidScript(readFile("OpenAPSAMA/round-basal.js"), "OpenAPSAMA/round-basal.js", 0);
+        mV8rt.executeVoidScript("var round_basal = module.exports;");
+        mV8rt.executeVoidScript("require = function() {return round_basal;};");
+
+        mV8rt.executeVoidScript(readFile("OpenAPSAMA/basal-set-temp.js"), "OpenAPSAMA/basal-set-temp.js ", 0);
+        mV8rt.executeVoidScript("var tempBasalFunctions = module.exports;");
+
         mV8rt.executeVoidScript(
-                readFile("OpenAPSMA/determine-basal.js"),
-                "OpenAPSMA/bin/oref0-determine-basal.js",
+                readFile("OpenAPSAMA/determine-basal.js"),
+                "OpenAPSAMA/determine-basal.js",
                 0);
         mV8rt.executeVoidScript("var determine_basal = module.exports;");
         mV8rt.executeVoidScript(
@@ -266,8 +245,9 @@ public class DetermineBasalAdapterJS implements Parcelable {
                         double targetBg,
                         PumpInterface pump,
                         IobTotal iobData,
-                        DatabaseHelper.GlucoseStatus glucoseStatus,
-                        TreatmentsPlugin.MealData mealData) {
+                        GlucoseStatus glucoseStatus,
+                        TreatmentsPlugin.MealData mealData,
+                        JSONObject autosensData) {
 
         String units = profile.getUnits();
 
@@ -297,18 +277,31 @@ public class DetermineBasalAdapterJS implements Parcelable {
         mGlucoseStatus.add("glucose", glucoseStatus.glucose);
         mGlucoseStatus.add("delta", glucoseStatus.delta);
         mGlucoseStatus.add("avgdelta", glucoseStatus.avgdelta);
+        mGlucoseStatus.add("short_avgdelta", glucoseStatus.short_avgdelta);
+        mGlucoseStatus.add("long_avgdelta", glucoseStatus.long_avgdelta);
 
         mMealData.add("carbs", mealData.carbs);
         mMealData.add("boluses", mealData.boluses);
+        mMealData.add("mealCOB", mealData.mealCOB);
+
+        if (autosensData != null) {
+            mAutosensData = new V8Object(mV8rt);
+            // TODO: add autosens data here for AMA
+        } else {
+            mV8rt.executeVoidScript("autosens_data = undefined");
+        }
     }
 
 
-     public void release() {
+    public void release() {
         mProfile.release();
         mCurrentTemp.release();
         mIobData.release();
         mMealData.release();
         mGlucoseStatus.release();
+        if (mAutosensData != null) {
+            mAutosensData.release();
+        }
         mV8rt.release();
     }
 
