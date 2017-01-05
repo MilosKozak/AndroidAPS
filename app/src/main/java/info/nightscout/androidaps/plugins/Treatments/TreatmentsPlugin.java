@@ -20,7 +20,7 @@ import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
-import info.nightscout.androidaps.plugins.OpenAPSMA.IobTotal;
+import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.client.data.NSProfile;
 
 /**
@@ -141,6 +141,7 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
     public class MealData {
         public double boluses = 0d;
         public double carbs = 0d;
+        public double mealCOB = 0.0d; // TODO: add calculation for AMA
     }
 
     @Override

@@ -1,4 +1,4 @@
-package info.nightscout.androidaps.plugins.OpenAPSMA;
+package info.nightscout.androidaps.plugins.OpenAPSAMA;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,8 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import info.nightscout.androidaps.plugins.Loop.APSResult;
+import info.nightscout.androidaps.data.IobTotal;
 
-public class DetermineBasalResult extends APSResult {
+public class DetermineBasalResultAMA extends APSResult {
 
     public JSONObject json = new JSONObject();
     public double eventualBG;
@@ -18,7 +19,7 @@ public class DetermineBasalResult extends APSResult {
     public String mealAssist;
     public IobTotal iob;
 
-    public DetermineBasalResult(V8Object result, JSONObject j) {
+    public DetermineBasalResultAMA(V8Object result, JSONObject j) {
         json = j;
         if (result.contains("error")) {
             reason = result.getString("error");
@@ -61,17 +62,17 @@ public class DetermineBasalResult extends APSResult {
         dest.writeString(mealAssist);
     }
 
-    public final Parcelable.Creator<DetermineBasalResult> CREATOR = new Parcelable.Creator<DetermineBasalResult>() {
-        public DetermineBasalResult createFromParcel(Parcel in) {
-            return new DetermineBasalResult(in);
+    public final Parcelable.Creator<DetermineBasalResultAMA> CREATOR = new Parcelable.Creator<DetermineBasalResultAMA>() {
+        public DetermineBasalResultAMA createFromParcel(Parcel in) {
+            return new DetermineBasalResultAMA(in);
         }
 
-        public DetermineBasalResult[] newArray(int size) {
-            return new DetermineBasalResult[size];
+        public DetermineBasalResultAMA[] newArray(int size) {
+            return new DetermineBasalResultAMA[size];
         }
     };
 
-    private DetermineBasalResult(Parcel in) {
+    private DetermineBasalResultAMA(Parcel in) {
         super(in);
         try {
             json = new JSONObject(in.readString());
@@ -83,12 +84,12 @@ public class DetermineBasalResult extends APSResult {
         mealAssist = in.readString();
     }
 
-    public DetermineBasalResult() {
+    public DetermineBasalResultAMA() {
     }
 
     @Override
-    public DetermineBasalResult clone() {
-        DetermineBasalResult newResult = new DetermineBasalResult();
+    public DetermineBasalResultAMA clone() {
+        DetermineBasalResultAMA newResult = new DetermineBasalResultAMA();
         newResult.reason = new String(reason);
         newResult.rate = rate;
         newResult.duration = duration;
