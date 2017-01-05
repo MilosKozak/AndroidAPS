@@ -37,7 +37,10 @@ import info.nightscout.utils.ToastUtils;
  */
 public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
     private static Logger log = LoggerFactory.getLogger(OpenAPSAMAPlugin.class);
-
+	// Some tests by Rumen
+	//setting some debugs to play around - only debugStatus=true will allow it
+	public boolean debugStatus = true;
+	
     // last values
     DetermineBasalAdapterAMAJS lastDetermineBasalAdapterAMAJS = null;
     Date lastAPSRun = null;
@@ -118,12 +121,18 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
             return;
         }
 
-        if (glucoseStatus == null) {
+        if (glucoseStatus == null && debugStatus != true) {
             MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.openapsma_noglucosedata)));
             if (Config.logAPSResult)
                 log.debug(MainApp.instance().getString(R.string.openapsma_noglucosedata));
             return;
-        }
+        } else {
+			glucoseStatus = new GlucoseStatus();
+			glucoseStatus.glucose = 140;
+			glucoseStatus.delta = 10;
+			glucoseStatus.avgdelta = 4;
+			
+		}
 
         if (profile == null) {
             MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.openapsma_noprofile)));
