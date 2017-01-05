@@ -353,11 +353,12 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
             long diff_hours = diff / (1000*60*60) % 24; // negative value of hours since treatment
             
 			double carbsAbsorbed = carbsAbsorptionRate / 60; // carbs absorbed per minute
-            if (t > dia_ago && t <= now) {
+            double absorbed = treatment.carbs + (carbsAbsorbed * (diff_hours * 60 + diff_minutes));
+			if (t > dia_ago && t <= now) {
                 if (treatment.carbs >= 1) {
                     result.carbs += treatment.carbs;
 					// check for something
-						if (diff_minutes != 0){
+						if (absorbed > 0){
 							result.mealCOB += treatment.carbs + (carbsAbsorbed * (diff_hours * 60 + diff_minutes));//diff_hours * 60 + diff_minutes;// in hours treatment.carbs - Math.round(carbsAbsorptionRate*carbs_ago)
 						}
                 }
