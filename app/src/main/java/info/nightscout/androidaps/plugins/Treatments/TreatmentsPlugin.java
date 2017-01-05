@@ -165,9 +165,11 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
 			if (t > dia_ago && t <= now) {
                 if (treatment.carbs >= 1) {
                     result.carbs += treatment.carbs;
-					// check for something
+					// check if something is absorbed
 						if (absorbed > 0){
-							result.mealCOB += treatment.carbs + (carbsAbsorbed * (diff_hours * 60 + diff_minutes));//diff_hours * 60 + diff_minutes;// in hours treatment.carbs - Math.round(carbsAbsorptionRate*carbs_ago)
+							// result.mealCOB += treatment.carbs + (carbsAbsorbed * (diff_hours * 60 + diff_minutes));
+							// Carbs that should be absorbed
+							result.mealCOB += treatment.carbs + (carbsAbsorbed * (diff_hours * 60 + diff_minutes));
 						}
                 }
                 if (treatment.insulin >= 0.1 && treatment.mealBolus) {
