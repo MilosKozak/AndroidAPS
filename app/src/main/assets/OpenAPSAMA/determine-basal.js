@@ -222,7 +222,13 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     acid = meal_data.mealCOB * ( sens / profile.carb_ratio ) / aci;
     console.error("Carb Impact:",ci,"mg/dL per 5m; CI Duration:",Math.round(10*cid/6)/10,"hours");
     console.error("Accel. Carb Impact:",aci,"mg/dL per 5m; ACI Duration:",Math.round(10*acid/6)/10,"hours");
-    var minPredBG = 999;
+	console.error("iobArray:"+iobArray);
+	// someting to conver iob-data Object to array - I know it's stupid and we should pass an array from the adapter
+	var iobArray = Object.keys(iob_data).map(function (key) { return iob_data[key]; });
+	// lets see what we've goto
+	console.error("iobArray after conversion:"+iobArray[0]+" "+iobArray[1]+" "+iobArray[2]+" "+iobArray[3]+" "+iobArray[4]+" "+iobArray[5]);
+    
+	var minPredBG = 999;
     var maxPredBG = bg;
     var eventualPredBG = bg;
     try {
