@@ -696,15 +696,15 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     @Override
-    public boolean isAMAModeEnabled() {
+    public boolean isAutosensAdjustTargetsEnabled() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
-        boolean result = preferences.getBoolean("openapsama_useautosens", false);
+        boolean result = preferences.getBoolean("openapsama_autosens_adjust_targets", false);
 
         ArrayList<PluginBase> constraintsPlugins = MainApp.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
             if (!p.isEnabled(PluginBase.CONSTRAINTS)) continue;
-            result = result && constrain.isAMAModeEnabled();
+            result = result && constrain.isAutosensAdjustTargetsEnabled();
         }
         return result;
     }

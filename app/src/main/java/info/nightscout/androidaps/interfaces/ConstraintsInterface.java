@@ -13,7 +13,7 @@ public interface ConstraintsInterface {
 
     boolean isAutosensModeEnabled();
 
-    boolean isAMAModeEnabled();
+    boolean isAutosensAdjustTargetsEnabled();
 
     Double applyBasalConstraints(Double absoluteRate);
 
