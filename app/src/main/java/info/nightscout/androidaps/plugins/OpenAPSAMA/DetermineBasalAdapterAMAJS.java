@@ -232,7 +232,7 @@ public class DetermineBasalAdapterAMAJS {
         mProfile.add("skip_neutral_temps", true);
         mProfile.add("current_basal", pump.getBaseBasalRate());
         mProfile.add("temptargetSet", tempTargetSet);
-        mProfile.add("autosens_adjust_targets", MainApp.getConfigBuilder().isAMAModeEnabled());
+        mProfile.add("autosens_adjust_targets", MainApp.getConfigBuilder().isAutosensAdjustTargetsEnabled());
         mProfile.add("min_5m_carbimpact", min_5m_carbimpact);
         mV8rt.add(PARAM_profile, mProfile);
 
@@ -258,13 +258,9 @@ public class DetermineBasalAdapterAMAJS {
         mMealData.add("mealCOB", mealData.mealCOB);
         mV8rt.add(PARAM_meal_data, mMealData);
 
-        if (MainApp.getConfigBuilder().isAMAModeEnabled()) {
-            mAutosensData = new V8Object(mV8rt);
-            mAutosensData.add("ratio", autosensDataRatio);
-            mV8rt.add(PARAM_autosens_data, mAutosensData);
-        } else {
-            mV8rt.addUndefined(PARAM_autosens_data);
-        }
+        mAutosensData = new V8Object(mV8rt);
+        mAutosensData.add("ratio", autosensDataRatio);
+        mV8rt.add(PARAM_autosens_data, mAutosensData);
     }
 
 

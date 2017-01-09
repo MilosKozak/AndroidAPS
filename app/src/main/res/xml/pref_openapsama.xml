@@ -6,8 +6,8 @@
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="openapsama_useautosens"
-            android:title="@string/openapsama_useautosens" />
+            android:key="openapsama_autosens_adjust_targets"
+            android:title="@string/openapsama_autosens_adjust_targets" />
 
     </PreferenceCategory>
 
