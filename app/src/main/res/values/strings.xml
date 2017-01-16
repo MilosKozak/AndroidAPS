@@ -399,9 +399,14 @@
     <string name="sms_minago">%dmin ago</string>
     <string name="localprofile">Local Profile</string>
     <string name="danar_stats">DanaR Stats</string>
-    <string name="danar_stats_avg">average</string>
-    <string name="danar_stats_expweight">exponentially weighted</string>
-    <string name="danar_stats_basalrate">Basalrate</string>
+    <string name="danar_stats_cumulative_tdd">Cumulative TDD</string>
+    <string name="danar_stats_expweight">Exponentially Weighted TDD</string>
+    <string name="danar_stats_basalrate">Basal</string>
     <string name="danar_stats_bolus">Bolus</string>
-    <string name="danar_stats_tdi">total daily insulin</string>
+    <string name="danar_stats_tdd">TDD</string>
+    <string name="danar_stats_date">Date</string>
+    <string name="danar_stats_ratio">Ratio</string>
+    <string name="danar_stats_amount_days"># Days</string>
+    <string name="danar_stats_weight">Weight</string>
+
 </resources>
