@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="horizontal">
 
 
@@ -133,6 +135,31 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
+            <EditText
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:hint="TBB"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:id="@+id/danar_stats_editTotalBaseBasal" />
+
+            <TextView
+                android:text="@string/danar_stats_tbb"
+                android:labelFor="@+id/danar_stats_editTotalBaseBasal"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/danar_stats_editTotalBaseBasal_label"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/danar_stats_Message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="45px"
+                android:textColor="#ff0000"
+                android:text="@string/danar_stats_warning_Message" />
+
             <Button
                 android:id="@+id/danar_historyreload"
                 android:layout_width="match_parent"
@@ -140,12 +167,6 @@
                 android:layout_weight="1"
                 android:text="@string/danar_historyreload" />
 
-            <Button
-                android:id="@+id/danar_skipMessageButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/danar_stats_skipMessageButton" />
         </LinearLayout>
 
     </LinearLayout>

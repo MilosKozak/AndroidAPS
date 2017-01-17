@@ -1,10 +1,8 @@
 package info.nightscout.androidaps.plugins.DanaRKorean.History;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
@@ -13,11 +11,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -61,12 +61,12 @@ public class DanaRStatsActivity extends Activity {
     private Handler mHandler;
     private static HandlerThread mHandlerThread;
 
-    TextView statusView;
-    Button reloadButton, skipMessageButton;
+    TextView statusView, statsMessage;
+    EditText totalBaseBasal;
+    Button reloadButton;
     LinearLayoutManager llm;
     TableLayout tl,ctl,etl;
-    public static final String PREFS_STATS_CHECKBOX = "STATS_CHECKBOX_PREF";
-    public CheckBox dontShowAgain;
+    String TBB;
 
     List<DanaRHistoryRecord> historyList = new ArrayList<>();
 
@@ -128,35 +128,25 @@ public class DanaRStatsActivity extends Activity {
 
         statusView = (TextView) findViewById(R.id.danar_historystatus);
         reloadButton = (Button) findViewById(R.id.danar_historyreload);
-        skipMessageButton = (Button) findViewById(R.id.danar_skipMessageButton);
         llm = new LinearLayoutManager(this);
         statusView.setVisibility(View.GONE);
+        statsMessage = (TextView) findViewById(R.id.danar_stats_Message);
+        statsMessage.setVisibility(View.GONE);
+        totalBaseBasal = (EditText) findViewById(R.id.danar_stats_editTotalBaseBasal);
 
-        final AlertDialog.Builder adb=new AlertDialog.Builder(DanaRStatsActivity.this);
-        LayoutInflater adbInflater = LayoutInflater.from(DanaRStatsActivity.this);
-        View eulaLayout = adbInflater.inflate(R.layout.danar_statsactivity_checkbox, null);
-        dontShowAgain = (CheckBox)eulaLayout.findViewById(R.id.skip);
-        adb.setView(eulaLayout);
-        adb.setMessage(MainApp.sResources.getString(R.string.danar_stats_skipMessage));
-        adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                String checkBoxResult = "NOT checked";
-                if (dontShowAgain.isChecked())  checkBoxResult = "checked";
-                SharedPreferences settings = getSharedPreferences(PREFS_STATS_CHECKBOX, 0);
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putString("skipMessage", checkBoxResult);
-                editor.commit();
-                return;
-            } });
-        SharedPreferences settings = getSharedPreferences(PREFS_STATS_CHECKBOX, 0);
-        String skipMessage = settings.getString("skipMessage", "NOT checked");
-        if (!skipMessage.equalsIgnoreCase("checked") ) {
-            skipMessageButton.setVisibility(View.GONE);
-            adb.show();
-        }
-        else {
-            skipMessageButton.setVisibility(View.VISIBLE);
-        }
+        final SharedPreferences preferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        TBB = preferences.getString("TBB", "10");
+        totalBaseBasal.setHint(TBB);
+        totalBaseBasal.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+                SharedPreferences.Editor edit = preferences.edit();
+                edit.putString("TBB",totalBaseBasal.getText().toString());
+                edit.commit();
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        });
 
         // stats table
         tl = (TableLayout) findViewById(R.id.main_table);
@@ -191,7 +181,7 @@ public class DanaRStatsActivity extends Activity {
         label_ratio.setTextColor(Color.WHITE);
         tr_head.addView(label_ratio);
 
-
+        // add stats headers to tables
         tl.addView(tr_head, new TableLayout.LayoutParams(
                 TableLayout.LayoutParams.FILL_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
@@ -219,6 +209,7 @@ public class DanaRStatsActivity extends Activity {
         label_cum_ratio.setTextColor(Color.WHITE);
         ctr_head.addView(label_cum_ratio);
 
+        // add cummulative headers to tables
         ctl.addView(ctr_head, new TableLayout.LayoutParams(
                 TableLayout.LayoutParams.FILL_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
@@ -246,10 +237,10 @@ public class DanaRStatsActivity extends Activity {
         label_exp_ratio.setTextColor(Color.WHITE);
         etr_head.addView(label_exp_ratio);
 
+        // add expontial headers to tables
         etl.addView(etr_head, new TableLayout.LayoutParams(
                 TableLayout.LayoutParams.FILL_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
-
 
         reloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -269,6 +260,9 @@ public class DanaRStatsActivity extends Activity {
                                 cleanTable(etl);
                                 reloadButton.setVisibility(View.GONE);
                                 statusView.setVisibility(View.VISIBLE);
+                                statsMessage.setVisibility(View.VISIBLE);
+                                statsMessage.setText(getString(R.string.danar_stats_warning_Message));
+
                             }
                         });
                         mExecutionService.loadHistory(RecordTypes.RECORD_TYPE_DAILY);
@@ -278,19 +272,14 @@ public class DanaRStatsActivity extends Activity {
                             public void run() {
                                 reloadButton.setVisibility(View.VISIBLE);
                                 statusView.setVisibility(View.GONE);
+                                statsMessage.setVisibility(View.GONE);
                             }
                         });
                     }
                 });
             }
         });
-
         loadDataFromDB(RecordTypes.RECORD_TYPE_DAILY);
-
-        skipMessageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {adb.show();}});
-
     }
 
     private void loadDataFromDB(byte type) {
@@ -312,7 +301,12 @@ public class DanaRStatsActivity extends Activity {
             public void run() {
                 DateFormat df = new SimpleDateFormat("dd.MM.");
 
-                double magicNumber = 18d;
+                String[] separatedTBB = TBB.split(" ");
+                double magicNumber = Double.parseDouble(separatedTBB[0]);
+                if(magicNumber <= 0){
+                    magicNumber = 10d;
+                    ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), "TBB is null setting to 10 U");
+                }
 
                 ProfileInterface pi = ConfigBuilderPlugin.getActiveProfile();
                 if (pi instanceof CircadianPercentageProfilePlugin){
@@ -369,6 +363,7 @@ public class DanaRStatsActivity extends Activity {
                     labelRATIO.setTextColor(Color.WHITE);
                     tr.addView(labelRATIO);
 
+                    // add stats rows to tables
                     tl.addView(tr, new TableLayout.LayoutParams(
                             TableLayout.LayoutParams.FILL_PARENT,
                             TableLayout.LayoutParams.WRAP_CONTENT));
@@ -403,6 +398,7 @@ public class DanaRStatsActivity extends Activity {
                     labelCUMRATIO.setTextColor(Color.WHITE);
                     ctr.addView(labelCUMRATIO);
 
+                    // add cummulative rows to tables
                     ctl.addView(ctr, new TableLayout.LayoutParams(
                             TableLayout.LayoutParams.FILL_PARENT,
                             TableLayout.LayoutParams.WRAP_CONTENT));
@@ -410,6 +406,9 @@ public class DanaRStatsActivity extends Activity {
 
                 if (historyList.size()<3 || !(df.format(new Date(historyList.get(0).getRecordDate())).equals(df.format(new Date(System.currentTimeMillis() - 1000*60*60*24))))){
                     tl.setBackgroundColor(Color.RED);
+                    statsMessage.setVisibility(View.VISIBLE);
+                    statsMessage.setText(getString(R.string.danar_stats_olddata_Message));
+
                 } else {
                     tl.setBackgroundColor(Color.TRANSPARENT);
                 }
@@ -464,6 +463,7 @@ public class DanaRStatsActivity extends Activity {
                 labelEXPRATIO.setTextColor(Color.WHITE);
                 etr.addView(labelEXPRATIO);
 
+                // add exponentail rows to tables
                 etl.addView(etr, new TableLayout.LayoutParams(
                         TableLayout.LayoutParams.FILL_PARENT,
                         TableLayout.LayoutParams.WRAP_CONTENT));
