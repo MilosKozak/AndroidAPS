@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_width="150dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/loopmodeborder"
                         android:gravity="center_horizontal"
@@ -127,12 +127,27 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/danar_historyreload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/danar_historyreload" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/danar_historyreload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/danar_historyreload" />
+
+            <Button
+                android:id="@+id/danar_skipMessageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/danar_stats_skipMessageButton" />
+        </LinearLayout>
 
     </LinearLayout>
+
 </RelativeLayout>

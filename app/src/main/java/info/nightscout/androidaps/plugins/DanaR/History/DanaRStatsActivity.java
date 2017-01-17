@@ -1,18 +1,23 @@
 package info.nightscout.androidaps.plugins.DanaR.History;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -57,13 +62,13 @@ public class DanaRStatsActivity extends Activity {
     private static HandlerThread mHandlerThread;
 
     TextView statusView;
-    Button reloadButton;
+    Button reloadButton, skipMessageButton;
     LinearLayoutManager llm;
     TableLayout tl,ctl,etl;
-
+    public static final String PREFS_STATS_CHECKBOX = "STATS_CHECKBOX_PREF";
+    public CheckBox dontShowAgain;
 
     List<DanaRHistoryRecord> historyList = new ArrayList<>();
-
 
     public DanaRStatsActivity() {
         super();
@@ -123,10 +128,37 @@ public class DanaRStatsActivity extends Activity {
 
         statusView = (TextView) findViewById(R.id.danar_historystatus);
         reloadButton = (Button) findViewById(R.id.danar_historyreload);
+        skipMessageButton = (Button) findViewById(R.id.danar_skipMessageButton);
         llm = new LinearLayoutManager(this);
         statusView.setVisibility(View.GONE);
 
-        // main table
+        final AlertDialog.Builder adb=new AlertDialog.Builder(DanaRStatsActivity.this);
+        LayoutInflater adbInflater = LayoutInflater.from(DanaRStatsActivity.this);
+        View eulaLayout = adbInflater.inflate(R.layout.danar_statsactivity_checkbox, null);
+        dontShowAgain = (CheckBox)eulaLayout.findViewById(R.id.skip);
+        adb.setView(eulaLayout);
+        adb.setMessage(MainApp.sResources.getString(R.string.danar_stats_skipMessage));
+        adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())  checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_STATS_CHECKBOX, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipMessage", checkBoxResult);
+                editor.commit();
+                return;
+            } });
+        SharedPreferences settings = getSharedPreferences(PREFS_STATS_CHECKBOX, 0);
+        String skipMessage = settings.getString("skipMessage", "NOT checked");
+        if (!skipMessage.equalsIgnoreCase("checked") ) {
+            skipMessageButton.setVisibility(View.GONE);
+            adb.show();
+        }
+        else {
+            skipMessageButton.setVisibility(View.VISIBLE);
+        }
+
+        // stats table
         tl = (TableLayout) findViewById(R.id.main_table);
         TableRow tr_head = new TableRow(this);
         tr_head.setBackgroundColor(Color.DKGRAY);
@@ -163,7 +195,6 @@ public class DanaRStatsActivity extends Activity {
         tl.addView(tr_head, new TableLayout.LayoutParams(
                 TableLayout.LayoutParams.FILL_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
-
 
         // cumulative table
         ctl = (TableLayout) findViewById(R.id.cumulative_table);
@@ -233,6 +264,9 @@ public class DanaRStatsActivity extends Activity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                cleanTable(tl);
+                                cleanTable(ctl);
+                                cleanTable(etl);
                                 reloadButton.setVisibility(View.GONE);
                                 statusView.setVisibility(View.VISIBLE);
                             }
@@ -250,7 +284,13 @@ public class DanaRStatsActivity extends Activity {
                 });
             }
         });
+
         loadDataFromDB(RecordTypes.RECORD_TYPE_DAILY);
+
+        skipMessageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {adb.show();}});
+
     }
 
     private void loadDataFromDB(byte type) {
@@ -306,29 +346,28 @@ public class DanaRStatsActivity extends Activity {
                     tr.addView(labelDATE);
 
                     TextView labelBASAL = new TextView(DanaRStatsActivity.this);
-                    labelBASAL.setId(200+i);
+                    labelBASAL.setId(300+i);
                     labelBASAL.setText(DecimalFormatter.to2Decimal(record.getRecordDailyBasal()) + " U");
                     labelBASAL.setTextColor(Color.WHITE);
                     tr.addView(labelBASAL);
 
                     TextView labelBOLUS = new TextView(DanaRStatsActivity.this);
-                    labelBOLUS.setId(200+i);
+                    labelBOLUS.setId(400+i);
                     labelBOLUS.setText(DecimalFormatter.to2Decimal(record.getRecordDailyBolus()) + " U");
                     labelBOLUS.setTextColor(Color.WHITE);
                     tr.addView(labelBOLUS);
 
                     TextView labelTDD = new TextView(DanaRStatsActivity.this);
-                    labelTDD.setId(200+i);
+                    labelTDD.setId(500+i);
                     labelTDD.setText(DecimalFormatter.to2Decimal(tdd) + " U");
                     labelTDD.setTextColor(Color.WHITE);
                     tr.addView(labelTDD);
 
                     TextView labelRATIO = new TextView(DanaRStatsActivity.this);
-                    labelRATIO.setId(200+i);
+                    labelRATIO.setId(600+i);
                     labelRATIO.setText(Math.round(100*tdd/magicNumber) +" %");
                     labelRATIO.setTextColor(Color.WHITE);
                     tr.addView(labelRATIO);
-
 
                     tl.addView(tr, new TableLayout.LayoutParams(
                             TableLayout.LayoutParams.FILL_PARENT,
@@ -339,27 +378,27 @@ public class DanaRStatsActivity extends Activity {
 
                     // Create the cumtable row
                     TableRow ctr = new TableRow(DanaRStatsActivity.this);
-                    if(i%2!=0) ctr.setBackgroundColor(Color.DKGRAY);
-                    ctr.setId(100+i);
+                    if(i%2==0) ctr.setBackgroundColor(Color.DKGRAY);
+                    ctr.setId(700+i);
                     ctr.setLayoutParams(new TableLayout.LayoutParams(
                             TableLayout.LayoutParams.FILL_PARENT,
                             TableLayout.LayoutParams.WRAP_CONTENT));
 
                     // Here create the TextView dynamically
                     TextView labelDAYS = new TextView(DanaRStatsActivity.this);
-                    labelDAYS.setId(200+i);
+                    labelDAYS.setId(800+i);
                     labelDAYS.setText("" + i);
                     labelDAYS.setTextColor(Color.WHITE);
                     ctr.addView(labelDAYS);
 
                     TextView labelCUMTDD = new TextView(DanaRStatsActivity.this);
-                    labelCUMTDD.setId(200+i);
+                    labelCUMTDD.setId(900+i);
                     labelCUMTDD.setText(DecimalFormatter.to2Decimal(sum/i) + " U");
                     labelCUMTDD.setTextColor(Color.WHITE);
                     ctr.addView(labelCUMTDD);
 
                     TextView labelCUMRATIO = new TextView(DanaRStatsActivity.this);
-                    labelCUMRATIO.setId(200+i);
+                    labelCUMRATIO.setId(1000+i);
                     labelCUMRATIO.setText(Math.round(100*sum/i/magicNumber) + " %");
                     labelCUMRATIO.setTextColor(Color.WHITE);
                     ctr.addView(labelCUMRATIO);
@@ -397,20 +436,20 @@ public class DanaRStatsActivity extends Activity {
                 // Create the exptable row
                 TableRow etr = new TableRow(DanaRStatsActivity.this);
                 if(i%2!=0) etr.setBackgroundColor(Color.DKGRAY);
-                etr.setId(100+i);
+                etr.setId(1100+i);
                 etr.setLayoutParams(new TableLayout.LayoutParams(
                         TableLayout.LayoutParams.FILL_PARENT,
                         TableLayout.LayoutParams.WRAP_CONTENT));
 
                 // Here create the TextView dynamically
                 TextView labelWEIGHT = new TextView(DanaRStatsActivity.this);
-                labelWEIGHT.setId(200+i);
+                labelWEIGHT.setId(1200+i);
                 labelWEIGHT.setText("0.3\n" + "0.5\n" + "0.7");
                 labelWEIGHT.setTextColor(Color.WHITE);
                 etr.addView(labelWEIGHT);
 
                 TextView labelEXPTDD = new TextView(DanaRStatsActivity.this);
-                labelEXPTDD.setId(200+i);
+                labelEXPTDD.setId(1300+i);
                 labelEXPTDD.setText(DecimalFormatter.to2Decimal(weighted03)
                         + " U\n" + DecimalFormatter.to2Decimal(weighted05)
                         + " U\n" + DecimalFormatter.to2Decimal(weighted07) + " U");
@@ -418,7 +457,7 @@ public class DanaRStatsActivity extends Activity {
                 etr.addView(labelEXPTDD);
 
                 TextView labelEXPRATIO = new TextView(DanaRStatsActivity.this);
-                labelEXPRATIO.setId(200+i);
+                labelEXPRATIO.setId(1400+i);
                 labelEXPRATIO.setText(Math.round(100*weighted03/magicNumber) +" %\n"
                         + Math.round(100*weighted05/magicNumber) +" %\n"
                         + Math.round(100*weighted07/magicNumber) +" %");
@@ -430,6 +469,14 @@ public class DanaRStatsActivity extends Activity {
                         TableLayout.LayoutParams.WRAP_CONTENT));
             }
         });
+    }
+
+    private void cleanTable(TableLayout table) {
+        int childCount = table.getChildCount();
+        // Remove all rows except the first one
+        if (childCount > 1) {
+            table.removeViews(1, childCount - 1);
+        }
     }
 
     @Subscribe

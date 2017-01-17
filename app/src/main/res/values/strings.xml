@@ -408,5 +408,10 @@
     <string name="danar_stats_ratio">Ratio</string>
     <string name="danar_stats_amount_days"># Days</string>
     <string name="danar_stats_weight">Weight</string>
+    <string name="danar_stats_skipMessageButton">Display Alert Message Again</string>
+    <string name="danar_stats_skipMessageCheckbox">Please do not show again</string>
+    <string name="danar_stats_skipMessage">Possibly inaccurate if using boluses for priming/filling!</string>
+
+
 
 </resources>
