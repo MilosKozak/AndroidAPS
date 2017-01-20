@@ -152,35 +152,14 @@ public class DanaRStatsActivity extends Activity {
         totalBaseBasal.setText(TBB);
 
         ProfileInterface pi = ConfigBuilderPlugin.getActiveProfile();
-        if (pi instanceof CircadianPercentageProfilePlugin){
-            totalBaseBasal.setText(decimalFormat.format(((CircadianPercentageProfilePlugin)pi).baseBasalSum()));
+        if (pi != null && pi instanceof CircadianPercentageProfilePlugin){
+            double cppTBB = ((CircadianPercentageProfilePlugin)pi).baseBasalSum();
+            totalBaseBasal.setText(decimalFormat.format(cppTBB));
+            SharedPreferences.Editor edit = preferences.edit();
+            edit.putString("TBB",totalBaseBasal.getText().toString());
+            edit.commit();
+            TBB = preferences.getString("TBB", "");
         }
-
-        totalBaseBasal.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId== EditorInfo.IME_ACTION_DONE){
-                    SharedPreferences.Editor edit = preferences.edit();
-                    edit.putString("TBB",totalBaseBasal.getText().toString());
-                    edit.commit();
-                    TBB = preferences.getString("TBB", "");
-                    loadDataFromDB(RecordTypes.RECORD_TYPE_DAILY);
-                    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                    totalBaseBasal.clearFocus();
-                }
-                return false;
-            }
-        });
-
-        totalBaseBasal.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    totalBaseBasal.getText().clear();
-                }
-            }
-        });
 
         // stats table
         tl = (TableLayout) findViewById(R.id.main_table);
@@ -307,6 +286,32 @@ public class DanaRStatsActivity extends Activity {
                         });
                     }
                 });
+            }
+        });
+
+        totalBaseBasal.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId== EditorInfo.IME_ACTION_DONE){
+                    SharedPreferences.Editor edit = preferences.edit();
+                    edit.putString("TBB",totalBaseBasal.getText().toString());
+                    edit.commit();
+                    TBB = preferences.getString("TBB", "");
+                    loadDataFromDB(RecordTypes.RECORD_TYPE_DAILY);
+                    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                    totalBaseBasal.clearFocus();
+                }
+                return false;
+            }
+        });
+
+        totalBaseBasal.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    totalBaseBasal.getText().clear();
+                }
             }
         });
 
