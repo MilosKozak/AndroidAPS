@@ -441,7 +441,6 @@ public class DanaRStatsActivity extends Activity {
                 }
 
                 if (historyList.size()<3 || !(df.format(new Date(historyList.get(0).getRecordDate())).equals(df.format(new Date(System.currentTimeMillis() - 1000*60*60*24))))){
-                    tl.setBackgroundColor(Color.RED);
                     statsMessage.setVisibility(View.VISIBLE);
                     statsMessage.setText(getString(R.string.danar_stats_olddata_Message));
 
