@@ -315,7 +315,7 @@ public class DanaRStatsActivity extends Activity {
                     totalBaseBasal.clearFocus();
                     return true;
                 }
-                return false;
+                return true;
             }
         });
 
