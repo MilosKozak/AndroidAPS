@@ -28,7 +28,8 @@ import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventTempBasalChange;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.TempBasalsInterface;
-import info.nightscout.androidaps.plugins.OpenAPSMA.IobTotal;
+import info.nightscout.androidaps.data.IobTotal;
+import info.nightscout.client.data.NSProfile;
 
 /**
  * Created by mike on 05.08.2016.
@@ -95,44 +96,16 @@ public class TempBasalsPlugin implements PluginBase, TempBasalsInterface {
     }
 
     private void initializeData() {
-        try {
-            Dao<TempBasal, Long> dao = MainApp.getDbHelper().getDaoTempBasals();
-/*
-            // **************** TESTING CREATE FAKE RECORD *****************
-            TempBasal fake = new TempBasal();
-            fake.timeStart = new Date(new Date().getTime() - 45 * 40 * 1000);
-            fake.timeEnd = new Date(new Date().getTime() - new Double(Math.random() * 45d * 40 * 1000).longValue());
-            fake.duration = 30;
-            fake.percent = 150;
-            fake.isAbsolute = false;
-            fake.isExtended = false;
-            dao.createOrUpdate(fake);
-            // **************** TESTING CREATE FAKE RECORD *****************
-*/
-            QueryBuilder<TempBasal, Long> queryBuilder = dao.queryBuilder();
-            queryBuilder.orderBy("timeIndex", false);
-            Where where = queryBuilder.where();
-            where.eq("isExtended", false);
-            queryBuilder.limit(30L);
-            PreparedQuery<TempBasal> preparedQuery = queryBuilder.prepare();
-            tempBasals = dao.query(preparedQuery);
+        double dia = 3;
+        if (MainApp.getConfigBuilder().getActiveProfile() != null)
+            dia = MainApp.getConfigBuilder().getActiveProfile().getProfile().getDia();
+        long fromMills = (long) (new Date().getTime() - 60 * 60 * 1000L * (24 + dia));
+        tempBasals = MainApp.getDbHelper().getTempbasalsDataFromTime(fromMills, false, false);
+        extendedBoluses = MainApp.getDbHelper().getTempbasalsDataFromTime(fromMills, false, true);
 
-            QueryBuilder<TempBasal, Long> queryBuilderExt = dao.queryBuilder();
-            queryBuilderExt.orderBy("timeIndex", false);
-            Where whereExt = queryBuilderExt.where();
-            whereExt.eq("isExtended", true);
-            queryBuilderExt.limit(30L);
-            PreparedQuery<TempBasal> preparedQueryExt = queryBuilderExt.prepare();
-            extendedBoluses = dao.query(preparedQueryExt);
-
-            // Update ended
-            checkForExpiredExtended();
-            checkForExpiredTemps();
-        } catch (SQLException e) {
-            log.debug(e.getMessage(), e);
-            tempBasals = new ArrayList<TempBasal>();
-            extendedBoluses = new ArrayList<TempBasal>();
-        }
+        // Update ended
+        checkForExpiredExtended();
+        checkForExpiredTemps();
     }
 
     public void checkForExpiredTemps() {
@@ -197,10 +170,10 @@ public class TempBasalsPlugin implements PluginBase, TempBasalsInterface {
     }
 
     @Override
-    public void updateTotalIOB() {
+    public IobTotal getCalculationToTime(long time) {
         checkForExpired(tempBasals);
         checkForExpired(extendedBoluses);
-        Date now = new Date();
+        Date now = new Date(time);
         IobTotal total = new IobTotal();
         for (Integer pos = 0; pos < tempBasals.size(); pos++) {
             TempBasal t = tempBasals.get(pos);
@@ -214,6 +187,13 @@ public class TempBasalsPlugin implements PluginBase, TempBasalsInterface {
                 total.plus(calc);
             }
         }
+        return total;
+    }
+
+    @Override
+    public void updateTotalIOB() {
+        IobTotal total = getCalculationToTime(new Date().getTime());
+
         lastCalculationTimestamp = new Date().getTime();
         lastCalculation = total;
     }
