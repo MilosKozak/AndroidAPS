@@ -224,7 +224,7 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
 
         startPart = new Date();
         if(MainApp.getConfigBuilder().isAMAModeEnabled()){
-            lastAutosensResult = Autosens.detectSensitivityandCarbAbsorption(bgReadings, null);
+            lastAutosensResult = Autosens.detectSensitivityandCarbAbsorption(bgReadings, 0);
         } else {
             lastAutosensResult = new AutosensResult();
         }
