@@ -97,10 +97,18 @@ android {
         wear {
             dimension "wear"
             buildConfigField "boolean", "WEAR", "true"
+            buildConfigField "boolean", "WEAR_CONTROL", "false"
+
+        }
+        wearcontrol {
+            dimension "wear"
+            buildConfigField "boolean", "WEAR", "true"
+            buildConfigField "boolean", "WEAR_CONTROL", "true"
         }
         nowear {
             dimension "wear"
             buildConfigField "boolean", "WEAR", "false"
+            buildConfigField "boolean", "WEAR_CONTROL", "false"
         }
     }
 }
@@ -115,6 +123,7 @@ allprojects {
 }
 
 dependencies {
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile('com.crashlytics.sdk.android:crashlytics:2.5.7@aar') {
         transitive = true;
