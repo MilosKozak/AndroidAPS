@@ -101,7 +101,6 @@ android {
         nowear {
             dimension "wear"
             buildConfigField "boolean", "WEAR", "false"
-            buildConfigField "boolean", "WEAR_CONTROL", "false"
         }
     }
 }

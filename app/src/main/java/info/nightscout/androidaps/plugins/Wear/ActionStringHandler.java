@@ -52,7 +52,7 @@ public class ActionStringHandler {
 
     public synchronized static void handleInitiate(String actionstring){
 
-        if(!BuildConfig.WEAR_CONTROL) return;
+        if(true) return;
 
 
         lastBolusWizard = null;
@@ -308,7 +308,7 @@ public class ActionStringHandler {
 
     public synchronized static void handleConfirmation(String actionString){
 
-        if(!BuildConfig.WEAR_CONTROL) return;
+        if(true) return;
 
 
         //Guard from old or duplicate confirmations
