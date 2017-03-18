@@ -111,11 +111,11 @@ $options = "Nowear","Wear","Wearcontrol","-Main Menu-","-Exit-"
 		cmd.exe /C $gradlewPath --stop
 		if (Test-Path $apkFolder) { explorer $apkFolder}}
 		"Wear" {
-		cmd.exe /c start $gradlewPath assemble"$flavor"Wear
+		cmd.exe /c start /wait $gradlewPath assemble"$flavor"Wear
 		cmd.exe /c $gradlewPath --stop 
 		if (Test-Path $apkFolder) { explorer $apkFolder}}
 		"Wearcontrol" {
-		cmd.exe /c start $gradlewPath assemble"$flavor"Wearcontrolear
+		cmd.exe /c start /wait $gradlewPath assemble"$flavor"Wearcontrolear
 		cmd.exe /c $gradlewPath --stop 		
 		if (Test-Path $apkFolder) { explorer $apkFolder}}
 		"-Main Menu-" {return}
