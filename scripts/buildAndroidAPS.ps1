@@ -78,11 +78,12 @@ function Menu {
 ###############Menus and submenus########################
 
 function MainMenu {
-$options = "Install Jdk","Install SDK to $Env:USERPROFILE\AppData\Local\Android\Sdk","Install Git","Switch to master Branch","Switch to dev Branch","--Build AAPS--","Full","NSClient","Openloop","Pumpcontrol","-Exit-"
+$options = "Install Jdk","Install Android SDK to $Env:USERPROFILE\AppData\Local\Android\Sdk","Install Android Studio (Optional)","Install Git","Switch to master Branch","Switch to dev Branch","--Build AAPS--","Full","NSClient","Openloop","Pumpcontrol","-Exit-"
 	$selection = Menu $options "Build AndroidAPS"
 	Switch ($selection) {
 		"Install Jdk" {.$scriptroot\installJdk.ps1;anykey;MainMenu}
-		"Install SDK to $Env:USERPROFILE\AppData\Local\Android\Sdk" {.$scriptroot\installAndroidSDK.ps1;anykey;MainMenu}
+		"Install Android SDK to $Env:USERPROFILE\AppData\Local\Android\Sdk" {.$scriptroot\installAndroidSDK.ps1;anykey;MainMenu}
+		"Install Android Studio (Optional)" {.$scriptroot\installAndroidStudio.ps1;anykey;MainMenu}
 		"Install Git" {.$scriptroot\installGit.ps1;anykey;MainMenu}
 		"Switch to master Branch" {
 		git --git-dir=$scriptroot\..\.git --work-tree=$scriptroot\..\ fetch

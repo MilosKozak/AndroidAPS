@@ -1,6 +1,6 @@
 (get-host).ui.rawui.backgroundcolor = "black"
 (get-host).ui.rawui.foregroundcolor = "green"
-(get-host).ui.rawui.WindowTitle = "Install Android SDK"
+(get-host).ui.rawui.WindowTitle = "Install GIT"
 $downloadFolder="$Env:USERPROFILE\Downloads"
 
 $url = "https://github.com/git-for-windows/git/releases/download/v2.12.0.windows.1/Git-2.12.0-64-bit.exe"

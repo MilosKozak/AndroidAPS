@@ -1,6 +1,6 @@
 (get-host).ui.rawui.backgroundcolor = "black"
 (get-host).ui.rawui.foregroundcolor = "green"
-(get-host).ui.rawui.WindowTitle = "Install Android SDK"
+(get-host).ui.rawui.WindowTitle = "Install JDK"
 $downloadFolder="$Env:USERPROFILE\Downloads"
 $JDK_VER="8u121"
 $JDK_FULL_VER="8u121-b13"
