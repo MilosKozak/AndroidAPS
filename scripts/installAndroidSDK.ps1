@@ -29,4 +29,4 @@ if (!(Test-Path $sdkFolder\tools)) {
 
 $AndroidToolPath = "$sdkFolder\tools\bin\sdkmanager.bat"
 & $AndroidToolPath 'platform-tools' 'platforms;android-23' 'build-tools;25.0.2' 'extras;google;m2repository' 'extras;android;m2repository' --verbose
-[Environment]::SetEnvironmentVariable("ANDROID_HOME", "$sdkFolder", "User")
+Start-Process CMD -ArgumentList "/C setx -m ANDROID_HOME `"$sdkFolder`"" -Verb RunAs
