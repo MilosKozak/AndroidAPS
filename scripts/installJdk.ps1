@@ -50,9 +50,11 @@ try {
 if ((Test-Path "c:\Program Files (x86)\Java") -Or (Test-Path "c:\Program Files\Java")) {
     Write-Host 'Java installed successfully.'
 }
+
 Write-Host 'Setting up Path variables.'
-[System.Environment]::SetEnvironmentVariable("JAVA_HOME", "c:\Program Files (x86)\Java\jdk$JDK_PATH", "Machine")
-[System.Environment]::SetEnvironmentVariable("PATH", $Env:Path + ";c:\Program Files (x86)\Java\jdk$JDK_PATH\bin", "Machine")
+$javaHome = "c:\Program Files (x86)\Java\jdk$JDK_PATH"
+$path = $Env:Path + ";c:\Program Files (x86)\Java\jdk$JDK_PATH\bin"
+Start-Process CMD -ArgumentList "/C setx -m JAVA_HOME `"$javaHome`" & setx -m PATH `"$path`"" -Verb RunAs
 
 If (Test-Path $destination64){			
 		Remove-Item $destination64
