@@ -107,15 +107,15 @@ $options = "Nowear","Wear","Wearcontrol","-Main Menu-","-Exit-"
 	$selection = Menu $options "Select Wear Options!"
 	Switch ($selection) {
 		"Nowear" {
-		cmd.exe /c start /wait $gradlewPath assemble"$flavor"Nowear
+		cmd.exe /c $gradlewPath assemble"$flavor"Nowear
 		cmd.exe /C $gradlewPath --stop
 		if (Test-Path $apkFolder) { explorer $apkFolder}}
 		"Wear" {
-		cmd.exe /c start /wait $gradlewPath assemble"$flavor"Wear
+		cmd.exe /c $gradlewPath assemble"$flavor"Wear
 		cmd.exe /c $gradlewPath --stop 
 		if (Test-Path $apkFolder) { explorer $apkFolder}}
 		"Wearcontrol" {
-		cmd.exe /c start /wait $gradlewPath assemble"$flavor"Wearcontrol
+		cmd.exe /c $gradlewPath assemble"$flavor"Wearcontrol
 		cmd.exe /c $gradlewPath --stop 		
 		if (Test-Path $apkFolder) { explorer $apkFolder}}
 		"-Main Menu-" {return}
