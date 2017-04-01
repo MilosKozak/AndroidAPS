@@ -15,7 +15,8 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
-import info.nightscout.client.data.NSProfile;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
 
 /**
@@ -34,7 +35,6 @@ public class SimpleProfilePlugin implements PluginBase, ProfileInterface {
     Double dia;
     Double ic;
     Double isf;
-    Double car;
     Double basal;
     Double targetLow;
     Double targetHigh;
@@ -56,6 +56,17 @@ public class SimpleProfilePlugin implements PluginBase, ProfileInterface {
     @Override
     public String getName() {
         return MainApp.instance().getString(R.string.simpleprofile);
+    }
+
+    @Override
+    public String getNameShort() {
+        String name = MainApp.sResources.getString(R.string.simpleprofile_shortname);
+        if (!name.trim().isEmpty()) {
+            //only if translation exists
+            return name;
+        }
+        // use long name as fallback
+        return getName();
     }
 
     @Override
@@ -93,7 +104,6 @@ public class SimpleProfilePlugin implements PluginBase, ProfileInterface {
         editor.putString("SimpleProfile" + "dia", dia.toString());
         editor.putString("SimpleProfile" + "ic", ic.toString());
         editor.putString("SimpleProfile" + "isf", isf.toString());
-        editor.putString("SimpleProfile" + "car", car.toString());
         editor.putString("SimpleProfile" + "basal", basal.toString());
         editor.putString("SimpleProfile" + "targetlow", targetLow.toString());
         editor.putString("SimpleProfile" + "targethigh", targetHigh.toString());
@@ -105,71 +115,15 @@ public class SimpleProfilePlugin implements PluginBase, ProfileInterface {
     private void loadSettings() {
         if (Config.logPrefsChange)
             log.debug("Loading stored settings");
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
 
-        if (settings.contains("SimpleProfile" + "mgdl"))
-            try {
-                mgdl = settings.getBoolean("SimpleProfile" + "mgdl", true);
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else mgdl = true;
-        if (settings.contains("SimpleProfile" + "mmol"))
-            try {
-                mmol = settings.getBoolean("SimpleProfile" + "mmol", false);
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else mmol = false;
-        if (settings.contains("SimpleProfile" + "dia"))
-            try {
-                dia = SafeParse.stringToDouble(settings.getString("SimpleProfile" + "dia", "3"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else dia = 3d;
-        if (settings.contains("SimpleProfile" + "ic"))
-            try {
-                ic = SafeParse.stringToDouble(settings.getString("SimpleProfile" + "ic", "20"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else ic = 20d;
-        if (settings.contains("SimpleProfile" + "isf"))
-            try {
-                isf = SafeParse.stringToDouble(settings.getString("SimpleProfile" + "isf", "200"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else isf = 200d;
-        if (settings.contains("SimpleProfile" + "car"))
-            try {
-                car = SafeParse.stringToDouble(settings.getString("SimpleProfile" + "car", "20"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else car = 20d;
-        if (settings.contains("SimpleProfile" + "basal"))
-            try {
-                basal = SafeParse.stringToDouble(settings.getString("SimpleProfile" + "basal", "1"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else basal = 1d;
-        if (settings.contains("SimpleProfile" + "targetlow"))
-            try {
-                targetLow = SafeParse.stringToDouble(settings.getString("SimpleProfile" + "targetlow", "80"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else targetLow = 80d;
-        if (settings.contains("SimpleProfile" + "targethigh"))
-            try {
-                targetHigh = SafeParse.stringToDouble(settings.getString("SimpleProfile" + "targethigh", "120"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else targetHigh = 120d;
+        mgdl = SP.getBoolean("SimpleProfile" + "mgdl", true);
+        mmol = SP.getBoolean("SimpleProfile" + "mmol", false);
+        dia = SP.getDouble("SimpleProfile" + "dia", 3d);
+        ic = SP.getDouble("SimpleProfile" + "ic", 20d);
+        isf = SP.getDouble("SimpleProfile" + "isf", 200d);
+        basal = SP.getDouble("SimpleProfile" + "basal", 1d);
+        targetLow = SP.getDouble("SimpleProfile" + "targetlow", 80d);
+        targetHigh = SP.getDouble("SimpleProfile" + "targethigh", 120d);
         createConvertedProfile();
     }
 
@@ -221,7 +175,6 @@ public class SimpleProfilePlugin implements PluginBase, ProfileInterface {
             json.put("store", store);
             profile.put("dia", dia);
             profile.put("carbratio", new JSONArray().put(new JSONObject().put("timeAsSeconds", 0).put("value", ic)));
-            profile.put("carbs_hr", car);
             profile.put("sens", new JSONArray().put(new JSONObject().put("timeAsSeconds", 0).put("value", isf)));
             profile.put("basal", new JSONArray().put(new JSONObject().put("timeAsSeconds", 0).put("value", basal)));
             profile.put("target_low", new JSONArray().put(new JSONObject().put("timeAsSeconds", 0).put("value", targetLow)));

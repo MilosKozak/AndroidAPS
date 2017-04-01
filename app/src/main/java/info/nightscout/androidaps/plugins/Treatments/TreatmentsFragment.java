@@ -1,12 +1,15 @@
 package info.nightscout.androidaps.plugins.Treatments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +21,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 import com.squareup.otto.Subscribe;
 
 import org.slf4j.Logger;
@@ -33,7 +38,7 @@ import info.nightscout.androidaps.data.Iob;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.androidaps.interfaces.FragmentBase;
-import info.nightscout.client.data.NSProfile;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.ToastUtils;
@@ -54,7 +59,9 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
     TextView activityTotal;
     Button refreshFromNS;
 
-    public static class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.TreatmentsViewHolder> {
+    Context context;
+
+    public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.TreatmentsViewHolder> {
 
         List<Treatment> treatments;
 
@@ -84,9 +91,10 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
             holder.activity.setText(DecimalFormatter.to3Decimal(iob.activityContrib) + " U");
             holder.mealOrCorrection.setText(treatments.get(position).mealBolus ? MainApp.sResources.getString(R.string.mealbolus) : MainApp.sResources.getString(R.string.correctionbous));
             if (iob.iobContrib != 0)
-                holder.dateLinearLayout.setBackgroundColor(MainApp.instance().getResources().getColor(R.color.colorAffectingIOB));
+                holder.dateLinearLayout.setBackgroundColor(ContextCompat.getColor(MainApp.instance(), R.color.colorAffectingIOB));
             else
-                holder.dateLinearLayout.setBackgroundColor(MainApp.instance().getResources().getColor(R.color.cardColorBackground));
+                holder.dateLinearLayout.setBackgroundColor(ContextCompat.getColor(MainApp.instance(), R.color.cardColorBackground));
+            holder.remove.setTag(treatments.get(position));
         }
 
         @Override
@@ -99,7 +107,7 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
             super.onAttachedToRecyclerView(recyclerView);
         }
 
-        public static class TreatmentsViewHolder extends RecyclerView.ViewHolder {
+        public class TreatmentsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             CardView cv;
             TextView date;
             TextView insulin;
@@ -108,6 +116,7 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
             TextView activity;
             TextView mealOrCorrection;
             LinearLayout dateLinearLayout;
+            TextView remove;
 
             TreatmentsViewHolder(View itemView) {
                 super(itemView);
@@ -119,6 +128,36 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
                 activity = (TextView) itemView.findViewById(R.id.treatments_activity);
                 mealOrCorrection = (TextView) itemView.findViewById(R.id.treatments_mealorcorrection);
                 dateLinearLayout = (LinearLayout) itemView.findViewById(R.id.treatments_datelinearlayout);
+                remove = (TextView) itemView.findViewById(R.id.treatments_remove);
+                remove.setOnClickListener(this);
+                remove.setPaintFlags(remove.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            }
+
+            @Override
+            public void onClick(View v) {
+                final Treatment treatment = (Treatment) v.getTag();
+                final Context finalContext = context;
+                switch (v.getId()) {
+                    case R.id.treatments_remove:
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setTitle(MainApp.sResources.getString(R.string.confirmation));
+                        builder.setMessage(MainApp.sResources.getString(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(treatment.created_at));
+                        builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                final String _id = treatment._id;
+                                if (_id != null && !_id.equals("")) {
+                                    MainApp.getConfigBuilder().removeCareportalEntryFromNS(_id);
+                                }
+                                MainApp.getDbHelper().delete(treatment);
+                                treatmentsPlugin.initializeData();
+                                updateGUI();
+                                Answers.getInstance().logCustom(new CustomEvent("RefreshTreatments"));
+                            }
+                        });
+                        builder.setNegativeButton(MainApp.sResources.getString(R.string.cancel), null);
+                        builder.show();
+                        break;
+                }
             }
         }
     }
@@ -142,6 +181,8 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
         refreshFromNS = (Button) view.findViewById(R.id.treatments_reshreshfromnightscout);
         refreshFromNS.setOnClickListener(this);
 
+        context = getContext();
+
         updateGUI();
         return view;
     }
@@ -152,12 +193,12 @@ public class TreatmentsFragment extends Fragment implements View.OnClickListener
             case R.id.treatments_reshreshfromnightscout:
                 SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean nsUploadOnly = SP.getBoolean("ns_upload_only", false);
-                if(nsUploadOnly){
-                    ToastUtils.showToastInUiThread(getContext(),this.getContext().getString(R.string.ns_upload_only_enabled));
+                if (nsUploadOnly) {
+                    ToastUtils.showToastInUiThread(getContext(), this.getContext().getString(R.string.ns_upload_only_enabled));
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
                     builder.setTitle(this.getContext().getString(R.string.confirmation));
-                    builder.setMessage(this.getContext().getString(R.string.refreshfromnightscout));
+                    builder.setMessage(this.getContext().getString(R.string.refreshtreatmentsfromnightscout));
                     builder.setPositiveButton(this.getContext().getString(R.string.ok), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             MainApp.getDbHelper().resetTreatments();

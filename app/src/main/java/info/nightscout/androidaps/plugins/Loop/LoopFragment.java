@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 import com.squareup.otto.Subscribe;
 
 import org.slf4j.Logger;
@@ -76,7 +78,15 @@ public class LoopFragment extends Fragment implements View.OnClickListener, Frag
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.loop_run:
-                getPlugin().invoke(true);
+                lastRunView.setText(MainApp.sResources.getString(R.string.executing));
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        getPlugin().invoke("Loop button", true);
+                    }
+                });
+                thread.start();
+                Answers.getInstance().logCustom(new CustomEvent("Loop_Run"));
                 break;
         }
 

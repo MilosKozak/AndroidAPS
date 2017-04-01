@@ -2,12 +2,14 @@ package info.nightscout.utils;
 
 import org.json.JSONObject;
 
+import java.util.Date;
+
 import info.nightscout.androidaps.MainApp;
-import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.TempBasalsInterface;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
-import info.nightscout.androidaps.plugins.OpenAPSMA.IobTotal;
-import info.nightscout.client.data.NSProfile;
+import info.nightscout.androidaps.data.IobTotal;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
 
 /**
  * Created by mike on 11.10.2016.
@@ -16,7 +18,7 @@ import info.nightscout.client.data.NSProfile;
 public class BolusWizard {
     // Inputs
     JSONObject specificProfile = null;
-    Integer carbs = 0;
+    public Integer carbs = 0;
     Double bg = 0d;
     Double correction;
     Boolean includeBolusIOB = true;
@@ -49,7 +51,7 @@ public class BolusWizard {
         this.bg = bg;
         this.correction = correction;
 
-        NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
+        NSProfile profile = ConfigBuilderPlugin.getActiveProfile().getProfile();
 
         // Insulin from BG
         sens = profile.getIsf(specificProfile, NSProfile.secondsFromMidnight());
@@ -67,12 +69,16 @@ public class BolusWizard {
         insulinFromCarbs = carbs / ic;
 
         // Insulin from IOB
-        TreatmentsInterface treatments = MainApp.getConfigBuilder().getActiveTreatments();
-        TempBasalsInterface tempBasals = MainApp.getConfigBuilder().getActiveTempBasals();
+        // IOB calculation
+        TreatmentsInterface treatments = ConfigBuilderPlugin.getActiveTreatments();
         treatments.updateTotalIOB();
-        tempBasals.updateTotalIOB();
-        bolusIob = treatments.getLastCalculation();
-        basalIob = tempBasals.getLastCalculation();
+        IobTotal bolusIob = treatments.getLastCalculation();
+        TempBasalsInterface tempBasals = ConfigBuilderPlugin.getActiveTempBasals();
+        IobTotal basalIob = new IobTotal(new Date().getTime());
+        if (tempBasals != null) {
+            tempBasals.updateTotalIOB();
+            basalIob = tempBasals.getLastCalculation().round();
+        }
 
         insulingFromBolusIOB = includeBolusIOB ? -bolusIob.iob : 0d;
         insulingFromBasalsIOB = includeBasalIOB ? -basalIob.basaliob : 0d;
