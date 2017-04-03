@@ -1,8 +1,5 @@
 package info.nightscout.androidaps.plugins.DanaRKorean;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,9 +8,9 @@ import java.text.DecimalFormat;
 import java.util.Date;
 
 import info.nightscout.androidaps.Constants;
-import info.nightscout.androidaps.MainApp;
-import info.nightscout.client.data.NSProfile;
-import info.nightscout.utils.SafeParse;
+import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.utils.SP;
 
 /**
  * Created by mike on 04.07.2016.
@@ -45,6 +42,8 @@ public class DanaRKoreanPump {
     public int model;
     public int protocol;
     public int productCode;
+
+    public boolean pumpSuspended;
 
     public boolean isConfigUD;
     public boolean isExtendedBolusEnabled;
@@ -115,9 +114,7 @@ public class DanaRKoreanPump {
 //        Evening / 17:00–21:59
 //        Night / 22:00–5:59
 
-        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
-        double dia = SafeParse.stringToDouble(SP.getString("danarprofile_dia", "3"));
-        double car = SafeParse.stringToDouble(SP.getString("danarprofile_car", "20"));
+        double dia = SP.getDouble(R.string.key_danarprofile_dia, 3d);
 
         try {
             json.put("defaultProfile", PROFILE_PREFIX + (activeProfile + 1));
@@ -131,8 +128,6 @@ public class DanaRKoreanPump {
             carbratios.put(new JSONObject().put("time", "14:00").put("timeAsSeconds", 17 * 3600).put("value", eveningCIR));
             carbratios.put(new JSONObject().put("time", "22:00").put("timeAsSeconds", 22 * 3600).put("value", nightCIR));
             profile.put("carbratio", carbratios);
-
-            profile.put("carbs_hr", car);
 
             JSONArray sens = new JSONArray();
             sens.put(new JSONObject().put("time", "00:00").put("timeAsSeconds", 0).put("value", nightCF));

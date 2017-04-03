@@ -82,6 +82,17 @@ public class LoopPlugin implements PluginBase {
     }
 
     @Override
+    public String getNameShort() {
+        String name = MainApp.sResources.getString(R.string.loop_shortname);
+        if (!name.trim().isEmpty()){
+            //only if translation exists
+            return name;
+        }
+        // use long name as fallback
+        return getName();
+    }
+
+    @Override
     public boolean isEnabled(int type) {
         return type == LOOP && fragmentEnabled && MainApp.getConfigBuilder().getPumpDescription().isTempBasalCapable;
     }
@@ -108,25 +119,32 @@ public class LoopPlugin implements PluginBase {
 
     @Subscribe
     public void onStatusEvent(final EventTreatmentChange ev) {
-        invoke(true);
+        invoke("EventTreatmentChange", true);
     }
 
     @Subscribe
     public void onStatusEvent(final EventNewBG ev) {
-        invoke(true);
+        invoke("EventNewBG", true);
     }
 
-    public void invoke(boolean allowNotification) {
+    public void invoke(String initiator, boolean allowNotification) {
         try {
             if (Config.logFunctionCalls)
                 log.debug("invoke");
             ConstraintsInterface constraintsInterface = MainApp.getConfigBuilder();
             if (!constraintsInterface.isLoopEnabled()) {
+                log.debug(MainApp.sResources.getString(R.string.loopdisabled));
                 MainApp.bus().post(new EventLoopSetLastRunGui(MainApp.sResources.getString(R.string.loopdisabled)));
                 return;
             }
             final ConfigBuilderPlugin configBuilder = MainApp.getConfigBuilder();
             APSResult result = null;
+
+            if (configBuilder.isSuspended()) {
+                log.debug(MainApp.sResources.getString(R.string.pumpsuspended));
+                MainApp.bus().post(new EventLoopSetLastRunGui(MainApp.sResources.getString(R.string.pumpsuspended)));
+                return;
+            }
 
             if (configBuilder == null || !isEnabled(PluginBase.LOOP))
                 return;
@@ -136,7 +154,7 @@ public class LoopPlugin implements PluginBase {
 
             APSInterface usedAPS = configBuilder.getActiveAPS();
             if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
-                usedAPS.invoke();
+                usedAPS.invoke(initiator);
                 result = usedAPS.getLastAPSResult();
             }
 
@@ -185,7 +203,7 @@ public class LoopPlugin implements PluginBase {
                 if (result.changeRequested && allowNotification) {
                     NotificationCompat.Builder builder =
                             new NotificationCompat.Builder(MainApp.instance().getApplicationContext());
-                    builder.setSmallIcon(R.drawable.notification_icon)
+                    builder.setSmallIcon(R.drawable.notif_icon)
                             .setContentTitle(MainApp.sResources.getString(R.string.openloop_newsuggestion))
                             .setContentText(resultAfterConstraints.toString())
                             .setAutoCancel(true)

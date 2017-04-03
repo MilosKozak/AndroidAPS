@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 import com.squareup.otto.Subscribe;
 
 import org.slf4j.Logger;
@@ -17,9 +19,8 @@ import org.slf4j.LoggerFactory;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.FragmentBase;
-import info.nightscout.androidaps.plugins.Loop.APSResult;
-import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSMAUpdateGui;
-import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSMAUpdateResultGui;
+import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSUpdateGui;
+import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSUpdateResultGui;
 import info.nightscout.utils.JSONFormatter;
 
 public class OpenAPSMAFragment extends Fragment implements View.OnClickListener, FragmentBase {
@@ -68,7 +69,8 @@ public class OpenAPSMAFragment extends Fragment implements View.OnClickListener,
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.openapsma_run:
-                getPlugin().invoke();
+                getPlugin().invoke("OpenAPSMA button");
+                Answers.getInstance().logCustom(new CustomEvent("OpenAPS_MA_Run"));
                 break;
         }
 
@@ -87,12 +89,12 @@ public class OpenAPSMAFragment extends Fragment implements View.OnClickListener,
     }
 
     @Subscribe
-    public void onStatusEvent(final EventOpenAPSMAUpdateGui ev) {
+    public void onStatusEvent(final EventOpenAPSUpdateGui ev) {
         updateGUI();
     }
 
     @Subscribe
-    public void onStatusEvent(final EventOpenAPSMAUpdateResultGui ev) {
+    public void onStatusEvent(final EventOpenAPSUpdateResultGui ev) {
         updateResultGUI(ev.text);
     }
 
@@ -102,18 +104,18 @@ public class OpenAPSMAFragment extends Fragment implements View.OnClickListener,
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    DetermineBasalResult lastAPSResult = getPlugin().lastAPSResult;
+                    DetermineBasalResultMA lastAPSResult = getPlugin().lastAPSResult;
                     if (lastAPSResult != null) {
                         resultView.setText(JSONFormatter.format(lastAPSResult.json));
                         requestView.setText(lastAPSResult.toSpanned());
                     }
-                    DetermineBasalAdapterJS determineBasalAdapterJS = getPlugin().lastDetermineBasalAdapterJS;
-                    if (determineBasalAdapterJS != null) {
-                        glucoseStatusView.setText(JSONFormatter.format(determineBasalAdapterJS.getGlucoseStatusParam()));
-                        currentTempView.setText(JSONFormatter.format(determineBasalAdapterJS.getCurrentTempParam()));
-                        iobDataView.setText(JSONFormatter.format(determineBasalAdapterJS.getIobDataParam()));
-                        profileView.setText(JSONFormatter.format(determineBasalAdapterJS.getProfileParam()));
-                        mealDataView.setText(JSONFormatter.format(determineBasalAdapterJS.getMealDataParam()));
+                    DetermineBasalAdapterMAJS determineBasalAdapterMAJS = getPlugin().lastDetermineBasalAdapterMAJS;
+                    if (determineBasalAdapterMAJS != null) {
+                        glucoseStatusView.setText(JSONFormatter.format(determineBasalAdapterMAJS.getGlucoseStatusParam()));
+                        currentTempView.setText(JSONFormatter.format(determineBasalAdapterMAJS.getCurrentTempParam()));
+                        iobDataView.setText(JSONFormatter.format(determineBasalAdapterMAJS.getIobDataParam()));
+                        profileView.setText(JSONFormatter.format(determineBasalAdapterMAJS.getProfileParam()));
+                        mealDataView.setText(JSONFormatter.format(determineBasalAdapterMAJS.getMealDataParam()));
                     }
                     if (getPlugin().lastAPSRun != null) {
                         lastRunView.setText(getPlugin().lastAPSRun.toLocaleString());

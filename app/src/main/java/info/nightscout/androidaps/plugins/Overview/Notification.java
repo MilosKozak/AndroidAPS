@@ -20,6 +20,10 @@ public class Notification {
     public static final int PROFILE_NOT_SET_NOT_INITIALIZED = 5;
     public static final int FAILED_UDPATE_PROFILE = 6;
     public static final int BASAL_VALUE_BELOW_MINIMUM = 7;
+    public static final int OLD_NSCLIENT = 8;
+    public static final int INVALID_PHONE_NUMBER = 9;
+    public static final int APPROACHING_DAILY_LIMIT = 10;
+    public static final int NSCLIENT_NO_WRITE_PERMISSION = 10;
 
     public int id;
     public Date date;
