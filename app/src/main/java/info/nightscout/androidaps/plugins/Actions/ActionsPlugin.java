@@ -29,13 +29,24 @@ public class ActionsPlugin implements PluginBase {
     }
 
     @Override
+    public String getNameShort() {
+        String name = MainApp.sResources.getString(R.string.actions_shortname);
+        if (!name.trim().isEmpty()){
+            //only if translation exists
+            return name;
+        }
+        // use long name as fallback
+        return getName();
+    }
+
+    @Override
     public boolean isEnabled(int type) {
-        return fragmentEnabled;
+        return type == GENERAL && fragmentEnabled;
     }
 
     @Override
     public boolean isVisibleInTabs(int type) {
-        return fragmentVisible;
+        return type == GENERAL && fragmentVisible;
     }
 
     @Override
@@ -45,12 +56,12 @@ public class ActionsPlugin implements PluginBase {
 
     @Override
     public void setFragmentEnabled(int type, boolean fragmentEnabled) {
-        this.fragmentEnabled = fragmentEnabled;
+        if (type == GENERAL) this.fragmentEnabled = fragmentEnabled;
     }
 
     @Override
     public void setFragmentVisible(int type, boolean fragmentVisible) {
-        this.fragmentVisible = fragmentVisible;
+        if (type == GENERAL) this.fragmentVisible = fragmentVisible;
     }
 
 }

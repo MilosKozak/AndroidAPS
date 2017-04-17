@@ -16,6 +16,7 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.ConstraintsInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
+import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
 
 /**
@@ -50,14 +51,25 @@ public class ObjectivesPlugin implements PluginBase, ConstraintsInterface {
     }
 
     @Override
+    public String getNameShort() {
+        String name = MainApp.sResources.getString(R.string.objectives_shortname);
+        if (!name.trim().isEmpty()){
+            //only if translation exists
+            return name;
+        }
+        // use long name as fallback
+        return getName();
+    }
+
+    @Override
     public boolean isEnabled(int type) {
-        return true;
+        return type == CONSTRAINTS && MainApp.getConfigBuilder().getPumpDescription().isTempBasalCapable;
     }
 
     @Override
     public boolean isVisibleInTabs(int type) {
         LoopPlugin loopPlugin = (LoopPlugin) MainApp.getSpecificPlugin(LoopPlugin.class);
-        return fragmentVisible && loopPlugin != null && loopPlugin.isVisibleInTabs(type);
+        return type == CONSTRAINTS && fragmentVisible && loopPlugin != null && loopPlugin.isVisibleInTabs(LOOP);
     }
 
     @Override
@@ -71,7 +83,7 @@ public class ObjectivesPlugin implements PluginBase, ConstraintsInterface {
 
     @Override
     public void setFragmentVisible(int type, boolean fragmentVisible) {
-        this.fragmentVisible = fragmentVisible;
+        if (type == CONSTRAINTS) this.fragmentVisible = fragmentVisible;
     }
 
     public class Objective {
@@ -141,7 +153,7 @@ public class ObjectivesPlugin implements PluginBase, ConstraintsInterface {
                 MainApp.sResources.getString(R.string.objectives_0_objective),
                 MainApp.sResources.getString(R.string.objectives_0_gate),
                 new Date(0),
-                1, // 1 day
+                0, // 0 day
                 new Date(0)));
         objectives.add(new Objective(1,
                 MainApp.sResources.getString(R.string.objectives_1_objective),
@@ -177,7 +189,7 @@ public class ObjectivesPlugin implements PluginBase, ConstraintsInterface {
                 MainApp.sResources.getString(R.string.objectives_6_objective),
                 "",
                 new Date(0),
-                1,
+                14,
                 new Date(0)));
     }
 
@@ -200,20 +212,19 @@ public class ObjectivesPlugin implements PluginBase, ConstraintsInterface {
     }
 
     void loadProgress() {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
         for (int num = 0; num < objectives.size(); num++) {
             Objective o = objectives.get(num);
             try {
-                o.started = new Date(SafeParse.stringToLong(settings.getString("Objectives" + num + "started", "0")));
-                o.accomplished = new Date(SafeParse.stringToLong(settings.getString("Objectives" + num + "accomplished", "0")));
+                o.started = new Date(SP.getLong("Objectives" + num + "started", 0L));
+                o.accomplished = new Date(SP.getLong("Objectives" + num + "accomplished", 0L));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        bgIsAvailableInNS = settings.getBoolean("Objectives" + "bgIsAvailableInNS", false);
-        pumpStatusIsAvailableInNS = settings.getBoolean("Objectives" + "pumpStatusIsAvailableInNS", false);
+        bgIsAvailableInNS = SP.getBoolean("Objectives" + "bgIsAvailableInNS", false);
+        pumpStatusIsAvailableInNS = SP.getBoolean("Objectives" + "pumpStatusIsAvailableInNS", false);
         try {
-            manualEnacts = SafeParse.stringToInt(settings.getString("Objectives" + "manualEnacts", "0"));
+            manualEnacts = SP.getInt("Objectives" + "manualEnacts", 0);
         } catch (Exception e) {
             e.printStackTrace();
         }

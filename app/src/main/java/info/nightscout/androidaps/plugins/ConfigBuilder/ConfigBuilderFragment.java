@@ -1,28 +1,29 @@
 package info.nightscout.androidaps.plugins.ConfigBuilder;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+
 import java.util.ArrayList;
+
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.events.EventConfigBuilderChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.APSInterface;
 import info.nightscout.androidaps.interfaces.BgSourceInterface;
@@ -31,9 +32,9 @@ import info.nightscout.androidaps.interfaces.FragmentBase;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
 import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.interfaces.TempBasalsInterface;
-import info.nightscout.androidaps.interfaces.TreatmentsInterface;
-import info.nightscout.androidaps.plugins.Loop.LoopFragment;
+import info.nightscout.androidaps.plugins.NSProfile.NSProfilePlugin;
+import info.nightscout.androidaps.plugins.VirtualPump.VirtualPumpPlugin;
+import info.nightscout.utils.PasswordProtection;
 
 
 public class ConfigBuilderFragment extends Fragment implements FragmentBase {
@@ -46,14 +47,17 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
 
     ListView bgsourceListView;
     ListView pumpListView;
+    TextView pumpLabel;
     ListView loopListView;
     TextView loopLabel;
     ListView treatmentsListView;
     ListView tempsListView;
+    TextView tempsLabel;
     ListView profileListView;
     ListView apsListView;
     TextView apsLabel;
     ListView constraintsListView;
+    TextView constraintsLabel;
     ListView generalListView;
     TextView nsclientVerView;
     TextView nightscoutVerView;
@@ -68,9 +72,10 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
     PluginCustomAdapter constraintsDataAdapter = null;
     PluginCustomAdapter generalDataAdapter = null;
 
+    LinearLayout mainLayout;
+    Button unlock;
 
     // TODO: sorting
-    // TODO: Toast and sound when command failed
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,14 +83,17 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
         View view = inflater.inflate(R.layout.configbuilder_fragment, container, false);
         bgsourceListView = (ListView) view.findViewById(R.id.configbuilder_bgsourcelistview);
         pumpListView = (ListView) view.findViewById(R.id.configbuilder_pumplistview);
+        pumpLabel = (TextView) view.findViewById(R.id.configbuilder_pumplabel);
         loopListView = (ListView) view.findViewById(R.id.configbuilder_looplistview);
         loopLabel = (TextView) view.findViewById(R.id.configbuilder_looplabel);
         treatmentsListView = (ListView) view.findViewById(R.id.configbuilder_treatmentslistview);
         tempsListView = (ListView) view.findViewById(R.id.configbuilder_tempslistview);
+        tempsLabel = (TextView) view.findViewById(R.id.configbuilder_tempslabel);
         profileListView = (ListView) view.findViewById(R.id.configbuilder_profilelistview);
         apsListView = (ListView) view.findViewById(R.id.configbuilder_apslistview);
         apsLabel = (TextView) view.findViewById(R.id.configbuilder_apslabel);
         constraintsListView = (ListView) view.findViewById(R.id.configbuilder_constraintslistview);
+        constraintsLabel = (TextView) view.findViewById(R.id.configbuilder_constraintslabel);
         generalListView = (ListView) view.findViewById(R.id.configbuilder_generallistview);
         nsclientVerView = (TextView) view.findViewById(R.id.configbuilder_nsclientversion);
         nightscoutVerView = (TextView) view.findViewById(R.id.configbuilder_nightscoutversion);
@@ -93,8 +101,30 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
         nsclientVerView.setText(ConfigBuilderPlugin.nsClientVersionName);
         nightscoutVerView.setText(ConfigBuilderPlugin.nightscoutVersionName);
         if (ConfigBuilderPlugin.nsClientVersionCode < 117) nsclientVerView.setTextColor(Color.RED);
-        if (ConfigBuilderPlugin.nightscoutVersionCode < 900) nightscoutVerView.setTextColor(Color.RED);
+        if (ConfigBuilderPlugin.nightscoutVersionCode < 900)
+            nightscoutVerView.setTextColor(Color.RED);
         setViews();
+
+        unlock = (Button) view.findViewById(R.id.configbuilder_unlock);
+        mainLayout = (LinearLayout) view.findViewById(R.id.configbuilder_mainlayout);
+
+        if (PasswordProtection.isLocked("settings_password")) {
+            mainLayout.setVisibility(View.GONE);
+            unlock.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PasswordProtection.QueryPassword(getContext(), R.string.settings_password, "settings_password", new Runnable() {
+                        @Override
+                        public void run() {
+                            mainLayout.setVisibility(View.VISIBLE);
+                            unlock.setVisibility(View.GONE);
+                        }
+                    }, null);
+                }
+            });
+        } else {
+            unlock.setVisibility(View.GONE);
+        }
         return view;
     }
 
@@ -104,6 +134,8 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
         setListViewHeightBasedOnChildren(bgsourceListView);
         pumpDataAdapter = new PluginCustomAdapter(getContext(), R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsList(PluginBase.PUMP), PluginBase.PUMP);
         pumpListView.setAdapter(pumpDataAdapter);
+        if (MainApp.getSpecificPluginsList(PluginBase.PUMP).size() == 0)
+            pumpLabel.setVisibility(View.GONE);
         setListViewHeightBasedOnChildren(pumpListView);
         loopDataAdapter = new PluginCustomAdapter(getContext(), R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsList(PluginBase.LOOP), PluginBase.LOOP);
         loopListView.setAdapter(loopDataAdapter);
@@ -116,6 +148,8 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
         tempsDataAdapter = new PluginCustomAdapter(getContext(), R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsList(PluginBase.TEMPBASAL), PluginBase.TEMPBASAL);
         tempsListView.setAdapter(tempsDataAdapter);
         setListViewHeightBasedOnChildren(tempsListView);
+        if (MainApp.getSpecificPluginsList(PluginBase.TEMPBASAL).size() == 0)
+            tempsLabel.setVisibility(View.GONE);
         profileDataAdapter = new PluginCustomAdapter(getContext(), R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsListByInterface(ProfileInterface.class), PluginBase.PROFILE);
         profileListView.setAdapter(profileDataAdapter);
         setListViewHeightBasedOnChildren(profileListView);
@@ -127,6 +161,8 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
         constraintsDataAdapter = new PluginCustomAdapter(getContext(), R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsListByInterface(ConstraintsInterface.class), PluginBase.CONSTRAINTS);
         constraintsListView.setAdapter(constraintsDataAdapter);
         setListViewHeightBasedOnChildren(constraintsListView);
+        if (MainApp.getSpecificPluginsList(PluginBase.CONSTRAINTS).size() == 0)
+            constraintsLabel.setVisibility(View.GONE);
         generalDataAdapter = new PluginCustomAdapter(getContext(), R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsList(PluginBase.GENERAL), PluginBase.GENERAL);
         generalListView.setAdapter(generalDataAdapter);
         setListViewHeightBasedOnChildren(generalListView);
@@ -179,6 +215,9 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
                         onEnabledCategoryChanged(plugin, type);
                         configBuilderPlugin.storeSettings();
                         MainApp.bus().post(new EventRefreshGui(true));
+                        MainApp.bus().post(new EventConfigBuilderChange());
+                        getPlugin().logPluginStatus();
+                        Answers.getInstance().logCustom(new CustomEvent("ConfigurationChange"));
                     }
                 });
 
@@ -189,6 +228,7 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
                         plugin.setFragmentVisible(type, cb.isChecked());
                         configBuilderPlugin.storeSettings();
                         MainApp.bus().post(new EventRefreshGui(true));
+                        getPlugin().logPluginStatus();
                     }
                 });
             } else {
@@ -208,11 +248,17 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
                 holder.checkboxVisible.setEnabled(false);
             }
 
-            int type = plugin.getType();
-            // Force enabled if there is only one plugin
+            if (!plugin.isEnabled(type)) {
+                holder.checkboxVisible.setEnabled(false);
+            }
+
+            // Hide enabled control and force enabled plugin if there is only one plugin available
             if (type == PluginBase.PUMP || type == PluginBase.TREATMENT || type == PluginBase.TEMPBASAL || type == PluginBase.PROFILE)
-                if (pluginList.size() < 2)
+                if (pluginList.size() < 2) {
                     holder.checkboxEnabled.setEnabled(false);
+                    plugin.setFragmentEnabled(type, true);
+                    getPlugin().storeSettings();
+                }
 
             // Constraints cannot be disabled
             if (type == PluginBase.CONSTRAINTS)
@@ -228,6 +274,16 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
                 }
             }
 
+            // Disable profile control for pump profiles if pump is not enabled
+            if (type == PluginBase.PROFILE) {
+                if (PumpInterface.class.isAssignableFrom(plugin.getClass())) {
+                    if (!plugin.isEnabled(PluginBase.PUMP)) {
+                        holder.checkboxEnabled.setEnabled(false);
+                        holder.checkboxEnabled.setChecked(false);
+                    }
+                }
+            }
+
             return convertView;
 
         }
@@ -235,9 +291,8 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
     }
 
     void onEnabledCategoryChanged(PluginBase changedPlugin, int type) {
-        int category = changedPlugin.getType();
         ArrayList<PluginBase> pluginsInCategory = null;
-        switch (category) {
+        switch (type) {
             // Multiple selection allowed
             case PluginBase.GENERAL:
             case PluginBase.CONSTRAINTS:
@@ -256,7 +311,7 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
             case PluginBase.TEMPBASAL:
             case PluginBase.TREATMENT:
             case PluginBase.PUMP:
-                pluginsInCategory = MainApp.getSpecificPluginsList(category);
+                pluginsInCategory = MainApp.getSpecificPluginsListByInterface(PumpInterface.class);
                 break;
         }
         if (pluginsInCategory != null) {
@@ -271,7 +326,12 @@ public class ConfigBuilderFragment extends Fragment implements FragmentBase {
                     }
                 }
             } else { // enable first plugin in list
-                pluginsInCategory.get(0).setFragmentEnabled(type, true);
+                if (type == PluginBase.PUMP)
+                    MainApp.getSpecificPlugin(VirtualPumpPlugin.class).setFragmentEnabled(type, true);
+                else if (type == PluginBase.PROFILE)
+                    MainApp.getSpecificPlugin(NSProfilePlugin.class).setFragmentEnabled(type, true);
+                else
+                    pluginsInCategory.get(0).setFragmentEnabled(type, true);
             }
             setViews();
         }

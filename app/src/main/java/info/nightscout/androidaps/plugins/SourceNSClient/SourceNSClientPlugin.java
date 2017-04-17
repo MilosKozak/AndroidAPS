@@ -27,8 +27,15 @@ public class SourceNSClientPlugin implements PluginBase, BgSourceInterface {
     }
 
     @Override
+    public String getNameShort() {
+        // use long name as fallback (not visible in tabs)
+        return getName();
+    }
+
+
+    @Override
     public boolean isEnabled(int type) {
-        return fragmentEnabled;
+        return type == BGSOURCE && fragmentEnabled;
     }
 
     @Override
@@ -43,7 +50,7 @@ public class SourceNSClientPlugin implements PluginBase, BgSourceInterface {
 
     @Override
     public void setFragmentEnabled(int type, boolean fragmentEnabled) {
-        this.fragmentEnabled = fragmentEnabled;
+        if (type == BGSOURCE) this.fragmentEnabled = fragmentEnabled;
     }
 
     @Override

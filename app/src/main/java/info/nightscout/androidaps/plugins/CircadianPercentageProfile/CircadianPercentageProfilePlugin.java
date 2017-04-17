@@ -15,9 +15,9 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
-import info.nightscout.androidaps.plugins.OpenAPSMA.OpenAPSMAPlugin;
-import info.nightscout.client.data.NSProfile;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
 import info.nightscout.utils.DecimalFormatter;
+import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
 import info.nightscout.utils.ToastUtils;
 
@@ -27,8 +27,6 @@ import info.nightscout.utils.ToastUtils;
  */
 public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInterface {
     public static final String SETTINGS_PREFIX = "CircadianPercentageProfile";
-    public static final int MIN_PERCENTAGE = 50;
-    public static final int MAX_PERCENTAGE = 200;
     private static Logger log = LoggerFactory.getLogger(CircadianPercentageProfilePlugin.class);
 
     private static boolean fragmentEnabled = true;
@@ -39,11 +37,10 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
     boolean mgdl;
     boolean mmol;
     Double dia;
-    Double car;
     Double targetLow;
     Double targetHigh;
-    int percentage;
-    int timeshift;
+    public int percentage;
+    public int timeshift;
     double[] basebasal = new double[]{1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d, 1d};
     double[] baseisf = new double[]{35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d, 35d};
     double[] baseic = new double[]{4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d, 4d};
@@ -68,13 +65,24 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
     }
 
     @Override
+    public String getNameShort() {
+        String name = MainApp.sResources.getString(R.string.circadian_percentage_profile_shortname);
+        if (!name.trim().isEmpty()) {
+            //only if translation exists
+            return name;
+        }
+        // use long name as fallback
+        return getName();
+    }
+
+    @Override
     public boolean isEnabled(int type) {
-        return fragmentEnabled;
+        return type == PROFILE && fragmentEnabled;
     }
 
     @Override
     public boolean isVisibleInTabs(int type) {
-        return fragmentVisible;
+        return type == PROFILE && fragmentVisible;
     }
 
     @Override
@@ -84,12 +92,12 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
 
     @Override
     public void setFragmentEnabled(int type, boolean fragmentEnabled) {
-        this.fragmentEnabled = fragmentEnabled;
+        if (type == PROFILE) this.fragmentEnabled = fragmentEnabled;
     }
 
     @Override
     public void setFragmentVisible(int type, boolean fragmentVisible) {
-        this.fragmentVisible = fragmentVisible;
+        if (type == PROFILE) this.fragmentVisible = fragmentVisible;
     }
 
     void storeSettings() {
@@ -100,7 +108,6 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
         editor.putBoolean(SETTINGS_PREFIX + "mmol", mmol);
         editor.putBoolean(SETTINGS_PREFIX + "mgdl", mgdl);
         editor.putString(SETTINGS_PREFIX + "dia", dia.toString());
-        editor.putString(SETTINGS_PREFIX + "car", car.toString());
         editor.putString(SETTINGS_PREFIX + "targetlow", targetLow.toString());
         editor.putString(SETTINGS_PREFIX + "targethigh", targetHigh.toString());
         editor.putString(SETTINGS_PREFIX + "timeshift", timeshift + "");
@@ -119,82 +126,19 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
     void loadSettings() {
         if (Config.logPrefsChange)
             log.debug("Loading stored settings");
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
 
-        if (settings.contains(SETTINGS_PREFIX + "mgdl"))
-            try {
-                mgdl = settings.getBoolean(SETTINGS_PREFIX + "mgdl", true);
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else mgdl = true;
-        if (settings.contains(SETTINGS_PREFIX + "mmol"))
-            try {
-                mmol = settings.getBoolean(SETTINGS_PREFIX + "mmol", false);
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else mmol = false;
-        if (settings.contains(SETTINGS_PREFIX + "dia"))
-            try {
-                dia = SafeParse.stringToDouble(settings.getString(SETTINGS_PREFIX + "dia", "3"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else dia = 3d;
-        if (settings.contains(SETTINGS_PREFIX + "car"))
-            try {
-                car = SafeParse.stringToDouble(settings.getString(SETTINGS_PREFIX + "car", "20"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else car = 20d;
-        if (settings.contains(SETTINGS_PREFIX + "targetlow"))
-            try {
-                targetLow = SafeParse.stringToDouble(settings.getString(SETTINGS_PREFIX + "targetlow", "80"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else targetLow = 80d;
-        if (settings.contains(SETTINGS_PREFIX + "targethigh"))
-            try {
-                targetHigh = SafeParse.stringToDouble(settings.getString(SETTINGS_PREFIX + "targethigh", "120"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else targetHigh = 120d;
-        if (settings.contains(SETTINGS_PREFIX + "percentage"))
-            try {
-                percentage = SafeParse.stringToInt(settings.getString(SETTINGS_PREFIX + "percentage", "100"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else percentage = 100;
-
-        if (settings.contains(SETTINGS_PREFIX + "timeshift"))
-            try {
-                timeshift = SafeParse.stringToInt(settings.getString(SETTINGS_PREFIX + "timeshift", "0"));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-        else timeshift = 0;
+        mgdl = SP.getBoolean(SETTINGS_PREFIX + "mgdl", true);
+        mmol = SP.getBoolean(SETTINGS_PREFIX + "mmol", false);
+        dia = SP.getDouble(SETTINGS_PREFIX + "dia", 3d);
+        targetLow = SP.getDouble(SETTINGS_PREFIX + "targetlow", 80d);
+        targetHigh = SP.getDouble(SETTINGS_PREFIX + "targethigh", 120d);
+        percentage = SP.getInt(SETTINGS_PREFIX + "percentage", 100);
+        timeshift = SP.getInt(SETTINGS_PREFIX + "timeshift", 0);
 
         for (int i = 0; i < 24; i++) {
-            try {
-                basebasal[i] = SafeParse.stringToDouble(settings.getString(SETTINGS_PREFIX + "basebasal" + i, DecimalFormatter.to2Decimal(basebasal[i])));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-            try {
-                baseic[i] = SafeParse.stringToDouble(settings.getString(SETTINGS_PREFIX + "baseic" + i, DecimalFormatter.to2Decimal(baseic[i])));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
-            try {
-                baseisf[i] = SafeParse.stringToDouble(settings.getString(SETTINGS_PREFIX + "baseisf" + i, DecimalFormatter.to2Decimal(baseisf[i])));
-            } catch (Exception e) {
-                log.debug(e.getMessage());
-            }
+            basebasal[i] = SP.getDouble(SETTINGS_PREFIX + "basebasal" + i, basebasal[i]);
+            baseic[i] = SP.getDouble(SETTINGS_PREFIX + "baseic" + i, baseic[i]);
+            baseisf[i] = SP.getDouble(SETTINGS_PREFIX + "baseisf" + i, baseisf[i]);
         }
 
 
@@ -228,8 +172,6 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
             }
             profile.put("carbratio", icArray);
 
-            profile.put("carbs_hr", car);
-
             JSONArray isfArray = new JSONArray();
             for (int i = 0; i < 24; i++) {
                 isfArray.put(new JSONObject().put("timeAsSeconds", i * 60 * 60).put("value", baseisf[(offset + i) % 24] * 100d / percentage));
@@ -262,13 +204,13 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
     }
 
     private void performLimitCheck() {
-        if (percentage < MIN_PERCENTAGE || percentage > MAX_PERCENTAGE){
+        if (percentage < Constants.CPP_MIN_PERCENTAGE || percentage > Constants.CPP_MAX_PERCENTAGE) {
             String msg = String.format(MainApp.sResources.getString(R.string.openapsma_valueoutofrange), "Profile-Percentage");
             log.error(msg);
-            OpenAPSMAPlugin.sendErrorToNSClient(msg);
+            MainApp.getConfigBuilder().uploadError(msg);
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), msg, R.raw.error);
-            percentage = Math.max(percentage, MIN_PERCENTAGE);
-            percentage = Math.min(percentage, MAX_PERCENTAGE);
+            percentage = Math.max(percentage, Constants.CPP_MIN_PERCENTAGE);
+            percentage = Math.min(percentage, Constants.CPP_MAX_PERCENTAGE);
         }
     }
 
@@ -292,13 +234,15 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
         return profileString(baseisf, 0, 100, false);
     }
 
-    String baseBasalString() {return profileString(basebasal, 0, 100, true);}
+    String baseBasalString() {
+        return profileString(basebasal, 0, 100, true);
+    }
 
-    public double baseBasalSum(){
+    public double baseBasalSum() {
         return sum(basebasal);
     }
 
-    public double percentageBasalSum(){
+    public double percentageBasalSum() {
         double result = 0;
         for (int i = 0; i < basebasal.length; i++) {
             result += SafeParse.stringToDouble(DecimalFormatter.to2Decimal(basebasal[i] * percentage / 100d));
@@ -307,7 +251,7 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
     }
 
 
-    public static double sum(double values[]){
+    public static double sum(double values[]) {
         double result = 0;
         for (int i = 0; i < values.length; i++) {
             result += values[i];

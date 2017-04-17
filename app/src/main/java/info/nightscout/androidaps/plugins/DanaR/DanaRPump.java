@@ -1,8 +1,5 @@
 package info.nightscout.androidaps.plugins.DanaR;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,9 +8,9 @@ import java.text.DecimalFormat;
 import java.util.Date;
 
 import info.nightscout.androidaps.Constants;
-import info.nightscout.androidaps.MainApp;
-import info.nightscout.client.data.NSProfile;
-import info.nightscout.utils.SafeParse;
+import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.utils.SP;
 
 /**
  * Created by mike on 04.07.2016.
@@ -21,6 +18,11 @@ import info.nightscout.utils.SafeParse;
 public class DanaRPump {
     public static final int UNITS_MGDL = 0;
     public static final int UNITS_MMOL = 1;
+
+    public static final int DELIVERY_PRIME = 0x01;
+    public static final int DELIVERY_STEP_BOLUS = 0x02;
+    public static final int DELIVERY_BASAL = 0x04;
+    public static final int DELIVERY_EXT_BOLUS = 0x08;
 
     public static final String PROFILE_PREFIX = "DanaR-";
 
@@ -31,15 +33,28 @@ public class DanaRPump {
     public String serialNumber = "";
     public Date shippingDate = new Date(0);
     public String shippingCountry = "";
-    public boolean isNewPump = false;
+    public boolean isNewPump = true;
     public int password = -1;
     public Date pumpTime = new Date(0);
+
+    public static final int DOMESTIC_MODEL = 0x01;
+    public static final int EXPORT_MODEL = 0x03;
+    public int model;
+    public int protocol;
+    public int productCode;
+
+    public boolean isConfigUD;
+    public boolean isExtendedBolusEnabled;
+
 
     // Status
     public boolean pumpSuspended;
     public boolean calculatorEnabled;
     public double dailyTotalUnits;
     public int maxDailyTotalUnits;
+
+    public double bolusStep;
+    public double basalStep;
 
     public double iob;
 
@@ -58,6 +73,7 @@ public class DanaRPump {
     public int tempBasalTotalSec;
     public Date tempBasalStart;
 
+    public boolean isDualBolusInProgress;
     public boolean isExtendedInProgress;
     public int extendedBolusMinutes;
     public double extendedBolusAmount;
@@ -103,9 +119,7 @@ public class DanaRPump {
 //        Evening / 17:00–21:59
 //        Night / 22:00–5:59
 
-        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
-        double dia = SafeParse.stringToDouble(SP.getString("danarprofile_dia", "3"));
-        double car = SafeParse.stringToDouble(SP.getString("danarprofile_car", "20"));
+        double dia = SP.getDouble(R.string.key_danarprofile_dia, 3d);
 
         try {
             json.put("defaultProfile", PROFILE_PREFIX + (activeProfile + 1));
@@ -119,8 +133,6 @@ public class DanaRPump {
             carbratios.put(new JSONObject().put("time", "14:00").put("timeAsSeconds", 17 * 3600).put("value", eveningCIR));
             carbratios.put(new JSONObject().put("time", "22:00").put("timeAsSeconds", 22 * 3600).put("value", nightCIR));
             profile.put("carbratio", carbratios);
-
-            profile.put("carbs_hr", car);
 
             JSONArray sens = new JSONArray();
             sens.put(new JSONObject().put("time", "00:00").put("timeAsSeconds", 0).put("value", nightCF));

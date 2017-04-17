@@ -7,6 +7,8 @@ import android.preference.PreferenceManager;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 import com.squareup.otto.Subscribe;
 
 import org.slf4j.Logger;
@@ -21,14 +23,26 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.Services.Intents;
+import info.nightscout.androidaps.data.GlucoseStatus;
+import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.PumpEnactResult;
+import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.events.EventPreferenceChange;
+import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.DanaR.DanaRPlugin;
+import info.nightscout.androidaps.plugins.DanaRKorean.DanaRKoreanPlugin;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.androidaps.plugins.Overview.Notification;
+import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.SmsCommunicator.events.EventNewSMS;
 import info.nightscout.androidaps.plugins.SmsCommunicator.events.EventSmsCommunicatorUpdateGui;
+import info.nightscout.utils.DecimalFormatter;
+import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
+import info.nightscout.utils.XdripCalibrations;
 
 /**
  * Created by mike on 05.08.2016.
@@ -41,6 +55,8 @@ public class SmsCommunicatorPlugin implements PluginBase {
 
     final long CONFIRM_TIMEOUT = 5 * 60 * 1000L;
 
+    List<String> allowedNumbers = new ArrayList<String>();
+
     public class Sms {
         String phoneNumber;
         String text;
@@ -52,6 +68,8 @@ public class SmsCommunicatorPlugin implements PluginBase {
         String confirmCode;
         double bolusRequested = 0d;
         double tempBasal = 0d;
+        double calibrationRequested = 0d;
+        int duration = 0;
 
         public Sms(SmsMessage message) {
             phoneNumber = message.getOriginatingAddress();
@@ -67,6 +85,14 @@ public class SmsCommunicatorPlugin implements PluginBase {
             sent = true;
         }
 
+        public Sms(String phoneNumber, String text, Date date, String confirmCode) {
+            this.phoneNumber = phoneNumber;
+            this.text = text;
+            this.date = date;
+            this.confirmCode = confirmCode;
+            sent = true;
+        }
+
         public String toString() {
             return "SMS from " + phoneNumber + ": " + text;
         }
@@ -75,12 +101,15 @@ public class SmsCommunicatorPlugin implements PluginBase {
     Sms cancelTempBasalWaitingForConfirmation = null;
     Sms tempBasalWaitingForConfirmation = null;
     Sms bolusWaitingForConfirmation = null;
+    Sms calibrationWaitingForConfirmation = null;
+    Sms suspendWaitingForConfirmation = null;
     Date lastRemoteBolusTime = new Date(0);
 
     ArrayList<Sms> messages = new ArrayList<>();
 
     public SmsCommunicatorPlugin() {
         MainApp.bus().register(this);
+        processSettings(null);
     }
 
     @Override
@@ -99,13 +128,24 @@ public class SmsCommunicatorPlugin implements PluginBase {
     }
 
     @Override
+    public String getNameShort() {
+        String name = MainApp.sResources.getString(R.string.smscommunicator_shortname);
+        if (!name.trim().isEmpty()) {
+            //only if translation exists
+            return name;
+        }
+        // use long name as fallback
+        return getName();
+    }
+
+    @Override
     public boolean isEnabled(int type) {
-        return fragmentEnabled;
+        return type == GENERAL && fragmentEnabled;
     }
 
     @Override
     public boolean isVisibleInTabs(int type) {
-        return fragmentVisible;
+        return type == GENERAL && fragmentVisible;
     }
 
     @Override
@@ -115,12 +155,35 @@ public class SmsCommunicatorPlugin implements PluginBase {
 
     @Override
     public void setFragmentEnabled(int type, boolean fragmentEnabled) {
-        SmsCommunicatorPlugin.fragmentEnabled = fragmentEnabled;
+        if (type == GENERAL) this.fragmentEnabled = fragmentEnabled;
     }
 
     @Override
     public void setFragmentVisible(int type, boolean fragmentVisible) {
-        SmsCommunicatorPlugin.fragmentVisible = fragmentVisible;
+        if (type == GENERAL) this.fragmentVisible = fragmentVisible;
+    }
+
+    @Subscribe
+    public void processSettings(final EventPreferenceChange ev) {
+        if (ev == null || ev.isChanged(R.string.key_smscommunicator_allowednumbers)) {
+            String settings = SP.getString(R.string.key_smscommunicator_allowednumbers, "");
+
+            String pattern = ";";
+
+            String[] substrings = settings.split(pattern);
+            for (String number : substrings) {
+                String cleaned = number.replaceAll("\\s+", "");
+                allowedNumbers.add(cleaned);
+                log.debug("Found allowed number: " + cleaned);
+            }
+        }
+    }
+
+    boolean isAllowedNumber(String number) {
+        for (String num : allowedNumbers) {
+            if (num.equals(number)) return true;
+        }
+        return false;
     }
 
     @Subscribe
@@ -139,10 +202,7 @@ public class SmsCommunicatorPlugin implements PluginBase {
             log.debug("Ignoring SMS. Plugin disabled.");
             return;
         }
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
-        String allowedNumbers = sharedPreferences.getString("smscommunicator_allowednumbers", "");
-
-        if (!allowedNumbers.contains(receivedSms.phoneNumber)) {
+        if (!isAllowedNumber(receivedSms.phoneNumber)) {
             log.debug("Ignoring SMS from: " + receivedSms.phoneNumber + ". Sender not allowed");
             return;
         }
@@ -155,42 +215,112 @@ public class SmsCommunicatorPlugin implements PluginBase {
         String[] splited = receivedSms.text.split("\\s+");
         Double amount = 0d;
         Double tempBasal = 0d;
+        int duration = 0;
         String passCode = "";
-        Sms newSms = null;
+        boolean remoteCommandsAllowed = SP.getBoolean(R.string.key_smscommunicator_remotecommandsallowed, false);
 
         if (splited.length > 0) {
             switch (splited[0].toUpperCase()) {
+                case "BG":
+                    BgReading actualBG = GlucoseStatus.actualBg();
+                    BgReading lastBG = GlucoseStatus.lastBg();
+
+                    NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
+                    String units = profile.getUnits();
+
+                    Long agoMsec = new Date().getTime() - lastBG.timeIndex;
+                    int agoMin = (int) (agoMsec / 60d / 1000d);
+
+                    if (actualBG != null) {
+                        reply = MainApp.sResources.getString(R.string.sms_actualbg) + " " + actualBG.valueToUnitsToString(units) + ", ";
+                    } else if (lastBG != null) {
+                        reply = MainApp.sResources.getString(R.string.sms_lastbg) + " " + lastBG.valueToUnitsToString(units) + " " + String.format(MainApp.sResources.getString(R.string.sms_minago), agoMin) + ", ";
+                    }
+                    GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
+                    if (glucoseStatus != null)
+                        reply += MainApp.sResources.getString(R.string.sms_delta) + " " + NSProfile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units + ", ";
+
+                    MainApp.getConfigBuilder().getActiveTreatments().updateTotalIOB();
+                    IobTotal bolusIob = MainApp.getConfigBuilder().getActiveTreatments().getLastCalculation().round();
+                    MainApp.getConfigBuilder().getActiveTempBasals().updateTotalIOB();
+                    IobTotal basalIob = MainApp.getConfigBuilder().getActiveTempBasals().getLastCalculation().round();
+
+                    reply += MainApp.sResources.getString(R.string.sms_iob) + " " + DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U ("
+                            + MainApp.sResources.getString(R.string.sms_bolus) + " " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U "
+                            + MainApp.sResources.getString(R.string.sms_basal) + " " + DecimalFormatter.to2Decimal(basalIob.basaliob) + "U)";
+
+                    sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                    receivedSms.processed = true;
+                    Answers.getInstance().logCustom(new CustomEvent("SMS_Bg"));
+                    break;
                 case "LOOP":
                     switch (splited[1].toUpperCase()) {
+                        case "DISABLE":
                         case "STOP":
                             LoopPlugin loopPlugin = (LoopPlugin) MainApp.getSpecificPlugin(LoopPlugin.class);
                             if (loopPlugin != null && loopPlugin.isEnabled(PluginBase.LOOP)) {
                                 loopPlugin.setFragmentEnabled(PluginBase.LOOP, false);
                                 reply = MainApp.sResources.getString(R.string.smscommunicator_loophasbeendisabled);
-                                newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             }
                             receivedSms.processed = true;
+                            Answers.getInstance().logCustom(new CustomEvent("SMS_Loop_Stop"));
                             break;
+                        case "ENABLE":
                         case "START":
                             loopPlugin = (LoopPlugin) MainApp.getSpecificPlugin(LoopPlugin.class);
                             if (loopPlugin != null && !loopPlugin.isEnabled(PluginBase.LOOP)) {
                                 loopPlugin.setFragmentEnabled(PluginBase.LOOP, true);
                                 reply = MainApp.sResources.getString(R.string.smscommunicator_loophasbeenenabled);
-                                newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             }
                             receivedSms.processed = true;
+                            Answers.getInstance().logCustom(new CustomEvent("SMS_Loop_Start"));
                             break;
                         case "STATUS":
                             loopPlugin = (LoopPlugin) MainApp.getSpecificPlugin(LoopPlugin.class);
                             if (loopPlugin != null) {
                                 if (loopPlugin.isEnabled(PluginBase.LOOP)) {
-                                    reply = MainApp.sResources.getString(R.string.smscommunicator_loopisenabled);
+                                    if (loopPlugin.isSuspended())
+                                        reply = String.format(MainApp.sResources.getString(R.string.loopsuspendedfor), loopPlugin.minutesToEndOfSuspend());
+                                    else
+                                        reply = MainApp.sResources.getString(R.string.smscommunicator_loopisenabled);
                                 } else {
                                     reply = MainApp.sResources.getString(R.string.smscommunicator_loopisdisabled);
                                 }
-                                newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             }
                             receivedSms.processed = true;
+                            Answers.getInstance().logCustom(new CustomEvent("SMS_Loop_Status"));
+                            break;
+                        case "RESUME":
+                            final LoopPlugin activeloop = MainApp.getConfigBuilder().getActiveLoop();
+                            activeloop.suspendTo(0);
+                            MainApp.bus().post(new EventRefreshGui(false));
+                            reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_loopresumed));
+                            sendSMSToAllNumbers(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                            Answers.getInstance().logCustom(new CustomEvent("SMS_Loop_Resume"));
+                            break;
+                        case "SUSPEND":
+                            if (splited.length >= 3)
+                                duration = SafeParse.stringToInt(splited[2]);
+                            duration = Math.max(0, duration);
+                            duration = Math.min(180, duration);
+                            if (duration == 0) {
+                                reply = MainApp.sResources.getString(R.string.smscommunicator_wrongduration);
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                            } else if (remoteCommandsAllowed) {
+                                passCode = generatePasscode();
+                                reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_suspendreplywithcode), duration, passCode);
+                                receivedSms.processed = true;
+                                resetWaitingMessages();
+                                sendSMS(suspendWaitingForConfirmation = new Sms(receivedSms.phoneNumber, reply, new Date(), passCode));
+                                suspendWaitingForConfirmation.duration = duration;
+                                Answers.getInstance().logCustom(new CustomEvent("SMS_Loop_Suspend"));
+                            } else {
+                                reply = MainApp.sResources.getString(R.string.smscommunicator_remotecommandnotallowed);
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                            }
                             break;
                     }
                     break;
@@ -202,8 +332,9 @@ public class SmsCommunicatorPlugin implements PluginBase {
                             MainApp.instance().getApplicationContext().sendBroadcast(restartNSClient);
                             List<ResolveInfo> q = MainApp.instance().getApplicationContext().getPackageManager().queryBroadcastReceivers(restartNSClient, 0);
                             reply = "TERATMENTS REFRESH " + q.size() + " receivers";
-                            newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                            sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             receivedSms.processed = true;
+                            Answers.getInstance().logCustom(new CustomEvent("SMS_Treatments_Refresh"));
                             break;
                     }
                     break;
@@ -214,33 +345,39 @@ public class SmsCommunicatorPlugin implements PluginBase {
                             MainApp.instance().getApplicationContext().sendBroadcast(restartNSClient);
                             List<ResolveInfo> q = MainApp.instance().getApplicationContext().getPackageManager().queryBroadcastReceivers(restartNSClient, 0);
                             reply = "NSCLIENT RESTART " + q.size() + " receivers";
-                            newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                            sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             receivedSms.processed = true;
+                            Answers.getInstance().logCustom(new CustomEvent("SMS_Nsclient_Restart"));
                             break;
                     }
                     break;
                 case "DANAR":
                     DanaRPlugin danaRPlugin = (DanaRPlugin) MainApp.getSpecificPlugin(DanaRPlugin.class);
-                    if (danaRPlugin != null && danaRPlugin.isEnabled(PluginBase.PUMP))
-                        reply = danaRPlugin.shortStatus();
-                        newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                    if (danaRPlugin != null && danaRPlugin.isEnabled(PluginBase.PUMP)) {
+                        reply = danaRPlugin.shortStatus(true);
+                        sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                    }
+                    DanaRKoreanPlugin danaRKoreanPlugin = (DanaRKoreanPlugin) MainApp.getSpecificPlugin(DanaRKoreanPlugin.class);
+                    if (danaRKoreanPlugin != null && danaRKoreanPlugin.isEnabled(PluginBase.PUMP)) {
+                        reply = danaRKoreanPlugin.shortStatus(true);
+                        sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                    }
                     receivedSms.processed = true;
+                    Answers.getInstance().logCustom(new CustomEvent("SMS_Danar"));
                     break;
                 case "BASAL":
                     if (splited.length > 1) {
-                        boolean remoteCommandsAllowed = sharedPreferences.getBoolean("smscommunicator_remotecommandsallowed", false);
                         if (splited[1].toUpperCase().equals("CANCEL") || splited[1].toUpperCase().equals("STOP")) {
                             if (remoteCommandsAllowed) {
                                 passCode = generatePasscode();
                                 reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_basalstopreplywithcode), passCode);
                                 receivedSms.processed = true;
-                                newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
-                                newSms.confirmCode = passCode;
                                 resetWaitingMessages();
-                                cancelTempBasalWaitingForConfirmation = newSms;
+                                sendSMS(cancelTempBasalWaitingForConfirmation = new Sms(receivedSms.phoneNumber, reply, new Date(), passCode));
+                                Answers.getInstance().logCustom(new CustomEvent("SMS_Basal"));
                             } else {
-                                reply = MainApp.sResources.getString(R.string.remotebasalnotallowed);
-                                newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                                reply = MainApp.sResources.getString(R.string.smscommunicator_remotebasalnotallowed);
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             }
                         } else {
                             tempBasal = SafeParse.stringToDouble(splited[1]);
@@ -249,38 +386,52 @@ public class SmsCommunicatorPlugin implements PluginBase {
                                 passCode = generatePasscode();
                                 reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_basalreplywithcode), tempBasal, passCode);
                                 receivedSms.processed = true;
-                                newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
-                                newSms.tempBasal = tempBasal;
-                                newSms.confirmCode = passCode;
                                 resetWaitingMessages();
-                                tempBasalWaitingForConfirmation = newSms;
+                                sendSMS(tempBasalWaitingForConfirmation = new Sms(receivedSms.phoneNumber, reply, new Date(), passCode));
+                                tempBasalWaitingForConfirmation.tempBasal = tempBasal;
+                                Answers.getInstance().logCustom(new CustomEvent("SMS_Basal"));
                             } else {
-                                reply = MainApp.sResources.getString(R.string.remotebasalnotallowed);
-                                newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                                reply = MainApp.sResources.getString(R.string.smscommunicator_remotebasalnotallowed);
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             }
                         }
                     }
                     break;
                 case "BOLUS":
                     if (new Date().getTime() - lastRemoteBolusTime.getTime() < Constants.remoteBolusMinDistance) {
-                        reply = MainApp.sResources.getString(R.string.remotebolusnotallowed);
-                        newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                        reply = MainApp.sResources.getString(R.string.smscommunicator_remotebolusnotallowed);
+                        sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                     } else if (splited.length > 1) {
                         amount = SafeParse.stringToDouble(splited[1]);
                         amount = MainApp.getConfigBuilder().applyBolusConstraints(amount);
-                        boolean remoteCommandsAllowed = sharedPreferences.getBoolean("smscommunicator_remotecommandsallowed", false);
                         if (amount > 0d && remoteCommandsAllowed) {
                             passCode = generatePasscode();
                             reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_bolusreplywithcode), amount, passCode);
                             receivedSms.processed = true;
-                            newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
-                            newSms.bolusRequested = amount;
-                            newSms.confirmCode = passCode;
                             resetWaitingMessages();
-                            bolusWaitingForConfirmation = newSms;
+                            sendSMS(bolusWaitingForConfirmation = new Sms(receivedSms.phoneNumber, reply, new Date(), passCode));
+                            bolusWaitingForConfirmation.bolusRequested = amount;
+                            Answers.getInstance().logCustom(new CustomEvent("SMS_Bolus"));
                         } else {
-                            reply = MainApp.sResources.getString(R.string.remotebolusnotallowed);
-                            newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
+                            reply = MainApp.sResources.getString(R.string.smscommunicator_remotebolusnotallowed);
+                            sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                        }
+                    }
+                    break;
+                case "CAL":
+                    if (splited.length > 1) {
+                        amount = SafeParse.stringToDouble(splited[1]);
+                        if (amount > 0d && remoteCommandsAllowed) {
+                            passCode = generatePasscode();
+                            reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_calibrationreplywithcode), amount, passCode);
+                            receivedSms.processed = true;
+                            resetWaitingMessages();
+                            sendSMS(calibrationWaitingForConfirmation = new Sms(receivedSms.phoneNumber, reply, new Date(), passCode));
+                            calibrationWaitingForConfirmation.calibrationRequested = amount;
+                            Answers.getInstance().logCustom(new CustomEvent("SMS_Cal"));
+                        } else {
+                            reply = MainApp.sResources.getString(R.string.smscommunicator_remotecalibrationnotallowed);
+                            sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                         }
                     }
                     break;
@@ -293,14 +444,17 @@ public class SmsCommunicatorPlugin implements PluginBase {
                             danaRPlugin = (DanaRPlugin) MainApp.getSpecificPlugin(DanaRPlugin.class);
                             PumpEnactResult result = pumpInterface.deliverTreatment(bolusWaitingForConfirmation.bolusRequested, 0, null);
                             if (result.success) {
-                                reply = String.format(MainApp.sResources.getString(R.string.bolusdelivered), result.bolusDelivered);
-                                if (danaRPlugin != null) reply += "\n" + danaRPlugin.shortStatus();
+                                reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_bolusdelivered), result.bolusDelivered);
+                                if (danaRPlugin != null)
+                                    reply += "\n" + danaRPlugin.shortStatus(true);
                                 lastRemoteBolusTime = new Date();
+                                sendSMSToAllNumbers(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             } else {
-                                reply = MainApp.sResources.getString(R.string.bolusfailed);
-                                if (danaRPlugin != null) reply += "\n" + danaRPlugin.shortStatus();
+                                reply = MainApp.sResources.getString(R.string.smscommunicator_bolusfailed);
+                                if (danaRPlugin != null)
+                                    reply += "\n" + danaRPlugin.shortStatus(true);
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             }
-                            newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
                         }
                     } else if (tempBasalWaitingForConfirmation != null && !tempBasalWaitingForConfirmation.processed &&
                             tempBasalWaitingForConfirmation.confirmCode.equals(splited[0]) && new Date().getTime() - tempBasalWaitingForConfirmation.date.getTime() < CONFIRM_TIMEOUT) {
@@ -311,12 +465,15 @@ public class SmsCommunicatorPlugin implements PluginBase {
                             PumpEnactResult result = pumpInterface.setTempBasalAbsolute(tempBasalWaitingForConfirmation.tempBasal, 30);
                             if (result.success) {
                                 reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_tempbasalset), result.absolute, result.duration);
-                                if (danaRPlugin != null) reply += "\n" + danaRPlugin.shortStatus();
+                                if (danaRPlugin != null)
+                                    reply += "\n" + danaRPlugin.shortStatus(true);
+                                sendSMSToAllNumbers(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             } else {
                                 reply = MainApp.sResources.getString(R.string.smscommunicator_tempbasalfailed);
-                                if (danaRPlugin != null) reply += "\n" + danaRPlugin.shortStatus();
+                                if (danaRPlugin != null)
+                                    reply += "\n" + danaRPlugin.shortStatus(true);
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             }
-                            newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
                         }
                     } else if (cancelTempBasalWaitingForConfirmation != null && !cancelTempBasalWaitingForConfirmation.processed &&
                             cancelTempBasalWaitingForConfirmation.confirmCode.equals(splited[0]) && new Date().getTime() - cancelTempBasalWaitingForConfirmation.date.getTime() < CONFIRM_TIMEOUT) {
@@ -327,29 +484,72 @@ public class SmsCommunicatorPlugin implements PluginBase {
                             PumpEnactResult result = pumpInterface.cancelTempBasal();
                             if (result.success) {
                                 reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_tempbasalcanceled));
-                                if (danaRPlugin != null) reply += "\n" + danaRPlugin.shortStatus();
+                                if (danaRPlugin != null)
+                                    reply += "\n" + danaRPlugin.shortStatus(true);
+                                sendSMSToAllNumbers(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             } else {
                                 reply = MainApp.sResources.getString(R.string.smscommunicator_tempbasalcancelfailed);
-                                if (danaRPlugin != null) reply += "\n" + danaRPlugin.shortStatus();
+                                if (danaRPlugin != null)
+                                    reply += "\n" + danaRPlugin.shortStatus(true);
+                                sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                             }
-                            newSms = new Sms(receivedSms.phoneNumber, reply, new Date());
                         }
+                    } else if (calibrationWaitingForConfirmation != null && !calibrationWaitingForConfirmation.processed &&
+                            calibrationWaitingForConfirmation.confirmCode.equals(splited[0]) && new Date().getTime() - calibrationWaitingForConfirmation.date.getTime() < CONFIRM_TIMEOUT) {
+                        calibrationWaitingForConfirmation.processed = true;
+                        boolean result = XdripCalibrations.sendIntent(calibrationWaitingForConfirmation.calibrationRequested);
+                        if (result) {
+                            reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_calibrationsent));
+                            sendSMSToAllNumbers(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                        } else {
+                            reply = MainApp.sResources.getString(R.string.smscommunicator_calibrationfailed);
+                            sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                        }
+                    } else if (suspendWaitingForConfirmation != null && !suspendWaitingForConfirmation.processed &&
+                            suspendWaitingForConfirmation.confirmCode.equals(splited[0]) && new Date().getTime() - suspendWaitingForConfirmation.date.getTime() < CONFIRM_TIMEOUT) {
+                        suspendWaitingForConfirmation.processed = true;
+                        final LoopPlugin activeloop = MainApp.getConfigBuilder().getActiveLoop();
+                        activeloop.suspendTo(new Date().getTime() + suspendWaitingForConfirmation.duration * 60L * 1000);
+                        MainApp.bus().post(new EventRefreshGui(false));
+                        reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_loopsuspended));
+                        sendSMSToAllNumbers(new Sms(receivedSms.phoneNumber, reply, new Date()));
                     } else {
-                        newSms = new Sms(receivedSms.phoneNumber, MainApp.sResources.getString(R.string.smscommunicator_unknowncommand), new Date());
+                        sendSMS(new Sms(receivedSms.phoneNumber, MainApp.sResources.getString(R.string.smscommunicator_unknowncommand), new Date()));
                     }
                     resetWaitingMessages();
                     break;
             }
         }
 
-        if (newSms != null) {
-            SmsManager smsManager = SmsManager.getDefault();
-            newSms.text = stripAccents(newSms.text);
-            if (newSms.text.length() > 140) newSms.text = newSms.text.substring(0, 139);
-            smsManager.sendTextMessage(newSms.phoneNumber, null, newSms.text, null, null);
-            messages.add(newSms);
-        }
         MainApp.bus().post(new EventSmsCommunicatorUpdateGui());
+    }
+
+    public void sendNotificationToAllNumbers(String text) {
+        for (int i = 0; i < allowedNumbers.size(); i++) {
+            Sms sms = new Sms(allowedNumbers.get(i), text, new Date());
+            sendSMS(sms);
+        }
+    }
+
+    public void sendSMSToAllNumbers(Sms sms) {
+        for (String number : allowedNumbers) {
+            sms.phoneNumber = number;
+            sendSMS(sms);
+        }
+    }
+
+    public void sendSMS(Sms sms) {
+        SmsManager smsManager = SmsManager.getDefault();
+        sms.text = stripAccents(sms.text);
+        if (sms.text.length() > 140) sms.text = sms.text.substring(0, 139);
+        try {
+            log.debug("Sending SMS to " + sms.phoneNumber + ": " + sms.text);
+            smsManager.sendTextMessage(sms.phoneNumber, null, sms.text, null, null);
+            messages.add(sms);
+        } catch (IllegalArgumentException e) {
+            Notification notification = new Notification(Notification.INVALID_PHONE_NUMBER, MainApp.sResources.getString(R.string.smscommunicator_invalidphonennumber), Notification.NORMAL);
+            MainApp.bus().post(new EventNewNotification(notification));
+        }
     }
 
     private String generatePasscode() {
@@ -366,6 +566,8 @@ public class SmsCommunicatorPlugin implements PluginBase {
         tempBasalWaitingForConfirmation = null;
         cancelTempBasalWaitingForConfirmation = null;
         bolusWaitingForConfirmation = null;
+        calibrationWaitingForConfirmation = null;
+        suspendWaitingForConfirmation = null;
     }
 
     public static String stripAccents(String s) {

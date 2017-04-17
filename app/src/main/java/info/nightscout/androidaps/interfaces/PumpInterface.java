@@ -8,8 +8,7 @@ import java.util.Date;
 
 import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.db.TempBasal;
-import info.nightscout.androidaps.plugins.Loop.APSResult;
-import info.nightscout.client.data.NSProfile;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
 
 /**
  * Created by mike on 04.06.2016.
@@ -17,12 +16,21 @@ import info.nightscout.client.data.NSProfile;
 public interface PumpInterface {
 
     boolean isInitialized();
+    boolean isSuspended();
+    boolean isBusy();
 
     boolean isTempBasalInProgress();
     boolean isExtendedBoluslInProgress();
 
     // Upload to pump new basal profile
-    void setNewBasalProfile(NSProfile profile);
+    int SUCCESS = 0;
+    int FAILED = 1;
+    int NOT_NEEDED = 2;
+    int setNewBasalProfile(NSProfile profile);
+    boolean isThisProfileSet(NSProfile profile);
+
+    Date lastDataTime();
+    void refreshDataFromPump(String reason);
 
     double getBaseBasalRate(); // base basal rate, not temp basal
     double getTempBasalAbsoluteRate();
@@ -42,4 +50,10 @@ public interface PumpInterface {
     // Status to be passed to NS
     JSONObject getJSONStatus();
     String deviceID();
+
+    // Pump capabilities
+    PumpDescription getPumpDescription();
+
+    // Short info for SMS, Wear etc
+    String shortStatus(boolean veryShort);
 }

@@ -32,6 +32,7 @@ import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
+import info.nightscout.utils.SP;
 
 /**
  * Created by mike on 05.08.2016.
@@ -44,6 +45,8 @@ public class LoopPlugin implements PluginBase {
 
     private boolean fragmentEnabled = false;
     private boolean fragmentVisible = true;
+
+    private long loopSuspendedTill = 0L; // end of manual loop suspend
 
     public class LastRun {
         public APSResult request = null;
@@ -64,6 +67,7 @@ public class LoopPlugin implements PluginBase {
             sHandler = new Handler(sHandlerThread.getLooper());
         }
         MainApp.bus().register(this);
+        loopSuspendedTill = SP.getLong("loopSuspendedTill", 0L);
     }
 
     @Override
@@ -82,13 +86,24 @@ public class LoopPlugin implements PluginBase {
     }
 
     @Override
+    public String getNameShort() {
+        String name = MainApp.sResources.getString(R.string.loop_shortname);
+        if (!name.trim().isEmpty()){
+            //only if translation exists
+            return name;
+        }
+        // use long name as fallback
+        return getName();
+    }
+
+    @Override
     public boolean isEnabled(int type) {
-        return fragmentEnabled;
+        return type == LOOP && fragmentEnabled && MainApp.getConfigBuilder().getPumpDescription().isTempBasalCapable;
     }
 
     @Override
     public boolean isVisibleInTabs(int type) {
-        return fragmentVisible;
+        return type == LOOP && fragmentVisible && MainApp.getConfigBuilder().getPumpDescription().isTempBasalCapable;
     }
 
     @Override
@@ -98,45 +113,96 @@ public class LoopPlugin implements PluginBase {
 
     @Override
     public void setFragmentEnabled(int type, boolean fragmentEnabled) {
-        this.fragmentEnabled = fragmentEnabled;
+        if (type == LOOP) this.fragmentEnabled = fragmentEnabled;
     }
 
     @Override
     public void setFragmentVisible(int type, boolean fragmentVisible) {
-        this.fragmentVisible = fragmentVisible;
+        if (type == LOOP) this.fragmentVisible = fragmentVisible;
     }
 
     @Subscribe
     public void onStatusEvent(final EventTreatmentChange ev) {
-        invoke(true);
+        invoke("EventTreatmentChange", true);
     }
 
     @Subscribe
     public void onStatusEvent(final EventNewBG ev) {
-        invoke(true);
+        invoke("EventNewBG", true);
     }
 
-    public void invoke(boolean allowNotification) {
+    public long suspendedTo() {
+        return loopSuspendedTill;
+    }
+
+    public void suspendTo(long endTime) {
+        loopSuspendedTill = endTime;
+        SP.putLong("loopSuspendedTill", loopSuspendedTill);
+    }
+
+    public int minutesToEndOfSuspend() {
+        if (loopSuspendedTill == 0)
+            return 0;
+
+        long now = new Date().getTime();
+        long msecDiff = loopSuspendedTill - now;
+
+        if (loopSuspendedTill <= now) { // time exceeded
+            suspendTo(0L);
+            return 0;
+        }
+
+        return (int) (msecDiff / 60d / 1000d);
+    }
+
+    public boolean isSuspended() {
+        if (loopSuspendedTill == 0)
+            return false;
+
+        long now = new Date().getTime();
+
+        if (loopSuspendedTill <= now) { // time exceeded
+            suspendTo(0L);
+            return false;
+        }
+
+        return true;
+    }
+
+    public void invoke(String initiator, boolean allowNotification) {
         try {
             if (Config.logFunctionCalls)
                 log.debug("invoke");
             ConstraintsInterface constraintsInterface = MainApp.getConfigBuilder();
             if (!constraintsInterface.isLoopEnabled()) {
+                log.debug(MainApp.sResources.getString(R.string.loopdisabled));
                 MainApp.bus().post(new EventLoopSetLastRunGui(MainApp.sResources.getString(R.string.loopdisabled)));
                 return;
             }
             final ConfigBuilderPlugin configBuilder = MainApp.getConfigBuilder();
             APSResult result = null;
 
-            if (configBuilder == null || !isEnabled(PluginBase.GENERAL))
+            if (configBuilder == null || !isEnabled(PluginBase.LOOP))
                 return;
+
+            if (isSuspended()) {
+                log.debug(MainApp.sResources.getString(R.string.loopsuspended));
+                MainApp.bus().post(new EventLoopSetLastRunGui(MainApp.sResources.getString(R.string.loopsuspended)));
+                return;
+            }
+
+            if (configBuilder.isSuspended()) {
+                log.debug(MainApp.sResources.getString(R.string.pumpsuspended));
+                MainApp.bus().post(new EventLoopSetLastRunGui(MainApp.sResources.getString(R.string.pumpsuspended)));
+                return;
+            }
 
             // Check if pump info is loaded
             if (configBuilder.getBaseBasalRate() < 0.01d) return;
 
             APSInterface usedAPS = configBuilder.getActiveAPS();
             if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
-                usedAPS.invoke();
+                usedAPS.invoke(initiator);
                 result = usedAPS.getLastAPSResult();
             }
 
@@ -168,7 +234,7 @@ public class LoopPlugin implements PluginBase {
                         @Override
                         public void run() {
                             final PumpEnactResult applyResult = configBuilder.applyAPSRequest(resultAfterConstraints);
-                            if (applyResult.enacted) {
+                            if (applyResult.enacted || applyResult.success) {
                                 lastRun.setByPump = applyResult;
                                 lastRun.lastEnact = lastRun.lastAPSRun;
                             } else {
@@ -185,7 +251,7 @@ public class LoopPlugin implements PluginBase {
                 if (result.changeRequested && allowNotification) {
                     NotificationCompat.Builder builder =
                             new NotificationCompat.Builder(MainApp.instance().getApplicationContext());
-                    builder.setSmallIcon(R.drawable.notification_icon)
+                    builder.setSmallIcon(R.drawable.notif_icon)
                             .setContentTitle(MainApp.sResources.getString(R.string.openloop_newsuggestion))
                             .setContentText(resultAfterConstraints.toString())
                             .setAutoCancel(true)

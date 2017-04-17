@@ -31,21 +31,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.db.DanaRHistoryRecord;
+import info.nightscout.androidaps.events.EventPumpStatusChanged;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.DanaR.Services.ExecutionService;
 import info.nightscout.androidaps.plugins.DanaR.comm.RecordTypes;
-import info.nightscout.androidaps.plugins.DanaR.events.EventDanaRConnectionStatus;
 import info.nightscout.androidaps.plugins.DanaR.events.EventDanaRSyncStatus;
-import info.nightscout.client.data.NSProfile;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.ToastUtils;
 
@@ -274,9 +273,8 @@ public class DanaRHistoryActivity extends Activity {
 
         @Override
         public void onBindViewHolder(HistoryViewHolder holder, int position) {
-            DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
             DanaRHistoryRecord record = historyList.get(position);
-            holder.time.setText(df.format(new Date(record.getRecordDate())));
+            holder.time.setText(DateUtil.dateAndTimeString(record.getRecordDate()));
             holder.value.setText(DecimalFormatter.to2Decimal(record.getRecordValue()));
             holder.stringvalue.setText(record.getStringRecordValue());
             holder.bolustype.setText(record.getBolusType());
@@ -306,11 +304,10 @@ public class DanaRHistoryActivity extends Activity {
                     holder.alarm.setVisibility(View.GONE);
                     break;
                 case RecordTypes.RECORD_TYPE_DAILY:
-                    df = DateFormat.getDateInstance(DateFormat.SHORT);
                     holder.dailybasal.setText(DecimalFormatter.to2Decimal(record.getRecordDailyBasal()) + "U");
                     holder.dailybolus.setText(DecimalFormatter.to2Decimal(record.getRecordDailyBolus()) + "U");
-                    holder.dailytotal.setText(DecimalFormatter.to2Decimal(record.getRecordDailyBolus()+ record.getRecordDailyBasal()) + "U");
-                    holder.time.setText(df.format(new Date(record.getRecordDate())));
+                    holder.dailytotal.setText(DecimalFormatter.to2Decimal(record.getRecordDailyBolus() + record.getRecordDailyBasal()) + "U");
+                    holder.time.setText(DateUtil.dateString(record.getRecordDate()));
                     holder.time.setVisibility(View.VISIBLE);
                     holder.value.setVisibility(View.GONE);
                     holder.stringvalue.setVisibility(View.GONE);
@@ -437,21 +434,12 @@ public class DanaRHistoryActivity extends Activity {
     }
 
     @Subscribe
-    public void onStatusEvent(final EventDanaRConnectionStatus c) {
+    public void onStatusEvent(final EventPumpStatusChanged s) {
         runOnUiThread(
                 new Runnable() {
                     @Override
                     public void run() {
-                        if (c.sStatus == EventDanaRConnectionStatus.CONNECTING) {
-                            statusView.setText(String.format(getString(R.string.danar_history_connectingfor), c.sSecondsElapsed));
-                            log.debug("EventDanaRConnectionStatus: " + "Connecting for " + c.sSecondsElapsed + "s");
-                        } else if (c.sStatus == EventDanaRConnectionStatus.CONNECTED) {
-                            statusView.setText(MainApp.sResources.getString(R.string.connected));
-                            log.debug("EventDanaRConnectionStatus: Connected");
-                        } else {
-                            statusView.setText(MainApp.sResources.getString(R.string.disconnected));
-                            log.debug("EventDanaRConnectionStatus: Disconnected");
-                        }
+                        statusView.setText(s.textStatus());
                     }
                 }
         );

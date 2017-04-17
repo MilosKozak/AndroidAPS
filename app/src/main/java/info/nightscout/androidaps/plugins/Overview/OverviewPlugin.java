@@ -1,8 +1,5 @@
 package info.nightscout.androidaps.plugins.Overview;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
 import com.squareup.otto.Subscribe;
 
 import org.json.JSONArray;
@@ -13,6 +10,7 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
+import info.nightscout.utils.SP;
 
 /**
  * Created by mike on 05.08.2016.
@@ -27,8 +25,7 @@ public class OverviewPlugin implements PluginBase {
     public NotificationStore notificationStore = new NotificationStore();
 
     public OverviewPlugin() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
-        String storedData = preferences.getString("QuickWizard", "[]");
+        String storedData = SP.getString("QuickWizard", "[]");
         try {
             quickWizard.setData(new JSONArray(storedData));
         } catch (JSONException e) {
@@ -48,8 +45,19 @@ public class OverviewPlugin implements PluginBase {
     }
 
     @Override
+    public String getNameShort() {
+        String name = MainApp.sResources.getString(R.string.overview_shortname);
+        if (!name.trim().isEmpty()){
+            //only if translation exists
+            return name;
+        }
+        // use long name as fallback
+        return getName();
+    }
+
+    @Override
     public boolean isEnabled(int type) {
-        return true;
+        return type == GENERAL;
     }
 
     @Override
