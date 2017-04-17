@@ -15,4 +15,5 @@ android:
   
 script:
   # Unit Test
-  - ./gradlew test
+  #- ./gradlew test
+  - ./gradlew assembleDebug
