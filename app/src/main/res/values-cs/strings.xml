@@ -520,7 +520,7 @@
     <string name="loopsuspendedfor" formatted="false">Pozastaveno (%d min)</string>
     <string name="needwhitelisting">%s potřebuje vypnout optimalizace baterie pro optimalní výkon</string>
     <string name="pleaseallowpermission">Prosím povolte oprávnění</string>
-    <string name="resume">Obnovit</string>
+    <string name="resume">Uvolnit</string>
     <string name="suspendloopfor10h">Pozastavit smyčku na 10 h</string>
     <string name="suspendloopfor1h">Pozastavit smyčku na 1 h</string>
     <string name="suspendloopfor2h">Pozastavit smyčku na 2 h</string>
@@ -531,4 +531,6 @@
     <string name="smscommunicator_remotecommandnotallowed">Vzdálení příkaz není povolen</string>
     <string name="smscommunicator_suspendreplywithcode" formatted="false">K pozastavení smyčky na %d minut odpověz SMS s kódem %s</string>
     <string name="smscommunicator_wrongduration">Chybná doba trvání</string>
+    <string name="ns_logappstartedevent">Logovat spuštění aplikace do NS</string>
+    <string name="restartingapp">Ukončuji aplikaci, aby se nastavení projevilo.</string>
 </resources>
