@@ -28,6 +28,7 @@ public class Autosens {
         double deviationSum = 0;
         double carbsAbsorbed = 0;
 
+
         List<BgReading> bucketed_data = new ArrayList<>();
         bucketed_data.add(glucose_data.get(0));
         int j = 0;
@@ -142,7 +143,7 @@ public class Autosens {
             //log.debug("TIME: " + new Date(bgTime).toString() + " BG: " + bg + " SENS: " + sens + " DELTA: " + delta + " AVGDELTA: " + avgDelta + " IOB: " + iob.iob + " ACTIVITY: " + iob.activity + " BGI: " + bgi + " DEVIATION: " + deviation);
 
             // if bgTime is more recent than mealTime
-            if (mealTime != null && bgTime > mealTime) {
+            if (mealTime != 0 && bgTime > mealTime) {
                 // figure out how many carbs that represents
                 // but always assume at least 3mg/dL/5m (default) absorption
                 double ci = Math.max(deviation, SP.getDouble("openapsama_min_5m_carbimpact", 3.0));
@@ -156,7 +157,7 @@ public class Autosens {
         String ratioLimit = "";
         String sensResult = "";
 
-        if (mealTime == null) {
+        if (mealTime == 0) {
             //console.error("");
             log.debug(pastSensitivity);
             //console.log(JSON.stringify(avgDeltas));
