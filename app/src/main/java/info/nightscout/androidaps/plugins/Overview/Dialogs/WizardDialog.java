@@ -448,7 +448,13 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
 
         // Entered values
         Double c_bg = SafeParse.stringToDouble(bgInput.getText().toString());
-        Integer c_carbs = SafeParse.stringToInt(carbsInput.getText().toString());
+        String carbsStr = carbsInput.getText().toString();
+
+        if(carbsStr.indexOf(".") > -1){
+            carbsStr = carbsStr.substring(0, carbsStr.indexOf(".")); //Truncate
+        }
+        Integer c_carbs = SafeParse.stringToInt(carbsStr);
+
         Double c_correction = SafeParse.stringToDouble(correctionInput.getText().toString());
         Double corrAfterConstraint = MainApp.getConfigBuilder().applyBolusConstraints(c_correction);
         if (c_correction - corrAfterConstraint != 0) { // c_correction != corrAfterConstraint doesn't work

@@ -83,7 +83,15 @@ public class NewTreatmentDialog extends DialogFragment implements OnClickListene
 
                 try {
                     Double insulin = SafeParse.stringToDouble(this.insulin.getText().toString());
-                    Integer carbs = SafeParse.stringToInt(this.carbs.getText().toString());
+
+
+                    String carbsStr = this.carbs.getText().toString();
+
+                    if(carbsStr.indexOf(".") > -1){
+                        carbsStr = carbsStr.substring(0, carbsStr.indexOf(".")); //Truncate
+                    }
+
+                    Integer carbs = SafeParse.stringToInt(carbsStr);
 
                     String confirmMessage = getString(R.string.entertreatmentquestion) + "\n";
 
