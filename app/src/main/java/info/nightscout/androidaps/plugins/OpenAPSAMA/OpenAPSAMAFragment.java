@@ -241,7 +241,7 @@ public class OpenAPSAMAFragment extends Fragment implements View.OnClickListener
 								tempIsSet = "SMB disabled for next "+(5-agoMin)+" minutes. Treatment exists!";
 							}
 							//testing how many treatments will that create
-							if(smb_value == 0) smb_value = 0.1;
+							//if(smb_value == 0) smb_value = 0.1;
 							if(smb_value>0 & SMB_enable & !treamentExists){
 								SMB_calc.setText("Entering temp");
 								PumpEnactResult result;
