@@ -57,7 +57,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 
     @Override
     public String getNameShort() {
-        String name = MainApp.sResources.getString(R.string.oaps_shortname);
+        String name = MainApp.sResources.getString(R.string.SMB_shortname);
         if (!name.trim().isEmpty()){
             //only if translation exists
             return name;
