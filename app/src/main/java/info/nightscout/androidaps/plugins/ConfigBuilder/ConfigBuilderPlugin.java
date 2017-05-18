@@ -844,7 +844,20 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
         }
         return result;
     }
-
+	//Added for SMB
+	@Override
+    public boolean isSMBEnabled() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
+        boolean result = preferences.getBoolean("openapssmb_enabled", false);
+		// Uncomment for safety checks 
+        //ArrayList<PluginBase> constraintsPlugins = MainApp.getSpecificPluginsListByInterface(ConstraintsInterface.class);
+        //for (PluginBase p : constraintsPlugins) {
+        //    ConstraintsInterface constrain = (ConstraintsInterface) p;
+        //    if (!p.isEnabled(PluginBase.CONSTRAINTS)) continue;
+        //    result = result && constrain.isAMAModeEnabled();
+        //}
+        return result;
+	}
     @Override
     public Double applyBasalConstraints(Double absoluteRate) {
         Double rateAfterConstrain = absoluteRate;
