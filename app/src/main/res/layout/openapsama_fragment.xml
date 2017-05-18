@@ -184,12 +184,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 				
 
-                <TextView
-                    android:id="@+id/openapsma_smb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                
             </LinearLayout>
 
 
