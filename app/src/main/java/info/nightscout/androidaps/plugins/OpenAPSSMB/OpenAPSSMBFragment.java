@@ -74,7 +74,8 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
     TextView scriptdebugView;
 	TextView SMB_calc;
     TextView requestView;
-
+	boolean hideAllButSMB = true;
+	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -82,17 +83,17 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 
         run = (Button) view.findViewById(R.id.openapsma_run);
         run.setOnClickListener(this);
-        lastRunView = (TextView) view.findViewById(R.id.openapsma_lastrun);
-        glucoseStatusView = (TextView) view.findViewById(R.id.openapsma_glucosestatus);
-        currentTempView = (TextView) view.findViewById(R.id.openapsma_currenttemp);
-        iobDataView = (TextView) view.findViewById(R.id.openapsma_iobdata);
-        profileView = (TextView) view.findViewById(R.id.openapsma_profile);
-        mealDataView = (TextView) view.findViewById(R.id.openapsma_mealdata);
-        autosensDataView = (TextView) view.findViewById(R.id.openapsma_autosensdata);
-        scriptdebugView = (TextView) view.findViewById(R.id.openapsma_scriptdebugdata);
+        if(hideAllButSMB) lastRunView = (TextView) view.findViewById(R.id.openapsma_lastrun);
+        if(hideAllButSMB)glucoseStatusView = (TextView) view.findViewById(R.id.openapsma_glucosestatus);
+        if(hideAllButSMB)currentTempView = (TextView) view.findViewById(R.id.openapsma_currenttemp);
+        if(hideAllButSMB)iobDataView = (TextView) view.findViewById(R.id.openapsma_iobdata);
+        if(hideAllButSMB)profileView = (TextView) view.findViewById(R.id.openapsma_profile);
+        if(hideAllButSMB)mealDataView = (TextView) view.findViewById(R.id.openapsma_mealdata);
+        if(hideAllButSMB)autosensDataView = (TextView) view.findViewById(R.id.openapsma_autosensdata);
+        if(hideAllButSMB)scriptdebugView = (TextView) view.findViewById(R.id.openapsma_scriptdebugdata);
 		SMB_calc = (TextView) view.findViewById(R.id.openapsma_smb);
-        resultView = (TextView) view.findViewById(R.id.openapsma_result);
-        requestView = (TextView) view.findViewById(R.id.openapsma_request);
+        if(hideAllButSMB)resultView = (TextView) view.findViewById(R.id.openapsma_result);
+        if(hideAllButSMB)requestView = (TextView) view.findViewById(R.id.openapsma_request);
 
         updateGUI();
         return view;
@@ -139,32 +140,34 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
                 public void run() {
                     DetermineBasalResultSMB lastAPSResult = getPlugin().lastAPSResult;
                     if (lastAPSResult != null) {
-                        resultView.setText(JSONFormatter.format(lastAPSResult.json));
-                        requestView.setText(lastAPSResult.toSpanned());
+                        if(hideAllButSMB)resultView.setText(JSONFormatter.format(lastAPSResult.json));
+                        if(hideAllButSMB)requestView.setText(lastAPSResult.toSpanned());
                     }
                     DetermineBasalAdapterSMBJS determineBasalAdapterAMAJS = getPlugin().lastDetermineBasalAdapterAMAJS;
                     if (determineBasalAdapterAMAJS != null) {
-                        glucoseStatusView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getGlucoseStatusParam()));
-                        currentTempView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getCurrentTempParam()));
+                        if(hideAllButSMB)glucoseStatusView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getGlucoseStatusParam()));
+                        if(hideAllButSMB)currentTempView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getCurrentTempParam()));
                         try {
                             JSONArray iobArray = new JSONArray(determineBasalAdapterAMAJS.getIobDataParam());
                             iobDataView.setText(String.format(MainApp.sResources.getString(R.string.array_of_elements), iobArray.length()) + "\n" + JSONFormatter.format(iobArray.getString(0)));
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            iobDataView.setText("JSONException");
+                            if(hideAllButSMB)iobDataView.setText("JSONException");
                         }
+						// Shorten for easy reaading
                         profileView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getProfileParam()));
                         mealDataView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getMealDataParam()));
                         scriptdebugView.setText(determineBasalAdapterAMAJS.getScriptDebug());
 						// Ok trying some calcs here getting iob, cob, delta - done
 						// THIS WORKS ONLY WITH NS PROFILE!!!!
+						// TODO Workaround for undead carbs as in #427 in OpenAPSAMA https://github.com/openaps/oref0/pull/427/files
 						// Find how to suspend loop and get loop status - Done by setting 0 temp bazal before SMB
 						// Get time since last enact, and do not run another smb if time is less than 5 minutes
 						// Maybe include SMB_enable in preferences
 						boolean SMB_enable = false;
 						if(SP.getBoolean("key_smb", false)){
 							SMB_enable = true;
-						} //else SMB_enable = false;
+						} 
 						// Single SMB amounts are limited by several factors.  The largest a single SMB bolus can be is the SMALLEST value of:
 						//30 minutes of the current regular basal rate, or
 						//1/3 of the Insulin Required amount, or
@@ -263,7 +266,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 							
 									InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
 									result = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, context);
-									SMB_calc.setText("Temp set!SMB done");
+									SMB_calc.setText("Temp set!SMB "+smbFinalValue+" done");
 									//if (result.success) {
 									//	
 									//	SMB_calc.setText("Temp set!SMB done (double)");
@@ -275,10 +278,10 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						
                     }
                     if (getPlugin().lastAPSRun != null) {
-                        lastRunView.setText(getPlugin().lastAPSRun.toLocaleString());
+                        if(hideAllButSMB) lastRunView.setText(getPlugin().lastAPSRun.toLocaleString());
                     }
                     if (getPlugin().lastAutosensResult != null) {
-                        autosensDataView.setText(JSONFormatter.format(getPlugin().lastAutosensResult.json()));
+                        if(hideAllButSMB) autosensDataView.setText(JSONFormatter.format(getPlugin().lastAutosensResult.json()));
                     }
                 }
             });
@@ -290,7 +293,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    resultView.setText(text);
+                    if(hideAllButSMB)resultView.setText(text);
                     glucoseStatusView.setText("");
                     currentTempView.setText("");
                     iobDataView.setText("");
