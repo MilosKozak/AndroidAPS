@@ -1,4 +1,4 @@
-package info.nightscout.androidaps.plugins.OpenAPSAMA;
+package info.nightscout.androidaps.plugins.OpenAPSSMB;
 
 import com.eclipsesource.v8.JavaVoidCallback;
 import com.eclipsesource.v8.V8;
@@ -24,8 +24,8 @@ import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
 import info.nightscout.utils.SP;
 
-public class DetermineBasalAdapterAMAJS {
-    private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterAMAJS.class);
+public class DetermineBasalAdapterSMBJS {
+    private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterSMBJS.class);
 
 
     private ScriptReader mScriptReader = null;
@@ -57,7 +57,7 @@ public class DetermineBasalAdapterAMAJS {
      * Main code
      */
 
-    public DetermineBasalAdapterAMAJS(ScriptReader scriptReader) throws IOException {
+    public DetermineBasalAdapterSMBJS(ScriptReader scriptReader) throws IOException {
         mV8rt = V8.createV8Runtime();
         mScriptReader = scriptReader;
 
@@ -67,7 +67,7 @@ public class DetermineBasalAdapterAMAJS {
         loadScript();
     }
 
-    public DetermineBasalResultAMA invoke() {
+    public DetermineBasalResultSMB invoke() {
 
         log.debug(">>> Invoking detemine_basal <<<");
         log.debug("Glucose status: " + (storedGlucoseStatus = mV8rt.executeStringScript("JSON.stringify(" + PARAM_glucoseStatus + ");")));
@@ -97,9 +97,9 @@ public class DetermineBasalAdapterAMAJS {
 
         V8Object v8ObjectReuslt = mV8rt.getObject("rT");
 
-        DetermineBasalResultAMA result = null;
+        DetermineBasalResultSMB result = null;
         try {
-            result = new DetermineBasalResultAMA(v8ObjectReuslt, new JSONObject(ret));
+            result = new DetermineBasalResultSMB(v8ObjectReuslt, new JSONObject(ret));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -243,7 +243,12 @@ public class DetermineBasalAdapterAMAJS {
 
         mGlucoseStatus = new V8Object(mV8rt);
         mGlucoseStatus.add("glucose", glucoseStatus.glucose);
-        mGlucoseStatus.add("delta", glucoseStatus.delta);
+
+        if(SP.getBoolean("always_use_shortavg", false)){
+            mGlucoseStatus.add("delta", glucoseStatus.short_avgdelta);
+        } else {
+            mGlucoseStatus.add("delta", glucoseStatus.delta);
+        }
         mGlucoseStatus.add("short_avgdelta", glucoseStatus.short_avgdelta);
         mGlucoseStatus.add("long_avgdelta", glucoseStatus.long_avgdelta);
         mV8rt.add(PARAM_glucoseStatus, mGlucoseStatus);

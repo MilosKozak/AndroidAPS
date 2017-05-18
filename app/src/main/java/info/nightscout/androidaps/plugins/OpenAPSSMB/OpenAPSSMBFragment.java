@@ -1,4 +1,4 @@
-package info.nightscout.androidaps.plugins.OpenAPSAMA;
+package info.nightscout.androidaps.plugins.OpenAPSSMB;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -26,6 +26,8 @@ import info.nightscout.utils.JSONFormatter;
 //added for SMB calculations
 import java.util.Date;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+//import info.nightscout.androidaps.plugins.OpenAPSSMB.DetermineBasalResultAMA;
+//import info.nightscout.androidaps.plugins.OpenAPSSMB.DetermineBasalResultAMAJS;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.data.MealData;
@@ -46,18 +48,18 @@ import info.nightscout.androidaps.interfaces.InsulinInterface;
 
 
 
-public class OpenAPSAMAFragment extends Fragment implements View.OnClickListener {
+public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener {
     //needed for SMB calculations
 	public IobTotal iobTotal;
-	private static Logger log = LoggerFactory.getLogger(OpenAPSAMAFragment.class);
+	private static Logger log = LoggerFactory.getLogger(OpenAPSSMBFragment.class);
 
-    private static OpenAPSAMAPlugin openAPSAMAPlugin;
+    private static OpenAPSSMBPlugin openAPSSMBPlugin;
 
-    public static OpenAPSAMAPlugin getPlugin() {
-        if(openAPSAMAPlugin ==null){
-            openAPSAMAPlugin = new OpenAPSAMAPlugin();
+    public static OpenAPSSMBPlugin getPlugin() {
+        if(openAPSSMBPlugin ==null){
+            openAPSSMBPlugin = new OpenAPSSMBPlugin();
         }
-        return openAPSAMAPlugin;
+        return openAPSSMBPlugin;
     }
 
     Button run;
@@ -135,12 +137,12 @@ public class OpenAPSAMAFragment extends Fragment implements View.OnClickListener
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    DetermineBasalResultAMA lastAPSResult = getPlugin().lastAPSResult;
+                    DetermineBasalResultSMB lastAPSResult = getPlugin().lastAPSResult;
                     if (lastAPSResult != null) {
                         resultView.setText(JSONFormatter.format(lastAPSResult.json));
                         requestView.setText(lastAPSResult.toSpanned());
                     }
-                    DetermineBasalAdapterAMAJS determineBasalAdapterAMAJS = getPlugin().lastDetermineBasalAdapterAMAJS;
+                    DetermineBasalAdapterSMBJS determineBasalAdapterAMAJS = getPlugin().lastDetermineBasalAdapterAMAJS;
                     if (determineBasalAdapterAMAJS != null) {
                         glucoseStatusView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getGlucoseStatusParam()));
                         currentTempView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getCurrentTempParam()));
