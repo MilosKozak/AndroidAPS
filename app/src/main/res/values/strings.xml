@@ -63,8 +63,9 @@
     <string name="openapsma_iobdata_label">IOB data</string>
     <string name="openapsma_profile_label">Profile</string>
     <string name="openapsma_mealdata_label">Meal data</string>
-    <string name="openapsma_result_label">Result</string>
-    <string name="openapsma_noglucosedata">No glucose data available</string>
+	<string name="openapsma_result_label">Result</string>
+    <string name="openapsma_smb_label">SMB result</string>
+	<string name="openapsma_noglucosedata">No glucose data available</string>
     <string name="openapsma_noprofile">No profile available</string>
     <string name="openapsma_nopump">No pump available</string>
     <string name="nochangerequested">No change requested</string>
@@ -409,6 +410,7 @@
     <string name="sms_minago">%dmin ago</string>
     <string name="localprofile">Local Profile</string>
     <string name="openapsama">OpenAPS AMA</string>
+	<string name="openapssmb">Rumen AMA+SMB</string>
     <string name="short_avgdelta">Short avg. delta</string>
     <string name="long_avgdelta">Long avg. delta</string>
     <string name="array_of_elements">Array of %d elements.\nActual value:</string>
