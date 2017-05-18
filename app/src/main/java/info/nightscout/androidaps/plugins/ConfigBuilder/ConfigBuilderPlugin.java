@@ -845,7 +845,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
         return result;
     }
 	//Added for SMB
-	@Override
+	//@Override
     public boolean isSMBEnabled() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
         boolean result = preferences.getBoolean("openapssmb_enabled", false);
