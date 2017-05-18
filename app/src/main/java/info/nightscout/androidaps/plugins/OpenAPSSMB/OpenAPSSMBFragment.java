@@ -161,7 +161,10 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						// Find how to suspend loop and get loop status - Done by setting 0 temp bazal before SMB
 						// Get time since last enact, and do not run another smb if time is less than 5 minutes
 						// Maybe include SMB_enable in preferences
-						boolean SMB_enable = true;
+						boolean SMB_enable = false;
+						if(SP.getBoolean("key_smb", false)){
+							SMB_enable = true;
+						} //else SMB_enable = false;
 						// Single SMB amounts are limited by several factors.  The largest a single SMB bolus can be is the SMALLEST value of:
 						//30 minutes of the current regular basal rate, or
 						//1/3 of the Insulin Required amount, or
