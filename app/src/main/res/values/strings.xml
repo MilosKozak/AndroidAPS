@@ -65,6 +65,10 @@
     <string name="openapsma_mealdata_label">Meal data</string>
 	<string name="openapsma_result_label">Result</string>
     <string name="openapsma_smb_label">SMB result</string>
+	<string name="smb">SMB</string>
+	<string name="key_smb" translatable="false">key_smb</string>
+	<string name="enablesmb">SMB enable</string>
+	<string name="enablesmb_summary">Super Micro Boluses is used when there are COB and more insulin is needed</string>
 	<string name="openapsma_noglucosedata">No glucose data available</string>
     <string name="openapsma_noprofile">No profile available</string>
     <string name="openapsma_nopump">No pump available</string>
