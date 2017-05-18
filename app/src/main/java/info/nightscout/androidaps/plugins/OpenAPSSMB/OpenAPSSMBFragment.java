@@ -78,7 +78,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.openapsama_fragment, container, false);
+        View view = inflater.inflate(R.layout.openapssmb_fragment, container, false);
 
         run = (Button) view.findViewById(R.id.openapsma_run);
         run.setOnClickListener(this);
