@@ -208,12 +208,12 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						
 						// If there will be SMB -> TempBasal 0 ?!? 
 						// VERY DANGEROUS !!! just to test pump interfaces setting temp 0 for 120 minutes
-						String tempIsSet = "Already set to 0 U/hr. No treatment";
+						String tempIsSet = "Already set to 0 U/hr. \nNo treatment";
 						if(treamentExists){
-							tempIsSet = "Already 0 U/hr, but treatment exists";
+							tempIsSet = "Already 0 U/hr, \nbut treatment exists";
 						} 
 						if(!SMB_enable){
-							tempIsSet = "SMB disabled! Last BG was "+agoMin+" minutes ago";
+							tempIsSet = "SMB disabled! \nLast BG was "+agoMin+" minutes ago";
 						}
 								
 						//Getting COB 
