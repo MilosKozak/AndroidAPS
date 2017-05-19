@@ -161,9 +161,9 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						// Ok trying some calcs here getting iob, cob, delta - done
 						// THIS WORKS ONLY WITH NS PROFILE!!!!
 						// TODO Workaround for undead carbs as in #427 in OpenAPSAMA https://github.com/openaps/oref0/pull/427/files
-						// Find how to suspend loop and get loop status - Done by setting 0 temp bazal before SMB
+						
 						// Get time since last enact, and do not run another smb if time is less than 5 minutes
-						// Maybe include SMB_enable in preferences
+						
 						boolean SMB_enable = false;
 						if(SP.getBoolean("key_smb", false)){
 							SMB_enable = true;
@@ -211,10 +211,10 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						
 						// If there will be SMB -> TempBasal 0 ?!? 
 						// VERY DANGEROUS !!! just to test pump interfaces setting temp 0 for 120 minutes
-						String tempIsSet = "Already set to 0 U/hr. \nNo treatment";
+						String tempIsSet = "";
 						if(treamentExists){
-							tempIsSet = "Already 0 U/hr, \nbut treatment exists";
-						} 
+							tempIsSet = "Treatment in last 5 min exists";
+						} else tempIsSet = "No treatment";
 						if(!SMB_enable){
 							tempIsSet = "SMB disabled! \nLast BG was "+agoMin+" minutes ago";
 						}
@@ -233,45 +233,45 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						// check if delta < 0
 						// delta is in mg/dl
 						else if(glucoseStatus.delta < 0){
-							SMB_calc.setText("Temp set: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+"\nThere are COB left, but delta is " + glucoseStatus.delta+" mg/dl");
+							SMB_calc.setText("Treated: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+"\nThere are COB left, but delta is " + glucoseStatus.delta+" mg/dl");
 							//check for bolusIOB 
 						} else if(bolusIob.iob == 0){
 							// we have bolus IOB but is it enough to cover COB and delta ?!?
 							//calculate delta for next 1 hr ?!?
-							SMB_calc.setText("Temp set: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")\nSMB_enabled: "+SMB_enable);
+							SMB_calc.setText("Treasted: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")\nSMB_enabled: "+SMB_enable);
 						} else {
-							SMB_calc.setText("Temp set: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+"\nMealCOB:"+mealData.mealCOB+"\nBG:"+glucoseStatus.glucose+"\ndelta:"+glucoseStatus.delta*0.1+"\nActive insulin:"+iobtext+"\n APS requested:"+lastAPSResult.rate/2+"\nSMB_enabled: "+SMB_enable);
+							SMB_calc.setText("Treated: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+"\nMealCOB:"+mealData.mealCOB+"\nBG:"+glucoseStatus.glucose+"\ndelta:"+glucoseStatus.delta*0.1+"\nActive insulin:"+iobtext+"\n APS requested:"+lastAPSResult.rate/2+"\nSMB_enabled: "+SMB_enable);
 							if(!SMB_enable){
 								tempIsSet = "SMB disabled!";
 							}
-							if((agoMin-5) < 5 & treamentExists){
+							if((agoMin-5) < 5 && treamentExists){
 								SMB_enable = false;
 								tempIsSet = "SMB disabled for next "+(5-agoMin)+" minutes. Treatment exists!";
 							}
 							//testing how many treatments will that create
-							if(smb_value == 0) smb_value = 0.1;
-							if(smb_value>0 & SMB_enable & !treamentExists){
-								SMB_calc.setText("Entering temp");
-								PumpEnactResult result;
-								final PumpInterface pump = MainApp.getConfigBuilder();
-								result = pump.setTempBasalPercent(0, 120);
-								SMB_calc.setText("Cannot set temp of 0");
-								if (result.success) {
+							//if(smb_value == 0) smb_value = 0.1;
+							if(smb_value>0 && SMB_enable && !treamentExists){
+								SMB_calc.setText("Need to set temp");
+								//PumpEnactResult result;
+								//final PumpInterface pump = MainApp.getConfigBuilder();
+								//result = pump.setTempBasalPercent(0, 120);
+								//SMB_calc.setText("Cannot set temp of 0");
+								//if (result.success) {
 									//SMB_calc.setText("Temp set to 0 for 120 minutes!");
-									final Context context = getContext();
-									Integer nullCarbs = 0;
-									Double smbFinalValue = smb_value;
+									//final Context context = getContext();
+									//Integer nullCarbs = 0;
+									//Double smbFinalValue = smb_value;
 									//JUST TO TEST INTERFACE
 									//if(smb_value == 0){ smbFinalValue = 0.1;}
 							
-									InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
-									result = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, context);
-									SMB_calc.setText("Temp set!SMB "+smbFinalValue+" done");
+									//InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
+									//result = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, context);
+									//SMB_calc.setText("Temp set!SMB "+smbFinalValue+" done");
 									//if (result.success) {
 									//	
 									//	SMB_calc.setText("Temp set!SMB done (double)");
 									//}
-								}
+								//}
 								
 							}
 						}
