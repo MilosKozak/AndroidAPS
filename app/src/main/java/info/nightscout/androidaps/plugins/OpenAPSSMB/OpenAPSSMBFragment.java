@@ -235,10 +235,10 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						else if(glucoseStatus.delta < 0){
 							SMB_calc.setText("Treated: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+"\nThere are COB left, but delta is " + glucoseStatus.delta+" mg/dl");
 							//check for bolusIOB 
-						} else if(bolusIob.iob == 0){
+						//}  else if(bolusIob.iob == 0){
 							// we have bolus IOB but is it enough to cover COB and delta ?!?
 							//calculate delta for next 1 hr ?!?
-							SMB_calc.setText("Treasted: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")\nSMB_enabled: "+SMB_enable);
+							//SMB_calc.setText("Treasted: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")\nSMB_enabled: "+SMB_enable);
 						} else {
 							SMB_calc.setText("Treated: "+tempIsSet+"\nCalculated SMB: "+smb_value+"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+"\nMealCOB:"+mealData.mealCOB+"\nBG:"+glucoseStatus.glucose+"\ndelta:"+glucoseStatus.delta*0.1+"\nActive insulin:"+iobtext+"\n APS requested:"+lastAPSResult.rate/2+"\nSMB_enabled: "+SMB_enable);
 							if(!SMB_enable){
@@ -249,29 +249,29 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 								tempIsSet = "SMB disabled for next "+(5-agoMin)+" minutes. Treatment exists!";
 							}
 							//testing how many treatments will that create
-							//if(smb_value == 0) smb_value = 0.1;
+							if(smb_value == 0) smb_value = 0.1;
 							if(smb_value>0 && SMB_enable && !treamentExists){
 								SMB_calc.setText("Need to set temp");
-								//PumpEnactResult result;
-								//final PumpInterface pump = MainApp.getConfigBuilder();
-								//result = pump.setTempBasalPercent(0, 120);
-								//SMB_calc.setText("Cannot set temp of 0");
-								//if (result.success) {
-									//SMB_calc.setText("Temp set to 0 for 120 minutes!");
-									//final Context context = getContext();
-									//Integer nullCarbs = 0;
-									//Double smbFinalValue = smb_value;
+								PumpEnactResult result;
+								final PumpInterface pump = MainApp.getConfigBuilder();
+								result = pump.setTempBasalPercent(0, 120);
+								SMB_calc.setText("Cannot set temp of 0");
+								if (result.success) {
+									SMB_calc.setText("Temp set to 0 for 120 minutes!");
+									final Context context = getContext();
+									Integer nullCarbs = 0;
+									Double smbFinalValue = smb_value;
 									//JUST TO TEST INTERFACE
-									//if(smb_value == 0){ smbFinalValue = 0.1;}
+									if(smb_value == 0){ smbFinalValue = 0.1;}
 							
-									//InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
-									//result = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, context);
-									//SMB_calc.setText("Temp set!SMB "+smbFinalValue+" done");
-									//if (result.success) {
-									//	
-									//	SMB_calc.setText("Temp set!SMB done (double)");
-									//}
-								//}
+									InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
+									result = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, context);
+									SMB_calc.setText("Temp set!SMB "+smbFinalValue+" done");
+									if (result.success) {
+										
+										SMB_calc.setText("Temp set!SMB done (double)");
+									} else SMB_calc.setText("Temp set!SMB failed");
+								}
 								
 							}
 						}
