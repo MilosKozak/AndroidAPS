@@ -48,7 +48,7 @@ public class LoopPlugin implements PluginBase {
 
     private long loopSuspendedTill = 0L; // end of manual loop suspend
     private boolean isSuperBolus = false;
-
+	
     public class LastRun {
         public APSResult request = null;
         public APSResult constraintsProcessed = null;
@@ -57,6 +57,7 @@ public class LoopPlugin implements PluginBase {
         public Date lastAPSRun = null;
         public Date lastEnact = null;
         public Date lastOpenModeAccept;
+		public Double smb = null;
     }
 
     static public LastRun lastRun = null;
@@ -236,6 +237,9 @@ public class LoopPlugin implements PluginBase {
             APSInterface usedAPS = configBuilder.getActiveAPS();
             if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
                 usedAPS.invoke(initiator);
+				if(usedAPS.smb != 0){
+						double smb_value = usedAPS.smb;
+				}				
                 result = usedAPS.getLastAPSResult();
             }
 
@@ -254,6 +258,11 @@ public class LoopPlugin implements PluginBase {
             lastRun.constraintsProcessed = resultAfterConstraints;
             lastRun.lastAPSRun = new Date();
             lastRun.source = ((PluginBase) usedAPS).getName();
+			// Added by Rumen for SMB in Loop
+			// If APS source s rumen's plugin
+			if(lastRun.source.equals("Rumen AMA+SMB")){
+				lastRun.smb = result.smb;
+			} else lastRun.smb = null;
             lastRun.setByPump = null;
 
             if (constraintsInterface.isClosedModeEnabled()) {
