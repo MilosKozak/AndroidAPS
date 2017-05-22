@@ -117,11 +117,20 @@ public class LoopFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void run() {
                     if (getPlugin().lastRun != null) {
-                        requestView.setText(getPlugin().lastRun.request != null ? getPlugin().lastRun.request.toSpanned() : "");
+						requestView.setText(getPlugin().lastRun.request != null ? getPlugin().lastRun.request.toSpanned() : "");
                         constraintsProcessedView.setText(getPlugin().lastRun.constraintsProcessed != null ? getPlugin().lastRun.constraintsProcessed.toSpanned() : "");
                         setByPumpView.setText(getPlugin().lastRun.setByPump != null ? getPlugin().lastRun.setByPump.toSpanned() : "");
-                        sourceView.setText(getPlugin().lastRun.source != null ? getPlugin().lastRun.source : "");
-                        lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
+						// Test for Rumen's SMB plugin
+						if(getPlugin().lastRun.source != null && !getPlugin().lastRun.source.equals("Rumen AMA+SMB")){
+							sourceView.setText(getPlugin().lastRun.source != null ? getPlugin().lastRun.source : "");
+							lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
+
+						} else {
+							// SMB plugin is in action so there should be some SMB value
+							sourceView.setText("Rumen's SMB plugin enabled! SMB value is\n"+getPlugin().lastRun.smb+"\n");
+							//lastRunView.setText("SMB value is\n"+getPlugin().lastRun.smb+"\n"+getPlugin().lastRun.lastAPSRun.toLocaleString());
+                            lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
+                        }
                         lastEnactView.setText(getPlugin().lastRun.lastEnact != null && getPlugin().lastRun.lastEnact.getTime() != 0 ? getPlugin().lastRun.lastEnact.toLocaleString() : "");
                     }
                 }
