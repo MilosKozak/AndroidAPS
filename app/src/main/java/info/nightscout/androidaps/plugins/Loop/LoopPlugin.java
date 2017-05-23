@@ -33,6 +33,16 @@ import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
 import info.nightscout.utils.SP;
+// Added by Rumen for SMB enact
+//import info.nightscout.androidaps.data.PumpEnactResult;
+import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.interfaces.InsulinInterface;
+import info.nightscout.utils.SP;
+import android.support.v4.app.DialogFragment;
+import info.nightscout.androidaps.db.Treatment;
+import info.nightscout.androidaps.interfaces.TreatmentsInterface;
+import java.util.List;
+
 
 /**
  * Created by mike on 05.08.2016.
@@ -48,6 +58,7 @@ public class LoopPlugin implements PluginBase {
 
     private long loopSuspendedTill = 0L; // end of manual loop suspend
     private boolean isSuperBolus = false;
+	public Boolean smbEnacted = false;
 	
     public class LastRun {
         public APSResult request = null;
@@ -58,6 +69,7 @@ public class LoopPlugin implements PluginBase {
         public Date lastEnact = null;
         public Date lastOpenModeAccept;
 		public Double smb = null;
+		public Boolean smbEnacted = false;
     }
 
     static public LastRun lastRun = null;
@@ -202,6 +214,17 @@ public class LoopPlugin implements PluginBase {
 
         return isSuperBolus;
     }
+	
+	public boolean treatmentLast5min(){
+		TreatmentsInterface treatmentsInterface = ConfigBuilderPlugin.getActiveTreatments();
+		List<Treatment> recentTreatments;
+		recentTreatments = treatmentsInterface.getTreatments5MinBack(new Date().getTime());
+		if(recentTreatments.size() != 0){
+			// There is treatment 
+			return true;
+		}
+		return false;
+	}
 
     public void invoke(String initiator, boolean allowNotification) {
         try {
@@ -264,8 +287,32 @@ public class LoopPlugin implements PluginBase {
 				lastRun.smb = result.smb;
 			} else lastRun.smb = null;
             lastRun.setByPump = null;
-
-            if (constraintsInterface.isClosedModeEnabled()) {
+			// now SMB is here but needs to go afte closed loop check :)
+			//test to see if it's working
+			
+			if(lastRun.smb == 0.0)lastRun.smb = 0.2;
+			if(lastRun.smb > 0){
+				// enacting SMB result but first check for treatment
+				boolean treamentExists = treatmentLast5min();
+				if(!treamentExists && !smbEnacted){
+					final DialogFragment tempDialog = new DialogFragment();
+					final PumpInterface pump = MainApp.getConfigBuilder();
+					PumpEnactResult enactResult;
+					enactResult = pump.setTempBasalPercent(0, 120);
+				
+					if (enactResult.success) {
+						//Temp is set -> doing SMB
+						Integer nullCarbs = 0;
+						Double smbFinalValue = lastRun.smb;
+						InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
+						//enactResult = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, MainApp.instance().getApplicationContext());
+						enactResult = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, tempDialog.getContext());
+						if (enactResult.success) {
+							smbEnacted = true;
+						}
+					}
+				}
+			}else if (constraintsInterface.isClosedModeEnabled()) {
                 if (result.changeRequested) {
                     final PumpEnactResult waiting = new PumpEnactResult();
                     final PumpEnactResult previousResult = lastRun.setByPump;
