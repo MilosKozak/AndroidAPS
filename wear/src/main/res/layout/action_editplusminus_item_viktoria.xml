@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,63 +8,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/plusbutton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:backgroundTint="#ffffff"
+            android:src="@drawable/ic_action_add"
+            android:tint="#ffffff" />
 
-            <TextView
-                android:id="@+id/label"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="left|center_vertical"
-                android:gravity="center"
-                android:rotation="90"
-                android:text="label"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="25sp" />
+        <EditText
+            android:id="@+id/amountfield"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:cursorVisible="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:inputType="numberDecimal"
+            android:minWidth="50dp"
+            android:padding="10dp"
+            android:textSize="45sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical|center_horizontal"
-                android:orientation="vertical">
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="label"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:visibility="gone"/>
 
-                <ImageView
-                    android:id="@+id/plusbutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:backgroundTint="#ffffff"
-                    android:src="@drawable/ic_action_add"
-                    android:tint="#ffffff" />
+        <ImageView
+            android:id="@+id/minusbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#ffffff"
+            android:src="@drawable/ic_action_minus"
+            android:tint="#ffffff"
+            android:gravity="center_vertical|center_horizontal" />
 
-                <EditText
-                    android:id="@+id/amountfield"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:background="@android:color/transparent"
-                    android:cursorVisible="false"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:minWidth="50dp"
-                    android:padding="10dp"
-                    android:text="112"
-                    android:textSize="45sp" />
-
-                <ImageView
-                    android:id="@+id/minusbutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:backgroundTint="#ffffff"
-                    android:src="@drawable/ic_action_minus"
-                    android:tint="#ffffff" />
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

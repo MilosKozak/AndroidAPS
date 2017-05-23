@@ -6,9 +6,11 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import info.nightscout.androidaps.R;
+
 
 /**
  * Created by adrian on 13/02/17.
@@ -39,9 +41,18 @@ public class ViewSelectorActivity extends Activity {
         int design = Integer.parseInt(sharedPrefs.getString("input_design", "1"));
 
         if (design == 4){
-            //@LadyViktoria: Here the label can be set differently, if you like.
-            final TextView textView = (TextView) view.findViewById(R.id.label);
-            textView.setText(labelText);
+            final EditText editText = (EditText) view.findViewById(R.id.amountfield);
+            editText.setHint(labelText);
+            if (labelText.equals("duration")) {
+                editText.setHint(labelText);
+                editText.setText("60");
+            } else if (labelText.equals("low")) {
+                editText.setHint(labelText);
+                editText.setText("100");
+            } else if (labelText.equals("high")) {
+                editText.setHint(labelText);
+                editText.setText("100");
+            }
         } else {
             final TextView textView = (TextView) view.findViewById(R.id.label);
             textView.setText(labelText);
