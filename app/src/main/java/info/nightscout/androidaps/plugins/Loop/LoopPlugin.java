@@ -287,6 +287,8 @@ public class LoopPlugin implements PluginBase {
 				lastRun.smb = result.smb;
 			} else lastRun.smb = null;
             lastRun.setByPump = null;
+			
+			
 			// now SMB is here but needs to go afte closed loop check :)
 			//test to see if it's working
 			
@@ -294,6 +296,12 @@ public class LoopPlugin implements PluginBase {
 			if(lastRun.smb > 0){
 				// enacting SMB result but first check for treatment
 				boolean treamentExists = treatmentLast5min();
+				if(lastRun.lastEnact != null){
+					Long agoMsec = new Date().getTime() - lastRun.lastEnact.getTime();
+					int agoSec = (int) (agoMsec / 1000d);
+					if(agoSec > 300) smbEnacted = false;
+				
+				}
 				if(!treamentExists && !smbEnacted){
 					final DialogFragment tempDialog = new DialogFragment();
 					final PumpInterface pump = MainApp.getConfigBuilder();
@@ -313,6 +321,7 @@ public class LoopPlugin implements PluginBase {
 						}
 					}
 				}
+			
 			}else if (constraintsInterface.isClosedModeEnabled()) {
                 if (result.changeRequested) {
                     final PumpEnactResult waiting = new PumpEnactResult();
