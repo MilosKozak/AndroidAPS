@@ -20,7 +20,7 @@ public class APSResult {
     public String reason;
     public double rate;
     public int duration;
-	public double smb;
+	public Double smb;
     public boolean changeRequested = false;
     @Override
     public String toString() {
