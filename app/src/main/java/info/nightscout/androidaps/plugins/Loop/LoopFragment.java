@@ -21,6 +21,7 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
+import java.util.Date;
 
 public class LoopFragment extends Fragment implements View.OnClickListener {
     private static Logger log = LoggerFactory.getLogger(LoopFragment.class);
@@ -130,8 +131,12 @@ public class LoopFragment extends Fragment implements View.OnClickListener {
 							// There is treatment 
 								boolean treamentExists = getPlugin().treatmentLast5min();
 							if(treamentExists){
-								//There is treatment 
-								sourceView.setText("Rumen's SMB plugin enabled! SMB value is\n"+getPlugin().lastRun.smb+"\nBut treatment exists!!!\n");
+								if(getPlugin().lastRun.lastEnact != null){
+									Long agoMsec = new Date().getTime() - getPlugin().lastRun.lastEnact.getTime();
+									int agoSec = (int) (agoMsec / 1000d);
+									sourceView.setText("Rumen's SMB plugin enabled! SMB value is\n"+getPlugin().lastRun.smb+"\nBut treatment exists "+agoSec+" sec ago\n");
+								} else sourceView.setText("Rumen's SMB plugin enabled! SMB value is\n"+getPlugin().lastRun.smb+"\nBut treatment exists!!!\n");
+															
 							} else sourceView.setText("Rumen's SMB plugin enabled! SMB value is\n"+getPlugin().lastRun.smb+"\n");
 							//lastRunView.setText("SMB value is\n"+getPlugin().lastRun.smb+"\n"+getPlugin().lastRun.lastAPSRun.toLocaleString());
                             lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
