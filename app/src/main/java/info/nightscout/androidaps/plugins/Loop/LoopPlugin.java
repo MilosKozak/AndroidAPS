@@ -309,6 +309,7 @@ public class LoopPlugin implements PluginBase {
 						enactResult = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, tempDialog.getContext());
 						if (enactResult.success) {
 							smbEnacted = true;
+							lastRun.lastEnact = new Date();
 						}
 					}
 				}
