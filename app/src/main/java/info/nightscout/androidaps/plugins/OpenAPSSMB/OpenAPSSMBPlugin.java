@@ -290,7 +290,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         lastAPSRun = now;
         MainApp.bus().post(new EventOpenAPSUpdateGui());
 		// call smbValue()
-		//smb = smbValue();
+		smb = smbValue();
 		//if(bolusSMB(smb)){
 			// SMB bolused
 		//}
@@ -298,7 +298,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
     }
 
 	//added by Rumen
-	public double smbValue(){
+	public Double smbValue(){
 		// Added by Rumen on 19.05.2017
 		// Trying to add SMB calculations here
 		boolean SMB_enable = false;
@@ -357,12 +357,13 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 					}
 					// SMB is positive and enabled and no other treatmnt has been done so setting a value
 					if(smb_value>0 & SMB_enable & !treamentExists){
-						return smb_value;
-					} return 0;
-				} return 0;// there is bolusIob.iob
-			} return 0;// delta is 0 or negative
-		} return 0;// No cob */
+						return (double) smb_value;
+					} return (double) 0;
+				} return (double) 0;// there is bolusIob.iob
+			} return (double) 0;// delta is 0 or negative
+		} return (double) 0;// No cob */
 	}
+	
 	public boolean bolusSMB(double smbValue){
 		// If we get a positive smbValue, do some checks and do a bolus (return true)
 		boolean SMB_enable = false;
