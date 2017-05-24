@@ -261,9 +261,10 @@ public class LoopPlugin implements PluginBase {
             APSInterface usedAPS = configBuilder.getActiveAPS();
             if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
                 usedAPS.invoke(initiator);
-				if(usedAPS.smbValue() != null){
-						double smb_value = usedAPS.smbValue();
-				}				
+				//This is causing a crash when there is no recent BG data
+				//if(usedAPS.smbValue() != null){
+				//		Double smb_value = usedAPS.smbValue();
+				//}				
                 result = usedAPS.getLastAPSResult();
             }
 
