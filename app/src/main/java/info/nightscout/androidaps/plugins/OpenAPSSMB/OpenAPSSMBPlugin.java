@@ -356,9 +356,9 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 						SMB_enable = false;
 					}
 					// SMB is positive and enabled and no other treatmnt has been done so setting a value
-					if(smb_value>0 & SMB_enable & !treamentExists){
+					if(smb_value>0 && SMB_enable && !treamentExists){
 						return (double) smb_value;
-					} return (double) 0;
+					} return (double) 0; // 
 				} return (double) 0;// there is bolusIob.iob
 			} return (double) 0;// delta is 0 or negative
 		} return (double) 0;// No cob */
