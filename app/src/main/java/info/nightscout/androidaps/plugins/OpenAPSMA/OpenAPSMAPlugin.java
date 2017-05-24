@@ -119,7 +119,10 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
     public Date getLastAPSRun() {
         return lastAPSRun;
     }
-
+	@Override
+    public Double smbValue() {
+        return null;
+    }
     @Override
     public void invoke(String initiator) {
         log.debug("invoke from " + initiator);
