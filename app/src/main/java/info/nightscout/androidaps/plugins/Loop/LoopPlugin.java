@@ -35,6 +35,7 @@ import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotificati
 import info.nightscout.utils.SP;
 // Added by Rumen for SMB enact
 //import info.nightscout.androidaps.data.PumpEnactResult;
+import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.interfaces.InsulinInterface;
 import info.nightscout.utils.SP;
@@ -260,8 +261,8 @@ public class LoopPlugin implements PluginBase {
             APSInterface usedAPS = configBuilder.getActiveAPS();
             if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
                 usedAPS.invoke(initiator);
-				if(usedAPS.smb != 0){
-						double smb_value = usedAPS.smb;
+				if(usedAPS.smbValue() != null){
+						double smb_value = usedAPS.smbValue();
 				}				
                 result = usedAPS.getLastAPSResult();
             }
@@ -283,16 +284,25 @@ public class LoopPlugin implements PluginBase {
             lastRun.source = ((PluginBase) usedAPS).getName();
 			// Added by Rumen for SMB in Loop
 			// If APS source s rumen's plugin
-			if(lastRun.source.equals("Rumen AMA+SMB")){
-				lastRun.smb = result.smb;
-			} else lastRun.smb = null;
-            lastRun.setByPump = null;
 			
+			if(lastRun.source.equals("Rumen AMA+SMB")){
+				if(result.smb != null){ 
+					// Gett SMB by direct call of function
+					lastRun.smb = result.smb;
+				} else {
+					// always ending here!!!
+					lastRun.smb = usedAPS.smbValue();//smbPlugin.smbValue();
+					//lastRun.smb = 0.0;//smbPlugin.smbValue();
+					
+				}
+			} else lastRun.smb = 0.0;
+            lastRun.setByPump = null;
+			if(lastRun.smb == null)lastRun.smb = 0.0;
 			
 			// now SMB is here but needs to go afte closed loop check :)
 			//test to see if it's working
 			
-			if(lastRun.smb == 0.0)lastRun.smb = 0.2;
+			//if(lastRun.smb == 0.0)lastRun.smb = 0.2;
 			if(lastRun.smb > 0){
 				// enacting SMB result but first check for treatment
 				boolean treamentExists = treatmentLast5min();

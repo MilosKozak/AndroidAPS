@@ -137,7 +137,7 @@ public class LoopFragment extends Fragment implements View.OnClickListener {
 									sourceView.setText("Rumen's SMB plugin enabled!\nSMB value is "+getPlugin().lastRun.smb+"\nTreatment enacted "+agoSec+" sec ago\n");
 								} else sourceView.setText("Rumen's SMB plugin enabled!\nSMB value is "+getPlugin().lastRun.smb+"\nBut treatment exists!!!\n");
 															
-							} else sourceView.setText("Rumen's SMB plugin enabled! SMB value is\n"+getPlugin().lastRun.smb+"\n");
+							} else sourceView.setText("Rumen's SMB plugin enabled!\n SMB value is"+getPlugin().lastRun.smb+"\n");
 							//lastRunView.setText("SMB value is\n"+getPlugin().lastRun.smb+"\n"+getPlugin().lastRun.lastAPSRun.toLocaleString());
                             lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
                         }
