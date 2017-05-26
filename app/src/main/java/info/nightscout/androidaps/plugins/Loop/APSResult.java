@@ -20,7 +20,7 @@ public class APSResult {
     public String reason;
     public double rate;
     public int duration;
-	public Double smb;
+	public Double smbValue;
     public boolean changeRequested = false;
     @Override
     public String toString() {
@@ -60,7 +60,7 @@ public class APSResult {
         newResult.reason = new String(reason);
         newResult.rate = rate;
         newResult.duration = duration;
-		newResult.smb = smb;
+		newResult.smbValue = smbValue;
         newResult.changeRequested = changeRequested;
         return newResult;
     }
@@ -71,7 +71,7 @@ public class APSResult {
             if (changeRequested) {
                 json.put("rate", rate);
                 json.put("duration", duration);
-				json.put("smb", smb);
+				json.put("smbValue", smbValue);
                 json.put("reason", reason);
             }
         } catch (JSONException e) {
