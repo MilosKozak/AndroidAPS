@@ -13,17 +13,21 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.data.IobTotal;
 
 public class DetermineBasalResultSMB extends APSResult {
+	 private static Logger log = LoggerFactory.getLogger(DetermineBasalResultSMB.class);
     public Date date;
     public JSONObject json = new JSONObject();
     public double eventualBG;
     public double snoozeBG;
     public IobTotal iob;
-	public Double smb_value = null;
+	//public double smbValue;
     public DetermineBasalResultSMB(V8Object result, JSONObject j) {
         date = new Date();
         json = j;
@@ -33,14 +37,19 @@ public class DetermineBasalResultSMB extends APSResult {
             rate = -1;
             duration = -1;
         } else {
-            reason = result.getString("reason");
+            log.debug("DetermineBasalResultSMB - no error - processing result");
+			reason = result.getString("reason");
             if (result.contains("eventualBG")) eventualBG = result.getDouble("eventualBG");
             if (result.contains("snoozeBG")) snoozeBG = result.getDouble("snoozeBG");
-			if (result.contains("units")) smb_value = result.getDouble("units");
+			if (result.contains("Microbolusing")) {
+				smbValue = result.getDouble("units");
+				log.debug("Microbolus of "+smbValue+" units needed");
+			} 
             if (result.contains("rate")) {
                 rate = result.getDouble("rate");
                 if (rate < 0d) rate = 0d;
                 changeRequested = true;
+				log.debug("Rate is positive and change is requested");
             } else {
                 rate = -1;
                 changeRequested = false;
@@ -69,7 +78,7 @@ public class DetermineBasalResultSMB extends APSResult {
         newResult.rate = rate;
         newResult.duration = duration;
         newResult.changeRequested = changeRequested;
-		newResult.smb_value = smb_value;
+		newResult.smbValue = smbValue;
 
         try {
             newResult.json = new JSONObject(json.toString());

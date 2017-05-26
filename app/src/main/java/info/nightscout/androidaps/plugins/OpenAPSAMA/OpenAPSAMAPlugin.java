@@ -113,7 +113,11 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
     public APSResult getLastAPSResult() {
         return lastAPSResult;
     }
-
+	
+	@Override
+    public Double smbValue() {
+        return null;
+    }
 
     @Override
     public Date getLastAPSRun() {

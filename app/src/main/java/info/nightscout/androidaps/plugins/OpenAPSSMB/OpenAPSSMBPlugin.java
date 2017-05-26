@@ -261,7 +261,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 
 
         DetermineBasalResultSMB determineBasalResultAMA = determineBasalAdapterAMAJS.invoke();
-        Profiler.log(log, "AMA calculation", start);
+        Profiler.log(log, "SMB calculation", start);
         // Fix bug determine basal
         if (determineBasalResultAMA.rate == 0d && determineBasalResultAMA.duration == 0 && !MainApp.getConfigBuilder().isTempBasalInProgress())
             determineBasalResultAMA.changeRequested = false;

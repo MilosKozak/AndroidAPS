@@ -20,7 +20,7 @@ public class APSResult {
     public String reason;
     public double rate;
     public int duration;
-	public Double smbValue;
+	public double smbValue;
     public boolean changeRequested = false;
     @Override
     public String toString() {
@@ -71,7 +71,7 @@ public class APSResult {
             if (changeRequested) {
                 json.put("rate", rate);
                 json.put("duration", duration);
-				json.put("smbValue", smbValue);
+				json.put("smb", smbValue);
                 json.put("reason", reason);
             }
         } catch (JSONException e) {

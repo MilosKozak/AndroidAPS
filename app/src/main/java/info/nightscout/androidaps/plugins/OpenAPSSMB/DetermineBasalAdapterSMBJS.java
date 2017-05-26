@@ -72,7 +72,7 @@ public class DetermineBasalAdapterSMBJS {
 
     public DetermineBasalResultSMB invoke() {
 
-        log.debug(">>> Invoking detemine_basal <<<");
+        log.debug(">>> Invoking detemine_basal_oref1 <<<");
         log.debug("Glucose status: " + (storedGlucoseStatus = mV8rt.executeStringScript("JSON.stringify(" + PARAM_glucoseStatus + ");")));
         log.debug("IOB data:       " + (storedIobData = mV8rt.executeStringScript("JSON.stringify(" + PARAM_iobData + ");")));
         log.debug("Current temp:   " + (storedCurrentTemp = mV8rt.executeStringScript("JSON.stringify(" + PARAM_currentTemp + ");")));
