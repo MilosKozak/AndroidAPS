@@ -23,7 +23,7 @@ public class DetermineBasalResultSMB extends APSResult {
     public double eventualBG;
     public double snoozeBG;
     public IobTotal iob;
-
+	public Double smb_value = null;
     public DetermineBasalResultSMB(V8Object result, JSONObject j) {
         date = new Date();
         json = j;
@@ -36,6 +36,7 @@ public class DetermineBasalResultSMB extends APSResult {
             reason = result.getString("reason");
             if (result.contains("eventualBG")) eventualBG = result.getDouble("eventualBG");
             if (result.contains("snoozeBG")) snoozeBG = result.getDouble("snoozeBG");
+			if (result.contains("units")) smb_value = result.getDouble("units");
             if (result.contains("rate")) {
                 rate = result.getDouble("rate");
                 if (rate < 0d) rate = 0d;
@@ -68,6 +69,7 @@ public class DetermineBasalResultSMB extends APSResult {
         newResult.rate = rate;
         newResult.duration = duration;
         newResult.changeRequested = changeRequested;
+		newResult.smb_value = smb_value;
 
         try {
             newResult.json = new JSONObject(json.toString());

@@ -43,6 +43,9 @@ public class DetermineBasalAdapterSMBJS {
     private final String PARAM_profile = "profile";
     private final String PARAM_meal_data = "meal_data";
     private final String PARAM_autosens_data = "autosens_data";
+	private final int PARAM_reservoirData = 100;
+	private final boolean PARAM_microBolusAllowed = true;
+	
 
     private String storedCurrentTemp = null;
     private String storedIobData = null;
@@ -88,7 +91,9 @@ public class DetermineBasalAdapterSMBJS {
                         PARAM_profile + ", " +
                         PARAM_autosens_data + ", " +
                         PARAM_meal_data + ", " +
-                        "tempBasalFunctions" +
+                        "tempBasalFunctions" + ", " +
+						PARAM_microBolusAllowed  + ", " +
+						PARAM_reservoirData +
                         ");");
 
 
@@ -139,11 +144,11 @@ public class DetermineBasalAdapterSMBJS {
         mV8rt.executeVoidScript("var round_basal = function round_basal(basal, profile) { return basal; };");
         mV8rt.executeVoidScript("require = function() {return round_basal;};");
 
-        mV8rt.executeVoidScript(readFile("OpenAPSAMA/basal-set-temp.js"), "OpenAPSAMA/basal-set-temp.js ", 0);
+        mV8rt.executeVoidScript(readFile("OpenAPSSMB/basal-set-temp.js"), "OpenAPSSMB/basal-set-temp.js ", 0);
         mV8rt.executeVoidScript("var tempBasalFunctions = module.exports;");
 
         mV8rt.executeVoidScript(
-                readFile("OpenAPSAMA/determine-basal.js"),
+                readFile("OpenAPSSMB/determine-basal.js"),
                 "OpenAPSAMA/determine-basal.js",
                 0);
         mV8rt.executeVoidScript("var determine_basal = module.exports;");
