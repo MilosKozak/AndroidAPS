@@ -44,7 +44,7 @@ public class DetermineBasalResultSMB extends APSResult {
 			if (result.contains("Microbolusing")) {
 				smbValue = result.getDouble("units");
 				log.debug("Microbolus of "+smbValue+" units needed");
-			} 
+			} else smbValue = 5.5;
             if (result.contains("rate")) {
                 rate = result.getDouble("rate");
                 if (rate < 0d) rate = 0d;
