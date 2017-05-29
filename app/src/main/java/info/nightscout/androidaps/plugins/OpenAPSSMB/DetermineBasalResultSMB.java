@@ -27,7 +27,7 @@ public class DetermineBasalResultSMB extends APSResult {
     public double eventualBG;
     public double snoozeBG;
     public IobTotal iob;
-	//public double smbValue;
+	public double smbValue;
     public DetermineBasalResultSMB(V8Object result, JSONObject j) {
         date = new Date();
         json = j;
