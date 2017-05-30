@@ -263,7 +263,9 @@ public class DetermineBasalAdapterSMBJS {
         mMealData.add("boluses", mealData.boluses);
         mMealData.add("mealCOB", mealData.mealCOB);
         mV8rt.add(PARAM_meal_data, mMealData);
-
+		mV8rt.add("microbolusallowed", PARAM_microBolusAllowed);
+		mV8rt.add("reservoir_data", PARAM_reservoirData);
+		
         if (MainApp.getConfigBuilder().isAMAModeEnabled()) {
             mAutosensData = new V8Object(mV8rt);
             mAutosensData.add("ratio", autosensDataRatio);
