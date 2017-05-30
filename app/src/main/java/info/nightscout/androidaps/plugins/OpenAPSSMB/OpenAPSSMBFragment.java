@@ -236,7 +236,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 							SMB_calc.setText("Passed by determine:"+lastAPSResult.smbValue+
 							"\nCalculated by plugin:"+getPlugin().smbValue()+
 							"\nTreated: "+tempIsSet+
-							"\nCalculated SMB: "+String.format( "%.2f", (smb_value))+
+							"\nCalculated by Rumen SMB: "+String.format( "%.2f", (smb_value))+
 							"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+
 							"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+
 							"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+
@@ -250,7 +250,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 							SMB_calc.setText("Passed by determine:"+lastAPSResult.smbValue+
 							"\nCalculated by plugin:"+getPlugin().smbValue()+
 							"\nTreated: "+tempIsSet+
-							"\nCalculated SMB: "+String.format( "%.2f", (smb_value))+
+							"\nCalculated by Rumen SMB: "+String.format( "%.2f", (smb_value))+
 							"\nBasal is: "+profile.getBasal(NSProfile.secondsFromMidnight())+
 							"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+
 							"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+
