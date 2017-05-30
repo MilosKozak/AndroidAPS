@@ -287,13 +287,14 @@ public class LoopPlugin implements PluginBase {
 			// If APS source s rumen's plugin
 			
 			if(lastRun.source.equals("Rumen AMA+SMB")){
-				if(result.smbValue>0.0){ 
+				
+				if(result.smbValue>0){ 
 					// Gett SMB by direct call of function
 					lastRun.smb = result.smbValue;
 				} else {
 					// always ending here!!!
-					lastRun.smb = usedAPS.smbValue();//smbPlugin.smbValue();
-					//lastRun.smb = 0.0;//smbPlugin.smbValue();
+					//lastRun.smb = usedAPS.smbValue();//smbPlugin.smbValue();
+					lastRun.smb = 0.0;//smbPlugin.smbValue();
 					
 				}
 			} else lastRun.smb = 0.0;
