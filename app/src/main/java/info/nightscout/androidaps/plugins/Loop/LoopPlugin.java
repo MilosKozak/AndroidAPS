@@ -288,8 +288,12 @@ public class LoopPlugin implements PluginBase {
             lastRun.source = ((PluginBase) usedAPS).getName();
 			// Added by Rumen for SMB in Loop
 			// If APS source s rumen's plugin
-			
-			if(lastRun.source.equals("Rumen AMA+SMB")){
+			boolean SMB_enable = false;
+			if(SP.getBoolean("key_smb", false)){
+				SMB_enable = true;
+			} 
+			// check if SMB is enabled from preferences
+			if(lastRun.source.equals("Rumen AMA+SMB") && SMB_enable){
 				
 				if(smb_value>0){ 
 					// Gett SMB by direct call of function
@@ -300,7 +304,10 @@ public class LoopPlugin implements PluginBase {
 					lastRun.smb = 0.0;//smbPlugin.smbValue();
 					
 				}
-			} else lastRun.smb = 0.0;
+			} else {
+				log.debug("Plugin is not Rumen AMA+SMB or SMB disabled in preferences");
+				lastRun.smb = 0.0;
+			}
             lastRun.setByPump = null;
 			if(lastRun.smb == null)lastRun.smb = 0.0;
 			
@@ -309,6 +316,7 @@ public class LoopPlugin implements PluginBase {
 			
 			if(lastRun.smb > 0){
 				// enacting SMB result but first check for treatment
+				
 				boolean treamentExists = treatmentLast5min();
 				if(lastRun.lastEnact != null){
 					Long agoMsec = new Date().getTime() - lastRun.lastEnact.getTime();
@@ -326,11 +334,11 @@ public class LoopPlugin implements PluginBase {
 						Integer nullCarbs = 0;
 						Double smbFinalValue = lastRun.smb;
 						InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
-						//enactResult = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, MainApp.instance().getApplicationContext());
 						enactResult = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, null);
 						if (enactResult.success) {
 							smbEnacted = true;
 							lastRun.lastEnact = new Date();
+							log.debug("SMB of "+smbFinalValue+" done!");
 						}
 					}
 				}
