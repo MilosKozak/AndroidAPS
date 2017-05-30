@@ -27,7 +27,7 @@ public class DetermineBasalResultSMB extends APSResult {
     public double eventualBG;
     public double snoozeBG;
     public IobTotal iob;
-	public double smbValue;
+	public double smbValue = -0.6;
     public DetermineBasalResultSMB(V8Object result, JSONObject j) {
         date = new Date();
         json = j;
@@ -41,25 +41,31 @@ public class DetermineBasalResultSMB extends APSResult {
 			reason = result.getString("reason");
             if (result.contains("eventualBG")) eventualBG = result.getDouble("eventualBG");
             if (result.contains("snoozeBG")) snoozeBG = result.getDouble("snoozeBG");
-			if (result.contains("Microbolusing")) {
+			if (result.contains("microBolus")) {
+				changeRequested = true;
 				smbValue = result.getDouble("units");
 				log.debug("Microbolus of "+smbValue+" units needed");
-			} else smbValue = 5.5;
+			} else {
+				smbValue = -5.5;
+				log.debug(">>>>>>> Setting smbValue to -5.5 >>>> DetermineBasalResultSMB");
+				changeRequested = true;
+			}
             if (result.contains("rate")) {
                 rate = result.getDouble("rate");
                 if (rate < 0d) rate = 0d;
                 changeRequested = true;
+				
 				log.debug("Rate is positive and change is requested");
             } else {
                 rate = -1;
-                changeRequested = false;
+				if(smbValue>0.0) changeRequested = true; else changeRequested = false;
             }
             if (result.contains("duration")) {
                 duration = result.getInteger("duration");
                 changeRequested = changeRequested;
             } else {
                 duration = -1;
-                changeRequested = false;
+				if(smbValue>0.0) changeRequested = true; else changeRequested = false;
             }
         }
         result.release();
