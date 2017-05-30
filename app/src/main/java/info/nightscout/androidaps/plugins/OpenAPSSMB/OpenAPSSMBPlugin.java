@@ -55,7 +55,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
     // last values
     DetermineBasalAdapterSMBJS lastDetermineBasalAdapterAMAJS = null;
     Date lastAPSRun = null;
-    DetermineBasalResultSMB lastAPSResult = null;
+    public DetermineBasalResultSMB lastAPSResult = null;
     AutosensResult lastAutosensResult = null;
 
     boolean fragmentEnabled = false;
@@ -128,6 +128,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
     public APSResult getLastAPSResult() {
         return lastAPSResult;
     }
+	
 
     @Override
     public Date getLastAPSRun() {
@@ -250,7 +251,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
             lastAutosensResult = new AutosensResult();
         }
         Profiler.log(log, "detectSensitivityandCarbAbsorption()", startPart);
-        Profiler.log(log, "AMA data gathering", start);
+        Profiler.log(log, "SMB data gathering", start);
 
         start = new Date();
         determineBasalAdapterAMAJS.setData(profile, maxIob, maxBasal, minBg, maxBg, targetBg, pump, iobArray, glucoseStatus, mealData,
@@ -261,8 +262,9 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 
 
         DetermineBasalResultSMB determineBasalResultAMA = determineBasalAdapterAMAJS.invoke();
-        Profiler.log(log, "SMB calculation", start);
+		Profiler.log(log, "SMB calculation", start);
         // Fix bug determine basal
+		log.debug("SMB value is"+determineBasalResultAMA.smbValue);
         if (determineBasalResultAMA.rate == 0d && determineBasalResultAMA.duration == 0 && !MainApp.getConfigBuilder().isTempBasalInProgress())
             determineBasalResultAMA.changeRequested = false;
         // limit requests on openloop mode
@@ -276,6 +278,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 		//smb = smbValue();
 		
         determineBasalResultAMA.iob = iobArray[0];
+		//if(determineBasalResultAMA.smbValue == 0.0) determineBasalResultAMA.smbValue = 0.9;
 
         determineBasalAdapterAMAJS.release();
 
@@ -284,13 +287,12 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         lastDetermineBasalAdapterAMAJS = determineBasalAdapterAMAJS;
         lastAPSResult = determineBasalResultAMA;
         lastAPSRun = now;
         MainApp.bus().post(new EventOpenAPSUpdateGui());
 		// call smbValue()
-		smb = smbValue();
+		//lastAPSResult.smbValue = smbValue();
 		//if(bolusSMB(smb)){
 			// SMB bolused
 		//}
@@ -299,69 +301,10 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 
 	//added by Rumen
 	public Double smbValue(){
-		// Added by Rumen on 19.05.2017
-		// Trying to add SMB calculations here
-		boolean SMB_enable = false;
-		if(SP.getBoolean("key_smb", false)){
-			SMB_enable = true;
-		}
-
-		IobTotal bolusIob = ConfigBuilderPlugin.getActiveTreatments().getLastCalculation().round();
-		IobTotal basalIob = new IobTotal(new Date().getTime());
-		double maxIob = SP.getDouble("openapsma_max_iob", 1.5d);
-		double iob_difference = maxIob - bolusIob.iob;
-		APSResult lastAPSResult = getLastAPSResult();
-
-		NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
-
-		//Calculate SMB - getting the smallest of IOB left and check for negative SMB value
-		double smb_value;
-		smb_value = iob_difference;
-
-		if(smb_value > lastAPSResult.rate/6){
-			smb_value = lastAPSResult.rate/6;
-		}
-
-		if(smb_value> (profile.getBasal(NSProfile.secondsFromMidnight())/2)){
-			smb_value = profile.getBasal(NSProfile.secondsFromMidnight()) / 2;
-		}
-		if(smb_value<0.1){
-			smb_value = 0.0;
-		}
-
-		// get time of last BG
-		GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
-		BgReading lastBG = GlucoseStatus.lastBg();
-		Long agoMsec = new Date().getTime() - lastBG.timeIndex;
-		int agoMin = (int) (agoMsec / 60d / 1000d);
-		//Get if there is a treatment for last 5 minutes
-		boolean treamentExists = false;
-		TreatmentsInterface treatmentsInterface = ConfigBuilderPlugin.getActiveTreatments();
-		List<Treatment> recentTreatments;
-		recentTreatments = treatmentsInterface.getTreatments5MinBack(new Date().getTime());
-		if(recentTreatments.size() != 0){
-			// There is treatment
-			treamentExists = true;
-		}
-		//Getting COB
-		MealData mealData = MainApp.getConfigBuilder().getActiveTreatments().getMealData();
-        //Check for COB available
-		if(mealData.mealCOB > 0){
-			// Check for positive delta (BG is rising)
-			if(glucoseStatus.delta > 0){
-				// Check for bolusIOB is that needed ?!?
-				if(bolusIob.iob != 0){
-					if((agoMin-5) < 5 && treamentExists){
-						//There is a treatment less than 5 minutes ago so disable SMB to prevent double-triple bolusing
-						SMB_enable = false;
-					}
-					// SMB is positive and enabled and no other treatmnt has been done so setting a value
-					if(smb_value>0 && SMB_enable && !treamentExists){
-						return (double) smb_value;
-					} return (double) 0; // 
-				} return (double) 0;// there is bolusIob.iob
-			} return (double) 0;// delta is 0 or negative
-		} return (double) 0;// No cob */
+		DetermineBasalResultSMB lastAPSResult = this.lastAPSResult;
+		//APSResult lastAPSResult = getLastAPSResult();
+		if(lastAPSResult == null) return -0.3; else return lastAPSResult.smbValue;
+		//return lastAPSResult.smbValue;
 	}
 	
 	public boolean bolusSMB(double smbValue){
