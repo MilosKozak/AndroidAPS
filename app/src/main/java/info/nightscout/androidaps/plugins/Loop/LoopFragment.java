@@ -129,6 +129,7 @@ public class LoopFragment extends Fragment implements View.OnClickListener {
                         constraintsProcessedView.setText(getPlugin().lastRun.constraintsProcessed != null ? getPlugin().lastRun.constraintsProcessed.toSpanned() : "");
                         setByPumpView.setText(getPlugin().lastRun.setByPump != null ? getPlugin().lastRun.setByPump.toSpanned() : "");
 						// Test for Rumen's SMB plugin
+						// TODO Check for APS in another way because lastRun.source is not reliable
 						if(getPlugin().lastRun.source != null && !getPlugin().lastRun.source.equals("Rumen AMA+SMB")){
 							sourceView.setText(getPlugin().lastRun.source != null ? getPlugin().lastRun.source : "");
 							lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
@@ -154,9 +155,9 @@ public class LoopFragment extends Fragment implements View.OnClickListener {
 									int agoSec = (int) (agoMsec / 1000d);
 									//sourceView.setText("Rumen's SMB plugin enabled!\n"+resultFinal.toString()+"\nTreatment enacted "+agoSec+" sec ago\n");
 									sourceView.setText("Rumen's SMB plugin enabled!\nTreatment enacted "+agoSec+" sec ago\nSMB value is: "+somevalue);
-								} else sourceView.setText("UsedAPS is: \nBut treatment exists!!!\nSMB value is:"+somevalue);
+								} else sourceView.setText("UsedAPS is: "+getPlugin().lastRun.source+"\nBut treatment exists!!!\nSMB value is:"+somevalue);
 															
-							} else sourceView.setText("UsedAPS is: \n"+resultFinal.toString()+"\nSMB value is:"+somevalue);
+							} else sourceView.setText("UsedAPS is: "+getPlugin().lastRun.source+"\nSMB value is:"+somevalue);
 							//lastRunView.setText("SMB value is\n"+getPlugin().lastRun.smb+"\n"+getPlugin().lastRun.lastAPSRun.toLocaleString());
                             lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
                         }
