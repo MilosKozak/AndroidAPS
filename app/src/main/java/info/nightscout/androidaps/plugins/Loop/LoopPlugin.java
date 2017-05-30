@@ -259,13 +259,16 @@ public class LoopPlugin implements PluginBase {
             if (configBuilder.getBaseBasalRate() < 0.01d) return;
 
             APSInterface usedAPS = configBuilder.getActiveAPS();
+			Double smb_value = 0.0;
             if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
                 usedAPS.invoke(initiator);
-				//This is causing a crash when there is no recent BG data
+				
+				//TODO This is causing a crash when there is no recent BG data
 				//if(usedAPS.smbValue() != null){
 				//		Double smb_value = usedAPS.smbValue();
 				//}				
                 result = usedAPS.getLastAPSResult();
+				smb_value = usedAPS.smbValue();
             }
 
             // Check if we have any result
@@ -288,9 +291,9 @@ public class LoopPlugin implements PluginBase {
 			
 			if(lastRun.source.equals("Rumen AMA+SMB")){
 				
-				if(result.smbValue>0){ 
+				if(smb_value>0){ 
 					// Gett SMB by direct call of function
-					lastRun.smb = result.smbValue;
+					lastRun.smb = smb_value;
 				} else {
 					// always ending here!!!
 					//lastRun.smb = usedAPS.smbValue();//smbPlugin.smbValue();
@@ -304,7 +307,6 @@ public class LoopPlugin implements PluginBase {
 			// now SMB is here but needs to go afte closed loop check :)
 			//test to see if it's working
 			
-			//if(lastRun.smb == 0.0)lastRun.smb = 0.2;
 			if(lastRun.smb > 0){
 				// enacting SMB result but first check for treatment
 				boolean treamentExists = treatmentLast5min();
