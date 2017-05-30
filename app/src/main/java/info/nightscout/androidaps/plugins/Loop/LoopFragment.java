@@ -22,6 +22,13 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
 import java.util.Date;
+//Added for testing 
+import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
+import info.nightscout.androidaps.plugins.OpenAPSSMB.DetermineBasalResultSMB;
+import info.nightscout.androidaps.plugins.Loop.APSResult;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.interfaces.APSInterface;
+import info.nightscout.androidaps.interfaces.PluginBase;
 
 public class LoopFragment extends Fragment implements View.OnClickListener {
     private static Logger log = LoggerFactory.getLogger(LoopFragment.class);
@@ -129,15 +136,27 @@ public class LoopFragment extends Fragment implements View.OnClickListener {
 						} else {
 							// SMB plugin is in action so there should be some SMB value
 							// There is treatment 
+								//final DetermineBasalResultSMB lastAPSResult = DetermineBasalResultSMB.clone();
+								final ConfigBuilderPlugin configBuilder = MainApp.getConfigBuilder();
+								APSInterface usedAPS = configBuilder.getActiveAPS();
+								APSResult result = null;
+								Double somevalue = 0.0;
+								if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
+									usedAPS.invoke("Loop plugin");
+									result = usedAPS.getLastAPSResult();
+									somevalue = usedAPS.smbValue();
+								}
+								final APSResult resultFinal = result.clone();
 								boolean treamentExists = getPlugin().treatmentLast5min();
 							if(treamentExists){
 								if(getPlugin().lastRun.lastEnact != null){
 									Long agoMsec = new Date().getTime() - getPlugin().lastRun.lastEnact.getTime();
 									int agoSec = (int) (agoMsec / 1000d);
-									sourceView.setText("Rumen's SMB plugin enabled!\nSMB value is "+getPlugin().lastRun.smb+"\nTreatment enacted "+agoSec+" sec ago\n");
-								} else sourceView.setText("Rumen's SMB plugin enabled!\nSMB value is "+getPlugin().lastRun.smb+"\nBut treatment exists!!!\n");
+									//sourceView.setText("Rumen's SMB plugin enabled!\n"+resultFinal.toString()+"\nTreatment enacted "+agoSec+" sec ago\n");
+									sourceView.setText("Rumen's SMB plugin enabled!\nTreatment enacted "+agoSec+" sec ago\nSMB value is: "+somevalue);
+								} else sourceView.setText("UsedAPS is: \nBut treatment exists!!!\nSMB value is:"+somevalue);
 															
-							} //else sourceView.setText("Rumen's SMB plugin enabled!\n SMB value is"+getPlugin().lastRun.smb+"\n");
+							} else sourceView.setText("UsedAPS is: \n"+resultFinal.toString()+"\nSMB value is:"+somevalue);
 							//lastRunView.setText("SMB value is\n"+getPlugin().lastRun.smb+"\n"+getPlugin().lastRun.lastAPSRun.toLocaleString());
                             lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
                         }
