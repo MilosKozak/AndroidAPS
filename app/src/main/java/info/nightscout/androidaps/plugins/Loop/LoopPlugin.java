@@ -334,7 +334,8 @@ public class LoopPlugin implements PluginBase {
 				}
 			
 			}else if (constraintsInterface.isClosedModeEnabled()) {
-                if (result.changeRequested) {
+                if (result.changeRequested && result.rate > 0d && result.duration > 0) {
+					log.debug("Entering closedLoop and rate is "+result.rate+" and duration is "+result.duration);
                     final PumpEnactResult waiting = new PumpEnactResult();
                     final PumpEnactResult previousResult = lastRun.setByPump;
                     waiting.queued = true;
