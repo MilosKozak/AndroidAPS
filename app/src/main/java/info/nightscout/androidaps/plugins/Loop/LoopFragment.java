@@ -147,7 +147,7 @@ public class LoopFragment extends Fragment implements View.OnClickListener {
 									result = usedAPS.getLastAPSResult();
 									somevalue = usedAPS.smbValue();
 								}
-								final APSResult resultFinal = result.clone();
+								//final APSResult resultFinal = result.clone();
 								boolean treamentExists = getPlugin().treatmentLast5min();
 							if(treamentExists){
 								if(getPlugin().lastRun.lastEnact != null){
