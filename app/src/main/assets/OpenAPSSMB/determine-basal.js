@@ -511,7 +511,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     }
     rT.snoozeBG = snoozeBG;
     //console.error(minPredBG, minIOBPredBG, minUAMPredBG, minCOBPredBG, maxCOBPredBG, snoozeBG);
-
+	//rT.units = 0.5; // Added by Rumen for debug - delete line and uncoment the next one to restore original
     rT.COB=meal_data.mealCOB;
     rT.IOB=iob_data.iob;
     rT.reason="COB: " + meal_data.mealCOB + ", Dev: " + deviation + ", BGI: " + bgi + ", ISF: " + convert_bg(sens, profile) + ", Target: " + convert_bg(target_bg, profile) + ", minPredBG " + convert_bg(minPredBG, profile) + ", IOBpredBG " + convert_bg(lastIOBpredBG, profile);
@@ -807,7 +807,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
             console.error("naive_eventualBG",naive_eventualBG+",",durationReq+"m zero temp needed; last bolus",lastBolusAge+"m ago ("+iob_data.lastBolusTime+").");
             if (lastBolusAge > 3) {
                 if (microBolus > 0) {
-                    rT.units = microBolus;
+                    rT.units = microBolus; 
                     rT.reason += "Microbolusing " + microBolus + "U. ";
                 }
             } else {
