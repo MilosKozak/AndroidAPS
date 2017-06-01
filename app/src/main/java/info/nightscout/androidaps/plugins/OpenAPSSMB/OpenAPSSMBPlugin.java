@@ -278,7 +278,6 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 		//smb = smbValue();
 		
         determineBasalResultAMA.iob = iobArray[0];
-		//if(determineBasalResultAMA.smbValue == 0.0) determineBasalResultAMA.smbValue = 0.9;
 
         determineBasalAdapterAMAJS.release();
 
@@ -302,9 +301,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 	//added by Rumen
 	public Double smbValue(){
 		DetermineBasalResultSMB lastAPSResult = this.lastAPSResult;
-		//APSResult lastAPSResult = getLastAPSResult();
 		if(lastAPSResult == null) return -0.3; else return lastAPSResult.smbValue;
-		//return lastAPSResult.smbValue;
 	}
 	
 	public boolean bolusSMB(double smbValue){

@@ -27,7 +27,7 @@ public class DetermineBasalResultSMB extends APSResult {
     public double eventualBG;
     public double snoozeBG;
     public IobTotal iob;
-	public double smbValue = -0.6;
+	public double smbValue;
     public DetermineBasalResultSMB(V8Object result, JSONObject j) {
         date = new Date();
         json = j;
@@ -41,7 +41,7 @@ public class DetermineBasalResultSMB extends APSResult {
 			reason = result.getString("reason");
             if (result.contains("eventualBG")) eventualBG = result.getDouble("eventualBG");
             if (result.contains("snoozeBG")) snoozeBG = result.getDouble("snoozeBG");
-			if (result.contains("microBolus")) {
+			if (result.contains("units")) {
 				changeRequested = true;
 				smbValue = result.getDouble("units");
 				log.debug("Microbolus of "+smbValue+" units needed");
