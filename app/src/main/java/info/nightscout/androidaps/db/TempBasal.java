@@ -268,11 +268,11 @@ public class TempBasal {
 
         if (isAbsolute) {
             return extended + DecimalFormatter.to2Decimal(absolute) + "U/h @" +
-                    DateUtil.timeString(timeStart) +
+                    android.text.format.DateFormat.format("HH:mm", timeStart) +
                     " " + getRealDuration() + "/" + duration + "min";
         } else { // percent
             return percent + "% @" +
-                    DateUtil.timeString(timeStart) +
+                    android.text.format.DateFormat.format("HH:mm", timeStart) +
                     " " + getRealDuration() + "/" + duration + "min";
         }
     }
