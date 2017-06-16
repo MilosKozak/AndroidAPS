@@ -26,19 +26,23 @@ import info.nightscout.androidaps.plugins.OpenAPSSMB.DetermineBasalAdapterSMBJS;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSUpdateGui;
 import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSUpdateResultGui;
-import info.nightscout.androidaps.plugins.TempTargetRange.TempTargetRangePlugin;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+//import info.nightscout.androidaps.plugins.TempTargetRange.TempTargetRangePlugin;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.Profiler;
 import info.nightscout.utils.Round;
 import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
 import info.nightscout.utils.ToastUtils;
+import info.nightscout.utils.NSUpload;
 // Added by Rumen for SMB
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
+import info.nightscout.androidaps.db.DatabaseHelper;  
+//import info.nightscout.androidaps.Constants;
+
 import java.util.List;
 import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.interfaces.PumpInterface;
@@ -55,14 +59,14 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
     // last values
     DetermineBasalAdapterSMBJS lastDetermineBasalAdapterAMAJS = null;
     Date lastAPSRun = null;
-    public DetermineBasalResultSMB lastAPSResult = null;
+    DetermineBasalResultSMB lastAPSResult = null;
     AutosensResult lastAutosensResult = null;
 
     boolean fragmentEnabled = false;
     boolean fragmentVisible = true;
 	// Added by Rumen on 19.05.2017
-	double smb = 0;
-
+	Double smb = Double.valueOf(0);
+    //boolean smbDone = this.bolusSMB(0.5);
     @Override
     public String getName() {
         return MainApp.instance().getString(R.string.openapssmb);
@@ -128,8 +132,11 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
     public APSResult getLastAPSResult() {
         return lastAPSResult;
     }
+    //@Override
+    public Double getSMB() {
+        return smb;
+    }
 	
-
     @Override
     public Date getLastAPSRun() {
         return lastAPSRun;
@@ -149,7 +156,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         }
 
         GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
-        NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
+        Profile profile = MainApp.getConfigBuilder().getProfile();
         PumpInterface pump = MainApp.getConfigBuilder();
 
         if (!isEnabled(PluginBase.APS)) {
@@ -166,7 +173,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
             return;
         }
 
-        if (profile == null || profile.getIc(NSProfile.secondsFromMidnight()) == null || profile.getIsf(NSProfile.secondsFromMidnight()) == null || profile.getBasal(NSProfile.secondsFromMidnight()) == null ) {
+        if (profile == null || profile.getIc(Profile.secondsFromMidnight()) == null || profile.getIsf(Profile.secondsFromMidnight()) == null || profile.getBasal(Profile.secondsFromMidnight()) == null ) {
             MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.openapsma_noprofile)));
             if (Config.logAPSResult)
                 log.debug(MainApp.instance().getString(R.string.openapsma_noprofile));
@@ -195,9 +202,9 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 
         double maxIob = SP.getDouble("openapsma_max_iob", 1.5d);
         double maxBasal = SP.getDouble("openapsma_max_basal", 1d);
-        double minBg = NSProfile.toMgdl(SP.getDouble("openapsma_min_bg", minBgDefault), units);
-        double maxBg = NSProfile.toMgdl(SP.getDouble("openapsma_max_bg", maxBgDefault), units);
-        double targetBg = NSProfile.toMgdl(SP.getDouble("openapsma_target_bg", targetBgDefault), units);
+        double minBg = Profile.toMgdl(SP.getDouble("openapsma_min_bg", minBgDefault), units);
+        double maxBg = Profile.toMgdl(SP.getDouble("openapsma_max_bg", maxBgDefault), units);
+        double targetBg = Profile.toMgdl(SP.getDouble("openapsma_target_bg", targetBgDefault), units);
 
         minBg = Round.roundTo(minBg, 0.1d);
         maxBg = Round.roundTo(maxBg, 0.1d);
@@ -208,7 +215,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         Profiler.log(log, "calculateIobArrayInDia()", startPart);
 
         startPart = new Date();
-        MealData mealData = MainApp.getConfigBuilder().getActiveTreatments().getMealData();
+        MealData mealData = MainApp.getConfigBuilder().getMealData();
         Profiler.log(log, "getMealData()", startPart);
 
         maxIob = MainApp.getConfigBuilder().applyMaxIOBConstraints(maxIob);
@@ -218,28 +225,24 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         targetBg = verifyHardLimits(targetBg, "targetBg", Constants.VERY_HARD_LIMIT_TARGET_BG[0], Constants.VERY_HARD_LIMIT_TARGET_BG[1]);
 
         boolean isTempTarget = false;
-        TempTargetRangePlugin tempTargetRangePlugin = (TempTargetRangePlugin) MainApp.getSpecificPlugin(TempTargetRangePlugin.class);
-        if (tempTargetRangePlugin != null && tempTargetRangePlugin.isEnabled(PluginBase.GENERAL)) {
-            TempTarget tempTarget = tempTargetRangePlugin.getTempTargetInProgress(new Date().getTime());
-            if (tempTarget != null) {
-                isTempTarget = true;
-                minBg = verifyHardLimits(tempTarget.low, "minBg", Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[1]);
-                maxBg = verifyHardLimits(tempTarget.high, "maxBg", Constants.VERY_HARD_LIMIT_TEMP_MAX_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MAX_BG[1]);
-                targetBg = verifyHardLimits((tempTarget.low + tempTarget.high) / 2, "targetBg", Constants.VERY_HARD_LIMIT_TEMP_TARGET_BG[0], Constants.VERY_HARD_LIMIT_TEMP_TARGET_BG[1]);
-            }
+        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(new Date().getTime());
+        if (tempTarget != null) {
+            isTempTarget = true;
+            minBg = verifyHardLimits(tempTarget.low, "minBg", Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[1]);
+            maxBg = verifyHardLimits(tempTarget.high, "maxBg", Constants.VERY_HARD_LIMIT_TEMP_MAX_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MAX_BG[1]);
+            targetBg = verifyHardLimits((tempTarget.low + tempTarget.high) / 2, "targetBg", Constants.VERY_HARD_LIMIT_TEMP_TARGET_BG[0], Constants.VERY_HARD_LIMIT_TEMP_TARGET_BG[1]);
         }
-
 
         maxIob = verifyHardLimits(maxIob, "maxIob", 0, 7);
         maxBasal = verifyHardLimits(maxBasal, "max_basal", 0.1, 10);
 
         if (!checkOnlyHardLimits(profile.getDia(), "dia", 2, 7)) return;
         if (!checkOnlyHardLimits(profile.getIc(profile.secondsFromMidnight()), "carbratio", 2, 100)) return;
-        if (!checkOnlyHardLimits(NSProfile.toMgdl(profile.getIsf(NSProfile.secondsFromMidnight()).doubleValue(), units), "sens", 2, 900)) return;
+        if (!checkOnlyHardLimits(Profile.toMgdl(profile.getIsf(Profile.secondsFromMidnight()).doubleValue(), units), "sens", 2, 900)) return;
         if (!checkOnlyHardLimits(profile.getMaxDailyBasal(), "max_daily_basal", 0.1, 10)) return;
         if (!checkOnlyHardLimits(pump.getBaseBasalRate(), "current_basal", 0.01, 5)) return;
 
-        long oldestDataAvailable = MainApp.getConfigBuilder().getActiveTempBasals().oldestDataAvaialable();
+        long oldestDataAvailable = MainApp.getConfigBuilder().oldestDataAvailable();
         long getBGDataFrom = Math.max(oldestDataAvailable, (long) (new Date().getTime() - 60 * 60 * 1000L * (24 + profile.getDia())));
         log.debug("Limiting data to oldest available temps: " + new Date(oldestDataAvailable).toString());
 
@@ -251,7 +254,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
             lastAutosensResult = new AutosensResult();
         }
         Profiler.log(log, "detectSensitivityandCarbAbsorption()", startPart);
-        Profiler.log(log, "SMB data gathering", start);
+        Profiler.log(log, "AMA data gathering", start);
 
         start = new Date();
         determineBasalAdapterAMAJS.setData(profile, maxIob, maxBasal, minBg, maxBg, targetBg, pump, iobArray, glucoseStatus, mealData,
@@ -262,23 +265,21 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 
 
         DetermineBasalResultSMB determineBasalResultAMA = determineBasalAdapterAMAJS.invoke();
-		Profiler.log(log, "SMB calculation", start);
+        Profiler.log(log, "AMA calculation", start);
         // Fix bug determine basal
-		log.debug("SMB value is"+determineBasalResultAMA.smbValue);
         if (determineBasalResultAMA.rate == 0d && determineBasalResultAMA.duration == 0 && !MainApp.getConfigBuilder().isTempBasalInProgress())
             determineBasalResultAMA.changeRequested = false;
         // limit requests on openloop mode
         if (!MainApp.getConfigBuilder().isClosedModeEnabled()) {
-            if (MainApp.getConfigBuilder().isTempBasalInProgress() && Math.abs(determineBasalResultAMA.rate - MainApp.getConfigBuilder().getTempBasalAbsoluteRate()) < 0.1)
+            if (MainApp.getConfigBuilder().isTempBasalInProgress() && Math.abs(determineBasalResultAMA.rate - MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory()) < 0.1)
                 determineBasalResultAMA.changeRequested = false;
             if (!MainApp.getConfigBuilder().isTempBasalInProgress() && Math.abs(determineBasalResultAMA.rate - MainApp.getConfigBuilder().getBaseBasalRate()) < 0.1)
                 determineBasalResultAMA.changeRequested = false;
         }
-		// Trying here
-		//smb = smbValue();
+		
 		
         determineBasalResultAMA.iob = iobArray[0];
-
+		
         determineBasalAdapterAMAJS.release();
 
         try {
@@ -286,12 +287,15 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         lastDetermineBasalAdapterAMAJS = determineBasalAdapterAMAJS;
         lastAPSResult = determineBasalResultAMA;
         lastAPSRun = now;
+		// Trying here
+		smb = smbValue(lastAPSResult);
         MainApp.bus().post(new EventOpenAPSUpdateGui());
 		// call smbValue()
-		//lastAPSResult.smbValue = smbValue();
+		//smb = smbValue();
 		//if(bolusSMB(smb)){
 			// SMB bolused
 		//}
@@ -299,11 +303,82 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
     }
 
 	//added by Rumen
-	public Double smbValue(){
-		DetermineBasalResultSMB lastAPSResult = this.lastAPSResult;
-		if(lastAPSResult == null) return -0.3; else return lastAPSResult.smbValue;
+	public double smbValue(DetermineBasalResultSMB APSResult){
+		// Added by Rumen on 19.05.2017
+		// Trying to add SMB calculations here
+		boolean SMB_enable = false;
+		if(SP.getBoolean("key_smb", false)){
+			SMB_enable = true;
+		}
+
+		IobTotal bolusIob = MainApp.getConfigBuilder().getCalculationToTimeTreatments(new Date().getTime()).round();
+		IobTotal basalIob = new IobTotal(new Date().getTime());
+		double maxIob = SP.getDouble("openapsma_max_iob", 1.5d);
+		double iob_difference = maxIob - bolusIob.iob;
+		//APSResult lastAPSResult = null;
+		//APSInterface usedAPS = ConfigBuilderPlugin.getActiveAPS();
+		
+		
+		
+		//double lastAPSRate = lastAPSRate;
+		Profile profile = MainApp.getConfigBuilder().getProfile();
+
+		//Calculate SMB - getting the smallest of IOB left and check for negative SMB value
+		double smb_value;
+		smb_value = iob_difference;
+		
+		if(lastAPSResult != null){
+			if(smb_value > APSResult.rate/6){
+				smb_value = APSResult.rate/6;
+			}
+		}
+		
+		
+
+		if(smb_value> (profile.getBasal(Profile.secondsFromMidnight())/2)){
+			smb_value = profile.getBasal(Profile.secondsFromMidnight()) / 2;
+		}
+		if(smb_value<0.1){
+			smb_value = 0.0;
+		}
+
+		// get time of last BG 
+		TreatmentsInterface activeTreatments;
+		GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
+		double lastBG = GlucoseStatus.getGlucoseStatusData().glucose;
+		Double bg = Profile.fromMgdlToUnits(GlucoseStatus.getGlucoseStatusData() != null ? GlucoseStatus.getGlucoseStatusData().glucose : 0d, profile != null ? profile.getUnits() : Constants.MGDL); 
+		BgReading lastBGReading = DatabaseHelper.actualBg(); 
+		Long agoMsec = new Date().getTime() - lastBGReading.date;
+		int agoMin = (int) (agoMsec / 60d / 1000d);
+		//Get if there is a treatment for last 5 minutes
+		boolean treamentExists = false;
+		TreatmentsInterface treatmentsInterface = null;
+		List<Treatment> recentTreatments = TreatmentsInterface.getTreatments5MinBackFromHistory(new Date().getTime());;
+		//recentTreatments = TreatmentsInterface.getTreatments5MinBackFromHistory(new Date().getTime());
+		if(recentTreatments.size() != 0){
+			// There is treatment
+			treamentExists = true;
+		}
+		//Getting COB
+		MealData mealData = MainApp.getConfigBuilder().getMealData();
+        //Check for COB available
+		if(mealData.mealCOB > 0){
+			// Check for positive delta (BG is rising)
+			if(glucoseStatus.delta > 0){
+				// Check for bolusIOB is that needed ?!?
+				if(bolusIob.iob != 0){
+					if((agoMin-5) < 5 && treamentExists){
+						//There is a treatment less than 5 minutes ago so disable SMB to prevent double-triple bolusing
+						SMB_enable = false;
+					}
+					// SMB is positive and enabled and no other treatmnt has been done so setting a value
+					if(smb_value>0 && SMB_enable && !treamentExists){
+						return smb_value;
+					} return 0;
+				} return 0;// there is bolusIob.iob
+			} return 0;// delta is 0 or negative
+		} return 0;// No cob */
 	}
-	
 	public boolean bolusSMB(double smbValue){
 		// If we get a positive smbValue, do some checks and do a bolus (return true)
 		boolean SMB_enable = false;
@@ -325,7 +400,8 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 				//if(smb_value == 0){ smbFinalValue = 0.1;}
 
 				InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
-				result = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, context);
+				// Deliver smbFinalValue but not working in 1.50
+				//result = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, context);
 				if(result.success) return true;
 			}
 			return false;
@@ -346,7 +422,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
             msg += ".\n";
             msg += String.format(MainApp.sResources.getString(R.string.openapsma_valuelimitedto), value, newvalue);
             log.error(msg);
-            MainApp.getConfigBuilder().uploadError(msg);
+            NSUpload.uploadError(msg);
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), msg, R.raw.error);
         }
         return newvalue;

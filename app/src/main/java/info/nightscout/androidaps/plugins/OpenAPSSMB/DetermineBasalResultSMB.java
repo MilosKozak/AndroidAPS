@@ -13,21 +13,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.data.IobTotal;
 
 public class DetermineBasalResultSMB extends APSResult {
-	 private static Logger log = LoggerFactory.getLogger(DetermineBasalResultSMB.class);
     public Date date;
     public JSONObject json = new JSONObject();
     public double eventualBG;
     public double snoozeBG;
     public IobTotal iob;
-	public double smbValue;
+
     public DetermineBasalResultSMB(V8Object result, JSONObject j) {
         date = new Date();
         json = j;
@@ -37,35 +33,23 @@ public class DetermineBasalResultSMB extends APSResult {
             rate = -1;
             duration = -1;
         } else {
-            log.debug("DetermineBasalResultSMB - no error - processing result");
-			reason = result.getString("reason");
+            reason = result.getString("reason");
             if (result.contains("eventualBG")) eventualBG = result.getDouble("eventualBG");
             if (result.contains("snoozeBG")) snoozeBG = result.getDouble("snoozeBG");
-			if (result.contains("units")) {
-				changeRequested = true;
-				smbValue = result.getDouble("units");
-				log.debug("Microbolus of "+smbValue+" units needed");
-			} else {
-				smbValue = -5.5;
-				log.debug(">>>>>>> Setting smbValue to -5.5 >>>> DetermineBasalResultSMB");
-				changeRequested = true;
-			}
             if (result.contains("rate")) {
                 rate = result.getDouble("rate");
                 if (rate < 0d) rate = 0d;
                 changeRequested = true;
-				
-				log.debug("Rate is positive and change is requested");
             } else {
                 rate = -1;
-				if(smbValue>0.0) changeRequested = true; else changeRequested = false;
+                changeRequested = false;
             }
             if (result.contains("duration")) {
                 duration = result.getInteger("duration");
                 changeRequested = changeRequested;
             } else {
                 duration = -1;
-				if(smbValue>0.0) changeRequested = true; else changeRequested = false;
+                changeRequested = false;
             }
         }
         result.release();
@@ -84,7 +68,6 @@ public class DetermineBasalResultSMB extends APSResult {
         newResult.rate = rate;
         newResult.duration = duration;
         newResult.changeRequested = changeRequested;
-		newResult.smbValue = smbValue;
 
         try {
             newResult.json = new JSONObject(json.toString());
@@ -119,7 +102,8 @@ public class DetermineBasalResultSMB extends APSResult {
                     for (int i = 1; i < iob.length(); i ++) {
                         BgReading bg = new BgReading();
                         bg.value = iob.getInt(i);
-                        bg.timeIndex = startTime + i * 5 * 60 * 1000L;
+                        bg.date = startTime + i * 5 * 60 * 1000L;
+						bg.isPrediction = true;
                         array.add(bg);
                     }
                 }
@@ -128,7 +112,8 @@ public class DetermineBasalResultSMB extends APSResult {
                     for (int i = 1; i < iob.length(); i ++) {
                         BgReading bg = new BgReading();
                         bg.value = iob.getInt(i);
-                        bg.timeIndex = startTime + i * 5 * 60 * 1000L;
+                        bg.date = startTime + i * 5 * 60 * 1000L;
+						 bg.isPrediction = true;
                         array.add(bg);
                     }
                 }
@@ -137,7 +122,8 @@ public class DetermineBasalResultSMB extends APSResult {
                     for (int i = 1; i < iob.length(); i ++) {
                         BgReading bg = new BgReading();
                         bg.value = iob.getInt(i);
-                        bg.timeIndex = startTime + i * 5 * 60 * 1000L;
+                        bg.date = startTime + i * 5 * 60 * 1000L;
+						bg.isPrediction = true;
                         array.add(bg);
                     }
                 }

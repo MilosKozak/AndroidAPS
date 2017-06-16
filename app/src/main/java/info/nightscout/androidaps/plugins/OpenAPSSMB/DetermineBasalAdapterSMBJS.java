@@ -16,14 +16,16 @@ import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.data.MealData;
-import info.nightscout.androidaps.db.TempBasal;
+import info.nightscout.androidaps.data.IobTotal;
+import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugin;
 import info.nightscout.androidaps.plugins.Loop.ScriptReader;
-import info.nightscout.androidaps.data.IobTotal;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
-import info.nightscout.utils.SP;
 
+import info.nightscout.androidaps.data.Profile;
+//import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.utils.SP;
+import java.util.Date;
 public class DetermineBasalAdapterSMBJS {
     private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterSMBJS.class);
 
@@ -43,9 +45,6 @@ public class DetermineBasalAdapterSMBJS {
     private final String PARAM_profile = "profile";
     private final String PARAM_meal_data = "meal_data";
     private final String PARAM_autosens_data = "autosens_data";
-	private final int PARAM_reservoirData = 100;
-	private final boolean PARAM_microBolusAllowed = true;
-	
 
     private String storedCurrentTemp = null;
     private String storedIobData = null;
@@ -72,7 +71,7 @@ public class DetermineBasalAdapterSMBJS {
 
     public DetermineBasalResultSMB invoke() {
 
-        log.debug(">>> Invoking detemine_basal_oref1 <<<");
+        log.debug(">>> Invoking detemine_basal SMB<<<");
         log.debug("Glucose status: " + (storedGlucoseStatus = mV8rt.executeStringScript("JSON.stringify(" + PARAM_glucoseStatus + ");")));
         log.debug("IOB data:       " + (storedIobData = mV8rt.executeStringScript("JSON.stringify(" + PARAM_iobData + ");")));
         log.debug("Current temp:   " + (storedCurrentTemp = mV8rt.executeStringScript("JSON.stringify(" + PARAM_currentTemp + ");")));
@@ -91,9 +90,7 @@ public class DetermineBasalAdapterSMBJS {
                         PARAM_profile + ", " +
                         PARAM_autosens_data + ", " +
                         PARAM_meal_data + ", " +
-                        "tempBasalFunctions" + ", " +
-						PARAM_microBolusAllowed  + ", " +
-						PARAM_reservoirData +
+                        "tempBasalFunctions" +
                         ");");
 
 
@@ -144,11 +141,11 @@ public class DetermineBasalAdapterSMBJS {
         mV8rt.executeVoidScript("var round_basal = function round_basal(basal, profile) { return basal; };");
         mV8rt.executeVoidScript("require = function() {return round_basal;};");
 
-        mV8rt.executeVoidScript(readFile("OpenAPSSMB/basal-set-temp.js"), "OpenAPSSMB/basal-set-temp.js ", 0);
+        mV8rt.executeVoidScript(readFile("OpenAPSAMA/basal-set-temp.js"), "OpenAPSAMA/basal-set-temp.js ", 0);
         mV8rt.executeVoidScript("var tempBasalFunctions = module.exports;");
 
         mV8rt.executeVoidScript(
-                readFile("OpenAPSSMB/determine-basal.js"),
+                readFile("OpenAPSAMA/determine-basal.js"),
                 "OpenAPSAMA/determine-basal.js",
                 0);
         mV8rt.executeVoidScript("var determine_basal = module.exports;");
@@ -194,7 +191,7 @@ public class DetermineBasalAdapterSMBJS {
     }
 
 
-    public void setData(NSProfile profile,
+    public void setData(Profile profile,
                         double maxIob,
                         double maxBasal,
                         double minBg,
@@ -220,7 +217,7 @@ public class DetermineBasalAdapterSMBJS {
         mProfile.add("max_bg", maxBg);
         mProfile.add("target_bg", targetBg);
         mProfile.add("carb_ratio", profile.getIc(profile.secondsFromMidnight()));
-        mProfile.add("sens", NSProfile.toMgdl(profile.getIsf(NSProfile.secondsFromMidnight()).doubleValue(), units));
+        mProfile.add("sens", Profile.toMgdl(profile.getIsf(Profile.secondsFromMidnight()).doubleValue(), units));
         mProfile.add("max_daily_safety_multiplier", SP.getInt("openapsama_max_daily_safety_multiplier", 3));
         mProfile.add("current_basal_safety_multiplier", SP.getInt("openapsama_current_basal_safety_multiplier", 4));
         mProfile.add("skip_neutral_temps", true);
@@ -232,11 +229,11 @@ public class DetermineBasalAdapterSMBJS {
 
         mCurrentTemp = new V8Object(mV8rt);
         mCurrentTemp.add("temp", "absolute");
-        mCurrentTemp.add("duration", pump.getTempBasalRemainingMinutes());
-        mCurrentTemp.add("rate", pump.getTempBasalAbsoluteRate());
+        mCurrentTemp.add("duration", MainApp.getConfigBuilder().getTempBasalRemainingMinutesFromHistory());
+        mCurrentTemp.add("rate", MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory());
 
         // as we have non default temps longer than 30 mintues
-        TempBasal tempBasal = pump.getTempBasal();
+        TemporaryBasal tempBasal = MainApp.getConfigBuilder().getTempBasalFromHistory(new Date().getTime());
         if(tempBasal != null){
             mCurrentTemp.add("minutesrunning", tempBasal.getRealDuration());
         }
@@ -263,9 +260,7 @@ public class DetermineBasalAdapterSMBJS {
         mMealData.add("boluses", mealData.boluses);
         mMealData.add("mealCOB", mealData.mealCOB);
         mV8rt.add(PARAM_meal_data, mMealData);
-		mV8rt.add("microbolusallowed", PARAM_microBolusAllowed);
-		mV8rt.add("reservoir_data", PARAM_reservoirData);
-		
+
         if (MainApp.getConfigBuilder().isAMAModeEnabled()) {
             mAutosensData = new V8Object(mV8rt);
             mAutosensData.add("ratio", autosensDataRatio);
