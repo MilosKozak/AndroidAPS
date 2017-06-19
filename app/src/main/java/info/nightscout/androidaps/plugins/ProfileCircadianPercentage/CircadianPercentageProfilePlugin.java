@@ -9,14 +9,17 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.DecimalFormat;
+
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.utils.DecimalFormatter;
+import info.nightscout.utils.NSUpload;
 import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
 import info.nightscout.utils.ToastUtils;
@@ -32,7 +35,8 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
     private static boolean fragmentEnabled = false;
     private static boolean fragmentVisible = true;
 
-    private static NSProfile convertedProfile = null;
+    private static ProfileStore convertedProfile = null;
+    private static String convertedProfileName = null;
 
     boolean mgdl;
     boolean mmol;
@@ -177,47 +181,54 @@ public class CircadianPercentageProfilePlugin implements PluginBase, ProfileInte
             int offset = -(timeshift % 24) + 24;
 
             JSONArray icArray = new JSONArray();
-            for (int i = 0; i < 24; i++) {
-                icArray.put(new JSONObject().put("timeAsSeconds", i * 60 * 60).put("value", baseic[(offset + i) % 24] * 100d / percentage));
-            }
-            profile.put("carbratio", icArray);
-
             JSONArray isfArray = new JSONArray();
-            for (int i = 0; i < 24; i++) {
-                isfArray.put(new JSONObject().put("timeAsSeconds", i * 60 * 60).put("value", baseisf[(offset + i) % 24] * 100d / percentage));
-            }
-            profile.put("sens", isfArray);
-
             JSONArray basalArray = new JSONArray();
             for (int i = 0; i < 24; i++) {
-                basalArray.put(new JSONObject().put("timeAsSeconds", i * 60 * 60).put("value", basebasal[(offset + i) % 24] * percentage / 100d));
+                String time;
+                DecimalFormat df = new DecimalFormat("00");
+                time = df.format(i) + ":00";
+                icArray.put(new JSONObject().put("time", time).put("timeAsSeconds", i * 60 * 60).put("value", baseic[(offset + i) % 24] * 100d / percentage));
+                isfArray.put(new JSONObject().put("time", time).put("timeAsSeconds", i * 60 * 60).put("value", baseisf[(offset + i) % 24] * 100d / percentage));
+                basalArray.put(new JSONObject().put("time", time).put("timeAsSeconds", i * 60 * 60).put("value", basebasal[(offset + i) % 24] * percentage / 100d));
             }
+            profile.put("carbratio", icArray);
+            profile.put("sens", isfArray);
             profile.put("basal", basalArray);
 
 
-            profile.put("target_low", new JSONArray().put(new JSONObject().put("timeAsSeconds", 0).put("value", targetLow)));
-            profile.put("target_high", new JSONArray().put(new JSONObject().put("timeAsSeconds", 0).put("value", targetHigh)));
+            profile.put("target_low", new JSONArray().put(new JSONObject().put("time", "00:00").put("timeAsSeconds", 0).put("value", targetLow)));
+            profile.put("target_high", new JSONArray().put(new JSONObject().put("time", "00:00").put("timeAsSeconds", 0).put("value", targetHigh)));
             profile.put("units", mgdl ? Constants.MGDL : Constants.MMOL);
             store.put(profileName, profile);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        convertedProfile = new NSProfile(json, profileName);
+        convertedProfile = new ProfileStore(json);
+        convertedProfileName = profileName;
     }
 
     @Override
-    public NSProfile getProfile() {
-
+    public ProfileStore getProfile() {
         performLimitCheck();
-
         return convertedProfile;
+    }
+
+    @Override
+    public String getUnits() {
+        return mgdl ? Constants.MGDL : Constants.MMOL;
+    }
+
+    @Override
+    public String getProfileName() {
+        performLimitCheck();
+        return convertedProfileName;
     }
 
     private void performLimitCheck() {
         if (percentage < Constants.CPP_MIN_PERCENTAGE || percentage > Constants.CPP_MAX_PERCENTAGE) {
             String msg = String.format(MainApp.sResources.getString(R.string.openapsma_valueoutofrange), "Profile-Percentage");
             log.error(msg);
-            MainApp.getConfigBuilder().uploadError(msg);
+            NSUpload.uploadError(msg);
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), msg, R.raw.error);
             percentage = Math.max(percentage, Constants.CPP_MIN_PERCENTAGE);
             percentage = Math.min(percentage, Constants.CPP_MAX_PERCENTAGE);

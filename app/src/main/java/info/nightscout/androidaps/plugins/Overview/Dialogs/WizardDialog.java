@@ -34,7 +34,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -43,30 +42,31 @@ import java.util.Date;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.data.GlucoseStatus;
+import info.nightscout.androidaps.data.DetailedBolusInfo;
+import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.db.CareportalEvent;
+import info.nightscout.androidaps.db.DatabaseHelper;
+import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.events.EventNewBG;
 import info.nightscout.androidaps.events.EventRefreshGui;
-import info.nightscout.androidaps.interfaces.TempBasalsInterface;
-import info.nightscout.androidaps.interfaces.TreatmentsInterface;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
-import info.nightscout.androidaps.data.IobTotal;
-import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
-import info.nightscout.androidaps.plugins.OpenAPSAMA.DetermineBasalResultAMA;
+import info.nightscout.androidaps.data.Profile;
+import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSUpdateGui;
 import info.nightscout.utils.BolusWizard;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
+import info.nightscout.utils.OKDialog;
 import info.nightscout.utils.PlusMinusEditText;
 import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
 import info.nightscout.utils.ToastUtils;
 
-public class WizardDialog extends DialogFragment  implements OnClickListener, CompoundButton.OnCheckedChangeListener, Spinner.OnItemSelectedListener {
+public class WizardDialog extends DialogFragment implements OnClickListener, CompoundButton.OnCheckedChangeListener, Spinner.OnItemSelectedListener {
     private static Logger log = LoggerFactory.getLogger(WizardDialog.class);
 
     Button wizardDialogDeliverButton;
@@ -127,7 +127,7 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
         this.context = context;
     }
 
-     @Override
+    @Override
     public void onResume() {
         super.onResume();
         if (getDialog() != null)
@@ -215,8 +215,10 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
         bgTrend = (TextView) view.findViewById(R.id.treatments_wizard_bgtrend);
         bgTrendInsulin = (TextView) view.findViewById(R.id.treatments_wizard_bgtrendinsulin);
         cobLayout = (LinearLayout) view.findViewById(R.id.treatments_wizard_cob_layout);
-        cob = (TextView) view.findViewById(R.id.treatments_wizard_cob);;
-        cobInsulin = (TextView) view.findViewById(R.id.treatments_wizard_cobinsulin);;
+        cob = (TextView) view.findViewById(R.id.treatments_wizard_cob);
+        ;
+        cobInsulin = (TextView) view.findViewById(R.id.treatments_wizard_cobinsulin);
+        ;
 
         bgCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_bgcheckbox);
         bolusIobCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_bolusiobcheckbox);
@@ -311,37 +313,31 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
                                 mHandler.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        PumpEnactResult result = pump.deliverTreatmentFromBolusWizard(
-                                                MainApp.getConfigBuilder().getActiveInsulin(),
-                                                context,
-                                                finalInsulinAfterConstraints,
-                                                finalCarbsAfterConstraints,
-                                                bg,
-                                                "Manual",
-                                                carbTime,
-                                                boluscalcJSON
-                                        );
-                                        if (!result.success) {
-                                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                                            builder.setTitle(MainApp.sResources.getString(R.string.treatmentdeliveryerror));
-                                            builder.setMessage(result.comment);
-                                            builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
-                                            builder.show();
-                                        }
+                                        PumpEnactResult result;
                                         if (useSuperBolus) {
                                             final LoopPlugin activeloop = MainApp.getConfigBuilder().getActiveLoop();
-                                            result = pump.setTempBasalAbsolute(0d, 120);
-                                            if (!result.success) {
-                                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                                                builder.setTitle(MainApp.sResources.getString(R.string.tempbasaldeliveryerror));
-                                                builder.setMessage(result.comment);
-                                                builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
-                                                builder.show();
-                                            }
                                             if (activeloop != null) {
                                                 activeloop.superBolusTo(new Date().getTime() + 2 * 60L * 60 * 1000);
                                                 MainApp.bus().post(new EventRefreshGui(false));
                                             }
+                                            result = pump.setTempBasalAbsolute(0d, 120);
+                                            if (!result.success) {
+                                                OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.tempbasaldeliveryerror), result.comment, null);
+                                            }
+                                        }
+                                        DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
+                                        detailedBolusInfo.eventType = CareportalEvent.BOLUSWIZARD;
+                                        detailedBolusInfo.insulin = finalInsulinAfterConstraints;
+                                        detailedBolusInfo.carbs = finalCarbsAfterConstraints;
+                                        detailedBolusInfo.context = context;
+                                        detailedBolusInfo.glucose = bg;
+                                        detailedBolusInfo.glucoseType = "Manual";
+                                        detailedBolusInfo.carbTime = carbTime;
+                                        detailedBolusInfo.boluscalc = boluscalcJSON;
+                                        detailedBolusInfo.source = Source.USER;
+                                        result = pump.deliverTreatment(detailedBolusInfo);
+                                        if (!result.success) {
+                                            OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.treatmentdeliveryerror), result.comment, null);
                                         }
                                     }
                                 });
@@ -358,7 +354,8 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
     }
 
     private void initDialog() {
-        NSProfile profile = ConfigBuilderPlugin.getActiveProfile().getProfile();
+        Profile profile = MainApp.getConfigBuilder().getProfile();
+        ProfileStore profileStore = MainApp.getConfigBuilder().getActiveProfileInterface().getProfile();
 
         if (profile == null) {
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.noprofile));
@@ -366,14 +363,14 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
         }
 
         ArrayList<CharSequence> profileList;
-        profileList = profile.getProfileList();
+        profileList = profileStore.getProfileList();
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(getContext(),
                 R.layout.spinner_centered, profileList);
 
         profileSpinner.setAdapter(adapter);
         // set selected to actual profile
         for (int p = 0; p < profileList.size(); p++) {
-            if (profileList.get(p).equals(profile.getActiveProfile()))
+            if (profileList.get(p).equals(MainApp.getConfigBuilder().getProfileName()))
                 profileSpinner.setSelection(p);
         }
 
@@ -383,13 +380,13 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
         else editBg.setStep(0.1d);
 
         // Set BG if not old
-        BgReading lastBg = GlucoseStatus.actualBg();
+        BgReading lastBg = DatabaseHelper.actualBg();
 
         if (lastBg != null) {
             Double lastBgValue = lastBg.valueToUnits(units);
-            Double sens = profile.getIsf(NSProfile.secondsFromMidnight());
-            Double targetBGLow = profile.getTargetLow(NSProfile.secondsFromMidnight());
-            Double targetBGHigh = profile.getTargetHigh(NSProfile.secondsFromMidnight());
+            Double sens = profile.getIsf();
+            Double targetBGLow = profile.getTargetLow();
+            Double targetBGHigh = profile.getTargetHigh();
             Double bgDiff;
             if (lastBgValue <= targetBGLow) {
                 bgDiff = lastBgValue - targetBGLow;
@@ -413,15 +410,10 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
         }
 
         // IOB calculation
-        TreatmentsInterface treatments = ConfigBuilderPlugin.getActiveTreatments();
-        treatments.updateTotalIOB();
-        IobTotal bolusIob = treatments.getLastCalculation();
-        TempBasalsInterface tempBasals = ConfigBuilderPlugin.getActiveTempBasals();
-        IobTotal basalIob = new IobTotal(new Date().getTime());
-        if (tempBasals != null) {
-            tempBasals.updateTotalIOB();
-            basalIob = tempBasals.getLastCalculation().round();
-        }
+        MainApp.getConfigBuilder().updateTotalIOBTreatments();
+        IobTotal bolusIob = MainApp.getConfigBuilder().getLastCalculationTreatments().round();
+        MainApp.getConfigBuilder().updateTotalIOBTempBasals();
+        IobTotal basalIob = MainApp.getConfigBuilder().getLastCalculationTempBasals().round();
 
         bolusIobInsulin.setText(DecimalFormatter.to2Decimal(-bolusIob.iob) + "U");
         basalIobInsulin.setText(DecimalFormatter.to2Decimal(-basalIob.basaliob) + "U");
@@ -440,11 +432,11 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
     }
 
     private void calculateInsulin() {
-        NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
+        ProfileStore profile = MainApp.getConfigBuilder().getActiveProfileInterface().getProfile();
         if (profileSpinner == null || profileSpinner.getSelectedItem() == null)
             return; // not initialized yet
         String selectedAlternativeProfile = profileSpinner.getSelectedItem().toString();
-        JSONObject specificProfile = profile.getSpecificProfile(selectedAlternativeProfile);
+        Profile specificProfile = profile.getSpecificProfile(selectedAlternativeProfile);
 
         // Entered values
         Double c_bg = SafeParse.stringToDouble(bgInput.getText().toString());
@@ -518,7 +510,7 @@ public class WizardDialog extends DialogFragment  implements OnClickListener, Co
         // Trend
         if (bgtrendCheckbox.isChecked()) {
             if (wizard.glucoseStatus != null) {
-                bgTrend.setText((wizard.glucoseStatus.avgdelta > 0 ? "+" : "") + NSProfile.toUnitsString(wizard.glucoseStatus.avgdelta * 3, wizard.glucoseStatus.avgdelta * 3 / 18, profile.getUnits()) + " " + profile.getUnits());
+                bgTrend.setText((wizard.glucoseStatus.avgdelta > 0 ? "+" : "") + Profile.toUnitsString(wizard.glucoseStatus.avgdelta * 3, wizard.glucoseStatus.avgdelta * 3 / 18, specificProfile.getUnits()) + " " + specificProfile.getUnits());
             } else {
                 bgTrend.setText("");
             }
