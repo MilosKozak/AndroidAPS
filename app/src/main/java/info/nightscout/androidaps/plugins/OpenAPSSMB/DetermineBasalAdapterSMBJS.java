@@ -229,6 +229,7 @@ public class DetermineBasalAdapterSMBJS {
         mProfile.add("temptargetSet", tempTargetSet);
         mProfile.add("autosens_adjust_targets", SP.getBoolean("openapsama_autosens_adjusttargets", true));
         mProfile.add("min_5m_carbimpact", SP.getDouble("openapsama_min_5m_carbimpact", 3d));
+		mProfile.add("enableUAM", true); // Enabling UAM by default
         mV8rt.add(PARAM_profile, mProfile);
 
         mCurrentTemp = new V8Object(mV8rt);
@@ -264,6 +265,8 @@ public class DetermineBasalAdapterSMBJS {
         mMealData.add("carbs", mealData.carbs);
         mMealData.add("boluses", mealData.boluses);
         mMealData.add("mealCOB", mealData.mealCOB);
+		//TODO ADD minDeviationSlope
+		mMealData.add("minDeviationSlope", 0.1);
         mV8rt.add(PARAM_meal_data, mMealData);
 		mV8rt.add("microbolusallowed", PARAM_microBolusAllowed);
 		mV8rt.add("reservoir_data", PARAM_reservoirData);
