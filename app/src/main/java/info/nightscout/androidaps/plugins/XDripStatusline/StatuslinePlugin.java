@@ -9,19 +9,23 @@ import android.support.annotation.NonNull;
 
 import com.squareup.otto.Subscribe;
 
+import java.util.Date;
+
+import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.IobTotal;
-import info.nightscout.androidaps.db.TempBasal;
+import info.nightscout.androidaps.db.TemporaryBasal;
+import info.nightscout.androidaps.events.EventExtendedBolusChange;
 import info.nightscout.androidaps.events.EventNewBG;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.events.EventTempBasalChange;
 import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.interfaces.TreatmentsInterface;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.utils.DecimalFormatter;
 
 /**
@@ -95,7 +99,7 @@ public class StatuslinePlugin implements PluginBase {
 
     @Override
     public boolean showInList(int type) {
-        return true;
+        return !Config.NSCLIENT;
     }
 
     @Override
@@ -106,13 +110,14 @@ public class StatuslinePlugin implements PluginBase {
             if (fragmentEnabled) {
                 try {
                     MainApp.bus().register(this);
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 sendStatus();
-            }
-            else{
+            } else {
                 try {
                     MainApp.bus().unregister(this);
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
                 sendStatus();
             }
         }
@@ -127,9 +132,9 @@ public class StatuslinePlugin implements PluginBase {
     private void sendStatus() {
 
 
-        String status =  ""; // sent once on disable
+        String status = ""; // sent once on disable
 
-        if(fragmentEnabled) {
+        if (fragmentEnabled) {
             status = buildStatusString();
         }
 
@@ -158,10 +163,10 @@ public class StatuslinePlugin implements PluginBase {
         }
 
         //Temp basal
-        PumpInterface pump = MainApp.getConfigBuilder();
+        TreatmentsInterface treatmentsInterface = MainApp.getConfigBuilder();
 
-        if (pump.isTempBasalInProgress()) {
-            TempBasal activeTemp = pump.getTempBasal();
+        if (treatmentsInterface.isTempBasalInProgress()) {
+            TemporaryBasal activeTemp = treatmentsInterface.getTempBasalFromHistory(new Date().getTime());
             if (shortString) {
                 status += activeTemp.toStringShort();
             } else {
@@ -170,10 +175,10 @@ public class StatuslinePlugin implements PluginBase {
         }
 
         //IOB
-        MainApp.getConfigBuilder().getActiveTreatments().updateTotalIOB();
-        IobTotal bolusIob = MainApp.getConfigBuilder().getActiveTreatments().getLastCalculation().round();
-        MainApp.getConfigBuilder().getActiveTempBasals().updateTotalIOB();
-        IobTotal basalIob = MainApp.getConfigBuilder().getActiveTempBasals().getLastCalculation().round();
+        treatmentsInterface.updateTotalIOBTreatments();
+        IobTotal bolusIob = treatmentsInterface.getLastCalculationTreatments().round();
+        treatmentsInterface.updateTotalIOBTempBasals();
+        IobTotal basalIob = treatmentsInterface.getLastCalculationTempBasals().round();
         status += (shortString ? "" : (ctx.getString(R.string.treatments_iob_label_string) + " ")) + DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob);
 
 
@@ -182,14 +187,14 @@ public class StatuslinePlugin implements PluginBase {
                     + DecimalFormatter.to2Decimal(bolusIob.iob) + "|"
                     + DecimalFormatter.to2Decimal(basalIob.basaliob) + ")";
         }
-        NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
-        if (!mPrefs.getBoolean("xdripstatus_showbgi", false) ||profile == null || profile.getIsf(NSProfile.secondsFromMidnight()) == null || profile.getIc(NSProfile.secondsFromMidnight()) == null) {
+        Profile profile = MainApp.getConfigBuilder().getProfile();
+        if (!mPrefs.getBoolean("xdripstatus_showbgi", false)) {
             return status;
         }
 
-        double bgi = -(bolusIob.activity + basalIob.activity)*5*profile.getIsf(NSProfile.secondsFromMidnight());
+        double bgi = -(bolusIob.activity + basalIob.activity) * 5 * profile.getIsf();
 
-        status += " " + ((bgi>=0)?"+":"") + DecimalFormatter.to2Decimal(bgi);
+        status += " " + ((bgi >= 0) ? "+" : "") + DecimalFormatter.to2Decimal(bgi);
 
         return status;
     }
@@ -208,6 +213,11 @@ public class StatuslinePlugin implements PluginBase {
 
     @Subscribe
     public void onStatusEvent(final EventTempBasalChange ev) {
+        sendStatus();
+    }
+
+    @Subscribe
+    public void onStatusEvent(final EventExtendedBolusChange ev) {
         sendStatus();
     }
 

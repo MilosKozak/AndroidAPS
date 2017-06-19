@@ -21,29 +21,31 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.Services.Intents;
+import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.db.DatabaseHelper;
+import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
 import info.nightscout.androidaps.plugins.Overview.Notification;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.SmsCommunicator.events.EventNewSMS;
 import info.nightscout.androidaps.plugins.SmsCommunicator.events.EventSmsCommunicatorUpdateGui;
 import info.nightscout.utils.DecimalFormatter;
+import info.nightscout.utils.NSUpload;
 import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
 import info.nightscout.utils.XdripCalibrations;
-
-import static info.nightscout.androidaps.R.string.profile;
 
 /**
  * Created by mike on 05.08.2016.
@@ -233,33 +235,26 @@ public class SmsCommunicatorPlugin implements PluginBase {
         if (splited.length > 0) {
             switch (splited[0].toUpperCase()) {
                 case "BG":
-                    BgReading actualBG = GlucoseStatus.actualBg();
-                    BgReading lastBG = GlucoseStatus.lastBg();
+                    BgReading actualBG = DatabaseHelper.actualBg();
+                    BgReading lastBG = DatabaseHelper.lastBg();
 
-                    if (ConfigBuilderPlugin.getActiveProfile() == null || ConfigBuilderPlugin.getActiveProfile().getProfile() == null) {
-                        reply = MainApp.sResources.getString(R.string.noprofile);
-                        sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
-                        return;
-                    }
-
-                    NSProfile profile = ConfigBuilderPlugin.getActiveProfile().getProfile();
-                    String units = profile.getUnits();
+                    String units = MainApp.getConfigBuilder().getProfileUnits();
 
                     if (actualBG != null) {
                         reply = MainApp.sResources.getString(R.string.sms_actualbg) + " " + actualBG.valueToUnitsToString(units) + ", ";
                     } else if (lastBG != null) {
-                        Long agoMsec = new Date().getTime() - lastBG.timeIndex;
+                        Long agoMsec = new Date().getTime() - lastBG.date;
                         int agoMin = (int) (agoMsec / 60d / 1000d);
                         reply = MainApp.sResources.getString(R.string.sms_lastbg) + " " + lastBG.valueToUnitsToString(units) + " " + String.format(MainApp.sResources.getString(R.string.sms_minago), agoMin) + ", ";
                     }
                     GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
                     if (glucoseStatus != null)
-                        reply += MainApp.sResources.getString(R.string.sms_delta) + " " + NSProfile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units + ", ";
+                        reply += MainApp.sResources.getString(R.string.sms_delta) + " " + Profile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units + ", ";
 
-                    ConfigBuilderPlugin.getActiveTreatments().updateTotalIOB();
-                    IobTotal bolusIob = ConfigBuilderPlugin.getActiveTreatments().getLastCalculation().round();
-                    ConfigBuilderPlugin.getActiveTempBasals().updateTotalIOB();
-                    IobTotal basalIob = ConfigBuilderPlugin.getActiveTempBasals().getLastCalculation().round();
+                    MainApp.getConfigBuilder().updateTotalIOBTreatments();
+                    IobTotal bolusIob = MainApp.getConfigBuilder().getLastCalculationTreatments().round();
+                    MainApp.getConfigBuilder().updateTotalIOBTempBasals();
+                    IobTotal basalIob = MainApp.getConfigBuilder().getLastCalculationTempBasals().round();
 
                     reply += MainApp.sResources.getString(R.string.sms_iob) + " " + DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U ("
                             + MainApp.sResources.getString(R.string.sms_bolus) + " " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U "
@@ -317,7 +312,7 @@ public class SmsCommunicatorPlugin implements PluginBase {
                                 final LoopPlugin activeloop = ConfigBuilderPlugin.getActiveLoop();
                                 activeloop.suspendTo(0);
                                 MainApp.bus().post(new EventRefreshGui(false));
-                                ConfigBuilderPlugin.uploadOpenAPSOffline(0);
+                                NSUpload.uploadOpenAPSOffline(0);
                                 reply = MainApp.sResources.getString(R.string.smscommunicator_loopresumed);
                                 sendSMSToAllNumbers(new Sms(receivedSms.phoneNumber, reply, new Date()));
                                 Answers.getInstance().logCustom(new CustomEvent("SMS_Loop_Resume"));
@@ -424,6 +419,9 @@ public class SmsCommunicatorPlugin implements PluginBase {
                     if (new Date().getTime() - lastRemoteBolusTime.getTime() < Constants.remoteBolusMinDistance) {
                         reply = MainApp.sResources.getString(R.string.smscommunicator_remotebolusnotallowed);
                         sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
+                    } else if (MainApp.getConfigBuilder().isSuspended()) {
+                        reply = MainApp.sResources.getString(R.string.pumpsuspended);
+                        sendSMS(new Sms(receivedSms.phoneNumber, reply, new Date()));
                     } else if (splited.length > 1) {
                         amount = SafeParse.stringToDouble(splited[1]);
                         amount = MainApp.getConfigBuilder().applyBolusConstraints(amount);
@@ -465,7 +463,10 @@ public class SmsCommunicatorPlugin implements PluginBase {
                         PumpInterface pumpInterface = MainApp.getConfigBuilder();
                         if (pumpInterface != null) {
                             danaRPlugin = (DanaRPlugin) MainApp.getSpecificPlugin(DanaRPlugin.class);
-                            PumpEnactResult result = pumpInterface.deliverTreatment(ConfigBuilderPlugin.getActiveInsulin(), bolusWaitingForConfirmation.bolusRequested, 0, null);
+                            DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
+                            detailedBolusInfo.insulin = bolusWaitingForConfirmation.bolusRequested;
+                            detailedBolusInfo.source = Source.USER;
+                            PumpEnactResult result = pumpInterface.deliverTreatment(detailedBolusInfo);
                             if (result.success) {
                                 reply = String.format(MainApp.sResources.getString(R.string.smscommunicator_bolusdelivered), result.bolusDelivered);
                                 if (danaRPlugin != null)
@@ -534,7 +535,7 @@ public class SmsCommunicatorPlugin implements PluginBase {
                         final LoopPlugin activeloop = ConfigBuilderPlugin.getActiveLoop();
                         activeloop.suspendTo(new Date().getTime() + suspendWaitingForConfirmation.duration * 60L * 1000);
                         PumpEnactResult result = MainApp.getConfigBuilder().cancelTempBasal();
-                        ConfigBuilderPlugin.uploadOpenAPSOffline(suspendWaitingForConfirmation.duration * 60);
+                        NSUpload.uploadOpenAPSOffline(suspendWaitingForConfirmation.duration * 60);
                         MainApp.bus().post(new EventRefreshGui(false));
                         reply = MainApp.sResources.getString(R.string.smscommunicator_loopsuspended) + " " +
                                 MainApp.sResources.getString(result.success?R.string.smscommunicator_tempbasalcanceled:R.string.smscommunicator_tempbasalcancelfailed);

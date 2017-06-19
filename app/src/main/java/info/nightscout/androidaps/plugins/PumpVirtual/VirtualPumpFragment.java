@@ -16,18 +16,14 @@ import com.squareup.otto.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.plugins.PumpVirtual.events.EventVirtualPumpUpdateGui;
 
 public class VirtualPumpFragment extends Fragment {
     private static Logger log = LoggerFactory.getLogger(VirtualPumpFragment.class);
-
-    private static VirtualPumpPlugin virtualPumpPlugin = new VirtualPumpPlugin();
-
-    public static VirtualPumpPlugin getPlugin() {
-        return virtualPumpPlugin;
-    }
 
     TextView basaBasalRateView;
     TextView tempBasalView;
@@ -91,19 +87,19 @@ public class VirtualPumpFragment extends Fragment {
                 @Override
                 public void run() {
 
-                    basaBasalRateView.setText(virtualPumpPlugin.getBaseBasalRate() + "U");
-                    if (virtualPumpPlugin.isTempBasalInProgress()) {
-                        tempBasalView.setText(virtualPumpPlugin.getTempBasal().toString());
+                    basaBasalRateView.setText(VirtualPumpPlugin.getInstance().getBaseBasalRate() + "U");
+                    if (MainApp.getConfigBuilder().isTempBasalInProgress()) {
+                        tempBasalView.setText(MainApp.getConfigBuilder().getTempBasalFromHistory(new Date().getTime()).toStringFull());
                     } else {
                         tempBasalView.setText("");
                     }
-                    if (virtualPumpPlugin.isExtendedBoluslInProgress()) {
-                        extendedBolusView.setText(virtualPumpPlugin.getExtendedBolus().toString());
+                    if (MainApp.getConfigBuilder().isInHistoryExtendedBoluslInProgress()) {
+                        extendedBolusView.setText(MainApp.getConfigBuilder().getExtendedBolusFromHistory(new Date().getTime()).toString());
                     } else {
                         extendedBolusView.setText("");
                     }
-                    batteryView.setText(VirtualPumpPlugin.batteryPercent + "%");
-                    reservoirView.setText(VirtualPumpPlugin.reservoirInUnits + "U");
+                    batteryView.setText(VirtualPumpPlugin.getInstance().batteryPercent + "%");
+                    reservoirView.setText(VirtualPumpPlugin.getInstance().reservoirInUnits + "U");
                 }
             });
     }
