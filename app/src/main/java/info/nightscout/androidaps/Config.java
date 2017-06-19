@@ -4,6 +4,8 @@ package info.nightscout.androidaps;
  * Created by mike on 07.06.2016.
  */
 public class Config {
+    public static int SUPPORTEDNSVERSION = 1000; // 0.10.00
+
     // MAIN FUCTIONALITY
     public static final boolean APS = BuildConfig.APS;
     // PLUGINS
@@ -11,15 +13,15 @@ public class Config {
     public static final boolean LOOPENABLED = APS;
     public static final boolean WEAR = BuildConfig.WEAR;
 
+    public static final boolean NSCLIENT = BuildConfig.NSCLIENTOLNY;
 
     public static final boolean DANAR = true && BuildConfig.PUMPDRIVERS;
-    public static final boolean DANARKOREAN = true && BuildConfig.PUMPDRIVERS;
+    public static final boolean DANARv2 = true && BuildConfig.PUMPDRIVERS;
 
     public static final boolean ACTION = !BuildConfig.NSCLIENTOLNY;
     public static final boolean VIRTUALPUMP = !BuildConfig.NSCLIENTOLNY;
     public static final boolean MDI = !BuildConfig.NSCLIENTOLNY;
     public static final boolean OTHERPROFILES = !BuildConfig.NSCLIENTOLNY;
-    public static final boolean TEMPBASALS = !BuildConfig.NSCLIENTOLNY;
     public static final boolean SAFETY = !BuildConfig.NSCLIENTOLNY;
 
     public static final boolean SMSCOMMUNICATORENABLED = !BuildConfig.NSCLIENTOLNY;
@@ -41,6 +43,7 @@ public class Config {
     public static final boolean logPumpActions = true;
     public static final boolean logSMSComm = true;
     public static final boolean logCongigBuilderActions = true;
+    public static final boolean logAutosensData = false;
 
     // DanaR specific
     public static final boolean logDanaBTComm = true;

@@ -19,7 +19,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
-import android.util.AttributeSet;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -35,6 +34,7 @@ import com.squareup.otto.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import info.nightscout.androidaps.Services.AlarmSoundService;
 import info.nightscout.androidaps.events.EventAppExit;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         registerBus();
         setUpTabs(false);
+        Intent alarm = new Intent(this, AlarmSoundService.class);
+        alarm.putExtra("soundid", R.raw.staledataalarm);
+        //startService(alarm);
     }
 
     @Subscribe
@@ -296,7 +299,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             case R.id.nav_about:
                                 AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
                                 builder.setTitle(getString(R.string.app_name) + " " + BuildConfig.VERSION);
-                                if (BuildConfig.NSCLIENTOLNY)
+                                if (Config.NSCLIENT)
                                     builder.setIcon(R.mipmap.yellowowl);
                                 else
                                     builder.setIcon(R.mipmap.blueowl);
