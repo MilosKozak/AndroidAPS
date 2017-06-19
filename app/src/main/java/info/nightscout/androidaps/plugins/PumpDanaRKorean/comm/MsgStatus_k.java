@@ -1,15 +1,16 @@
-package info.nightscout.androidaps.plugins.PumpDanaR.comm;
+package info.nightscout.androidaps.plugins.PumpDanaRKorean.comm;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
+import info.nightscout.androidaps.plugins.PumpDanaR.comm.MessageBase;
 
-public class MsgStatus extends MessageBase {
-    private static Logger log = LoggerFactory.getLogger(MsgStatus.class);
+public class MsgStatus_k extends MessageBase {
+    private static Logger log = LoggerFactory.getLogger(MsgStatus_k.class);
 
-    public MsgStatus() {
+    public MsgStatus_k() {
         SetCommand(0x020B);
     }
 
@@ -20,10 +21,10 @@ public class MsgStatus extends MessageBase {
         pump.extendedBolusMinutes = intFromBuff(bytes, 4, 2);
         pump.extendedBolusAmount = intFromBuff(bytes, 6, 2) / 100d;
         Double lastBolusAmount = intFromBuff(bytes, 13, 2) / 100d;
-        if (lastBolusAmount != 0d) {
-            pump.lastBolusTime = dateTimeFromBuff(bytes, 8);
-            pump.lastBolusAmount = lastBolusAmount;
-        }
+//        if (lastBolusAmount != 0d) {
+//            pump.lastBolusTime = dateTimeFromBuff(bytes, 8);
+//            pump.lastBolusAmount = lastBolusAmount;
+//        }
         pump.iob = intFromBuff(bytes, 15, 2) / 100d;
 
         if (Config.logDanaMessageDetail) {
@@ -31,8 +32,8 @@ public class MsgStatus extends MessageBase {
             log.debug("Is extended bolus running: " + pump.isExtendedInProgress);
             log.debug("Extended bolus min: " + pump.extendedBolusMinutes);
             log.debug("Extended bolus amount: " + pump.extendedBolusAmount);
-            log.debug("Last bolus time: " + pump.lastBolusTime);
-            log.debug("Last bolus amount: " + pump.lastBolusAmount);
+//            log.debug("Last bolus time: " + pump.lastBolusTime);
+//            log.debug("Last bolus amount: " + pump.lastBolusAmount);
             log.debug("IOB: " + pump.iob);
         }
     }

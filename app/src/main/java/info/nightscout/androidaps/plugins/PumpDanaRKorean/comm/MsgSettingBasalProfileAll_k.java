@@ -1,10 +1,11 @@
-package info.nightscout.androidaps.plugins.PumpDanaR.comm;
+package info.nightscout.androidaps.plugins.PumpDanaRKorean.comm;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
+import info.nightscout.androidaps.plugins.PumpDanaR.comm.MessageBase;
 
 
 /**
@@ -13,10 +14,10 @@ import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
  * <p/>
  * THIS IS BROKEN IN PUMP... SENDING ONLY 1 PROFILE
  */
-public class MsgSettingBasalProfileAll extends MessageBase {
-    private static Logger log = LoggerFactory.getLogger(MsgSettingBasalProfileAll.class);
+public class MsgSettingBasalProfileAll_k extends MessageBase {
+    private static Logger log = LoggerFactory.getLogger(MsgSettingBasalProfileAll_k.class);
 
-    public MsgSettingBasalProfileAll() {
+    public MsgSettingBasalProfileAll_k() {
         SetCommand(0x3206);
     }
 
@@ -30,7 +31,7 @@ public class MsgSettingBasalProfileAll extends MessageBase {
                 for (int index = 0; index < 48; index++) {
                     int basal = intFromBuff(bytes, 107 * profile + 2 * index + 1, 2);
                     if (basal < 10) basal = 0;
-                    pump.pumpProfiles[position][index] = basal / 100d;
+                    pump.pumpProfiles[position][index] = basal / 100 / 24d; // in units/day
                 }
             }
         } else {
@@ -43,7 +44,7 @@ public class MsgSettingBasalProfileAll extends MessageBase {
                     int basal = intFromBuff(bytes, 59 * profile + 2 * index + 1, 2);
                     if (basal < 10) basal = 0;
                     log.debug("position " + position + " index " + index);
-                    pump.pumpProfiles[position][index] = basal / 100d;
+                    pump.pumpProfiles[position][index] = basal / 100 / 24d; // in units/day
                 }
             }
         }
