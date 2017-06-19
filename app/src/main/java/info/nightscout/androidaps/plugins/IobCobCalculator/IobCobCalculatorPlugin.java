@@ -342,12 +342,18 @@ public class IobCobCalculatorPlugin implements PluginBase {
                     continue;
                 }
                 delta = (bg - bucketed_data.get(i + 1).value);
-
+				avgDelta = (bg - bucketed_data.get(i + 3).value)/3;
                 IobTotal iob = calulateFromTreatmentsAndTemps(bgTime);
 
                 double bgi = -iob.activity * sens * 5;
                 double deviation = delta - bgi;
-
+				double currentDeviation = ((delta - bgi)*1000)/1000;
+				double avgDeviation = ((avgDelta-bgi)*1000)/1000;
+				double deviationSlope = (avgDeviation-currentDeviation)/((bgTime*1000*60*5)-3);
+				double minDeviationSlope = 0.0;
+				if (avgDeviation > 0) {
+					minDeviationSlope = Math.min(0, deviationSlope);
+				}
                 List<Treatment> recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(bgTime);
                 for (int ir = 0; ir < recentTreatments.size(); ir++) {
                     autosensData.carbsFromBolus += recentTreatments.get(ir).carbs;
