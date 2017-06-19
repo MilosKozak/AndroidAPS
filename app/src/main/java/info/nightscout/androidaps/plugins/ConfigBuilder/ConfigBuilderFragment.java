@@ -50,14 +50,15 @@ public class ConfigBuilderFragment extends Fragment {
 
     ListView insulinListView;
     ListView bgsourceListView;
+    TextView bgsourceLabel;
     ListView pumpListView;
     TextView pumpLabel;
     ListView loopListView;
     TextView loopLabel;
     ListView treatmentsListView;
-    ListView tempsListView;
-    TextView tempsLabel;
+    TextView treatmentsLabel;
     ListView profileListView;
+    TextView profileLabel;
     ListView apsListView;
     TextView apsLabel;
     ListView constraintsListView;
@@ -74,7 +75,6 @@ public class ConfigBuilderFragment extends Fragment {
     PluginCustomAdapter pumpDataAdapter = null;
     PluginCustomAdapter loopDataAdapter = null;
     PluginCustomAdapter treatmentsDataAdapter = null;
-    PluginCustomAdapter tempsDataAdapter = null;
     PluginCustomAdapter profileDataAdapter = null;
     PluginCustomAdapter apsDataAdapter = null;
     PluginCustomAdapter constraintsDataAdapter = null;
@@ -97,14 +97,15 @@ public class ConfigBuilderFragment extends Fragment {
 
         insulinListView = (ListView) view.findViewById(R.id.configbuilder_insulinlistview);
         bgsourceListView = (ListView) view.findViewById(R.id.configbuilder_bgsourcelistview);
+        bgsourceLabel = (TextView) view.findViewById(R.id.configbuilder_bgsourcelabel);
         pumpListView = (ListView) view.findViewById(R.id.configbuilder_pumplistview);
         pumpLabel = (TextView) view.findViewById(R.id.configbuilder_pumplabel);
         loopListView = (ListView) view.findViewById(R.id.configbuilder_looplistview);
         loopLabel = (TextView) view.findViewById(R.id.configbuilder_looplabel);
         treatmentsListView = (ListView) view.findViewById(R.id.configbuilder_treatmentslistview);
-        tempsListView = (ListView) view.findViewById(R.id.configbuilder_tempslistview);
-        tempsLabel = (TextView) view.findViewById(R.id.configbuilder_tempslabel);
+        treatmentsLabel = (TextView) view.findViewById(R.id.configbuilder_treatmentslabel);
         profileListView = (ListView) view.findViewById(R.id.configbuilder_profilelistview);
+        profileLabel = (TextView) view.findViewById(R.id.configbuilder_profilelabel);
         apsListView = (ListView) view.findViewById(R.id.configbuilder_apslistview);
         apsLabel = (TextView) view.findViewById(R.id.configbuilder_apslabel);
         constraintsListView = (ListView) view.findViewById(R.id.configbuilder_constraintslistview);
@@ -149,6 +150,8 @@ public class ConfigBuilderFragment extends Fragment {
         setListViewHeightBasedOnChildren(insulinListView);
         bgsourceDataAdapter = new PluginCustomAdapter(getContext(), smallWidth?R.layout.configbuilder_smallitem :R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsVisibleInListByInterface(BgSourceInterface.class, PluginBase.BGSOURCE), PluginBase.BGSOURCE);
         bgsourceListView.setAdapter(bgsourceDataAdapter);
+        if (MainApp.getSpecificPluginsVisibleInList(PluginBase.BGSOURCE).size() == 0)
+            bgsourceLabel.setVisibility(View.GONE);
         setListViewHeightBasedOnChildren(bgsourceListView);
         pumpDataAdapter = new PluginCustomAdapter(getContext(), smallWidth?R.layout.configbuilder_smallitem :R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsVisibleInList(PluginBase.PUMP), PluginBase.PUMP);
         pumpListView.setAdapter(pumpDataAdapter);
@@ -162,14 +165,13 @@ public class ConfigBuilderFragment extends Fragment {
             loopLabel.setVisibility(View.GONE);
         treatmentsDataAdapter = new PluginCustomAdapter(getContext(), smallWidth?R.layout.configbuilder_smallitem :R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsVisibleInList(PluginBase.TREATMENT), PluginBase.TREATMENT);
         treatmentsListView.setAdapter(treatmentsDataAdapter);
+        if (MainApp.getSpecificPluginsVisibleInList(PluginBase.TREATMENT).size() == 0)
+            treatmentsLabel.setVisibility(View.GONE);
         setListViewHeightBasedOnChildren(treatmentsListView);
-        tempsDataAdapter = new PluginCustomAdapter(getContext(), smallWidth?R.layout.configbuilder_smallitem :R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsVisibleInList(PluginBase.TEMPBASAL), PluginBase.TEMPBASAL);
-        tempsListView.setAdapter(tempsDataAdapter);
-        setListViewHeightBasedOnChildren(tempsListView);
-        if (MainApp.getSpecificPluginsVisibleInList(PluginBase.TEMPBASAL).size() == 0)
-            tempsLabel.setVisibility(View.GONE);
         profileDataAdapter = new PluginCustomAdapter(getContext(), smallWidth?R.layout.configbuilder_smallitem :R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsVisibleInListByInterface(ProfileInterface.class, PluginBase.BGSOURCE), PluginBase.PROFILE);
         profileListView.setAdapter(profileDataAdapter);
+        if (MainApp.getSpecificPluginsVisibleInList(PluginBase.PROFILE).size() == 0)
+            profileLabel.setVisibility(View.GONE);
         setListViewHeightBasedOnChildren(profileListView);
         apsDataAdapter = new PluginCustomAdapter(getContext(), smallWidth?R.layout.configbuilder_smallitem :R.layout.configbuilder_simpleitem, MainApp.getSpecificPluginsVisibleInList(PluginBase.APS), PluginBase.APS);
         apsListView.setAdapter(apsDataAdapter);
@@ -275,7 +277,7 @@ public class ConfigBuilderFragment extends Fragment {
             }
 
             // Hide enabled control and force enabled plugin if there is only one plugin available
-            if (type == PluginBase.INSULIN || type == PluginBase.PUMP || type == PluginBase.TREATMENT || type == PluginBase.TEMPBASAL || type == PluginBase.PROFILE)
+            if (type == PluginBase.INSULIN || type == PluginBase.PUMP || type == PluginBase.TREATMENT || type == PluginBase.PROFILE)
                 if (pluginList.size() < 2) {
                     holder.checkboxEnabled.setEnabled(false);
                     plugin.setFragmentEnabled(type, true);
@@ -333,7 +335,6 @@ public class ConfigBuilderFragment extends Fragment {
             case PluginBase.BGSOURCE:
                 pluginsInCategory = MainApp.getSpecificPluginsListByInterface(BgSourceInterface.class);
                 break;
-            case PluginBase.TEMPBASAL:
             case PluginBase.TREATMENT:
             case PluginBase.PUMP:
                 pluginsInCategory = MainApp.getSpecificPluginsListByInterface(PumpInterface.class);

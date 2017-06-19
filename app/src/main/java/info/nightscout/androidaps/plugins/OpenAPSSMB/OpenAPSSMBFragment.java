@@ -34,6 +34,7 @@ import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
 import info.nightscout.androidaps.interfaces.APSInterface;
+import java.util.ArrayList;
 import java.util.List;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
@@ -206,9 +207,9 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						
 						//Get if there is a treatment for last 5 minutes
 						boolean treamentExists = false;
-						TreatmentsInterface treatmentsInterface = null;
-						List<Treatment> recentTreatments; 
-						recentTreatments = treatmentsInterface.getTreatments5MinBackFromHistory(new Date().getTime());
+						TreatmentsInterface treatmentsInterface = MainApp.getConfigBuilder(); 
+						List<Treatment> recentTreatments = new ArrayList<Treatment>(); 
+						recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(new Date().getTime());
 						if(recentTreatments.size() != 0){
 							// There is treatment 
 							treamentExists = true;

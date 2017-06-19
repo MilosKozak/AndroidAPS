@@ -21,14 +21,6 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
-import java.util.Date;
-//Added for testing 
-import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
-import info.nightscout.androidaps.plugins.OpenAPSSMB.DetermineBasalResultSMB;
-import info.nightscout.androidaps.plugins.Loop.APSResult;
-import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
-import info.nightscout.androidaps.interfaces.APSInterface;
-import info.nightscout.androidaps.interfaces.PluginBase;
 
 public class LoopFragment extends Fragment implements View.OnClickListener {
     private static Logger log = LoggerFactory.getLogger(LoopFragment.class);
@@ -125,42 +117,11 @@ public class LoopFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void run() {
                     if (getPlugin().lastRun != null) {
-						requestView.setText(getPlugin().lastRun.request != null ? getPlugin().lastRun.request.toSpanned() : "");
+                        requestView.setText(getPlugin().lastRun.request != null ? getPlugin().lastRun.request.toSpanned() : "");
                         constraintsProcessedView.setText(getPlugin().lastRun.constraintsProcessed != null ? getPlugin().lastRun.constraintsProcessed.toSpanned() : "");
                         setByPumpView.setText(getPlugin().lastRun.setByPump != null ? getPlugin().lastRun.setByPump.toSpanned() : "");
-						// Test for Rumen's SMB plugin
-						// TODO Check for APS in another way because lastRun.source is not reliable
-						if(getPlugin().lastRun.source != null && !getPlugin().lastRun.source.equals("Rumen AMA+SMB")){
-							sourceView.setText(getPlugin().lastRun.source != null ? getPlugin().lastRun.source : "");
-							lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
-
-						} else {
-							// SMB plugin is in action so there should be some SMB value
-							// There is treatment 
-								//final DetermineBasalResultSMB lastAPSResult = DetermineBasalResultSMB.clone();
-								final ConfigBuilderPlugin configBuilder = MainApp.getConfigBuilder();
-								APSInterface usedAPS = configBuilder.getActiveAPS();
-								APSResult result = null;
-								Double somevalue = 0.0;
-								if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
-									usedAPS.invoke("Loop plugin");
-									result = usedAPS.getLastAPSResult();
-									somevalue = usedAPS.smbValue();
-								}
-								//final APSResult resultFinal = result.clone();
-								boolean treamentExists = getPlugin().treatmentLast5min();
-							if(treamentExists){
-								if(getPlugin().lastRun.lastEnact != null){
-									Long agoMsec = new Date().getTime() - getPlugin().lastRun.lastEnact.getTime();
-									int agoSec = (int) (agoMsec / 1000d);
-									//sourceView.setText("Rumen's SMB plugin enabled!\n"+resultFinal.toString()+"\nTreatment enacted "+agoSec+" sec ago\n");
-									sourceView.setText("Rumen's SMB plugin enabled!\nTreatment enacted "+agoSec+" sec ago\nSMB value is: "+somevalue);
-								} else sourceView.setText("UsedAPS is: "+getPlugin().lastRun.source+"\nBut treatment exists!!!\nSMB value is:"+somevalue);
-															
-							} else sourceView.setText("UsedAPS is: "+getPlugin().lastRun.source+"\nSMB value is:"+somevalue);
-							//lastRunView.setText("SMB value is\n"+getPlugin().lastRun.smb+"\n"+getPlugin().lastRun.lastAPSRun.toLocaleString());
-                            lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
-                        }
+                        sourceView.setText(getPlugin().lastRun.source != null ? getPlugin().lastRun.source : "");
+                        lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
                         lastEnactView.setText(getPlugin().lastRun.lastEnact != null && getPlugin().lastRun.lastEnact.getTime() != 0 ? getPlugin().lastRun.lastEnact.toLocaleString() : "");
                     }
                 }

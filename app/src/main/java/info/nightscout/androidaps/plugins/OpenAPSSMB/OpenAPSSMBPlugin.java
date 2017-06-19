@@ -42,7 +42,7 @@ import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
 import info.nightscout.androidaps.db.DatabaseHelper;  
 //import info.nightscout.androidaps.Constants;
-
+import java.util.ArrayList; 
 import java.util.List;
 import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.interfaces.PumpInterface;
@@ -352,9 +352,11 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 		int agoMin = (int) (agoMsec / 60d / 1000d);
 		//Get if there is a treatment for last 5 minutes
 		boolean treamentExists = false;
-		TreatmentsInterface treatmentsInterface = null;
-		List<Treatment> recentTreatments = TreatmentsInterface.getTreatments5MinBackFromHistory(new Date().getTime());;
-		//recentTreatments = TreatmentsInterface.getTreatments5MinBackFromHistory(new Date().getTime());
+		TreatmentsInterface treatmentsInterface = MainApp.getConfigBuilder(); 
+		List<Treatment> recentTreatments = new ArrayList<Treatment>(); 
+		recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(new Date().getTime());
+		//List<Treatment> recentTreatments = new List<Treatment>;
+		//recentTreatments = treatmentsInterface.getTreatments5MinBackFromHistory(new Date().getTime());
 		if(recentTreatments.size() != 0){
 			// There is treatment
 			treamentExists = true;

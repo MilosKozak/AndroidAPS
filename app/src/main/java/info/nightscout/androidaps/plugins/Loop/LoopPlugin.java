@@ -12,6 +12,7 @@ import android.support.v7.app.NotificationCompat;
 
 import com.squareup.otto.Subscribe;
 
+import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,18 +33,11 @@ import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
-import info.nightscout.utils.SP;
-// Added by Rumen for SMB enact
-//import info.nightscout.androidaps.data.PumpEnactResult;
+import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
-import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.interfaces.InsulinInterface;
+import info.nightscout.utils.NSUpload;
 import info.nightscout.utils.SP;
-import android.support.v4.app.DialogFragment;
-import info.nightscout.androidaps.db.Treatment;
-import info.nightscout.androidaps.interfaces.TreatmentsInterface;
-import java.util.List;
-
+import info.nightscout.utils.SafeParse;
 
 /**
  * Created by mike on 05.08.2016.
@@ -59,8 +53,7 @@ public class LoopPlugin implements PluginBase {
 
     private long loopSuspendedTill = 0L; // end of manual loop suspend
     private boolean isSuperBolus = false;
-	public Boolean smbEnacted = false;
-	
+
     public class LastRun {
         public APSResult request = null;
         public APSResult constraintsProcessed = null;
@@ -69,8 +62,6 @@ public class LoopPlugin implements PluginBase {
         public Date lastAPSRun = null;
         public Date lastEnact = null;
         public Date lastOpenModeAccept;
-		public Double smb = null;
-		public Boolean smbEnacted = false;
     }
 
     static public LastRun lastRun = null;
@@ -215,22 +206,11 @@ public class LoopPlugin implements PluginBase {
 
         return isSuperBolus;
     }
-	
-	public boolean treatmentLast5min(){
-		TreatmentsInterface treatmentsInterface = ConfigBuilderPlugin.getActiveTreatments();
-		List<Treatment> recentTreatments;
-		recentTreatments = treatmentsInterface.getTreatments5MinBack(new Date().getTime());
-		if(recentTreatments.size() != 0){
-			// There is treatment 
-			return true;
-		}
-		return false;
-	}
 
     public void invoke(String initiator, boolean allowNotification) {
         try {
             if (Config.logFunctionCalls)
-                log.debug("invoke");
+                log.debug("invoke from " + initiator);
             ConstraintsInterface constraintsInterface = MainApp.getConfigBuilder();
             if (!constraintsInterface.isLoopEnabled()) {
                 log.debug(MainApp.sResources.getString(R.string.loopdisabled));
@@ -259,16 +239,9 @@ public class LoopPlugin implements PluginBase {
             if (configBuilder.getBaseBasalRate() < 0.01d) return;
 
             APSInterface usedAPS = configBuilder.getActiveAPS();
-			Double smb_value = 0.0;
             if (usedAPS != null && ((PluginBase) usedAPS).isEnabled(PluginBase.APS)) {
                 usedAPS.invoke(initiator);
-				
-				//TODO This is causing a crash when there is no recent BG data
-				//if(usedAPS.smbValue() != null){
-				//		Double smb_value = usedAPS.smbValue();
-				//}				
                 result = usedAPS.getLastAPSResult();
-				smb_value = usedAPS.smbValue();
             }
 
             // Check if we have any result
@@ -286,66 +259,10 @@ public class LoopPlugin implements PluginBase {
             lastRun.constraintsProcessed = resultAfterConstraints;
             lastRun.lastAPSRun = new Date();
             lastRun.source = ((PluginBase) usedAPS).getName();
-			// Added by Rumen for SMB in Loop
-			// If APS source s rumen's plugin
-			boolean SMB_enable = false;
-			if(SP.getBoolean("key_smb", false)){
-				SMB_enable = true;
-			} 
-			// check if SMB is enabled from preferences
-			if(lastRun.source.equals("Rumen AMA+SMB") && SMB_enable){
-				
-				if(smb_value>0){ 
-					// Gett SMB by direct call of function
-					lastRun.smb = smb_value;
-				} else {
-					// always ending here!!!
-					//lastRun.smb = usedAPS.smbValue();//smbPlugin.smbValue();
-					lastRun.smb = 0.0;//smbPlugin.smbValue();
-					
-				}
-			} else {
-				log.debug("Plugin is not Rumen AMA+SMB or SMB disabled in preferences");
-				lastRun.smb = 0.0;
-			}
             lastRun.setByPump = null;
-			if(lastRun.smb == null)lastRun.smb = 0.0;
-			
-			// now SMB is here but needs to go afte closed loop check :)
-			//test to see if it's working
-			
-			if(lastRun.smb > 0){
-				// enacting SMB result but first check for treatment
-				
-				boolean treamentExists = treatmentLast5min();
-				if(lastRun.lastEnact != null){
-					Long agoMsec = new Date().getTime() - lastRun.lastEnact.getTime();
-					int agoSec = (int) (agoMsec / 1000d);
-					if(agoSec > 300) smbEnacted = false;
-				
-				}
-				if(!treamentExists && !smbEnacted){
-					final PumpInterface pump = MainApp.getConfigBuilder();
-					PumpEnactResult enactResult;
-					enactResult = pump.setTempBasalPercent(0, 120);
-				
-					if (enactResult.success) {
-						//Temp is set -> doing SMB
-						Integer nullCarbs = 0;
-						Double smbFinalValue = lastRun.smb;
-						InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
-						enactResult = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, null);
-						if (enactResult.success) {
-							smbEnacted = true;
-							lastRun.lastEnact = new Date();
-							log.debug("SMB of "+smbFinalValue+" done!");
-						}
-					}
-				}
-			
-			}else if (constraintsInterface.isClosedModeEnabled()) {
-                if (result.changeRequested && result.rate > -1d && result.duration > -1) {
-					log.debug("Entering closedLoop and rate is "+result.rate+" and duration is "+result.duration);
+
+             if (constraintsInterface.isClosedModeEnabled()) {
+                if (result.changeRequested) {
                     final PumpEnactResult waiting = new PumpEnactResult();
                     final PumpEnactResult previousResult = lastRun.setByPump;
                     waiting.queued = true;
@@ -404,7 +321,7 @@ public class LoopPlugin implements PluginBase {
             }
 
             MainApp.bus().post(new EventLoopUpdateGui());
-            MainApp.getConfigBuilder().uploadDeviceStatus();
+            NSUpload.uploadDeviceStatus();
         } finally {
             if (Config.logFunctionCalls)
                 log.debug("invoke end");

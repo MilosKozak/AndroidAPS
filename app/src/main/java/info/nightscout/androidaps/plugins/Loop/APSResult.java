@@ -14,14 +14,12 @@ import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.utils.DecimalFormatter;
 
 /**
- * Created by mike on 09.06.2016.\
-	Edit by Rumen on 30.05.2017
+ * Created by mike on 09.06.2016.
  */
 public class APSResult {
     public String reason;
     public double rate;
     public int duration;
-	public double smbValue;
     public boolean changeRequested = false;
     @Override
     public String toString() {
@@ -30,7 +28,7 @@ public class APSResult {
             if (rate == 0 && duration == 0)
                 return MainApp.sResources.getString(R.string.canceltemp);
             else
-                return "SMB from determineBasalResult is " + smbValue + " U ;" + MainApp.sResources.getString(R.string.rate) + ": " + DecimalFormatter.to2Decimal(rate) + " U/h " +
+                return MainApp.sResources.getString(R.string.rate) + ": " + DecimalFormatter.to2Decimal(rate) + " U/h " +
                         "(" + DecimalFormatter.to2Decimal(rate/configBuilder.getBaseBasalRate() *100) + "%)\n" +
                         MainApp.sResources.getString(R.string.duration) + ": " + DecimalFormatter.to0Decimal(duration) + " min\n" +
                         MainApp.sResources.getString(R.string.reason) + ": " + reason;
@@ -61,7 +59,6 @@ public class APSResult {
         newResult.reason = new String(reason);
         newResult.rate = rate;
         newResult.duration = duration;
-		newResult.smbValue = smbValue;
         newResult.changeRequested = changeRequested;
         return newResult;
     }
@@ -72,7 +69,6 @@ public class APSResult {
             if (changeRequested) {
                 json.put("rate", rate);
                 json.put("duration", duration);
-				json.put("smbValue", smbValue);
                 json.put("reason", reason);
             }
         } catch (JSONException e) {
