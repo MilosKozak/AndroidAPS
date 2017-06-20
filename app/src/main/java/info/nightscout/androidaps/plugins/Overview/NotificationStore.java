@@ -45,19 +45,20 @@ public class NotificationStore {
         Collections.sort(store, new NotificationComparator());
     }
 
-    public void remove(int id) {
+    public boolean remove(int id) {
         for (int i = 0; i < store.size(); i++) {
             if (get(i).id == id) {
                 store.remove(i);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public void removeExpired() {
         for (int i = 0; i < store.size(); i++) {
             Notification n = get(i);
-            if (n.validTo.getTime() != 0 && n.validTo.getTime() < new Date().getTime()) {
+            if (n.validTo.getTime() != 0 && n.validTo.getTime() < System.currentTimeMillis()) {
                 store.remove(i);
                 i--;
             }

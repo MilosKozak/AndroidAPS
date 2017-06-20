@@ -32,7 +32,7 @@
     <string name="treatments_iob_label_string">IOB:</string>
     <string name="sms_iob">IOB:</string>
     <string name="treatments_activity_string">Activity:</string>
-    <string name="treatments_iobtotal_label_string">Toal IOB:</string>
+    <string name="treatments_iobtotal_label_string">Total IOB:</string>
     <string name="treatments_iobactivitytotal_label_string">Total IOB activity:</string>
     <string name="tempbasals_realduration_label_string">Dur:</string>
     <string name="tempbasals_netratio_label_string">Ratio:</string>
@@ -63,14 +63,14 @@
     <string name="openapsma_iobdata_label">IOB data</string>
     <string name="openapsma_profile_label">Profile</string>
     <string name="openapsma_mealdata_label">Meal data</string>
-	<string name="openapsma_result_label">Result</string>
+    <string name="openapsma_result_label">Result</string>
     <string name="openapsma_smb_label">SMB result</string>
 	<string name="smb">SMB</string>
 	<string name="smb_shortname">SMB</string>
 	<string name="key_smb" translatable="false">key_smb</string>
 	<string name="enablesmb">SMB enable</string>
 	<string name="enablesmb_summary">Super Micro Boluses is used when there are COB and more insulin is needed</string>
-	<string name="openapsma_noglucosedata">No glucose data available</string>
+    <string name="openapsma_noglucosedata">No glucose data available</string>
     <string name="openapsma_noprofile">No profile available</string>
     <string name="openapsma_nopump">No pump available</string>
     <string name="nochangerequested">No change requested</string>
@@ -90,7 +90,7 @@
     <string name="overview">Overview</string>
     <string name="profileviewer">NS Profile</string>
     <string name="simpleprofile">Simple profile</string>
-    <string name="tempbasals">Temp Basals</string>
+    <string name="tempbasal">TempBasal</string>
     <string name="treatments">Treatments</string>
     <string name="virtualpump">Virtual Pump</string>
     <string name="careportal">Careportal</string>
@@ -150,6 +150,7 @@
 
     <string name="openloop_newsuggestion">New suggestion available</string>
     <string name="unsupportedclientver">Unsupported version of NSClient</string>
+    <string name="unsupportednsversion">Unsupported version of Nightscout</string>
     <string name="nsclientnotinstalled">NSClient not installed. Record lost!</string>
     <string name="objectives_bgavailableinns">BG available in NS</string>
     <string name="objectives_pumpstatusavailableinns">Pump status available in NS</string>
@@ -217,6 +218,7 @@
     <string name="es_lang">Spanish</string>
     <string name="el_lang">Greek</string>
     <string name="it_lang">Italian</string>
+    <string name="ru_lang">Russian</string>
     <string name="openapsma_low_summary">The minimum BG value to be in range.</string>
     <string name="openapsma_high_summary">The maximum BG value to be in range.</string>
     <string name="openapsma_maxbasal_title">Max U/hr a Temp Basal can be set to</string>
@@ -360,7 +362,6 @@
     <string name="androidaps_start">AndroidAPS started</string>
     <string name="ns_upload_only">NS upload only (disabled sync)</string>
     <string name="ns_upload_only_summary">NS upload only. Not effective on SGV unless a local source like xDrip is selected. Not effective on Profiles while NS-Profiles is used.</string>
-    <string name="ns_upload_only_enabled">Please deactivate "NS upload only" to use this feature.</string>
     <string name="pumpNotInitialized">Pump not initialized!</string>
     <string name="pumpNotInitializedProfileNotSet">Pump not initialized, profile not set!</string>
     <string name="primefill">Prime/Fill</string>
@@ -415,13 +416,14 @@
     <string name="sms_minago">%dmin ago</string>
     <string name="localprofile">Local Profile</string>
     <string name="openapsama">OpenAPS AMA</string>
-	<string name="openapssmb">Rumen AMA+SMB</string>
+	<string name="openapssmb">Rumen SMB</string>
     <string name="short_avgdelta">Short avg. delta</string>
     <string name="long_avgdelta">Long avg. delta</string>
     <string name="array_of_elements">Array of %d elements.\nActual value:</string>
     <string name="openapsma_autosensdata_label">Autosens data</string>
     <string name="openapsma_scriptdebugdata_label">Script debug</string>
     <string name="openapsama_useautosens">Use AMA autosens feature</string>
+    <string name="refresheventsfromnightscout">Refresh events from NS</string>
     <string name="temptargetrange">Temp Target</string>
     <string name="temptargetrange_refreshfromnightscout">Refresh temp targets from NS</string>
     <string name="eatingsoon">Eating Soon</string>
@@ -590,6 +592,7 @@
     <string name="ns_logappstartedevent">Log app start to NS</string>
     <string name="key_ns_logappstartedevent" translatable="false">ns_logappstartedevent</string>
     <string name="restartingapp">Exiting application to apply settings.</string>
+    <string name="danarv2pump">DanaRv2</string>
     <string name="configbuilder_insulin">Insulin</string>
     <string name="fastactinginsulin">Fast Acting Insulin</string>
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
@@ -619,4 +622,39 @@
     <string name="key_ns_noupload" translatable="false">ns_noupload</string>
     <string name="basal_step">Basal Step</string>
     <string name="bolus_step">Bolus Step</string>
+    <string name="extendedbolus">ExtendedBolus</string>
+    <string name="temptarget">TempTarget</string>
+    <string name="overview_extendedbolus_cancel_button">Cancel Extended Bolus</string>
+    <string name="careportal_sensorage_label">Sensor age</string>
+    <string name="careportal_canulaage_label">Canula age</string>
+    <string name="careportal_insulinage_label">Insulin age</string>
+    <string name="hours">hours</string>
+    <string name="overview_newtempbasal_basaltype_label">Basal type</string>
+    <string name="isfmissing">ISF missing in profile. Using default.</string>
+    <string name="icmissing">IC missing in profile. Using default.</string>
+    <string name="basalmissing">Basal missing in profile. Using default.</string>
+    <string name="targetmissing">Target missing in profile. Using default.</string>
+    <string name="invalidprofile">Invalid profile !!!</string>
+    <string name="profileswitch">ProfileSwitch</string>
+    <string name="careportal_pbage_label">Pump battery age</string>
+    <string name="updating">Updating ...</string>
+    <string name="careportal_pumpbatterychange">Pump Battery Change</string>
+    <string name="ns_alarmoptions">Alarm options</string>
+    <string name="key_nsalarm_urgent_high" translatable="false">nsalarm_urgent_high</string>
+    <string name="key_nsalarm_high" translatable="false">nsalarm_high</string>
+    <string name="key_nsalarm_low" translatable="false">nsalarm_low</string>
+    <string name="key_nsalarm_urgent_low" translatable="false">nsalarm_urgent_low</string>
+    <string name="key_nsalarm_staledata" translatable="false">nsalarm_staledata</string>
+    <string name="key_nsalarm_urgent_staledata" translatable="false">nsalarm_urgent_staledata</string>
+    <string name="key_nsalarm_staledatavalue" translatable="false">nsalarm_staledatavalue</string>
+    <string name="key_nsalarm_urgent_staledatavalue" translatable="false">nsalarm_urgent_staledatavalue</string>
+    <string name="nsalarm_urgenthigh">Urgent high</string>
+    <string name="nsalarm_high">High</string>
+    <string name="nsalarm_low">Low</string>
+    <string name="nsalarm_urgentlow">Urgent low</string>
+    <string name="nsalarm_summary" formatted="false">Currently set to %f</string>
+    <string name="nsalarm_staledata">Stale data</string>
+    <string name="nsalarm_urgentstaledata">Urgent stale data</string>
+    <string name="nsalarm_staledatavalue_label">Stale data threshold [min]</string>
+    <string name="nsalarm_urgent_staledatavalue_label">Urgent stale data threshold [min]</string>
 </resources>

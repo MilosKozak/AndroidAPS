@@ -84,7 +84,7 @@ import info.nightscout.androidaps.events.EventExtendedBolusChange;
 import info.nightscout.androidaps.events.EventInitializationChanged;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventPumpStatusChanged;
-import info.nightscout.androidaps.events.EventRefreshGui;
+import info.nightscout.androidaps.events.EventRefreshOverview;
 import info.nightscout.androidaps.events.EventTempBasalChange;
 import info.nightscout.androidaps.events.EventTempTargetChange;
 import info.nightscout.androidaps.events.EventTreatmentChange;
@@ -107,7 +107,6 @@ import info.nightscout.androidaps.plugins.Overview.Dialogs.CalibrationDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewTreatmentDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.WizardDialog;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
-import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.AreaGraphSeries;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.DataPointWithLabelInterface;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.DoubleDataPoint;
@@ -430,7 +429,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             NSUpload.uploadOpenAPSOffline(0);
             return true;
         } else if (item.getTitle().equals(MainApp.sResources.getString(R.string.suspendloopfor1h))) {
-            activeloop.suspendTo(new Date().getTime() + 60L * 60 * 1000);
+            activeloop.suspendTo(System.currentTimeMillis() + 60L * 60 * 1000);
             updateGUI("suspendmenu");
             sHandler.post(new Runnable() {
                 @Override
@@ -444,7 +443,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             NSUpload.uploadOpenAPSOffline(60);
             return true;
         } else if (item.getTitle().equals(MainApp.sResources.getString(R.string.suspendloopfor2h))) {
-            activeloop.suspendTo(new Date().getTime() + 2 * 60L * 60 * 1000);
+            activeloop.suspendTo(System.currentTimeMillis() + 2 * 60L * 60 * 1000);
             updateGUI("suspendmenu");
             sHandler.post(new Runnable() {
                 @Override
@@ -458,7 +457,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             NSUpload.uploadOpenAPSOffline(120);
             return true;
         } else if (item.getTitle().equals(MainApp.sResources.getString(R.string.suspendloopfor3h))) {
-            activeloop.suspendTo(new Date().getTime() + 3 * 60L * 60 * 1000);
+            activeloop.suspendTo(System.currentTimeMillis() + 3 * 60L * 60 * 1000);
             updateGUI("suspendmenu");
             sHandler.post(new Runnable() {
                 @Override
@@ -472,7 +471,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             NSUpload.uploadOpenAPSOffline(180);
             return true;
         } else if (item.getTitle().equals(MainApp.sResources.getString(R.string.suspendloopfor10h))) {
-            activeloop.suspendTo(new Date().getTime() + 10 * 60L * 60 * 1000);
+            activeloop.suspendTo(System.currentTimeMillis() + 10 * 60L * 60 * 1000);
             updateGUI("suspendmenu");
             sHandler.post(new Runnable() {
                 @Override
@@ -486,7 +485,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             NSUpload.uploadOpenAPSOffline(600);
             return true;
         } else if (item.getTitle().equals(MainApp.sResources.getString(R.string.disconnectpumpfor30m))) {
-            activeloop.suspendTo(new Date().getTime() + 30L * 60 * 1000);
+            activeloop.suspendTo(System.currentTimeMillis() + 30L * 60 * 1000);
             updateGUI("suspendmenu");
             sHandler.post(new Runnable() {
                 @Override
@@ -500,7 +499,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             NSUpload.uploadOpenAPSOffline(30);
             return true;
         } else if (item.getTitle().equals(MainApp.sResources.getString(R.string.disconnectpumpfor1h))) {
-            activeloop.suspendTo(new Date().getTime() + 1 * 60L * 60 * 1000);
+            activeloop.suspendTo(System.currentTimeMillis() + 1 * 60L * 60 * 1000);
             updateGUI("suspendmenu");
             sHandler.post(new Runnable() {
                 @Override
@@ -514,7 +513,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             NSUpload.uploadOpenAPSOffline(60);
             return true;
         } else if (item.getTitle().equals(MainApp.sResources.getString(R.string.disconnectpumpfor2h))) {
-            activeloop.suspendTo(new Date().getTime() + 2 * 60L * 60 * 1000);
+            activeloop.suspendTo(System.currentTimeMillis() + 2 * 60L * 60 * 1000);
             updateGUI("suspendmenu");
             sHandler.post(new Runnable() {
                 @Override
@@ -528,7 +527,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             NSUpload.uploadOpenAPSOffline(120);
             return true;
         } else if (item.getTitle().equals(MainApp.sResources.getString(R.string.disconnectpumpfor3h))) {
-            activeloop.suspendTo(new Date().getTime() + 3 * 60L * 60 * 1000);
+            activeloop.suspendTo(System.currentTimeMillis() + 3 * 60L * 60 * 1000);
             updateGUI("suspendmenu");
             sHandler.post(new Runnable() {
                 @Override
@@ -759,8 +758,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
     }
 
     @Subscribe
-    public void onStatusEvent(final EventRefreshGui ev) {
-        scheduleUpdateGUI("EventRefreshGui");
+    public void onStatusEvent(final EventRefreshOverview ev) {
+        scheduleUpdateGUI(ev.from);
     }
 
     @Subscribe
@@ -808,16 +807,6 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
     @Subscribe
     public void onStatusEvent(final EventTempTargetChange ev) {
         scheduleUpdateGUI("EventTempTargetChange");
-    }
-
-    @Subscribe
-    public void onStatusEvent(final EventNewNotification n) {
-        updateNotifications();
-    }
-
-    @Subscribe
-    public void onStatusEvent(final EventDismissNotification n) {
-        updateNotifications();
     }
 
     @Subscribe
@@ -953,7 +942,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         }
 
         // temp target
-        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(new Date().getTime());
+        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(System.currentTimeMillis());
         if (tempTarget != null) {
             tempTargetView.setTextColor(Color.BLACK);
             tempTargetView.setBackgroundColor(MainApp.sResources.getColor(R.color.tempTargetBackground));
@@ -998,7 +987,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             calibrationButton.setVisibility(View.GONE);
         }
 
-        TemporaryBasal activeTemp = MainApp.getConfigBuilder().getTempBasalFromHistory(new Date().getTime());
+        TemporaryBasal activeTemp = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
         if (activeTemp != null) {
             cancelTempButton.setVisibility(View.VISIBLE);
             cancelTempButton.setText(MainApp.instance().getString(R.string.cancel) + "\n" + activeTemp.toStringShort());
@@ -1017,7 +1006,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         }
         baseBasalView.setText(basalText);
 
-        ExtendedBolus extendedBolus = MainApp.getConfigBuilder().getExtendedBolusFromHistory(new Date().getTime());
+        ExtendedBolus extendedBolus = MainApp.getConfigBuilder().getExtendedBolusFromHistory(System.currentTimeMillis());
         String extendedBolusText = "";
         if (extendedBolus != null && !pump.isFakingTempsByExtendedBoluses()) {
             extendedBolusText = extendedBolus.toString();
@@ -1121,7 +1110,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             flag &= ~Paint.STRIKE_THRU_TEXT_FLAG;
         bgView.setPaintFlags(flag);
 
-        Long agoMsec = new Date().getTime() - lastBG.date;
+        Long agoMsec = System.currentTimeMillis() - lastBG.date;
         int agoMin = (int) (agoMsec / 60d / 1000d);
         timeAgoView.setText(String.format(MainApp.sResources.getString(R.string.minago), agoMin));
 
@@ -1139,7 +1128,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         // cob
         if (cobView != null) { // view must not exists
             String cobText = "";
-            AutosensData autosensData = IobCobCalculatorPlugin.getAutosensData(new Date().getTime());
+            AutosensData autosensData = IobCobCalculatorPlugin.getAutosensData(System.currentTimeMillis());
             if (autosensData != null)
                 cobText = (int) autosensData.cob + " g " + String.format(MainApp.sResources.getString(R.string.minago), autosensData.minOld());
             cobView.setText(cobText);
@@ -1159,7 +1148,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
 
         // allign to hours
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(new Date().getTime());
+        calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.MILLISECOND, 0);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MINUTE, 0);
@@ -1170,16 +1159,16 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         long fromTime;
         long endTime;
         if (showPrediction) {
-            int predHours = (int) (Math.ceil(((DetermineBasalResultAMA) finalLastRun.constraintsProcessed).getLatestPredictionsTime() - new Date().getTime()) / (60 * 60 * 1000));
+            int predHours = (int) (Math.ceil(((DetermineBasalResultAMA) finalLastRun.constraintsProcessed).getLatestPredictionsTime() - System.currentTimeMillis()) / (60 * 60 * 1000));
             predHours = Math.min(2, predHours);
             predHours = Math.max(0, predHours);
             hoursToFetch = rangeToDisplay - predHours;
-            toTime = calendar.getTimeInMillis() + 60000; // little bit more to avoid wrong rounding
+            toTime = calendar.getTimeInMillis() + 100000; // little bit more to avoid wrong rounding - Graphview specific
             fromTime = toTime - hoursToFetch * 60 * 60 * 1000L;
             endTime = toTime + predHours * 60 * 60 * 1000L;
         } else {
             hoursToFetch = rangeToDisplay;
-            toTime = calendar.getTimeInMillis() + 600000; // little bit more to avoid wrong rounding
+            toTime = calendar.getTimeInMillis() + 100000; // little bit more to avoid wrong rounding - Graphview specific
             fromTime = toTime - hoursToFetch * 60 * 60 * 1000L;
             endTime = toTime;
         }
@@ -1194,7 +1183,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         // **** TEMP BASALS graph ****
         Double maxBasalValueFound = 0d;
 
-        long now = new Date().getTime();
+        long now = System.currentTimeMillis();
         if (pump.getPumpDescription().isTempBasalCapable && showBasalsView.isChecked()) {
             List<DataPoint> baseBasalArray = new ArrayList<>();
             List<DataPoint> tempBasalArray = new ArrayList<>();
@@ -1608,6 +1597,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
 
         RecyclerViewAdapter(List<Notification> notificationsList) {
             this.notificationsList = notificationsList;
+            log.debug("RecyclerViewAdapter");
         }
 
         @Override
