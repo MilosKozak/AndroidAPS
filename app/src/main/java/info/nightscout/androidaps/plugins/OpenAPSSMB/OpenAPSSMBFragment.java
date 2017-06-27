@@ -161,15 +161,18 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
                         mealDataView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getMealDataParam()));
                         scriptdebugView.setText(determineBasalAdapterAMAJS.getScriptDebug());
 						// Ok trying some calcs here getting iob, cob, delta - done
-						// THIS WORKS ONLY WITH NS PROFILE!!!!
 						// TODO Workaround for undead carbs as in #427 in OpenAPSAMA https://github.com/openaps/oref0/pull/427/files
 						// TODO disable SMB when a high temptarget is set, enable SMB (if enabled in preferences) if a low temptarget is set
 						// Get time since last enact, and do not run another smb if time is less than 5 minutes
 						
 						boolean SMB_enable = false;
+						boolean UAM_enable = false;
 						if(SP.getBoolean("key_smb", false)){
-							SMB_enable = false;
-						} 
+							SMB_enable = true;
+						}
+						if(SP.getBoolean("key_uam", false)){
+							UAM_enable = true;
+						}						
 						// Single SMB amounts are limited by several factors.  The largest a single SMB bolus can be is the SMALLEST value of:
 						//1/3 minutes of the current basal  or
 						//1/3 of the Insulin Required amount, or
@@ -233,7 +236,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						
 						if(mealData.mealCOB == 0){
 							
-							SMB_calc.setText("No COB's left for SMB");
+							SMB_calc.setText("No COB's left for SMB! SMBkey is "+SMB_enable+" UAM_enable is "+UAM_enable);
 							
 						}	
 						// check if delta < 0
@@ -256,6 +259,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 							}
 							//testing how many treatments will that create
 							//if(smb_value == 0) smb_value = 0.1;
+							/* SMB is done by loopPlugin not here 
 							if(smb_value>0 && SMB_enable && !treamentExists){
 								SMB_calc.setText("Need to set temp");
 								PumpEnactResult result;
@@ -267,9 +271,6 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 									final Context context = getContext();
 									Integer nullCarbs = 0;
 									Double smbFinalValue = smb_value;
-									//JUST TO TEST INTERFACE
-									//if(smb_value == 0){ smbFinalValue = 0.1;}
-							
 									InsulinInterface insulin = ConfigBuilderPlugin.getActiveInsulin();
 									// Deliver smbFinalValue but not working in 1.50
 									//result = pump.deliverTreatment(insulin, smbFinalValue, nullCarbs, context);
@@ -280,7 +281,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 									} else SMB_calc.setText("Temp set!SMB failed");
 								}
 								
-							}
+							} */
 						}
 						
                     }
