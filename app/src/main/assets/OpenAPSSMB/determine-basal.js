@@ -256,7 +256,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
 
     // enable SMB whenever we have COB or UAM is enabled
     // SMB is diabled by default, unless explicitly enabled in preferences.json
-    var enableSMB=false;
+    var enableSMB=true;
     // disable SMB when a high temptarget is set
     if (profile.temptargetSet && target_bg > 100) {
         enableSMB=false;
@@ -272,7 +272,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     }
     // enable UAM (if enabled in preferences) for DIA hours after bolus, or if SMB is enabled
     var enableUAM=(profile.enableUAM && (bolusiob > 0.1 || enableSMB));
-
+	//var enableUAM=true;
 
     //console.error(meal_data);
     // carb impact and duration are 0 unless changed below
@@ -763,7 +763,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
         rT.minPredBG = minPredBG;
         //console.error(iob_data.lastBolusTime);
         // minutes since last bolus
-        var lastBolusAge = round(( new Date().getTime() - iob_data.lastBolusTime ) / 60000,1);
+        var lastBolusAge = round(( new Date().getTime() - meal_data.lastBolusTime ) / 60000,1);
         //console.error(lastBolusAge);
         //console.error(profile.temptargetSet, target_bg, rT.COB);
         // only allow microboluses with COB or low temp targets, or within DIA hours of a bolus
@@ -804,7 +804,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
             //allow SMBs every 3 minutes
             var nextBolusMins = round(3-lastBolusAge,1);
             //console.error(naive_eventualBG, insulinReq, worstCaseInsulinReq, durationReq);
-            console.error("naive_eventualBG",naive_eventualBG+",",durationReq+"m zero temp needed; last bolus",lastBolusAge+"m ago ("+iob_data.lastBolusTime+").");
+            console.error("naive_eventualBG",naive_eventualBG+",",durationReq+"m zero temp needed; last bolus",lastBolusAge+"m ago ("+meal_data.lastBolusTime+").");
             if (lastBolusAge > 3) {
                 if (microBolus > 0) {
                     rT.units = microBolus; 
