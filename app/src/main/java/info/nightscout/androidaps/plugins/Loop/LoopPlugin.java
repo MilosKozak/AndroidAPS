@@ -293,7 +293,7 @@ public class LoopPlugin implements PluginBase {
             lastRun.source = ((PluginBase) usedAPS).getName();
 			// Added by Rumen for SMB in Loop
 			// If APS source s rumen's plugin
-			boolean SMB_enable = true;
+			boolean SMB_enable = false;
 			if(SP.getBoolean("key_smb", false)){
 				SMB_enable = true;
 			} 
@@ -333,7 +333,7 @@ public class LoopPlugin implements PluginBase {
 				log.debug("SMB treatmentExists is "+treamentExists+" and smbEnacted is:"+smbEnacted);
 				//if(!treamentExists && !smbEnacted){
 				if(!treamentExists){
-					log.debug("SMB entering after treamentExists");
+					log.debug("SMB entering after no treamentExists");
 					// Testing Notification for SMB
 					boolean notificationForSMB = false;
 					if(notificationForSMB){
