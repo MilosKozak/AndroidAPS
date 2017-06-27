@@ -265,7 +265,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
 
 
         DetermineBasalResultSMB determineBasalResultAMA = determineBasalAdapterAMAJS.invoke();
-        Profiler.log(log, "AMA calculation", start);
+        Profiler.log(log, "SMB calculation", start);
         // Fix bug determine basal
         if (determineBasalResultAMA.rate == 0d && determineBasalResultAMA.duration == 0 && !MainApp.getConfigBuilder().isTempBasalInProgress())
             determineBasalResultAMA.changeRequested = false;
@@ -414,7 +414,11 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
     public static boolean checkOnlyHardLimits(Double value, String valueName, double lowLimit, double highLimit) {
         return value.equals(verifyHardLimits(value, valueName, lowLimit, highLimit));
     }
-
+	//added by Rumen
+	public Double smbValue(){
+		DetermineBasalResultSMB lastAPSResult = this.lastAPSResult;
+		if(lastAPSResult == null) return -0.3; else return lastAPSResult.smbValue;
+	}
     public static Double verifyHardLimits(Double value, String valueName, double lowLimit, double highLimit) {
         Double newvalue = value;
         if (newvalue < lowLimit || newvalue > highLimit) {

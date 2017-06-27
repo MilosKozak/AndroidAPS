@@ -24,6 +24,11 @@ import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugi
 import info.nightscout.androidaps.plugins.Loop.ScriptReader;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.utils.SP;
+//added by Rumen for SMB calculations
+import info.nightscout.androidaps.interfaces.TreatmentsInterface;
+import java.util.ArrayList;
+import java.util.List;
+import info.nightscout.androidaps.db.Treatment;
 
 public class DetermineBasalAdapterSMBJS {
     private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterSMBJS.class);
@@ -229,7 +234,8 @@ public class DetermineBasalAdapterSMBJS {
         mProfile.add("temptargetSet", tempTargetSet);
         mProfile.add("autosens_adjust_targets", SP.getBoolean("openapsama_autosens_adjusttargets", true));
         mProfile.add("min_5m_carbimpact", SP.getDouble("openapsama_min_5m_carbimpact", 3d));
-		mProfile.add("enableUAM", true); // Enabling UAM by default
+		mProfile.add("enableSMB", true); // enable smb
+		mProfile.add("enableUAM", true); // Disable UAM by default - as of 23.06.2017 not working correctly
         mV8rt.add(PARAM_profile, mProfile);
 
         mCurrentTemp = new V8Object(mV8rt);
@@ -245,10 +251,24 @@ public class DetermineBasalAdapterSMBJS {
         }
 
         mV8rt.add(PARAM_currentTemp, mCurrentTemp);
-
+		
         mIobData = mV8rt.executeArrayScript(IobCobCalculatorPlugin.convertToJSONArray(iobArray).toString());
-        mV8rt.add(PARAM_iobData, mIobData);
-
+		mV8rt.add(PARAM_iobData, mIobData);
+        //Added by rumen to get latest treatment/bolus age
+		boolean treamentExists = false;
+		TreatmentsInterface treatmentsInterface = MainApp.getConfigBuilder(); 
+		List<Treatment> recentTreatments = new ArrayList<Treatment>(); 
+		recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(new Date().getTime());
+		long currTime = new Date().getTime();
+		long fiveMinsAgo = currTime - 300000;
+		log.debug("currTime is: " + currTime);
+		log.debug("5 mins ago : " + fiveMinsAgo);
+		if(recentTreatments.size() != 0){
+			// There is treatment 
+			mIobData.add("lastBolusTime", currTime);
+		} else currTime = fiveMinsAgo;
+		//Added by rumen to get latest treatment/bolus age
+				
         mGlucoseStatus = new V8Object(mV8rt);
         mGlucoseStatus.add("glucose", glucoseStatus.glucose);
 
@@ -266,7 +286,9 @@ public class DetermineBasalAdapterSMBJS {
         mMealData.add("boluses", mealData.boluses);
         mMealData.add("mealCOB", mealData.mealCOB);
 		//TODO ADD minDeviationSlope
-		mMealData.add("minDeviationSlope", 0.1);
+		//Added by Rumen and changing determine-basal to get it from mealData not IOB_data
+		mMealData.add("lastBolusTime", currTime);
+		mMealData.add("minDeviationSlope", 0.0);
         mV8rt.add(PARAM_meal_data, mMealData);
 		mV8rt.add("microbolusallowed", PARAM_microBolusAllowed);
 		mV8rt.add("reservoir_data", PARAM_reservoirData);

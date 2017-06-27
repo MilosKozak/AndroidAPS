@@ -163,15 +163,15 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						// Ok trying some calcs here getting iob, cob, delta - done
 						// THIS WORKS ONLY WITH NS PROFILE!!!!
 						// TODO Workaround for undead carbs as in #427 in OpenAPSAMA https://github.com/openaps/oref0/pull/427/files
-						
+						// TODO disable SMB when a high temptarget is set, enable SMB (if enabled in preferences) if a low temptarget is set
 						// Get time since last enact, and do not run another smb if time is less than 5 minutes
 						
 						boolean SMB_enable = false;
 						if(SP.getBoolean("key_smb", false)){
-							SMB_enable = true;
+							SMB_enable = false;
 						} 
 						// Single SMB amounts are limited by several factors.  The largest a single SMB bolus can be is the SMALLEST value of:
-						//30 minutes of the current regular basal rate, or
+						//1/3 minutes of the current basal  or
 						//1/3 of the Insulin Required amount, or
 						//the remaining portion of your max-iob setting in preferences.
 						
@@ -213,7 +213,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						if(recentTreatments.size() != 0){
 							// There is treatment 
 							treamentExists = true;
-						}
+						} 
 						
 						// If there will be SMB -> TempBasal 0 ?!? 
 						// VERY DANGEROUS !!! just to test pump interfaces setting temp 0 for 120 minutes
@@ -222,7 +222,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 							tempIsSet = "Treatment in last 5 min exists";
 						} else tempIsSet = "No treatment";
 						if(!SMB_enable){
-							tempIsSet = "SMB disabled! \nLast BG was "+agoMin+" minutes ago";
+							tempIsSet = "SMB disabled1! \nLast BG was "+agoMin+" minutes ago";
 						}
 								
 						//Getting COB 
@@ -248,7 +248,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						} else {
 							SMB_calc.setText("Treated: "+tempIsSet+"\nCalculated SMB: "+String.format( "%.2f", (smb_value))+"\nBasal is: "+profile.getBasal(Profile.secondsFromMidnight())+"\nMax IOB is: "+maxIob+"\nIOB difference:"+String.format( "%.2f",iob_difference)+"\n1/3 of suggested is:"+String.format( "%.2f", (lastAPSResult.rate/6))+" ("+lastAPSResult.rate+")"+"\nMealCOB:"+String.format( "%.2f", (mealData.mealCOB))+"\nBG:"+glucoseStatus.glucose+"\ndelta:"+String.format( "%.2f", (glucoseStatus.delta*0.1))+"\nActive insulin:"+iobtext+"\n APS requested:"+lastAPSResult.rate/2+"\nSMB_enabled: "+SMB_enable);
 							if(!SMB_enable){
-								tempIsSet = "SMB disabled!";
+								tempIsSet = "SMB disabled2!";
 							}
 							if((agoMin-5) < 5 && treamentExists){
 								SMB_enable = false;

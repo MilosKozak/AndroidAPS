@@ -45,7 +45,10 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
 
     boolean fragmentEnabled = false;
     boolean fragmentVisible = true;
-
+    @Override
+    public Double smbValue() {
+        return 0d;
+    }
     @Override
     public String getName() {
         return MainApp.instance().getString(R.string.openapsma);
@@ -133,6 +136,13 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
         Profile profile = MainApp.getConfigBuilder().getProfile();
         PumpInterface pump = MainApp.getConfigBuilder();
 
+        if (profile == null) {
+            MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.noprofileselected)));
+            if (Config.logAPSResult)
+                log.debug(MainApp.instance().getString(R.string.noprofileselected));
+            return;
+        }
+
         if (!isEnabled(PluginBase.APS)) {
             MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.openapsma_disabled)));
             if (Config.logAPSResult)
@@ -186,7 +196,7 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
         maxBg = verifyHardLimits(maxBg, "maxBg", Constants.VERY_HARD_LIMIT_MAX_BG[0], Constants.VERY_HARD_LIMIT_MAX_BG[1]);
         targetBg = verifyHardLimits(targetBg, "targetBg", Constants.VERY_HARD_LIMIT_TARGET_BG[0], Constants.VERY_HARD_LIMIT_TARGET_BG[1]);
 
-        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(new Date().getTime());
+        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(System.currentTimeMillis());
         if (tempTarget != null) {
             minBg = verifyHardLimits(tempTarget.low, "minBg", Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[1]);
             maxBg = verifyHardLimits(tempTarget.high, "maxBg", Constants.VERY_HARD_LIMIT_TEMP_MAX_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MAX_BG[1]);

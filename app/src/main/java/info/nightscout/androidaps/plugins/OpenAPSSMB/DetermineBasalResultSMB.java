@@ -44,7 +44,7 @@ public class DetermineBasalResultSMB extends APSResult {
 			if (result.contains("units")) {
 				changeRequested = true;
 				smbValue = result.getDouble("units");
-				log.debug("Microbolus of "+smbValue+" units needed");
+				log.debug(">>>>>>> Setting smbValue to "+smbValue+" >>>> DetermineBasalResultSMB");
 			} else {
 				smbValue = -5.5;
 				log.debug(">>>>>>> Setting smbValue to -5.5 >>>> DetermineBasalResultSMB");

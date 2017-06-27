@@ -49,6 +49,11 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
     boolean fragmentVisible = true;
 
     @Override
+    public Double smbValue() {
+        return 0d;
+    }
+
+    @Override
     public String getName() {
         return MainApp.instance().getString(R.string.openapsama);
     }
@@ -135,6 +140,13 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
         Profile profile = MainApp.getConfigBuilder().getProfile();
         PumpInterface pump = MainApp.getConfigBuilder();
 
+        if (profile == null) {
+            MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.noprofileselected)));
+            if (Config.logAPSResult)
+                log.debug(MainApp.instance().getString(R.string.noprofileselected));
+            return;
+        }
+
         if (!isEnabled(PluginBase.APS)) {
             MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.openapsma_disabled)));
             if (Config.logAPSResult)
@@ -151,9 +163,9 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
 
         String units = profile.getUnits();
 
-        Double maxBgDefault = Constants.MAX_BG_DEFAULT_MGDL;
-        Double minBgDefault = Constants.MIN_BG_DEFAULT_MGDL;
-        Double targetBgDefault = Constants.TARGET_BG_DEFAULT_MGDL;
+        double maxBgDefault = Constants.MAX_BG_DEFAULT_MGDL;
+        double minBgDefault = Constants.MIN_BG_DEFAULT_MGDL;
+        double targetBgDefault = Constants.TARGET_BG_DEFAULT_MGDL;
         if (!units.equals(Constants.MGDL)) {
             maxBgDefault = Constants.MAX_BG_DEFAULT_MMOL;
             minBgDefault = Constants.MIN_BG_DEFAULT_MMOL;
@@ -187,7 +199,7 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
         targetBg = verifyHardLimits(targetBg, "targetBg", Constants.VERY_HARD_LIMIT_TARGET_BG[0], Constants.VERY_HARD_LIMIT_TARGET_BG[1]);
 
         boolean isTempTarget = false;
-        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(new Date().getTime());
+        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(System.currentTimeMillis());
         if (tempTarget != null) {
             isTempTarget = true;
             minBg = verifyHardLimits(tempTarget.low, "minBg", Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[1]);
@@ -208,7 +220,7 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
         if (!checkOnlyHardLimits(pump.getBaseBasalRate(), "current_basal", 0.01, 5)) return;
 
         long oldestDataAvailable = MainApp.getConfigBuilder().oldestDataAvailable();
-        long getBGDataFrom = Math.max(oldestDataAvailable, (long) (new Date().getTime() - 60 * 60 * 1000L * (24 + profile.getDia())));
+        long getBGDataFrom = Math.max(oldestDataAvailable, (long) (System.currentTimeMillis() - 60 * 60 * 1000L * (24 + profile.getDia())));
         log.debug("Limiting data to oldest available temps: " + new Date(oldestDataAvailable).toString());
 
         startPart = new Date();
