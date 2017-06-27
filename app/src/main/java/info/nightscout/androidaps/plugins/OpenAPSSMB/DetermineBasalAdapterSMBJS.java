@@ -155,7 +155,7 @@ public class DetermineBasalAdapterSMBJS {
 
         mV8rt.executeVoidScript(
                 readFile("OpenAPSSMB/determine-basal.js"),
-                "OpenAPSAMA/determine-basal.js",
+                "OpenAPSSMB/determine-basal.js",
                 0);
         mV8rt.executeVoidScript("var determine_basal = module.exports;");
     }
@@ -234,8 +234,8 @@ public class DetermineBasalAdapterSMBJS {
         mProfile.add("temptargetSet", tempTargetSet);
         mProfile.add("autosens_adjust_targets", SP.getBoolean("openapsama_autosens_adjusttargets", true));
         mProfile.add("min_5m_carbimpact", SP.getDouble("openapsama_min_5m_carbimpact", 3d));
-		mProfile.add("enableSMB", true); // enable smb
-		mProfile.add("enableUAM", true); // Disable UAM by default - as of 23.06.2017 not working correctly
+		mProfile.add("enableSMB", SP.getBoolean("key_smb", false)); // enable smb
+		mProfile.add("enableUAM", SP.getBoolean("key_uam", false)); 
         mV8rt.add(PARAM_profile, mProfile);
 
         mCurrentTemp = new V8Object(mV8rt);
