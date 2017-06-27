@@ -29,6 +29,8 @@ import info.nightscout.androidaps.interfaces.TreatmentsInterface;
 import java.util.ArrayList;
 import java.util.List;
 import info.nightscout.androidaps.db.Treatment;
+import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.db.DatabaseHelper;  
 
 public class DetermineBasalAdapterSMBJS {
     private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterSMBJS.class);
@@ -285,11 +287,29 @@ public class DetermineBasalAdapterSMBJS {
         mMealData.add("carbs", mealData.carbs);
         mMealData.add("boluses", mealData.boluses);
         mMealData.add("mealCOB", mealData.mealCOB);
-		//TODO ADD minDeviationSlope
-		//Added by Rumen and changing determine-basal to get it from mealData not IOB_data
+		//adding minDeviationSlope
+		BgReading lastBGReading = DatabaseHelper.actualBg(); 
+		long bgTime = lastBGReading.date;
+		double avgDelta = (glucoseStatus.short_avgdelta+glucoseStatus.long_avgdelta)/2;
+		IobTotal iob = IobCobCalculatorPlugin.calulateFromTreatmentsAndTemps(bgTime);
+		double bgi = -iob.activity * Profile.toMgdl(profile.getIsf(bgTime), profile.getUnits()) * 5;
+		double currentDeviation = ((glucoseStatus.delta - bgi)*1000)/1000; 
+		double avgDeviation = 0d;
+		double deviationSlope = 0d;
+		double minDeviationSlope = 0d;
+		if (mealData.ciTime > bgTime) {
+			avgDeviation = ((avgDelta-bgi)*1000)/1000;
+			deviationSlope = (avgDeviation-currentDeviation)/(bgTime-mealData.ciTime)*1000*60*5;
+			if (avgDeviation > 0) {
+				minDeviationSlope = Math.min(0, deviationSlope);
+			} 
+		}
+		
+		
+		//Added by Rumen and changed determine-basal to get it from mealData not IOB_data
 		mMealData.add("lastBolusTime", currTime);
 		mMealData.add("ciTime", mealData.ciTime);
-		mMealData.add("minDeviationSlope", 0.0);
+		mMealData.add("minDeviationSlope", minDeviationSlope);
         mV8rt.add(PARAM_meal_data, mMealData);
 		mV8rt.add("microbolusallowed", PARAM_microBolusAllowed);
 		mV8rt.add("reservoir_data", PARAM_reservoirData);
