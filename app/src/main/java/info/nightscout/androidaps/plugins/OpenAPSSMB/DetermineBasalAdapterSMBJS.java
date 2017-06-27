@@ -288,6 +288,7 @@ public class DetermineBasalAdapterSMBJS {
 		//TODO ADD minDeviationSlope
 		//Added by Rumen and changing determine-basal to get it from mealData not IOB_data
 		mMealData.add("lastBolusTime", currTime);
+		mMealData.add("ciTime", mealData.ciTime);
 		mMealData.add("minDeviationSlope", 0.0);
         mV8rt.add(PARAM_meal_data, mMealData);
 		mV8rt.add("microbolusallowed", PARAM_microBolusAllowed);
