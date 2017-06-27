@@ -64,12 +64,13 @@
     <string name="openapsma_profile_label">Profile</string>
     <string name="openapsma_mealdata_label">Meal data</string>
     <string name="openapsma_result_label">Result</string>
-    <string name="openapsma_smb_label">SMB result</string>
+		<string name="openapsma_smb_label">SMB result</string>
 	<string name="smb">SMB</string>
 	<string name="smb_shortname">SMB</string>
 	<string name="key_smb" translatable="false">key_smb</string>
 	<string name="enablesmb">SMB enable</string>
 	<string name="enablesmb_summary">Super Micro Boluses is used when there are COB and more insulin is needed</string>
+
     <string name="openapsma_noglucosedata">No glucose data available</string>
     <string name="openapsma_noprofile">No profile available</string>
     <string name="openapsma_nopump">No pump available</string>
@@ -112,8 +113,6 @@
     <string name="loop_constraintsprocessed_label">After processed constraints</string>
     <string name="loop_setbypump_label">Set by pump</string>
     <string name="openapsma_lastenact_label">Last enacted</string>
-    <string name="refreshtreatmentsfromnightscout">Do you want to refresh treatments from Nightscout</string>
-    <string name="refreshtemptargetsfromnightscout">Do you want to refresh temp targets from Nightscout</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="noapsselected">NO APS SELECTED OR PROVIDED RESULT</string>
@@ -416,7 +415,7 @@
     <string name="sms_minago">%dmin ago</string>
     <string name="localprofile">Local Profile</string>
     <string name="openapsama">OpenAPS AMA</string>
-	<string name="openapssmb">Rumen SMB</string>
+			<string name="openapssmb">Rumen SMB</string>
     <string name="short_avgdelta">Short avg. delta</string>
     <string name="long_avgdelta">Long avg. delta</string>
     <string name="array_of_elements">Array of %d elements.\nActual value:</string>
@@ -424,8 +423,6 @@
     <string name="openapsma_scriptdebugdata_label">Script debug</string>
     <string name="openapsama_useautosens">Use AMA autosens feature</string>
     <string name="refresheventsfromnightscout">Refresh events from NS</string>
-    <string name="temptargetrange">Temp Target</string>
-    <string name="temptargetrange_refreshfromnightscout">Refresh temp targets from NS</string>
     <string name="eatingsoon">Eating Soon</string>
     <string name="activity">Activity</string>
     <string name="removerecord">Remove record:</string>
