@@ -218,6 +218,8 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
             if (t > dia_ago && t <= now) {
                 if (treatment.carbs >= 1) {
                     result.carbs += treatment.carbs;
+					//Added by Rumen on 27.06.2017 for ciTime
+					result.ciTime = treatment.date;
                 }
                 if (treatment.insulin > 0 && treatment.mealBolus) {
                     result.boluses += treatment.insulin;
