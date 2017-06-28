@@ -256,7 +256,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
 
     // enable SMB whenever we have COB or UAM is enabled
     // SMB is diabled by default, unless explicitly enabled in preferences.json
-    var enableSMB=true;
+    var enableSMB=false;
     // disable SMB when a high temptarget is set
     if (profile.temptargetSet && target_bg > 100) {
         enableSMB=false;
