@@ -236,7 +236,15 @@ public class DetermineBasalAdapterSMBJS {
         mProfile.add("temptargetSet", tempTargetSet);
         mProfile.add("autosens_adjust_targets", SP.getBoolean("openapsama_autosens_adjusttargets", true));
         mProfile.add("min_5m_carbimpact", SP.getDouble("openapsama_min_5m_carbimpact", 3d));
-		mProfile.add("enableSMB", SP.getBoolean("key_smb", false)); // enable smb
+		// Enable SMB only when bolus IOB or COB active
+		boolean enableSMB = false;
+		// enable SMB with COB and preferences key
+		if(mMealData.mealCOB > 0 && SP.getBoolean("key_smb", false)) enableSMB = true;
+		// enable SMB with bolus and preferences key
+		if(mMealData.boluses > 0 && SP.getBoolean("key_smb", false)) enableSMB = true;
+		// enable SMB with teptarget < 100  and preferences key
+		if(tempTargetSet && targetBg < 90 && SP.getBoolean("key_smb", false)) enableSMB = true;
+		mProfile.add("enableSMB", enableSMB); // enable smb
 		mProfile.add("enableUAM", SP.getBoolean("key_uam", false)); 
         mV8rt.add(PARAM_profile, mProfile);
 
