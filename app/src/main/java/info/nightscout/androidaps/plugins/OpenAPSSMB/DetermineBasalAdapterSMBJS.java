@@ -239,9 +239,9 @@ public class DetermineBasalAdapterSMBJS {
 		// Enable SMB only when bolus IOB or COB active
 		boolean enableSMB = false;
 		// enable SMB with COB and preferences key
-		if(mMealData.mealCOB > 0 && SP.getBoolean("key_smb", false)) enableSMB = true;
+		if(mealData.mealCOB > 0 && SP.getBoolean("key_smb", false)) enableSMB = true;
 		// enable SMB with bolus and preferences key
-		if(mMealData.boluses > 0 && SP.getBoolean("key_smb", false)) enableSMB = true;
+		if(mealData.boluses > 0 && SP.getBoolean("key_smb", false)) enableSMB = true;
 		// enable SMB with teptarget < 100  and preferences key
 		if(tempTargetSet && targetBg < 90 && SP.getBoolean("key_smb", false)) enableSMB = true;
 		mProfile.add("enableSMB", enableSMB); // enable smb
