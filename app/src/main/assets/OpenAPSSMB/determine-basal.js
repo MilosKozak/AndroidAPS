@@ -1,7 +1,9 @@
 /*
   Determine Basal
+  
   Released under MIT license. See the accompanying LICENSE.txt file for
   full terms and conditions
+  
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -272,8 +274,8 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     }
     // enable UAM (if enabled in preferences) for DIA hours after bolus, or if SMB is enabled
     var enableUAM=(profile.enableUAM && (bolusiob > 0.1 || enableSMB));
-	//var enableUAM=true;
 
+	
     //console.error(meal_data);
     // carb impact and duration are 0 unless changed below
     var ci = 0;
@@ -298,8 +300,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     var remainingCarbsCap = 0; // default to zero
     var remainingCarbsFraction = 2/3;
     if (profile.remainingCarbsCap) { remainingCarbsCap = Math.min(90,profile.remainingCarbsCap); }
-    // if anyone wants to set remainingCarbsFraction in preferences.json, uncomment this
-    //if (profile.remainingCarbsFraction) { remainingCarbsFraction = profile.remainingCarbsFraction; }
+    if (profile.remainingCarbsFraction) { remainingCarbsFraction = Math.min(1,profile.remainingCarbsFraction); }
     var remainingCarbsIgnore = 1 - remainingCarbsFraction;
     var remainingCarbs = Math.max(0, meal_data.mealCOB - totalCA - meal_data.carbs*remainingCarbsIgnore);
     remainingCarbs = Math.min(remainingCarbsCap,remainingCarbs);
@@ -511,7 +512,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     }
     rT.snoozeBG = snoozeBG;
     //console.error(minPredBG, minIOBPredBG, minUAMPredBG, minCOBPredBG, maxCOBPredBG, snoozeBG);
-	//rT.units = 0.5; // Added by Rumen for debug - delete line and uncoment the next one to restore original
+	
     rT.COB=meal_data.mealCOB;
     rT.IOB=iob_data.iob;
     rT.reason="COB: " + meal_data.mealCOB + ", Dev: " + deviation + ", BGI: " + bgi + ", ISF: " + convert_bg(sens, profile) + ", Target: " + convert_bg(target_bg, profile) + ", minPredBG " + convert_bg(minPredBG, profile) + ", IOBpredBG " + convert_bg(lastIOBpredBG, profile);
@@ -523,15 +524,39 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     }
     rT.reason += "; ";
     var bgUndershoot = target_bg - Math.max( naive_eventualBG, eventualBG, lastIOBpredBG );
-    // BG undershoot, minus effect of 30m zero temp, converted to grams, minus COB
-    var zeroTempEffect = profile.current_basal*sens*30/60;
-    var carbsReq = (bgUndershoot - zeroTempEffect) / csf - meal_data.mealCOB;
+        // calculate how long until COB (or IOB) predBGs drop below min_bg
+    var minutesAboveMinBG = 240;
+    if (meal_data.mealCOB > 0 && ( ci > 0 || remainingCI > 0 )) {
+        for (var i=0; i<COBpredBGs.length; i++) {
+            //console.error(COBpredBGs[i], min_bg);
+            if ( COBpredBGs[i] < min_bg ) {
+                minutesAboveMinBG = 5*i;
+                break;
+            }
+        }
+    } else {
+        for (var i=0; i<IOBpredBGs.length; i++) {
+            //console.error(IOBpredBGs[i], min_bg);
+            if ( IOBpredBGs[i] < min_bg ) {
+                minutesAboveMinBG = 5*i;
+                break;
+            }
+        }
+    }
+
+    console.error("BG projected to remain above",min_bg,"for",minutesAboveMinBG,"minutes");
+    // include at least minutesAboveMinBG worth of zero temps in calculating carbsReq
+    // always include at least 30m worth of zero temp (carbs to 80, low temp up to target)
+    var zeroTempDuration = Math.max(30,minutesAboveMinBG);
+    // BG undershoot, minus effect of zero temps until hitting min_bg, converted to grams, minus COB
+    var zeroTempEffect = profile.current_basal*sens*zeroTempDuration/60;
+	var carbsReq = (bgUndershoot - zeroTempEffect) / csf - meal_data.mealCOB;
     zeroTempEffect = round(zeroTempEffect);
     carbsReq = round(carbsReq);
-    console.error("bgUndershoot:",bgUndershoot,"zeroTempEffect:",zeroTempEffect,"carbsReq:",carbsReq);
+    console.error("bgUndershoot:",bgUndershoot,"zeroTempDuration:",zeroTempDuration,"zeroTempEffect:",zeroTempEffect,"carbsReq:",carbsReq);
     if ( carbsReq > 0 ) {
         rT.carbsReq = carbsReq;
-        rT.reason += "~" + carbsReq + " add'l carbs req + 30m zero temp; ";
+        rT.reason += carbsReq + " add'l carbs req + " + minutesAboveMinBG + "m zero temp; ";
     }
     // don't low glucose suspend if IOB is already super negative and BG is rising faster than predicted
     if (bg < threshold && iob_data.iob < -profile.current_basal*20/60 && minDelta > 0 && minDelta > expectedDelta) {
@@ -562,7 +587,6 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
 
     if (eventualBG < min_bg) { // if eventual BG is below target:
         rT.reason += "Eventual BG " + convert_bg(eventualBG, profile) + " < " + convert_bg(min_bg, profile);
-        // TODO: carbsReq
         // if 5m or 30m avg BG is rising faster than expected delta
         if (minDelta > expectedDelta && minDelta > 0) {
             // if naive_eventualBG < 40, set a 30m zero temp (oref0-pump-loop will let any longer SMB zero temp run)
@@ -668,6 +692,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     } else {
         minutes_running = 30 - currenttemp.duration;
     }
+	
     // if there is a low-temp running, and eventualBG would be below min_bg without it, let it run
     if (round_basal(currenttemp.rate, profile) < round_basal(basal, profile) ) {
         var lowtempimpact = (currenttemp.rate - basal) * ((30-minutes_running)/60) * sens;
@@ -792,7 +817,6 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
                 durationReq = Math.min(120,Math.max(0,durationReq));
             }
             rT.reason += " insulinReq " + insulinReq;
-            console.error("maxBolus:",maxBolus);
             if (microBolus >= maxBolus) {
                 rT.reason +=  "; maxBolus " + maxBolus;
             }
@@ -804,14 +828,14 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
             //allow SMBs every 3 minutes
             var nextBolusMins = round(3-lastBolusAge,1);
             //console.error(naive_eventualBG, insulinReq, worstCaseInsulinReq, durationReq);
-            console.error("naive_eventualBG",naive_eventualBG+",",durationReq+"m zero temp needed; last bolus",lastBolusAge+"m ago ("+meal_data.lastBolusTime+").");
+            console.error("naive_eventualBG",naive_eventualBG+",",durationReq+"m zero temp needed; last bolus",lastBolusAge+"m ago; maxBolus: "+maxBolus);
             if (lastBolusAge > 3) {
                 if (microBolus > 0) {
                     rT.units = microBolus; 
                     rT.reason += "Microbolusing " + microBolus + "U. ";
                 }
             } else {
-                rT.reason += "Waiting " + nextBolusMins + "m to microbolus again. ";
+                rT.reason += "Waiting " + nextBolusMins + "m to microbolus again(" + microBolus + "). ";
             }
             //rT.reason += ". ";
 
@@ -820,6 +844,12 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
                 rT.rate = 0;
                 rT.duration = durationReq;
                 return rT;
+            }
+			
+            // if insulinReq is negative, snoozeBG > target_bg, and lastCOBpredBG > target_bg, set a neutral temp
+            if (insulinReq < 0 && snoozeBG > target_bg && lastCOBpredBG > target_bg) {
+                rT.reason += "; SMB bolus snooze: setting current basal of " + basal + " as temp. ";
+                return tempBasalFunctions.setTempBasal(basal, 30, profile, rT, currenttemp);
             }
         }
 
