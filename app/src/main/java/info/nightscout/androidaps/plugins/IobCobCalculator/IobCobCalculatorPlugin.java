@@ -303,9 +303,9 @@ public class IobCobCalculatorPlugin implements PluginBase {
     public void calculateSensitivityData() {
         if (MainApp.getConfigBuilder() == null)
             return; // app still initializing
+        if (MainApp.getConfigBuilder().getProfile() == null)
+            return; // app still initializing
         //log.debug("Locking calculateSensitivityData");
-		if (MainApp.getConfigBuilder().getProfile() == null)
-			return; // app still initializing
         synchronized (dataLock) {
 
             if (bucketed_data == null || bucketed_data.size() < 3) {
