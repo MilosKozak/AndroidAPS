@@ -52,6 +52,7 @@ import info.nightscout.utils.SafeParse;
 
 /**
  * Created by mike on 05.08.2016.
+ * Added support for SMB by Rumen on 01.06.2017
  */
 public class LoopPlugin implements PluginBase {
     private static Logger log = LoggerFactory.getLogger(LoopPlugin.class);
@@ -381,7 +382,7 @@ public class LoopPlugin implements PluginBase {
 						//PumpEnactResult result;
 						final int carbTime = 0;
 						DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
-                        //detailedBolusInfo.eventType = CareportalEvent.BOLUSWIZARD;
+                        detailedBolusInfo.eventType = "Correction Bolus";
                         detailedBolusInfo.insulin = smbFinalValue;
                         detailedBolusInfo.carbs = 0;
                         detailedBolusInfo.context = null;
