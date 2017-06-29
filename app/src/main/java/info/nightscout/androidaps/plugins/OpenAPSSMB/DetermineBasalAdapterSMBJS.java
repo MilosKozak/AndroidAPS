@@ -239,11 +239,22 @@ public class DetermineBasalAdapterSMBJS {
 		// Enable SMB only when bolus IOB or COB active
 		boolean enableSMB = false;
 		// enable SMB with COB and preferences key
-		if(mealData.mealCOB > 0 && SP.getBoolean("key_smb", false)) enableSMB = true;
+		if(mealData.mealCOB > 0 && SP.getBoolean("key_smb", false)){ 
+			mProfile.add("enableSMB_with_COB", true);	
+			enableSMB = true;
+		}						
 		// enable SMB with bolus and preferences key
-		if(mealData.boluses > 0 && SP.getBoolean("key_smb", false)) enableSMB = true;
+		//mIobData = mV8rt.executeArrayScript(IobCobCalculatorPlugin.convertToJSONArray(iobArray).toString());
+		IobTotal bolusIob = MainApp.getConfigBuilder().getCalculationToTimeTreatments(new Date().getTime()).round();
+		if(bolusIob.iob > 0 && SP.getBoolean("key_smb", false)){ 
+			mProfile.add("enableSMB_with_bolus", true);
+			enableSMB = true;
+		}
 		// enable SMB with teptarget < 100  and preferences key
-		if(tempTargetSet && targetBg < 90 && SP.getBoolean("key_smb", false)) enableSMB = true;
+		if(tempTargetSet && targetBg < 90 && SP.getBoolean("key_smb", false)){
+			mProfile.add("enableSMB_with_temptarget", true);
+			enableSMB = true;
+		} 
 		mProfile.add("enableSMB", enableSMB); // enable smb
 		mProfile.add("enableUAM", SP.getBoolean("key_uam", false)); 
         mV8rt.add(PARAM_profile, mProfile);
