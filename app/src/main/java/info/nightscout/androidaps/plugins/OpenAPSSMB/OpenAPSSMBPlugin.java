@@ -249,7 +249,7 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         startPart = new Date();
         if(MainApp.getConfigBuilder().isAMAModeEnabled()){
             //lastAutosensResult = Autosens.detectSensitivityandCarbAbsorption(getBGDataFrom, null);
-            lastAutosensResult = IobCobCalculatorPlugin.detectSensitivity(getBGDataFrom);
+            lastAutosensResult = IobCobCalculatorPlugin.detectSensitivityWithLock(IobCobCalculatorPlugin.oldestDataAvailable(), System.currentTimeMillis()); 
         } else {
             lastAutosensResult = new AutosensResult();
         }
