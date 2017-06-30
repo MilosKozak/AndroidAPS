@@ -333,7 +333,7 @@ public class LoopPlugin implements PluginBase {
 				}
 				log.debug("SMB treatmentExists is "+treamentExists+" and smbEnacted is:"+smbEnacted);
 				//if(!treamentExists && !smbEnacted){
-				if(!treamentExists){
+				if(!treamentExists && initiator != "EventTreatmentChange"){
 					log.debug("SMB entering after no treamentExists");
 					// Testing Notification for SMB
 					boolean notificationForSMB = false;

@@ -373,7 +373,6 @@ public class IobCobCalculatorPlugin implements PluginBase {
 
                 IobTotal iob = calulateFromTreatmentsAndTemps(bgTime);
 
-
 				double bgi = -iob.activity * sens * 5;
                 double deviation = delta - bgi;
 
