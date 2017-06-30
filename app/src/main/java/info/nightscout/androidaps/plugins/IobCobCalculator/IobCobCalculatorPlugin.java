@@ -362,7 +362,7 @@ public class IobCobCalculatorPlugin implements PluginBase {
 
                 //console.error(bgTime , bucketed_data[i].glucose);
                 double bg;
-                //double avgDelta;
+                double avgDelta;
                 double delta;
                 bg = bucketed_data.get(i).value;
                 if (bg < 39 || bucketed_data.get(i + 3).value < 39) {
@@ -370,7 +370,6 @@ public class IobCobCalculatorPlugin implements PluginBase {
                     continue;
                 }
                 delta = (bg - bucketed_data.get(i + 1).value);
-				//avgDelta = (bg - bucketed_data.get(i + 3).value)/3;
                 IobTotal iob = calulateFromTreatmentsAndTemps(bgTime);
 				double bgi = -iob.activity * sens * 5;
                 double deviation = delta - bgi;
