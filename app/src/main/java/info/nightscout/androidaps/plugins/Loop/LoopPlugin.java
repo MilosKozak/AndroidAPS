@@ -224,7 +224,7 @@ public class LoopPlugin implements PluginBase {
 	public boolean treatmentLast5min(){
 		//TreatmentsInterface treatmentsInterface = ConfigBuilderPlugin.getActiveTreatments();
 		List<Treatment> recentTreatments;
-		recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(new Date().getTime());
+		recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(System.currentTimeMillis());
 		if(recentTreatments.size() != 0){
 			// There is treatment 
 			return true;
@@ -333,7 +333,7 @@ public class LoopPlugin implements PluginBase {
 				}
 				log.debug("SMB treatmentExists is "+treamentExists+" and smbEnacted is:"+smbEnacted);
 				//if(!treamentExists && !smbEnacted){
-				if(!treamentExists && initiator != "EventTreatmentChange"){
+				if(initiator == "EventNewBG"){
 					log.debug("SMB entering after no treamentExists");
 					// Testing Notification for SMB
 					boolean notificationForSMB = false;
