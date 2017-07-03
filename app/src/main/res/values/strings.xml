@@ -626,6 +626,7 @@
     <string name="invalidprofile">Invalid profile !!!</string>
     <string name="profileswitch">ProfileSwitch</string>
     <string name="careportal_pbage_label">Pump battery age</string>
+    <string name="updating">Updating ...</string>
     <string name="careportal_pumpbatterychange">Pump Battery Change</string>
     <string name="ns_alarmoptions">Alarm options</string>
     <string name="key_nsalarm_urgent_high" translatable="false">nsalarm_urgent_high</string>
@@ -666,7 +667,17 @@
     <string name="absorption_maxtime_summary">Time in hours where is expected all carbs from meal will be absorbed</string>
     <string name="key_rangetodisplay" translatable="false">rangetodisplay</string>
     <string name="danar_visualizeextendedaspercentage_title">Visualize extended bolus as %</string>
-		<string name="openapsma_smb_label">SMB result</string>
+    <string name="careportal_sensorage_label_short">SAGE</string>
+    <string name="careportal_insulinage_label_short">IAGE</string>
+    <string name="careportal_canulaage_label_short">CAGE</string>
+    <string name="careportal_pbage_label_short">PBAGE</string>
+    <string name="openaps_short">OAPS</string>
+    <string name="uploader_short">UPLD</string>
+    <string name="basal_short">BAS</string>
+    <string name="virtualpump_extendedbolus_label_short">EXT</string>
+    <string name="lock_screen">Lock screen</string>
+    <string name="lock_screen_short">Lock</string>
+	<string name="openapsma_smb_label">SMB result</string>
 	<string name="smb">SMB</string>
 	<string name="smb_shortname">SMB</string>
 	<string name="key_smb" translatable="false">key_smb</string>
