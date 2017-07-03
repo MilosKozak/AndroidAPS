@@ -31,6 +31,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
@@ -60,8 +61,10 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
+import info.nightscout.androidaps.MainActivity;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.broadcasts.NSClearAlarmBroadcast;
@@ -84,6 +87,7 @@ import info.nightscout.androidaps.events.EventExtendedBolusChange;
 import info.nightscout.androidaps.events.EventInitializationChanged;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventPumpStatusChanged;
+import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.events.EventRefreshOverview;
 import info.nightscout.androidaps.events.EventTempBasalChange;
 import info.nightscout.androidaps.events.EventTempTargetChange;
@@ -107,6 +111,7 @@ import info.nightscout.androidaps.plugins.Overview.Dialogs.CalibrationDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewTreatmentDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.WizardDialog;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
+import info.nightscout.androidaps.plugins.Overview.events.EventSetWakeLock;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.AreaGraphSeries;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.DataPointWithLabelInterface;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.DoubleDataPoint;
@@ -180,9 +185,12 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
     Button acceptTempButton;
     Button quickWizardButton;
 
+    CheckBox lockScreen;
+
     boolean smallWidth;
     boolean smallHeight;
 
+    public static boolean shorttextmode = false;
 
     private int rangeToDisplay = 6; // for graph
 
@@ -219,8 +227,11 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
 
         View view;
 
-        if (MainApp.sResources.getBoolean(R.bool.isTablet)) {
-            view = inflater.inflate(R.layout.overview_fragment_tablet, container, false);
+        if (MainApp.sResources.getBoolean(R.bool.isTablet) && BuildConfig.NSCLIENTOLNY) {
+            view = inflater.inflate(R.layout.overview_fragment_nsclient_tablet, container, false);
+        } else if (BuildConfig.NSCLIENTOLNY) {
+            view = inflater.inflate(R.layout.overview_fragment_nsclient, container, false);
+            shorttextmode = true;
         } else if (smallHeight || landscape) {
             view = inflater.inflate(R.layout.overview_fragment_smallheight, container, false);
         } else {
@@ -262,17 +273,20 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         iobGraph = (GraphView) view.findViewById(R.id.overview_iobgraph);
 
         cancelTempButton = (Button) view.findViewById(R.id.overview_canceltempbutton);
-        cancelTempButton.setOnClickListener(this);
+        if (cancelTempButton != null)
+            cancelTempButton.setOnClickListener(this);
         treatmentButton = (Button) view.findViewById(R.id.overview_treatmentbutton);
         treatmentButton.setOnClickListener(this);
         wizardButton = (Button) view.findViewById(R.id.overview_wizardbutton);
         wizardButton.setOnClickListener(this);
         acceptTempButton = (Button) view.findViewById(R.id.overview_accepttempbutton);
-        acceptTempButton.setOnClickListener(this);
+        if (acceptTempButton != null)
+            acceptTempButton.setOnClickListener(this);
         quickWizardButton = (Button) view.findViewById(R.id.overview_quickwizardbutton);
         quickWizardButton.setOnClickListener(this);
         calibrationButton = (Button) view.findViewById(R.id.overview_calibrationbutton);
-        calibrationButton.setOnClickListener(this);
+        if (calibrationButton != null)
+            calibrationButton.setOnClickListener(this);
 
         acceptTempLayout = (LinearLayout) view.findViewById(R.id.overview_accepttemplayout);
 
@@ -321,6 +335,18 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 return false;
             }
         });
+
+        lockScreen = (CheckBox) view.findViewById(R.id.overview_lockscreen);
+        if (lockScreen != null) {
+            lockScreen.setChecked(SP.getBoolean("lockscreen", false));
+            lockScreen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SP.putBoolean("lockscreen", isChecked);
+                    MainApp.bus().post(new EventSetWakeLock(isChecked));
+                }
+            });
+        }
 
         return view;
     }
@@ -820,7 +846,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    acceptTempLayout.setVisibility(View.GONE);
+                    if (acceptTempLayout != null)
+                        acceptTempLayout.setVisibility(View.GONE);
                 }
             });
     }
@@ -968,51 +995,96 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         }
 
         // **** Temp button ****
-        boolean showAcceptButton = !MainApp.getConfigBuilder().isClosedModeEnabled(); // Open mode needed
-        showAcceptButton = showAcceptButton && finalLastRun != null && finalLastRun.lastAPSRun != null; // aps result must exist
-        showAcceptButton = showAcceptButton && (finalLastRun.lastOpenModeAccept == null || finalLastRun.lastOpenModeAccept.getTime() < finalLastRun.lastAPSRun.getTime()); // never accepted or before last result
-        showAcceptButton = showAcceptButton && finalLastRun.constraintsProcessed.changeRequested; // change is requested
+        if (acceptTempLayout != null) {
+            boolean showAcceptButton = !MainApp.getConfigBuilder().isClosedModeEnabled(); // Open mode needed
+            showAcceptButton = showAcceptButton && finalLastRun != null && finalLastRun.lastAPSRun != null; // aps result must exist
+            showAcceptButton = showAcceptButton && (finalLastRun.lastOpenModeAccept == null || finalLastRun.lastOpenModeAccept.getTime() < finalLastRun.lastAPSRun.getTime()); // never accepted or before last result
+            showAcceptButton = showAcceptButton && finalLastRun.constraintsProcessed.changeRequested; // change is requested
 
-        if (showAcceptButton && pump.isInitialized() && !pump.isSuspended() && ConfigBuilderPlugin.getActiveLoop() != null) {
-            acceptTempLayout.setVisibility(View.VISIBLE);
-            acceptTempButton.setText(getContext().getString(R.string.setbasalquestion) + "\n" + finalLastRun.constraintsProcessed);
-        } else {
-            acceptTempLayout.setVisibility(View.GONE);
+            if (showAcceptButton && pump.isInitialized() && !pump.isSuspended() && ConfigBuilderPlugin.getActiveLoop() != null) {
+                acceptTempLayout.setVisibility(View.VISIBLE);
+                acceptTempButton.setText(getContext().getString(R.string.setbasalquestion) + "\n" + finalLastRun.constraintsProcessed);
+            } else {
+                acceptTempLayout.setVisibility(View.GONE);
+            }
         }
 
         // **** Calibration button ****
-        if (MainApp.getSpecificPlugin(SourceXdripPlugin.class) != null && MainApp.getSpecificPlugin(SourceXdripPlugin.class).isEnabled(PluginBase.BGSOURCE) && profile != null && DatabaseHelper.actualBg() != null) {
-            calibrationButton.setVisibility(View.VISIBLE);
-        } else {
-            calibrationButton.setVisibility(View.GONE);
+        if (calibrationButton != null) {
+            if (MainApp.getSpecificPlugin(SourceXdripPlugin.class) != null && MainApp.getSpecificPlugin(SourceXdripPlugin.class).isEnabled(PluginBase.BGSOURCE) && profile != null && DatabaseHelper.actualBg() != null) {
+                calibrationButton.setVisibility(View.VISIBLE);
+            } else {
+                calibrationButton.setVisibility(View.GONE);
+            }
         }
 
-        TemporaryBasal activeTemp = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
-        if (activeTemp != null) {
-            cancelTempButton.setVisibility(View.VISIBLE);
-            cancelTempButton.setText(MainApp.instance().getString(R.string.cancel) + "\n" + activeTemp.toStringShort());
-        } else {
-            cancelTempButton.setVisibility(View.GONE);
+        final TemporaryBasal activeTemp = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+        if (cancelTempButton != null) {
+            if (activeTemp != null) {
+                cancelTempButton.setVisibility(View.VISIBLE);
+                cancelTempButton.setText(MainApp.instance().getString(R.string.cancel) + "\n" + activeTemp.toStringShort());
+            } else {
+                cancelTempButton.setVisibility(View.GONE);
+            }
         }
 
         String basalText = "";
-        if (activeTemp != null) {
-            basalText = activeTemp.toStringFull() + " ";
-        }
-        if (Config.NSCLIENT)
-            basalText += "( " + DecimalFormatter.to2Decimal(MainApp.getConfigBuilder().getProfile().getBasal()) + " U/h )";
-        else if (pump.getPumpDescription().isTempBasalCapable) {
-            basalText += "( " + DecimalFormatter.to2Decimal(pump.getBaseBasalRate()) + " U/h )";
+        if (shorttextmode) {
+            if (activeTemp != null) {
+                if (activeTemp.isAbsolute)
+                    basalText = "T: " + DecimalFormatter.to2Decimal(activeTemp.absoluteRate) + "U/h";
+                else
+                    basalText = "T: " + DecimalFormatter.to0Decimal(activeTemp.percentRate) + "%";
+            } else {
+                basalText = DecimalFormatter.to2Decimal(MainApp.getConfigBuilder().getProfile().getBasal()) + "U/h";
+            }
+            baseBasalView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String fullText = MainApp.sResources.getString(R.string.virtualpump_basebasalrate_label) + ": " + DecimalFormatter.to2Decimal(MainApp.getConfigBuilder().getProfile().getBasal()) + "U/h\n";
+                    if (activeTemp != null) {
+                        fullText += MainApp.sResources.getString(R.string.virtualpump_tempbasal_label) + ": " + activeTemp.toStringFull();
+                    }
+                    OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.basal), fullText, null);
+                }
+            });
+
+        } else {
+            if (activeTemp != null) {
+                basalText = activeTemp.toStringFull() + " ";
+            }
+            if (Config.NSCLIENT)
+                basalText += "( " + DecimalFormatter.to2Decimal(MainApp.getConfigBuilder().getProfile().getBasal()) + " U/h )";
+            else if (pump.getPumpDescription().isTempBasalCapable) {
+                basalText += "( " + DecimalFormatter.to2Decimal(pump.getBaseBasalRate()) + " U/h )";
+            }
         }
         baseBasalView.setText(basalText);
 
-        ExtendedBolus extendedBolus = MainApp.getConfigBuilder().getExtendedBolusFromHistory(System.currentTimeMillis());
+        final ExtendedBolus extendedBolus = MainApp.getConfigBuilder().getExtendedBolusFromHistory(System.currentTimeMillis());
         String extendedBolusText = "";
         if (extendedBolus != null && !pump.isFakingTempsByExtendedBoluses()) {
             extendedBolusText = extendedBolus.toString();
         }
-        if (extendedBolusView != null) // must not exists in all layouts
-            extendedBolusView.setText(extendedBolusText);
+        if (extendedBolusView != null) { // must not exists in all layouts
+            if (shorttextmode) {
+                if (extendedBolus != null && !pump.isFakingTempsByExtendedBoluses()) {
+                    extendedBolusText = DecimalFormatter.to2Decimal(extendedBolus.absoluteRate()) + "U/h";
+                } else {
+                    extendedBolusText = "";
+                }
+                extendedBolusView.setText(extendedBolusText);
+                extendedBolusView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.extendedbolus), extendedBolus.toString(), null);
+                    }
+                });
+
+            } else {
+                extendedBolusView.setText(extendedBolusText);
+            }
+        }
 
         activeProfileView.setText(MainApp.getConfigBuilder().getProfileName());
         activeProfileView.setBackgroundColor(Color.GRAY);
@@ -1092,11 +1164,13 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
             if (glucoseStatus != null) {
                 deltaView.setText("Δ " + Profile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units);
-                avgdeltaView.setText("øΔ15m: " + Profile.toUnitsString(glucoseStatus.short_avgdelta, glucoseStatus.short_avgdelta * Constants.MGDL_TO_MMOLL, units) +
-                        "  øΔ40m: " + Profile.toUnitsString(glucoseStatus.long_avgdelta, glucoseStatus.long_avgdelta * Constants.MGDL_TO_MMOLL, units));
+                if (avgdeltaView != null)
+                    avgdeltaView.setText("øΔ15m: " + Profile.toUnitsString(glucoseStatus.short_avgdelta, glucoseStatus.short_avgdelta * Constants.MGDL_TO_MMOLL, units) +
+                            "  øΔ40m: " + Profile.toUnitsString(glucoseStatus.long_avgdelta, glucoseStatus.long_avgdelta * Constants.MGDL_TO_MMOLL, units));
             } else {
                 deltaView.setText("Δ " + MainApp.sResources.getString(R.string.notavailable));
-                avgdeltaView.setText("");
+                if (avgdeltaView != null)
+                    avgdeltaView.setText("");
             }
         } else {
             return;
@@ -1115,10 +1189,22 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         // iob
         MainApp.getConfigBuilder().updateTotalIOBTreatments();
         MainApp.getConfigBuilder().updateTotalIOBTempBasals();
-        IobTotal bolusIob = MainApp.getConfigBuilder().getLastCalculationTreatments().round();
-        IobTotal basalIob = MainApp.getConfigBuilder().getLastCalculationTempBasals().round();
+        final IobTotal bolusIob = MainApp.getConfigBuilder().getLastCalculationTreatments().round();
+        final IobTotal basalIob = MainApp.getConfigBuilder().getLastCalculationTempBasals().round();
 
-        if (MainApp.sResources.getBoolean(R.bool.isTablet)) {
+        if (shorttextmode) {
+            String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U";
+            iobView.setText(iobtext);
+            iobView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U\n"
+                            + getString(R.string.bolus) + ": " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U\n"
+                            + getString(R.string.basal) + ": " + DecimalFormatter.to2Decimal(basalIob.basaliob) + "U\n";
+                    OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.iob), iobtext, null);
+                }
+            });
+        } else if (MainApp.sResources.getBoolean(R.bool.isTablet)) {
             String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U ("
                     + getString(R.string.bolus) + ": " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U "
                     + getString(R.string.basal) + ": " + DecimalFormatter.to2Decimal(basalIob.basaliob) + "U)";
