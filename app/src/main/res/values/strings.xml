@@ -677,7 +677,7 @@
     <string name="virtualpump_extendedbolus_label_short">EXT</string>
     <string name="lock_screen">Lock screen</string>
     <string name="lock_screen_short">Lock</string>
-	<string name="openapsma_smb_label">SMB result</string>
+ 	<string name="openapsma_smb_label">SMB result</string>
 	<string name="smb">SMB</string>
 	<string name="smb_shortname">SMB</string>
 	<string name="key_smb" translatable="false">key_smb</string>
