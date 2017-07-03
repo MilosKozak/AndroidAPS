@@ -633,34 +633,6 @@
     <string name="key_nsalarm_high" translatable="false">nsalarm_high</string>
     <string name="key_nsalarm_low" translatable="false">nsalarm_low</string>
     <string name="key_nsalarm_urgent_low" translatable="false">nsalarm_urgent_low</string>
-    <string name="key_nsalarm_staledata" translatable="false">nsalarm_staledata</string>
-    <string name="key_nsalarm_urgent_staledata" translatable="false">nsalarm_urgent_staledata</string>
-    <string name="key_nsalarm_staledatavalue" translatable="false">nsalarm_staledatavalue</string>
-    <string name="key_nsalarm_urgent_staledatavalue" translatable="false">nsalarm_urgent_staledatavalue</string>
-    <string name="nsalarm_urgenthigh">Urgent high</string>
-    <string name="nsalarm_high">High</string>
-    <string name="nsalarm_low">Low</string>
-    <string name="nsalarm_urgentlow">Urgent low</string>
-    <string name="nsalarm_summary" formatted="false">Currently set to %f</string>
-    <string name="nsalarm_staledata">Stale data</string>
-    <string name="nsalarm_urgentstaledata">Urgent stale data</string>
-    <string name="nsalarm_staledatavalue_label">Stale data threshold [min]</string>
-    <string name="nsalarm_urgent_staledatavalue_label">Urgent stale data threshold [min]</string>
-    <string name="openapsama_autosens_period">Interval for autosens [h]</string>
-    <string name="openapsama_autosens_period_summary">Amount of hours in the past for sensitivity detection (carbs absorption time is excluded)</string>
-    <string name="key_openapsama_autosens_period" translatable="false">openapsama_autosens_period</string>
-    <string name="ratio_short">RAT</string>
-    <string name="key_do_not_track_profile_switch">do_not_track_profile_switch</string>
-    <string name="do_not_track_profile_switch">Ignore profile switch events</string>
-    <string name="do_not_track_profile_switch_summary">All profile switch events are ignored and active profile is always used</string>
-    <string name="pump">Pump</string>
-    <string name="openaps">OpenAPS</string>
-    <string name="device">Device</string>
-    <string name="uploader">Uploader</string>
-    <string name="configbuilder_sensitivity">Sensitivity detection</string>
-    <string name="sensitivity_shortname">SENS</string>
-    <string name="sensitivityoref0">Sensitivity Oref0</string>
-    <string name="sensitivityaaps">Sensitivity AAPS</string>
     <string name="absorptionsettings_title">Absorption settings</string>
     <string name="key_absorption_maxtime" translatable="false">absorption_maxtime</string>
     <string name="absorption_maxtime_title">Meal max absorption time [h]</string>
@@ -677,7 +649,7 @@
     <string name="virtualpump_extendedbolus_label_short">EXT</string>
     <string name="lock_screen">Lock screen</string>
     <string name="lock_screen_short">Lock</string>
- 	<string name="openapsma_smb_label">SMB result</string>
+	<string name="openapsma_smb_label">SMB result</string>
 	<string name="smb">SMB</string>
 	<string name="smb_shortname">SMB</string>
 	<string name="key_smb" translatable="false">key_smb</string>
