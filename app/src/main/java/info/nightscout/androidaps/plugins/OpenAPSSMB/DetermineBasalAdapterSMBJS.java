@@ -266,8 +266,8 @@ public class DetermineBasalAdapterSMBJS {
 
 
         // as we have non default temps longer than 30 mintues
-        TemporaryBasal tempBasal = MainApp.getConfigBuilder().getTempBasalFromHistory(new Date().getTime());
-        if(tempBasal != null){
+        TemporaryBasal tempBasal = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+        if(tempBasal != null) {
             mCurrentTemp.add("minutesrunning", tempBasal.getRealDuration());
         }
 

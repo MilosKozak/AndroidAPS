@@ -41,6 +41,26 @@ public class DetermineBasalResultSMB extends APSResult {
 			reason = result.getString("reason");
             if (result.contains("eventualBG")) eventualBG = result.getDouble("eventualBG");
             if (result.contains("snoozeBG")) snoozeBG = result.getDouble("snoozeBG");
+			if (result.contains("rate")) {
+                rate = result.getDouble("rate");
+                if (rate < 0d) rate = 0d;
+                changeRequested = true;
+				
+				log.debug("Rate is positive and change is requested");
+            } else {
+                rate = -1;
+				changeRequested = false;
+				//if(smbValue>0.0) changeRequested = true; else changeRequested = false;
+            }
+            if (result.contains("duration")) {
+                duration = result.getInteger("duration");
+                changeRequested = changeRequested;
+            } else {
+                duration = -1;
+				//if(smbValue>0.0) changeRequested = true; else changeRequested = false;
+				// Added by Rumen hope that fixes bolussnooze
+				changeRequested = false;
+            }
 			if (result.contains("units")) {
 				changeRequested = true;
 				smbValue = result.getDouble("units");
@@ -50,23 +70,6 @@ public class DetermineBasalResultSMB extends APSResult {
 				log.debug(">>>>>>> Setting smbValue to -5.5 >>>> DetermineBasalResultSMB");
 				changeRequested = false;
 			}
-            if (result.contains("rate")) {
-                rate = result.getDouble("rate");
-                if (rate < 0d) rate = 0d;
-                changeRequested = true;
-				
-				log.debug("Rate is positive and change is requested");
-            } else {
-                rate = -1;
-				if(smbValue>0.0) changeRequested = true; else changeRequested = false;
-            }
-            if (result.contains("duration")) {
-                duration = result.getInteger("duration");
-                changeRequested = changeRequested;
-            } else {
-                duration = -1;
-				if(smbValue>0.0) changeRequested = true; else changeRequested = false;
-            }
         }
         result.release();
     }
@@ -120,6 +123,7 @@ public class DetermineBasalResultSMB extends APSResult {
                         BgReading bg = new BgReading();
                         bg.value = iob.getInt(i);
                         bg.date = startTime + i * 5 * 60 * 1000L;
+			bg.isPrediction = true;
                         array.add(bg);
                     }
                 }
@@ -129,6 +133,7 @@ public class DetermineBasalResultSMB extends APSResult {
                         BgReading bg = new BgReading();
                         bg.value = iob.getInt(i);
                         bg.date = startTime + i * 5 * 60 * 1000L;
+						bg.isPrediction = true;
                         array.add(bg);
                     }
                 }
@@ -138,6 +143,7 @@ public class DetermineBasalResultSMB extends APSResult {
                         BgReading bg = new BgReading();
                         bg.value = iob.getInt(i);
                         bg.date = startTime + i * 5 * 60 * 1000L;
+						bg.isPrediction = true;
                         array.add(bg);
                     }
                 }
