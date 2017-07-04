@@ -68,7 +68,7 @@ public class DetermineBasalResultSMB extends APSResult {
 			} else {
 				smbValue = -5.5;
 				log.debug(">>>>>>> Setting smbValue to -5.5 >>>> DetermineBasalResultSMB");
-				changeRequested = false;
+				changeRequested = changeRequested;
 			}
         }
         result.release();
