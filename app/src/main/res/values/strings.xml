@@ -626,7 +626,6 @@
     <string name="invalidprofile">Invalid profile !!!</string>
     <string name="profileswitch">ProfileSwitch</string>
     <string name="careportal_pbage_label">Pump battery age</string>
-    <string name="updating">Updating ...</string>
     <string name="careportal_pumpbatterychange">Pump Battery Change</string>
     <string name="ns_alarmoptions">Alarm options</string>
     <string name="key_nsalarm_urgent_high" translatable="false">nsalarm_urgent_high</string>
@@ -690,4 +689,5 @@
 	<string name="enableuam">Enable UAM</string>
 	<string name="enableuam_summary">UnAnounced Meals  - high risk here!!!</string>
 	<string name="openapssmb">Rumen SMB</string>
+
 </resources>
