@@ -85,8 +85,6 @@ public class DetermineBasalResultSMB extends APSResult {
         newResult.duration = duration;
         newResult.changeRequested = changeRequested;
         newResult.rate = rate;
-        newResult.duration = duration;
-        newResult.changeRequested = changeRequested;
 		newResult.smbValue = smbValue;
 
         try {
