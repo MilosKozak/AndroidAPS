@@ -396,6 +396,30 @@ public class LoopPlugin implements PluginBase {
 							log.debug("SMB of "+smbFinalValue+" failed!");
 							//OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.treatmentdeliveryerror), result.comment, null);
                         } else log.debug("SMB of "+smbFinalValue+" done!");
+						if (result.changeRequested && result.rate > -1d && result.duration > -1) {
+							log.debug("Entering closedLoop and rate is "+result.rate+" and duration is "+result.duration);												   
+							final PumpEnactResult waiting = new PumpEnactResult();
+							final PumpEnactResult previousResult = lastRun.setByPump;
+							waiting.queued = true;
+							lastRun.setByPump = waiting;
+							MainApp.bus().post(new EventLoopUpdateGui());
+							sHandler.post(new Runnable() {
+							@Override
+							public void run() {
+								final PumpEnactResult applyResult = configBuilder.applyAPSRequest(resultAfterConstraints);
+								if (applyResult.enacted || applyResult.success) {
+									lastRun.setByPump = applyResult;
+									lastRun.lastEnact = lastRun.lastAPSRun;
+								} else {
+									lastRun.setByPump = previousResult;
+								}
+                            MainApp.bus().post(new EventLoopUpdateGui());
+							}
+						});
+						} else {
+							lastRun.setByPump = null;
+						lastRun.source = null;
+						}
 						/*
 						enactResult = pump.deliverTreatment(detailedBolusInfo);
 						if (enactResult.success) {
