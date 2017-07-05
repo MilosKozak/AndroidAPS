@@ -397,7 +397,7 @@ public class LoopPlugin implements PluginBase {
 							//OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.treatmentdeliveryerror), result.comment, null);
                         } else log.debug("SMB of "+smbFinalValue+" done!");
 						if (result.changeRequested && result.rate > -1d && result.duration > -1) {
-							log.debug("Entering closedLoop and rate is "+result.rate+" and duration is "+result.duration);												   
+							log.debug("Entering closedLoop after SMB and rate is "+result.rate+" and duration is "+result.duration);												   
 							final PumpEnactResult waiting = new PumpEnactResult();
 							final PumpEnactResult previousResult = lastRun.setByPump;
 							waiting.queued = true;
