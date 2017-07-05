@@ -190,6 +190,8 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						//Calculate SMB - getting the smallest of IOB left and check for negative SMB value
 						double smb_value;
 						smb_value = iob_difference;
+						// Setting some rate to prevent from crash
+						if(lastAPSResult == null) lastAPSResult.rate = -1;
 						if(smb_value > lastAPSResult.rate/6){
 							smb_value = lastAPSResult.rate/6;
 						}
