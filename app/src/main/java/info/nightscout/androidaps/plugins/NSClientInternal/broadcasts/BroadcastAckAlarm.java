@@ -1,4 +1,4 @@
-package info.nightscout.androidaps.broadcasts;
+package info.nightscout.androidaps.plugins.NSClientInternal.broadcasts;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import info.nightscout.androidaps.plugins.NSClientInternal.data.NSAlarm;
  * Created by mike on 11.06.2017.
  */
 
-public class NSClearAlarmBroadcast {
-    private static Logger log = LoggerFactory.getLogger(NSClearAlarmBroadcast.class);
+public class BroadcastAckAlarm {
+    private static Logger log = LoggerFactory.getLogger(BroadcastAckAlarm.class);
 
     public static void handleClearAlarm(NSAlarm originalAlarm, Context context, long silenceTimeInMsec) {
         Bundle bundle = new Bundle();
