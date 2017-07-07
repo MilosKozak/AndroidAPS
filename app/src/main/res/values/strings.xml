@@ -692,7 +692,4 @@
 	<string name="enableuam">Enable UAM</string>
 	<string name="enableuam_summary">UnAnounced Meals  - high risk here!!!</string>
 	<string name="openapssmb">Rumen SMB</string>
-    <string name="sensitivityweightedaverage">Sensitivity WeightedAverage</string>
-    <string name="mdtp_ok">OK</string>
-    <string name="mdtp_cancel">Cancel</string>
 </resources>
