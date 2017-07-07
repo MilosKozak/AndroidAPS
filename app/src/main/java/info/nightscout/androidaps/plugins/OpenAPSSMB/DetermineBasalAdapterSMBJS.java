@@ -244,9 +244,27 @@ public class DetermineBasalAdapterSMBJS {
 			enableSMB = true;
 		}						
 		// enable SMB with bolus and preferences key
+		// TODO Fix correction blusses triggering SMB
 		//mIobData = mV8rt.executeArrayScript(IobCobCalculatorPlugin.convertToJSONArray(iobArray).toString());
 		IobTotal bolusIob = MainApp.getConfigBuilder().getCalculationToTimeTreatments(new Date().getTime()).round();
-		if(bolusIob.iob > 0 && SP.getBoolean("key_smb", false)){ 
+		// lines below should get if there's a mealbolus DIA hours ago
+		double dia = profile.getDia();
+		boolean mealBolusLastDia = false;
+		List<Treatment> recentTreatments = new ArrayList<Treatment>(); 
+		recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(System.currentTimeMillis()-((long) dia*3600*1000));
+		if(recentTreatments.size() != 0){
+			// There is treatment 
+			// check is treatment is mealBolus
+			for (int ir = 0; ir < recentTreatments.size(); ir++) {
+				if(recentTreatments.get(ir).mealBolus) mealBolusLastDia = true; 
+            }
+
+			
+		} else {
+			// There is no treatment for the last DIA isn't that strange ?!?
+		}
+		
+		if(bolusIob.iob > 0 && SP.getBoolean("key_smb", false) && mealBolusLastDia){ 
 			mProfile.add("enableSMB_with_bolus", true);
 			enableSMB = true;
 		}
@@ -278,8 +296,8 @@ public class DetermineBasalAdapterSMBJS {
         //Added by rumen to get latest treatment/bolus age
 		boolean treamentExists = false;
 		TreatmentsInterface treatmentsInterface = MainApp.getConfigBuilder(); 
-		List<Treatment> recentTreatments = new ArrayList<Treatment>(); 
-		recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(new Date().getTime());
+		
+		recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(System.currentTimeMillis());
 		long currTime = new Date().getTime();
 		long fiveMinsAgo = currTime - 300000;
 		log.debug("currTime is: " + currTime);
@@ -289,7 +307,7 @@ public class DetermineBasalAdapterSMBJS {
 			mIobData.add("lastBolusTime", currTime);
 		} else currTime = fiveMinsAgo;
 		//Added by rumen to get latest treatment/bolus age
-				
+		
         mGlucoseStatus = new V8Object(mV8rt);
         mGlucoseStatus.add("glucose", glucoseStatus.glucose);
 
