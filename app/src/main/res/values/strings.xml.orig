@@ -677,6 +677,7 @@
     <string name="lock_screen">Lock screen</string>
     <string name="lock_screen_short">Lock</string>
     <string name="sensitivity_warning">By turning on Autosense feature remember to enter all eated carbs. Otherwise carbs deviations will be identified wrong as sensitivity change !!</string>
+<<<<<<< HEAD
 	<string name="sensitivityweightedaverage">Sensitivity WeightedAverage</string>
     <string name="mdtp_ok">OK</string>
     <string name="mdtp_cancel">Cancel</string>	
@@ -692,7 +693,10 @@
 	<string name="enableuam">Enable UAM</string>
 	<string name="enableuam_summary">UnAnounced Meals  - high risk here!!!</string>
 	<string name="openapssmb">Rumen SMB</string>
+
+=======
     <string name="sensitivityweightedaverage">Sensitivity WeightedAverage</string>
     <string name="mdtp_ok">OK</string>
     <string name="mdtp_cancel">Cancel</string>
+>>>>>>> 0b5abae44f0c8453da02e26cc6e331ee61b47134
 </resources>
