@@ -31,6 +31,7 @@ import java.util.List;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.db.DatabaseHelper;  
+import info.nightscout.androidaps.Constants;
 
 public class DetermineBasalAdapterSMBJS {
     private static Logger log = LoggerFactory.getLogger(DetermineBasalAdapterSMBJS.class);
@@ -248,22 +249,30 @@ public class DetermineBasalAdapterSMBJS {
 		//mIobData = mV8rt.executeArrayScript(IobCobCalculatorPlugin.convertToJSONArray(iobArray).toString());
 		IobTotal bolusIob = MainApp.getConfigBuilder().getCalculationToTimeTreatments(new Date().getTime()).round();
 		// lines below should get if there's a mealbolus DIA hours ago
-		double dia = profile.getDia();
 		boolean mealBolusLastDia = false;
 		List<Treatment> recentTreatments = new ArrayList<Treatment>(); 
-		recentTreatments = MainApp.getConfigBuilder().getTreatments5MinBackFromHistory(System.currentTimeMillis()-((long) dia*3600*1000));
+		double dia = MainApp.getConfigBuilder() == null ? Constants.defaultDIA : MainApp.getConfigBuilder().getProfile().getDia();
+        long fromMills = (long) (System.currentTimeMillis() - 60 * 60 * 1000L * (dia));
+        recentTreatments = MainApp.getDbHelper().getTreatmentDataFromTime(fromMills, false);
+		log.debug("DIA is:"+dia);
+		log.debug("DIA (long):"+(long) dia*3600*1000);
+		log.debug("timeback is:"+ fromMills);
 		if(recentTreatments.size() != 0){
+			log.debug("Got treatments from last DIA: " + dia);
 			// There is treatment 
 			// check is treatment is mealBolus
 			for (int ir = 0; ir < recentTreatments.size(); ir++) {
-				if(recentTreatments.get(ir).mealBolus) mealBolusLastDia = true; 
+				if(recentTreatments.get(ir).mealBolus) {
+					mealBolusLastDia = true; 
+					log.debug("Mealbolus at:"+((System.currentTimeMillis() - recentTreatments.get(ir).date)/(1000*60))+" minutes ago" );
+				}
             }
 
 			
 		} else {
 			// There is no treatment for the last DIA isn't that strange ?!?
 		}
-		
+		log.debug("Mealbolus for last DIA: " + mealBolusLastDia);
 		if(bolusIob.iob > 0 && SP.getBoolean("key_smb", false) && mealBolusLastDia){ 
 			mProfile.add("enableSMB_with_bolus", true);
 			enableSMB = true;
