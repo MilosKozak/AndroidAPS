@@ -237,7 +237,7 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
 						
 						if(mealData.mealCOB == 0){
 							
-							SMB_calc.setText("No COB's left for SMB! SMBkey is "+SMB_enable+" UAM_enable is "+UAM_enable);
+							SMB_calc.setText("No COB's left for SMB! \nSMBkey is "+SMB_enable+"\nUAM_enable is "+UAM_enable);
 							
 						}	
 						// check if delta < 0
