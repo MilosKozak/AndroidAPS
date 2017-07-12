@@ -160,9 +160,8 @@ public class OpenAPSSMBFragment extends Fragment implements View.OnClickListener
                         profileView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getProfileParam()));
                         mealDataView.setText(JSONFormatter.format(determineBasalAdapterAMAJS.getMealDataParam()));
                         scriptdebugView.setText(determineBasalAdapterAMAJS.getScriptDebug());
-						// Ok trying some calcs here getting iob, cob, delta - done
+						// trying some calcs here getting iob, cob, delta - done
 						// TODO Workaround for undead carbs as in #427 in OpenAPSAMA https://github.com/openaps/oref0/pull/427/files
-						// TODO disable SMB when a high temptarget is set, enable SMB (if enabled in preferences) if a low temptarget is set
 						// Get time since last enact, and do not run another smb if time is less than 5 minutes
 						
 						boolean SMB_enable = false;
