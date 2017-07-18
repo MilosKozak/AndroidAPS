@@ -66,7 +66,7 @@ public class DetermineBasalResultSMB extends APSResult {
 				smbValue = result.getDouble("units");
 				log.debug(">>>>>>> Setting smbValue to "+smbValue+" >>>> DetermineBasalResultSMB");
 			} else {
-				smbValue = -5.5;
+				smbValue = 0.0;
 				log.debug(">>>>>>> Setting smbValue to -5.5 >>>> DetermineBasalResultSMB");
 				changeRequested = changeRequested;
 			}

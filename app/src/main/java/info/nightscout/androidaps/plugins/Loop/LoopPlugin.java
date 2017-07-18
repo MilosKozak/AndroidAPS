@@ -331,9 +331,10 @@ public class LoopPlugin implements PluginBase {
 					if(agoSec > 300) smbEnacted = false;
 				
 				}
-				log.debug("SMB treatmentExists is "+treamentExists+" and smbEnacted is:"+smbEnacted);
+				log.debug("initiator is"+initiator+"\nSMB treatmentExists is "+treamentExists+" and smbEnacted is:"+smbEnacted);
 				//if(!treamentExists && !smbEnacted){
-				if(initiator == "EventNewBG"){
+				
+				if(initiator == "EventNewBG" || initiator == "Loop button"){
 					log.debug("SMB entering after no treamentExists");
 					// Testing Notification for SMB
 					boolean notificationForSMB = false;
@@ -397,25 +398,26 @@ public class LoopPlugin implements PluginBase {
 							//OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.treatmentdeliveryerror), result.comment, null);
                         } else log.debug("SMB of "+smbFinalValue+" done!");
 						if (result.changeRequested && result.rate > -1d && result.duration > -1) {
-							log.debug("Entering closedLoop after SMB and rate is "+result.rate+" and duration is "+result.duration);												   
+							log.debug("Pubp basal is:"+pump.getBaseBasalRate());
+							log.debug("Entering closedLoop after SMB - rate is "+result.rate+" and duration is "+result.duration);												   
 							final PumpEnactResult waiting = new PumpEnactResult();
 							final PumpEnactResult previousResult = lastRun.setByPump;
 							waiting.queued = true;
 							lastRun.setByPump = waiting;
 							MainApp.bus().post(new EventLoopUpdateGui());
 							sHandler.post(new Runnable() {
-							@Override
-							public void run() {
-								final PumpEnactResult applyResult = configBuilder.applyAPSRequest(resultAfterConstraints);
-								if (applyResult.enacted || applyResult.success) {
-									lastRun.setByPump = applyResult;
-									lastRun.lastEnact = lastRun.lastAPSRun;
-								} else {
-									lastRun.setByPump = previousResult;
+								@Override
+								public void run() {
+									final PumpEnactResult applyResult = configBuilder.applyAPSRequest(resultAfterConstraints);
+									if (applyResult.enacted || applyResult.success) {
+										lastRun.setByPump = applyResult;
+										lastRun.lastEnact = lastRun.lastAPSRun;
+									} else {
+										lastRun.setByPump = previousResult;
+									}
+								MainApp.bus().post(new EventLoopUpdateGui());
 								}
-                            MainApp.bus().post(new EventLoopUpdateGui());
-							}
-						});
+							});
 						} else {
 							lastRun.setByPump = null;
 						lastRun.source = null;
@@ -431,7 +433,7 @@ public class LoopPlugin implements PluginBase {
 				}
 			
 
-			}else if (constraintsInterface.isClosedModeEnabled()) {
+			} else if (constraintsInterface.isClosedModeEnabled()) {
                 if (result.changeRequested && result.rate > -1d && result.duration > -1) {
 					log.debug("Entering closedLoop and rate is "+result.rate+" and duration is "+result.duration);												   
                     final PumpEnactResult waiting = new PumpEnactResult();
