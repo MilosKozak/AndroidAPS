@@ -77,6 +77,7 @@ public class LoopPlugin implements PluginBase {
         public Date lastOpenModeAccept;
 		public Double smb = null;
 		public Boolean smbEnacted = false;
+		public String comment= "";
     }
 
     static public LastRun lastRun = null;
@@ -335,7 +336,7 @@ public class LoopPlugin implements PluginBase {
 				//if(!treamentExists && !smbEnacted){
 				
 				if(initiator == "EventNewBG" || initiator == "Loop button"){
-					log.debug("SMB entering after no treamentExists");
+					log.debug("SMB entering after no treamentExists.");
 					// Testing Notification for SMB
 					boolean notificationForSMB = false;
 					if(notificationForSMB){
@@ -368,7 +369,8 @@ public class LoopPlugin implements PluginBase {
 						// mId allows you to update the notification later on.
 						mNotificationManager.notify(Constants.notificationID, builder.build());
 						MainApp.bus().post(new EventNewOpenLoopNotification());
-						}// End of notification test
+					}// End of notification test
+					
 					final ConfigBuilderPlugin pump = MainApp.getConfigBuilder();
 					PumpEnactResult enactResult;
 					log.debug("SMB just before setting 0 basal for 120 mins!");
@@ -420,7 +422,7 @@ public class LoopPlugin implements PluginBase {
 							});
 						} else {
 							lastRun.setByPump = null;
-						lastRun.source = null;
+							lastRun.source = null;
 						}
 						/*
 						enactResult = pump.deliverTreatment(detailedBolusInfo);
@@ -457,6 +459,7 @@ public class LoopPlugin implements PluginBase {
                 } else {
                     lastRun.setByPump = null;
                     lastRun.source = null;
+					lastRun.comment = "Change requested:"+result.changeRequested+" Rate should be:"+result.rate+" Duration should be: "+result.duration;
                 }
             } else {
                 if (result.changeRequested && allowNotification) {

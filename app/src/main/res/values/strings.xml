@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="treatmentssafety_title">Tratments safety</string>
     <string name="treatmentssafety_maxbolus_title">Max allowed bolus [U]</string>
@@ -678,6 +677,14 @@
     <string name="lock_screen">Lock screen</string>
     <string name="lock_screen_short">Lock</string>
     <string name="sensitivity_warning">By turning on Autosense feature remember to enter all eated carbs. Otherwise carbs deviations will be identified wrong as sensitivity change !!</string>
+	<string name="sensitivityweightedaverage">Sensitivity WeightedAverage</string>
+    <string name="mdtp_ok">OK</string>
+    <string name="mdtp_cancel">Cancel</string>	
+    <string name="cpp_sync_setting_missing">needs to be activated to send values to the pump!</string>
+    <string name="cpp_notloadedplugins">Not all profiles loaded!</string>
+    <string name="cpp_valuesnotstored">Values not stored!</string>    
+	<string name="wear_overviewnotifications">Overview Notifications</string>
+    <string name="wear_overviewnotifications_summary">Pass the Overview Notifications through as wear confirmation messages.</string>
 	<string name="openapsma_smb_label">SMB result</string>
 	<string name="smb">SMB</string>
 	<string name="smb_shortname">SMB</string>
@@ -690,12 +697,4 @@
 	<string name="enableuam">Enable UAM</string>
 	<string name="enableuam_summary">UnAnounced Meals  - high risk here!!!</string>
 	<string name="openapssmb">Rumen SMB</string>
-    <string name="sensitivityweightedaverage">Sensitivity WeightedAverage</string>
-    <string name="mdtp_ok">OK</string>
-    <string name="mdtp_cancel">Cancel</string>
-    <string name="cpp_sync_setting_missing">needs to be activated to send values to the pump!</string>
-    <string name="cpp_notloadedplugins">Not all profiles loaded!</string>
-    <string name="cpp_valuesnotstored">Values not stored!</string>
-    <string name="wear_overviewnotifications">Overview Notifications</string>
-    <string name="wear_overviewnotifications_summary">Pass the Overview Notifications through as wear confirmation messages.</string>
 </resources>
