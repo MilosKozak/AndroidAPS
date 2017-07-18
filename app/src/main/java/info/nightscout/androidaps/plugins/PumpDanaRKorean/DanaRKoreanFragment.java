@@ -24,12 +24,14 @@ import java.util.Date;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.events.EventExtendedBolusChange;
 import info.nightscout.androidaps.events.EventPumpStatusChanged;
 import info.nightscout.androidaps.events.EventTempBasalChange;
+import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
 import info.nightscout.androidaps.plugins.PumpDanaR.Dialogs.ProfileViewDialog;
+import info.nightscout.androidaps.plugins.PumpDanaR.activities.DanaRHistoryActivity;
+import info.nightscout.androidaps.plugins.PumpDanaR.activities.DanaRStatsActivity;
 import info.nightscout.androidaps.plugins.PumpDanaR.events.EventDanaRNewStatus;
-import info.nightscout.androidaps.plugins.PumpDanaRKorean.History.DanaRHistoryActivity;
-import info.nightscout.androidaps.plugins.PumpDanaRKorean.History.DanaRStatsActivity;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.SetWarnColor;
@@ -194,6 +196,11 @@ public class DanaRKoreanFragment extends Fragment {
         updateGUI();
     }
 
+   @Subscribe
+    public void onStatusEvent(final EventExtendedBolusChange s) {
+        updateGUI();
+    }
+
     // GUI functions
     private void updateGUI() {
 
@@ -203,15 +210,15 @@ public class DanaRKoreanFragment extends Fragment {
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void run() {
-                    DanaRKoreanPump pump = DanaRKoreanPlugin.getDanaRPump();
+                    DanaRPump pump = DanaRPump.getInstance();
                     if (pump.lastConnection.getTime() != 0) {
-                        Long agoMsec = new Date().getTime() - pump.lastConnection.getTime();
+                        Long agoMsec = System.currentTimeMillis() - pump.lastConnection.getTime();
                         int agoMin = (int) (agoMsec / 60d / 1000d);
                         lastConnectionView.setText(DateUtil.timeString(pump.lastConnection) + " (" + String.format(MainApp.sResources.getString(R.string.minago), agoMin) + ")");
                         SetWarnColor.setColor(lastConnectionView, agoMin, 16d, 31d);
                     }
 //                    if (pump.lastBolusTime.getTime() != 0) {
-//                        Long agoMsec = new Date().getTime() - pump.lastBolusTime.getTime();
+//                        Long agoMsec = System.currentTimeMillis() - pump.lastBolusTime.getTime();
 //                        double agoHours =  agoMsec / 60d / 60d / 1000d;
 //                        if (agoHours < 6) // max 6h back
 //                            lastBolusView.setText(formatTime.format(pump.lastBolusTime) + " (" + DecimalFormatter.to1Decimal(agoHours) + " " + getString(R.string.hoursago) + ") " + DecimalFormatter.to2Decimal(pump.lastBolusAmount) + " U");
@@ -221,13 +228,13 @@ public class DanaRKoreanFragment extends Fragment {
                     dailyUnitsView.setText(DecimalFormatter.to0Decimal(pump.dailyTotalUnits) + " / " + pump.maxDailyTotalUnits + " U");
                     SetWarnColor.setColor(dailyUnitsView, pump.dailyTotalUnits, pump.maxDailyTotalUnits * 0.75d, pump.maxDailyTotalUnits * 0.9d);
                     basaBasalRateView.setText("( " + (pump.activeProfile + 1) + " )  " + DecimalFormatter.to2Decimal(danaRKoreanPlugin.getBaseBasalRate()) + " U/h");
-                    if (danaRKoreanPlugin.isRealTempBasalInProgress()) {
-                        tempBasalView.setText(danaRKoreanPlugin.getRealTempBasal().toString());
+                    if (MainApp.getConfigBuilder().isInHistoryRealTempBasalInProgress()) {
+                        tempBasalView.setText(MainApp.getConfigBuilder().getRealTempBasalFromHistory(System.currentTimeMillis()).toStringFull());
                     } else {
                         tempBasalView.setText("");
                     }
-                    if (danaRKoreanPlugin.isExtendedBoluslInProgress()) {
-                        extendedBolusView.setText(danaRKoreanPlugin.getExtendedBolus().toString());
+                    if (MainApp.getConfigBuilder().isInHistoryExtendedBoluslInProgress()) {
+                        extendedBolusView.setText(MainApp.getConfigBuilder().getExtendedBolusFromHistory(System.currentTimeMillis()).toString());
                     } else {
                         extendedBolusView.setText("");
                     }
