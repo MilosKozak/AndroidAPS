@@ -19,7 +19,7 @@ import info.nightscout.androidaps.Services.Intents;
 public class BroadcastMbgs {
     private static Logger log = LoggerFactory.getLogger(BroadcastMbgs.class);
 
-    public void handleNewMbg(JSONArray mbgs, Context context, boolean isDelta) {
+    public static void handleNewMbg(JSONArray mbgs, Context context, boolean isDelta) {
         Bundle bundle = new Bundle();
         bundle.putString("mbgs", mbgs.toString());
         bundle.putBoolean("delta", isDelta);

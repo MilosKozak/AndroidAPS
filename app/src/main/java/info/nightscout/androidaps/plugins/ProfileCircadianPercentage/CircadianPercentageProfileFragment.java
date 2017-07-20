@@ -33,7 +33,10 @@ import org.slf4j.LoggerFactory;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.events.EventInitializationChanged;
+import info.nightscout.androidaps.events.EventNewBasalProfile;
+import info.nightscout.androidaps.events.EventProfileSwitchChange;
 import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.plugins.Careportal.CareportalFragment;
 import info.nightscout.androidaps.plugins.Careportal.Dialogs.NewNSTreatmentDialog;
 import info.nightscout.androidaps.plugins.Careportal.OptionsToShow;
 import info.nightscout.utils.DecimalFormatter;
@@ -74,6 +77,50 @@ public class CircadianPercentageProfileFragment extends Fragment {
     static Boolean percentageViewHint = true;
     static Boolean timeshiftViewHint = true;
 
+    TextWatcher textWatch = new TextWatcher() {
+
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start,
+                                      int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start,
+                                  int before, int count) {
+
+            if (percentageView.testValidity()) {
+                if (SafeParse.stringToInt(percentageView.getText().toString()) == 0) {
+                    circadianPercentageProfilePlugin.percentage = 100;
+                } else {
+                    circadianPercentageProfilePlugin.percentage = SafeParse.stringToInt(percentageView.getText().toString());
+                }
+                updateProfileInfo();
+            }
+            if (timeshiftView.testValidity()) {
+                circadianPercentageProfilePlugin.timeshift = SafeParse.stringToInt(timeshiftView.getText().toString());
+                updateProfileInfo();
+            }
+            if (diaView.testValidity()) {
+                circadianPercentageProfilePlugin.dia = SafeParse.stringToDouble(diaView.getText().toString());
+                updateProfileInfo();
+            }
+            if (targethighView.testValidity()) {
+                circadianPercentageProfilePlugin.targetLow = SafeParse.stringToDouble(targetlowView.getText().toString());
+                updateProfileInfo();
+            }
+            if (targetlowView.testValidity()) {
+                circadianPercentageProfilePlugin.targetHigh = SafeParse.stringToDouble(targethighView.getText().toString());
+                updateProfileInfo();
+            }
+            circadianPercentageProfilePlugin.storeSettings();
+            updateProfileInfo();
+        }
+    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -105,16 +152,6 @@ public class CircadianPercentageProfileFragment extends Fragment {
             layout.findViewById(R.id.circadianpercentageprofile_baseprofilebasal_layout).setVisibility(View.GONE);
         }
 
-
-        mgdlView.setChecked(circadianPercentageProfilePlugin.mgdl);
-        mmolView.setChecked(circadianPercentageProfilePlugin.mmol);
-        diaView.setText(circadianPercentageProfilePlugin.dia.toString());
-        targetlowView.setText(circadianPercentageProfilePlugin.targetLow.toString());
-        targethighView.setText(circadianPercentageProfilePlugin.targetHigh.toString());
-        percentageView.setText("" + circadianPercentageProfilePlugin.percentage);
-        timeshiftView.setText("" + circadianPercentageProfilePlugin.timeshift);
-        updateProfileInfo();
-
         mgdlView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,9 +177,9 @@ public class CircadianPercentageProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NewNSTreatmentDialog newDialog = new NewNSTreatmentDialog();
-                final OptionsToShow profileswitch = new OptionsToShow(R.id.careportal_profileswitch, R.string.careportal_profileswitch, true, false, false, false, false, false, false, true, false, false);
+                final OptionsToShow profileswitch = CareportalFragment.profileswitch;
                 profileswitch.executeProfileSwitch = true;
-                newDialog.setOptions(profileswitch);
+                newDialog.setOptions(profileswitch, R.string.careportal_profileswitch);
                 newDialog.show(getFragmentManager(), "NewNSTreatmentDialog");
             }
         });
@@ -265,49 +302,6 @@ public class CircadianPercentageProfileFragment extends Fragment {
             }
         });
 
-        TextWatcher textWatch = new TextWatcher() {
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start,
-                                      int before, int count) {
-
-                if (percentageView.testValidity()) {
-                    if (SafeParse.stringToInt(percentageView.getText().toString()) == 0) {
-                        circadianPercentageProfilePlugin.percentage = 100;
-                    } else {
-                        circadianPercentageProfilePlugin.percentage = SafeParse.stringToInt(percentageView.getText().toString());
-                    }
-                    updateProfileInfo();
-                }
-                if (timeshiftView.testValidity()) {
-                    circadianPercentageProfilePlugin.timeshift = SafeParse.stringToInt(timeshiftView.getText().toString());
-                    updateProfileInfo();
-                }
-                if (diaView.testValidity()) {
-                    circadianPercentageProfilePlugin.dia = SafeParse.stringToDouble(diaView.getText().toString());
-                    updateProfileInfo();
-                }
-                if (targethighView.testValidity()) {
-                    circadianPercentageProfilePlugin.targetLow = SafeParse.stringToDouble(targetlowView.getText().toString());
-                    updateProfileInfo();
-                }
-                if (targetlowView.testValidity()) {
-                    circadianPercentageProfilePlugin.targetHigh = SafeParse.stringToDouble(targethighView.getText().toString());
-                    updateProfileInfo();
-                }
-                circadianPercentageProfilePlugin.storeSettings();
-                updateProfileInfo();
-            }
-        };
 
         diaView.addTextChangedListener(textWatch);
         targetlowView.addTextChangedListener(textWatch);
@@ -315,9 +309,39 @@ public class CircadianPercentageProfileFragment extends Fragment {
         percentageView.addTextChangedListener(textWatch);
         timeshiftView.addTextChangedListener(textWatch);
 
-        onStatusEvent(null);
+        updateGui();
+
+        onStatusEvent(new EventInitializationChanged());
 
         return layout;
+    }
+
+    public void updateGui() {
+
+
+        updateProfileInfo();
+
+        diaView.removeTextChangedListener(textWatch);
+        targetlowView.removeTextChangedListener(textWatch);
+        targethighView.removeTextChangedListener(textWatch);
+        percentageView.removeTextChangedListener(textWatch);
+        timeshiftView.removeTextChangedListener(textWatch);
+
+        mgdlView.setChecked(circadianPercentageProfilePlugin.mgdl);
+        mmolView.setChecked(circadianPercentageProfilePlugin.mmol);
+        diaView.setText(circadianPercentageProfilePlugin.dia.toString());
+        targetlowView.setText(circadianPercentageProfilePlugin.targetLow.toString());
+        targethighView.setText(circadianPercentageProfilePlugin.targetHigh.toString());
+        percentageView.setText("" + circadianPercentageProfilePlugin.percentage);
+        timeshiftView.setText("" + circadianPercentageProfilePlugin.timeshift);
+
+
+        diaView.addTextChangedListener(textWatch);
+        targetlowView.addTextChangedListener(textWatch);
+        targethighView.addTextChangedListener(textWatch);
+        percentageView.addTextChangedListener(textWatch);
+        timeshiftView.addTextChangedListener(textWatch);
+
     }
 
     private void customSnackbar(View view, final String Msg, Object snackbarCaller) {
@@ -468,8 +492,9 @@ public class CircadianPercentageProfileFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        updateGui();
         MainApp.bus().register(this);
-        onStatusEvent(null);
+        onStatusEvent(new EventInitializationChanged());
         fl.requestFocusFromTouch();
     }
 
@@ -488,4 +513,17 @@ public class CircadianPercentageProfileFragment extends Fragment {
                 }
             });
     }
+
+    @Subscribe
+    public void onStatusEvent(final EventProfileSwitchChange e) {
+        Activity activity = getActivity();
+        if (activity != null)
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    updateGui();
+                }
+            });
+    }
+
 }
