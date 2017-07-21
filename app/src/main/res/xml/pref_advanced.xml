@@ -31,6 +31,19 @@
                     android:title="@string/enablesuperbolus"
                     android:summary="@string/enablesuperbolus_summary"/>
             </PreferenceCategory>
+			<PreferenceCategory
+                android:title="@string/smb">
+                <SwitchPreference
+                    android:defaultValue="false"
+                    android:key="@string/key_smb"
+                    android:title="@string/enablesmb"
+                    android:summary="@string/enablesmb_summary"/>
+					<SwitchPreference
+                    android:defaultValue="false"
+                    android:key="@string/key_uam"
+                    android:title="@string/enableuam"
+                    android:summary="@string/enableuam_summary"/>
+            </PreferenceCategory>
             <PreferenceCategory
                 android:title="@string/openapsma">
                 <SwitchPreference

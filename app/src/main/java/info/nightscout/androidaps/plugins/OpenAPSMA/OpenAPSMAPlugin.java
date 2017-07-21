@@ -45,7 +45,10 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
 
     boolean fragmentEnabled = false;
     boolean fragmentVisible = true;
-
+    @Override
+    public Double smbValue() {
+        return 0d;
+    }
     @Override
     public String getName() {
         return MainApp.instance().getString(R.string.openapsma);
