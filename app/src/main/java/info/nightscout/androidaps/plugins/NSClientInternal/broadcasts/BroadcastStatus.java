@@ -15,6 +15,7 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.Services.Intents;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSSettingsStatus;
 import info.nightscout.androidaps.plugins.NSClientInternal.services.NSClientService;
+import info.nightscout.utils.SP;
 
 /**
  * Created by mike on 24.02.2016.
@@ -23,13 +24,16 @@ public class BroadcastStatus {
     private static Logger log = LoggerFactory.getLogger(BroadcastStatus.class);
 
     public static void handleNewStatus(NSSettingsStatus status, Context context, boolean isDelta) {
+
+        if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
+
         Bundle bundle = new Bundle();
         try {
             bundle.putString("nsclientversionname", MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionName);
             bundle.putInt("nsclientversioncode", MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionCode);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
-        };
+        }
         bundle.putString("nightscoutversionname", NSClientService.nightscoutVersionName);
         bundle.putInt("nightscoutversioncode", NSClientService.nightscoutVersionCode);
         bundle.putString("status", status.getData().toString());
@@ -38,8 +42,5 @@ public class BroadcastStatus {
         intent.putExtras(bundle);
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         context.sendBroadcast(intent);
-        List<ResolveInfo> x = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-
-        log.debug("STATUS: " + x.size() + " receivers");
     }
 }
