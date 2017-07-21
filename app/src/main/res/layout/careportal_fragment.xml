@@ -21,17 +21,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ACTIVITY AND FEEDBACK" />
+
             <android.support.v7.widget.GridLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:padding="10dip"
                 app:columnCount="3">
-
                 <Button
                     android:id="@+id/careportal_bgcheck"
                     style="@style/ButtonSmallFontStyle"
-                    android:layout_width="0dp"
+                    android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
@@ -70,6 +75,20 @@
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill"
                     app:layout_row="0" />
+				</android.support.v7.widget.GridLayout>
+					
+				
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CARBS AND BOLUS" />
+				<android.support.v7.widget.GridLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="10dip"
+                app:columnCount="3">
 
                 <Button
                     android:id="@+id/careportal_snackbolus"
@@ -118,7 +137,7 @@
                     style="@style/ButtonSmallFontStyle"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
-                    android:drawableTop="@drawable/icon_cp_bolus_correction"
+                    android:drawableTop="@drawable/icon_cp_bolus_carbs"
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:text="@string/careportal_carbscorrection"
@@ -168,7 +187,21 @@
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill"
                     app:layout_row="3" />
-
+					
+				</android.support.v7.widget.GridLayout>
+					
+				
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CGM AND OPENAPS" />
+				<android.support.v7.widget.GridLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="10dip"
+                app:columnCount="3">
                 <Button
                     android:id="@+id/careportal_announcement"
                     style="@style/ButtonSmallFontStyle"
@@ -178,10 +211,10 @@
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:text="@string/careportal_announcement"
-                    app:layout_column="1"
+                    app:layout_column="0"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill"
-                    app:layout_row="3" />
+                    app:layout_row="1" />
 
                 <Button
                     android:id="@+id/careportal_question"
@@ -192,10 +225,10 @@
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:text="@string/careportal_question"
-                    app:layout_column="2"
+                    app:layout_column="1"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill"
-                    app:layout_row="3" />
+                    app:layout_row="1" />
 
                 <Button
                     android:id="@+id/careportal_pumpsitechange"
@@ -206,10 +239,10 @@
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:text="@string/careportal_pumpsitechange"
-                    app:layout_column="0"
+                    app:layout_column="2"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill"
-                    app:layout_row="4" />
+                    app:layout_row="1" />
 
                 <Button
                     android:id="@+id/careportal_cgmsensorinsert"
@@ -220,7 +253,7 @@
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:text="@string/careportal_cgmsensorinsert"
-                    app:layout_column="1"
+                    app:layout_column="0"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill"
                     app:layout_row="4" />
@@ -234,10 +267,24 @@
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:text="@string/careportal_cgmsensorstart"
-                    app:layout_column="2"
+                    app:layout_column="1"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill"
                     app:layout_row="4" />
+					</android.support.v7.widget.GridLayout>
+					
+				
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PUMP" />
+				<android.support.v7.widget.GridLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="10dip"
+                app:columnCount="3">
 
                 <Button
                     android:id="@+id/careportal_insulincartridgechange"
