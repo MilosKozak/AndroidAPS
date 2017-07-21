@@ -13,12 +13,13 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 import info.nightscout.androidaps.Services.Intents;
+import info.nightscout.utils.SP;
 
 
 public class BroadcastDeviceStatus {
     private static Logger log = LoggerFactory.getLogger(BroadcastDeviceStatus.class);
 
-    public void handleNewDeviceStatus(JSONObject status, Context context, boolean isDelta) {
+    public static void handleNewDeviceStatus(JSONObject status, Context context, boolean isDelta) {
         Bundle bundle = new Bundle();
         bundle.putString("devicestatus", status.toString());
         bundle.putBoolean("delta", isDelta);
@@ -26,20 +27,22 @@ public class BroadcastDeviceStatus {
         intent.putExtras(bundle);
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         context.sendBroadcast(intent);
-        List<ResolveInfo> x = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-
-        log.debug("DEVICESTATUS " + x.size() + " receivers");
     }
-    public void handleNewDeviceStatus(JSONArray statuses, Context context, boolean isDelta) {
-        Bundle bundle = new Bundle();
-        bundle.putString("devicestatuses", statuses.toString());
-        bundle.putBoolean("delta", isDelta);
-        Intent intent = new Intent(Intents.ACTION_NEW_DEVICESTATUS);
-        intent.putExtras(bundle);
-        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        context.sendBroadcast(intent);
-        List<ResolveInfo> x = context.getPackageManager().queryBroadcastReceivers(intent, 0);
+    public static void handleNewDeviceStatus(JSONArray statuses, Context context, boolean isDelta) {
 
-        log.debug("DEVICESTATUS " + x.size() + " receivers");
+
+        if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
+
+
+        List<JSONArray> splitted = BroadcastTreatment.splitArray(statuses);
+        for (JSONArray part: splitted) {
+            Bundle bundle = new Bundle();
+            bundle.putString("devicestatuses", part.toString());
+            bundle.putBoolean("delta", isDelta);
+            Intent intent = new Intent(Intents.ACTION_NEW_DEVICESTATUS);
+            intent.putExtras(bundle);
+            intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+            context.sendBroadcast(intent);
+        }
     }
 }
