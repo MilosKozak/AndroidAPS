@@ -49,11 +49,6 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
     boolean fragmentVisible = true;
 
     @Override
-    public Double smbValue() {
-        return 0d;
-    }
-
-    @Override
     public String getName() {
         return MainApp.instance().getString(R.string.openapsama);
     }

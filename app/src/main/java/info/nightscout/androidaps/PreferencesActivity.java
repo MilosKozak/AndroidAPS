@@ -19,7 +19,6 @@ import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
 import info.nightscout.androidaps.plugins.NSClientInternal.NSClientInternalPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
-import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRv2.DanaRv2Plugin;
 import info.nightscout.androidaps.plugins.PumpVirtual.VirtualPumpPlugin;
 import info.nightscout.androidaps.plugins.SensitivityAAPS.SensitivityAAPSPlugin;
@@ -112,12 +111,6 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
             if (Config.OPENAPSENABLED) {
                 addPreferencesFromResource(R.xml.pref_openapsma);
                 if (MainApp.getSpecificPlugin(OpenAPSAMAPlugin.class) != null && MainApp.getSpecificPlugin(OpenAPSAMAPlugin.class).isEnabled(PluginBase.APS))
-                    addPreferencesFromResource(R.xml.pref_openapsama);
-            }
-			//Added by Rumen on 18.07.2017 to shou autosens when OpenAPSSMB is selected in BonfigBuilder
-			if (Config.OPENAPSENABLED) {
-                addPreferencesFromResource(R.xml.pref_openapsma);
-                if (MainApp.getSpecificPlugin(OpenAPSSMBPlugin.class) != null && MainApp.getSpecificPlugin(OpenAPSSMBPlugin.class).isEnabled(PluginBase.APS))
                     addPreferencesFromResource(R.xml.pref_openapsama);
             }
             if (MainApp.getSpecificPlugin(SensitivityAAPSPlugin.class) != null && MainApp.getSpecificPlugin(SensitivityAAPSPlugin.class).isEnabled(PluginBase.SENSITIVITY)
