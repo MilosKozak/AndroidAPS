@@ -25,6 +25,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+				android:paddingStart="15dp"
                 android:text="ACTIVITY AND FEEDBACK" />
 
             <android.support.v7.widget.GridLayout
@@ -82,6 +83,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+					android:paddingStart="5dp"
                     android:text="CARBS AND BOLUS" />
 				<android.support.v7.widget.GridLayout
                 android:layout_width="fill_parent"
@@ -195,6 +197,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+					android:paddingStart="5dp"
                     android:text="CGM AND OPENAPS" />
 				<android.support.v7.widget.GridLayout
                 android:layout_width="fill_parent"
@@ -278,6 +281,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+					android:paddingStart="5dp"
                     android:text="PUMP" />
 				<android.support.v7.widget.GridLayout
                 android:layout_width="fill_parent"
