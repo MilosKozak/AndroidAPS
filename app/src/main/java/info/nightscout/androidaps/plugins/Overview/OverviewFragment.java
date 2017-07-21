@@ -105,7 +105,6 @@ import info.nightscout.androidaps.plugins.NSClientInternal.broadcasts.BroadcastA
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSDeviceStatus;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.DetermineBasalResultAMA;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
-import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.CalibrationDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewTreatmentDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.WizardDialog;
@@ -1221,11 +1220,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         }
 
         boolean showPrediction = showPredictionView.isChecked() && finalLastRun != null && finalLastRun.constraintsProcessed.getClass().equals(DetermineBasalResultAMA.class);
-        //Added SMB byr Rumen on 18.07.2017
-		if (MainApp.getSpecificPlugin(OpenAPSAMAPlugin.class) != null && MainApp.getSpecificPlugin(OpenAPSAMAPlugin.class).isEnabled(PluginBase.APS)) {
-            showPredictionView.setVisibility(View.VISIBLE);
-            getActivity().findViewById(R.id.overview_showprediction_label).setVisibility(View.VISIBLE);
-        } else if (MainApp.getSpecificPlugin(OpenAPSSMBPlugin.class) != null && MainApp.getSpecificPlugin(OpenAPSSMBPlugin.class).isEnabled(PluginBase.APS)) {
+        if (MainApp.getSpecificPlugin(OpenAPSAMAPlugin.class) != null && MainApp.getSpecificPlugin(OpenAPSAMAPlugin.class).isEnabled(PluginBase.APS)) {
             showPredictionView.setVisibility(View.VISIBLE);
             getActivity().findViewById(R.id.overview_showprediction_label).setVisibility(View.VISIBLE);
         } else {
