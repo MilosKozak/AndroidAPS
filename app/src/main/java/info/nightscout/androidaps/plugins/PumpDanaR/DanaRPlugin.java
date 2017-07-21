@@ -498,7 +498,7 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
             result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
             result.isPercent = true;
             if (Config.logPumpActions)
-                log.debug("setTempBasalPercent: Correct value already set");
+                log.debug("setTempBasalPercent: Correct value already set -in progres:"+pump.isTempBasalInProgress+" at "+pump.tempBasalPercent+" remaining "+pump.tempBasalRemainingMin+" min");
             return result;
         }
         int durationInHours = Math.max(durationInMinutes / 60, 1);
