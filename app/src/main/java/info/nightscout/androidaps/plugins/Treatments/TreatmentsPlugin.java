@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import info.nightscout.androidaps.Config;
@@ -18,8 +19,6 @@ import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Iob;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.MealData;
-import info.nightscout.androidaps.data.Intervals;
-import info.nightscout.androidaps.data.NonOverlappingIntervals;
 import info.nightscout.androidaps.data.OverlappingIntervals;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileIntervals;
@@ -49,9 +48,9 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
     public static IobTotal lastTempBasalsCalculation;
 
     public static List<Treatment> treatments;
-    private static Intervals<TemporaryBasal> tempBasals = new NonOverlappingIntervals<TemporaryBasal>();
-    private static Intervals<ExtendedBolus> extendedBoluses = new NonOverlappingIntervals<ExtendedBolus>();
-    private static Intervals<TempTarget> tempTargets = new OverlappingIntervals<TempTarget>();
+    private static OverlappingIntervals<TemporaryBasal> tempBasals = new OverlappingIntervals<>();
+    private static OverlappingIntervals<ExtendedBolus> extendedBoluses = new OverlappingIntervals<>();
+    private static OverlappingIntervals<TempTarget> tempTargets = new OverlappingIntervals<>();
     private static ProfileIntervals<ProfileSwitch> profiles = new ProfileIntervals<>();
 
     private static boolean fragmentEnabled = true;
@@ -348,7 +347,7 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
     }
 
     @Override
-    public Intervals<ExtendedBolus> getExtendedBolusesFromHistory() {
+    public OverlappingIntervals<ExtendedBolus> getExtendedBolusesFromHistory() {
         return extendedBoluses;
     }
 
@@ -381,7 +380,7 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
     }
 
     @Override
-    public Intervals<TemporaryBasal> getTemporaryBasalsFromHistory() {
+    public OverlappingIntervals<TemporaryBasal> getTemporaryBasalsFromHistory() {
         return tempBasals;
     }
 
@@ -443,7 +442,7 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
     }
 
     @Override
-    public Intervals<TempTarget> getTempTargetsFromHistory() {
+    public OverlappingIntervals<TempTarget> getTempTargetsFromHistory() {
         return tempTargets;
     }
 

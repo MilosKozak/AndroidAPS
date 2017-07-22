@@ -23,6 +23,8 @@ import com.squareup.otto.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.IobTotal;
@@ -33,7 +35,7 @@ import info.nightscout.androidaps.events.EventNewBG;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.NSUpload;
-import info.nightscout.androidaps.data.Intervals;
+import info.nightscout.androidaps.data.OverlappingIntervals;
 
 
 public class TreatmentsExtendedBolusesFragment extends Fragment {
@@ -46,9 +48,9 @@ public class TreatmentsExtendedBolusesFragment extends Fragment {
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ExtendedBolusesViewHolder> {
 
-        Intervals<ExtendedBolus> extendedBolusList;
+        OverlappingIntervals<ExtendedBolus> extendedBolusList;
 
-        RecyclerViewAdapter(Intervals<ExtendedBolus> extendedBolusList) {
+        RecyclerViewAdapter(OverlappingIntervals<ExtendedBolus> extendedBolusList) {
             this.extendedBolusList = extendedBolusList;
         }
 

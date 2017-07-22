@@ -23,8 +23,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
-		android:drawableTop="@drawable/icon_actions_profileswitch"
-                android:text="@string/careportal_profileswitch" />
+                android:text="@string/careportal_profileswitch"
+                android:textColor="@color/colorProfileSwitchButton" />
 
             <Button
                 android:id="@+id/actions_temptarget"
@@ -36,8 +36,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
-		android:drawableTop="@drawable/icon_actions_temptarget"
-                android:text="@string/careportal_temporarytarget" />
+                android:text="@string/careportal_temporarytarget"
+                android:textColor="@color/colorCalculatorButton" />
 
             <Button
                 android:id="@+id/actions_settempbasal"
@@ -49,8 +49,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
-		android:drawableTop="@drawable/icon_actions_starttempbasal"
-                android:text="@string/overview_tempbasal_button"/>
+                android:text="@string/overview_tempbasal_button"
+                android:textColor="@color/colorSetTempButton" />
 
             <Button
                 android:id="@+id/actions_extendedbolus"
@@ -62,8 +62,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
-		android:drawableTop="@drawable/icon_actions_startextbolus"
-                android:text="@string/overview_extendedbolus_button" />
+                android:text="@string/overview_extendedbolus_button"
+                android:textColor="@color/colorSetExtendedButton" />
 
             <Button
                 android:id="@+id/actions_extendedbolus_cancel"
@@ -75,8 +75,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
-		android:drawableTop="@drawable/icon_actions_cancelextbolus"
-                android:text="@string/overview_extendedbolus_cancel_button" />
+                android:text="@string/overview_extendedbolus_cancel_button"
+                android:textColor="@color/colorSetExtendedButton" />
 
             <Button
                 android:id="@+id/actions_fill"
@@ -88,8 +88,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
-		android:drawableTop="@drawable/icon_actions_refill"
-                android:text="@string/primefill" />
+                android:text="@string/primefill"
+                android:textColor="@color/colorTreatmentButton" />
 
         </LinearLayout>
 

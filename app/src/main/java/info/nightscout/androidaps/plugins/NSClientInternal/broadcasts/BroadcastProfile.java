@@ -12,7 +12,6 @@ import java.util.List;
 
 import info.nightscout.androidaps.Services.Intents;
 import info.nightscout.androidaps.data.ProfileStore;
-import info.nightscout.utils.SP;
 
 
 /**
@@ -22,9 +21,6 @@ public class BroadcastProfile {
     private static Logger log = LoggerFactory.getLogger(BroadcastProfile.class);
 
     public static void handleNewTreatment(ProfileStore profile, Context context, boolean isDelta) {
-
-        if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
-
         Bundle bundle = new Bundle();
         bundle.putString("profile", profile.getData().toString());
         bundle.putBoolean("delta", isDelta);
@@ -32,6 +28,9 @@ public class BroadcastProfile {
         intent.putExtras(bundle);
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         context.sendBroadcast(intent);
+        List<ResolveInfo> x = context.getPackageManager().queryBroadcastReceivers(intent, 0);
+
+        log.debug("PROFILE " + x.size() + " receivers");
     }
 
 }
