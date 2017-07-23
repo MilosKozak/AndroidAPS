@@ -227,24 +227,20 @@ public class DataService extends IntentService {
         if (Config.logIncommingData)
             log.debug("Got intent: " + intent.getAction());
 
-
         if (intent.getAction().equals(Intents.ACTION_NEW_STATUS)) {
 
-            boolean hasNsclientversioncode = bundles.containsKey("nsclientversioncode");
+            boolean updateNSClientInfo = bundles.containsKey("nsclientversioncode");
             int nightscoutversioncode = bundles.getInt("nightscoutversioncode");
             String nightscoutversionname = bundles.getString("nightscoutversionname");
             int nsclientversioncode = bundles.getInt("nsclientversioncode");
             String nsclientversionname = bundles.getString("nsclientversionname");
-            boolean hasStatus = bundles.containsKey("status");
             String status = bundles.getString("status");
-            actionNewStatus(hasNsclientversioncode, nightscoutversioncode, nightscoutversionname, nsclientversioncode, nsclientversionname, hasStatus, status);
+            actionNewStatus(status, updateNSClientInfo, nightscoutversioncode, nightscoutversionname, nsclientversioncode, nsclientversionname);
         }
         if (intent.getAction().equals(Intents.ACTION_NEW_DEVICESTATUS)) {
             String devicestatuses = bundles.getString("devicestatuses");
-            boolean hasDeviceStatus = bundles.containsKey("devicestatus");
             String devicestatus = bundles.getString("devicestatus");
-            boolean hasDevicestatuses = bundles.containsKey("devicestatuses");
-            actionNewDevicestatus(devicestatuses, hasDeviceStatus, devicestatus, hasDevicestatuses);
+            actionNewDevicestatus(devicestatus, devicestatuses);
         }
         // Handle profile
         if (intent.getAction().equals(Intents.ACTION_NEW_PROFILE)) {
@@ -254,50 +250,42 @@ public class DataService extends IntentService {
             actionNewProfile(activeProfile, profile);
         }
         if (intent.getAction().equals(Intents.ACTION_NEW_TREATMENT)) {
-            boolean hasTreatment = bundles.containsKey("treatment");
             String treatment = bundles.getString("treatment");
-            boolean hasTreatments = bundles.containsKey("treatments");
+            String treatments = bundles.getString("treatments");
 
-            actionNewTreatment(bundles, hasTreatment, treatment, hasTreatments);
+            actionNewTreatment(treatment, treatments);
 
         }
 
         if (intent.getAction().equals(Intents.ACTION_CHANGED_TREATMENT)) {
-            boolean hasTreatment = bundles.containsKey("treatment");
             String treatment = bundles.getString("treatment");
-            boolean hasTreatments = bundles.containsKey("treatments");
             String treatments = bundles.getString("treatments");
-            actionChangedTreatment(hasTreatment, treatment, hasTreatments, treatments);
+            actionChangedTreatment(treatment,treatments);
         }
 
         if (intent.getAction().equals(Intents.ACTION_REMOVED_TREATMENT)) {
-
-            boolean hasTreatment = bundles.containsKey("treatment");
             String treatment = bundles.getString("treatment");
-            boolean hasTreatments = bundles.containsKey("treatments");
             String treatments = bundles.getString("treatments");
-            actionRemovedTreatment(hasTreatment, treatment, hasTreatments, treatments);
+            actionRemovedTreatment(treatment, treatments);
         }
 
         if (intent.getAction().equals(Intents.ACTION_NEW_SGV)) {
-            boolean hasSgv = bundles.containsKey("sgv");
             String sgv = bundles.getString("sgv");
-            boolean hasSgvs = bundles.containsKey("sgvs");
             String sgvs = bundles.getString("sgvs");
-            actionNewSGV(hasSgv, sgv, hasSgvs, sgvs);
+            actionNewSGV(sgv, sgvs);
         }
 
         if (intent.getAction().equals(Intents.ACTION_NEW_MBG)) {
-            boolean hasMbg = bundles.containsKey("mbg");
             String mbg = bundles.getString("mbg");
-            boolean hasMbgs = bundles.containsKey("mbgs");
             String mbgs = bundles.getString("mbgs");
 
-            actionNewMBG(hasMbg, mbg, hasMbgs, mbgs);
+            actionNewMBG(mbg, mbgs);
         }
     }
 
-    private void actionNewMBG(boolean hasMbg, String mbg, boolean hasMbgs, String mbgs) {
+    private void actionNewMBG(String mbg, String mbgs) {
+        boolean hasMbg = (mbg == null);
+        boolean hasMbgs = (mbgs == null);
         try {
             if (hasMbg) {
                 String mbgstring = mbg;
@@ -326,7 +314,13 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewSGV(boolean hasSgv, String sgv, boolean hasSgvs, String sgvs) {
+    private void actionNewCAL(String mbg, String mbgs) {
+       //don't handle cals
+    }
+
+    private void actionNewSGV(String sgv, String sgvs) {
+        boolean hasSgv = (sgv == null);
+        boolean hasSgvs = (sgvs == null);
         try {
             if (hasSgv) {
                 String sgvstring = sgv;
@@ -351,7 +345,10 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionRemovedTreatment(boolean hasTreatment, String treatment, boolean hasTreatments, String treatments) {
+    private void actionRemovedTreatment(String treatment, String treatments) {
+        boolean hasTreatment = treatment == null;
+        boolean hasTreatments = treatments == null;
+
         try {
             if (hasTreatment) {
                 String trstring = treatment;
@@ -374,7 +371,9 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionChangedTreatment(boolean hasTreatment, String treatment, boolean hasTreatments, String treatments) {
+    private void actionChangedTreatment(String treatment, String treatments) {
+        boolean hasTreatment = treatment == null;
+        boolean hasTreatments = treatments == null;
         try {
             if (hasTreatment) {
                 String trstring = treatment;
@@ -407,16 +406,14 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewTreatment(Bundle bundles, boolean hasTreatment, String treatment, boolean hasTreatments) {
+    private void actionNewTreatment(String treatment, String treatments) {
+        boolean hasTreatment = treatment == null;
+        boolean hasTreatments = treatments == null;
         try {
-
-
-
             if (hasTreatment) {
                 handleAddChangeDataFromNS(treatment);
             }
             if (hasTreatments) {
-                String treatments = bundles.getString("treatments");
                 JSONArray jsonArray = new JSONArray(treatments);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject trJson = jsonArray.getJSONObject(i);
@@ -429,7 +426,9 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewDevicestatus(String devicestatuses, boolean hasDeviceStatus, String devicestatus, boolean hasDevicestatuses) {
+    private void actionNewDevicestatus(String devicestatus,String devicestatuses) {
+        boolean hasDeviceStatus = devicestatus == null;
+        boolean hasDevicestatuses = devicestatuses == null;
         try {
             if (hasDeviceStatus) {
                 JSONObject devicestatusJson = new JSONObject(devicestatus);
@@ -457,8 +456,9 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewStatus(boolean hasNsclientversioncode, int nightscoutversioncode, String nightscoutversionname, int nsclientversioncode, String nsclientversionname, boolean hasStatus, String status) {
-        if (hasNsclientversioncode) {
+    private void actionNewStatus(String status, boolean updateNSClientInfo, int nightscoutversioncode, String nightscoutversionname, int nsclientversioncode, String nsclientversionname) {
+        boolean hasStatus = status == null;
+        if (updateNSClientInfo) {
             ConfigBuilderPlugin.nightscoutVersionCode = nightscoutversioncode; // for ver 1.2.3 contains 10203
             ConfigBuilderPlugin.nightscoutVersionName = nightscoutversionname;
             ConfigBuilderPlugin.nsClientVersionCode = nsclientversioncode; // for ver 1.17 contains 117
