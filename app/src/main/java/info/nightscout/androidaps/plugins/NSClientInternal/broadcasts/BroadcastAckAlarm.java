@@ -22,7 +22,6 @@ public class BroadcastAckAlarm {
     private static Logger log = LoggerFactory.getLogger(BroadcastAckAlarm.class);
 
     public static void handleClearAlarm(NSAlarm originalAlarm, Context context, long silenceTimeInMsec) {
-        if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
         Bundle bundle = new Bundle();
         bundle.putInt("level", originalAlarm.getLevel());
         bundle.putString("group", originalAlarm.getGroup());

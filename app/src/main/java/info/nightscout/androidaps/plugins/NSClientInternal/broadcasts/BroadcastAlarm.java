@@ -22,8 +22,6 @@ public class BroadcastAlarm {
 
     public static void handleAlarm(JSONObject alarm, Context context) {
 
-        if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
-
         Bundle bundle = new Bundle();
         bundle.putString("data", alarm.toString());
         Intent intent = new Intent(Intents.ACTION_ALARM);

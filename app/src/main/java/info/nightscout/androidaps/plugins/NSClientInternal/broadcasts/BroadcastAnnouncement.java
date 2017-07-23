@@ -23,8 +23,6 @@ public class BroadcastAnnouncement {
 
     public static void handleAnnouncement(JSONObject announcement, Context context) {
 
-        if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
-
         Bundle bundle = new Bundle();
         bundle.putString("data", announcement.toString());
         Intent intent = new Intent(Intents.ACTION_ANNOUNCEMENT);
