@@ -22,8 +22,6 @@ public class BroadcastClearAlarm {
 
     public static void handleClearAlarm(JSONObject clearalarm, Context context) {
 
-        if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
-
         Bundle bundle = new Bundle();
         bundle.putString("data", clearalarm.toString());
         Intent intent = new Intent(Intents.ACTION_CLEAR_ALARM);

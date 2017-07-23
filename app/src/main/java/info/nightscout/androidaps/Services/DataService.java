@@ -80,10 +80,6 @@ public class DataService extends IntentService {
             glimpEnabled = true;
         }
 
-        boolean isNSProfile = ConfigBuilderPlugin.getActiveProfileInterface().getClass().equals(NSProfilePlugin.class);
-
-        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
-
         if (intent != null) {
             final String action = intent.getAction();
             if (Intents.ACTION_NEW_BG_ESTIMATE.equals(action)) {
@@ -98,27 +94,6 @@ public class DataService extends IntentService {
                 if (glimpEnabled) {
                     handleNewDataFromGlimp(intent);
                 }
-            } else if (Intents.ACTION_NEW_SGV.equals(action)) {
-                // always handle SGV if NS-Client is the source
-                if (nsClientEnabled) {
-                    handleNewDataFromNSClient(intent);
-                }
-                // Objectives 0
-                ObjectivesPlugin.bgIsAvailableInNS = true;
-                ObjectivesPlugin.saveProgress();
-            } else if (isNSProfile && Intents.ACTION_NEW_PROFILE.equals(action) || Intents.ACTION_NEW_DEVICESTATUS.equals(action)) {
-                // always handle Profile if NSProfile is enabled without looking at nsUploadOnly
-                handleNewDataFromNSClient(intent);
-            } else if (!nsUploadOnly &&
-                    (Intents.ACTION_NEW_TREATMENT.equals(action) ||
-                            Intents.ACTION_CHANGED_TREATMENT.equals(action) ||
-                            Intents.ACTION_REMOVED_TREATMENT.equals(action) ||
-                            Intents.ACTION_NEW_STATUS.equals(action) ||
-                            Intents.ACTION_NEW_DEVICESTATUS.equals(action) ||
-                            Intents.ACTION_NEW_CAL.equals(action) ||
-                            Intents.ACTION_NEW_MBG.equals(action))
-                    ) {
-                handleNewDataFromNSClient(intent);
             } else if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(action)) {
                 handleNewSMS(intent);
             }
@@ -221,61 +196,200 @@ public class DataService extends IntentService {
         }
     }
 
-    private void handleNewDataFromNSClient(Intent intent) {
-        Bundle bundles = intent.getExtras();
-        if (bundles == null) return;
-        if (Config.logIncommingData)
-            log.debug("Got intent: " + intent.getAction());
+    public static void actionNewMBG(String mbg, String mbgs) {
 
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
 
-        if (intent.getAction().equals(Intents.ACTION_NEW_STATUS)) {
-            if (bundles.containsKey("nsclientversioncode")) {
-                ConfigBuilderPlugin.nightscoutVersionCode = bundles.getInt("nightscoutversioncode"); // for ver 1.2.3 contains 10203
-                ConfigBuilderPlugin.nightscoutVersionName = bundles.getString("nightscoutversionname");
-                ConfigBuilderPlugin.nsClientVersionCode = bundles.getInt("nsclientversioncode"); // for ver 1.17 contains 117
-                ConfigBuilderPlugin.nsClientVersionName = bundles.getString("nsclientversionname");
-                log.debug("Got versions: NSClient: " + ConfigBuilderPlugin.nsClientVersionName + " Nightscout: " + ConfigBuilderPlugin.nightscoutVersionName);
-                try {
-                    if (ConfigBuilderPlugin.nsClientVersionCode < MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionCode) {
-                        Notification notification = new Notification(Notification.OLD_NSCLIENT, MainApp.sResources.getString(R.string.unsupportedclientver), Notification.URGENT);
-                        MainApp.bus().post(new EventNewNotification(notification));
-                    } else {
-                        MainApp.bus().post(new EventDismissNotification(Notification.OLD_NSCLIENT));
-                    }
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                }
-                if (ConfigBuilderPlugin.nightscoutVersionCode < Config.SUPPORTEDNSVERSION) {
-                    Notification notification = new Notification(Notification.OLD_NS, MainApp.sResources.getString(R.string.unsupportednsversion), Notification.URGENT);
-                    MainApp.bus().post(new EventNewNotification(notification));
-                } else {
-                    MainApp.bus().post(new EventDismissNotification(Notification.OLD_NS));
-                }
-            } else {
-                Notification notification = new Notification(Notification.OLD_NSCLIENT, MainApp.sResources.getString(R.string.unsupportedclientver), Notification.URGENT);
-                MainApp.bus().post(new EventNewNotification(notification));
+        boolean hasMbg = (mbg != null);
+        boolean hasMbgs = (mbgs != null);
+        try {
+            if (hasMbg) {
+                String mbgstring = mbg;
+                JSONObject mbgJson = new JSONObject(mbgstring);
+                NSMbg nsMbg = new NSMbg(mbgJson);
+                CareportalEvent careportalEvent = new CareportalEvent(nsMbg);
+                MainApp.getDbHelper().createOrUpdate(careportalEvent);
+                if (Config.logIncommingData)
+                    log.debug("Adding/Updating new MBG: " + careportalEvent.log());
             }
-            if (bundles.containsKey("status")) {
-                try {
-                    JSONObject statusJson = new JSONObject(bundles.getString("status"));
-                    NSSettingsStatus.getInstance().setData(statusJson);
+
+            if (hasMbgs) {
+                String sgvstring = mbgs;
+                JSONArray jsonArray = new JSONArray(sgvstring);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject mbgJson = jsonArray.getJSONObject(i);
+                    NSMbg nsMbg = new NSMbg(mbgJson);
+                    CareportalEvent careportalEvent = new CareportalEvent(nsMbg);
+                    MainApp.getDbHelper().createOrUpdate(careportalEvent);
                     if (Config.logIncommingData)
-                        log.debug("Received status: " + statusJson.toString());
-                    Double targetHigh = NSSettingsStatus.getInstance().getThreshold("bgTargetTop");
-                    Double targetlow = NSSettingsStatus.getInstance().getThreshold("bgTargetBottom");
-                    if (targetHigh != null)
-                        OverviewPlugin.bgTargetHigh = targetHigh;
-                    if (targetlow != null)
-                        OverviewPlugin.bgTargetLow = targetlow;
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                        log.debug("Adding/Updating new MBG: " + careportalEvent.log());
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if (intent.getAction().equals(Intents.ACTION_NEW_DEVICESTATUS)) {
-            try {
-                if (bundles.containsKey("devicestatus")) {
-                    JSONObject devicestatusJson = new JSONObject(bundles.getString("devicestatus"));
+    }
+
+    public static void actionNewCAL(String mbg, String mbgs) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
+       //don't handle cals
+    }
+
+    public static void actionNewSGV(String sgv, String sgvs) {
+
+        // Objectives 0
+        ObjectivesPlugin.bgIsAvailableInNS = true;
+        ObjectivesPlugin.saveProgress();
+        
+
+        if(!ConfigBuilderPlugin.getActiveBgSource().getClass().equals(SourceNSClientPlugin.class)) return;
+
+        boolean hasSgv = (sgv != null);
+        boolean hasSgvs = (sgvs != null);
+        try {
+            if (hasSgv) {
+                String sgvstring = sgv;
+                JSONObject sgvJson = new JSONObject(sgvstring);
+                NSSgv nsSgv = new NSSgv(sgvJson);
+                BgReading bgReading = new BgReading(nsSgv);
+                MainApp.getDbHelper().createIfNotExists(bgReading, "NS");
+            }
+
+            if (hasSgvs) {
+                String sgvstring = sgvs;
+                JSONArray jsonArray = new JSONArray(sgvstring);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject sgvJson = jsonArray.getJSONObject(i);
+                    NSSgv nsSgv = new NSSgv(sgvJson);
+                    BgReading bgReading = new BgReading(nsSgv);
+                    MainApp.getDbHelper().createIfNotExists(bgReading, "NS");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void actionRemovedTreatment(String treatment, String treatments) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
+        boolean hasTreatment = treatment != null;
+        boolean hasTreatments = treatments != null;
+
+        try {
+            if (hasTreatment) {
+                String trstring = treatment;
+                JSONObject trJson = new JSONObject(trstring);
+                String _id = trJson.getString("_id");
+                handleRemovedRecordFromNS(_id);
+            }
+
+            if (hasTreatments) {
+                String trstring = treatments;
+                JSONArray jsonArray = new JSONArray(trstring);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject trJson = jsonArray.getJSONObject(i);
+                    String _id = trJson.getString("_id");
+                    handleRemovedRecordFromNS(_id);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void actionChangedTreatment(String treatment, String treatments) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
+        boolean hasTreatment = treatment != null;
+        boolean hasTreatments = treatments != null;
+        try {
+            if (hasTreatment) {
+                String trstring = treatment;
+                handleAddChangeDataFromNS(trstring);
+            }
+            if (hasTreatments) {
+                String trstring = treatments;
+                JSONArray jsonArray = new JSONArray(trstring);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject trJson = jsonArray.getJSONObject(i);
+                    String trstr = trJson.toString();
+                    handleAddChangeDataFromNS(trstr);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void actionNewProfile(String activeProfile, String profile) {
+
+
+        boolean isNSProfile = ConfigBuilderPlugin.getActiveProfileInterface().getClass().equals(NSProfilePlugin.class);
+        if(!isNSProfile) return;
+
+
+        try {
+            ProfileStore profileStore = new ProfileStore(new JSONObject(profile));
+            NSProfilePlugin.storeNewProfile(profileStore);
+            MainApp.bus().post(new EventNewBasalProfile());
+
+            if (Config.logIncommingData)
+                log.debug("Received profileStore: " + activeProfile + " " + profile);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void actionNewTreatment(String treatment, String treatments) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
+        boolean hasTreatment = treatment != null;
+        boolean hasTreatments = treatments != null;
+        try {
+            if (hasTreatment) {
+                handleAddChangeDataFromNS(treatment);
+            }
+            if (hasTreatments) {
+                JSONArray jsonArray = new JSONArray(treatments);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject trJson = jsonArray.getJSONObject(i);
+                    String trstr = trJson.toString();
+                    handleAddChangeDataFromNS(trstr);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void actionNewDevicestatus(String devicestatus,String devicestatuses) {
+        boolean hasDeviceStatus = devicestatus != null;
+        boolean hasDevicestatuses = devicestatuses != null;
+        try {
+            if (hasDeviceStatus) {
+                JSONObject devicestatusJson = new JSONObject(devicestatus);
+                NSDeviceStatus.getInstance().setData(devicestatusJson);
+                if (devicestatusJson.has("pump")) {
+                    // Objectives 0
+                    ObjectivesPlugin.pumpStatusIsAvailableInNS = true;
+                    ObjectivesPlugin.saveProgress();
+                }
+            }
+            if (hasDevicestatuses) {
+                JSONArray jsonArray = new JSONArray(devicestatuses);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject devicestatusJson = jsonArray.getJSONObject(i);
                     NSDeviceStatus.getInstance().setData(devicestatusJson);
                     if (devicestatusJson.has("pump")) {
                         // Objectives 0
@@ -283,158 +397,63 @@ public class DataService extends IntentService {
                         ObjectivesPlugin.saveProgress();
                     }
                 }
-                if (bundles.containsKey("devicestatuses")) {
-                    String devicestatusesstring = bundles.getString("devicestatuses");
-                    JSONArray jsonArray = new JSONArray(devicestatusesstring);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject devicestatusJson = jsonArray.getJSONObject(i);
-                        NSDeviceStatus.getInstance().setData(devicestatusJson);
-                        if (devicestatusJson.has("pump")) {
-                            // Objectives 0
-                            ObjectivesPlugin.pumpStatusIsAvailableInNS = true;
-                            ObjectivesPlugin.saveProgress();
-                        }
-                    }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void actionNewStatus(String status, boolean updateNSClientInfo, int nightscoutversioncode, String nightscoutversionname, int nsclientversioncode, String nsclientversionname) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
+        boolean hasStatus = status != null;
+        if (updateNSClientInfo) {
+            ConfigBuilderPlugin.nightscoutVersionCode = nightscoutversioncode; // for ver 1.2.3 contains 10203
+            ConfigBuilderPlugin.nightscoutVersionName = nightscoutversionname;
+            ConfigBuilderPlugin.nsClientVersionCode = nsclientversioncode; // for ver 1.17 contains 117
+            ConfigBuilderPlugin.nsClientVersionName = nsclientversionname;
+            log.debug("Got versions: NSClient: " + ConfigBuilderPlugin.nsClientVersionName + " Nightscout: " + ConfigBuilderPlugin.nightscoutVersionName);
+            try {
+                if (ConfigBuilderPlugin.nsClientVersionCode < MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionCode) {
+                    Notification notification = new Notification(Notification.OLD_NSCLIENT, MainApp.sResources.getString(R.string.unsupportedclientver), Notification.URGENT);
+                    MainApp.bus().post(new EventNewNotification(notification));
+                } else {
+                    MainApp.bus().post(new EventDismissNotification(Notification.OLD_NSCLIENT));
                 }
-            } catch (Exception e) {
+            } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
+            if (ConfigBuilderPlugin.nightscoutVersionCode < Config.SUPPORTEDNSVERSION) {
+                Notification notification = new Notification(Notification.OLD_NS, MainApp.sResources.getString(R.string.unsupportednsversion), Notification.URGENT);
+                MainApp.bus().post(new EventNewNotification(notification));
+            } else {
+                MainApp.bus().post(new EventDismissNotification(Notification.OLD_NS));
+            }
+        } else {
+            Notification notification = new Notification(Notification.OLD_NSCLIENT, MainApp.sResources.getString(R.string.unsupportedclientver), Notification.URGENT);
+            MainApp.bus().post(new EventNewNotification(notification));
         }
-        // Handle profile
-        if (intent.getAction().equals(Intents.ACTION_NEW_PROFILE)) {
+        if (hasStatus) {
             try {
-                String activeProfile = bundles.getString("activeprofile");
-                String profile = bundles.getString("profile");
-                ProfileStore profileStore = new ProfileStore(new JSONObject(profile));
-                NSProfilePlugin.storeNewProfile(profileStore);
-                MainApp.bus().post(new EventNewBasalProfile());
-
+                JSONObject statusJson = new JSONObject(status);
+                NSSettingsStatus.getInstance().setData(statusJson);
                 if (Config.logIncommingData)
-                    log.debug("Received profileStore: " + activeProfile + " " + profile);
+                    log.debug("Received status: " + statusJson.toString());
+                Double targetHigh = NSSettingsStatus.getInstance().getThreshold("bgTargetTop");
+                Double targetlow = NSSettingsStatus.getInstance().getThreshold("bgTargetBottom");
+                if (targetHigh != null)
+                    OverviewPlugin.bgTargetHigh = targetHigh;
+                if (targetlow != null)
+                    OverviewPlugin.bgTargetLow = targetlow;
             } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        if (intent.getAction().equals(Intents.ACTION_NEW_TREATMENT)) {
-            try {
-                if (bundles.containsKey("treatment")) {
-                    String trstring = bundles.getString("treatment");
-                    handleAddChangeDataFromNS(trstring);
-                }
-                if (bundles.containsKey("treatments")) {
-                    String trstring = bundles.getString("treatments");
-                    JSONArray jsonArray = new JSONArray(trstring);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject trJson = jsonArray.getJSONObject(i);
-                        String trstr = trJson.toString();
-                        handleAddChangeDataFromNS(trstr);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        if (intent.getAction().equals(Intents.ACTION_CHANGED_TREATMENT)) {
-            try {
-                if (bundles.containsKey("treatment")) {
-                    String trstring = bundles.getString("treatment");
-                    handleAddChangeDataFromNS(trstring);
-                }
-                if (bundles.containsKey("treatments")) {
-                    String trstring = bundles.getString("treatments");
-                    JSONArray jsonArray = new JSONArray(trstring);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject trJson = jsonArray.getJSONObject(i);
-                        String trstr = trJson.toString();
-                        handleAddChangeDataFromNS(trstr);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (intent.getAction().equals(Intents.ACTION_REMOVED_TREATMENT)) {
-            try {
-                if (bundles.containsKey("treatment")) {
-                    String trstring = bundles.getString("treatment");
-                    JSONObject trJson = new JSONObject(trstring);
-                    String _id = trJson.getString("_id");
-                    handleRemovedRecordFromNS(_id);
-                }
-
-                if (bundles.containsKey("treatments")) {
-                    String trstring = bundles.getString("treatments");
-                    JSONArray jsonArray = new JSONArray(trstring);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject trJson = jsonArray.getJSONObject(i);
-                        String _id = trJson.getString("_id");
-                        handleRemovedRecordFromNS(_id);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (intent.getAction().equals(Intents.ACTION_NEW_SGV)) {
-            try {
-                if (bundles.containsKey("sgv")) {
-                    String sgvstring = bundles.getString("sgv");
-                    JSONObject sgvJson = new JSONObject(sgvstring);
-                    NSSgv nsSgv = new NSSgv(sgvJson);
-                    BgReading bgReading = new BgReading(nsSgv);
-                    MainApp.getDbHelper().createIfNotExists(bgReading, "NS");
-                }
-
-                if (bundles.containsKey("sgvs")) {
-                    String sgvstring = bundles.getString("sgvs");
-                    JSONArray jsonArray = new JSONArray(sgvstring);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject sgvJson = jsonArray.getJSONObject(i);
-                        NSSgv nsSgv = new NSSgv(sgvJson);
-                        BgReading bgReading = new BgReading(nsSgv);
-                        MainApp.getDbHelper().createIfNotExists(bgReading, "NS");
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (intent.getAction().equals(Intents.ACTION_NEW_MBG)) {
-            try {
-                if (bundles.containsKey("mbg")) {
-                    String mbgstring = bundles.getString("mbg");
-                    JSONObject mbgJson = new JSONObject(mbgstring);
-                    NSMbg nsMbg = new NSMbg(mbgJson);
-                    CareportalEvent careportalEvent = new CareportalEvent(nsMbg);
-                    MainApp.getDbHelper().createOrUpdate(careportalEvent);
-                    if (Config.logIncommingData)
-                        log.debug("Adding/Updating new MBG: " + careportalEvent.log());
-                }
-
-                if (bundles.containsKey("mbgs")) {
-                    String sgvstring = bundles.getString("mbgs");
-                    JSONArray jsonArray = new JSONArray(sgvstring);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject mbgJson = jsonArray.getJSONObject(i);
-                        NSMbg nsMbg = new NSMbg(mbgJson);
-                        CareportalEvent careportalEvent = new CareportalEvent(nsMbg);
-                        MainApp.getDbHelper().createOrUpdate(careportalEvent);
-                        if (Config.logIncommingData)
-                            log.debug("Adding/Updating new MBG: " + careportalEvent.log());
-                    }
-                }
-            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void handleRemovedRecordFromNS(String _id) {
+    private static void handleRemovedRecordFromNS(String _id) {
         MainApp.getDbHelper().deleteTreatmentById(_id);
         MainApp.getDbHelper().deleteTempTargetById(_id);
         MainApp.getDbHelper().deleteTempBasalById(_id);
@@ -443,7 +462,7 @@ public class DataService extends IntentService {
         MainApp.getDbHelper().deleteProfileSwitchById(_id);
     }
 
-    private void handleAddChangeDataFromNS(String trstring) throws JSONException {
+    private static void handleAddChangeDataFromNS(String trstring) throws JSONException {
         JSONObject trJson = new JSONObject(trstring);
         handleDanaRHistoryRecords(trJson); // update record _id in history
         handleAddChangeTempTargetRecord(trJson);
@@ -454,38 +473,38 @@ public class DataService extends IntentService {
         handleAddChangeProfileSwitchRecord(trJson);
     }
 
-    public void handleDanaRHistoryRecords(JSONObject trJson) {
+    public static void handleDanaRHistoryRecords(JSONObject trJson) {
         if (trJson.has(DanaRNSHistorySync.DANARSIGNATURE)) {
             MainApp.getDbHelper().updateDanaRHistoryRecordId(trJson);
         }
     }
 
-    public void handleAddChangeTreatmentRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeTreatmentRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("insulin") || trJson.has("carbs")) {
             MainApp.getDbHelper().createTreatmentFromJsonIfNotExists(trJson);
             return;
         }
     }
 
-    public void handleAddChangeTempTargetRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeTempTargetRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("eventType") && trJson.getString("eventType").equals(CareportalEvent.TEMPORARYTARGET)) {
             MainApp.getDbHelper().createTemptargetFromJsonIfNotExists(trJson);
         }
     }
 
-    public void handleAddChangeTempBasalRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeTempBasalRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("eventType") && trJson.getString("eventType").equals(CareportalEvent.TEMPBASAL)) {
             MainApp.getDbHelper().createTempBasalFromJsonIfNotExists(trJson);
         }
     }
 
-    public void handleAddChangeExtendedBolusRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeExtendedBolusRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("eventType") && trJson.getString("eventType").equals(CareportalEvent.COMBOBOLUS)) {
             MainApp.getDbHelper().createExtendedBolusFromJsonIfNotExists(trJson);
         }
     }
 
-    public void handleAddChangeCareportalEventRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeCareportalEventRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("insulin") && trJson.getDouble("insulin") > 0)
             return;
         if (trJson.has("carbs") && trJson.getDouble("carbs") > 0)
@@ -516,7 +535,7 @@ public class DataService extends IntentService {
         }
     }
 
-    public void handleAddChangeProfileSwitchRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeProfileSwitchRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("eventType") && trJson.getString("eventType").equals(CareportalEvent.PROFILESWITCH)) {
             MainApp.getDbHelper().createProfileSwitchFromJsonIfNotExists(trJson);
         }

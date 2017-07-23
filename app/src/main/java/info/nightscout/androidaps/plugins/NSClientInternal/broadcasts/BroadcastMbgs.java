@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+import info.nightscout.androidaps.Services.DataService;
 import info.nightscout.androidaps.Services.Intents;
 import info.nightscout.utils.SP;
 
@@ -21,6 +22,9 @@ public class BroadcastMbgs {
     private static Logger log = LoggerFactory.getLogger(BroadcastMbgs.class);
 
     public static void handleNewMbg(JSONArray mbgs, Context context, boolean isDelta) {
+
+        //send locally
+        DataService.actionNewMBG(null, mbgs.toString());
 
         if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
 
