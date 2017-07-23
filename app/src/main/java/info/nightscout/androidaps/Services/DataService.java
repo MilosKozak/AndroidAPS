@@ -94,14 +94,6 @@ public class DataService extends IntentService {
                 if (glimpEnabled) {
                     handleNewDataFromGlimp(intent);
                 }
-            } else if (Intents.ACTION_NEW_SGV.equals(action)) {
-                // always handle SGV if NS-Client is the source
-                if (nsClientEnabled) {
-                    handleNewDataFromNSClient(intent);
-                }
-                // Objectives 0
-                ObjectivesPlugin.bgIsAvailableInNS = true;
-                ObjectivesPlugin.saveProgress();
             } else if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(action)) {
                 handleNewSMS(intent);
             }
@@ -204,19 +196,6 @@ public class DataService extends IntentService {
         }
     }
 
-    private void handleNewDataFromNSClient(Intent intent) {
-        Bundle bundles = intent.getExtras();
-        if (bundles == null) return;
-        if (Config.logIncommingData)
-            log.debug("Got intent: " + intent.getAction());
-
-        if (intent.getAction().equals(Intents.ACTION_NEW_SGV)) {
-            String sgv = bundles.getString("sgv");
-            String sgvs = bundles.getString("sgvs");
-            actionNewSGV(sgv, sgvs);
-        }
-    }
-
     public static void actionNewMBG(String mbg, String mbgs) {
 
         boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
@@ -261,6 +240,14 @@ public class DataService extends IntentService {
     }
 
     public static void actionNewSGV(String sgv, String sgvs) {
+
+        // Objectives 0
+        ObjectivesPlugin.bgIsAvailableInNS = true;
+        ObjectivesPlugin.saveProgress();
+        
+
+        if(!ConfigBuilderPlugin.getActiveBgSource().getClass().equals(SourceNSClientPlugin.class)) return;
+
         boolean hasSgv = (sgv == null);
         boolean hasSgvs = (sgvs == null);
         try {
