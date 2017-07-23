@@ -80,8 +80,6 @@ public class DataService extends IntentService {
             glimpEnabled = true;
         }
 
-        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
-
         if (intent != null) {
             final String action = intent.getAction();
             if (Intents.ACTION_NEW_BG_ESTIMATE.equals(action)) {
@@ -104,12 +102,11 @@ public class DataService extends IntentService {
                 // Objectives 0
                 ObjectivesPlugin.bgIsAvailableInNS = true;
                 ObjectivesPlugin.saveProgress();
-            } else if (!nsUploadOnly &&
+            } else if (
                     (Intents.ACTION_NEW_TREATMENT.equals(action) ||
                             Intents.ACTION_CHANGED_TREATMENT.equals(action) ||
                             Intents.ACTION_REMOVED_TREATMENT.equals(action) ||
                             Intents.ACTION_NEW_STATUS.equals(action) ||
-                            Intents.ACTION_NEW_DEVICESTATUS.equals(action) ||
                             Intents.ACTION_NEW_CAL.equals(action) ||
                             Intents.ACTION_NEW_MBG.equals(action))
                     ) {
@@ -267,6 +264,10 @@ public class DataService extends IntentService {
     }
 
     public static void actionNewMBG(String mbg, String mbgs) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
         boolean hasMbg = (mbg == null);
         boolean hasMbgs = (mbgs == null);
         try {
@@ -298,6 +299,10 @@ public class DataService extends IntentService {
     }
 
     public static void actionNewCAL(String mbg, String mbgs) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
        //don't handle cals
     }
 
@@ -329,6 +334,10 @@ public class DataService extends IntentService {
     }
 
     public static void actionRemovedTreatment(String treatment, String treatments) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
         boolean hasTreatment = treatment == null;
         boolean hasTreatments = treatments == null;
 
@@ -355,6 +364,10 @@ public class DataService extends IntentService {
     }
 
     public static void actionChangedTreatment(String treatment, String treatments) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
         boolean hasTreatment = treatment == null;
         boolean hasTreatments = treatments == null;
         try {
@@ -396,6 +409,10 @@ public class DataService extends IntentService {
     }
 
     public static void actionNewTreatment(String treatment, String treatments) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
         boolean hasTreatment = treatment == null;
         boolean hasTreatments = treatments == null;
         try {
@@ -446,6 +463,10 @@ public class DataService extends IntentService {
     }
 
     public static void actionNewStatus(String status, boolean updateNSClientInfo, int nightscoutversioncode, String nightscoutversionname, int nsclientversioncode, String nsclientversionname) {
+
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        if(nsUploadOnly) return;
+
         boolean hasStatus = status == null;
         if (updateNSClientInfo) {
             ConfigBuilderPlugin.nightscoutVersionCode = nightscoutversioncode; // for ver 1.2.3 contains 10203
