@@ -201,8 +201,8 @@ public class DataService extends IntentService {
         boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
         if(nsUploadOnly) return;
 
-        boolean hasMbg = (mbg == null);
-        boolean hasMbgs = (mbgs == null);
+        boolean hasMbg = (mbg != null);
+        boolean hasMbgs = (mbgs != null);
         try {
             if (hasMbg) {
                 String mbgstring = mbg;
@@ -248,8 +248,8 @@ public class DataService extends IntentService {
 
         if(!ConfigBuilderPlugin.getActiveBgSource().getClass().equals(SourceNSClientPlugin.class)) return;
 
-        boolean hasSgv = (sgv == null);
-        boolean hasSgvs = (sgvs == null);
+        boolean hasSgv = (sgv != null);
+        boolean hasSgvs = (sgvs != null);
         try {
             if (hasSgv) {
                 String sgvstring = sgv;
@@ -279,8 +279,8 @@ public class DataService extends IntentService {
         boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
         if(nsUploadOnly) return;
 
-        boolean hasTreatment = treatment == null;
-        boolean hasTreatments = treatments == null;
+        boolean hasTreatment = treatment != null;
+        boolean hasTreatments = treatments != null;
 
         try {
             if (hasTreatment) {
@@ -309,8 +309,8 @@ public class DataService extends IntentService {
         boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
         if(nsUploadOnly) return;
 
-        boolean hasTreatment = treatment == null;
-        boolean hasTreatments = treatments == null;
+        boolean hasTreatment = treatment != null;
+        boolean hasTreatments = treatments != null;
         try {
             if (hasTreatment) {
                 String trstring = treatment;
@@ -354,8 +354,8 @@ public class DataService extends IntentService {
         boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
         if(nsUploadOnly) return;
 
-        boolean hasTreatment = treatment == null;
-        boolean hasTreatments = treatments == null;
+        boolean hasTreatment = treatment != null;
+        boolean hasTreatments = treatments != null;
         try {
             if (hasTreatment) {
                 handleAddChangeDataFromNS(treatment);
@@ -374,8 +374,8 @@ public class DataService extends IntentService {
     }
 
     public static void actionNewDevicestatus(String devicestatus,String devicestatuses) {
-        boolean hasDeviceStatus = devicestatus == null;
-        boolean hasDevicestatuses = devicestatuses == null;
+        boolean hasDeviceStatus = devicestatus != null;
+        boolean hasDevicestatuses = devicestatuses != null;
         try {
             if (hasDeviceStatus) {
                 JSONObject devicestatusJson = new JSONObject(devicestatus);
@@ -408,7 +408,7 @@ public class DataService extends IntentService {
         boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
         if(nsUploadOnly) return;
 
-        boolean hasStatus = status == null;
+        boolean hasStatus = status != null;
         if (updateNSClientInfo) {
             ConfigBuilderPlugin.nightscoutVersionCode = nightscoutversioncode; // for ver 1.2.3 contains 10203
             ConfigBuilderPlugin.nightscoutVersionName = nightscoutversionname;
