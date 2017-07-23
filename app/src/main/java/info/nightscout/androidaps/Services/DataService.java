@@ -106,7 +106,7 @@ public class DataService extends IntentService {
                 // Objectives 0
                 ObjectivesPlugin.bgIsAvailableInNS = true;
                 ObjectivesPlugin.saveProgress();
-            } else if (isNSProfile && Intents.ACTION_NEW_PROFILE.equals(action) || Intents.ACTION_NEW_DEVICESTATUS.equals(action)) {
+            } else if (isNSProfile && Intents.ACTION_NEW_PROFILE.equals(action)) {
                 // always handle Profile if NSProfile is enabled without looking at nsUploadOnly
                 handleNewDataFromNSClient(intent);
             } else if (!nsUploadOnly &&
@@ -237,11 +237,6 @@ public class DataService extends IntentService {
             String status = bundles.getString("status");
             actionNewStatus(status, updateNSClientInfo, nightscoutversioncode, nightscoutversionname, nsclientversioncode, nsclientversionname);
         }
-        if (intent.getAction().equals(Intents.ACTION_NEW_DEVICESTATUS)) {
-            String devicestatuses = bundles.getString("devicestatuses");
-            String devicestatus = bundles.getString("devicestatus");
-            actionNewDevicestatus(devicestatus, devicestatuses);
-        }
         // Handle profile
         if (intent.getAction().equals(Intents.ACTION_NEW_PROFILE)) {
             String activeProfile = bundles.getString("activeprofile");
@@ -283,7 +278,7 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewMBG(String mbg, String mbgs) {
+    public static void actionNewMBG(String mbg, String mbgs) {
         boolean hasMbg = (mbg == null);
         boolean hasMbgs = (mbgs == null);
         try {
@@ -314,11 +309,11 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewCAL(String mbg, String mbgs) {
+    public static void actionNewCAL(String mbg, String mbgs) {
        //don't handle cals
     }
 
-    private void actionNewSGV(String sgv, String sgvs) {
+    public static void actionNewSGV(String sgv, String sgvs) {
         boolean hasSgv = (sgv == null);
         boolean hasSgvs = (sgvs == null);
         try {
@@ -345,7 +340,7 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionRemovedTreatment(String treatment, String treatments) {
+    public static void actionRemovedTreatment(String treatment, String treatments) {
         boolean hasTreatment = treatment == null;
         boolean hasTreatments = treatments == null;
 
@@ -371,7 +366,7 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionChangedTreatment(String treatment, String treatments) {
+    public static void actionChangedTreatment(String treatment, String treatments) {
         boolean hasTreatment = treatment == null;
         boolean hasTreatments = treatments == null;
         try {
@@ -393,7 +388,7 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewProfile(String activeProfile, String profile) {
+    public static void actionNewProfile(String activeProfile, String profile) {
         try {
             ProfileStore profileStore = new ProfileStore(new JSONObject(profile));
             NSProfilePlugin.storeNewProfile(profileStore);
@@ -406,7 +401,7 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewTreatment(String treatment, String treatments) {
+    public static void actionNewTreatment(String treatment, String treatments) {
         boolean hasTreatment = treatment == null;
         boolean hasTreatments = treatments == null;
         try {
@@ -426,7 +421,7 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewDevicestatus(String devicestatus,String devicestatuses) {
+    public static void actionNewDevicestatus(String devicestatus,String devicestatuses) {
         boolean hasDeviceStatus = devicestatus == null;
         boolean hasDevicestatuses = devicestatuses == null;
         try {
@@ -456,7 +451,7 @@ public class DataService extends IntentService {
         }
     }
 
-    private void actionNewStatus(String status, boolean updateNSClientInfo, int nightscoutversioncode, String nightscoutversionname, int nsclientversioncode, String nsclientversionname) {
+    public static void actionNewStatus(String status, boolean updateNSClientInfo, int nightscoutversioncode, String nightscoutversionname, int nsclientversioncode, String nsclientversionname) {
         boolean hasStatus = status == null;
         if (updateNSClientInfo) {
             ConfigBuilderPlugin.nightscoutVersionCode = nightscoutversioncode; // for ver 1.2.3 contains 10203
@@ -502,7 +497,7 @@ public class DataService extends IntentService {
         }
     }
 
-    private void handleRemovedRecordFromNS(String _id) {
+    private static void handleRemovedRecordFromNS(String _id) {
         MainApp.getDbHelper().deleteTreatmentById(_id);
         MainApp.getDbHelper().deleteTempTargetById(_id);
         MainApp.getDbHelper().deleteTempBasalById(_id);
@@ -511,7 +506,7 @@ public class DataService extends IntentService {
         MainApp.getDbHelper().deleteProfileSwitchById(_id);
     }
 
-    private void handleAddChangeDataFromNS(String trstring) throws JSONException {
+    private static void handleAddChangeDataFromNS(String trstring) throws JSONException {
         JSONObject trJson = new JSONObject(trstring);
         handleDanaRHistoryRecords(trJson); // update record _id in history
         handleAddChangeTempTargetRecord(trJson);
@@ -522,38 +517,38 @@ public class DataService extends IntentService {
         handleAddChangeProfileSwitchRecord(trJson);
     }
 
-    public void handleDanaRHistoryRecords(JSONObject trJson) {
+    public static void handleDanaRHistoryRecords(JSONObject trJson) {
         if (trJson.has(DanaRNSHistorySync.DANARSIGNATURE)) {
             MainApp.getDbHelper().updateDanaRHistoryRecordId(trJson);
         }
     }
 
-    public void handleAddChangeTreatmentRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeTreatmentRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("insulin") || trJson.has("carbs")) {
             MainApp.getDbHelper().createTreatmentFromJsonIfNotExists(trJson);
             return;
         }
     }
 
-    public void handleAddChangeTempTargetRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeTempTargetRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("eventType") && trJson.getString("eventType").equals(CareportalEvent.TEMPORARYTARGET)) {
             MainApp.getDbHelper().createTemptargetFromJsonIfNotExists(trJson);
         }
     }
 
-    public void handleAddChangeTempBasalRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeTempBasalRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("eventType") && trJson.getString("eventType").equals(CareportalEvent.TEMPBASAL)) {
             MainApp.getDbHelper().createTempBasalFromJsonIfNotExists(trJson);
         }
     }
 
-    public void handleAddChangeExtendedBolusRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeExtendedBolusRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("eventType") && trJson.getString("eventType").equals(CareportalEvent.COMBOBOLUS)) {
             MainApp.getDbHelper().createExtendedBolusFromJsonIfNotExists(trJson);
         }
     }
 
-    public void handleAddChangeCareportalEventRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeCareportalEventRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("insulin") && trJson.getDouble("insulin") > 0)
             return;
         if (trJson.has("carbs") && trJson.getDouble("carbs") > 0)
@@ -584,7 +579,7 @@ public class DataService extends IntentService {
         }
     }
 
-    public void handleAddChangeProfileSwitchRecord(JSONObject trJson) throws JSONException {
+    public static void handleAddChangeProfileSwitchRecord(JSONObject trJson) throws JSONException {
         if (trJson.has("eventType") && trJson.getString("eventType").equals(CareportalEvent.PROFILESWITCH)) {
             MainApp.getDbHelper().createProfileSwitchFromJsonIfNotExists(trJson);
         }
