@@ -30,17 +30,17 @@ public class BroadcastStatus {
 
         boolean updateNSClientInfo = false;
 
-        int nightscoutversioncode = 0;
+        int nsclientversioncode = 0;
         String nsclientversionname = "";
         try {
-            nightscoutversioncode = MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionCode;
+            nsclientversioncode = MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionCode;
             nsclientversionname = MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionName;
             updateNSClientInfo = true;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         String nightscoutversionname = NSClientService.nightscoutVersionName;
-        int nsclientversioncode = NSClientService.nightscoutVersionCode;
+        int nightscoutversioncode = NSClientService.nightscoutVersionCode;
 
         DataService.actionNewStatus(status.getData().toString(), updateNSClientInfo, nightscoutversioncode, nightscoutversionname, nsclientversioncode, nsclientversionname);
 
