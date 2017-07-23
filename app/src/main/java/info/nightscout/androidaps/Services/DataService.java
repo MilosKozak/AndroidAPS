@@ -80,8 +80,6 @@ public class DataService extends IntentService {
             glimpEnabled = true;
         }
 
-        boolean isNSProfile = ConfigBuilderPlugin.getActiveProfileInterface().getClass().equals(NSProfilePlugin.class);
-
         boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
 
         if (intent != null) {
@@ -106,9 +104,6 @@ public class DataService extends IntentService {
                 // Objectives 0
                 ObjectivesPlugin.bgIsAvailableInNS = true;
                 ObjectivesPlugin.saveProgress();
-            } else if (isNSProfile && Intents.ACTION_NEW_PROFILE.equals(action)) {
-                // always handle Profile if NSProfile is enabled without looking at nsUploadOnly
-                handleNewDataFromNSClient(intent);
             } else if (!nsUploadOnly &&
                     (Intents.ACTION_NEW_TREATMENT.equals(action) ||
                             Intents.ACTION_CHANGED_TREATMENT.equals(action) ||
@@ -236,13 +231,6 @@ public class DataService extends IntentService {
             String nsclientversionname = bundles.getString("nsclientversionname");
             String status = bundles.getString("status");
             actionNewStatus(status, updateNSClientInfo, nightscoutversioncode, nightscoutversionname, nsclientversioncode, nsclientversionname);
-        }
-        // Handle profile
-        if (intent.getAction().equals(Intents.ACTION_NEW_PROFILE)) {
-            String activeProfile = bundles.getString("activeprofile");
-            String profile = bundles.getString("profile");
-
-            actionNewProfile(activeProfile, profile);
         }
         if (intent.getAction().equals(Intents.ACTION_NEW_TREATMENT)) {
             String treatment = bundles.getString("treatment");
@@ -389,6 +377,12 @@ public class DataService extends IntentService {
     }
 
     public static void actionNewProfile(String activeProfile, String profile) {
+
+
+        boolean isNSProfile = ConfigBuilderPlugin.getActiveProfileInterface().getClass().equals(NSProfilePlugin.class);
+        if(!isNSProfile) return;
+
+
         try {
             ProfileStore profileStore = new ProfileStore(new JSONObject(profile));
             NSProfilePlugin.storeNewProfile(profileStore);

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+import info.nightscout.androidaps.Services.DataService;
 import info.nightscout.androidaps.Services.Intents;
 import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.utils.SP;
@@ -22,6 +23,9 @@ public class BroadcastProfile {
     private static Logger log = LoggerFactory.getLogger(BroadcastProfile.class);
 
     public static void handleNewTreatment(ProfileStore profile, Context context, boolean isDelta) {
+
+        //send internally
+        DataService.actionNewProfile(null, profile.getData().toString());
 
         if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
 
