@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.Services.DataService;
 import info.nightscout.androidaps.Services.Intents;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSSettingsStatus;
 import info.nightscout.androidaps.plugins.NSClientInternal.services.NSClientService;
@@ -24,6 +25,24 @@ public class BroadcastStatus {
     private static Logger log = LoggerFactory.getLogger(BroadcastStatus.class);
 
     public static void handleNewStatus(NSSettingsStatus status, Context context, boolean isDelta) {
+
+        //send locally
+
+        boolean updateNSClientInfo = false;
+
+        int nightscoutversioncode = 0;
+        String nsclientversionname = "";
+        try {
+            nightscoutversioncode = MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionCode;
+            nsclientversionname = MainApp.instance().getPackageManager().getPackageInfo(MainApp.instance().getPackageName(), 0).versionName;
+            updateNSClientInfo = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String nightscoutversionname = NSClientService.nightscoutVersionName;
+        int nsclientversioncode = NSClientService.nightscoutVersionCode;
+
+        DataService.actionNewStatus(status.getData().toString(), updateNSClientInfo, nightscoutversioncode, nightscoutversionname, nsclientversioncode, nsclientversionname);
 
         if(!SP.getBoolean("nsclient_localbroadcasts", true)) return;
 

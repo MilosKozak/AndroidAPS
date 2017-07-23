@@ -102,15 +102,6 @@ public class DataService extends IntentService {
                 // Objectives 0
                 ObjectivesPlugin.bgIsAvailableInNS = true;
                 ObjectivesPlugin.saveProgress();
-            } else if (
-                    (Intents.ACTION_NEW_TREATMENT.equals(action) ||
-                            Intents.ACTION_CHANGED_TREATMENT.equals(action) ||
-                            Intents.ACTION_REMOVED_TREATMENT.equals(action) ||
-                            Intents.ACTION_NEW_STATUS.equals(action) ||
-                            Intents.ACTION_NEW_CAL.equals(action) ||
-                            Intents.ACTION_NEW_MBG.equals(action))
-                    ) {
-                handleNewDataFromNSClient(intent);
             } else if (Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(action)) {
                 handleNewSMS(intent);
             }
@@ -219,47 +210,10 @@ public class DataService extends IntentService {
         if (Config.logIncommingData)
             log.debug("Got intent: " + intent.getAction());
 
-        if (intent.getAction().equals(Intents.ACTION_NEW_STATUS)) {
-
-            boolean updateNSClientInfo = bundles.containsKey("nsclientversioncode");
-            int nightscoutversioncode = bundles.getInt("nightscoutversioncode");
-            String nightscoutversionname = bundles.getString("nightscoutversionname");
-            int nsclientversioncode = bundles.getInt("nsclientversioncode");
-            String nsclientversionname = bundles.getString("nsclientversionname");
-            String status = bundles.getString("status");
-            actionNewStatus(status, updateNSClientInfo, nightscoutversioncode, nightscoutversionname, nsclientversioncode, nsclientversionname);
-        }
-        if (intent.getAction().equals(Intents.ACTION_NEW_TREATMENT)) {
-            String treatment = bundles.getString("treatment");
-            String treatments = bundles.getString("treatments");
-
-            actionNewTreatment(treatment, treatments);
-
-        }
-
-        if (intent.getAction().equals(Intents.ACTION_CHANGED_TREATMENT)) {
-            String treatment = bundles.getString("treatment");
-            String treatments = bundles.getString("treatments");
-            actionChangedTreatment(treatment,treatments);
-        }
-
-        if (intent.getAction().equals(Intents.ACTION_REMOVED_TREATMENT)) {
-            String treatment = bundles.getString("treatment");
-            String treatments = bundles.getString("treatments");
-            actionRemovedTreatment(treatment, treatments);
-        }
-
         if (intent.getAction().equals(Intents.ACTION_NEW_SGV)) {
             String sgv = bundles.getString("sgv");
             String sgvs = bundles.getString("sgvs");
             actionNewSGV(sgv, sgvs);
-        }
-
-        if (intent.getAction().equals(Intents.ACTION_NEW_MBG)) {
-            String mbg = bundles.getString("mbg");
-            String mbgs = bundles.getString("mbgs");
-
-            actionNewMBG(mbg, mbgs);
         }
     }
 
