@@ -23,8 +23,13 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
+<<<<<<< HEAD
                 android:drawableTop="@drawable/icon_actions_profileswitch"
                 android:text="@string/careportal_profileswitch" />
+=======
+                android:text="@string/careportal_profileswitch"
+                android:textColor="@color/colorProfileSwitchButton" />
+>>>>>>> 2b4fc98a915d4b362adeefd90868244e6b29a87e
 
             <Button
                 android:id="@+id/actions_temptarget"
@@ -36,8 +41,13 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
+<<<<<<< HEAD
                 android:drawableTop="@drawable/icon_actions_temptarget"
                 android:text="@string/careportal_temporarytarget" />
+=======
+                android:text="@string/careportal_temporarytarget"
+                android:textColor="@color/colorCalculatorButton" />
+>>>>>>> 2b4fc98a915d4b362adeefd90868244e6b29a87e
 
             <Button
                 android:id="@+id/actions_settempbasal"
@@ -49,8 +59,13 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
+<<<<<<< HEAD
                 android:drawableTop="@drawable/icon_actions_starttempbasal"
                 android:text="@string/overview_tempbasal_button" />
+=======
+                android:text="@string/overview_tempbasal_button"
+                android:textColor="@color/colorSetTempButton" />
+>>>>>>> 2b4fc98a915d4b362adeefd90868244e6b29a87e
 
             <Button
                 android:id="@+id/actions_extendedbolus"
@@ -62,8 +77,13 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
+<<<<<<< HEAD
                 android:drawableTop="@drawable/icon_actions_startextbolus"
                 android:text="@string/overview_extendedbolus_button" />
+=======
+                android:text="@string/overview_extendedbolus_button"
+                android:textColor="@color/colorSetExtendedButton" />
+>>>>>>> 2b4fc98a915d4b362adeefd90868244e6b29a87e
 
             <Button
                 android:id="@+id/actions_extendedbolus_cancel"
@@ -75,8 +95,13 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
+<<<<<<< HEAD
                 android:drawableTop="@drawable/icon_actions_cancelextbolus"
                 android:text="@string/overview_extendedbolus_cancel_button" />
+=======
+                android:text="@string/overview_extendedbolus_cancel_button"
+                android:textColor="@color/colorSetExtendedButton" />
+>>>>>>> 2b4fc98a915d4b362adeefd90868244e6b29a87e
 
             <Button
                 android:id="@+id/actions_fill"
@@ -88,8 +113,13 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="0.5"
+<<<<<<< HEAD
                 android:drawableTop="@drawable/icon_actions_refill"
                 android:text="@string/primefill" />
+=======
+                android:text="@string/primefill"
+                android:textColor="@color/colorTreatmentButton" />
+>>>>>>> 2b4fc98a915d4b362adeefd90868244e6b29a87e
 
         </LinearLayout>
 

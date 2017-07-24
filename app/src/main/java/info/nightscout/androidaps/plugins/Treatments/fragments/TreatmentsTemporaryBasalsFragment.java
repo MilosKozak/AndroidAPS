@@ -23,6 +23,8 @@ import com.squareup.otto.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.IobTotal;
@@ -34,7 +36,7 @@ import info.nightscout.androidaps.plugins.Common.SubscriberFragment;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.NSUpload;
-import info.nightscout.androidaps.data.Intervals;
+import info.nightscout.androidaps.data.OverlappingIntervals;
 
 
 public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
@@ -49,9 +51,9 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.TempBasalsViewHolder> {
 
-        Intervals<TemporaryBasal> tempBasalList;
+        OverlappingIntervals<TemporaryBasal> tempBasalList;
 
-        RecyclerViewAdapter(Intervals<TemporaryBasal> tempBasalList) {
+        RecyclerViewAdapter(OverlappingIntervals<TemporaryBasal> tempBasalList) {
             this.tempBasalList = tempBasalList;
         }
 

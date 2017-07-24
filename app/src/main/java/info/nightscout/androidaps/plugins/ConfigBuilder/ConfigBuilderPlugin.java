@@ -23,7 +23,7 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.MealData;
-import info.nightscout.androidaps.data.Intervals;
+import info.nightscout.androidaps.data.OverlappingIntervals;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileIntervals;
 import info.nightscout.androidaps.data.PumpEnactResult;
@@ -826,7 +826,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     @Override
-    public Intervals<TemporaryBasal> getTemporaryBasalsFromHistory() {
+    public OverlappingIntervals<TemporaryBasal> getTemporaryBasalsFromHistory() {
         return activeTreatments.getTemporaryBasalsFromHistory();
     }
 
@@ -873,7 +873,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     @Override
-    public Intervals<ExtendedBolus> getExtendedBolusesFromHistory() {
+    public OverlappingIntervals<ExtendedBolus> getExtendedBolusesFromHistory() {
         return activeTreatments.getExtendedBolusesFromHistory();
     }
 
@@ -895,7 +895,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     @Override
-    public Intervals<TempTarget> getTempTargetsFromHistory() {
+    public OverlappingIntervals<TempTarget> getTempTargetsFromHistory() {
         return activeTreatments.getTempTargetsFromHistory();
     }
 

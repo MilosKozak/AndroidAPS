@@ -19,24 +19,24 @@ public class ProfileIntervals<T extends Interval> {
 
     private LongSparseArray<T> rawData = new LongSparseArray<>(); // oldest at index 0
 
-    public synchronized ProfileIntervals reset() {
+    public ProfileIntervals reset() {
         rawData = new LongSparseArray<>();
         return this;
     }
 
-    public synchronized void add(T newInterval) {
+    public void add(T newInterval) {
         rawData.put(newInterval.start(), newInterval);
         merge();
     }
 
-    public synchronized void add(List<T> list) {
+    public void add(List<T> list) {
         for (T interval : list) {
             rawData.put(interval.start(), interval);
         }
         merge();
     }
 
-    private synchronized void merge() {
+    private void merge() {
         for (int index = 0; index < rawData.size() - 1; index++) {
             Interval i = rawData.valueAt(index);
             long startOfNewer = rawData.valueAt(index + 1).start();
@@ -47,27 +47,27 @@ public class ProfileIntervals<T extends Interval> {
     }
 
     @Nullable
-    public synchronized Interval getValueToTime(long time) {
+    public Interval getValueToTime(long time) {
         int index = binarySearch(time);
         if (index >= 0) return rawData.valueAt(index);
         return null;
     }
 
-    public synchronized List<T> getList() {
+    public List<T> getList() {
         List<T> list = new ArrayList<>();
         for (int i = 0; i < rawData.size(); i++)
             list.add(rawData.valueAt(i));
         return list;
     }
 
-    public synchronized List<T> getReversedList() {
+    public List<T> getReversedList() {
         List<T> list = new ArrayList<>();
         for (int i = rawData.size() -1; i>=0; i--)
             list.add(rawData.valueAt(i));
         return list;
     }
 
-    private synchronized int binarySearch(long value) {
+    private int binarySearch(long value) {
         if (rawData.size() == 0)
             return -1;
         int lo = 0;
@@ -95,15 +95,15 @@ public class ProfileIntervals<T extends Interval> {
         return -1;  // value not present
     }
 
-    public synchronized int size() {
+    public int size() {
         return rawData.size();
     }
 
-    public synchronized T get(int index) {
+    public T get(int index) {
         return rawData.valueAt(index);
     }
 
-    public synchronized T getReversed(int index) {
+    public T getReversed(int index) {
         return rawData.valueAt(size() - 1 - index);
     }
 }
