@@ -57,12 +57,13 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
         rT.error ='Error: could not get current basal rate';
         return rT;
     }
-    var basal = profile.current_basal;
+    var profile_current_basal = round_basal(profile.current_basal, profile);
+    var basal = profile_current_basal;
     if (typeof autosens_data !== 'undefined' ) {
         basal = profile.current_basal * autosens_data.ratio;
         basal = round_basal(basal, profile);
-        if (basal != profile.current_basal) {
-			console.error("Autosens adjusting basal from "+profile.current_basal+" to "+basal+"; ");
+        if (basal != profile_current_basal) {
+            console.error("Autosens adjusting basal from "+profile.current_basal+" to "+basal+"; ");
         } else {
             console.error("Basal unchanged: "+basal+"; ");
         }
@@ -83,8 +84,8 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     }
 
     var max_iob = profile.max_iob; // maximum amount of non-bolus IOB OpenAPS will ever deliver
-
-    // if target_bg is set, great. otherwise, if min and max are set, then set target to their average
+	
+    // if min and max are set, then set target to their average
     var target_bg;
     var min_bg;
     var max_bg;
@@ -94,17 +95,13 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     if (typeof profile.max_bg !== 'undefined') {
             max_bg = profile.max_bg;
     }
-    if (typeof profile.target_bg !== 'undefined') {
-        target_bg = profile.target_bg;
+    if (typeof profile.min_bg !== 'undefined' && typeof profile.max_bg !== 'undefined') {
+        target_bg = (profile.min_bg + profile.max_bg) / 2;
     } else {
-        if (typeof profile.min_bg !== 'undefined' && typeof profile.max_bg !== 'undefined') {
-            target_bg = (profile.min_bg + profile.max_bg) / 2;
-        } else {
-            rT.error ='Error: could not determine target_bg. ';
-            return rT;
-        }
+        rT.error ='Error: could not determine target_bg. ';
+        return rT;
     }
-
+    
     // adjust min, max, and target BG for sensitivity, such that 50% increase in ISF raises target from 100 to 120
     if (typeof autosens_data !== 'undefined' && profile.autosens_adjust_targets) {
       if (profile.temptargetSet) {
@@ -150,15 +147,17 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
 	var minDelta = Math.min(glucose_status.delta, glucose_status.short_avgdelta);
     var minAvgDelta = Math.min(glucose_status.short_avgdelta, glucose_status.long_avgdelta);
 
+    var profile_sens = round(profile.sens,1)
     var sens = profile.sens;
     if (typeof autosens_data !== 'undefined' ) {
         sens = profile.sens / autosens_data.ratio;
         sens = round(sens, 1);
-        if (sens != profile.sens) {
-            console.error("Adjusting sens from "+profile.sens+" to "+sens);
+        if (sens != profile_sens) {
+            console.error("sens from "+profile_sens+" to "+sens);
         } else {
             console.error("sens unchanged: "+sens);
         }
+		console.error(" (autosens ratio "+autosens_data.ratio+")");
     }
     console.error("");
 
@@ -193,7 +192,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
         var adjustedTargetBG =round( Math.max(80, target_bg - (bg - target_bg)/3 ),0);
         var adjustedMaxBG = round(Math.max(80, max_bg - (bg - max_bg)/3 ),0);
         // if eventualBG, naive_eventualBG, and target_bg aren't all above adjustedMinBG, don’t use it
-        console.error("naive_eventualBG:",naive_eventualBG+", eventualBG:",eventualBG);
+        //console.error("naive_eventualBG:",naive_eventualBG+", eventualBG:",eventualBG);
         if (eventualBG > adjustedMinBG && naive_eventualBG > adjustedMinBG && min_bg > adjustedMinBG) {
             process.stderr.write("Adjusting targets for high BG: min_bg from "+min_bg+" to "+adjustedMinBG+"; ");
             min_bg = adjustedMinBG;
@@ -297,8 +296,8 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     // totalCI (mg/dL) / CSF (mg/dL/g) = total carbs absorbed (g)
     var totalCA = totalCI / csf;
     // exclude the last 1/3 of carbs from remainingCarbs, and then cap it at 90
-    var remainingCarbsCap = 0; // default to zero
-    var remainingCarbsFraction = 2/3;
+    var remainingCarbsCap = 90; // default to 90
+    var remainingCarbsFraction = 1;
     if (profile.remainingCarbsCap) { remainingCarbsCap = Math.min(90,profile.remainingCarbsCap); }
     if (profile.remainingCarbsFraction) { remainingCarbsFraction = Math.min(1,profile.remainingCarbsFraction); }
     var remainingCarbsIgnore = 1 - remainingCarbsFraction;
@@ -726,7 +725,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     // eventualBG, snoozeBG, or minPredBG is below max_bg
     if (Math.min(eventualBG,snoozeBG,minPredBG) < max_bg) {
         // if there is a high-temp running and eventualBG > max_bg, let it run
-        if (eventualBG > max_bg && round_basal(currenttemp.rate, profile) > round_basal(basal, profile) ) {
+        if (eventualBG > max_bg && round_basal(currenttemp.rate, profile) > round_basal(basal, profile) && currenttemp.duration > 5 ) {
             rT.reason += eventualBG + " > " + max_bg + ": no temp required (letting high temp of " + currenttemp.rate + " run). "
             return rT;
         }
