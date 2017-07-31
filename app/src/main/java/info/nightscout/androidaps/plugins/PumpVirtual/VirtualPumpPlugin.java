@@ -95,6 +95,8 @@ public class VirtualPumpPlugin implements PluginBase, PumpInterface {
         pumpDescription.basalMinimumRate = 0.01d;
 
         pumpDescription.isRefillingCapable = false;
+		// Added by Rumen on 31.07.2017
+		pumpDescription.reservoir = reservoirInUnits;
     }
 
     @Override

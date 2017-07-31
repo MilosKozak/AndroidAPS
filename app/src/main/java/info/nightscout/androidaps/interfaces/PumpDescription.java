@@ -35,4 +35,6 @@ public class PumpDescription {
     public double basalMinimumRate = 0.04d;
 
     public boolean isRefillingCapable = false;
+	//Added by Rumen on 21.07.2017
+	public int reservoir = 0;
 }

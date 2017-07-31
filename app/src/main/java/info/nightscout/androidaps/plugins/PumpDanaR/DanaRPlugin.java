@@ -102,6 +102,8 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
         pumpDescription.basalMinimumRate = 0.04d;
 
         pumpDescription.isRefillingCapable = true;
+		//Added by Rumen on 31.07.2017
+		pumpDescription.reservoir = (int) pump.reservoirRemainingUnits;
     }
 
     ServiceConnection mConnection = new ServiceConnection() {

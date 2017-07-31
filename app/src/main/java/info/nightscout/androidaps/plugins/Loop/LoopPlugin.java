@@ -319,15 +319,20 @@ public class LoopPlugin implements PluginBase {
 			// Added by Rumen for SMB in Loop
 			
 			//Getting last connection to pump
+			boolean noConnectionLast15Min = false;
 			PumpInterface activePump = ConfigBuilderPlugin.getActivePump();
 			if(activePump!=null){
 				log.debug("Activepump date is:"+activePump.lastDataTime());
 				long lastConnection = activePump.lastDataTime().getTime();
 				int lastConnectionMin = (int) (System.currentTimeMillis()-lastConnection)/(1000*60);
+				if(lastConnectionMin>14) noConnectionLast15Min = true;
 				log.debug("Last connection was "+lastConnectionMin+" min ago");
+				if(activePump.getPumpDescription().reservoir != 0 ){
+					log.debug("Pump reservoir is:"+activePump.getPumpDescription().reservoir);
+				} else log.debug("Pump reservoir is not in getPumpDescription()");
 			}
-			boolean noConnectionLast15Min = false;
-			if(lastConnectionMin>14) noConnectionLast15Min = true;
+
+			
 			// If APS source s rumen's plugin
 			boolean SMB_enable = false;
 			if(SP.getBoolean("key_smb", false)){
