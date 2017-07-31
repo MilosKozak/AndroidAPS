@@ -438,7 +438,6 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
         detailedBolusInfo.carbs = applyCarbsConstraints((int) detailedBolusInfo.carbs);
 		
 		//added by Rumen on 31.07.2017 to hide SMB bolusing window
-		//detailedBolusInfo.eventType = "SMB"; // added for debug
 		boolean doingSMB = false;
 		if(detailedBolusInfo.eventType == "SMB"){
 			doingSMB = true;
@@ -587,10 +586,10 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
             result.absolute = getTempBasalAbsoluteRateHistory();
             result.duration = getTempBasalFromHistory(System.currentTimeMillis()).getPlannedRemainingMinutes();
             result.enacted = false;
-            result.comment = "Temp basal set correctly";
+            result.comment = "Temp basal set correctly at "+result.absolute+" for next "+result.duration+" minutes";
             result.success = true;
             if (Config.logCongigBuilderActions)
-                log.debug("applyAPSRequest: Temp basal set correctly");
+                log.debug("applyAPSRequest: Temp basal set correctly! Rate is: "+result.absolute+" remaining minutes "+result.duration);
         } else {
             if (Config.logCongigBuilderActions)
                 log.debug("applyAPSRequest: setTempBasalAbsolute()");

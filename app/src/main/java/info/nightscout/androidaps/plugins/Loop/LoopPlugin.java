@@ -39,7 +39,7 @@ import info.nightscout.utils.SP;
 // Added by Rumen for SMB enact
 //import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
-//import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.interfaces.PumpInterface;
 //import info.nightscout.androidaps.interfaces.InsulinInterface;							   
 import info.nightscout.utils.SP;
 import android.support.v4.app.DialogFragment;
@@ -57,8 +57,7 @@ import info.nightscout.utils.SafeParse;
         && wait_for_bg  -- done
         && wait_for_silence -- # listen for $1 seconds of silence (no other rigs talking to pump) before continuing
         && if_mdt_get_bg -- MDT not supported by AAPS
-        && refresh_old_pumphistory_enact -- # refresh pumphistory if it's more than 15m old and enact
-		# Refresh reservoir.json and pumphistory.json
+        && refresh_old_pumphistory_enact -- # refresh pumphistory if it's more than 15m old and enact - see noConnectionLast15Min
 		# Read the pump reservoir volume and verify it is within 0.1U of the expected volume
         # check if the temp was read more than 5m ago, or has been running more than 10m
 		# enact the appropriate temp before SMB'ing, (only if smb_verify_enacted fails)
@@ -291,7 +290,7 @@ public class LoopPlugin implements PluginBase {
                 return;
             }
 
-            // Check if pump info is loaded
+			// Check if pump info is loaded
             if (configBuilder.getBaseBasalRate() < 0.01d) return;
 
             APSInterface usedAPS = configBuilder.getActiveAPS();
@@ -301,23 +300,34 @@ public class LoopPlugin implements PluginBase {
                 result = usedAPS.getLastAPSResult();
 				smb_value = usedAPS.smbValue();
             }
-
+	
             // Check if we have any result
             if (result == null) {
                 MainApp.bus().post(new EventLoopSetLastRunGui(MainApp.sResources.getString(R.string.noapsselected)));
                 return;
             }
 
-            // check rate for constrais
+            // check rate for constraints
             final APSResult resultAfterConstraints = result.clone();
             resultAfterConstraints.rate = constraintsInterface.applyBasalConstraints(resultAfterConstraints.rate);
-
+			
             if (lastRun == null) lastRun = new LastRun();
             lastRun.request = result;
             lastRun.constraintsProcessed = resultAfterConstraints;
             lastRun.lastAPSRun = new Date();
             lastRun.source = ((PluginBase) usedAPS).getName();
 			// Added by Rumen for SMB in Loop
+			
+			//Getting last connection to pump
+			PumpInterface activePump = ConfigBuilderPlugin.getActivePump();
+			if(activePump!=null){
+				log.debug("Activepump date is:"+activePump.lastDataTime());
+				long lastConnection = activePump.lastDataTime().getTime();
+				int lastConnectionMin = (int) (System.currentTimeMillis()-lastConnection)/(1000*60);
+				log.debug("Last connection was "+lastConnectionMin+" min ago");
+			}
+			boolean noConnectionLast15Min = false;
+			if(lastConnectionMin>14) noConnectionLast15Min = true;
 			// If APS source s rumen's plugin
 			boolean SMB_enable = false;
 			if(SP.getBoolean("key_smb", false)){
@@ -396,6 +406,8 @@ public class LoopPlugin implements PluginBase {
 					}// End of notification test
 					
 					final ConfigBuilderPlugin pump = MainApp.getConfigBuilder();
+					//PumpInterface activePump;
+					//activePump = ConfigBuilderPlugin.getActivePump();
 					PumpEnactResult enactResult;
 					log.debug("SMB just before setting 0 basal for 120 mins!");
 					//enactResult = pump.setTempBasalPercent(0, 120);
@@ -425,7 +437,8 @@ public class LoopPlugin implements PluginBase {
                         } else log.debug("SMB of "+smbFinalValue+" done!");
 						if (result.changeRequested && result.rate > -1d && result.duration > -1) {
 							log.debug("Pubp basal is:"+pump.getBaseBasalRate());
-							log.debug("Entering closedLoop after SMB - rate is "+result.rate+" and duration is "+result.duration);												   
+							log.debug("Entering closedLoop after SMB - rate is "+result.rate+" and duration is "+result.duration);	
+							log.debug("There is temp basal:"+configBuilder.isTempBasalInProgress());
 							final PumpEnactResult waiting = new PumpEnactResult();
 							final PumpEnactResult previousResult = lastRun.setByPump;
 							waiting.queued = true;
