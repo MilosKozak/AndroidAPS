@@ -49,10 +49,25 @@ import java.util.List;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 
 import info.nightscout.utils.SafeParse;
-
+// TODO: ALL checks from oref0-pump-loop
 /**
  * Created by mike on 05.08.2016.
  * Added support for SMB by Rumen on 01.06.2017
+ Starting pump-loop at $(date): \
+        && wait_for_bg  -- done
+        && wait_for_silence \
+        && if_mdt_get_bg \
+        && refresh_old_pumphistory_enact \
+        && refresh_old_pumphistory_24h \
+        && refresh_old_profile \
+        && touch monitor/pump_loop_enacted -r monitor/glucose.json \
+        && refresh_temp_and_enact \
+        && refresh_pumphistory_and_enact \
+        && refresh_profile \
+        && refresh_pumphistory_24h \
+        && echo Completed pump-loop at $(date) \
+        && touch monitor/pump_loop_completed -r monitor/pump_loop_enacted \
+ 
  */
 public class LoopPlugin implements PluginBase {
     private static Logger log = LoggerFactory.getLogger(LoopPlugin.class);
