@@ -39,8 +39,8 @@ import info.nightscout.utils.SP;
 // Added by Rumen for SMB enact
 //import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
-import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.interfaces.InsulinInterface;							   
+//import info.nightscout.androidaps.interfaces.PumpInterface;
+//import info.nightscout.androidaps.interfaces.InsulinInterface;							   
 import info.nightscout.utils.SP;
 import android.support.v4.app.DialogFragment;
 import info.nightscout.androidaps.db.Treatment;
@@ -55,11 +55,20 @@ import info.nightscout.utils.SafeParse;
  * Added support for SMB by Rumen on 01.06.2017
  Starting pump-loop at $(date): \
         && wait_for_bg  -- done
-        && wait_for_silence \
-        && if_mdt_get_bg \
-        && refresh_old_pumphistory_enact \
-        && refresh_old_pumphistory_24h \
-        && refresh_old_profile \
+        && wait_for_silence -- # listen for $1 seconds of silence (no other rigs talking to pump) before continuing
+        && if_mdt_get_bg -- MDT not supported by AAPS
+        && refresh_old_pumphistory_enact -- # refresh pumphistory if it's more than 15m old and enact
+		# Refresh reservoir.json and pumphistory.json
+		# Read the pump reservoir volume and verify it is within 0.1U of the expected volume
+        # check if the temp was read more than 5m ago, or has been running more than 10m
+		# enact the appropriate temp before SMB'ing, (only if smb_verify_enacted fails)
+	    # Read the currently running temp and
+		# verify rate matches (within 0.03U/hr) and duration is no shorter than 5m less than smb-suggested.json
+		# Verify that the suggested.json is less than 5 minutes old
+		# and administer the supermicrobolus
+		# If temp basal duration is zero, unsuspend pump
+		&& refresh_old_pumphistory_24h # refresh pumphistory_24h if it's more than 2h old
+        && refresh_old_profile # refresh settings/profile if it's more than 1h old
         && touch monitor/pump_loop_enacted -r monitor/glucose.json \
         && refresh_temp_and_enact \
         && refresh_pumphistory_and_enact \
@@ -400,7 +409,7 @@ public class LoopPlugin implements PluginBase {
 						//PumpEnactResult result;
 						final int carbTime = 0;
 						DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
-                        detailedBolusInfo.eventType = "Correction Bolus";
+                        detailedBolusInfo.eventType = "SMB";
                         detailedBolusInfo.insulin = smbFinalValue;
                         detailedBolusInfo.carbs = 0;
                         detailedBolusInfo.context = null;
