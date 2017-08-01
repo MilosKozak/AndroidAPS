@@ -53,19 +53,16 @@ import info.nightscout.utils.SafeParse;
 /**
  * Created by mike on 05.08.2016.
  * Added support for SMB by Rumen on 01.06.2017
- Starting pump-loop at $(date): \
-        && wait_for_bg  -- done
-        && wait_for_silence -- # listen for $1 seconds of silence (no other rigs talking to pump) before continuing
+        && wait_for_bg  -- done - SMB bolusing is only triggered by new BG data or press of the Loop button
+        && wait_for_silence -- # listen for $1 seconds of silence (no other rigs talking to pump) before continuing -- not sure about that
         && if_mdt_get_bg -- MDT not supported by AAPS
-        && refresh_old_pumphistory_enact -- # refresh pumphistory if it's more than 15m old and enact - see noConnectionLast15Min
-        # Read the pump reservoir volume and verify it is within 0.1U of the expected volume
+        && refresh_old_pumphistory_enact refresh pumphistory if it's more than 15m old and enact -- DONE see noConnectionLast15Min
+        # Read the pump reservoir volume and verify it is within 0.1U of the expected volume - DONE Line #360 but not passed as value to determine-basal.js
         # check if the temp was read more than 5m ago, or has been running more than 10m
-        # enact the appropriate temp before SMB'ing, (only if smb_verify_enacted fails)
-        # Read the currently running temp and
-        # verify rate matches (within 0.03U/hr) and duration is no shorter than 5m less than smb-suggested.json
-        # Verify that the suggested.json is less than 5 minutes old
-        # and administer the supermicrobolus
-        # If temp basal duration is zero, unsuspend pump
+        # enact the appropriate temp before SMB'ing, (only if smb_verify_enacted fails) - Rumen: I believe that works but now It does SMB first and then sets required basal. 
+        # Read the currently running temp and verify rate matches (within 0.03U/hr) and duration is no shorter than 5m less than smb-suggested.json -- DONE line 484 does that
+        # Verify that the suggested.json is less than 5 minutes old and administer the supermicrobolus - in AAPS APS doesn't provide suggestion if BG is more than 8 min old
+        # If temp basal duration is zero, unsuspend pump -- duration = 0 means cancel temp basal or extended bolus, if pump is suspended - loop is also suspended
         && refresh_old_pumphistory_24h # refresh pumphistory_24h if it's more than 2h old
         && refresh_old_profile # refresh settings/profile if it's more than 1h old
         && touch monitor/pump_loop_enacted -r monitor/glucose.json \
@@ -339,8 +336,8 @@ public class LoopPlugin implements PluginBase {
             if(SP.getBoolean("key_smb", false)){
                 SMB_enable = true;
             } 
-            // check if SMB is enabled from preferences 
-            if(lastRun.source.equals("Rumen SMB") && SMB_enable){
+            // check if SMB is enabled from preferences
+            if(lastRun.source.equals("Rumen SMB") && SMB_enable ){
                 
                 if(smb_value>0){ 
                     // Gett SMB by direct call of function
@@ -348,8 +345,7 @@ public class LoopPlugin implements PluginBase {
                 } else {
                     // always ending here!!!
                     //lastRun.smb = usedAPS.smbValue();//smbPlugin.smbValue();
-                    lastRun.smb = 0.0;//smbPlugin.smbValue();
-                    
+                    lastRun.smb = 0.0;//smbPlugin.smbValue();                    
                 }
             } else {
                 log.debug("Plugin is not Rumen SMB or SMB disabled in preferences");
@@ -357,7 +353,11 @@ public class LoopPlugin implements PluginBase {
             }                                
             lastRun.setByPump = null;
             if(lastRun.smb == null) lastRun.smb = 0.0;
-            
+            //is there enough insulin in reservoir
+            if((activePump.getPumpDescription().reservoir - lastRun.smb) < 10){
+                log.debug("Error:Insulin in reservoir is not enough ( less than 10U! ");
+                lastRun.smb = 0.0;
+            } 
             // now SMB is here but needs to go afte closed loop check :)'
             log.debug("SMB vlalue is "+lastRun.smb);
             //lastRun.smb = 0.5;
