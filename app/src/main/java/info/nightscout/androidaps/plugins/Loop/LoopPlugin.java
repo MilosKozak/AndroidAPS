@@ -327,6 +327,7 @@ public class LoopPlugin implements PluginBase {
 				int lastConnectionMin = (int) (System.currentTimeMillis()-lastConnection)/(1000*60);
 				if(lastConnectionMin>14) noConnectionLast15Min = true;
 				log.debug("Last connection was "+lastConnectionMin+" min ago");
+				//TODO Getting remaining insulin in pump reservoir => Works with Virtual and DanaR drivers only!
 				if(activePump.getPumpDescription().reservoir != 0 ){
 					log.debug("Pump reservoir is:"+activePump.getPumpDescription().reservoir);
 				} else log.debug("Pump reservoir is not in getPumpDescription()");
@@ -375,7 +376,7 @@ public class LoopPlugin implements PluginBase {
 				//if(!treamentExists && !smbEnacted){
 				
 				if(initiator == "EventNewBG" || initiator == "Loop button"){
-					log.debug("SMB entering after no treamentExists.");
+					log.debug("SMB entering after invoke from Loop button or new BG.");
 					// Testing Notification for SMB
 					boolean notificationForSMB = false;
 					if(notificationForSMB){
@@ -414,32 +415,28 @@ public class LoopPlugin implements PluginBase {
 					//PumpInterface activePump;
 					//activePump = ConfigBuilderPlugin.getActivePump();
 					PumpEnactResult enactResult;
-					log.debug("SMB just before setting 0 basal for 120 mins!");
-					//enactResult = pump.setTempBasalPercent(0, 120);
-				
-					//if (enactResult.success) {
-						//Temp is set -> doing SMB
-						Integer nullCarbs = 0;
-						Double smbFinalValue = lastRun.smb;
-						//DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
-						//detailedBolusInfo.insulin = smbFinalValue;
-						//PumpEnactResult result;
-						final int carbTime = 0;
-						DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
-                        detailedBolusInfo.eventType = "SMB";
-                        detailedBolusInfo.insulin = smbFinalValue;
-                        detailedBolusInfo.carbs = 0;
-                        detailedBolusInfo.context = null;
-                        detailedBolusInfo.glucose = 0;
-                        detailedBolusInfo.glucoseType = "Manual";
-                        detailedBolusInfo.carbTime = 0;
-                        //detailedBolusInfo.boluscalc = boluscalcJSON;
-                        detailedBolusInfo.source = 3; // 3 is Source.USER
-                        enactResult = pump.deliverTreatment(detailedBolusInfo);
-                        if (!enactResult.success) {
-							log.debug("SMB of "+smbFinalValue+" failed!");
-							//OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.treatmentdeliveryerror), result.comment, null);
-                        } else log.debug("SMB of "+smbFinalValue+" done!");
+					log.debug("SMB just before setting  basal!");
+					Integer nullCarbs = 0;
+					Double smbFinalValue = lastRun.smb;
+					//DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
+					//detailedBolusInfo.insulin = smbFinalValue;
+					//PumpEnactResult result;
+					final int carbTime = 0;
+					DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
+					detailedBolusInfo.eventType = "SMB";
+					detailedBolusInfo.insulin = smbFinalValue;
+					detailedBolusInfo.carbs = 0;
+					detailedBolusInfo.context = null;
+					detailedBolusInfo.glucose = 0;
+					detailedBolusInfo.glucoseType = "Manual";
+					detailedBolusInfo.carbTime = 0;
+					//detailedBolusInfo.boluscalc = boluscalcJSON;
+					detailedBolusInfo.source = 3; // 3 is Source.USER
+					enactResult = pump.deliverTreatment(detailedBolusInfo);
+					if (!enactResult.success) {
+						log.debug("SMB of "+smbFinalValue+" failed!");
+						//OKDialog.show(getActivity(), MainApp.sResources.getString(R.string.treatmentdeliveryerror), result.comment, null);
+					} else log.debug("SMB of "+smbFinalValue+" done!");
 						if (result.changeRequested && result.rate > -1d && result.duration > -1) {
 							log.debug("Pubp basal is:"+pump.getBaseBasalRate());
 							log.debug("Entering closedLoop after SMB - rate is "+result.rate+" and duration is "+result.duration);	
@@ -478,8 +475,12 @@ public class LoopPlugin implements PluginBase {
 			
 
 			} else if (constraintsInterface.isClosedModeEnabled()) {
+				log.debug("No connection in last 15 min:"+noConnectionLast15Min+" change requested "+result.changeRequested);
+				result.changeRequested = result.changeRequested || noConnectionLast15Min;
+				log.debug("Change requested after merge:"+result.changeRequested);
                 if (result.changeRequested && result.rate > -1d && result.duration > -1) {
-					log.debug("Entering closedLoop and rate is "+result.rate+" and duration is "+result.duration);												   
+					log.debug("Entering closedLoop and rate is "+result.rate+" and duration is "+result.duration);		
+					log.debug("No connection in last 15 min:"+noConnectionLast15Min);
                     final PumpEnactResult waiting = new PumpEnactResult();
                     final PumpEnactResult previousResult = lastRun.setByPump;
                     waiting.queued = true;
