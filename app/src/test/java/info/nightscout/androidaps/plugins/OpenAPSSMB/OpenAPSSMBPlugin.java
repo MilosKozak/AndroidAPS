@@ -151,8 +151,8 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         return lastAPSRun;
     }
 
-    @Override
-    public void invoke(String initiator) {
+    @Test
+    public void invoke throws Exception (String initiator) {
         log.debug("invoke from " + initiator);
 		
         lastAPSResult = null;
