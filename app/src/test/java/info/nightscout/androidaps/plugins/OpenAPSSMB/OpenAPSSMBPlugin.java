@@ -50,14 +50,19 @@ import info.nightscout.androidaps.interfaces.InsulinInterface;
 import android.content.Context;
 import android.view.ViewGroup;
 import android.app.Activity;
-// Added for testing 
+// Added by Rumen for testing
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 
 /**
  * Created by mike on 05.08.2016.
  */
 public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
+    public OpenAPSSMBPlugin(){
+        super();
+    }
+
     private static Logger log = LoggerFactory.getLogger(OpenAPSSMBPlugin.class);
 
     // last values
@@ -136,17 +141,17 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
     public APSResult getLastAPSResult() {
         return lastAPSResult;
     }
-    @Test
+    //@Override
     public Double getSMB() {
         return smb;
     }
 	
-    @Test
+    @Override
     public Date getLastAPSRun() {
         return lastAPSRun;
     }
 
-    @Test
+    @Override
     public void invoke(String initiator) {
         log.debug("invoke from " + initiator);
 		
