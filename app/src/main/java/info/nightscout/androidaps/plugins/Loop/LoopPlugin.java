@@ -371,7 +371,7 @@ public class LoopPlugin implements PluginBase {
                     if(agoSec > 300) smbEnacted = false;
                 
                 }
-                log.debug("initiator is"+initiator+"\nSMB treatmentExists is "+treamentExists+" and smbEnacted is:"+smbEnacted);
+                log.debug("initiator is "+initiator+"\nSMB treatmentExists is "+treamentExists+" and smbEnacted is:"+smbEnacted);
                 //if(!treamentExists && !smbEnacted){
                 
                 if(initiator == "EventNewBG" || initiator == "Loop button"){
@@ -438,7 +438,7 @@ public class LoopPlugin implements PluginBase {
                     } else log.debug("SMB of "+smbFinalValue+" done!");
                         if (result.changeRequested && result.rate > -1d && result.duration > -1) {
                             log.debug("Pubp basal is:"+pump.getBaseBasalRate());
-                            log.debug("Entering closedLoop after SMB - rate is "+result.rate+" and duration is "+result.duration);  
+                            log.debug("Entering closedLoop after SMB \n- rate is "+result.rate+" \n- duration is "+result.duration);  
                             log.debug("There is temp basal:"+configBuilder.isTempBasalInProgress());
                             final PumpEnactResult waiting = new PumpEnactResult();
                             final PumpEnactResult previousResult = lastRun.setByPump;
