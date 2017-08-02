@@ -686,31 +686,24 @@
     <string name="wear_overviewnotifications_summary">Pass the Overview Notifications through as wear confirmation messages.</string>
     <string name="ns_localbroadcasts">Enable broadcasts to other apps (like xDrip).</string>
     <string name="ns_localbroadcasts_title">Enable local Broadcasts.</string>
-	<string name="careportal_activity_label">ACTIVITY &amp; FEEDBACK</string>
-	<string name="careportal_carbsandbolus_label">CARBS &amp; BOLUS</string>
-	<string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
-	<string name="careportal_pump_label">PUMP</string>
+    <string name="careportal_activity_label">ACTIVITY &amp; FEEDBACK</string>
+    <string name="careportal_carbsandbolus_label">CARBS &amp; BOLUS</string>
+    <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
+    <string name="careportal_pump_label">PUMP</string>
     <string name="overview_newtempbasal_basalabsolute">Basal value [U/h]</string>
     <string name="careportal_newnstreatment_duration_min_label">Duration [min]</string>
-<<<<<<< HEAD
-=======
-
->>>>>>> MilosKozak-dev
-	<string name="openapsma_smb_label">SMB result</string>
-	<string name="smb">SMB</string>
-	<string name="smb_shortname">SMB</string>
-	<string name="key_smb" translatable="false">key_smb</string>
-	<string name="enablesmb">SMB enable</string>
-	<string name="enablesmb_summary">Super Micro Boluses is used when there are COB and more insulin is needed</string>
+    <string name="openapsma_smb_label">SMB result</string>
+    <string name="smb">SMB</string>
+    <string name="smb_shortname">SMB</string>
+    <string name="key_smb" translatable="false">key_smb</string>
+    <string name="enablesmb">SMB enable</string>
+    <string name="enablesmb_summary">Super Micro Boluses is used when there are COB and more insulin is needed</string>
     <string name="uam">UAM</string>
-	<string name="uam_shortname">UAM</string>
-	<string name="key_uam" translatable="false">key_uam</string>
-	<string name="enableuam">Enable UAM</string>
-	<string name="enableuam_summary">UnAnounced Meals  - high risk here!!!</string>
-	<string name="openapssmb">Rumen SMB</string>
-<<<<<<< HEAD
+    <string name="uam_shortname">UAM</string>
+    <string name="key_uam" translatable="false">key_uam</string>
+    <string name="enableuam">Enable UAM</string>
+    <string name="enableuam_summary">UnAnounced Meals  - high risk here!!!</string>
+    <string name="openapssmb">Rumen SMB</string>
 
-=======
->>>>>>> MilosKozak-dev
 </resources>
 
