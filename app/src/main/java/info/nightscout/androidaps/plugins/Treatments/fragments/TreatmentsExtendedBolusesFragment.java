@@ -36,7 +36,7 @@ import info.nightscout.androidaps.plugins.Common.SubscriberFragment;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.NSUpload;
-import info.nightscout.androidaps.data.OverlappingIntervals;
+import info.nightscout.androidaps.data.Intervals;
 
 
 public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
@@ -49,9 +49,9 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ExtendedBolusesViewHolder> {
 
-        OverlappingIntervals<ExtendedBolus> extendedBolusList;
+        Intervals<ExtendedBolus> extendedBolusList;
 
-        RecyclerViewAdapter(OverlappingIntervals<ExtendedBolus> extendedBolusList) {
+        RecyclerViewAdapter(Intervals<ExtendedBolus> extendedBolusList) {
             this.extendedBolusList = extendedBolusList;
         }
 

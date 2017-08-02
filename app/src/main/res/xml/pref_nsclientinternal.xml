@@ -28,6 +28,12 @@
             android:title="@string/ns_logappstartedevent" />
 
         <PreferenceScreen android:title="@string/ns_alarmoptions">
+        <SwitchPreference		
+            android:defaultValue="true"		
+            android:key="@string/key_ns_localbroadcasts"		
+            android:title="@string/ns_localbroadcasts_title"		
+            android:summary="@string/ns_localbroadcasts"/>		
+	
 
             <SwitchPreference
                 android:defaultValue="false"

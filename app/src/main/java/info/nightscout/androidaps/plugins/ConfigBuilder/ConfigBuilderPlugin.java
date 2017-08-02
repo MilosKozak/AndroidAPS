@@ -837,7 +837,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     @Override
-    public OverlappingIntervals<TemporaryBasal> getTemporaryBasalsFromHistory() {
+    public Intervals<TemporaryBasal> getTemporaryBasalsFromHistory() {
         return activeTreatments.getTemporaryBasalsFromHistory();
     }
 
@@ -884,7 +884,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     @Override
-    public OverlappingIntervals<ExtendedBolus> getExtendedBolusesFromHistory() {
+    public Intervals<ExtendedBolus> getExtendedBolusesFromHistory() {
         return activeTreatments.getExtendedBolusesFromHistory();
     }
 
@@ -906,7 +906,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     @Override
-    public OverlappingIntervals<TempTarget> getTempTargetsFromHistory() {
+    public Intervals<TempTarget> getTempTargetsFromHistory() {
         return activeTreatments.getTempTargetsFromHistory();
     }
 
