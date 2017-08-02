@@ -109,7 +109,7 @@ public class LoopFragment extends SubscriberFragment implements View.OnClickList
                         requestView.setText(getPlugin().lastRun.request != null ? getPlugin().lastRun.request.toSpanned() : "");
                         constraintsProcessedView.setText(getPlugin().lastRun.constraintsProcessed != null ? getPlugin().lastRun.constraintsProcessed.toSpanned() : "");
                         setByPumpView.setText(getPlugin().lastRun.setByPump != null ? getPlugin().lastRun.setByPump.toSpanned() : "");
-						sourceView.setText(getPlugin().lastRun.source != null ? getPlugin().lastRun.source : "");
+                        sourceView.setText(getPlugin().lastRun.source != null ? getPlugin().lastRun.source : "");
                         lastRunView.setText(getPlugin().lastRun.lastAPSRun != null && getPlugin().lastRun.lastAPSRun.getTime() != 0 ? getPlugin().lastRun.lastAPSRun.toLocaleString() : "");
                         lastEnactView.setText(getPlugin().lastRun.lastEnact != null && getPlugin().lastRun.lastEnact.getTime() != 0 ? getPlugin().lastRun.lastEnact.toLocaleString() : "");
                     }
