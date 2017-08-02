@@ -33,7 +33,6 @@
     <string name="careportal_cgmsensorstart">CGM Sensor Start</string>
     <string name="careportal_newnstreatment_absolute_label">Absolut</string>
     <string name="careportal_newnstreatment_carbs_label">Kohlehydrate</string>
-    <string name="careportal_newnstreatment_minutes">min</string>
     <string name="careportal_newnstreatment_insulin_label">Insulin</string>
     <string name="careportal_newnstreatment_glucosetype">Glukose-Art</string>
     <string name="careportal_newnstreatment_eventtype">Ereignis-Typ</string>
@@ -119,7 +118,7 @@
     <string name="danar_useextended_title">Benutze extended Bolus für hohe temps (\>200%)></string>
     <string name="objectives_pumpstatusavailableinns">Pumpen Status verfügbar in NS</string>
     <string name="overview_newtempbasal_percent_label">% (100% = current)</string>
-    <string name="overview_newtempbasal_basal_label">Basal Wert</string>
+    <string name="overview_newtempbasal_basalpercent">Basal Wert [%]</string>
     <string name="overview_extendedbolus_button">Extended Bolus</string>
     <string name="overview">Übersicht</string>
     <string name="openloop_newsuggestion">Neue Empfehlung verfügbar</string>
@@ -286,7 +285,6 @@
     <string name="basal_rate">Basalrate:</string>
     <string name="base_profile_label">Basisprofil:</string>
     <string name="batterydischarged">Pumpenbatterie entladen</string>
-    <string name="androidaps_tempbasalendnote">Basal Temp Ende</string>
     <string name="danar_historyreload">neu laden</string>
     <string name="high_mark">Hoch Markierung</string>
     <string name="low_mark">Niedrig Markierung</string>
@@ -332,7 +330,6 @@
     <string name="alert_dialog_storage_permission_text">Bitte starte dein Telefon neu oder starte AndroidAPS in den System-Einstellungen neu. Anderenfalls hat AndroidAPS kein logging  (wichtig zum Nachverfolgen und Verifizieren, dass der Algorithmus korrekt funktioniert)</string>
     <string name="always_use_shortavg">Immer das kurze Durchschnitts-Delta statt dem einfachen Delta verwenden</string>
     <string name="always_use_shortavg_summary">Sinnvoll, wenn die Daten von einer ungefilterten Quelle Signalrauschen haben.</string>
-    <string name="androidaps_tempbasalstartnote">Basal Temp Anfang</string>
     <string name="approachingdailylimit">Tagesinsulin-Limit wird erreicht.</string>
     <string name="basalshortlabel">BR</string>
     <string name="calibrationsent">Kalibrierung an xDrip gesendet</string>

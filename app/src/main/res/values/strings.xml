@@ -114,7 +114,7 @@
     <string name="constraints_violation">Constraints violation</string>
     <string name="treatmentdeliveryerror">Bolus delivery error</string>
     <string name="tempbasaldeliveryerror">Tempbasal delivery error</string>
-    <string name="overview_newtempbasal_basal_label">Basal value</string>
+    <string name="overview_newtempbasal_basalpercent">Basal value [%]</string>
     <string name="overview_newtempbasal_percent_label">% (100% = current)</string>
     <string name="setbasalquestion">Accept new temp basal:</string>
     <string name="overview_bolus_label">Bolus</string>
@@ -183,7 +183,6 @@
     <string name="careportal_newnstreatment_duration_label">Duration</string>
     <string name="careportal_newnstreatment_percent_label">Percent</string>
     <string name="careportal_newnstreatment_absolute_label">Absolute</string>
-    <string name="careportal_newnstreatment_minutes">min</string>
     <string name="careportal_newnstreatment_notes_label">Notes</string>
     <string name="careportal_newnstreatment_eventtime_label">Event time</string>
     <string name="careportal_newnstreatment_profile_label">Profile</string>
@@ -375,8 +374,6 @@
     <string name="edit_base_ic">Edit Base-IC:</string>
     <string name="base_profile_label">Base Profile:</string>
     <string name="circadian_percentage_profile">CircadianPercentageProfile</string>
-    <string name="androidaps_tempbasalendnote">Basal Temp End</string>
-    <string name="androidaps_tempbasalstartnote">Basal Temp Start</string>
     <string name="prefs_range_title">Range for Visualization</string>
     <string name="prefs_range_summary">High and low mark for the charts in Overview and Smartwatch</string>
     <string name="low_mark">LOW mark</string>
@@ -633,7 +630,7 @@
     <string name="key_nsalarm_high" translatable="false">nsalarm_high</string>
     <string name="key_nsalarm_low" translatable="false">nsalarm_low</string>
     <string name="key_nsalarm_urgent_low" translatable="false">nsalarm_urgent_low</string>
-	<string name="key_nsalarm_staledata" translatable="false">nsalarm_staledata</string>
+    <string name="key_nsalarm_staledata" translatable="false">nsalarm_staledata</string>
     <string name="key_nsalarm_urgent_staledata" translatable="false">nsalarm_urgent_staledata</string>
     <string name="key_nsalarm_staledatavalue" translatable="false">nsalarm_staledatavalue</string>
     <string name="key_nsalarm_urgent_staledatavalue" translatable="false">nsalarm_urgent_staledatavalue</string>
@@ -650,8 +647,8 @@
     <string name="openapsama_autosens_period_summary">Amount of hours in the past for sensitivity detection (carbs absorption time is excluded)</string>
     <string name="key_openapsama_autosens_period" translatable="false">openapsama_autosens_period</string>
     <string name="key_nsclient_localbroadcasts" translatable="false">nsclient_localbroadcasts</string>
-    <string name="ratio_short">RAT</string>
-    <string name="key_do_not_track_profile_switch">do_not_track_profile_switch</string>
+    <string name="ratio_short">SEN</string>
+    <string name="key_do_not_track_profile_switch" translatable="false">do_not_track_profile_switch</string>
     <string name="do_not_track_profile_switch">Ignore profile switch events</string>
     <string name="do_not_track_profile_switch_summary">All profile switch events are ignored and active profile is always used</string>
     <string name="pump">Pump</string>
@@ -679,13 +676,13 @@
     <string name="lock_screen">Lock screen</string>
     <string name="lock_screen_short">Lock</string>
     <string name="sensitivity_warning">By turning on Autosense feature remember to enter all eated carbs. Otherwise carbs deviations will be identified wrong as sensitivity change !!</string>
-	<string name="sensitivityweightedaverage">Sensitivity WeightedAverage</string>
+    <string name="sensitivityweightedaverage">Sensitivity WeightedAverage</string>
     <string name="mdtp_ok">OK</string>
-    <string name="mdtp_cancel">Cancel</string>	
+    <string name="mdtp_cancel">Cancel</string>
     <string name="cpp_sync_setting_missing">needs to be activated to send values to the pump!</string>
     <string name="cpp_notloadedplugins">Not all profiles loaded!</string>
-    <string name="cpp_valuesnotstored">Values not stored!</string>    
-	<string name="wear_overviewnotifications">Overview Notifications</string>
+    <string name="cpp_valuesnotstored">Values not stored!</string>
+    <string name="wear_overviewnotifications">Overview Notifications</string>
     <string name="wear_overviewnotifications_summary">Pass the Overview Notifications through as wear confirmation messages.</string>
     <string name="ns_localbroadcasts">Enable broadcasts to other apps (like xDrip).</string>
     <string name="ns_localbroadcasts_title">Enable local Broadcasts.</string>
@@ -693,6 +690,9 @@
 	<string name="careportal_carbsandbolus_label">CARBS &amp; BOLUS</string>
 	<string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
 	<string name="careportal_pump_label">PUMP</string>
+    <string name="overview_newtempbasal_basalabsolute">Basal value [U/h]</string>
+    <string name="careportal_newnstreatment_duration_min_label">Duration [min]</string>
+
 	<string name="openapsma_smb_label">SMB result</string>
 	<string name="smb">SMB</string>
 	<string name="smb_shortname">SMB</string>
