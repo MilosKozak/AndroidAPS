@@ -126,7 +126,7 @@ public class MainApp extends Application {
             if (Config.LOOPENABLED) pluginsList.add(LoopFragment.getPlugin());
             if (Config.OPENAPSENABLED) pluginsList.add(OpenAPSMAFragment.getPlugin());
             if (Config.OPENAPSENABLED) pluginsList.add(OpenAPSAMAFragment.getPlugin());
-			if (Config.OPENAPSENABLED) pluginsList.add(OpenAPSSMBFragment.getPlugin());
+            if (Config.OPENAPSENABLED) pluginsList.add(OpenAPSSMBFragment.getPlugin());
             pluginsList.add(NSProfileFragment.getPlugin());
             if (Config.OTHERPROFILES) pluginsList.add(SimpleProfileFragment.getPlugin());
             if (Config.OTHERPROFILES) pluginsList.add(LocalProfileFragment.getPlugin());
