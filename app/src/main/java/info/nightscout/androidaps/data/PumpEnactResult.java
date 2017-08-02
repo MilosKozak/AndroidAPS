@@ -15,7 +15,7 @@ public class PumpEnactResult extends Object {
     public boolean success = false;    // request was processed successfully (but possible no change was needed)
     public boolean enacted = false;    // request was processed successfully and change has been made
     public String comment = "";
-    
+
     // Result of basal change
     public Integer duration = -1;      // duration set [minutes]
     public Double absolute = -1d;      // absolute rate [U/h] , isPercent = false
