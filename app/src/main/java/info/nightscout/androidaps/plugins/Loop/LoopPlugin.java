@@ -319,28 +319,34 @@ public class LoopPlugin implements PluginBase {
             boolean noConnectionLast15Min = false;
             PumpInterface activePump = ConfigBuilderPlugin.getActivePump();
             if(activePump!=null){
-                log.debug("Activepump date is:"+activePump.lastDataTime());
+                log.debug("Pump last connection was:"+activePump.lastDataTime());
                 long lastConnection = activePump.lastDataTime().getTime();
                 int lastConnectionMin = (int) (System.currentTimeMillis()-lastConnection)/(1000*60);
-                if(lastConnectionMin>14) noConnectionLast15Min = true;
-                log.debug("Last connection was "+lastConnectionMin+" min ago");
+                if(lastConnectionMin>14) {
+                    noConnectionLast15Min = true;
+                    log.debug("Last connection was "+lastConnectionMin+" min ago\n Conecting to pump to update");
+                    activePump.refreshDataFromPump("NoDatafor15min");
+                    lastConnection = activePump.lastDataTime().getTime();
+                    lastConnectionMin = (int) (System.currentTimeMillis()-lastConnection)/(1000*60);
+                    log.debug("Last connection is "+lastConnectionMin+" min ago after update update");
+                }
                 //TODO Getting remaining insulin in pump reservoir => Works with Virtual and DanaR drivers only!
                 if(activePump.getPumpDescription().reservoir != 0 ){
-                    log.debug("Pump reservoir is:"+activePump.getPumpDescription().reservoir);
+                    log.debug("Pump reservoir is: "+activePump.getPumpDescription().reservoir);
                 } else log.debug("Pump reservoir is not in getPumpDescription()");
             }
 
             
-            // If APS source s rumen's plugin
+            // check if SMB is enabled from preferences
             boolean SMB_enable = false;
             if(SP.getBoolean("key_smb", false)){
                 SMB_enable = true;
             } 
-            // check if SMB is enabled from preferences
+            // If APS source s rumen's plugin
             if(lastRun.source.equals("Rumen SMB") && SMB_enable ){
                 
                 if(smb_value>0){ 
-                    // Gett SMB by direct call of function
+                    //ToDO: Get SMB by direct call of function - line #298 smb_value = usedAPS.smbValue();
                     lastRun.smb = smb_value;
                 } else {
                     // always ending here!!!
@@ -474,7 +480,7 @@ public class LoopPlugin implements PluginBase {
             
 
             } else if (constraintsInterface.isClosedModeEnabled()) {
-                log.debug("No connection in last 15 min:"+noConnectionLast15Min+" change requested "+result.changeRequested);
+                log.debug("No connection in last 15 min:"+noConnectionLast15Min+"\nChange requested "+result.changeRequested);
                 // Added by Rumen on 01.08.2017 to ensure change is done every 15 mins
                 result.changeRequested = result.changeRequested || noConnectionLast15Min;
                 log.debug("Change requested after merge:"+result.changeRequested);

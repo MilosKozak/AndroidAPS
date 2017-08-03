@@ -245,7 +245,7 @@ public class DetermineBasalAdapterSMBJS {
 			enableSMB = true;
 		}						
 		// enable SMB with bolus and preferences key
-		// TODO Fix correction blusses triggering SMB
+		// TODO Fix correction bolusses triggering SMB
 		//mIobData = mV8rt.executeArrayScript(IobCobCalculatorPlugin.convertToJSONArray(iobArray).toString());
 		IobTotal bolusIob = MainApp.getConfigBuilder().getCalculationToTimeTreatments(new Date().getTime()).round();
 		// lines below should get if there's a mealbolus DIA hours ago
