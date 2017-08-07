@@ -441,7 +441,8 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
 		boolean doingSMB = false;
 		if(detailedBolusInfo.eventType == "SMB"){
 			doingSMB = true;
-			detailedBolusInfo.eventType = "Correction Bolus";
+            detailedBolusInfo.isSMB = true; 
+			//detailedBolusInfo.eventType = "Correction Bolus";
 			log.debug("Setting SMB to true");
 		}
         if(doingSMB != true){
