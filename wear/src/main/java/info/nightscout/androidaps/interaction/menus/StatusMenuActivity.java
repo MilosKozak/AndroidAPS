@@ -1,5 +1,9 @@
 package info.nightscout.androidaps.interaction.menus;
 
+import android.content.Intent;
+import android.widget.Toast;
+
+import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.data.ListenerService;
 import info.nightscout.androidaps.interaction.utils.MenuListActivity;
 
@@ -15,9 +19,8 @@ public class StatusMenuActivity extends MenuListActivity {
                 "Pump",
                 "Loop",
                 "CPP",
-                "TDD"};
-
-
+                "TDD",
+                "Build"};
     }
 
     @Override
@@ -30,6 +33,11 @@ public class StatusMenuActivity extends MenuListActivity {
             ListenerService.initiateAction(this, "opencpp");
         } else if ("TDD".equals(action)) {
             ListenerService.initiateAction(this, "tddstats");
+        } else if ("Build".equals(action)) {
+            Toast.makeText(this, "Build version:" + BuildConfig.BUILDVERSION, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, StatusMenuActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            this.startActivity(intent);
         }
     }
 }
