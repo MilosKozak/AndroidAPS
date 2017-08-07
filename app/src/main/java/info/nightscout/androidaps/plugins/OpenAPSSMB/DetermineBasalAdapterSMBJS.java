@@ -337,7 +337,7 @@ public class DetermineBasalAdapterSMBJS {
 		BgReading lastBGReading = DatabaseHelper.actualBg(); 
 		long bgTime = lastBGReading.date;
 		double avgDelta = (glucoseStatus.short_avgdelta+glucoseStatus.long_avgdelta)/2;
-		IobTotal iob = IobCobCalculatorPlugin.calulateFromTreatmentsAndTemps(bgTime);
+		IobTotal iob = IobCobCalculatorPlugin.calculateFromTreatmentsAndTemps(bgTime);
 		double bgi = -iob.activity * Profile.toMgdl(profile.getIsf(bgTime), profile.getUnits()) * 5;
 		double currentDeviation = ((glucoseStatus.delta - bgi)*1000)/1000; 
 		double avgDeviation = 0d;
