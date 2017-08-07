@@ -429,6 +429,7 @@ public class LoopPlugin implements PluginBase {
                     final int carbTime = 0;
                     DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
                     detailedBolusInfo.eventType = "SMB";
+                    detailedBolusInfo.isSMB = true;
                     detailedBolusInfo.insulin = smbFinalValue;
                     detailedBolusInfo.carbs = 0;
                     detailedBolusInfo.context = null;
