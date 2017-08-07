@@ -584,18 +584,6 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 NewTreatmentDialog treatmentDialogFragment = new NewTreatmentDialog();
                 treatmentDialogFragment.show(manager, "TreatmentDialog");
                 break;
-            case R.id.overview_canceltempbutton:
-                final PumpInterface pump = MainApp.getConfigBuilder();
-                if (MainApp.getConfigBuilder().isTempBasalInProgress()) {
-                    sHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            pump.cancelTempBasal(true);
-                            Answers.getInstance().logCustom(new CustomEvent("CancelTemp"));
-                        }
-                    });
-                }
-                break;
             case R.id.overview_pumpstatus:
                 if (MainApp.getConfigBuilder().isSuspended() || !MainApp.getConfigBuilder().isInitialized())
                     sHandler.post(new Runnable() {
@@ -972,16 +960,10 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             else
                 tempTargetView.setText(Profile.toUnitsString(tempTarget.low, Profile.fromMgdlToUnits(tempTarget.low, units), units) + " - " + Profile.toUnitsString(tempTarget.high, Profile.fromMgdlToUnits(tempTarget.high, units), units));
         } else {
-            Double maxBgDefault = Constants.MAX_BG_DEFAULT_MGDL;
-            Double minBgDefault = Constants.MIN_BG_DEFAULT_MGDL;
-            if (!units.equals(Constants.MGDL)) {
-                maxBgDefault = Constants.MAX_BG_DEFAULT_MMOL;
-                minBgDefault = Constants.MIN_BG_DEFAULT_MMOL;
-            }
             tempTargetView.setTextColor(Color.WHITE);
             tempTargetView.setBackgroundColor(MainApp.sResources.getColor(R.color.tempTargetDisabledBackground));
-            double low = SP.getDouble("openapsma_min_bg", minBgDefault);
-            double high = SP.getDouble("openapsma_max_bg", maxBgDefault);
+            double low = MainApp.getConfigBuilder().getProfile().getTargetLow();
+            double high = MainApp.getConfigBuilder().getProfile().getTargetHigh();
             if (low == high)
                 tempTargetView.setText("" + low);
             else
@@ -1045,6 +1027,13 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 basalText += "(" + DecimalFormatter.to2Decimal(pump.getBaseBasalRate()) + "U/h)";
             }
         }
+        if (activeTemp != null) {
+            baseBasalView.setTextColor(MainApp.sResources.getColor(R.color.basal));
+        } else {
+            baseBasalView.setTextColor(Color.WHITE);
+
+        }
+
         baseBasalView.setText(basalText);
 
         final ExtendedBolus extendedBolus = MainApp.getConfigBuilder().getExtendedBolusFromHistory(System.currentTimeMillis());
@@ -1415,7 +1404,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             int lastCob = 0;
             for (long time = fromTime; time <= now; time += 5 * 60 * 1000L) {
                 if (showIobView.isChecked()) {
-                    double iob = IobCobCalculatorPlugin.calulateFromTreatmentsAndTemps(time).iob;
+                    double iob = IobCobCalculatorPlugin.calculateFromTreatmentsAndTempsSynchronized(time).iob;
                     if (Math.abs(lastIob - iob) > 0.02) {
                         if (Math.abs(lastIob - iob) > 0.2)
                             iobArray.add(new DataPoint(time, lastIob));
