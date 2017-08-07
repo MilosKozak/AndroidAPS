@@ -41,7 +41,7 @@ import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
 import info.nightscout.androidaps.db.DatabaseHelper;  
-//import info.nightscout.androidaps.Constants;
+import info.nightscout.androidaps.Constants;
 import java.util.ArrayList; 
 import java.util.List;
 import info.nightscout.androidaps.data.PumpEnactResult;
@@ -187,24 +187,14 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
             return;
         }
 
+
         String units = profile.getUnits();
-
-        Double maxBgDefault = Constants.MAX_BG_DEFAULT_MGDL;
-        Double minBgDefault = Constants.MIN_BG_DEFAULT_MGDL;
-        Double targetBgDefault = Constants.TARGET_BG_DEFAULT_MGDL;
-        if (!units.equals(Constants.MGDL)) {
-            maxBgDefault = Constants.MAX_BG_DEFAULT_MMOL;
-            minBgDefault = Constants.MIN_BG_DEFAULT_MMOL;
-            targetBgDefault = Constants.TARGET_BG_DEFAULT_MMOL;
-        }
-
-        Date now = new Date();
 
         double maxIob = SP.getDouble("openapsma_max_iob", 1.5d);
         double maxBasal = SP.getDouble("openapsma_max_basal", 1d);
-        double minBg = Profile.toMgdl(SP.getDouble("openapsma_min_bg", minBgDefault), units);
-        double maxBg = Profile.toMgdl(SP.getDouble("openapsma_max_bg", maxBgDefault), units);
-        double targetBg = Profile.toMgdl(SP.getDouble("openapsma_target_bg", targetBgDefault), units);
+        double minBg =  Profile.toMgdl(profile.getTargetLow(), units);
+        double maxBg =  Profile.toMgdl(profile.getTargetHigh(), units);
+        double targetBg = (minBg + maxBg) / 2;
 
         minBg = Round.roundTo(minBg, 0.1d);
         maxBg = Round.roundTo(maxBg, 0.1d);
@@ -283,14 +273,14 @@ public class OpenAPSSMBPlugin implements PluginBase, APSInterface {
         determineBasalAdapterAMAJS.release();
 
         try {
-            determineBasalResultAMA.json.put("timestamp", DateUtil.toISOString(now));
+            determineBasalResultAMA.json.put("timestamp", DateUtil.toISOString(new Date()));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         lastDetermineBasalAdapterAMAJS = determineBasalAdapterAMAJS;
         lastAPSResult = determineBasalResultAMA;
-        lastAPSRun = now;
+        lastAPSRun = new Date();
 		// Trying here
 		smb = smbValue(lastAPSResult);
         MainApp.bus().post(new EventOpenAPSUpdateGui());
