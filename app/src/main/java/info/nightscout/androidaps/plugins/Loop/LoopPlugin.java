@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     package info.nightscout.androidaps.plugins.Loop;
 
     import android.app.Notification;
@@ -99,6 +100,74 @@
             public Boolean smbEnacted = false;
             public String comment= "";
         }
+=======
+package info.nightscout.androidaps.plugins.Loop;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.support.v7.app.NotificationCompat;
+
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+import com.squareup.otto.Subscribe;
+
+import org.json.JSONException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Date;
+
+import info.nightscout.androidaps.Config;
+import info.nightscout.androidaps.Constants;
+import info.nightscout.androidaps.MainActivity;
+import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.data.PumpEnactResult;
+import info.nightscout.androidaps.events.EventNewBG;
+import info.nightscout.androidaps.events.EventTreatmentChange;
+import info.nightscout.androidaps.interfaces.APSInterface;
+import info.nightscout.androidaps.interfaces.ConstraintsInterface;
+import info.nightscout.androidaps.interfaces.PluginBase;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
+import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
+import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
+import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
+import info.nightscout.utils.NSUpload;
+import info.nightscout.utils.SP;
+import info.nightscout.utils.SafeParse;
+
+/**
+ * Created by mike on 05.08.2016.
+ */
+public class LoopPlugin implements PluginBase {
+    private static Logger log = LoggerFactory.getLogger(LoopPlugin.class);
+
+    private static Handler sHandler;
+    private static HandlerThread sHandlerThread;
+
+    private boolean fragmentEnabled = false;
+    private boolean fragmentVisible = false;
+
+    private long loopSuspendedTill = 0L; // end of manual loop suspend
+    private boolean isSuperBolus = false;
+
+    public class LastRun {
+        public APSResult request = null;
+        public APSResult constraintsProcessed = null;
+        public PumpEnactResult setByPump = null;
+        public String source = null;
+        public Date lastAPSRun = null;
+        public Date lastEnact = null;
+        public Date lastOpenModeAccept;
+    }
+>>>>>>> f861546e12b50c6de93a88ce5634a472e479912f
 
         static public LastRun lastRun = null;
 
@@ -336,6 +405,7 @@
                     } else log.debug("Pump reservoir is not in getPumpDescription()");
                 }
 
+<<<<<<< HEAD
                 
                 // check if SMB is enabled from preferences
                 boolean SMB_enable = false;
@@ -466,6 +536,34 @@
                                     MainApp.bus().post(new EventLoopUpdateGui());
                                     }
                                 });
+=======
+            // check rate for constrais
+            final APSResult resultAfterConstraints = result.clone();
+            resultAfterConstraints.rate = constraintsInterface.applyBasalConstraints(resultAfterConstraints.rate);
+
+            if (lastRun == null) lastRun = new LastRun();
+            lastRun.request = result;
+            lastRun.constraintsProcessed = resultAfterConstraints;
+            lastRun.lastAPSRun = new Date();
+            lastRun.source = ((PluginBase) usedAPS).getName();
+            lastRun.setByPump = null;
+
+             if (constraintsInterface.isClosedModeEnabled()) {
+                if (result.changeRequested) {
+                    final PumpEnactResult waiting = new PumpEnactResult();
+                    final PumpEnactResult previousResult = lastRun.setByPump;
+                    waiting.queued = true;
+                    lastRun.setByPump = waiting;
+                    MainApp.bus().post(new EventLoopUpdateGui());
+                    sHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            final PumpEnactResult applyResult = configBuilder.applyAPSRequest(resultAfterConstraints);
+                            Answers.getInstance().logCustom(new CustomEvent("APSRequest"));
+                            if (applyResult.enacted || applyResult.success) {
+                                lastRun.setByPump = applyResult;
+                                lastRun.lastEnact = lastRun.lastAPSRun;
+>>>>>>> f861546e12b50c6de93a88ce5634a472e479912f
                             } else {
                                 lastRun.setByPump = null;
                                 lastRun.source = null;
