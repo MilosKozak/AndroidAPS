@@ -10,9 +10,6 @@ import info.nightscout.utils.SP;
 
 public class InsulinOrefFreePeakPlugin extends InsulinOrefBasePlugin {
 
-    private static boolean fragmentEnabled = false;
-    private static boolean fragmentVisible = false;
-
     public static final int DEFAULT_PEAK = 75;
 
     @Override

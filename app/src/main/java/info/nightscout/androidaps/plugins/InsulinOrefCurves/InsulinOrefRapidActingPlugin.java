@@ -9,9 +9,6 @@ import info.nightscout.androidaps.R;
 
 public class InsulinOrefRapidActingPlugin extends InsulinOrefBasePlugin {
 
-    private static boolean fragmentEnabled = false;
-    private static boolean fragmentVisible = false;
-
     public static final int PEAK = 75;
 
     @Override

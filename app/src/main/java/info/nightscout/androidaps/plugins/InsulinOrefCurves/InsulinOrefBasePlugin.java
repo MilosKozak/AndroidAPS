@@ -18,6 +18,9 @@ public abstract class InsulinOrefBasePlugin implements PluginBase, InsulinInterf
 
     public static double MIN_DIA = 5;
 
+    protected static boolean fragmentEnabled = false;
+    protected static boolean fragmentVisible = false;
+
     long lastWarned = 0;
 
     @Override
@@ -51,7 +54,7 @@ public abstract class InsulinOrefBasePlugin implements PluginBase, InsulinInterf
         if(dia >= MIN_DIA){
             return dia;
         } else {
-            if((System.currentTimeMillis() - lastWarned) > 60*1000) {
+            if(fragmentEnabled && (System.currentTimeMillis() - lastWarned) > 60*1000) {
                 lastWarned = System.currentTimeMillis();
                 Notification notification = new Notification(Notification.SHORT_DIA, String.format(MainApp.sResources.getString(R.string.dia_too_short), dia, MIN_DIA), Notification.URGENT);
                 MainApp.bus().post(new EventNewNotification(notification));
