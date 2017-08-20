@@ -73,7 +73,7 @@
     <string name="careportal_pumpsitechange">Pump Kanyl Byte</string>
     <string name="careportal_question">Fråga</string>
     <string name="careportal_shortname">CP</string>
-    <string name="careportal_snackbolus">Bolus för Mellis</string>
+    <string name="careportal_snackbolus">Snack Bolus</string>
     <string name="careportal_tempbasalend">Temp Basal Slut</string>
     <string name="careportal_tempbasalstart">Temp Basal Start</string>
     <string name="careportal_temporarytarget">Temp Mål BG</string>
@@ -329,7 +329,7 @@
     <string name="units">Enheter:</string>
     <string name="treatmentssafety_title">Säkerhet vid behandling</string>
     <string name="treatmentssafety_maxcarbs_title">Max tillåtna KH (g)</string>
-    <string name="treatmentssafety_maxbolus_title">Max tillåten</string>
+    <string name="treatmentssafety_maxbolus_title">Max tillåten bolus (E)</string>
     <string name="treatments_wizard_unit_label">E</string>
     <string name="treatments_wizard_total_label">TOTAL</string>
     <string name="treatments_wizard_correction_label">Korr</string>
