@@ -355,8 +355,8 @@
     <string name="units">Единици:</string>
     <string name="mgdl">мг/дл</string>
     <string name="mmol">ммол/л</string>
-    <string name="dia">DIA(време на действие на инсулина):</string>
-    <string name="target_range">Целеви диапазон:</string>
+    <string name="dia">DIA:</string>
+    <string name="target_range">Целева КЗ:</string>
     <string name="edit_base_basal">Редактирай базални стойности</string>
     <string name="edit_base_isf">Редактирай Инс. чувствителност</string>
     <string name="edit_base_ic">Редактирай Инс./ВХ</string>
