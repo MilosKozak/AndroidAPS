@@ -48,6 +48,7 @@ public class TimeListEdit {
     private JSONArray data2;
     private NumberFormat formatter;
     private Runnable save;
+    private boolean callbacksReqistered = false;
 
     public TimeListEdit(Context context, View view, int resLayoutId, String label, JSONArray data1, JSONArray data2, NumberFormat formatter, Runnable save) {
         this.context = context;
@@ -112,86 +113,90 @@ public class TimeListEdit {
             }
 
             final int fixedPos = i;
-            addbutton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int seconds = secondFromMidnight(fixedPos);
-                    addItem(fixedPos, seconds);
-                    // for here for the rest of values
-                    for (int i = fixedPos + 1; i < itemsCount(); i++) {
-                        if (secondFromMidnight(i - 1) >= secondFromMidnight(i)) {
-                            editItem(i, secondFromMidnight(i - 1) + ONEHOURINSECONDS, value1(i), value2(i));
+            if (!callbacksReqistered) {
+                addbutton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        int seconds = secondFromMidnight(fixedPos);
+                        addItem(fixedPos, seconds);
+                        // for here for the rest of values
+                        for (int i = fixedPos + 1; i < itemsCount(); i++) {
+                            if (secondFromMidnight(i - 1) >= secondFromMidnight(i)) {
+                                editItem(i, secondFromMidnight(i - 1) + ONEHOURINSECONDS, value1(i), value2(i));
+                            }
                         }
+                        while (itemsCount() > 24 || secondFromMidnight(itemsCount() - 1) > 23 * ONEHOURINSECONDS)
+                            removeItem(itemsCount() - 1);
+                        log();
+                        buildView();
                     }
-                    while (itemsCount() > 24 || secondFromMidnight(itemsCount() - 1) > 23 * ONEHOURINSECONDS)
-                        removeItem(itemsCount() - 1);
-                    log();
-                    buildView();
-                }
-            });
+                });
 
-            removebutton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    removeItem(fixedPos);
-                    log();
-                    buildView();
-                }
-            });
+                removebutton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        removeItem(fixedPos);
+                        log();
+                        buildView();
+                    }
+                });
 
-            timeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                                      @Override
-                                                      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                                          int seconds = DateUtil.toSeconds(timeSpinner.getSelectedItem().toString());
-                                                          editItem(fixedPos, seconds, value1(fixedPos), value2(fixedPos));
-                                                          log();
-                                                          buildView();
+                timeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                                          @Override
+                                                          public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                                              int seconds = DateUtil.toSeconds(timeSpinner.getSelectedItem().toString());
+                                                              editItem(fixedPos, seconds, value1(fixedPos), value2(fixedPos));
+                                                              log();
+                                                              buildView();
+                                                          }
+
+                                                          @Override
+                                                          public void onNothingSelected(AdapterView<?> parent) {
+                                                              editItem(fixedPos, 0, value1(fixedPos), value2(fixedPos));
+                                                              log();
+                                                              buildView();
+                                                          }
                                                       }
+                );
 
-                                                      @Override
-                                                      public void onNothingSelected(AdapterView<?> parent) {
-                                                          editItem(fixedPos, 0, value1(fixedPos), value2(fixedPos));
-                                                          log();
-                                                          buildView();
-                                                      }
-                                                  }
-            );
+                editText1.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        editItem(fixedPos, secondFromMidnight(fixedPos), SafeParse.stringToDouble(editText1.getText().toString()), value2(fixedPos));
+                        log();
+                    }
 
-            editText1.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void afterTextChanged(Editable s) {
-                    editItem(fixedPos, secondFromMidnight(fixedPos), SafeParse.stringToDouble(editText1.getText().toString()), value2(fixedPos));
-                    log();
-                }
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start,
+                                                  int count, int after) {
+                    }
 
-                @Override
-                public void beforeTextChanged(CharSequence s, int start,
-                                              int count, int after) {
-                }
+                    @Override
+                    public void onTextChanged(CharSequence s, int start,
+                                              int before, int count) {
+                    }
+                });
 
-                @Override
-                public void onTextChanged(CharSequence s, int start,
-                                          int before, int count) {
-                }
-            });
+                editText2.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        editItem(fixedPos, secondFromMidnight(fixedPos), value1(fixedPos), SafeParse.stringToDouble(editText2.getText().toString()));
+                        log();
+                    }
 
-            editText2.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void afterTextChanged(Editable s) {
-                    editItem(fixedPos, secondFromMidnight(fixedPos), value1(fixedPos), SafeParse.stringToDouble(editText2.getText().toString()));
-                    log();
-                }
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start,
+                                                  int count, int after) {
+                    }
 
-                @Override
-                public void beforeTextChanged(CharSequence s, int start,
-                                              int count, int after) {
-                }
+                    @Override
+                    public void onTextChanged(CharSequence s, int start,
+                                              int before, int count) {
+                    }
+                });
 
-                @Override
-                public void onTextChanged(CharSequence s, int start,
-                                          int before, int count) {
-                }
-            });
+                callbacksReqistered = true;
+            }
 
             layout.addView(childview);
         }
