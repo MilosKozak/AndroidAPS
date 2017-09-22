@@ -117,7 +117,6 @@ public class SafetyPlugin implements PluginBase, ConstraintsInterface {
 
         Profile profile = MainApp.getConfigBuilder().getProfile();
         if (profile == null) return absoluteRate;
-        if (absoluteRate < 0) absoluteRate = 0d;
 
         Integer maxBasalMult = SP.getInt("openapsama_current_basal_safety_multiplier", 4);
         Integer maxBasalFromDaily = SP.getInt("openapsama_max_daily_safety_multiplier", 3);

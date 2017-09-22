@@ -257,7 +257,9 @@ public class LoopPlugin implements PluginBase {
                 return;
             }
 
-            // check rate for constrais
+            if (result.rate < 0) result.rate = 0d;
+
+            // check rate for constraints
             final APSResult resultAfterConstraints = result.clone();
             resultAfterConstraints.rate = constraintsInterface.applyBasalConstraints(resultAfterConstraints.rate);
 
