@@ -42,6 +42,7 @@
     <string name="treatments_newtreatment_insulinamount_label">Insulin</string>
     <string name="treatments_newtreatment_carbsamount_label">Carbs</string>
     <string name="treatments_wizard_bg_label">BG</string>
+    <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">Carbs</string>
     <string name="treatments_wizard_correction_label">Corr</string>
     <string name="treatments_wizard_unit_label">U</string>
@@ -697,20 +698,13 @@
     <string name="free_peak_oref">Free-Peak Oref</string>
     <string name="rapid_acting_oref">Rapid-Acting Oref</string>
     <string name="ultrarapid_oref">Ultra-Rapid Oref</string>
-   	<string name="openapssmb">Rumen SMB</string>
-    <string name="openapsma_smb_label">SMB result</string>
-	<string name="smb">SMB</string>
-	<string name="smb_shortname">SMB</string>
-	<string name="key_smb" translatable="false">key_smb</string>
-	<string name="enablesmb">SMB enable</string>
-	<string name="enablesmb_summary">Super Micro Boluses is used when there are COB and more insulin is needed</string>
-    <string name="uam">UAM</string>		 
     <string name="dia_too_short" formatted="false">DIA of %s too short - using %s instead!</string>
-    <string name="uam_shortname">UAM</string>		 
     <string name="activate_profile">ACTIVATE PROFILE</string>
-    <string name="key_uam" translatable="false">key_uam</string>		 
     <string name="date">Date</string>
-    <string name="enableuam">Enable UAM</string>		 
     <string name="invalid">INVALID</string>
-    <string name="enableuam_summary">UnAnounced Meals  - high risk here!!!</string> 
+    <string name="key_wizard_include_bg">wizard_include_bg</string>
+    <string name="key_wizard_include_cob">wizard_include_cob</string>
+    <string name="key_wizard_include_trend_bg">wizard_include_trend_bg</string>
+    <string name="key_wizard_include_bolus_iob">wizard_include_bolus_iob</string>
+    <string name="key_wizard_include_basal_iob">wizard_include_basal_iob</string>
 </resources>
