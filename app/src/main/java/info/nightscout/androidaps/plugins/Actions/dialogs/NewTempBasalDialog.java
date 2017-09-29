@@ -19,6 +19,9 @@ import android.widget.RelativeLayout;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.DecimalFormat;
 
 import info.nightscout.androidaps.MainApp;
@@ -32,6 +35,7 @@ import info.nightscout.utils.PlusMinusEditText;
 import info.nightscout.utils.SafeParse;
 
 public class NewTempBasalDialog extends DialogFragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+    private static Logger log = LoggerFactory.getLogger(NewTempBasalDialog.class);
 
     RadioButton percentRadio;
     RadioButton absoluteRadio;
@@ -155,7 +159,7 @@ public class NewTempBasalDialog extends DialogFragment implements View.OnClickLi
                                     if (setAsPercent) {
                                         result = pump.setTempBasalPercent(finalBasalPercent, finalDurationInMinutes);
                                     } else {
-                                        result = pump.setTempBasalAbsolute(finalBasal, finalDurationInMinutes);
+                                        result = pump.setTempBasalAbsolute(finalBasal, finalDurationInMinutes, false);
                                     }
                                     if (!result.success) {
                                         if (context instanceof Activity) {
@@ -180,7 +184,7 @@ public class NewTempBasalDialog extends DialogFragment implements View.OnClickLi
                     dismiss();
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("Unhandled exception", e);
                 }
                 break;
             case R.id.cancel:

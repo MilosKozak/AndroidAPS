@@ -165,8 +165,8 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
 
         double maxIob = SP.getDouble("openapsma_max_iob", 1.5d);
         double maxBasal = SP.getDouble("openapsma_max_basal", 1d);
-        double minBg =  Profile.toMgdl(profile.getTargetLow(), units);
-        double maxBg =  Profile.toMgdl(profile.getTargetHigh(), units);
+        double minBg = Profile.toMgdl(profile.getTargetLow(), units);
+        double maxBg = Profile.toMgdl(profile.getTargetHigh(), units);
         double targetBg = (minBg + maxBg) / 2;
 
         minBg = Round.roundTo(minBg, 0.1d);
@@ -247,7 +247,7 @@ public class OpenAPSAMAPlugin implements PluginBase, APSInterface {
         try {
             determineBasalResultAMA.json.put("timestamp", DateUtil.toISOString(now));
         } catch (JSONException e) {
-            e.printStackTrace();
+            log.error("Unhandled exception", e);
         }
 
         lastDetermineBasalAdapterAMAJS = determineBasalAdapterAMAJS;

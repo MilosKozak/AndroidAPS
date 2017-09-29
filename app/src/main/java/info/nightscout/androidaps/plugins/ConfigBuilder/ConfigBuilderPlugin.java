@@ -185,7 +185,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
                     if (SP.contains(settingVisible))
                         p.setFragmentVisible(type, SP.getBoolean(settingVisible, true) && SP.getBoolean(settingEnabled, true));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("Unhandled exception", e);
                 }
             }
         }
@@ -487,12 +487,16 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
      * @return
      */
     @Override
-    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes) {
+    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, boolean force) {
         Double rateAfterConstraints = applyBasalConstraints(absoluteRate);
-        PumpEnactResult result = activePump.setTempBasalAbsolute(rateAfterConstraints, durationInMinutes);
+        PumpEnactResult result = activePump.setTempBasalAbsolute(rateAfterConstraints, durationInMinutes, force);
         if (Config.logCongigBuilderActions)
             log.debug("setTempBasalAbsolute rate: " + rateAfterConstraints + " durationInMinutes: " + durationInMinutes + " success: " + result.success + " enacted: " + result.enacted);
         return result;
+    }
+
+    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes) {
+        return setTempBasalAbsolute(absoluteRate, durationInMinutes, false);
     }
 
     /**
@@ -521,8 +525,8 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     }
 
     @Override
-    public PumpEnactResult cancelTempBasal(boolean userRequested) {
-        PumpEnactResult result = activePump.cancelTempBasal(userRequested);
+    public PumpEnactResult cancelTempBasal(boolean force) {
+        PumpEnactResult result = activePump.cancelTempBasal(force);
         if (Config.logCongigBuilderActions)
             log.debug("cancelTempBasal success: " + result.success + " enacted: " + result.enacted);
         return result;
@@ -892,12 +896,16 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
     @Override
     // return true if new record is created
     public boolean addToHistoryTreatment(DetailedBolusInfo detailedBolusInfo) {
-        if (!detailedBolusInfo.addToTreatments)
-            return false;
         boolean newRecordCreated = activeTreatments.addToHistoryTreatment(detailedBolusInfo);
-        if (newRecordCreated)
+        if (newRecordCreated && detailedBolusInfo.isValid)
             NSUpload.uploadBolusWizardRecord(detailedBolusInfo);
         return newRecordCreated;
+    }
+
+    @Override
+    @Nullable
+    public TempTarget getTempTargetFromHistory() {
+        return activeTreatments.getTempTargetFromHistory(System.currentTimeMillis());
     }
 
     @Override
@@ -999,7 +1007,7 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
             MainApp.bus().post(new EventNewNotification(notarget));
             return new Profile(new JSONObject("{\"dia\":\"3\",\"carbratio\":[{\"time\":\"00:00\",\"value\":\"20\"}],\"carbs_hr\":\"20\",\"delay\":\"20\",\"sens\":[{\"time\":\"00:00\",\"value\":\"20\"}],\"timezone\":\"UTC\",\"basal\":[{\"time\":\"00:00\",\"value\":\"0.1\"}],\"target_low\":[{\"time\":\"00:00\",\"value\":\"6\"}],\"target_high\":[{\"time\":\"00:00\",\"value\":\"8\"}],\"startDate\":\"1970-01-01T00:00:00.000Z\",\"units\":\"mmol\"}}"));
         } catch (JSONException e) {
-            e.printStackTrace();
+            log.error("Unhandled exception", e);
         }
         return null;
     }

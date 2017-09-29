@@ -179,12 +179,17 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
 
         for (Integer pos = 0; pos < treatments.size(); pos++) {
             Treatment t = treatments.get(pos);
+            if (!t.isValid) continue;
             if (t.date > time) continue;
             Iob tIOB = t.iobCalc(time, dia);
             total.iob += tIOB.iobContrib;
             total.activity += tIOB.activityContrib;
             if (!t.isSMB) {
-                Iob bIOB = t.iobCalc(time, dia / SP.getDouble("openapsama_bolussnooze_dia_divisor", 2.0));
+                // instead of dividing the DIA that only worked on the bilinear curves,
+                // multiply the time the treatment is seen active.
+                long timeSinceTreatment =  time - t.date;
+                long snoozeTime = t.date + (long)(timeSinceTreatment * SP.getDouble("openapsama_bolussnooze_dia_divisor", 2.0));
+                Iob bIOB = t.iobCalc(snoozeTime, dia);
                 total.bolussnooze += bIOB.iobContrib;
             } else {
                 total.basaliob += t.insulin;
@@ -222,6 +227,8 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
         long dia_ago = now - (new Double(1.5d * profile.getDia() * 60 * 60 * 1000l)).longValue();
 
         for (Treatment treatment : treatments) {
+            if (!treatment.isValid)
+                continue;
             long t = treatment.date;
             if (t > dia_ago && t <= now) {
                 if (treatment.carbs >= 1) {
@@ -250,6 +257,8 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
         List<Treatment> in5minback = new ArrayList<>();
         for (Integer pos = 0; pos < treatments.size(); pos++) {
             Treatment t = treatments.get(pos);
+            if (!t.isValid)
+                continue;
             if (t.date <= time && t.date > time - 5 * 60 * 1000 && t.carbs > 0)
                 in5minback.add(t);
         }
@@ -263,7 +272,7 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
 
     @Override
     public TemporaryBasal getRealTempBasalFromHistory(long time) {
-        return (TemporaryBasal) tempBasals.getValueByInterval(time);
+        return tempBasals.getValueByInterval(time);
     }
 
     @Override
@@ -349,7 +358,7 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
 
     @Override
     public ExtendedBolus getExtendedBolusFromHistory(long time) {
-        return (ExtendedBolus) extendedBoluses.getValueByInterval(time);
+        return extendedBoluses.getValueByInterval(time);
     }
 
     @Override
@@ -404,11 +413,13 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
 
     @Override
     public boolean addToHistoryTreatment(DetailedBolusInfo detailedBolusInfo) {
-        Treatment treatment = new Treatment(detailedBolusInfo.insulinInterface);
+        Treatment treatment = new Treatment();
         treatment.date = detailedBolusInfo.date;
         treatment.source = detailedBolusInfo.source;
         treatment.pumpId = detailedBolusInfo.pumpId;
         treatment.insulin = detailedBolusInfo.insulin;
+        treatment.isValid = detailedBolusInfo.isValid;
+        treatment.isSMB = detailedBolusInfo.isSMB;
         if (detailedBolusInfo.carbTime == 0)
             treatment.carbs = detailedBolusInfo.carbs;
         treatment.source = detailedBolusInfo.source;
@@ -416,7 +427,7 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
         boolean newRecordCreated = MainApp.getDbHelper().createOrUpdate(treatment);
         //log.debug("Adding new Treatment record" + treatment.toString());
         if (detailedBolusInfo.carbTime != 0) {
-            Treatment carbsTreatment = new Treatment(detailedBolusInfo.insulinInterface);
+            Treatment carbsTreatment = new Treatment();
             carbsTreatment.source = detailedBolusInfo.source;
             carbsTreatment.pumpId = detailedBolusInfo.pumpId; // but this should never happen
             carbsTreatment.date = detailedBolusInfo.date + detailedBolusInfo.carbTime * 60 * 1000L + 1000L; // add 1 sec to make them different records
@@ -455,8 +466,14 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
 
     @Nullable
     @Override
+    public TempTarget getTempTargetFromHistory() {
+        return tempTargets.getValueByInterval(System.currentTimeMillis());
+    }
+
+    @Nullable
+    @Override
     public TempTarget getTempTargetFromHistory(long time) {
-        return (TempTarget) tempTargets.getValueByInterval(time);
+        return tempTargets.getValueByInterval(time);
     }
 
     @Override

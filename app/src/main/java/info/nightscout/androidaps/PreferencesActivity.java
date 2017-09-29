@@ -10,10 +10,12 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.PluginBase;
+import info.nightscout.androidaps.plugins.Insulin.InsulinOrefFreePeakPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaR.BluetoothDevicePreference;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
@@ -73,7 +75,10 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                 ((EditTextPreference) pref).setDialogMessage(editTextPref.getDialogMessage());
                 pref.setSummary(editTextPref.getText());
             }
-        }
+            else if(pref.getKey().contains("smscommunicator_allowednumbers") && TextUtils.isEmpty(editTextPref.getText().toString().trim())){
+                pref.setSummary(MainApp.sResources.getString(R.string.smscommunicator_allowednumbers_summary));
+            }
+           }
         if (pref instanceof MultiSelectListPreference) {
             EditTextPreference editTextPref = (EditTextPreference) pref;
             pref.setSummary(editTextPref.getText());
@@ -129,9 +134,9 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                 addPreferencesFromResource(R.xml.pref_profile);
             }
             if (Config.DANAR) {
-                DanaRPlugin danaRPlugin = (DanaRPlugin) MainApp.getSpecificPlugin(DanaRPlugin.class);
-                DanaRKoreanPlugin danaRKoreanPlugin = (DanaRKoreanPlugin) MainApp.getSpecificPlugin(DanaRKoreanPlugin.class);
-                DanaRv2Plugin danaRv2Plugin = (DanaRv2Plugin) MainApp.getSpecificPlugin(DanaRv2Plugin.class);
+                DanaRPlugin danaRPlugin = MainApp.getSpecificPlugin(DanaRPlugin.class);
+                DanaRKoreanPlugin danaRKoreanPlugin = MainApp.getSpecificPlugin(DanaRKoreanPlugin.class);
+                DanaRv2Plugin danaRv2Plugin = MainApp.getSpecificPlugin(DanaRv2Plugin.class);
                 if (danaRPlugin.isEnabled(PluginBase.PUMP) || danaRKoreanPlugin.isEnabled(PluginBase.PUMP)) {
                     addPreferencesFromResource(R.xml.pref_danar);
                 }
@@ -142,11 +147,16 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                     addPreferencesFromResource(R.xml.pref_danarprofile);
                 }
             }
-            VirtualPumpPlugin virtualPumpPlugin = (VirtualPumpPlugin) MainApp.getSpecificPlugin(VirtualPumpPlugin.class);
+            VirtualPumpPlugin virtualPumpPlugin = MainApp.getSpecificPlugin(VirtualPumpPlugin.class);
             if (virtualPumpPlugin != null && virtualPumpPlugin.isEnabled(PluginBase.PUMP)) {
                 addPreferencesFromResource(R.xml.pref_virtualpump);
             }
-            NSClientInternalPlugin nsClientInternalPlugin = (NSClientInternalPlugin) MainApp.getSpecificPlugin(NSClientInternalPlugin.class);
+            InsulinOrefFreePeakPlugin insulinOrefFreePeakPlugin = MainApp.getSpecificPlugin(InsulinOrefFreePeakPlugin.class);
+            if(insulinOrefFreePeakPlugin.isEnabled(PluginBase.INSULIN)){
+                addPreferencesFromResource(R.xml.pref_insulinoreffreepeak);
+            }
+
+            NSClientInternalPlugin nsClientInternalPlugin = MainApp.getSpecificPlugin(NSClientInternalPlugin.class);
             if (nsClientInternalPlugin != null && nsClientInternalPlugin.isEnabled(PluginBase.GENERAL)) {
                 addPreferencesFromResource(R.xml.pref_nsclientinternal);
             }
@@ -158,13 +168,13 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
             addPreferencesFromResource(R.xml.pref_advanced);
 
             if (Config.WEAR) {
-                WearPlugin wearPlugin = (WearPlugin) MainApp.getSpecificPlugin(WearPlugin.class);
+                WearPlugin wearPlugin = MainApp.getSpecificPlugin(WearPlugin.class);
                 if (wearPlugin != null && wearPlugin.isEnabled(PluginBase.GENERAL)) {
                     addPreferencesFromResource(R.xml.pref_wear);
                 }
             }
 
-            StatuslinePlugin statuslinePlugin = (StatuslinePlugin) MainApp.getSpecificPlugin(StatuslinePlugin.class);
+            StatuslinePlugin statuslinePlugin = MainApp.getSpecificPlugin(StatuslinePlugin.class);
             if (statuslinePlugin != null && statuslinePlugin.isEnabled(PluginBase.GENERAL)) {
                 addPreferencesFromResource(R.xml.pref_xdripstatus);
             }

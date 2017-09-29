@@ -69,6 +69,14 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
     private static DanaRPump pump = DanaRPump.getInstance();
     private static boolean useExtendedBoluses = false;
 
+    private static DanaRPlugin plugin = null;
+
+    public static DanaRPlugin getPlugin() {
+        if (plugin == null)
+            plugin = new DanaRPlugin();
+        return plugin;
+    }
+
     public static PumpDescription pumpDescription = new PumpDescription();
 
     public DanaRPlugin() {
@@ -80,7 +88,7 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
         MainApp.bus().register(this);
 
         pumpDescription.isBolusCapable = true;
-        pumpDescription.bolusStep = 0.1d;
+        pumpDescription.bolusStep = 0.05d;
 
         pumpDescription.isExtendedBolusCapable = true;
         pumpDescription.extendedBolusStep = 0.05d;
@@ -106,7 +114,7 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
 		pumpDescription.reservoir = (int) pump.reservoirRemainingUnits;
     }
 
-    ServiceConnection mConnection = new ServiceConnection() {
+    private ServiceConnection mConnection = new ServiceConnection() {
 
         public void onServiceDisconnected(ComponentName name) {
             log.debug("Service is disconnected");
@@ -300,7 +308,7 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
         ConfigBuilderPlugin configBuilderPlugin = MainApp.getConfigBuilder();
         detailedBolusInfo.insulin = configBuilderPlugin.applyBolusConstraints(detailedBolusInfo.insulin);
         if (detailedBolusInfo.insulin > 0 || detailedBolusInfo.carbs > 0) {
-            Treatment t = new Treatment(detailedBolusInfo.insulinInterface);
+            Treatment t = new Treatment();
             boolean connectionOK = false;
             if (detailedBolusInfo.insulin > 0 || detailedBolusInfo.carbs > 0) connectionOK = sExecutionService.bolus(detailedBolusInfo.insulin, (int) detailedBolusInfo.carbs, t);
             PumpEnactResult result = new PumpEnactResult();
@@ -336,7 +344,7 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
 
     // This is called from APS
     @Override
-    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes) {
+    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, boolean force) {
         // Recheck pump status if older than 30 min
         if (pump.lastConnection.getTime() + 30 * 60 * 1000L < System.currentTimeMillis()) {
             doConnect("setTempBasalAbsolute old data");
@@ -402,16 +410,20 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
                 if (Config.logPumpActions)
                     log.debug("setTempBasalAbsolute: currently running: " + running.toString());
                 if (running.percentRate == percentRate) {
-                    result.success = true;
-                    result.percent = percentRate;
-                    result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
-                    result.enacted = false;
-                    result.duration = ((Double) MainApp.getConfigBuilder().getTempBasalRemainingMinutesFromHistory()).intValue();
-                    result.isPercent = true;
-                    result.isTempCancel = false;
-                    if (Config.logPumpActions)
-                        log.debug("setTempBasalAbsolute: Correct temp basal already set (doLowTemp || doHighTemp)");
-                    return result;
+                    if (force) {
+                         cancelTempBasal(true);
+                    } else {
+                        result.success = true;
+                        result.percent = percentRate;
+                        result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
+                        result.enacted = false;
+                        result.duration = ((Double) MainApp.getConfigBuilder().getTempBasalRemainingMinutesFromHistory()).intValue();
+                        result.isPercent = true;
+                        result.isTempCancel = false;
+                        if (Config.logPumpActions)
+                            log.debug("setTempBasalAbsolute: Correct temp basal already set (doLowTemp || doHighTemp)");
+                        return result;
+                    }
                 }
             }
             // Convert duration from minutes to hours
@@ -496,7 +508,8 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
         }
         if (percent > getPumpDescription().maxTempPercent)
             percent = getPumpDescription().maxTempPercent;
-        if (pump.isTempBasalInProgress && pump.tempBasalPercent == percent) {
+        TemporaryBasal runningTB =  MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+        if (runningTB != null && runningTB.percentRate == percent) {
             result.enacted = false;
             result.success = true;
             result.isTempCancel = false;
@@ -540,7 +553,8 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
         insulin = Round.roundTo(insulin, getPumpDescription().extendedBolusStep * (1 + durationInHalfHours % 1));
 
         PumpEnactResult result = new PumpEnactResult();
-        if (pump.isExtendedInProgress && Math.abs(pump.extendedBolusAmount - insulin) < getPumpDescription().extendedBolusStep) {
+        ExtendedBolus runningEB = MainApp.getConfigBuilder().getExtendedBolusFromHistory(System.currentTimeMillis());
+        if (runningEB != null && Math.abs(runningEB.insulin - insulin) < getPumpDescription().extendedBolusStep) {
             result.enacted = false;
             result.success = true;
             result.comment = MainApp.instance().getString(R.string.virtualpump_resultok);
@@ -574,7 +588,7 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
     }
 
     @Override
-    public PumpEnactResult cancelTempBasal(boolean userRequested) {
+    public PumpEnactResult cancelTempBasal(boolean force) {
         if (MainApp.getConfigBuilder().isInHistoryRealTempBasalInProgress())
             return cancelRealTempBasal();
         if (MainApp.getConfigBuilder().isInHistoryExtendedBoluslInProgress() && useExtendedBoluses) {
@@ -591,7 +605,8 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
 
     public PumpEnactResult cancelRealTempBasal() {
         PumpEnactResult result = new PumpEnactResult();
-        if (pump.isTempBasalInProgress) {
+        TemporaryBasal runningTB =  MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+        if (runningTB != null) {
             sExecutionService.tempBasalStop();
             result.enacted = true;
             result.isTempCancel = true;
@@ -615,7 +630,8 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
     @Override
     public PumpEnactResult cancelExtendedBolus() {
         PumpEnactResult result = new PumpEnactResult();
-        if (pump.isExtendedInProgress) {
+        ExtendedBolus runningEB = MainApp.getConfigBuilder().getExtendedBolusFromHistory(System.currentTimeMillis());
+        if (runningEB != null) {
             sExecutionService.extendedBolusStop();
             result.enacted = true;
             result.isTempCancel = true;
@@ -693,7 +709,7 @@ public class DanaRPlugin implements PluginBase, PumpInterface, DanaRInterface, C
             pumpjson.put("reservoir", (int) pump.reservoirRemainingUnits);
             pumpjson.put("clock", DateUtil.toISOString(new Date()));
         } catch (JSONException e) {
-            e.printStackTrace();
+            log.error("Unhandled exception", e);
         }
         return pumpjson;
     }

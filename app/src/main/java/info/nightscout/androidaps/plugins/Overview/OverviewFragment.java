@@ -26,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -55,6 +56,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -110,6 +112,7 @@ import info.nightscout.androidaps.plugins.Overview.Dialogs.CalibrationDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewTreatmentDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.WizardDialog;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
+import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.Overview.events.EventSetWakeLock;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.AreaGraphSeries;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.DataPointWithLabelInterface;
@@ -127,9 +130,6 @@ import info.nightscout.utils.Profiler;
 import info.nightscout.utils.Round;
 import info.nightscout.utils.SP;
 import info.nightscout.utils.ToastUtils;
-//Added By Rumen for staledata alarm
-import info.nightscout.androidaps.plugins.Overview.Notification;
-import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 
 public class OverviewFragment extends Fragment implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     private static Logger log = LoggerFactory.getLogger(OverviewFragment.class);
@@ -505,8 +505,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             sHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    MainApp.getConfigBuilder().cancelTempBasal(true);
-                    PumpEnactResult result = MainApp.getConfigBuilder().setTempBasalAbsolute(0d, 30);
+                    PumpEnactResult result = MainApp.getConfigBuilder().setTempBasalAbsolute(0d, 30, true);
                     if (!result.success) {
                         ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.tempbasaldeliveryerror));
                     }
@@ -520,8 +519,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             sHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    MainApp.getConfigBuilder().cancelTempBasal(true);
-                    PumpEnactResult result = MainApp.getConfigBuilder().setTempBasalAbsolute(0d, 60);
+                    PumpEnactResult result = MainApp.getConfigBuilder().setTempBasalAbsolute(0d, 60, true);
                     if (!result.success) {
                         ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.tempbasaldeliveryerror));
                     }
@@ -535,8 +533,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             sHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    MainApp.getConfigBuilder().cancelTempBasal(true);
-                    PumpEnactResult result = MainApp.getConfigBuilder().setTempBasalAbsolute(0d, 2 * 60);
+                    PumpEnactResult result = MainApp.getConfigBuilder().setTempBasalAbsolute(0d, 2 * 60, true);
                     if (!result.success) {
                         ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.tempbasaldeliveryerror));
                     }
@@ -550,8 +547,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             sHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    MainApp.getConfigBuilder().cancelTempBasal(true);
-                    PumpEnactResult result = MainApp.getConfigBuilder().setTempBasalAbsolute(0d, 3 * 60);
+                    PumpEnactResult result = MainApp.getConfigBuilder().setTempBasalAbsolute(0d, 3 * 60, true);
                     if (!result.success) {
                         ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.tempbasaldeliveryerror));
                     }
@@ -620,7 +616,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                                     finalLastRun.lastEnact = new Date();
                                     finalLastRun.lastOpenModeAccept = new Date();
                                     NSUpload.uploadDeviceStatus();
-                                    ObjectivesPlugin objectivesPlugin = (ObjectivesPlugin) MainApp.getSpecificPlugin(ObjectivesPlugin.class);
+                                    ObjectivesPlugin objectivesPlugin = MainApp.getSpecificPlugin(ObjectivesPlugin.class);
                                     if (objectivesPlugin != null) {
                                         ObjectivesPlugin.manualEnacts++;
                                         ObjectivesPlugin.saveProgress();
@@ -641,12 +637,13 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
     void onClickQuickwizard() {
         final BgReading actualBg = DatabaseHelper.actualBg();
         final Profile profile = MainApp.getConfigBuilder().getProfile();
+        final TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory();
 
         QuickWizard.QuickWizardEntry quickWizardEntry = getPlugin().quickWizard.getActive();
         if (quickWizardEntry != null && actualBg != null) {
             quickWizardButton.setVisibility(View.VISIBLE);
             BolusWizard wizard = new BolusWizard();
-            wizard.doCalc(profile, quickWizardEntry.carbs(), 0d, actualBg.valueToUnits(profile.getUnits()), 0d, true, true, false, false);
+            wizard.doCalc(profile, tempTarget, quickWizardEntry.carbs(), 0d, actualBg.valueToUnits(profile.getUnits()), 0d, true, true, false, false);
 
             final JSONObject boluscalcJSON = new JSONObject();
             try {
@@ -668,7 +665,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 boluscalcJSON.put("insulintrend", wizard.insulinFromTrend);
                 boluscalcJSON.put("insulin", wizard.calculatedTotalInsulin);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
             if (wizard.calculatedTotalInsulin > 0d && quickWizardEntry.carbs() > 0d) {
                 DecimalFormat formatNumber2decimalplaces = new DecimalFormat("0.00");
@@ -711,11 +708,17 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                                     detailedBolusInfo.source = Source.USER;
                                     PumpEnactResult result = pump.deliverTreatment(detailedBolusInfo);
                                     if (!result.success) {
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                        builder.setTitle(MainApp.sResources.getString(R.string.treatmentdeliveryerror));
-                                        builder.setMessage(result.comment);
-                                        builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
-                                        builder.show();
+                                        try {
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                            builder.setTitle(MainApp.sResources.getString(R.string.treatmentdeliveryerror));
+                                            builder.setMessage(result.comment);
+                                            builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
+                                            builder.show();
+                                        } catch (WindowManager.BadTokenException | NullPointerException e) {
+                                            // window has been destroyed
+                                            Notification notification = new Notification(Notification.BOLUS_DELIVERY_ERROR, MainApp.sResources.getString(R.string.treatmentdeliveryerror), Notification.URGENT);
+                                            MainApp.bus().post(new EventNewNotification(notification));
+                                        }
                                     }
                                 }
                             });
@@ -917,6 +920,34 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             return;
         }
 
+        Double lowLine = SP.getDouble("low_mark", 0d);
+        Double highLine = SP.getDouble("high_mark", 0d);
+
+        //Start with updating the BG as it is unaffected by loop.
+        // **** BG value ****
+        if (lastBG != null) {
+            int color = MainApp.sResources.getColor(R.color.inrange);
+            if (lastBG.valueToUnits(units) < lowLine)
+                color = MainApp.sResources.getColor(R.color.low);
+            else if (lastBG.valueToUnits(units) > highLine)
+                color = MainApp.sResources.getColor(R.color.high);
+            bgView.setText(lastBG.valueToUnitsToString(units));
+            arrowView.setText(lastBG.directionToSymbol());
+            bgView.setTextColor(color);
+            arrowView.setTextColor(color);
+            GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
+            if (glucoseStatus != null) {
+                deltaView.setText("Δ " + Profile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units);
+                if (avgdeltaView != null)
+                    avgdeltaView.setText("øΔ15m: " + Profile.toUnitsString(glucoseStatus.short_avgdelta, glucoseStatus.short_avgdelta * Constants.MGDL_TO_MMOLL, units) +
+                            "  øΔ40m: " + Profile.toUnitsString(glucoseStatus.long_avgdelta, glucoseStatus.long_avgdelta * Constants.MGDL_TO_MMOLL, units));
+            } else {
+                deltaView.setText("Δ " + MainApp.sResources.getString(R.string.notavailable));
+                if (avgdeltaView != null)
+                    avgdeltaView.setText("");
+            }
+        }
+
         // open loop mode
         final LoopPlugin.LastRun finalLastRun = LoopPlugin.lastRun;
         if (Config.APS && MainApp.getConfigBuilder().getPumpDescription().isTempBasalCapable) {
@@ -952,24 +983,16 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         }
 
         // temp target
-        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(System.currentTimeMillis());
+        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory();
         if (tempTarget != null) {
             tempTargetView.setTextColor(Color.BLACK);
             tempTargetView.setBackgroundColor(MainApp.sResources.getColor(R.color.tempTargetBackground));
             tempTargetView.setVisibility(View.VISIBLE);
-            if (tempTarget.low == tempTarget.high)
-                tempTargetView.setText(Profile.toUnitsString(tempTarget.low, Profile.fromMgdlToUnits(tempTarget.low, units), units));
-            else
-                tempTargetView.setText(Profile.toUnitsString(tempTarget.low, Profile.fromMgdlToUnits(tempTarget.low, units), units) + " - " + Profile.toUnitsString(tempTarget.high, Profile.fromMgdlToUnits(tempTarget.high, units), units));
+            tempTargetView.setText(Profile.toTargetRangeString(tempTarget.low, tempTarget.high, Constants.MGDL, units));
         } else {
             tempTargetView.setTextColor(Color.WHITE);
             tempTargetView.setBackgroundColor(MainApp.sResources.getColor(R.color.tempTargetDisabledBackground));
-            double low = MainApp.getConfigBuilder().getProfile().getTargetLow();
-            double high = MainApp.getConfigBuilder().getProfile().getTargetHigh();
-            if (low == high)
-                tempTargetView.setText("" + low);
-            else
-                tempTargetView.setText(low + " - " + high);
+            tempTargetView.setText(Profile.toTargetRangeString(profile.getTargetLow(), profile.getTargetHigh(), units, units));
             tempTargetView.setVisibility(View.VISIBLE);
         }
         if (Config.NSCLIENT && tempTarget == null) {
@@ -1101,7 +1124,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             quickWizardButton.setVisibility(View.VISIBLE);
             String text = quickWizardEntry.buttonText() + "\n" + DecimalFormatter.to0Decimal(quickWizardEntry.carbs()) + "g";
             BolusWizard wizard = new BolusWizard();
-            wizard.doCalc(profile, quickWizardEntry.carbs(), 0d, lastBG.valueToUnits(units), 0d, true, true, false, false);
+            wizard.doCalc(profile, tempTarget, quickWizardEntry.carbs(), 0d, lastBG.valueToUnits(units), 0d, true, true, false, false);
             text += " " + DecimalFormatter.to2Decimal(wizard.calculatedTotalInsulin) + "U";
             quickWizardButton.setText(text);
             if (wizard.calculatedTotalInsulin <= 0)
@@ -1118,8 +1141,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             treatmentButton.setVisibility(View.GONE);
         }
 
-        Double lowLine = SP.getDouble("low_mark", 0d);
-        Double highLine = SP.getDouble("high_mark", 0d);
+
         if (lowLine < 1) {
             lowLine = Profile.fromMgdlToUnits(OverviewPlugin.bgTargetLow, units);
         }
@@ -1128,28 +1150,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         }
 
         // **** BG value ****
-        if (lastBG != null) {
-            int color = MainApp.sResources.getColor(R.color.inrange);
-            if (lastBG.valueToUnits(units) < lowLine)
-                color = MainApp.sResources.getColor(R.color.low);
-            else if (lastBG.valueToUnits(units) > highLine)
-                color = MainApp.sResources.getColor(R.color.high);
-            bgView.setText(lastBG.valueToUnitsToString(units));
-            arrowView.setText(lastBG.directionToSymbol());
-            bgView.setTextColor(color);
-            arrowView.setTextColor(color);
-            GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
-            if (glucoseStatus != null) {
-                deltaView.setText("Δ " + Profile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units);
-                if (avgdeltaView != null)
-                    avgdeltaView.setText("øΔ15m: " + Profile.toUnitsString(glucoseStatus.short_avgdelta, glucoseStatus.short_avgdelta * Constants.MGDL_TO_MMOLL, units) +
-                            "  øΔ40m: " + Profile.toUnitsString(glucoseStatus.long_avgdelta, glucoseStatus.long_avgdelta * Constants.MGDL_TO_MMOLL, units));
-            } else {
-                deltaView.setText("Δ " + MainApp.sResources.getString(R.string.notavailable));
-                if (avgdeltaView != null)
-                    avgdeltaView.setText("");
-            }
-        } else {
+        if (lastBG == null) { //left this here as it seems you want to exit at this point if it is null...
+
             return;
         }
         Integer flag = bgView.getPaintFlags();
@@ -1610,7 +1612,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         List<Treatment> treatments = MainApp.getConfigBuilder().getTreatmentsFromHistory();
 
         for (int tx = 0; tx < treatments.size(); tx++) {
-            DataPointWithLabelInterface t = treatments.get(tx);
+            Treatment t = treatments.get(tx);
             if (t.getX() < fromTime || t.getX() > endTime) continue;
             t.setY(getNearestBg((long) t.getX(), bgReadingsArray));
             filteredTreatments.add(t);
@@ -1751,7 +1753,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         public void onBindViewHolder(NotificationsViewHolder holder, int position) {
             Notification notification = notificationsList.get(position);
             holder.dismiss.setTag(notification);
-            if(notification.text == MainApp.sResources.getString(R.string.nsalarm_staledata))
+            if (Objects.equals(notification.text, MainApp.sResources.getString(R.string.nsalarm_staledata)))
                 holder.dismiss.setText("snooze");
             holder.text.setText(notification.text);
             holder.time.setText(DateUtil.timeString(notification.date));
@@ -1802,12 +1804,12 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                             BroadcastAckAlarm.handleClearAlarm(notification.nsAlarm, MainApp.instance().getApplicationContext(), 60 * 60 * 1000L);
                         }
                         // Adding current time to snooze if we got staleData
-                        log.debug("Notification text is: "+notification.text);
-                        if(notification.text.equals(MainApp.sResources.getString(R.string.nsalarm_staledata))){
+                        log.debug("Notification text is: " + notification.text);
+                        if (notification.text.equals(MainApp.sResources.getString(R.string.nsalarm_staledata))) {
                             NotificationStore nstore = getPlugin().notificationStore;
-                            long msToSnooze = SP.getInt("nsalarm_staledatavalue",15)*60*1000L;
-                            log.debug("snooze nsalarm_staledatavalue in minutes is "+SP.getInt("nsalarm_staledatavalue",15)+"\n in ms is: "+msToSnooze+" currentTimeMillis is: "+System.currentTimeMillis());
-                            nstore.snoozeTo(System.currentTimeMillis()+(SP.getInt("nsalarm_staledatavalue",15)*60*1000L));
+                            long msToSnooze = SP.getInt("nsalarm_staledatavalue", 15) * 60 * 1000L;
+                            log.debug("snooze nsalarm_staledatavalue in minutes is " + SP.getInt("nsalarm_staledatavalue", 15) + "\n in ms is: " + msToSnooze + " currentTimeMillis is: " + System.currentTimeMillis());
+                            nstore.snoozeTo(System.currentTimeMillis() + (SP.getInt("nsalarm_staledatavalue", 15) * 60 * 1000L));
                         }
                         break;
                 }

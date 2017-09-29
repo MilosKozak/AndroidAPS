@@ -202,9 +202,10 @@ public class ActionStringHandler {
                 sendError("No recent BG to base calculation on!");
                 return;
             }
+
             DecimalFormat format = new DecimalFormat("0.00");
             BolusWizard bolusWizard = new BolusWizard();
-            bolusWizard.doCalc(profile, carbsAfterConstraints, 0d, useBG ? bgReading.valueToUnits(profile.getUnits()) : 0d, 0d, percentage, useBolusIOB, useBasalIOB, false, false);
+            bolusWizard.doCalc(profile, null, carbsAfterConstraints, 0d, useBG ? bgReading.valueToUnits(profile.getUnits()) : 0d, 0d, percentage, useBolusIOB, useBasalIOB, false, false);
 
             Double insulinAfterConstraints = MainApp.getConfigBuilder().applyBolusConstraints(bolusWizard.calculatedTotalInsulin);
             if (insulinAfterConstraints - bolusWizard.calculatedTotalInsulin != 0) {
@@ -242,7 +243,7 @@ public class ActionStringHandler {
 
         } else if("opencpp".equals(act[0])){
             Object activeProfile = MainApp.getConfigBuilder().getActiveProfileInterface();
-            CircadianPercentageProfilePlugin cpp = (CircadianPercentageProfilePlugin) MainApp.getSpecificPlugin(CircadianPercentageProfilePlugin.class);
+            CircadianPercentageProfilePlugin cpp = MainApp.getSpecificPlugin(CircadianPercentageProfilePlugin.class);
 
             if(cpp == null || activeProfile==null || cpp != activeProfile){
                 sendError("CPP not activated!");
@@ -256,7 +257,7 @@ public class ActionStringHandler {
 
         } else if("cppset".equals(act[0])){
             Object activeProfile = MainApp.getConfigBuilder().getActiveProfileInterface();
-            CircadianPercentageProfilePlugin cpp = (CircadianPercentageProfilePlugin) MainApp.getSpecificPlugin(CircadianPercentageProfilePlugin.class);
+            CircadianPercentageProfilePlugin cpp = MainApp.getSpecificPlugin(CircadianPercentageProfilePlugin.class);
 
             if(cpp == null || activeProfile==null || cpp != activeProfile){
                 sendError("CPP not activated!");
@@ -271,9 +272,9 @@ public class ActionStringHandler {
 
         } else if("tddstats".equals(act[0])){
             Object activePump = MainApp.getConfigBuilder().getActivePump();
-            PumpInterface dana = (PumpInterface) MainApp.getSpecificPlugin(DanaRPlugin.class);
-            PumpInterface danaV2 = (PumpInterface) MainApp.getSpecificPlugin(DanaRv2Plugin.class);
-            PumpInterface danaKorean = (PumpInterface) MainApp.getSpecificPlugin(DanaRKoreanPlugin.class);
+            PumpInterface dana = MainApp.getSpecificPlugin(DanaRPlugin.class);
+            PumpInterface danaV2 = MainApp.getSpecificPlugin(DanaRv2Plugin.class);
+            PumpInterface danaKorean = MainApp.getSpecificPlugin(DanaRKoreanPlugin.class);
 
 
             if((dana == null || dana != activePump) &&
@@ -336,7 +337,7 @@ public class ActionStringHandler {
         DateFormat df = new SimpleDateFormat("dd.MM.");
         String message = "";
 
-        CircadianPercentageProfilePlugin cpp = (CircadianPercentageProfilePlugin) MainApp.getSpecificPlugin(CircadianPercentageProfilePlugin.class);
+        CircadianPercentageProfilePlugin cpp = MainApp.getSpecificPlugin(CircadianPercentageProfilePlugin.class);
         boolean isCPP = (cpp!= null && cpp.isEnabled(PluginBase.PROFILE));
         double refTDD = 100;
         if(isCPP) refTDD = cpp.baseBasalSum()*2;
@@ -470,9 +471,9 @@ public class ActionStringHandler {
         }
 
         //Check for Temp-Target:
-        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory(System.currentTimeMillis());
+        TempTarget tempTarget = MainApp.getConfigBuilder().getTempTargetFromHistory();
         if (tempTarget != null) {
-            ret += "Temp Target: " + Profile.toUnitsString(tempTarget.low, Profile.fromMgdlToUnits(tempTarget.low, profile.getUnits()), profile.getUnits()) + " - " + Profile.toUnitsString(tempTarget.high, Profile.fromMgdlToUnits(tempTarget.high, profile.getUnits()), profile.getUnits());
+            ret += "Temp Target: " + Profile.toTargetRangeString(tempTarget.low, tempTarget.low, Constants.MGDL, profile.getUnits());
             ret += "\nuntil: " + DateUtil.timeString(tempTarget.originalEnd());
             ret += "\n\n";
         }
@@ -572,7 +573,7 @@ public class ActionStringHandler {
 
     private static void setCPP(int percentage, int timeshift) {
         Object activeProfile = MainApp.getConfigBuilder().getActiveProfileInterface();
-        CircadianPercentageProfilePlugin cpp = (CircadianPercentageProfilePlugin) MainApp.getSpecificPlugin(CircadianPercentageProfilePlugin.class);
+        CircadianPercentageProfilePlugin cpp = MainApp.getSpecificPlugin(CircadianPercentageProfilePlugin.class);
 
         if(cpp == null || activeProfile==null || cpp != activeProfile){
             sendError("CPP not activated!");
@@ -615,7 +616,7 @@ public class ActionStringHandler {
             public void run() {
                 DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
                 detailedBolusInfo.insulin = amount;
-                detailedBolusInfo.addToTreatments = false;
+                detailedBolusInfo.isValid = false;
                 detailedBolusInfo.source = Source.USER;
                 PumpEnactResult result = MainApp.getConfigBuilder().deliverTreatment(detailedBolusInfo);
                 if (!result.success) {

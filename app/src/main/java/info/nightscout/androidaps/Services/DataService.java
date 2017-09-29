@@ -37,6 +37,7 @@ import info.nightscout.androidaps.plugins.SourceNSClient.SourceNSClientPlugin;
 import info.nightscout.androidaps.plugins.SourceXdrip.SourceXdripPlugin;
 import info.nightscout.androidaps.receivers.DataReceiver;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSDeviceStatus;
+import info.nightscout.utils.BundleLogger;
 import info.nightscout.utils.SP;
 
 
@@ -56,7 +57,7 @@ public class DataService extends IntentService {
     @Override
     protected void onHandleIntent(final Intent intent) {
         if (Config.logFunctionCalls)
-            log.debug("onHandleIntent " + intent);
+            log.debug("onHandleIntent " + BundleLogger.log(intent.getExtras()));
 
         if (ConfigBuilderPlugin.getActiveBgSource().getClass().equals(SourceXdripPlugin.class)) {
             xDripEnabled = true;
@@ -243,7 +244,7 @@ public class DataService extends IntentService {
                         MainApp.bus().post(new EventDismissNotification(Notification.OLD_NSCLIENT));
                     }
                 } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
+                    log.error("Unhandled exception", e);
                 }
                 if (ConfigBuilderPlugin.nightscoutVersionCode < Config.SUPPORTEDNSVERSION) {
                     Notification notification = new Notification(Notification.OLD_NS, MainApp.sResources.getString(R.string.unsupportednsversion), Notification.URGENT);
@@ -268,7 +269,7 @@ public class DataService extends IntentService {
                     if (targetlow != null)
                         OverviewPlugin.bgTargetLow = targetlow;
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    log.error("Unhandled exception", e);
                 }
             }
         }
@@ -297,7 +298,7 @@ public class DataService extends IntentService {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         // Handle profile
@@ -312,10 +313,11 @@ public class DataService extends IntentService {
                 if (Config.logIncommingData)
                     log.debug("Received profileStore: " + activeProfile + " " + profile);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
-        if (intent.getAction().equals(Intents.ACTION_NEW_TREATMENT)) {
+
+        if (intent.getAction().equals(Intents.ACTION_NEW_TREATMENT) || intent.getAction().equals(Intents.ACTION_CHANGED_TREATMENT)) {
             try {
                 if (bundles.containsKey("treatment")) {
                     String trstring = bundles.getString("treatment");
@@ -331,28 +333,7 @@ public class DataService extends IntentService {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        if (intent.getAction().equals(Intents.ACTION_CHANGED_TREATMENT)) {
-            try {
-                if (bundles.containsKey("treatment")) {
-                    String trstring = bundles.getString("treatment");
-                    handleAddChangeDataFromNS(trstring);
-                }
-                if (bundles.containsKey("treatments")) {
-                    String trstring = bundles.getString("treatments");
-                    JSONArray jsonArray = new JSONArray(trstring);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject trJson = jsonArray.getJSONObject(i);
-                        String trstr = trJson.toString();
-                        handleAddChangeDataFromNS(trstr);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
 
@@ -375,7 +356,7 @@ public class DataService extends IntentService {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
 
@@ -400,7 +381,7 @@ public class DataService extends IntentService {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
 
@@ -429,7 +410,7 @@ public class DataService extends IntentService {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
     }
