@@ -1,4 +1,4 @@
-﻿<resources>
+<resources>
     <string name="treatmentssafety_title">Tratments safety</string>
     <string name="treatmentssafety_maxbolus_title">Max allowed bolus [U]</string>
     <string name="treatmentssafety_maxcarbs_title">Max allowed carbs [g]</string>
@@ -708,4 +708,3 @@
     <string name="key_wizard_include_bolus_iob">wizard_include_bolus_iob</string>
     <string name="key_wizard_include_basal_iob">wizard_include_basal_iob</string>
 </resources>
-

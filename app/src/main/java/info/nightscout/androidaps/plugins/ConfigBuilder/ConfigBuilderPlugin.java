@@ -436,26 +436,38 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
         PumpEnactResult result;
         detailedBolusInfo.insulin = applyBolusConstraints(detailedBolusInfo.insulin);
         detailedBolusInfo.carbs = applyCarbsConstraints((int) detailedBolusInfo.carbs);
-
-        BolusProgressDialog bolusProgressDialog = null;
-        if (detailedBolusInfo.context != null) {
-            bolusProgressDialog = new BolusProgressDialog();
-            bolusProgressDialog.setInsulin(detailedBolusInfo.insulin);
-            bolusProgressDialog.show(((AppCompatActivity) detailedBolusInfo.context).getSupportFragmentManager(), "BolusProgress");
-        } else {
-            Intent i = new Intent();
-            i.putExtra("insulin", detailedBolusInfo.insulin);
-            i.setClass(MainApp.instance(), BolusProgressHelperActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            MainApp.instance().startActivity(i);
-        }
+		
+		//added by Rumen on 31.07.2017 to hide SMB bolusing window
+		boolean doingSMB = false;
+		if(detailedBolusInfo.eventType == "SMB"){
+			doingSMB = true;
+            detailedBolusInfo.isSMB = true; 
+			//detailedBolusInfo.eventType = "Correction Bolus";
+			log.debug("Setting SMB to true");
+		}
+        if(doingSMB != true){
+			BolusProgressDialog bolusProgressDialog = null;
+			
+			if (detailedBolusInfo.context != null) {
+				log.debug("Entering after setting SMB to true");
+				bolusProgressDialog = new BolusProgressDialog();
+				bolusProgressDialog.setInsulin(detailedBolusInfo.insulin);
+				bolusProgressDialog.show(((AppCompatActivity) detailedBolusInfo.context).getSupportFragmentManager(), "BolusProgress");
+			} else {
+				Intent i = new Intent();
+				i.putExtra("insulin", detailedBolusInfo.insulin);
+				i.setClass(MainApp.instance(), BolusProgressHelperActivity.class);
+				i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				MainApp.instance().startActivity(i);
+			}
+		}
 
 
         MainApp.bus().post(new EventBolusRequested(detailedBolusInfo.insulin));
 
         result = activePump.deliverTreatment(detailedBolusInfo);
 
-        BolusProgressDialog.bolusEnded = true;
+        if(doingSMB != true) BolusProgressDialog.bolusEnded = true;
         MainApp.bus().post(new EventDismissBolusprogressIfRunning(result));
 
         mWakeLock.release();
@@ -579,10 +591,10 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
             result.absolute = getTempBasalAbsoluteRateHistory();
             result.duration = getTempBasalFromHistory(System.currentTimeMillis()).getPlannedRemainingMinutes();
             result.enacted = false;
-            result.comment = "Temp basal set correctly";
+            result.comment = "Temp basal set correctly at "+result.absolute+" for next "+result.duration+" minutes";
             result.success = true;
             if (Config.logCongigBuilderActions)
-                log.debug("applyAPSRequest: Temp basal set correctly");
+                log.debug("applyAPSRequest: Temp basal set correctly! Rate is: "+result.absolute+" remaining minutes "+result.duration);
         } else {
             if (Config.logCongigBuilderActions)
                 log.debug("applyAPSRequest: setTempBasalAbsolute()");

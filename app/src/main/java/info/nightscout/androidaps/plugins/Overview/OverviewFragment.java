@@ -107,6 +107,7 @@ import info.nightscout.androidaps.plugins.NSClientInternal.broadcasts.BroadcastA
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSDeviceStatus;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.DetermineBasalResultAMA;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
+import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.CalibrationDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewTreatmentDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.WizardDialog;
