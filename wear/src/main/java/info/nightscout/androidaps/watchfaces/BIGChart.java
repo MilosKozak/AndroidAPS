@@ -32,18 +32,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.wearable.DataMap;
-import com.ustwo.clockwise.wearable.WatchFace;
 import com.ustwo.clockwise.common.WatchFaceTime;
 import com.ustwo.clockwise.common.WatchMode;
 import com.ustwo.clockwise.common.WatchShape;
+import com.ustwo.clockwise.wearable.WatchFace;
 
 import java.util.ArrayList;
-import java.util.Date;
 
+import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.BasalWatchData;
 import info.nightscout.androidaps.data.BgWatchData;
 import info.nightscout.androidaps.data.ListenerService;
-import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.TempWatchData;
 import info.nightscout.androidaps.interaction.menus.MainMenuActivity;
 import lecho.lib.hellocharts.view.LineChartView;
@@ -60,7 +59,7 @@ public class BIGChart extends WatchFace implements SharedPreferences.OnSharedPre
     public int ageLevel = 1;
     public int highColor = Color.YELLOW;
     public int lowColor = Color.RED;
-    public int midColor = Color.WHITE;
+    public int midColor = Color.GREEN;
     public int gridColour = Color.WHITE;
     public int basalBackgroundColor = Color.BLUE;
     public int basalCenterColor = Color.BLUE;

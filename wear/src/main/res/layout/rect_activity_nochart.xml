@@ -24,47 +24,51 @@
 
             <TextView
                 android:id="@+id/delta"
-                android:textSize="40sp"
-                android:text="---"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
                 android:textColor="#FFFFFF"
-                android:layout_gravity="bottom"
-                android:gravity="center_horizontal|bottom"
-                android:layout_marginRight="5dp" />
+                android:textSize="16sp"
+                tools:text="+59,5" />
 
             <TextView
                 android:id="@+id/sgv"
-                android:textSize="55sp"
-                android:text="---"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center_horizontal"
+                android:paddingEnd="4dp"
+                android:paddingStart="4dp"
                 android:textColor="#FFFFFF"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal" />
+                android:textSize="60sp"
+                tools:text="100" />
 
             <TextView
                 android:id="@+id/avgdelta"
-                android:textSize="40sp"
-                android:text="---"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
                 android:textColor="#FFFFFF"
-                android:layout_gravity="bottom"
-                android:gravity="center_horizontal|bottom"
-                android:layout_marginLeft="5dp" />
+                android:textSize="16sp"
+                tools:text="+59,5" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/aps_status"
-            android:textSize="24sp"
-            android:text="E xU/h  IOB: x (x+x)"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:paddingTop="4dp"
             android:textAlignment="center"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
             android:textColor="#FFFFFF"
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"/>
+            android:textSize="16sp"
+            tools:text="100% 5,55(0,00|5,55) -6,66" />
 
         <View
             android:id="@+id/chart"
@@ -83,24 +87,24 @@
 
             <TextView
                 android:id="@+id/watch_time"
-                android:textSize="47sp"
-                android:text="12:00"
-                android:textColor="#FFFFFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="8dp"
                 android:textAlignment="center"
-                android:layout_marginRight="6dp"
-                android:layout_gravity="center_horizontal" />
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                tools:text="12:00" />
 
             <TextView
                 android:id="@+id/timestamp"
-                android:textSize="35sp"
-                android:text="-- '"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content" />
+                android:textSize="35sp"
+                tools:text="11'" />
         </LinearLayout>
 
     </LinearLayout>
