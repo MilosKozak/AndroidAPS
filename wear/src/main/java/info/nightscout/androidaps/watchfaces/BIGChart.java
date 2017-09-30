@@ -38,6 +38,7 @@ import com.ustwo.clockwise.common.WatchShape;
 import com.ustwo.clockwise.wearable.WatchFace;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.BasalWatchData;
