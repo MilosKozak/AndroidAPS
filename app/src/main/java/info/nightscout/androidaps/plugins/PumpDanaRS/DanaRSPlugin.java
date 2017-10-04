@@ -586,7 +586,7 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
         }
         if (percent > getPumpDescription().maxTempPercent)
             percent = getPumpDescription().maxTempPercent;
-        TemporaryBasal runningTB =  MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+        TemporaryBasal runningTB =  MainApp.getConfigBuilder().getRealTempBasalFromHistory(System.currentTimeMillis());
         if (runningTB != null && runningTB.percentRate == percent) {
             result.enacted = false;
             result.success = true;
