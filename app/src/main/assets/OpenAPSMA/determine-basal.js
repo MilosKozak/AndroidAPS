@@ -66,6 +66,8 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
 
     //calculate BG impact: the amount BG "should" be rising or falling based on insulin activity alone
     var bgi = Math.round(( -iob_data.activity * profile.sens * 5 )*100)/100;
+
+    /*
     // project positive deviations for 15 minutes
     var deviation = Math.round( 15 / 5 * ( glucose_status.avgdelta - bgi ) );
     // project negative deviations for 30 minutes
@@ -73,13 +75,26 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
         deviation = Math.round( 30 / 5 * ( glucose_status.avgdelta - bgi ) );
     }
     //console.log("Avg.Delta: " + glucose_status.avgdelta.toFixed(1) + ", BGI: " + bgi.toFixed(1) + " 15m activity projection: " + deviation.toFixed(0));
+    */
+
+    //ADRIAN: project all deviations for 30 minutes
+    var deviation = Math.round(10 * 30 / 5 * ( glucose_status.avgdelta - bgi ) )/10;
+    if (deviation > 0 && (bg < profile.max_bg || glucose_status.avgdelta < -2 )){
+        deviation = deviation/2; //only 15 minutes if BG is falling very fast or already below max BG
+    }
+
 
     // calculate the naive (bolus calculator math) eventual BG based on net IOB and sensitivity
     var naive_eventualBG = Math.round( bg - (iob_data.iob * profile.sens) );
     // and adjust it for the deviation above
     var eventualBG = naive_eventualBG + deviation;
+
+
     // calculate what portion of that is due to bolussnooze
-    var bolusContrib = iob_data.bolussnooze * profile.sens;
+    //var bolusContrib = iob_data.bolussnooze * profile.sens;
+    //ADRIAN: no bolussnooze
+    var bolusContrib = 0.0;
+
     // and add it back in to get snoozeBG, plus another 50% to avoid low-temping at mealtime
     var naive_snoozeBG = Math.round( naive_eventualBG + 1.5 * bolusContrib );
     // adjust that for deviation like we did eventualBG
@@ -96,7 +111,9 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     }
 
     // min_bg of 90 -> threshold of 70, 110 -> 80, and 130 -> 90
-    var threshold = profile.min_bg - 0.5*(profile.min_bg-50);
+    //var threshold = profile.min_bg - 0.5*(profile.min_bg-50);
+    //ADRIAN: 0-temp at 70 actual bg (no matter eventual bg). Even with min_bg lower than 90 due to temp targets
+    var threshold = 70;
 
     rT = {
         'temp': 'absolute'
@@ -104,13 +121,18 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
         , 'tick': tick
         , 'eventualBG': eventualBG
         , 'snoozeBG': snoozeBG
+        , 'insulinReqPositive': 0.0
     };
 
     var basaliob;
     if (iob_data.basaliob) { basaliob = iob_data.basaliob; }
     else { basaliob = iob_data.iob - iob_data.bolussnooze; }
     // allow meal assist to run when carbs are just barely covered
-    if (minDelta > Math.max(3, bgi) && ( (meal_data.carbs > 0 && (1.1 * meal_data.carbs/profile.carb_ratio > meal_data.boluses + basaliob)) || ( deviation > 25 && minDelta > 7 ) ) ) {
+    //if (minDelta > Math.max(3, bgi) && ( (meal_data.carbs > 0 && (1.1 * meal_data.carbs/profile.carb_ratio > meal_data.boluses + basaliob)) || ( deviation > 25 && minDelta > 7 ) ) ) {
+    // Adrian: disable meal assist
+    if (false) {
+
+
         // ignore all covered IOB, and just set eventualBG to the current bg
         eventualBG = Math.max(bg,eventualBG) + deviation;
         rT.eventualBG = eventualBG;
@@ -262,6 +284,17 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     else { basaliob = iob_data.iob - iob_data.bolussnooze; }
     rT.reason = "Eventual BG " + eventualBG + ">=" + profile.max_bg + ", ";
     if (basaliob > max_iob) {
+
+    //ADRIAN: just copied this here for still allowed correction bolus:
+        var insulinReq = (Math.min(snoozeBG,eventualBG) - target_bg) / profile.sens;
+        if (minDelta < 0 && minDelta > expectedDelta) {
+            var newinsulinReq = Math.round(( insulinReq * (1 - (minDelta / expectedDelta)) ) * 100)/100;
+            insulinReq = newinsulinReq;
+        }
+        rT.insulinReqPositive = insulinReq;
+    //ADRIAN
+
+
         rT.reason = "basaliob " + basaliob + " > max_iob " + max_iob;
         return setTempBasal(0, 0, profile, rT, offline);
     } else { // otherwise, calculate 30m high-temp required to get projected BG down to target
@@ -274,6 +307,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
             //console.log("Reducing insulinReq from " + insulinReq + " to " + newinsulinReq);
             insulinReq = newinsulinReq;
         }
+        rT.insulinReqPositive = insulinReq;
         // if that would put us over max_iob, then reduce accordingly
         if (insulinReq > max_iob-basaliob) {
             rT.reason = "max_iob " + max_iob + ", ";
