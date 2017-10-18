@@ -158,13 +158,11 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
             SharedPreferences.Editor editor = settings.edit();
 
-            for (int type = 1; type < PluginBase.LAST; type++) {
-                for (PluginBase p : pluginList) {
-                    String settingEnabled = "ConfigBuilder_" + type + "_" + p.getClass().getSimpleName() + "_Enabled";
-                    String settingVisible = "ConfigBuilder_" + type + "_" + p.getClass().getSimpleName() + "_Visible";
-                    editor.putBoolean(settingEnabled, p.isEnabled(type));
-                    editor.putBoolean(settingVisible, p.isVisibleInTabs(type));
-                }
+            for (PluginBase p : pluginList) {
+                String settingEnabled = "ConfigBuilder_" + p.getType() + "_" + p.getClass().getSimpleName() + "_Enabled";
+                String settingVisible = "ConfigBuilder_" + p.getType() + "_" + p.getClass().getSimpleName() + "_Visible";
+                editor.putBoolean(settingEnabled, p.isEnabled(p.getType()));
+                editor.putBoolean(settingVisible, p.isVisibleInTabs(p.getType()));
             }
             editor.apply();
             verifySelectionInCategories();
@@ -175,18 +173,16 @@ public class ConfigBuilderPlugin implements PluginBase, PumpInterface, Constrain
         if (Config.logPrefsChange)
             log.debug("Loading stored settings");
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(MainApp.instance().getApplicationContext());
-        for (int type = 1; type < PluginBase.LAST; type++) {
-            for (PluginBase p : pluginList) {
-                try {
-                    String settingEnabled = "ConfigBuilder_" + type + "_" + p.getClass().getSimpleName() + "_Enabled";
-                    String settingVisible = "ConfigBuilder_" + type + "_" + p.getClass().getSimpleName() + "_Visible";
-                    if (SP.contains(settingEnabled))
-                        p.setFragmentEnabled(type, SP.getBoolean(settingEnabled, true));
-                    if (SP.contains(settingVisible))
-                        p.setFragmentVisible(type, SP.getBoolean(settingVisible, true) && SP.getBoolean(settingEnabled, true));
-                } catch (Exception e) {
-                    log.error("Unhandled exception", e);
-                }
+        for (PluginBase p : pluginList) {
+            try {
+                String settingEnabled = "ConfigBuilder_" + p.getType() + "_" + p.getClass().getSimpleName() + "_Enabled";
+                String settingVisible = "ConfigBuilder_" + p.getType() + "_" + p.getClass().getSimpleName() + "_Visible";
+                if (SP.contains(settingEnabled))
+                    p.setFragmentEnabled(p.getType(), SP.getBoolean(settingEnabled, true));
+                if (SP.contains(settingVisible))
+                    p.setFragmentVisible(p.getType(), SP.getBoolean(settingVisible, true) && SP.getBoolean(settingEnabled, true));
+            } catch (Exception e) {
+                log.error("Unhandled exception", e);
             }
         }
         verifySelectionInCategories();
