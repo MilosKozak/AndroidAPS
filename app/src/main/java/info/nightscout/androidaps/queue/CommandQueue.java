@@ -165,17 +165,19 @@ public class CommandQueue {
         detailedBolusInfo.insulin = MainApp.getConfigBuilder().applyBolusConstraints(detailedBolusInfo.insulin);
         detailedBolusInfo.carbs = MainApp.getConfigBuilder().applyCarbsConstraints((int) detailedBolusInfo.carbs);
 
-        BolusProgressDialog bolusProgressDialog = null;
-        if (detailedBolusInfo.context != null) {
-            bolusProgressDialog = new BolusProgressDialog();
-            bolusProgressDialog.setInsulin(detailedBolusInfo.insulin);
-            bolusProgressDialog.show(((AppCompatActivity) detailedBolusInfo.context).getSupportFragmentManager(), "BolusProgress");
-        } else {
-            Intent i = new Intent();
-            i.putExtra("insulin", detailedBolusInfo.insulin);
-            i.setClass(MainApp.instance(), BolusProgressHelperActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            MainApp.instance().startActivity(i);
+        if (!detailedBolusInfo.isSMB) {
+            // Bring up bolus progress dialog
+            if (detailedBolusInfo.context != null) {
+                BolusProgressDialog bolusProgressDialog = new BolusProgressDialog();
+                bolusProgressDialog.setInsulin(detailedBolusInfo.insulin);
+                bolusProgressDialog.show(((AppCompatActivity) detailedBolusInfo.context).getSupportFragmentManager(), "BolusProgress");
+            } else {
+                Intent i = new Intent();
+                i.putExtra("insulin", detailedBolusInfo.insulin);
+                i.setClass(MainApp.instance(), BolusProgressHelperActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                MainApp.instance().startActivity(i);
+            }
         }
 
         return true;
