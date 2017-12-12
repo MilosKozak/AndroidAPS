@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-        <color name="wl_blue">#2878ff</color>
-        <color name="wl_gray">#c1c1c1</color>
-        <color name="text_color">#434343</color>
+    <color name="wl_blue">#2878ff</color>
+    <color name="wl_gray">#c1c1c1</color>
+    <color name="text_color">#434343</color>
     <color name="cardObjectiveText">#779ECB</color>
 
 
@@ -16,7 +16,8 @@
     <color name="light_mTimestamp">@color/red_600</color>
     <color name="light_highColor">@color/yellow_700</color>
     <color name="light_lowColor">@color/red_600</color>
-    <color name="light_midColor">@color/black</color>
+    <color name="light_midColor">@color/green_light</color>
+    <!-- color name="light_greenmidColor">@color/green_light</color -->
     <color name="light_gridColor">@color/black</color>
     <!-- dark colors -->
     <color name="dark_mTime">@color/white</color>
@@ -32,7 +33,8 @@
 
     <color name="dark_highColor">@color/yellow_A200</color>
     <color name="dark_lowColor">@color/RED</color>
-    <color name="dark_midColor">@color/grey_50</color>
+    <color name="dark_midColor">@color/green</color>
+    <!-- color name="dark_greenmidColor">@color/green</color -->
     <color name="dark_gridColor">@color/grey_50</color>
 
     <!-- basal colors -->
@@ -62,6 +64,11 @@
     <color name="grey_300">#E0E0E0</color>
     <color name="grey_500">#9E9E9E</color>
     <!-- Grey -->
+
+    <!-- Green -->
+    <color name="green_light">#01bf01</color>
+    <color name="green">#00FF00</color>
+    <!-- Green -->
 
     <!-- Blue Grey -->
     <color name="BLUE">#0000FF</color>
