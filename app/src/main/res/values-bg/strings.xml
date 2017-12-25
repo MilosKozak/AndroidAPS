@@ -212,7 +212,6 @@
     <string name="connecting">Свързване</string>
     <string name="connected">Свързана</string>
     <string name="disconnected">Не е сврзана</string>
-    <string name="syncprofiletopump_title">Синхронизирай помпата с профила</string>
     <string name="danar_pump_settings">DanaR настройки</string>
     <string name="nightscout">Nightscout</string>
     <string name="end_user_license_agreement">End User License Agreement</string>
@@ -371,7 +370,6 @@
     <string name="pumpshutdown">Помпата е изключена</string>
     <string name="batterydischarged">Батерията на помпата е изтощена</string>
     <string name="danarkoreanpump">DanaR Korean</string>
-    <string name="wrongpumpdriverselected">Избран е грешен тип помпа</string>
     <string name="basal_rate">Базал:</string>
     <string name="profile_set_failed">Неуспешно задаване на базален профил</string>
     <string name="profile_set_ok">Профила на помпата е обновен</string>

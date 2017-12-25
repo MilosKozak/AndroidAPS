@@ -175,6 +175,15 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/overview_extendedbolus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/mdtp_white" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -351,7 +360,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
+                <info.nightscout.utils.SingleClickButton
                     android:id="@+id/overview_accepttempbutton"
                     style="?android:attr/buttonStyle"
                     android:layout_width="fill_parent"
@@ -368,7 +377,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
+                <info.nightscout.utils.SingleClickButton
                     android:id="@+id/overview_treatmentbutton"
                     style="?android:attr/buttonStyle"
                     android:layout_width="0px"
@@ -382,7 +391,7 @@
                     android:textColor="@color/colorTreatmentButton"
                     android:textSize="10sp" />
 
-                <Button
+                <info.nightscout.utils.SingleClickButton
                     android:id="@+id/overview_wizardbutton"
                     style="?android:attr/buttonStyle"
                     android:layout_width="0px"
@@ -397,7 +406,7 @@
                     android:textSize="10sp"
                     android:visibility="gone" />
 
-                <Button
+                <info.nightscout.utils.SingleClickButton
                     android:id="@+id/overview_calibrationbutton"
                     style="?android:attr/buttonStyle"
                     android:layout_width="0px"
@@ -412,7 +421,7 @@
                     android:textSize="10sp"
                     android:visibility="gone" />
 
-                <Button
+                <info.nightscout.utils.SingleClickButton
                     android:id="@+id/overview_quickwizardbutton"
                     style="?android:attr/buttonStyle"
                     android:layout_width="0px"

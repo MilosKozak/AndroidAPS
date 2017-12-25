@@ -201,7 +201,6 @@
     <string name="connecting">Conectando</string>
     <string name="connected">Conectado</string>
     <string name="disconnected">Desconectado</string>
-    <string name="syncprofiletopump_title">Sincronizar perfil a bomba</string>
     <string name="danar_pump_settings">Ajustes de la bomba DanaR</string>
     <string name="nightscout">Nightscout</string>
     <string name="end_user_license_agreement">Acuerdo de licencia de usuario final</string>
@@ -276,7 +275,7 @@
     <string name="overview_bolusprogress_stop">Detener</string>
     <string name="overview_bolusprogress_stoppressed">Parar pulsado</string>
     <string name="waitingforpumpclicktorefresh">Esperando bomba. Click to refresh.</string>
-    <string formatted="false" name="overview_bolusprogress_goingtodeliver">Va a entregar% .2fU</string>
+    <string formatted="false" name="overview_bolusprogress_goingtodeliver">Va a entregar %.2fU</string>
     <string name="objectives_0_objective">Configuración de visualización y monitoreo, y el análisis de los basales y ratios</string>
     <string name="objectives_0_gate">Comprobar que los datos de BG están disponibles en Nightscout, y que los datos de la bomba de insulina se están subiendo</string>
     <string name="objectives_1_objective">Empezar con bucle abierto</string>

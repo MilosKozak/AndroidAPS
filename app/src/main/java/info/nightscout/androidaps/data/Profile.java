@@ -12,17 +12,18 @@ import org.slf4j.LoggerFactory;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.plugins.Overview.Notification;
+import info.nightscout.androidaps.interfaces.PumpDescription;
+import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.utils.DecimalFormatter;
-import info.nightscout.utils.SafeParse;
 import info.nightscout.utils.ToastUtils;
 
 public class Profile {
@@ -161,12 +162,16 @@ public class Profile {
         LongSparseArray<Double> sparse = new LongSparseArray<>();
         for (Integer index = 0; index < array.length(); index++) {
             try {
-                JSONObject o = array.getJSONObject(index);
+                final JSONObject o = array.getJSONObject(index);
                 long tas = getShitfTimeSecs((int) o.getLong("timeAsSeconds"));
                 Double value = o.getDouble("value") * multiplier;
                 sparse.put(tas, value);
             } catch (JSONException e) {
                 log.error("Unhandled exception", e);
+                try {
+                    log.error(array.getJSONObject(index).toString());
+                } catch (JSONException e1) {
+                }
             }
         }
 
@@ -325,8 +330,27 @@ public class Profile {
     }
 
     public Double getBasal(Integer timeAsSeconds) {
-        if (basal_v == null)
+        if (basal_v == null) {
             basal_v = convertToSparseArray(basal);
+            // Check for minimal basal value
+            PumpInterface pump = ConfigBuilderPlugin.getActivePump();
+            if (pump != null) {
+                PumpDescription description = pump.getPumpDescription();
+                for (int i = 0; i < basal_v.size(); i++) {
+                    if (basal_v.valueAt(i) < description.basalMinimumRate) {
+                        basal_v.setValueAt(i, description.basalMinimumRate);
+                        MainApp.bus().post(new EventNewNotification(new Notification(Notification.MINIMAL_BASAL_VALUE_REPLACED, MainApp.sResources.getString(R.string.minimalbasalvaluereplaced), Notification.NORMAL)));
+                    }
+                }
+                return getValueToTime(basal_v, timeAsSeconds);
+            } else {
+                // if pump not available (at start)
+                // do not store converted array
+                Double value = getValueToTime(basal_v, timeAsSeconds);
+                basal_v = null;
+                return value;
+            }
+        }
         return getValueToTime(basal_v, timeAsSeconds);
     }
 

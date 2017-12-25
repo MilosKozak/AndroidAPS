@@ -192,7 +192,6 @@
     <string name="disconnected">Odpojeno</string>
     <string name="danar_bt_name_title">DanaR Bluetooth zařízení</string>
     <string name="danar_pump_settings">DanaR nastavení</string>
-    <string name="syncprofiletopump_title">Synchronizovat profil do pumpy</string>
     <string name="nightscout">Nightscout</string>
     <string name="absolute">Absolutní</string>
     <string name="comment">Komentář</string>
@@ -352,7 +351,6 @@
     <string name="profile_set_failed">Nastavení bazálního profilu selhalo</string>
     <string name="profile_set_ok">Bazální profil aktualizován</string>
     <string name="pumpNotInitializedProfileNotSet">Pumpa není inicializována, profil nenastaven!</string>
-    <string name="wrongpumpdriverselected">Vybrán špatný ovladač pumpy</string>
     <string name="basalvaluebelowminimum">Hodnota bazálu pod povoleným minimem. Nenastaveno!</string>
     <string name="mdi">Pera</string>
     <string name="sms_actualbg">Glykémie:</string>

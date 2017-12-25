@@ -1,13 +1,12 @@
 package info.nightscout.androidaps.plugins.Insulin;
 
-import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Iob;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.interfaces.InsulinInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.plugins.Overview.Notification;
+import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 
 /**
@@ -65,7 +64,7 @@ public abstract class InsulinOrefBasePlugin implements PluginBase, InsulinInterf
     }
 
     @Override
-    public Iob iobCalcForTreatment(Treatment treatment, long time, Double dia) {
+    public Iob iobCalcForTreatment(Treatment treatment, long time, double dia) {
         Iob result = new Iob();
 
         int peak = getPeak();
