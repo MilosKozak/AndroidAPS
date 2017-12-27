@@ -23,7 +23,7 @@ def generateGitBuild = { ->
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "info.nightscout.androidaps"
@@ -57,7 +57,8 @@ allprojects {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //compile 'com.ustwo.android:clockwise-wearable:1.0.2'
-    compile 'com.google.android.support:wearable:1.4.0'
+    provided 'com.google.android.wearable:wearable:2.0.1'
+    compile 'com.google.android.support:wearable:2.0.1'
     compile 'com.google.android.gms:play-services-wearable:7.3.0'
     compile files('libs/hellocharts-library-1.5.5.jar')
     compile(name:'ustwo-clockwise-debug', ext:'aar')
