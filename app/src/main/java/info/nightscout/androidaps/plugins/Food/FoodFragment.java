@@ -122,7 +122,7 @@ public class FoodFragment extends SubscriberFragment {
                 }
             });
 
-            RecyclerViewAdapter adapter = new RecyclerViewAdapter(MainApp.getDbHelper().foodHelper.getFoodData());
+            RecyclerViewAdapter adapter = new RecyclerViewAdapter(MainApp.getDbHelper().foodHelper.getDao().getFoodData());
             recyclerView.setAdapter(adapter);
 
             loadData();
@@ -145,7 +145,7 @@ public class FoodFragment extends SubscriberFragment {
     }
 
     void loadData() {
-        unfiltered = MainApp.getDbHelper().foodHelper.getFoodData();
+        unfiltered = MainApp.getDbHelper().foodHelper.getDao().getFoodData();
     }
 
     void fillCategories() {
@@ -300,7 +300,7 @@ public class FoodFragment extends SubscriberFragment {
                                 if (_id != null && !_id.equals("")) {
                                     NSUpload.removeFoodFromNS(_id);
                                 }
-                                MainApp.getDbHelper().foodHelper.delete(food);
+                                MainApp.getDbHelper().foodHelper.getDao().deleteFood(food);
                             }
                         });
                         builder.setNegativeButton(MainApp.sResources.getString(R.string.cancel), null);
