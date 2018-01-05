@@ -30,6 +30,7 @@ import info.nightscout.androidaps.interfaces.ConstraintsInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.IobCobCalculator.events.EventAutosensCalculationFinished;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
@@ -152,8 +153,10 @@ public class LoopPlugin implements PluginBase {
     }
 
     @Subscribe
-    public void onStatusEvent(final EventNewBG ev) {
-        invoke("EventNewBG", true);
+    public void onStatusEvent(final EventAutosensCalculationFinished ev) {
+        if (ev.cause instanceof EventNewBG) {
+            invoke("EventAutoSensCaculationFinished", true);
+        }
     }
 
     public long suspendedTo() {
