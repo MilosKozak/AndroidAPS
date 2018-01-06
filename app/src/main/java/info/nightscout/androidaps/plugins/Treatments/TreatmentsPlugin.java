@@ -254,6 +254,9 @@ public class TreatmentsPlugin implements PluginBase, TreatmentsInterface {
         AutosensData autosensData = IobCobCalculatorPlugin.getLastAutosensData();
         if (autosensData != null) {
             result.mealCOB = autosensData.cob;
+            log.debug("JOE-COB: cob used for loop: " + autosensData.cob);
+        } else {
+            log.warn("JOE-COB: no autosense data for meal data");
         }
         return result;
     }
