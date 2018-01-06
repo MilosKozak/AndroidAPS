@@ -11,6 +11,7 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -939,8 +940,16 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             return;
         }
 
-        final double lowLine = SP.getDouble("low_mark", Profile.fromMgdlToUnits(OverviewPlugin.bgTargetLow, units));
-        final double highLine = SP.getDouble("high_mark", Profile.fromMgdlToUnits(OverviewPlugin.bgTargetHigh, units));
+        double lowLineSetting = SP.getDouble("low_mark", Profile.fromMgdlToUnits(OverviewPlugin.bgTargetLow, units));
+        double highLineSetting = SP.getDouble("high_mark", Profile.fromMgdlToUnits(OverviewPlugin.bgTargetHigh, units));
+
+        if (lowLineSetting < 1)
+            lowLineSetting = Profile.fromMgdlToUnits(76d, units);
+        if (highLineSetting < 1)
+            highLineSetting = Profile.fromMgdlToUnits(180d, units);
+
+        final double lowLine = lowLineSetting;
+        final double highLine = highLineSetting;
 
         //Start with updating the BG as it is unaffected by loop.
         // **** BG value ****
@@ -1338,20 +1347,23 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 secondGraphData.addNowLine(now);
 
                 // do GUI update
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (showIobView.isChecked() || showCobView.isChecked() || showDeviationsView.isChecked() || showRatiosView.isChecked()) {
-                            iobGraph.setVisibility(View.VISIBLE);
-                        } else {
-                            iobGraph.setVisibility(View.GONE);
+                FragmentActivity activity = getActivity();
+                if (activity != null) {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (showIobView.isChecked() || showCobView.isChecked() || showDeviationsView.isChecked() || showRatiosView.isChecked()) {
+                                iobGraph.setVisibility(View.VISIBLE);
+                            } else {
+                                iobGraph.setVisibility(View.GONE);
+                            }
+                            // finally enforce drawing of graphs
+                            graphData.performUpdate();
+                            secondGraphData.performUpdate();
+                            Profiler.log(log, from + " - onDataChanged", updateGUIStart);
                         }
-                        // finaly enforce drawing of graphs
-                        graphData.performUpdate();
-                        secondGraphData.performUpdate();
-                        Profiler.log(log, from + " - onDataChanged", updateGUIStart);
-                    }
-                });
+                    });
+                }
             }
         }).start();
 
