@@ -19,10 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
-import com.google.common.util.concurrent.ServiceManager;
 import com.squareup.otto.Subscribe;
 
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,8 +31,6 @@ import java.util.Set;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.db.DataServiceManager;
-import info.nightscout.androidaps.db.Food;
 import info.nightscout.androidaps.events.EventFoodDatabaseChanged;
 import info.nightscout.androidaps.plugins.Common.SubscriberFragment;
 import info.nightscout.utils.NSUpload;
@@ -126,7 +122,7 @@ public class FoodFragment extends SubscriberFragment {
                 }
             });
 
-            RecyclerViewAdapter adapter = new RecyclerViewAdapter(DataServiceManager.getInstance().getFoodService().getFoodData());
+            RecyclerViewAdapter adapter = new RecyclerViewAdapter(MainApp.getSpecificPlugin(FoodPlugin.class).getService().getFoodData());
             recyclerView.setAdapter(adapter);
 
             loadData();
@@ -149,7 +145,7 @@ public class FoodFragment extends SubscriberFragment {
     }
 
     void loadData() {
-        unfiltered = DataServiceManager.getInstance().getFoodService().getFoodData();
+        unfiltered = MainApp.getSpecificPlugin(FoodPlugin.class).getService().getFoodData();
     }
 
     void fillCategories() {
@@ -303,7 +299,7 @@ public class FoodFragment extends SubscriberFragment {
                                 if (_id != null && !_id.equals("")) {
                                     NSUpload.removeFoodFromNS(_id);
                                 }
-                                DataServiceManager.getInstance().getFoodService().delete(food);
+                                MainApp.getSpecificPlugin(FoodPlugin.class).getService().delete(food);
                             }
                         });
                         builder.setNegativeButton(MainApp.sResources.getString(R.string.cancel), null);
