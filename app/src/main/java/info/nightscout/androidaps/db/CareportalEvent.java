@@ -242,4 +242,5 @@ public class CareportalEvent implements DataPointWithLabelInterface {
             return Color.GRAY;
         return Color.GRAY;
     }
+
 }

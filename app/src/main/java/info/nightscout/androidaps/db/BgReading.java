@@ -184,7 +184,7 @@ public class BgReading implements DataPointWithLabelInterface {
 
     @Override
     public PointsWithLabelGraphSeries.Shape getShape() {
-        return PointsWithLabelGraphSeries.Shape.POINT;
+        return PointsWithLabelGraphSeries.Shape.BG;
     }
 
     @Override
