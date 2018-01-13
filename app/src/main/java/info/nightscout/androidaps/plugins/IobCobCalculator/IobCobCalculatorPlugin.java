@@ -25,6 +25,7 @@ import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.db.Treatment;
+import info.nightscout.androidaps.events.Event;
 import info.nightscout.androidaps.events.EventConfigBuilderChange;
 import info.nightscout.androidaps.events.EventNewBG;
 import info.nightscout.androidaps.events.EventNewBasalProfile;
@@ -340,7 +341,7 @@ public class IobCobCalculatorPlugin implements PluginBase {
         //log.debug("Releasing createBucketedData");
     }
 
-    private void calculateSensitivityData() {
+    private void calculateSensitivityData(final Event cause) {
         if (MainApp.getConfigBuilder() == null)
             return; // app still initializing
         if (MainApp.getConfigBuilder().getProfile() == null)
@@ -456,7 +457,7 @@ public class IobCobCalculatorPlugin implements PluginBase {
                     log.debug(autosensData.log(bgTime));
             }
         }
-        MainApp.bus().post(new EventAutosensCalculationFinished());
+        MainApp.bus().post(new EventAutosensCalculationFinished(cause));
         //log.debug("Releasing calculateSensitivityData");
     }
 
@@ -603,19 +604,19 @@ public class IobCobCalculatorPlugin implements PluginBase {
     }
 
     @Subscribe
-    public void onNewBg(EventNewBG ev) {
+    public void onNewBg(final EventNewBG ev) {
         sHandler.post(new Runnable() {
             @Override
             public void run() {
                 loadBgData();
                 createBucketedData();
-                calculateSensitivityData();
+                calculateSensitivityData(ev);
             }
         });
     }
 
     @Subscribe
-    public void onNewProfile(EventNewBasalProfile ev) {
+    public void onNewProfile(final EventNewBasalProfile ev) {
         if (MainApp.getConfigBuilder() == null)
             return; // app still initializing
         Profile profile = MainApp.getConfigBuilder().getProfile();
@@ -633,13 +634,13 @@ public class IobCobCalculatorPlugin implements PluginBase {
         sHandler.post(new Runnable() {
             @Override
             public void run() {
-                calculateSensitivityData();
+                calculateSensitivityData(ev);
             }
         });
     }
 
     @Subscribe
-    public void onStatusEvent(EventPreferenceChange ev) {
+    public void onStatusEvent(final EventPreferenceChange ev) {
         if (ev.isChanged(R.string.key_openapsama_autosens_period) ||
                 ev.isChanged(R.string.key_age) ||
                 ev.isChanged(R.string.key_absorption_maxtime)
@@ -652,14 +653,14 @@ public class IobCobCalculatorPlugin implements PluginBase {
             sHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    calculateSensitivityData();
+                    calculateSensitivityData(ev);
                 }
             });
         }
     }
 
     @Subscribe
-    public void onStatusEvent(EventConfigBuilderChange ev) {
+    public void onStatusEvent(final EventConfigBuilderChange ev) {
         synchronized (dataLock) {
             log.debug("Invalidating cached data because of configuration change. IOB: " + iobTable.size() + " Autosens: " + autosensDataTable.size() + " records");
             iobTable = new LongSparseArray<>();
@@ -668,14 +669,14 @@ public class IobCobCalculatorPlugin implements PluginBase {
         sHandler.post(new Runnable() {
             @Override
             public void run() {
-                calculateSensitivityData();
+                calculateSensitivityData(ev);
             }
         });
     }
 
     // When historical data is changed (comming from NS etc) finished calculations after this date must be invalidated
     @Subscribe
-    public void onNewHistoryData(EventNewHistoryData ev) {
+    public void onNewHistoryData(final EventNewHistoryData ev) {
         //log.debug("Locking onNewHistoryData");
         synchronized (dataLock) {
             long time = ev.time;
@@ -712,7 +713,7 @@ public class IobCobCalculatorPlugin implements PluginBase {
         sHandler.post(new Runnable() {
             @Override
             public void run() {
-                calculateSensitivityData();
+                calculateSensitivityData(ev);
             }
         });
         //log.debug("Releasing onNewHistoryData");

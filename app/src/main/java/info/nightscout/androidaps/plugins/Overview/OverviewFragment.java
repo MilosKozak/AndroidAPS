@@ -1202,9 +1202,15 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         if (cobView != null) { // view must not exists
             String cobText = "";
             AutosensData autosensData = IobCobCalculatorPlugin.getLastAutosensData();
-            if (autosensData != null)
+            if (autosensData != null) {
                 cobText = (int) autosensData.cob + " g";
+
+                log.debug("JOE-COB: overview cob is: " + autosensData.cob);
+        } else {
+                log.warn("JOE-COB: no autosense data for overview cob");
+            }
             cobView.setText(cobText);
+
         }
 
         final boolean showPrediction = showPredictionView.isChecked() && finalLastRun != null && finalLastRun.constraintsProcessed.getClass().equals(DetermineBasalResultAMA.class);
