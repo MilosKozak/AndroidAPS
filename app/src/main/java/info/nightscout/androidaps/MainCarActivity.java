@@ -7,6 +7,11 @@ import android.webkit.WebView;
 
 import com.google.android.apps.auto.sdk.CarActivity;
 import com.google.android.apps.auto.sdk.CarUiController;
+import com.google.android.apps.auto.sdk.CarToast;
+import com.google.android.apps.auto.sdk.MenuController;
+import com.google.android.apps.auto.sdk.MenuItem;
+import com.google.android.apps.auto.sdk.StatusBarController;
+import com.google.android.apps.auto.sdk.notification.CarNotificationExtender;
 
 import info.nightscout.utils.SP;
 
@@ -27,6 +32,8 @@ public class MainCarActivity extends CarActivity {
 
         CarUiController carUiController = getCarUiController();
         carUiController.getStatusBarController().showTitle();
+        carUiController.getStatusBarController().setTitle(getString(R.string.app_name));
+
 
         nsURL = SP.getString(R.string.key_nsclientinternal_url, "");
 
@@ -35,4 +42,5 @@ public class MainCarActivity extends CarActivity {
         webview.getSettings().setDomStorageEnabled(true);
         webview.loadUrl(nsURL);
     }
+
 }
