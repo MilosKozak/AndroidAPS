@@ -65,4 +65,7 @@
     <color name="notificationLow">#ff827c</color>
     <color name="notificationInfo">#009705</color>
 
+
+    <color name="car_primary">@color/car_body1</color>
+    <color name="car_accent">@color/car_red_700</color>
 </resources>

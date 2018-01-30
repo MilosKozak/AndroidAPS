@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.NotificationCompat;
 
+import com.google.android.apps.auto.sdk.notification.CarNotificationExtender;
 import com.squareup.otto.Subscribe;
 
 import info.nightscout.androidaps.Constants;
@@ -31,7 +32,7 @@ import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.utils.DecimalFormatter;
-
+import info.nightscout.utils.CarUtils;
 /**
  * Created by adrian on 23/12/16.
  */
@@ -170,6 +171,15 @@ public class PersistentNotificationPlugin implements PluginBase {
         builder.setContentTitle(line1);
         builder.setContentText(line2);
         builder.setSubText(line3);
+        builder.extend(new CarNotificationExtender.Builder()
+                .setTitle(line1)
+                .setSubtitle(line2)
+                .setActionIconResId(R.mipmap.yellowowl)
+                .setThumbnail(CarUtils.getCarBitmap(ctx,
+                        R.mipmap.yellowowl, R.color.car_primary, 128))
+                .setShouldShowAsHeadsUp(true)
+                .build());
+
 
         Intent resultIntent = new Intent(ctx, MainActivity.class);
 
@@ -184,6 +194,8 @@ public class PersistentNotificationPlugin implements PluginBase {
         builder.setContentIntent(resultPendingIntent);
         NotificationManager mNotificationManager =
                 (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+
 
         android.app.Notification notification = builder.build();
         mNotificationManager.notify(ONGOING_NOTIFICATION_ID, notification);
