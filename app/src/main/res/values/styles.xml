@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material">
@@ -28,5 +28,6 @@
         <item name="android:textSize">10sp</item>
     </style>
 
+    <style name="AppTheme.Car" parent="@style/CarAppTheme" tools:ignore="PrivateResource" />
     <!-- Preferences -->
 </resources>
