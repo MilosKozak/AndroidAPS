@@ -174,9 +174,9 @@ public class PersistentNotificationPlugin implements PluginBase {
         builder.extend(new CarNotificationExtender.Builder()
                 .setTitle(line1)
                 .setSubtitle(line2)
-                .setActionIconResId(R.mipmap.yellowowl)
+                .setActionIconResId(R.drawable.ic_notification)
                 .setThumbnail(CarUtils.getCarBitmap(ctx,
-                        R.mipmap.yellowowl, R.color.car_primary, 128))
+                        R.drawable.ic_notification, R.color.car_white, 128))
                 .setShouldShowAsHeadsUp(true)
                 .build());
 
