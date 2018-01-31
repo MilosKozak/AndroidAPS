@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import info.nightscout.androidaps.Config;
+import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
@@ -27,6 +28,7 @@ import info.nightscout.androidaps.db.ProfileSwitch;
 import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.db.Treatment;
+import info.nightscout.androidaps.events.EventAppInitialized;
 import info.nightscout.androidaps.interfaces.APSInterface;
 import info.nightscout.androidaps.interfaces.BgSourceInterface;
 import info.nightscout.androidaps.interfaces.ConstraintsInterface;
@@ -143,6 +145,7 @@ public class ConfigBuilderPlugin implements PluginBase, ConstraintsInterface, Tr
     public void initialize() {
         pluginList = MainApp.getPluginsList();
         loadSettings();
+        MainApp.bus().post(new EventAppInitialized());
     }
 
     public void storeSettings() {
@@ -758,14 +761,17 @@ public class ConfigBuilderPlugin implements PluginBase, ConstraintsInterface, Tr
         return "Default";
     }
 
+    @Nullable
     public Profile getProfile() {
         return getProfile(System.currentTimeMillis());
     }
 
     public String getProfileUnits() {
-        return getProfile().getUnits();
+        Profile profile = getProfile();
+        return profile != null ? profile.getUnits() : Constants.MGDL;
     }
 
+    @Nullable
     public Profile getProfile(long time) {
         if (activeTreatments == null)
             return null; //app not initialized

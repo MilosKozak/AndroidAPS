@@ -51,6 +51,8 @@ import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.PumpDanaR.activities.DanaRNSHistorySync;
 import info.nightscout.androidaps.plugins.PumpVirtual.VirtualPumpPlugin;
+import info.nightscout.utils.DateUtil;
+import info.nightscout.utils.NSUpload;
 import info.nightscout.utils.PercentageSplitter;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
@@ -505,7 +507,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return 0;
     }
 
-    public int deleteDbRequestbyMongoId(String action, String id) {
+    public void deleteDbRequestbyMongoId(String action, String id) {
         try {
             QueryBuilder<DbRequest, String> queryBuilder = getDaoDbRequest().queryBuilder();
             Where where = queryBuilder.where();
@@ -513,16 +515,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             queryBuilder.limit(10L);
             PreparedQuery<DbRequest> preparedQuery = queryBuilder.prepare();
             List<DbRequest> dbList = getDaoDbRequest().query(preparedQuery);
-            if (dbList.size() != 1) {
-                log.error("deleteDbRequestbyMongoId query size: " + dbList.size());
-            } else {
-                //log.debug("Treatment findTreatmentById found: " + trList.get(0).log());
-                return delete(dbList.get(0));
+            log.error("deleteDbRequestbyMongoId query size: " + dbList.size());
+            for (DbRequest r : dbList) {
+                delete(r);
             }
         } catch (SQLException e) {
             log.error("Unhandled exception", e);
         }
-        return 0;
     }
 
     public void deleteAllDbRequests() {
@@ -1471,7 +1470,21 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         } catch (SQLException e) {
             log.error("Unhandled exception", e);
         }
-        return new ArrayList<CareportalEvent>();
+        return new ArrayList<>();
+    }
+
+    public List<CareportalEvent> getCareportalEventsFromTime(boolean ascending) {
+        try {
+            List<CareportalEvent> careportalEvents;
+            QueryBuilder<CareportalEvent, Long> queryBuilder = getDaoCareportalEvents().queryBuilder();
+            queryBuilder.orderBy("date", ascending);
+            PreparedQuery<CareportalEvent> preparedQuery = queryBuilder.prepare();
+            careportalEvents = getDaoCareportalEvents().query(preparedQuery);
+            return careportalEvents;
+        } catch (SQLException e) {
+            log.error("Unhandled exception", e);
+        }
+        return new ArrayList<>();
     }
 
     public void deleteCareportalEventById(String _id) {
@@ -1685,10 +1698,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 if (profile != null) {
                     profileSwitch.profileJson = profile.getData().toString();
                     log.debug("Profile switch prefilled with JSON from local store");
+                    // Update data in NS
+                    NSUpload.updateProfileSwitch(profileSwitch);
                 } else {
-                    Notification notification = new Notification(Notification.NO_LOCALE_PROFILE_FOUND, MainApp.sResources.getString(R.string.nolocaleprofilefound), Notification.URGENT);
-                    MainApp.bus().post(new EventNewNotification(notification));
-                    log.debug("JSON for profile switch doesn't exist. Ignoring ...");
+                    log.debug("JSON for profile switch doesn't exist. Ignoring: " + trJson.toString());
                     return;
                 }
             }
