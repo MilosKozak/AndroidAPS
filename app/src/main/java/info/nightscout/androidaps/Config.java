@@ -25,6 +25,7 @@ public class Config {
 
 
     public static final boolean displayDeviationSlope = true;
+    public static final boolean smbDebug = true;
 
     public static final boolean detailedLog = true;
     public static final boolean logFunctionCalls = true;
