@@ -30,6 +30,12 @@
                 android:key="wear_showbgi"
                 android:summary="@string/wear_showbgi_summary"
                 android:title="@string/wear_showbgi_title" />
+
+            <SwitchPreference
+                android:defaultValue="true"
+                android:key="wear_smb_progress"
+                android:summary="@string/wear_smb_progress_summary"
+                android:title="@string/wear_smb_progress_title" />
         </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>
