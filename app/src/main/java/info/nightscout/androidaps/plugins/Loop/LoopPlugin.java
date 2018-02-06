@@ -35,6 +35,8 @@ import info.nightscout.androidaps.plugins.Loop.events.EventLoopResult;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopSetLastRunGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventLoopUpdateGui;
 import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
+import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
+import info.nightscout.androidaps.plugins.Overview.notifications.NotificationStore;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.utils.NSUpload;
@@ -295,7 +297,14 @@ public class LoopPlugin implements PluginBase {
             // safety check for multiple SMBs
             long lastBolusTime = TreatmentsPlugin.getPlugin().getLastBolusTime();
             if (lastBolusTime != 0 && lastBolusTime + 3 * 60 * 1000 > System.currentTimeMillis()) {
-                log.debug("SMB requsted but still in 3 min interval");
+                if (Config.smbDebug) {
+                    info.nightscout.androidaps.plugins.Overview.notifications.Notification notification
+                            = new info.nightscout.androidaps.plugins.Overview.notifications.Notification(info.nightscout.androidaps.plugins.Overview.notifications.Notification.INFO,
+                            "SMB blocked, last SMB delivered " + ((System.currentTimeMillis() - lastBolusTime) / 1000) + "s ago",
+                            info.nightscout.androidaps.plugins.Overview.notifications.Notification.INFO);
+                MainApp.bus().post(new EventNewNotification(notification));
+                }
+                log.debug("SMB requested but still in 3 min interval");
                 resultAfterConstraints.smb = 0;
             }
 

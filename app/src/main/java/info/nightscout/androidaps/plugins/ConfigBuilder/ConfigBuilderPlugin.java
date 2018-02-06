@@ -412,7 +412,11 @@ public class ConfigBuilderPlugin implements PluginBase, ConstraintsInterface, Tr
         if (request.bolusRequested) {
             long lastBolusTime = getLastBolusTime();
             if (lastBolusTime != 0 && lastBolusTime + 3 * 60 * 1000 > System.currentTimeMillis()) {
-                log.debug("SMB requsted but still in 3 min interval");
+                Notification notification = new Notification(Notification.INFO,
+                        "SMB blocked, last SMB delivered " + ((System.currentTimeMillis() - lastBolusTime) / 1000) + "s ago",
+                        Notification.INFO);
+                MainApp.bus().post(new EventNewNotification(notification));
+                log.debug("SMB requested but still in 3 min interval");
             } else {
                 DetailedBolusInfo detailedBolusInfo = new DetailedBolusInfo();
                 detailedBolusInfo.eventType = CareportalEvent.CORRECTIONBOLUS;
