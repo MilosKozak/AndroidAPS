@@ -27,7 +27,7 @@ public class CommandBolus extends Command {
         PumpEnactResult r = ConfigBuilderPlugin.getActivePump().deliverTreatment(detailedBolusInfo);
 
         BolusProgressDialog.bolusEnded = true;
-        MainApp.bus().post(new EventDismissBolusprogressIfRunning(r));
+        MainApp.bus().post(new EventDismissBolusprogressIfRunning(detailedBolusInfo, r));
 
         if (callback != null)
             callback.result(r).run();

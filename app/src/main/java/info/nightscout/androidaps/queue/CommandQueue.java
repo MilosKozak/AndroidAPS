@@ -176,7 +176,7 @@ public class CommandQueue {
             // not when the Bolus command is starting. The command closes the dialog upon completion).
             showBolusProgressDialog(detailedBolusInfo.insulin, detailedBolusInfo.context);
             // Notify Wear about upcoming bolus
-            MainApp.bus().post(new EventBolusRequested(detailedBolusInfo.insulin));
+            MainApp.bus().post(new EventBolusRequested(detailedBolusInfo));
         }
 
         notifyAboutNewCommand();

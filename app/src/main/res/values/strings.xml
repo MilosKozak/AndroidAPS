@@ -928,5 +928,7 @@
     <string name="enablesmbwithhightemptarget">Enable SMB with high temp targets</string>
     <string name="enablesmbwithhightemptarget_summary">Enable SMB when there is high temp target active (exercise)</string>
     <string name="let_temp_basal_run">Let current temp basal run</string>
+    <string name="wear_smb_progress_title">SMB progress</string>
+    <string name="wear_smb_progress_summary">Show progress for SMBs</string>
 </resources>
 

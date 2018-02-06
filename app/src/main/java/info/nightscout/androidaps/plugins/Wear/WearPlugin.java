@@ -5,7 +5,6 @@ import android.content.Intent;
 
 import com.squareup.otto.Subscribe;
 
-import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.events.EventBolusRequested;
@@ -48,7 +47,7 @@ public class WearPlugin implements PluginBase {
         return wearPlugin;
     }
 
-    WearPlugin(Context ctx) {
+    private WearPlugin(Context ctx) {
         this.ctx = ctx;
         MainApp.bus().register(this);
     }
@@ -197,6 +196,10 @@ public class WearPlugin implements PluginBase {
 
     @Subscribe
     public void onStatusEvent(final EventOverviewBolusProgress ev) {
+        boolean showSMBProgress = SP.getBoolean("wear_smb_progress", true);
+        if (ev.t != null && ev.t.isSMB && !showSMBProgress) {
+            return;
+        }
         Intent intent = new Intent(ctx, WatchUpdaterService.class).setAction(WatchUpdaterService.ACTION_SEND_BOLUSPROGRESS);
         intent.putExtra("progresspercent", ev.percent);
         intent.putExtra("progressstatus", ev.status);
@@ -205,7 +208,11 @@ public class WearPlugin implements PluginBase {
 
     @Subscribe
     public void onStatusEvent(final EventBolusRequested ev) {
-        String status = String.format(MainApp.sResources.getString(R.string.bolusrequested), ev.getAmount());
+        boolean showSMBProgress = SP.getBoolean("wear_smb_progress", true);
+        if (ev.detailedBolusInfo.isSMB && showSMBProgress) {
+            return;
+        }
+        String status = String.format(MainApp.sResources.getString(R.string.bolusrequested), ev.detailedBolusInfo.insulin);
         Intent intent = new Intent(ctx, WatchUpdaterService.class).setAction(WatchUpdaterService.ACTION_SEND_BOLUSPROGRESS);
         intent.putExtra("progresspercent", 0);
         intent.putExtra("progressstatus", status);

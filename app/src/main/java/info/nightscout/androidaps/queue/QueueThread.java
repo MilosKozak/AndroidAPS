@@ -56,14 +56,14 @@ public class QueueThread extends Thread {
                 long secondsElapsed = (System.currentTimeMillis() - connectionStartTime) / 1000;
 
                 if (!pump.isConnected() && secondsElapsed > Constants.PUMP_MAX_CONNECTION_TIME_IN_SECONDS) {
-                    MainApp.bus().post(new EventDismissBolusprogressIfRunning(null));
+                    MainApp.bus().post(new EventDismissBolusprogressIfRunning(null,null));
                     MainApp.bus().post(new EventPumpStatusChanged(MainApp.sResources.getString(R.string.connectiontimedout)));
                     log.debug("QUEUE: timed out");
                     pump.stopConnecting();
 
                     //BLUETOOTH-WATCHDOG
                     boolean watchdog = SP.getBoolean(R.string.key_btwatchdog, false);
-                    long last_watchdog = SP.getLong(R.string.key_btwatchdog_lastbark, 0l);
+                    long last_watchdog = SP.getLong(R.string.key_btwatchdog_lastbark, 0L);
                     watchdog = watchdog && System.currentTimeMillis() - last_watchdog > (Constants.MIN_WATCHDOG_INTERVAL_IN_SECONDS * 1000);
                     if(watchdog) {
                         log.debug("BT watchdog - toggeling the phonest bluetooth");
