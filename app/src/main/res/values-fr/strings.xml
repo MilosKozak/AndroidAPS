@@ -197,7 +197,7 @@
     <string name="it_lang">Italien</string>
     <string name="ru_lang">Russe</string>
     <string name="sv_lang">Suédois</string>
-    <string name="openapsma_maxbasal_title">"U/hr Max avec laquelle le débit temp pourra être programmé "</string>
+    <string name="openapsma_maxbasal_title">"U/hr Max avec laquelle le débit tempo pourra être programmé "</string>
     <string name="openapsma_maxbasal_summary">Cette valeur est appelée basal maximum dans le contexte OpenAPS</string>
     <string name="openapsma_maxiob_title">Le Basal IR maximum que l\'OpenAPS pourra délivrer [U]</string>
     <string name="openapsma_maxiob_summary">Cette valeur est appelée Max IOB dans le contexte OpenAPS</string>
@@ -447,7 +447,7 @@
     <string name="smscommunicator_remotecalibrationnotallowed">L\'étalonnage à distance n\'est pas autorisé</string>
     <string name="smscommunicator_calibrationsent">"Étalonnage envoyé. La récepetion doit être activée dans xDrip. "</string>
     <string name="smscommunicator_calibrationfailed">xDrip ne reçoit pas les étalonnages</string>
-    <string name="dont_show_again">Ne plus montrer ce message</string>
+    <string name="dont_show_again">Ne plus afficher ce message</string>
     <string name="pumpsuspendedclicktorefresh">Pompe suspendue. Cliquez pour actualiser le profile</string>
     <string name="pumpsuspended">Pompe suspendue</string>
     <string name="gettingpumpstatus">Obtenir l\'état de pompe</string>
@@ -615,12 +615,12 @@
     <string name="careportal_activity_label">ACTIVITÉ et FEEDBACK</string>
     <string name="careportal_question">Question</string>
     <string name="success">Succès</string>
-    <string name="danar_history_connectingfor" formatted="false">Se connecter pour %d s</string>
+    <string name="danar_history_connectingfor" formatted="false">Se connecter dans %d s</string>
     <string name="careportal_pump_label">POMPE</string>
     <string name="overview_newtempbasal_basalabsolute">"Valeur Basal [U/h] "</string>
     <string name="careportal_newnstreatment_duration_min_label">Durée [min]</string>
     <string name="insulin_oref_peak">Durée du Pic de la Courbe IR</string>
-    <string name="free_peak_oref">Réglage Durée Insuline Post Prandiale Oref</string>
+    <string name="free_peak_oref">Réglage durée insuline post prandiale Oref</string>
     <string name="insulin_peak_time">"Durée du Pic [min] "</string>
     <string name="rapid_acting_oref">"Insuline à Action Rapide Oref "</string>
     <string name="ultrarapid_oref">Insuline à Action Ultra Rapide Oref</string>
@@ -667,7 +667,7 @@
     <string name="executingrightnow">Commande exécutée à l\'instant</string>
     <string name="pumpdrivercorrected">Pilote pompe corrigé</string>
     <string name="pump_unreachable">"Pompe hors de portée "</string>
-    <string name="missed_bg_readings">Léctures de glycémie qui manquent</string>
+    <string name="missed_bg_readings">Léctures de glycémie manquantes</string>
     <string name="raise_notifications_as_android_notifications">Utiliser le système de notifications pour les alertes et les notifications</string>
     <string name="localalertsettings_title">Alertes locales</string>
     <string name="enable_missed_bg_readings_alert">Alerte si aucune donnée glycémique n’est reçue</string>
@@ -676,7 +676,7 @@
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">BT Watchdog</string>
     <string name="btwatchdog_summary">Ceci va arrêter le Bluetooth du tel pour une seconde si la pompe n’est pas connectée. Cela pourrait aider dans certains tél où la connexion Bluetooth reste bancale.</string>
-    <string name="DexcomG5">App Dexcom G5 (adaptée)</string>
+    <string name="DexcomG5">App Dexcom G5 (patched)</string>
     <string name="dexcomg5_nsupload_title">Télécharger Les données glycémiques sur NS</string>
     <string name="dexcomg5_upload">Paramètres de téléchargement du G5</string>
     <string name="customapp">APK personalisée pour le téléchargement</string>
@@ -685,7 +685,7 @@
     <string name="unsupportedfirmware">"Firmware pompe incompatible "</string>
     <string name="dexcomg5_xdripupload_title">Transmettre les données G sur xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Dans xDrip+ veuillez séléctionner 640g/Eversense comme source de données</string>
-    <string name="nsclientbg">"G NSClient "</string>
+    <string name="nsclientbg">" NSClient "</string>
     <string name="minimalbasalvaluereplaced">"Valeur du basal remplacée par la valeur minimale supportée "</string>
     <string name="overview_editquickwizard_usebg">Calcul de G</string>
     <string name="overview_editquickwizard_usebolusiob">Calcul IR du Bolus</string>
