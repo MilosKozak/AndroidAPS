@@ -57,7 +57,7 @@ android {
         targetSdkVersion 23
         multiDexEnabled true
         versionCode 1500
-        version "1.58"
+        version "1.58-combo-phantom-fusion"
         buildConfigField "String", "VERSION", '"' + version + '"'
         buildConfigField "String", "BUILDVERSION", generateGitBuild()
 
@@ -157,6 +157,14 @@ android {
             buildConfigField "boolean", "G5UPLOADER", "true"
             buildConfigField "boolean", "PUMPCONTROL", "false"
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 }
 
