@@ -182,7 +182,7 @@ public class Notification {
     }
 
     public static boolean isAlarmForStaleData(){
-        long snoozedTo = SP.getLong("snoozedTo", 0L);
+/*        long snoozedTo = SP.getLong("snoozedTo", 0L);
         if(snoozedTo != 0L){
             if(System.currentTimeMillis() < SP.getLong("snoozedTo", 0L)) {
                 //log.debug("Alarm is snoozed for next "+(SP.getLong("snoozedTo", 0L)-System.currentTimeMillis())/1000+" seconds");
@@ -210,7 +210,7 @@ public class Notification {
         }
         //snoozing for threshold
         SP.putLong("snoozedTo", (long) (bgReading.date + (threshold * 1000 * 60L)));
-        //log.debug("New bg data is available Alarm is snoozed for next "+threshold*1000*60+" seconds");
+        //log.debug("New bg data is available Alarm is snoozed for next "+threshold*1000*60+" seconds");*/
         return false;
     }
 }
