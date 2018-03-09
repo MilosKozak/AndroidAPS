@@ -200,15 +200,16 @@ public class Notification {
 //        log.debug("bgReadingAgoMin value is:"+bgReadingAgoMin);
         //log.debug("Stale alarm snoozed to: "+(System.currentTimeMillis() - snoozedTo)/60000L);
         Double threshold = NSSettingsStatus.getInstance().getThreshold("alarmTimeagoWarnMins");
+//        String enabledInNS = NSSettingsStatus.getInstance().getStringOrNull("alarmTimeagoWarn");
 //	log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts);
 	// if no thresshold from Ns get it loccally - no local setings
 //        if(threshold == null) threshold = SP.getDouble(R.string.key_nsalarm_staledatavalue,15D);
         if(threshold == null) return false;
 	// No threshold of OpenAPS Alarm so using the one for BG
 	// Added OpenAPSEnabledAlerts to alarm check
-        if((bgReadingAgoMin > threshold)||(bgReadingAgoMin > threshold && openAPSEnabledAlerts)){
+        if((bgReadingAgoMin > threshold) && openAPSEnabledAlerts)
             return true;
-        }
+
         //snoozing for threshold
         SP.putLong("snoozedTo", (long) (bgReading.date + (threshold * 1000 * 60L)));
         //log.debug("New bg data is available Alarm is snoozed for next "+threshold*1000*60+" seconds");
