@@ -184,10 +184,10 @@ public class Notification {
     public static boolean isAlarmForStaleData(){
         long snoozedTo = SP.getLong("snoozedTo", 0L);
         if(snoozedTo != 0L){
-            if(System.currentTimeMillis() < SP.getLong("snoozedTo", 0L)) {
+            if(System.currentTimeMillis() < SP.getLong("snoozedTo", 0L))
                 //log.debug("Alarm is snoozed for next "+(SP.getLong("snoozedTo", 0L)-System.currentTimeMillis())/1000+" seconds");
                 return false;
-            }
+
         }
         BgReading bgReading = MainApp.getDbHelper().lastBg();
         if (bgReading == null)
@@ -200,17 +200,19 @@ public class Notification {
         //log.debug("bgReadingAgoMin value is:"+bgReadingAgoMin);
         //log.debug("Stale alarm snoozed to: "+(System.currentTimeMillis() - snoozedTo)/60000L);
         Double threshold = NSSettingsStatus.getInstance().getThreshold("alarmTimeagoWarnMins");
-	//log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts);
-	// if no thresshold from Ns get it loccally
-        if(threshold == null) threshold = SP.getDouble(R.string.key_nsalarm_staledatavalue,15D);
+	log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts+ " threshold "+threshold);
+	// if no thresshold from Ns get it loccally - not needed as local settings will be removed
+//        if(threshold == null) threshold = SP.getDouble(R.string.key_nsalarm_staledatavalue,15D);
+        if(threshold == null)
+            return false;
 	// No threshold of OpenAPS Alarm so using the one for BG 
 	// Added OpenAPSEnabledAlerts to alarm check
-        if((bgReadingAgoMin > threshold && SP.getBoolean(R.string.key_nsalarm_staledata, false))||(bgReadingAgoMin > threshold && openAPSEnabledAlerts)){
+        if((bgReadingAgoMin > threshold && openAPSEnabledAlerts))
             return true;
-        }
+
         //snoozing for threshold
         SP.putLong("snoozedTo", (long) (bgReading.date + (threshold * 1000 * 60L)));
-        //log.debug("New bg data is available Alarm is snoozed for next "+threshold*1000*60+" seconds");
+//        log.debug("New bg data is available Alarm is snoozed for next "+threshold*1000*60+" seconds");
         return false;
     }
 }
