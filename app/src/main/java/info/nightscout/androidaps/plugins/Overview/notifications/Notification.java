@@ -195,12 +195,12 @@ public class Notification {
         long bgReadingAgo = System.currentTimeMillis() - bgReading.date;
         int bgReadingAgoMin = (int) (bgReadingAgo / (1000 * 60));
         // Added for testing
-         bgReadingAgoMin = 20;
+//         bgReadingAgoMin = 20;
         boolean openAPSEnabledAlerts = NSSettingsStatus.getInstance().openAPSEnabledAlerts();
-        log.debug("bgReadingAgoMin value is:"+bgReadingAgoMin);
+//        log.debug("bgReadingAgoMin value is:"+bgReadingAgoMin);
         //log.debug("Stale alarm snoozed to: "+(System.currentTimeMillis() - snoozedTo)/60000L);
         Double threshold = NSSettingsStatus.getInstance().getThreshold("alarmTimeagoWarnMins");
-	log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts);
+//	log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts);
 	// if no thresshold from Ns get it loccally - no local setings
 //        if(threshold == null) threshold = SP.getDouble(R.string.key_nsalarm_staledatavalue,15D);
         if(threshold == null) return false;
