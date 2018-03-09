@@ -131,7 +131,7 @@ public class Notification {
                 this.id = NSALARM;
                 this.level = NORMAL;
                 this.text = nsAlarm.getTile();
-                if (isAlarmForLow() && SP.getBoolean(R.string.key_nsalarm_low, false) || isAlarmForHigh() && SP.getBoolean(R.string.key_nsalarm_high, false) || isAlarmForStaleData() && SP.getBoolean(R.string.key_nsalarm_staledata, false))
+                if (isAlarmForLow() && SP.getBoolean(R.string.key_nsalarm_low, false) || isAlarmForHigh() && SP.getBoolean(R.string.key_nsalarm_high, false) || isAlarmForStaleData())
                     this.soundId = R.raw.alarm;
                 break;
             case 2:
@@ -149,10 +149,10 @@ public class Notification {
             return true;
         if (level == ANNOUNCEMENT)
             return true;
-        if (level == NORMAL && isAlarmForLow() && SP.getBoolean(R.string.key_nsalarm_low, false) || isAlarmForHigh() && SP.getBoolean(R.string.key_nsalarm_high, false) || isAlarmForStaleData() && SP.getBoolean(R.string.key_nsalarm_staledata, false)) {
+        if (level == NORMAL && isAlarmForLow() && SP.getBoolean(R.string.key_nsalarm_low, false) || isAlarmForHigh() && SP.getBoolean(R.string.key_nsalarm_high, false) || isAlarmForStaleData() ) {
             return true;
         }
-        if (level == URGENT && isAlarmForLow() && SP.getBoolean(R.string.key_nsalarm_urgent_low, false) || isAlarmForHigh() && SP.getBoolean(R.string.key_nsalarm_urgent_high, false) || isAlarmForStaleData() && SP.getBoolean(R.string.key_nsalarm_urgent_staledata, false))
+        if (level == URGENT && isAlarmForLow() && SP.getBoolean(R.string.key_nsalarm_urgent_low, false) || isAlarmForHigh() && SP.getBoolean(R.string.key_nsalarm_urgent_high, false) || isAlarmForStaleData())
             return true;
         return false;
     }
@@ -184,10 +184,10 @@ public class Notification {
     public static boolean isAlarmForStaleData(){
         long snoozedTo = SP.getLong("snoozedTo", 0L);
         if(snoozedTo != 0L){
-            if(System.currentTimeMillis() < SP.getLong("snoozedTo", 0L))
-                //log.debug("Alarm is snoozed for next "+(SP.getLong("snoozedTo", 0L)-System.currentTimeMillis())/1000+" seconds");
+            if(System.currentTimeMillis() < SP.getLong("snoozedTo", 0L)) {
+//                log.debug("Alarm is snoozed for next "+(SP.getLong("snoozedTo", 0L)-System.currentTimeMillis())/1000+" seconds");
                 return false;
-
+            }
         }
         BgReading bgReading = MainApp.getDbHelper().lastBg();
         if (bgReading == null)
@@ -195,24 +195,23 @@ public class Notification {
         long bgReadingAgo = System.currentTimeMillis() - bgReading.date;
         int bgReadingAgoMin = (int) (bgReadingAgo / (1000 * 60));
         // Added for testing
-        // bgReadingAgoMin = 20;
+         bgReadingAgoMin = 20;
         boolean openAPSEnabledAlerts = NSSettingsStatus.getInstance().openAPSEnabledAlerts();
-        //log.debug("bgReadingAgoMin value is:"+bgReadingAgoMin);
+        log.debug("bgReadingAgoMin value is:"+bgReadingAgoMin);
         //log.debug("Stale alarm snoozed to: "+(System.currentTimeMillis() - snoozedTo)/60000L);
         Double threshold = NSSettingsStatus.getInstance().getThreshold("alarmTimeagoWarnMins");
-	log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts+ " threshold "+threshold);
-	// if no thresshold from Ns get it loccally - not needed as local settings will be removed
+	log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts);
+	// if no thresshold from Ns get it loccally - no local setings
 //        if(threshold == null) threshold = SP.getDouble(R.string.key_nsalarm_staledatavalue,15D);
-        if(threshold == null)
-            return false;
-	// No threshold of OpenAPS Alarm so using the one for BG 
+        if(threshold == null) return false;
+	// No threshold of OpenAPS Alarm so using the one for BG
 	// Added OpenAPSEnabledAlerts to alarm check
-        if((bgReadingAgoMin > threshold && openAPSEnabledAlerts))
+        if((bgReadingAgoMin > threshold)||(bgReadingAgoMin > threshold && openAPSEnabledAlerts)){
             return true;
-
+        }
         //snoozing for threshold
         SP.putLong("snoozedTo", (long) (bgReading.date + (threshold * 1000 * 60L)));
-//        log.debug("New bg data is available Alarm is snoozed for next "+threshold*1000*60+" seconds");
+        //log.debug("New bg data is available Alarm is snoozed for next "+threshold*1000*60+" seconds");
         return false;
     }
 }
