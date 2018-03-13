@@ -1,9 +1,10 @@
 language: android
 jdk: oraclejdk8
 env:
+  global:
   - testCoverageEnabled=true
   matrix:
-    - ANDROID_TARGET=android-23 ANDROID_ABI=x86
+  - ANDROID_TARGET=android-23 ANDROID_ABI=x86
 android:
   components:
   - platform-tools
