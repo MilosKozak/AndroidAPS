@@ -240,7 +240,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             log.error("Unhandled exception", e);
         }
         VirtualPumpPlugin.setFakingStatus(true);
-        scheduleBgChange(null, false, false); // trigger refresh
+        scheduleBgChange(null, false); // trigger refresh
         scheduleTemporaryBasalChange();
         scheduleTreatmentChange(null);
         scheduleExtendedBolusChange();
@@ -373,7 +373,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             if (old == null) {
                 getDaoBgReadings().create(bgReading);
                 log.debug("BG: New record from: " + from + " " + bgReading.toString());
-                scheduleBgChange(bgReading, true, isFromActiveBgSource);
+                scheduleBgChange(bgReading, isFromActiveBgSource);
                 return true;
             }
             if (!old.isEqual(bgReading)) {
@@ -381,7 +381,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 old.copyFrom(bgReading);
                 getDaoBgReadings().update(old);
                 log.debug("BG: Updating record from: " + from + " New data: " + old.toString());
-                scheduleBgChange(bgReading, false, isFromActiveBgSource);
+                scheduleBgChange(bgReading, isFromActiveBgSource);
                 return false;
             }
         } catch (SQLException e) {
@@ -399,11 +399,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    private static void scheduleBgChange(@Nullable final BgReading bgReading, boolean isNew, boolean isFromActiveBgSource) {
+    private static void scheduleBgChange(@Nullable final BgReading bgReading, boolean isFromActiveBgSource) {
         class PostRunnable implements Runnable {
             public void run() {
                 log.debug("Firing EventNewBg");
-                MainApp.bus().post(new EventNewBG(bgReading, isNew, isFromActiveBgSource));
+                MainApp.bus().post(new EventNewBG(bgReading, isFromActiveBgSource));
                 scheduledBgPost = null;
             }
         }

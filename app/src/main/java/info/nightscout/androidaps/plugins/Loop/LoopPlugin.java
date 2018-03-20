@@ -164,7 +164,7 @@ public class LoopPlugin implements PluginBase {
             return;
 
         EventNewBG bgEv = (EventNewBG) ev.cause;
-        if (bgEv.isNew && bgEv.isFromActiveBgSource && bgEv.isCurrent()) {
+        if (bgEv.isFromActiveBgSource && bgEv.isCurrent()) {
             invoke("New BG", true);
         }
     }
