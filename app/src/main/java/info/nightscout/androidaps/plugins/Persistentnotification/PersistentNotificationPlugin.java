@@ -255,7 +255,7 @@ public class PersistentNotificationPlugin implements PluginBase {
 
     @Subscribe
     public void onStatusEvent(final EventNewBG ev) {
-        if (ev.isFromActiveBgSource && ev.isNew && ev.isCurrent())
+        if (ev.isFromActiveBgSource && ev.isCurrent())
             updateNotification();
     }
 
