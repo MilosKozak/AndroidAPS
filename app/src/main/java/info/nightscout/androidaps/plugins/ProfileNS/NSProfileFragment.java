@@ -81,7 +81,6 @@ public class NSProfileFragment extends SubscriberFragment {
     protected void updateGUI() {
         if (MainApp.getConfigBuilder().getProfile() == null) {
             noProfile.setVisibility(View.VISIBLE);
-            return;
         } else {
             noProfile.setVisibility(View.GONE);
         }
@@ -117,10 +116,12 @@ public class NSProfileFragment extends SubscriberFragment {
                 target.setText(profile.getTargetList());
                 basalGraph.show(profile);
             }
-            if (profile.isValid("NSProfileFragment"))
+            if (profile.isValid("NSProfileFragment")) {
                 invalidProfile.setVisibility(View.GONE);
-            else
+                noProfile.setVisibility(View.GONE);
+            } else {
                 invalidProfile.setVisibility(View.VISIBLE);
+            }
         }
     }
 
