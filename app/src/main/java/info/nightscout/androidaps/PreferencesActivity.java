@@ -1,11 +1,9 @@
 package info.nightscout.androidaps;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
-import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
@@ -16,14 +14,14 @@ import android.text.TextUtils;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.plugins.Careportal.CareportalPlugin;
 import info.nightscout.androidaps.plugins.ConstraintsSafety.SafetyPlugin;
 import info.nightscout.androidaps.plugins.Insulin.InsulinOrefFreePeakPlugin;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
-import info.nightscout.androidaps.plugins.NSClientInternal.NSClientInternalPlugin;
+import info.nightscout.androidaps.plugins.NSClientInternal.NSClientPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.OpenAPSMAPlugin;
+import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRS.DanaRSPlugin;
@@ -67,7 +65,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
         if (key.equals("short_tabtitles")) {
             MainApp.bus().post(new EventRefreshGui());
         }
-        if (key.equals("openapsama_useautosens") && SP.getBoolean("openapsama_useautosens", false)) {
+        if (key.equals(MainApp.gs(R.string.key_openapsama_useautosens)) && SP.getBoolean(R.string.key_openapsama_useautosens, false)) {
             OKDialog.show(this, MainApp.sResources.getString(R.string.configbuilder_sensitivity), MainApp.sResources.getString(R.string.sensitivity_warning), null);
         }
         updatePrefSummary(myPreferenceFragment.getPreference(key));
@@ -155,7 +153,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                 addPreferencesFromResourceIfEnabled(SensitivityWeightedAveragePlugin.getPlugin(), PluginBase.SENSITIVITY);
                 addPreferencesFromResourceIfEnabled(SensitivityOref0Plugin.getPlugin(), PluginBase.SENSITIVITY);
 
-                if (Config.DANAR) {
+                if (Config.HWPUMPS) {
                     addPreferencesFromResourceIfEnabled(DanaRPlugin.getPlugin(), PluginBase.PUMP);
                     addPreferencesFromResourceIfEnabled(DanaRKoreanPlugin.getPlugin(), PluginBase.PUMP);
                     addPreferencesFromResourceIfEnabled(DanaRv2Plugin.getPlugin(), PluginBase.PUMP);
@@ -175,7 +173,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
 
                 addPreferencesFromResourceIfEnabled(InsulinOrefFreePeakPlugin.getPlugin(), PluginBase.INSULIN);
 
-                addPreferencesFromResourceIfEnabled(NSClientInternalPlugin.getPlugin(), PluginBase.GENERAL);
+                addPreferencesFromResourceIfEnabled(NSClientPlugin.getPlugin(), PluginBase.GENERAL);
                 addPreferencesFromResourceIfEnabled(SmsCommunicatorPlugin.getPlugin(), PluginBase.GENERAL);
 
                 if (!Config.NSCLIENT && !Config.G5UPLOADER) {

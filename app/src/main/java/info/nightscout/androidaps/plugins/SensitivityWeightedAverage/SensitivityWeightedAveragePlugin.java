@@ -84,7 +84,7 @@ public class SensitivityWeightedAveragePlugin implements PluginBase, Sensitivity
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (type == SENSITIVITY) this.fragmentEnabled = fragmentEnabled;
     }
 
@@ -123,6 +123,13 @@ public class SensitivityWeightedAveragePlugin implements PluginBase, Sensitivity
             return new AutosensResult();
         }
 
+
+        Profile profile = MainApp.getConfigBuilder().getProfile();
+        if (profile == null) {
+            if (Config.logAutosensData)
+                log.debug("No profile available");
+            return new AutosensResult();
+        }
 
         String pastSensitivity = "";
         int index = 0;
@@ -180,8 +187,6 @@ public class SensitivityWeightedAveragePlugin implements PluginBase, Sensitivity
         if (weights == 0) {
             return new AutosensResult();
         }
-
-        Profile profile = MainApp.getConfigBuilder().getProfile();
 
         double sens = profile.getIsf();
 

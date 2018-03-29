@@ -1,7 +1,5 @@
 package info.nightscout.androidaps;
 
-import com.j256.ormlite.stmt.query.In;
-
 /**
  * Created by mike on 07.06.2016.
  */
@@ -14,10 +12,11 @@ public class Constants {
 
     public static final double defaultDIA = 3d;
 
-    public static final double basalAbsoluteOnlyForCheckLimit = 10101010d;
-    public static final Integer basalPercentOnlyForCheckLimit = 10101010;
-    public static final double bolusOnlyForCheckLimit = 10101010d;
-    public static final Integer carbsOnlyForCheckLimit = 10101010;
+    public static final Double REALLYHIGHBASALRATE = 1111111d;
+    public static final Integer REALLYHIGHPERCENTBASALRATE = 1111111;
+    public static final double REALLYHIGHBOLUS = 1111111d;
+    public static final Integer REALLYHIGHCARBS = 1111111;
+    public static final double REALLYHIGHIOB = 1111111d;
 
     public static final Integer notificationID = 556677;
 
@@ -37,6 +36,17 @@ public class Constants {
 
     //DanaR
     public static final double dailyLimitWarning = 0.95d;
+
+    // Temp targets
+    public static final int defaultActivityTTDuration = 90; // min
+    public static final double defaultActivityTTmgdl = 90d;
+    public static final double defaultActivityTTmmol = 8d;
+    public static final int defaultEatingSoonTTDuration = 45; // min
+    public static final double defaultEatingSoonTTmgdl = 140d;
+    public static final double defaultEatingSoonTTmmol = 5d;
+    public static final int defaultHypoTTDuration = 30; // min
+    public static final double defaultHypoTTmgdl = 120d;
+    public static final double defaultHypoTTmmol = 6.5d;
 
     //NSClientInternal
     public static final int MAX_LOG_LINES = 100;

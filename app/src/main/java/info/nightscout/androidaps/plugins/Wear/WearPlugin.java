@@ -31,8 +31,8 @@ import info.nightscout.utils.SP;
 
 public class WearPlugin implements PluginBase {
 
-    private static boolean fragmentEnabled = true;
-    private boolean fragmentVisible = true;
+    private static boolean fragmentEnabled = false;
+    private boolean fragmentVisible = false;
     private static WatchUpdaterService watchUS;
     private final Context ctx;
 
@@ -107,7 +107,7 @@ public class WearPlugin implements PluginBase {
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (type == GENERAL) {
             this.fragmentEnabled = fragmentEnabled;
             if (watchUS != null) {

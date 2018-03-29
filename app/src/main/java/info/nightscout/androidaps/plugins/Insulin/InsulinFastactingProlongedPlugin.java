@@ -4,6 +4,7 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Iob;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.interfaces.InsulinInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
@@ -71,7 +72,7 @@ public class InsulinFastactingProlongedPlugin implements PluginBase, InsulinInte
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (type == INSULIN) this.fragmentEnabled = fragmentEnabled;
     }
 

@@ -20,15 +20,17 @@ import net.danlew.android.joda.JodaTimeAndroid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.ArrayList;
 
+import ch.qos.logback.classic.LoggerContext;
 import info.nightscout.androidaps.Services.Intents;
+import info.nightscout.androidaps.data.ConstraintChecker;
 import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.interfaces.InsulinInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.plugins.Actions.ActionsFragment;
 import info.nightscout.androidaps.plugins.Careportal.CareportalPlugin;
-import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.ConstraintsObjectives.ObjectivesPlugin;
 import info.nightscout.androidaps.plugins.ConstraintsSafety.SafetyPlugin;
@@ -40,21 +42,24 @@ import info.nightscout.androidaps.plugins.Insulin.InsulinOrefRapidActingPlugin;
 import info.nightscout.androidaps.plugins.Insulin.InsulinOrefUltraRapidActingPlugin;
 import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugin;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
-import info.nightscout.androidaps.plugins.NSClientInternal.NSClientInternalPlugin;
+import info.nightscout.androidaps.plugins.NSClientInternal.NSClientPlugin;
 import info.nightscout.androidaps.plugins.NSClientInternal.receivers.AckAlarmReceiver;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.OpenAPSMAPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.plugins.Overview.OverviewPlugin;
+import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
+import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.Persistentnotification.PersistentNotificationPlugin;
 import info.nightscout.androidaps.plugins.ProfileLocal.LocalProfilePlugin;
 import info.nightscout.androidaps.plugins.ProfileNS.NSProfilePlugin;
 import info.nightscout.androidaps.plugins.ProfileSimple.SimpleProfilePlugin;
+import info.nightscout.androidaps.plugins.PumpCombo.ComboPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRS.DanaRSPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRv2.DanaRv2Plugin;
-import info.nightscout.androidaps.plugins.PumpInsight.InsightPumpPlugin;
+import info.nightscout.androidaps.plugins.PumpInsight.InsightPlugin;
 import info.nightscout.androidaps.plugins.PumpMDI.MDIPlugin;
 import info.nightscout.androidaps.plugins.PumpVirtual.VirtualPumpPlugin;
 import info.nightscout.androidaps.plugins.SensitivityAAPS.SensitivityAAPSPlugin;
@@ -87,6 +92,7 @@ public class MainApp extends Application {
 
     private static DatabaseHelper sDatabaseHelper = null;
     private static ConfigBuilderPlugin sConfigBuilder = null;
+    private static ConstraintChecker sConstraintsChecker = null;
 
     private static ArrayList<PluginBase> pluginsList = null;
 
@@ -95,11 +101,15 @@ public class MainApp extends Application {
     private static AckAlarmReceiver ackAlarmReciever = new AckAlarmReceiver();
     private LocalBroadcastManager lbm;
 
+    public static boolean devBranch;
+    public static boolean engineeringMode;
+
     @Override
     public void onCreate() {
         super.onCreate();
         sInstance = this;
         sResources = getResources();
+        sConstraintsChecker = new ConstraintChecker(this);
 
         try {
             if (FabricPrivacy.fabricEnabled()) {
@@ -115,6 +125,12 @@ public class MainApp extends Application {
 
         log.info("Version: " + BuildConfig.VERSION_NAME);
         log.info("BuildVersion: " + BuildConfig.BUILDVERSION);
+
+        String extFilesDir = this.getLogDirectory();
+        File engineeringModeSemaphore = new File(extFilesDir,"engineering_mode");
+
+        engineeringMode = engineeringModeSemaphore.exists() && engineeringModeSemaphore.isFile();
+        devBranch = BuildConfig.VERSION.contains("dev");
 
         sBus = Config.logEvents ? new LoggingBus(ThreadEnforcer.ANY) : new Bus(ThreadEnforcer.ANY);
 
@@ -134,12 +150,13 @@ public class MainApp extends Application {
             pluginsList.add(SensitivityOref0Plugin.getPlugin());
             pluginsList.add(SensitivityAAPSPlugin.getPlugin());
             pluginsList.add(SensitivityWeightedAveragePlugin.getPlugin());
-            if (Config.DANAR) pluginsList.add(DanaRPlugin.getPlugin());
-            if (Config.DANAR) pluginsList.add(DanaRKoreanPlugin.getPlugin());
-            if (Config.DANAR) pluginsList.add(DanaRv2Plugin.getPlugin());
-            if (Config.DANAR) pluginsList.add(DanaRSPlugin.getPlugin());
+            if (Config.HWPUMPS) pluginsList.add(DanaRPlugin.getPlugin());
+            if (Config.HWPUMPS) pluginsList.add(DanaRKoreanPlugin.getPlugin());
+            if (Config.HWPUMPS) pluginsList.add(DanaRv2Plugin.getPlugin());
+            if (Config.HWPUMPS) pluginsList.add(DanaRSPlugin.getPlugin());
             pluginsList.add(CareportalPlugin.getPlugin());
-            // if (Config.DANAR) pluginsList.add(InsightPumpPlugin.getPlugin()); // <-- Enable Insight plugin here
+            if (Config.HWPUMPS && engineeringMode) pluginsList.add(InsightPlugin.getPlugin()); // <-- Enable Insight plugin here
+            if (Config.HWPUMPS && engineeringMode) pluginsList.add(ComboPlugin.getPlugin()); // <-- Enable Combo plugin here
             if (Config.MDI) pluginsList.add(MDIPlugin.getPlugin());
             if (Config.VIRTUALPUMP) pluginsList.add(VirtualPumpPlugin.getPlugin());
             if (Config.APS) pluginsList.add(LoopPlugin.getPlugin());
@@ -168,20 +185,21 @@ public class MainApp extends Application {
             pluginsList.add(WearPlugin.initPlugin(this));
             pluginsList.add(StatuslinePlugin.initPlugin(this));
             pluginsList.add(new PersistentNotificationPlugin(this));
-            pluginsList.add(NSClientInternalPlugin.getPlugin());
+            pluginsList.add(NSClientPlugin.getPlugin());
 
-            pluginsList.add(sConfigBuilder = ConfigBuilderFragment.getPlugin());
+            pluginsList.add(sConfigBuilder = ConfigBuilderPlugin.getPlugin());
 
             MainApp.getConfigBuilder().initialize();
         }
         NSUpload.uploadAppStart();
+
         if (Config.NSCLIENT)
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-NSClient"));
         else if (Config.G5UPLOADER)
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-G5Uploader"));
         else if (Config.PUMPCONTROL)
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-PumpControl"));
-        else if (MainApp.getConfigBuilder().isClosedModeEnabled())
+        else if (MainApp.getConstraintChecker().isClosedLoopAllowed().value())
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-ClosedLoop"));
         else
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-OpenLoop"));
@@ -195,6 +213,10 @@ public class MainApp extends Application {
             }
         }).start();
 
+        if (!isEngineeringModeOrRelease()) {
+            Notification n = new Notification(Notification.TOAST_ALARM, gs(R.string.closed_loop_disabled_on_dev_branch), Notification.NORMAL);
+            bus().post(new EventNewNotification(n));
+        }
     }
 
     private void registerLocalBroadcastReceiver() {
@@ -247,6 +269,10 @@ public class MainApp extends Application {
         return sResources.getString(id, args);
     }
 
+    public static int gc(int id) {
+        return sResources.getColor(id);
+    }
+
     public static MainApp instance() {
         return sInstance;
     }
@@ -267,6 +293,10 @@ public class MainApp extends Application {
 
     public static ConfigBuilderPlugin getConfigBuilder() {
         return sConfigBuilder;
+    }
+
+    public static ConstraintChecker getConstraintChecker() {
+        return sConstraintsChecker;
     }
 
     public static ArrayList<PluginBase> getPluginsList() {
@@ -355,6 +385,17 @@ public class MainApp extends Application {
             log.error("pluginsList=null");
         }
         return null;
+    }
+
+    public static boolean isEngineeringModeOrRelease() {
+        if (!BuildConfig.APS)
+            return true;
+        return engineeringMode || !devBranch;
+    }
+
+    private String getLogDirectory() {
+        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+        return lc.getProperty("EXT_FILES_DIR");
     }
 
     @Override

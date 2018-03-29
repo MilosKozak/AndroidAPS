@@ -13,6 +13,12 @@ public class FoodPlugin implements PluginBase {
 
     private static FoodPlugin plugin = null;
 
+    private FoodService service;
+
+    private FoodPlugin() {
+        this.service = new FoodService();
+    }
+
     public static FoodPlugin getPlugin() {
         if (plugin == null)
             plugin = new FoodPlugin();
@@ -67,7 +73,7 @@ public class FoodPlugin implements PluginBase {
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (type == GENERAL) this.fragmentEnabled = fragmentEnabled;
     }
 
@@ -81,5 +87,8 @@ public class FoodPlugin implements PluginBase {
         return -1;
     }
 
+    public FoodService getService() {
+        return this.service;
+    }
 
 }

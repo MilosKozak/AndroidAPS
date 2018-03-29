@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import info.nightscout.androidaps.Config;
+import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.GlucoseStatus;
@@ -15,7 +16,9 @@ import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.MealData;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.TempTarget;
+import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.interfaces.APSInterface;
+import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
@@ -28,7 +31,6 @@ import info.nightscout.utils.HardLimits;
 import info.nightscout.utils.Profiler;
 import info.nightscout.utils.Round;
 import info.nightscout.utils.SP;
-import info.nightscout.utils.SafeParse;
 
 import static info.nightscout.utils.HardLimits.checkOnlyHardLimits;
 import static info.nightscout.utils.HardLimits.verifyHardLimits;
@@ -74,13 +76,13 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
 
     @Override
     public boolean isEnabled(int type) {
-        boolean pumpCapable = ConfigBuilderPlugin.getActivePump() == null || ConfigBuilderPlugin.getActivePump().getPumpDescription().isTempBasalCapable;
+        boolean pumpCapable = ConfigBuilderPlugin.getActivePump() == null || ConfigBuilderPlugin.getActivePump() != null && ConfigBuilderPlugin.getActivePump().getPumpDescription().isTempBasalCapable;
         return type == APS && fragmentEnabled && pumpCapable;
     }
 
     @Override
     public boolean isVisibleInTabs(int type) {
-        boolean pumpCapable = ConfigBuilderPlugin.getActivePump() == null || ConfigBuilderPlugin.getActivePump().getPumpDescription().isTempBasalCapable;
+        boolean pumpCapable = ConfigBuilderPlugin.getActivePump() == null || ConfigBuilderPlugin.getActivePump() != null && ConfigBuilderPlugin.getActivePump().getPumpDescription().isTempBasalCapable;
         return type == APS && fragmentVisible && pumpCapable;
     }
 
@@ -110,7 +112,7 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (type == APS) this.fragmentEnabled = fragmentEnabled;
     }
 
@@ -173,13 +175,11 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
 
         String units = profile.getUnits();
 
-        Date now = new Date();
+        double maxBasal = MainApp.getConstraintChecker().getMaxBasalAllowed(profile).value();
 
-        double maxIob = SP.getDouble("openapsma_max_iob", 1.5d);
-        double maxBasal = SafeParse.stringToDouble(SP.getString("openapsma_max_basal", "1"));
         double minBg = Profile.toMgdl(profile.getTargetLow(), units);
         double maxBg = Profile.toMgdl(profile.getTargetHigh(), units);
-        double targetBg = (minBg + maxBg) / 2;
+        double targetBg = Profile.toMgdl(profile.getTarget(), units);
 
         minBg = Round.roundTo(minBg, 0.1d);
         maxBg = Round.roundTo(maxBg, 0.1d);
@@ -194,7 +194,7 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
 
         MealData mealData = MainApp.getConfigBuilder().getMealData();
 
-        maxIob = MainApp.getConfigBuilder().applyMaxIOBConstraints(maxIob);
+        double  maxIob = MainApp.getConstraintChecker().getMaxIOBAllowed().value();
         Profiler.log(log, "MA data gathering", start);
 
         minBg = verifyHardLimits(minBg, "minBg", HardLimits.VERY_HARD_LIMIT_MIN_BG[0], HardLimits.VERY_HARD_LIMIT_MIN_BG[1]);
@@ -205,19 +205,16 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
         if (tempTarget != null) {
             minBg = verifyHardLimits(tempTarget.low, "minBg", HardLimits.VERY_HARD_LIMIT_TEMP_MIN_BG[0], HardLimits.VERY_HARD_LIMIT_TEMP_MIN_BG[1]);
             maxBg = verifyHardLimits(tempTarget.high, "maxBg", HardLimits.VERY_HARD_LIMIT_TEMP_MAX_BG[0], HardLimits.VERY_HARD_LIMIT_TEMP_MAX_BG[1]);
-            targetBg = verifyHardLimits((tempTarget.low + tempTarget.high) / 2, "targetBg", HardLimits.VERY_HARD_LIMIT_TEMP_TARGET_BG[0], HardLimits.VERY_HARD_LIMIT_TEMP_TARGET_BG[1]);
+            targetBg = verifyHardLimits(tempTarget.target(), "targetBg", HardLimits.VERY_HARD_LIMIT_TEMP_TARGET_BG[0], HardLimits.VERY_HARD_LIMIT_TEMP_TARGET_BG[1]);
         }
-
-        maxIob = verifyHardLimits(maxIob, "maxIob", 0, HardLimits.maxIobAMA());
-        maxBasal = verifyHardLimits(maxBasal, "max_basal", 0.1, HardLimits.maxBasal());
 
         if (!checkOnlyHardLimits(profile.getDia(), "dia", HardLimits.MINDIA, HardLimits.MAXDIA))
             return;
-        if (!checkOnlyHardLimits(profile.getIc(profile.secondsFromMidnight()), "carbratio", HardLimits.MINIC, HardLimits.MAXIC))
+        if (!checkOnlyHardLimits(profile.getIcTimeFromMidnight(profile.secondsFromMidnight()), "carbratio", HardLimits.MINIC, HardLimits.MAXIC))
             return;
-        if (!checkOnlyHardLimits(Profile.toMgdl(profile.getIsf().doubleValue(), units), "sens", HardLimits.MINISF, HardLimits.MAXISF))
+        if (!checkOnlyHardLimits(Profile.toMgdl(profile.getIsf(), units), "sens", HardLimits.MINISF, HardLimits.MAXISF))
             return;
-        if (!checkOnlyHardLimits(profile.getMaxDailyBasal(), "max_daily_basal", 0.1, HardLimits.maxBasal()))
+        if (!checkOnlyHardLimits(profile.getMaxDailyBasal(), "max_daily_basal", 0.05, HardLimits.maxBasal()))
             return;
         if (!checkOnlyHardLimits(pump.getBaseBasalRate(), "current_basal", 0.01, HardLimits.maxBasal()))
             return;
@@ -231,18 +228,21 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
         Profiler.log(log, "MA calculation", start);
 
 
+        long now = System.currentTimeMillis();
+
         DetermineBasalResultMA determineBasalResultMA = determineBasalAdapterMAJS.invoke();
         // Fix bug determinef basal
         if (determineBasalResultMA.rate == 0d && determineBasalResultMA.duration == 0 && !MainApp.getConfigBuilder().isTempBasalInProgress())
-            determineBasalResultMA.tempBasalReqested = false;
+            determineBasalResultMA.tempBasalRequested = false;
         // limit requests on openloop mode
-        if (!MainApp.getConfigBuilder().isClosedModeEnabled()) {
-            if (MainApp.getConfigBuilder().isTempBasalInProgress() && determineBasalResultMA.rate == 0 && determineBasalResultMA.duration == 0) {
+        if (!MainApp.getConstraintChecker().isClosedLoopAllowed().value()) {
+            TemporaryBasal activeTemp = MainApp.getConfigBuilder().getTempBasalFromHistory(now);
+            if (activeTemp != null  && determineBasalResultMA.rate == 0 && determineBasalResultMA.duration == 0) {
                 // going to cancel
-            } else if (MainApp.getConfigBuilder().isTempBasalInProgress() && Math.abs(determineBasalResultMA.rate - MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory()) < 0.1) {
-                determineBasalResultMA.tempBasalReqested = false;
-            } else if (!MainApp.getConfigBuilder().isTempBasalInProgress() && Math.abs(determineBasalResultMA.rate - ConfigBuilderPlugin.getActivePump().getBaseBasalRate()) < 0.1)
-                determineBasalResultMA.tempBasalReqested = false;
+            } else if (activeTemp != null && Math.abs(determineBasalResultMA.rate - activeTemp.tempBasalConvertedToAbsolute(now, profile)) < 0.1) {
+                determineBasalResultMA.tempBasalRequested = false;
+            } else if (activeTemp == null && Math.abs(determineBasalResultMA.rate - ConfigBuilderPlugin.getActivePump().getBaseBasalRate()) < 0.1)
+                determineBasalResultMA.tempBasalRequested = false;
         }
 
         determineBasalResultMA.iob = iobTotal;
@@ -255,7 +255,7 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
 
         lastDetermineBasalAdapterMAJS = determineBasalAdapterMAJS;
         lastAPSResult = determineBasalResultMA;
-        lastAPSRun = now;
+        lastAPSRun = new Date(now);
         MainApp.bus().post(new EventOpenAPSUpdateGui());
     }
 

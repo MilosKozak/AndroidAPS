@@ -21,6 +21,7 @@ import java.lang.reflect.InvocationTargetException;
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.MealData;
@@ -204,9 +205,9 @@ public class DetermineBasalAdapterAMAJS {
         mProfile.put("max_bg", maxBg);
         mProfile.put("target_bg", targetBg);
         mProfile.put("carb_ratio", profile.getIc());
-        mProfile.put("sens", Profile.toMgdl(profile.getIsf().doubleValue(), units));
-        mProfile.put("max_daily_safety_multiplier", SP.getInt("openapsama_max_daily_safety_multiplier", 3));
-        mProfile.put("current_basal_safety_multiplier", SP.getDouble("openapsama_current_basal_safety_multiplier", 4d));
+        mProfile.put("sens", Profile.toMgdl(profile.getIsf(), units));
+        mProfile.put("max_daily_safety_multiplier", SP.getInt(R.string.key_openapsama_max_daily_safety_multiplier, 3));
+        mProfile.put("current_basal_safety_multiplier", SP.getDouble(R.string.key_openapsama_current_basal_safety_multiplier, 4d));
         mProfile.put("skip_neutral_temps", true);
         mProfile.put("current_basal", basalrate);
         mProfile.put("temptargetSet", tempTargetSet);
@@ -217,12 +218,14 @@ public class DetermineBasalAdapterAMAJS {
         if (units.equals(Constants.MMOL)) {
             mProfile.put("out_units", "mmol/L");
         }
-        
+
+        long now = System.currentTimeMillis();
+        TemporaryBasal tb = MainApp.getConfigBuilder().getTempBasalFromHistory(now);
 
         mCurrentTemp = new JSONObject();
         mCurrentTemp.put("temp", "absolute");
-        mCurrentTemp.put("duration", MainApp.getConfigBuilder().getTempBasalRemainingMinutesFromHistory());
-        mCurrentTemp.put("rate", MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory());
+        mCurrentTemp.put("duration", tb != null ? tb.getPlannedRemainingMinutes() : 0);
+        mCurrentTemp.put("rate", tb != null ? tb.tempBasalConvertedToAbsolute(now, profile) : 0d);
 
         // as we have non default temps longer than 30 mintues
         TemporaryBasal tempBasal = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
@@ -248,7 +251,7 @@ public class DetermineBasalAdapterAMAJS {
         mMealData.put("boluses", mealData.boluses);
         mMealData.put("mealCOB", mealData.mealCOB);
 
-        if (MainApp.getConfigBuilder().isAMAModeEnabled()) {
+        if (MainApp.getConstraintChecker().isAutosensModeEnabled().value()) {
             mAutosensData = new JSONObject();
             mAutosensData.put("ratio", autosensDataRatio);
         } else {

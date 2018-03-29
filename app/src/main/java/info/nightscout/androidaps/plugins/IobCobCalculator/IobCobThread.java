@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.PowerManager;
 import android.support.v4.util.LongSparseArray;
 
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.CustomEvent;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
@@ -22,6 +26,7 @@ import info.nightscout.androidaps.events.Event;
 import info.nightscout.androidaps.plugins.IobCobCalculator.events.EventAutosensCalculationFinished;
 import info.nightscout.androidaps.queue.QueueThread;
 import info.nightscout.utils.DateUtil;
+import info.nightscout.utils.FabricPrivacy;
 
 /**
  * Created by mike on 23.01.2018.
@@ -59,7 +64,7 @@ public class IobCobThread extends Thread {
                 log.debug("Aborting calculation thread (ConfigBuilder not ready): " + from);
                 return; // app still initializing
             }
-            if (MainApp.getConfigBuilder().getProfile() == null) {
+            if (!MainApp.getConfigBuilder().isProfileValid("IobCobThread")) {
                 log.debug("Aborting calculation thread (No profile): " + from);
                 return; // app still initializing
             }
@@ -110,11 +115,6 @@ public class IobCobThread extends Thread {
                         return; // profile not set yet
                     }
 
-                    if (profile.getIsf(bgTime) == null) {
-                        log.debug("Aborting calculation thread (no ISF): " + from);
-                        return; // profile not set yet
-                    }
-
                     if (Config.logAutosensData)
                         log.debug("Processing calculation thread: " + from + " (" + i + "/" + bucketed_data.size() + ")");
 
@@ -145,7 +145,6 @@ public class IobCobThread extends Thread {
                     double deviation = delta - bgi;
                     double avgDeviation = Math.round((avgDelta - bgi) * 1000) / 1000;
 
-                    double currentDeviation;
                     double slopeFromMaxDeviation  = 0;
                     double slopeFromMinDeviation  = 999;
                     double maxDeviation = 0;
@@ -156,23 +155,35 @@ public class IobCobThread extends Thread {
                         long hourago = bgTime + 10 * 1000 - 60 * 60 * 1000L;
                         AutosensData hourAgoData = iobCobCalculatorPlugin.getAutosensData(hourago);
                         if (hourAgoData != null) {
-                            currentDeviation = hourAgoData.avgDeviation;
                             int initialIndex = autosensDataTable.indexOfKey(hourAgoData.time);
+                            log.debug(">>>>> bucketed_data.size()=" + bucketed_data.size() + " i=" + i + "hourAgoData=" + hourAgoData.toString());
+                            int past = 1;
+                            try {
+                                for (; past < 12; past++) {
+                                    AutosensData ad = autosensDataTable.valueAt(initialIndex + past);
+                                    double deviationSlope = (ad.avgDeviation - avgDeviation) / (ad.time - bgTime) * 1000 * 60 * 5;
+                                    if (ad.avgDeviation > maxDeviation) {
+                                        slopeFromMaxDeviation = Math.min(0, deviationSlope);
+                                        maxDeviation = ad.avgDeviation;
+                                    }
+                                    if (ad.avgDeviation < minDeviation) {
+                                        slopeFromMinDeviation = Math.max(0, deviationSlope);
+                                        minDeviation = ad.avgDeviation;
+                                    }
 
-                            for (int past = 1; past < 12; past++) {
-                                AutosensData ad = autosensDataTable.valueAt(initialIndex + past);
-                                double deviationSlope = (ad.avgDeviation - currentDeviation) / (ad.time - bgTime) * 1000 * 60 * 5;
-                                if (ad.avgDeviation > maxDeviation) {
-                                    slopeFromMaxDeviation = Math.min(0, deviationSlope);
-                                    maxDeviation = ad.avgDeviation;
+                                    //if (Config.logAutosensData)
+                                    //    log.debug("Deviations: " + new Date(bgTime) + new Date(ad.time) + " avgDeviation=" + avgDeviation + " deviationSlope=" + deviationSlope + " slopeFromMaxDeviation=" + slopeFromMaxDeviation + " slopeFromMinDeviation=" + slopeFromMinDeviation);
                                 }
-                                if (avgDeviation < minDeviation) {
-                                    slopeFromMinDeviation = Math.max(0, deviationSlope);
-                                    minDeviation = avgDeviation;
-                                }
-
-                                //if (Config.logAutosensData)
-                                //    log.debug("Deviations: " + new Date(bgTime) + new Date(ad.time) + " avgDeviation=" + avgDeviation + " deviationSlope=" + deviationSlope + " slopeFromMaxDeviation=" + slopeFromMaxDeviation + " slopeFromMinDeviation=" + slopeFromMinDeviation);
+                            } catch (Exception e) {
+                                log.error("Unhandled exception", e);
+                                FabricPrivacy.logException(e);
+                                FabricPrivacy.getInstance().logCustom(new CustomEvent("CatchedError")
+                                        .putCustomAttribute("buildversion", BuildConfig.BUILDVERSION)
+                                        .putCustomAttribute("version", BuildConfig.VERSION)
+                                        .putCustomAttribute("autosensDataTable", iobCobCalculatorPlugin.getAutosensDataTable().toString())
+                                        .putCustomAttribute("for_data", ">>>>> bucketed_data.size()=" + bucketed_data.size() + " i=" + i + "hourAgoData=" + hourAgoData.toString())
+                                        .putCustomAttribute("past", past)
+                                );
                             }
                         }
                     }
@@ -235,7 +246,7 @@ public class IobCobThread extends Thread {
                     log.debug("Running detectSensitivity from: " + DateUtil.dateAndTimeString(oldestTimeWithData) + " to: " + DateUtil.dateAndTimeString(bgTime));
                     autosensData.autosensRatio = iobCobCalculatorPlugin.detectSensitivity(oldestTimeWithData, bgTime).ratio;
                     if (Config.logAutosensData)
-                        log.debug(autosensData.log(bgTime));
+                        log.debug(autosensData.toString());
                 }
             }
             MainApp.bus().post(new EventAutosensCalculationFinished(cause));

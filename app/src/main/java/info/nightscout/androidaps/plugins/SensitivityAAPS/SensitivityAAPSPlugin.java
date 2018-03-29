@@ -88,7 +88,7 @@ public class SensitivityAAPSPlugin implements PluginBase, SensitivityInterface{
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (type == SENSITIVITY) this.fragmentEnabled = fragmentEnabled;
     }
 
@@ -113,6 +113,13 @@ public class SensitivityAAPSPlugin implements PluginBase, SensitivityInterface{
         if (age.equals(MainApp.sResources.getString(R.string.key_teenage))) defaultHours = 4;
         if (age.equals(MainApp.sResources.getString(R.string.key_child))) defaultHours = 4;
         int hoursForDetection = SP.getInt(R.string.key_openapsama_autosens_period, defaultHours);
+
+        Profile profile = MainApp.getConfigBuilder().getProfile();
+
+        if (profile == null) {
+            log.debug("No profile");
+            return new AutosensResult();
+        }
 
         if (autosensDataTable == null || autosensDataTable.size() < 4) {
             log.debug("No autosens data available");
@@ -158,8 +165,6 @@ public class SensitivityAAPSPlugin implements PluginBase, SensitivityInterface{
 
         Double[] deviations = new Double[deviationsArray.size()];
         deviations = deviationsArray.toArray(deviations);
-
-        Profile profile = MainApp.getConfigBuilder().getProfile();
 
         double sens = profile.getIsf();
 

@@ -14,12 +14,13 @@ import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.events.EventAppExit;
+import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.PumpDescription;
-import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.ConfigBuilder.DetailedBolusInfoStorage;
 import info.nightscout.androidaps.plugins.PumpDanaR.AbstractDanaRPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaRv2.services.DanaRv2ExecutionService;
@@ -121,8 +122,7 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
     // Pump interface
     @Override
     public PumpEnactResult deliverTreatment(DetailedBolusInfo detailedBolusInfo) {
-        ConfigBuilderPlugin configBuilderPlugin = MainApp.getConfigBuilder();
-        detailedBolusInfo.insulin = configBuilderPlugin.applyBolusConstraints(detailedBolusInfo.insulin);
+        detailedBolusInfo.insulin = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(detailedBolusInfo.insulin)).value();
         if (detailedBolusInfo.insulin > 0 || detailedBolusInfo.carbs > 0) {
             // v2 stores end time for bolus, we need to adjust time
             // default delivery speed is 12 sec/U
@@ -185,7 +185,7 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
 
     // This is called from APS
     @Override
-    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, boolean enforceNew) {
+    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, Profile profile, boolean enforceNew) {
         // Recheck pump status if older than 30 min
         //This should not be needed while using queue because connection should be done before calling this
         //if (pump.lastConnection.getTime() + 30 * 60 * 1000L < System.currentTimeMillis()) {
@@ -194,8 +194,7 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
 
         PumpEnactResult result = new PumpEnactResult();
 
-        ConfigBuilderPlugin configBuilderPlugin = MainApp.getConfigBuilder();
-        absoluteRate = configBuilderPlugin.applyBasalConstraints(absoluteRate);
+        absoluteRate = MainApp.getConstraintChecker().applyBasalConstraints(new Constraint<>(absoluteRate), profile).value();
 
         final boolean doTempOff = getBaseBasalRate() - absoluteRate == 0d;
         final boolean doLowTemp = absoluteRate < getBaseBasalRate();
@@ -225,15 +224,15 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
             if (percentRate > 500) // Special high temp 500/15min
                 percentRate = 500;
             // Check if some temp is already in progress
-            if (MainApp.getConfigBuilder().isInHistoryRealTempBasalInProgress()) {
+            TemporaryBasal activeTemp = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+            if (activeTemp != null) {
                 // Correct basal already set ?
-                if (MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis()).percentRate == percentRate) {
+                if (activeTemp.percentRate == percentRate) {
                     if (!enforceNew) {
                         result.success = true;
                         result.percent = percentRate;
-                        result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
                         result.enacted = false;
-                        result.duration = ((Double) MainApp.getConfigBuilder().getTempBasalRemainingMinutesFromHistory()).intValue();
+                        result.duration = activeTemp.getPlannedRemainingMinutes();
                         result.isPercent = true;
                         result.isTempCancel = false;
                         if (Config.logPumpActions)
@@ -263,10 +262,9 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
     }
 
     @Override
-    public PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, boolean enforceNew) {
+    public PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, Profile profile, boolean enforceNew) {
         PumpEnactResult result = new PumpEnactResult();
-        ConfigBuilderPlugin configBuilderPlugin = MainApp.getConfigBuilder();
-        percent = configBuilderPlugin.applyBasalConstraints(percent);
+        percent = MainApp.getConstraintChecker().applyBasalPercentConstraints(new Constraint<>(percent), profile).value();
         if (percent < 0) {
             result.isTempCancel = false;
             result.enacted = false;
@@ -277,7 +275,8 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
         }
         if (percent > getPumpDescription().maxTempPercent)
             percent = getPumpDescription().maxTempPercent;
-        TemporaryBasal runningTB = MainApp.getConfigBuilder().getRealTempBasalFromHistory(System.currentTimeMillis());
+        long now = System.currentTimeMillis();
+        TemporaryBasal runningTB = MainApp.getConfigBuilder().getRealTempBasalFromHistory(now);
         if (runningTB != null && runningTB.percentRate == percent && !enforceNew) {
             result.enacted = false;
             result.success = true;
@@ -285,7 +284,6 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
             result.comment = MainApp.instance().getString(R.string.virtualpump_resultok);
             result.duration = pump.tempBasalRemainingMin;
             result.percent = pump.tempBasalPercent;
-            result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
             result.isPercent = true;
             if (Config.logPumpActions)
                 log.debug("setTempBasalPercent: Correct value already set");
@@ -305,7 +303,6 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
             result.isTempCancel = false;
             result.duration = pump.tempBasalRemainingMin;
             result.percent = pump.tempBasalPercent;
-            result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
             result.isPercent = true;
             if (Config.logPumpActions)
                 log.debug("setTempBasalPercent: OK");

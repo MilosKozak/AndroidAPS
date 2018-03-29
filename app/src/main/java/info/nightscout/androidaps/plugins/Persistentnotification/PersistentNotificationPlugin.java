@@ -94,7 +94,7 @@ public class PersistentNotificationPlugin implements PluginBase {
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (getType() == type) {
             this.fragmentEnabled = fragmentEnabled;
             enableDisableNotification(fragmentEnabled);
@@ -119,7 +119,7 @@ public class PersistentNotificationPlugin implements PluginBase {
 
         String line1 = ctx.getString(R.string.noprofile);
 
-        if (MainApp.getConfigBuilder().getActiveProfileInterface() == null || MainApp.getConfigBuilder().getProfile() == null)
+        if (MainApp.getConfigBuilder().getActiveProfileInterface() == null || !MainApp.getConfigBuilder().isProfileValid("Notificiation"))
             return;
         String units = MainApp.getConfigBuilder().getProfileUnits();
 

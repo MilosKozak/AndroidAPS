@@ -15,11 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Date;
-import java.util.Objects;
 
 import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.Config;
-import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
@@ -30,20 +28,21 @@ import info.nightscout.androidaps.db.ExtendedBolus;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.events.EventAppExit;
+import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.ConstraintsInterface;
 import info.nightscout.androidaps.interfaces.DanaRInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
 import info.nightscout.androidaps.interfaces.PumpDescription;
 import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.ConfigBuilder.DetailedBolusInfoStorage;
-import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
+import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.ProfileNS.NSProfilePlugin;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRFragment;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
+import info.nightscout.androidaps.plugins.PumpDanaR.comm.RecordTypes;
 import info.nightscout.androidaps.plugins.PumpDanaRS.events.EventDanaRSDeviceChange;
 import info.nightscout.androidaps.plugins.PumpDanaRS.services.DanaRSService;
 import info.nightscout.utils.DateUtil;
@@ -115,16 +114,16 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (type == PluginBase.PROFILE)
             this.fragmentProfileEnabled = fragmentEnabled;
         else if (type == PluginBase.PUMP)
             this.fragmentPumpEnabled = fragmentEnabled;
         // if pump profile was enabled need to switch to another too
         if (type == PluginBase.PUMP && !fragmentEnabled && this.fragmentProfileEnabled) {
-            setFragmentEnabled(PluginBase.PROFILE, false);
+            setPluginEnabled(PluginBase.PROFILE, false);
             setFragmentVisible(PluginBase.PROFILE, false);
-            MainApp.getSpecificPlugin(NSProfilePlugin.class).setFragmentEnabled(PluginBase.PROFILE, true);
+            MainApp.getSpecificPlugin(NSProfilePlugin.class).setPluginEnabled(PluginBase.PROFILE, true);
             MainApp.getSpecificPlugin(NSProfilePlugin.class).setFragmentVisible(PluginBase.PROFILE, true);
         }
     }
@@ -274,75 +273,26 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
     // Constraints interface
 
     @Override
-    public boolean isLoopEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean isClosedModeEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean isAutosensModeEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean isAMAModeEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean isSMBModeEnabled() {
-        return true;
-    }
-
-    @Override
-    public Double applyBasalConstraints(Double absoluteRate) {
-        double origAbsoluteRate = absoluteRate;
-        if (pump != null) {
-            if (absoluteRate > pump.maxBasal) {
-                absoluteRate = pump.maxBasal;
-                if (Config.logConstraintsChanges && origAbsoluteRate != Constants.basalAbsoluteOnlyForCheckLimit)
-                    log.debug("Limiting rate " + origAbsoluteRate + "U/h by pump constraint to " + absoluteRate + "U/h");
-            }
-        }
+    public Constraint<Double> applyBasalConstraints(Constraint<Double> absoluteRate, Profile profile) {
+        if (pump != null)
+            absoluteRate.setIfSmaller(pump.maxBasal, String.format(MainApp.gs(R.string.limitingbasalratio), pump.maxBasal, MainApp.gs(R.string.pumplimit)), this);
         return absoluteRate;
     }
 
     @Override
-    public Integer applyBasalConstraints(Integer percentRate) {
-        Integer origPercentRate = percentRate;
-        if (percentRate < 0) percentRate = 0;
-        if (percentRate > getPumpDescription().maxTempPercent)
-            percentRate = getPumpDescription().maxTempPercent;
-        if (!Objects.equals(percentRate, origPercentRate) && Config.logConstraintsChanges && !Objects.equals(origPercentRate, Constants.basalPercentOnlyForCheckLimit))
-            log.debug("Limiting percent rate " + origPercentRate + "% to " + percentRate + "%");
+    public Constraint<Integer> applyBasalPercentConstraints(Constraint<Integer> percentRate, Profile profile) {
+        percentRate.setIfGreater(0, String.format(MainApp.gs(R.string.limitingpercentrate), 0, MainApp.gs(R.string.itmustbepositivevalue)), this);
+        percentRate.setIfSmaller(getPumpDescription().maxTempPercent, String.format(MainApp.gs(R.string.limitingpercentrate), getPumpDescription().maxTempPercent, MainApp.gs(R.string.pumplimit)), this);
+
         return percentRate;
     }
 
+
     @Override
-    public Double applyBolusConstraints(Double insulin) {
-        double origInsulin = insulin;
-        if (pump != null) {
-            if (insulin > pump.maxBolus) {
-                insulin = pump.maxBolus;
-                if (Config.logConstraintsChanges && origInsulin != Constants.bolusOnlyForCheckLimit)
-                    log.debug("Limiting bolus " + origInsulin + "U by pump constraint to " + insulin + "U");
-            }
-        }
+    public Constraint<Double> applyBolusConstraints(Constraint<Double> insulin) {
+        if (pump != null)
+            insulin.setIfSmaller(pump.maxBolus, String.format(MainApp.gs(R.string.limitingbolus), pump.maxBolus, MainApp.gs(R.string.pumplimit)), this);
         return insulin;
-    }
-
-    @Override
-    public Integer applyCarbsConstraints(Integer carbs) {
-        return carbs;
-    }
-
-    @Override
-    public Double applyMaxIOBConstraints(Double maxIob) {
-        return maxIob;
     }
 
     // Profile interface
@@ -428,7 +378,7 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
         int basalIncrement = pump.basal48Enable ? 30 * 60 : 60 * 60;
         for (int h = 0; h < basalValues; h++) {
             Double pumpValue = pump.pumpProfiles[pump.activeProfile][h];
-            Double profileValue = profile.getBasal((Integer) (h * basalIncrement));
+            Double profileValue = profile.getBasalTimeFromMidnight((Integer) (h * basalIncrement));
             if (profileValue == null) return true;
             if (Math.abs(pumpValue - profileValue) > getPumpDescription().basalStep) {
                 log.debug("Diff found. Hour: " + h + " Pump: " + pumpValue + " Profile: " + profileValue);
@@ -450,8 +400,7 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
 
     @Override
     public synchronized PumpEnactResult deliverTreatment(DetailedBolusInfo detailedBolusInfo) {
-        ConfigBuilderPlugin configBuilderPlugin = MainApp.getConfigBuilder();
-        detailedBolusInfo.insulin = configBuilderPlugin.applyBolusConstraints(detailedBolusInfo.insulin);
+        detailedBolusInfo.insulin = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(detailedBolusInfo.insulin)).value();
         if (detailedBolusInfo.insulin > 0 || detailedBolusInfo.carbs > 0) {
             int preferencesSpeed = SP.getInt(R.string.key_danars_bolusspeed, 0);
             int speed = 12;
@@ -513,7 +462,7 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
 
     // This is called from APS
     @Override
-    public synchronized PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, boolean enforceNew) {
+    public synchronized PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, Profile profile, boolean enforceNew) {
         // Recheck pump status if older than 30 min
 
         //This should not be needed while using queue because connection should be done before calling this
@@ -523,8 +472,7 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
 
         PumpEnactResult result = new PumpEnactResult();
 
-        ConfigBuilderPlugin configBuilderPlugin = MainApp.getConfigBuilder();
-        absoluteRate = configBuilderPlugin.applyBasalConstraints(absoluteRate);
+        absoluteRate = MainApp.getConstraintChecker().applyBasalConstraints(new Constraint<>(absoluteRate), profile).value();
 
         final boolean doTempOff = getBaseBasalRate() - absoluteRate == 0d;
         final boolean doLowTemp = absoluteRate < getBaseBasalRate();
@@ -554,15 +502,17 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
             if (percentRate > 500) // Special high temp 500/15min
                 percentRate = 500;
             // Check if some temp is already in progress
-            if (MainApp.getConfigBuilder().isTempBasalInProgress()) {
+            TemporaryBasal activeTemp = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+            if (activeTemp != null) {
+                if (Config.logPumpActions)
+                    log.debug("setTempBasalAbsolute: currently running: " + activeTemp.toString());
                 // Correct basal already set ?
-                if (MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis()).percentRate == percentRate) {
+                if (activeTemp.percentRate == percentRate) {
                     if (!enforceNew) {
                         result.success = true;
                         result.percent = percentRate;
-                        result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
                         result.enacted = false;
-                        result.duration = ((Double) MainApp.getConfigBuilder().getTempBasalRemainingMinutesFromHistory()).intValue();
+                        result.duration = activeTemp.getPlannedRemainingMinutes();
                         result.isPercent = true;
                         result.isTempCancel = false;
                         if (Config.logPumpActions)
@@ -592,10 +542,9 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
     }
 
     @Override
-    public synchronized PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, boolean enforceNew) {
+    public synchronized PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, Profile profile, boolean enforceNew) {
         PumpEnactResult result = new PumpEnactResult();
-        ConfigBuilderPlugin configBuilderPlugin = MainApp.getConfigBuilder();
-        percent = configBuilderPlugin.applyBasalConstraints(percent);
+        percent = MainApp.getConstraintChecker().applyBasalPercentConstraints(new Constraint<>(percent), profile).value();
         if (percent < 0) {
             result.isTempCancel = false;
             result.enacted = false;
@@ -606,7 +555,8 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
         }
         if (percent > getPumpDescription().maxTempPercent)
             percent = getPumpDescription().maxTempPercent;
-        TemporaryBasal runningTB = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+        long now = System.currentTimeMillis();
+        TemporaryBasal runningTB = MainApp.getConfigBuilder().getTempBasalFromHistory(now);
         if (runningTB != null && runningTB.percentRate == percent && !enforceNew) {
             result.enacted = false;
             result.success = true;
@@ -614,7 +564,6 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
             result.comment = MainApp.instance().getString(R.string.virtualpump_resultok);
             result.duration = pump.tempBasalRemainingMin;
             result.percent = pump.tempBasalPercent;
-            result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
             result.isPercent = true;
             if (Config.logPumpActions)
                 log.debug("setTempBasalPercent: Correct value already set");
@@ -634,7 +583,6 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
             result.isTempCancel = false;
             result.duration = pump.tempBasalRemainingMin;
             result.percent = pump.tempBasalPercent;
-            result.absolute = MainApp.getConfigBuilder().getTempBasalAbsoluteRateHistory();
             result.isPercent = true;
             if (Config.logPumpActions)
                 log.debug("setTempBasalPercent: OK");
@@ -671,8 +619,7 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
 
     @Override
     public synchronized PumpEnactResult setExtendedBolus(Double insulin, Integer durationInMinutes) {
-        ConfigBuilderPlugin configBuilderPlugin = MainApp.getConfigBuilder();
-        insulin = configBuilderPlugin.applyBolusConstraints(insulin);
+        insulin = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(insulin)).value();
         // needs to be rounded
         int durationInHalfHours = Math.max(durationInMinutes / 30, 1);
         insulin = Round.roundTo(insulin, getPumpDescription().extendedBolusStep);
@@ -760,7 +707,8 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
     }
 
     @Override
-    public JSONObject getJSONStatus() {
+    public JSONObject getJSONStatus(Profile profile, String profileName) {
+        long now = System.currentTimeMillis();
         if (pump.lastConnection + 5 * 60 * 1000L < System.currentTimeMillis()) {
             return null;
         }
@@ -778,13 +726,13 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
                 extended.put("LastBolus", pump.lastBolusTime.toLocaleString());
                 extended.put("LastBolusAmount", pump.lastBolusAmount);
             }
-            TemporaryBasal tb = MainApp.getConfigBuilder().getTempBasalFromHistory(System.currentTimeMillis());
+            TemporaryBasal tb = MainApp.getConfigBuilder().getTempBasalFromHistory(now);
             if (tb != null) {
-                extended.put("TempBasalAbsoluteRate", tb.tempBasalConvertedToAbsolute(System.currentTimeMillis()));
+                extended.put("TempBasalAbsoluteRate", tb.tempBasalConvertedToAbsolute(now, profile));
                 extended.put("TempBasalStart", DateUtil.dateAndTimeString(tb.date));
                 extended.put("TempBasalRemaining", tb.getPlannedRemainingMinutes());
             }
-            ExtendedBolus eb = MainApp.getConfigBuilder().getExtendedBolusFromHistory(System.currentTimeMillis());
+            ExtendedBolus eb = MainApp.getConfigBuilder().getExtendedBolusFromHistory(now);
             if (eb != null) {
                 extended.put("ExtendedBolusAbsoluteRate", eb.absoluteRate());
                 extended.put("ExtendedBolusStart", DateUtil.dateAndTimeString(eb.date));
@@ -800,7 +748,7 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
             pumpjson.put("status", status);
             pumpjson.put("extended", extended);
             pumpjson.put("reservoir", (int) pump.reservoirRemainingUnits);
-            pumpjson.put("clock", DateUtil.toISOString(new Date()));
+            pumpjson.put("clock", DateUtil.toISOString(now));
         } catch (JSONException e) {
             log.error("Unhandled exception", e);
         }
@@ -848,5 +796,10 @@ public class DanaRSPlugin implements PluginBase, PumpInterface, DanaRInterface, 
     @Override
     public boolean isFakingTempsByExtendedBoluses() {
         return false;
+    }
+
+    @Override
+    public PumpEnactResult loadTDDs() {
+        return loadHistory(RecordTypes.RECORD_TYPE_DAILY);
     }
 }

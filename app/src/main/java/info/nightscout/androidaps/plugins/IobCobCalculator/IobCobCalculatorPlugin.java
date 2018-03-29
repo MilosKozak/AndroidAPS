@@ -117,7 +117,7 @@ public class IobCobCalculatorPlugin implements PluginBase {
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
 
     }
 
@@ -351,12 +351,11 @@ public class IobCobCalculatorPlugin implements PluginBase {
         IobTotal basalIob = MainApp.getConfigBuilder().getCalculationToTimeTempBasals(time).round();
         if (OpenAPSSMBPlugin.getPlugin().isEnabled(PluginBase.APS)) {
             // Add expected zere temp basal for next 240 mins
-            IobTotal basalIobWithZeroTemp = basalIob.clone();
-            TemporaryBasal t = new TemporaryBasal();
-            t.date = now + 60 * 1000L;
-            t.durationInMinutes = 240;
-            t.isAbsolute = true;
-            t.absoluteRate = 0;
+            IobTotal basalIobWithZeroTemp = basalIob.copy();
+            TemporaryBasal t = new TemporaryBasal()
+                    .date(now + 60 * 1000L)
+                    .duration(240)
+                    .absolute(0);
             if (t.date < time) {
                 IobTotal calc = t.iobCalc(time);
                 basalIobWithZeroTemp.plus(calc);
@@ -389,11 +388,12 @@ public class IobCobCalculatorPlugin implements PluginBase {
         BasalData retval = basalDataTable.get(time);
         if (retval == null) {
             retval = new BasalData();
+            Profile profile = MainApp.getConfigBuilder().getProfile(time);
             TemporaryBasal tb = MainApp.getConfigBuilder().getTempBasalFromHistory(time);
-            retval.basal = MainApp.getConfigBuilder().getProfile(time).getBasal(time);
+            retval.basal = profile.getBasal(time);
             if (tb != null) {
                 retval.isTempBasalRunning = true;
-                retval.tempBasalAbsolute = tb.tempBasalConvertedToAbsolute(time);
+                retval.tempBasalAbsolute = tb.tempBasalConvertedToAbsolute(time, profile);
             } else {
                 retval.isTempBasalRunning = false;
                 retval.tempBasalAbsolute = retval.basal;

@@ -42,10 +42,7 @@ public class Notification {
     public static final int APPROACHING_DAILY_LIMIT = 11;
     public static final int NSCLIENT_NO_WRITE_PERMISSION = 12;
     public static final int MISSING_SMS_PERMISSION = 13;
-    public static final int ISF_MISSING = 14;
-    public static final int IC_MISSING = 15;
-    public static final int BASAL_MISSING = 16;
-    public static final int TARGET_MISSING = 17;
+
     public static final int NSANNOUNCEMENT = 18;
     public static final int NSALARM = 19;
     public static final int NSURGENTALARM = 20;
@@ -53,12 +50,15 @@ public class Notification {
     public static final int TOAST_ALARM = 22;
     public static final int WRONGBASALSTEP = 23;
     public static final int WRONG_DRIVER = 24;
+    public static final int COMBO_PUMP_ALARM = 25;
     public static final int PUMP_UNREACHABLE = 26;
     public static final int BG_READINGS_MISSED = 27;
     public static final int UNSUPPORTED_FIRMWARE = 28;
     public static final int MINIMAL_BASAL_VALUE_REPLACED = 29;
     public static final int BASAL_PROFILE_NOT_ALIGNED_TO_HOURS = 30;
     public static final int ZERO_VALUE_IN_PROFILE = 31;
+    public static final int PROFILE_SWITCH_MISSING = 32;
+    public static final int NOT_ENG_MODE_OR_RELEASE = 33;
 
     public int id;
     public Date date;
@@ -200,11 +200,9 @@ public class Notification {
 //        log.debug("bgReadingAgoMin value is:"+bgReadingAgoMin);
         //log.debug("Stale alarm snoozed to: "+(System.currentTimeMillis() - snoozedTo)/60000L);
         Double threshold = NSSettingsStatus.getInstance().getThreshold("alarmTimeagoWarnMins");
-//        String enabledInNS = NSSettingsStatus.getInstance().getStringOrNull("alarmTimeagoWarn");
-//	log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts);
-	// if no thresshold from Ns get it loccally - no local setings
-//        if(threshold == null) threshold = SP.getDouble(R.string.key_nsalarm_staledatavalue,15D);
-        if(threshold == null) return false;
+	//log.debug("OpenAPS Alerts enabled: "+openAPSEnabledAlerts);
+	// if no thresshold from Ns get it loccally
+        if(threshold == null) threshold = SP.getDouble(R.string.key_nsalarm_staledatavalue,15D);
 	// No threshold of OpenAPS Alarm so using the one for BG
 	// Added OpenAPSEnabledAlerts to alarm check
         if((bgReadingAgoMin > threshold) && openAPSEnabledAlerts)

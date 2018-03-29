@@ -90,7 +90,7 @@ public class MDIPlugin implements PluginBase, PumpInterface {
     }
 
     @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
+    public void setPluginEnabled(int type, boolean fragmentEnabled) {
         if (type == PUMP) this.fragmentEnabled = fragmentEnabled;
     }
 
@@ -112,6 +112,13 @@ public class MDIPlugin implements PluginBase, PumpInterface {
     @Override
     public boolean isFakingTempsByExtendedBoluses() {
         return false;
+    }
+
+    @Override
+    public PumpEnactResult loadTDDs() {
+        //no result, could read DB in the future?
+        PumpEnactResult result = new PumpEnactResult();
+        return result;
     }
 
     @Override
@@ -194,7 +201,7 @@ public class MDIPlugin implements PluginBase, PumpInterface {
     }
 
     @Override
-    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, boolean enforceNew) {
+    public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, Profile profile, boolean enforceNew) {
         PumpEnactResult result = new PumpEnactResult();
         result.success = false;
         result.comment = MainApp.instance().getString(R.string.pumperror);
@@ -204,7 +211,7 @@ public class MDIPlugin implements PluginBase, PumpInterface {
     }
 
     @Override
-    public PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, boolean enforceNew) {
+    public PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, Profile profile, boolean enforceNew) {
         PumpEnactResult result = new PumpEnactResult();
         result.success = false;
         result.comment = MainApp.instance().getString(R.string.pumperror);
@@ -244,7 +251,8 @@ public class MDIPlugin implements PluginBase, PumpInterface {
     }
 
     @Override
-    public JSONObject getJSONStatus() {
+    public JSONObject getJSONStatus(Profile profile, String profileName) {
+        long now = System.currentTimeMillis();
         JSONObject pump = new JSONObject();
         JSONObject status = new JSONObject();
         JSONObject extended = new JSONObject();
@@ -252,14 +260,14 @@ public class MDIPlugin implements PluginBase, PumpInterface {
             status.put("status", "normal");
             extended.put("Version", BuildConfig.VERSION_NAME + "-" + BuildConfig.BUILDVERSION);
             try {
-                extended.put("ActiveProfile", MainApp.getConfigBuilder().getProfileName());
+                extended.put("ActiveProfile", profileName);
             } catch (Exception e) {
             }
-            status.put("timestamp", DateUtil.toISOString(new Date()));
+            status.put("timestamp", DateUtil.toISOString(now));
 
             pump.put("status", status);
             pump.put("extended", extended);
-            pump.put("clock", DateUtil.toISOString(new Date()));
+            pump.put("clock", DateUtil.toISOString(now));
         } catch (JSONException e) {
         }
         return pump;
