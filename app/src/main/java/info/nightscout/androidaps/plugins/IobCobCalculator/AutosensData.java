@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Profile;
@@ -34,7 +35,7 @@ public class AutosensData {
             carbs = t.carbs;
             remaining = t.carbs;
             if (SensitivityAAPSPlugin.getPlugin().isEnabled(PluginBase.SENSITIVITY) || SensitivityWeightedAveragePlugin.getPlugin().isEnabled(PluginBase.SENSITIVITY)) {
-                double maxAbsorptionHours = SP.getDouble(R.string.key_absorption_maxtime, 4d);
+                double maxAbsorptionHours = SP.getDouble(R.string.key_absorption_maxtime, Constants.DEFAULT_MAX_ABSORPTION_TIME);
                 Profile profile = MainApp.getConfigBuilder().getProfile(t.date);
                 double sens = Profile.toMgdl(profile.getIsf(t.date), profile.getUnits());
                 double ic = profile.getIc(t.date);
@@ -73,15 +74,19 @@ public class AutosensData {
         return (int) ((System.currentTimeMillis() - time) / 1000 / 60);
     }
 
-    // remove carbs older than 4h
+    // remove carbs older than 6h or max-absorption-time
     public void removeOldCarbs(long toTime) {
+        double maxAbsorptionHours = Constants.DEFAULT_MAX_ABSORPTION_TIME;
+        if (SensitivityAAPSPlugin.getPlugin().isEnabled(PluginBase.SENSITIVITY) || SensitivityWeightedAveragePlugin.getPlugin().isEnabled(PluginBase.SENSITIVITY)) {
+            maxAbsorptionHours = SP.getDouble(R.string.key_absorption_maxtime, Constants.DEFAULT_MAX_ABSORPTION_TIME);
+        }
         for (int i = 0; i < activeCarbsList.size(); i++) {
             CarbsInPast c = activeCarbsList.get(i);
-            if (c.time + 4 * 60 * 60 * 1000L < toTime) {
+            if (c.time + maxAbsorptionHours * 60 * 60 * 1000L < toTime) {
                 activeCarbsList.remove(i--);
                 if (c.remaining > 0)
                     cob -= c.remaining;
-                log.debug("Removing carbs at "+ new Date(toTime).toLocaleString() + " + after 4h :" + new Date(c.time).toLocaleString());
+                log.debug("Removing carbs at "+ new Date(toTime).toLocaleString() + " + after " + maxAbsorptionHours + "h :" + new Date(c.time).toLocaleString());
             }
         }
     }
