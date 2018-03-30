@@ -215,20 +215,26 @@ public class NSClientPlugin implements PluginBase {
         }
     }
 
-    void resend(String reason) {
+    void resend(String reason, boolean startNow) {
         if (nsClientService != null)
-            nsClientService.resend(reason);
+            nsClientService.resend(reason, startNow);
     }
 
     public UploadQueue queue() {
-        return NSClientService.uploadQueue;
+        return NSClientService.instance == null ? null : NSClientService.instance.uploadQueue;
     }
 
     public String url() {
-        return NSClientService.nsURL;
+        if (nsClientService != null) {
+            return nsClientService.nsConfig.url;
+        }
+        else
+        {
+            return "";
+        }
     }
 
     public boolean hasWritePermission() {
-        return nsClientService.hasWriteAuth;
+        return nsClientService.hasWriteAuth();
     }
 }
