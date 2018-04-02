@@ -1,262 +1,284 @@
-package info.nightscout.androidaps.db;
+package info.nightscout.androidaps.plugins.Careportal;
 
-import android.graphics.Color;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import org.apache.commons.lang3.StringUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.squareup.otto.Subscribe;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.EnumSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import info.nightscout.androidaps.Constants;
+import info.nightscout.androidaps.BuildConfig;
+import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.data.Profile;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSMbg;
+import info.nightscout.androidaps.data.ProfileStore;
+import info.nightscout.androidaps.db.CareportalEvent;
+import info.nightscout.androidaps.events.EventCareportalEventChange;
+import info.nightscout.androidaps.plugins.Careportal.Dialogs.NewNSTreatmentDialog;
+import info.nightscout.androidaps.plugins.Common.SubscriberFragment;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.Overview.OverviewFragment;
-import info.nightscout.androidaps.plugins.Overview.graphExtensions.DataPointWithLabelInterface;
-import info.nightscout.androidaps.plugins.Overview.graphExtensions.PointsWithLabelGraphSeries;
-import info.nightscout.utils.DateUtil;
-import info.nightscout.utils.Translator;
+import info.nightscout.utils.FabricPrivacy;
 
-@DatabaseTable(tableName = DatabaseHelper.DATABASE_CAREPORTALEVENTS)
-public class CareportalEvent implements DataPointWithLabelInterface {
-    private static Logger log = LoggerFactory.getLogger(CareportalEvent.class);
+public class CareportalFragment extends SubscriberFragment implements View.OnClickListener {
 
-    @DatabaseField(id = true)
-    public long date;
+    TextView iage;
+    TextView cage;
+    TextView sage;
+    TextView pbage;
 
-    @DatabaseField
-    public boolean isValid = true;
+    View statsLayout;
+    LinearLayout butonsLayout;
+    View noProfileView;
 
-    @DatabaseField
-    public int source = Source.NONE;
-    @DatabaseField
-    public String _id;
-
-    @DatabaseField
-    public String eventType;
-    @DatabaseField
-    public String json;
-
-    public static final String CARBCORRECTION = "Carb Correction";
-    public static final String BOLUSWIZARD = "Bolus Wizard";
-    public static final String CORRECTIONBOLUS = "Correction Bolus";
-    public static final String MEALBOLUS = "Meal Bolus";
-    public static final String COMBOBOLUS = "Combo Bolus";
-    public static final String TEMPBASAL = "Temp Basal";
-    public static final String TEMPORARYTARGET = "Temporary Target";
-    public static final String PROFILESWITCH = "Profile Switch";
-    public static final String SITECHANGE = "Site Change";
-    public static final String INSULINCHANGE = "Insulin Change";
-    public static final String SENSORCHANGE = "Sensor Change";
-    public static final String PUMPBATTERYCHANGE = "Pump Battery Change";
-    public static final String BGCHECK = "BG Check";
-    public static final String ANNOUNCEMENT = "Announcement";
-    public static final String NOTE = "Note";
-    public static final String QUESTION = "Question";
-    public static final String EXERCISE = "Exercise";
-    public static final String OPENAPSOFFLINE = "OpenAPS Offline";
-    public static final String NONE = "<none>";
-
-    public static final String MBG = "Mbg"; // comming from entries
-
-    public CareportalEvent() {
-    }
-
-    public CareportalEvent(NSMbg mbg) {
-        date = mbg.date;
-        eventType = MBG;
-        json = mbg.json;
-    }
-
-    public long getMillisecondsFromStart() {
-        return System.currentTimeMillis() - date;
-    }
-
-    public long getHoursFromStart() {
-        return (System.currentTimeMillis() - date) / (60 * 1000);
-    }
-
-    public String age() {
-        Map<TimeUnit, Long> diff = computeDiff(date, System.currentTimeMillis());
-        if (OverviewFragment.shorttextmode)
-            return diff.get(TimeUnit.DAYS) +"d" + diff.get(TimeUnit.HOURS) + "h";
-        else
-            return diff.get(TimeUnit.DAYS) + " " + MainApp.sResources.getString(R.string.days) + " " + diff.get(TimeUnit.HOURS) + " " + MainApp.sResources.getString(R.string.hours);
-    }
-
-    public String log() {
-        return "CareportalEvent{" +
-                "date= " + date +
-                ", date= " + DateUtil.dateAndTimeString(date) +
-                ", isValid= " + isValid +
-                ", _id= " + _id +
-                ", eventType= " + eventType +
-                ", json= " + json +
-                "}";
-    }
-
-    //Map:{DAYS=1, HOURS=3, MINUTES=46, SECONDS=40, MILLISECONDS=0, MICROSECONDS=0, NANOSECONDS=0}
-    public static Map<TimeUnit, Long> computeDiff(long date1, long date2) {
-        long diffInMillies = date2 - date1;
-        List<TimeUnit> units = new ArrayList<TimeUnit>(EnumSet.allOf(TimeUnit.class));
-        Collections.reverse(units);
-        Map<TimeUnit, Long> result = new LinkedHashMap<TimeUnit, Long>();
-        long milliesRest = diffInMillies;
-        for (TimeUnit unit : units) {
-            long diff = unit.convert(milliesRest, TimeUnit.MILLISECONDS);
-            long diffInMilliesForUnit = unit.toMillis(diff);
-            milliesRest = milliesRest - diffInMilliesForUnit;
-            result.put(unit, diff);
-        }
-        return result;
-    }
-
-    // -------- DataPointWithLabelInterface -------
+    //                                                    date,bg,insulin,carbs,prebolus,duration,percent,absolute,profile,split,temptarget
+    public static final OptionsToShow BGCHECK = new OptionsToShow(R.id.careportal_bgcheck, R.string.careportal_bgcheck).date().bg();
+    public static final OptionsToShow SNACKBOLUS = new OptionsToShow(R.id.careportal_snackbolus, R.string.careportal_snackbolus).date().bg().insulin().carbs().prebolus();
+    public static final OptionsToShow MEALBOLUS = new OptionsToShow(R.id.careportal_mealbolus, R.string.careportal_mealbolus).date().bg().insulin().carbs().prebolus();
+    public static final OptionsToShow CORRECTIONBOLUS = new OptionsToShow(R.id.careportal_correctionbolus, R.string.careportal_correctionbolus).date().bg().insulin().carbs().prebolus();
+    public static final OptionsToShow CARBCORRECTION = new OptionsToShow(R.id.careportal_carbscorrection, R.string.careportal_carbscorrection).date().bg().carbs();
+    public static final OptionsToShow COMBOBOLUS = new OptionsToShow(R.id.careportal_combobolus, R.string.careportal_combobolus).date().bg().insulin().carbs().prebolus().duration().split();
+    public static final OptionsToShow ANNOUNCEMENT = new OptionsToShow(R.id.careportal_announcement, R.string.careportal_announcement).date().bg();
+    public static final OptionsToShow NOTE = new OptionsToShow(R.id.careportal_note, R.string.careportal_note).date().bg().duration();
+    public static final OptionsToShow QUESTION = new OptionsToShow(R.id.careportal_question, R.string.careportal_question).date().bg();
+    public static final OptionsToShow EXERCISE = new OptionsToShow(R.id.careportal_exercise, R.string.careportal_exercise).date().duration();
+    public static final OptionsToShow SITECHANGE = new OptionsToShow(R.id.careportal_pumpsitechange, R.string.careportal_pumpsitechange).date().bg();
+    public static final OptionsToShow SENSORSTART = new OptionsToShow(R.id.careportal_cgmsensorstart, R.string.careportal_cgmsensorstart).date().bg();
+    public static final OptionsToShow SENSORCHANGE = new OptionsToShow(R.id.careportal_cgmsensorinsert, R.string.careportal_cgmsensorinsert).date().bg();
+    public static final OptionsToShow INSULINCHANGE = new OptionsToShow(R.id.careportal_insulincartridgechange, R.string.careportal_insulincartridgechange).date().bg();
+    public static final OptionsToShow PUMPBATTERYCHANGE = new OptionsToShow(R.id.careportal_pumpbatterychange, R.string.careportal_pumpbatterychange).date().bg();
+    public static final OptionsToShow TEMPBASALSTART = new OptionsToShow(R.id.careportal_tempbasalstart, R.string.careportal_tempbasalstart).date().bg().duration().percent().absolute();
+    public static final OptionsToShow TEMPBASALEND = new OptionsToShow(R.id.careportal_tempbasalend, R.string.careportal_tempbasalend).date().bg();
+    public static final OptionsToShow PROFILESWITCH = new OptionsToShow(R.id.careportal_profileswitch, R.string.careportal_profileswitch).date().duration().profile();
+    public static final OptionsToShow PROFILESWITCHDIRECT = new OptionsToShow(R.id.careportal_profileswitch, R.string.careportal_profileswitch).duration().profile();
+    public static final OptionsToShow OPENAPSOFFLINE = new OptionsToShow(R.id.careportal_openapsoffline, R.string.careportal_openapsoffline).date().duration();
+    public static final OptionsToShow TEMPTARGET = new OptionsToShow(R.id.careportal_temporarytarget, R.string.careportal_temporarytarget).date().duration().tempTarget();
 
     @Override
-    public double getX() {
-        return date;
-    }
-
-    double yValue = 0;
-
-    @Override
-    public double getY() {
-        String units = MainApp.getConfigBuilder().getProfileUnits();
-        if (eventType.equals(MBG)) {
-            double mbg = 0d;
-            try {
-                JSONObject object = new JSONObject(json);
-                mbg = object.getDouble("mgdl");
-            } catch (JSONException e) {
-                log.error("Unhandled exception", e);
-            }
-            return Profile.fromMgdlToUnits(mbg, units);
-        }
-
-        double glucose = 0d;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         try {
-            JSONObject object = new JSONObject(json);
-            if (object.has("glucose")) {
-                glucose = object.getDouble("glucose");
-                units = object.getString("units");
+            View view = inflater.inflate(R.layout.careportal_fragment, container, false);
+
+            view.findViewById(R.id.careportal_bgcheck).setOnClickListener(this);
+            view.findViewById(R.id.careportal_announcement).setOnClickListener(this);
+            view.findViewById(R.id.careportal_cgmsensorinsert).setOnClickListener(this);
+            view.findViewById(R.id.careportal_cgmsensorstart).setOnClickListener(this);
+            view.findViewById(R.id.careportal_combobolus).setOnClickListener(this);
+            view.findViewById(R.id.careportal_correctionbolus).setOnClickListener(this);
+            view.findViewById(R.id.careportal_carbscorrection).setOnClickListener(this);
+            view.findViewById(R.id.careportal_exercise).setOnClickListener(this);
+            view.findViewById(R.id.careportal_insulincartridgechange).setOnClickListener(this);
+            view.findViewById(R.id.careportal_pumpbatterychange).setOnClickListener(this);
+            view.findViewById(R.id.careportal_mealbolus).setOnClickListener(this);
+            view.findViewById(R.id.careportal_note).setOnClickListener(this);
+            view.findViewById(R.id.careportal_profileswitch).setOnClickListener(this);
+            view.findViewById(R.id.careportal_pumpsitechange).setOnClickListener(this);
+            view.findViewById(R.id.careportal_question).setOnClickListener(this);
+            view.findViewById(R.id.careportal_snackbolus).setOnClickListener(this);
+            view.findViewById(R.id.careportal_tempbasalend).setOnClickListener(this);
+            view.findViewById(R.id.careportal_tempbasalstart).setOnClickListener(this);
+            view.findViewById(R.id.careportal_openapsoffline).setOnClickListener(this);
+            view.findViewById(R.id.careportal_temporarytarget).setOnClickListener(this);
+
+            iage = (TextView) view.findViewById(R.id.careportal_insulinage);
+            cage = (TextView) view.findViewById(R.id.careportal_canulaage);
+            sage = (TextView) view.findViewById(R.id.careportal_sensorage);
+            pbage = (TextView) view.findViewById(R.id.careportal_pbage);
+
+            statsLayout = view.findViewById(R.id.careportal_stats);
+
+            noProfileView = view.findViewById(R.id.profileview_noprofile);
+            butonsLayout = (LinearLayout) view.findViewById(R.id.careportal_buttons);
+
+            ProfileStore profileStore = MainApp.getConfigBuilder().getActiveProfileInterface().getProfile();
+            if (profileStore == null) {
+                noProfileView.setVisibility(View.VISIBLE);
+                butonsLayout.setVisibility(View.GONE);
+            } else {
+                noProfileView.setVisibility(View.GONE);
+                butonsLayout.setVisibility(View.VISIBLE);
             }
-        } catch (JSONException e) {
-            log.error("Unhandled exception", e);
-        }
-        if (glucose != 0d) {
-            double mmol = 0d;
-            double mgdl = 0;
-            if (units.equals(Constants.MGDL)) {
-                mgdl = glucose;
-                mmol = glucose * Constants.MGDL_TO_MMOLL;
-            }
-            if (units.equals(Constants.MMOL)) {
-                mmol = glucose;
-                mgdl = glucose * Constants.MMOLL_TO_MGDL;
-            }
-            return Profile.toUnits(mgdl, mmol, units);
+
+            if (Config.NSCLIENT || Config.G5UPLOADER)
+                statsLayout.setVisibility(View.GONE); // visible on overview
+
+            updateGUI();
+            return view;
+        } catch (Exception e) {
+            FabricPrivacy.logException(e);
         }
 
-        return yValue;
+        return null;
     }
 
     @Override
-    public void setY(double y) {
-        yValue = y;
+    public void onClick(View view) {
+        action(view.getId(), getFragmentManager());
     }
 
-    @Override
-    public String getLabel() {
-        try {
-            JSONObject object = new JSONObject(json);
-            if (object.has("notes"))
-                return StringUtils.abbreviate(object.getString("notes"), 40);
-        } catch (JSONException e) {
-            log.error("Unhandled exception", e);
+    public static void action(int id, FragmentManager manager) {
+        NewNSTreatmentDialog newDialog = new NewNSTreatmentDialog();
+        switch (id) {
+            case R.id.careportal_bgcheck:
+                newDialog.setOptions(BGCHECK, R.string.careportal_bgcheck);
+                break;
+            case R.id.careportal_announcement:
+                newDialog.setOptions(ANNOUNCEMENT, R.string.careportal_announcement);
+                break;
+            case R.id.careportal_cgmsensorinsert:
+                newDialog.setOptions(SENSORCHANGE, R.string.careportal_cgmsensorinsert);
+                break;
+            case R.id.careportal_cgmsensorstart:
+                newDialog.setOptions(SENSORSTART, R.string.careportal_cgmsensorstart);
+                break;
+            case R.id.careportal_combobolus:
+                newDialog.setOptions(COMBOBOLUS, R.string.careportal_combobolus);
+                break;
+            case R.id.careportal_correctionbolus:
+                newDialog.setOptions(CORRECTIONBOLUS, R.string.careportal_correctionbolus);
+                break;
+            case R.id.careportal_carbscorrection:
+                newDialog.setOptions(CARBCORRECTION, R.string.careportal_carbscorrection);
+                break;
+            case R.id.careportal_exercise:
+                newDialog.setOptions(EXERCISE, R.string.careportal_exercise);
+                break;
+            case R.id.careportal_insulincartridgechange:
+                newDialog.setOptions(INSULINCHANGE, R.string.careportal_insulincartridgechange);
+                break;
+            case R.id.careportal_pumpbatterychange:
+                newDialog.setOptions(PUMPBATTERYCHANGE, R.string.careportal_pumpbatterychange);
+                break;
+            case R.id.careportal_mealbolus:
+                newDialog.setOptions(MEALBOLUS, R.string.careportal_mealbolus);
+                break;
+            case R.id.careportal_note:
+                newDialog.setOptions(NOTE, R.string.careportal_note);
+                break;
+            case R.id.careportal_profileswitch:
+                PROFILESWITCH.executeProfileSwitch = false;
+                newDialog.setOptions(PROFILESWITCH, R.string.careportal_profileswitch);
+                break;
+            case R.id.careportal_pumpsitechange:
+                newDialog.setOptions(SITECHANGE, R.string.careportal_pumpsitechange);
+                break;
+            case R.id.careportal_question:
+                newDialog.setOptions(QUESTION, R.string.careportal_question);
+                break;
+            case R.id.careportal_snackbolus:
+                newDialog.setOptions(SNACKBOLUS, R.string.careportal_snackbolus);
+                break;
+            case R.id.careportal_tempbasalstart:
+                newDialog.setOptions(TEMPBASALSTART, R.string.careportal_tempbasalstart);
+                break;
+            case R.id.careportal_tempbasalend:
+                newDialog.setOptions(TEMPBASALEND, R.string.careportal_tempbasalend);
+                break;
+            case R.id.careportal_openapsoffline:
+                newDialog.setOptions(OPENAPSOFFLINE, R.string.careportal_openapsoffline);
+                break;
+            case R.id.careportal_temporarytarget:
+                TEMPTARGET.executeTempTarget = false;
+                newDialog.setOptions(TEMPTARGET, R.string.careportal_temporarytarget);
+                break;
+            default:
+                newDialog = null;
         }
-        return Translator.translate(eventType);
+        if (newDialog != null)
+            newDialog.show(manager, "NewNSTreatmentDialog");
     }
 
-    public String getNotes() {
-        try {
-            JSONObject object = new JSONObject(json);
-            if (object.has("notes"))
-                return object.getString("notes");
-        } catch (JSONException e) {
-            log.error("Unhandled exception", e);
+    @Subscribe
+    public void onStatusEvent(final EventCareportalEventChange c) {
+        updateGUI();
+    }
+
+    @Override
+    protected void updateGUI() {
+        Activity activity = getActivity();
+        updateAge(activity, sage, iage, cage, pbage);
+    }
+
+    public static void updateAge(Activity activity, final TextView sage, final TextView iage, final TextView cage, final TextView pbage) {
+        if (activity != null) {
+            activity.runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            CareportalEvent careportalEvent;
+                            String isOld = "";
+                            String notavailable = OverviewFragment.shorttextmode ? "-" : MainApp.sResources.getString(R.string.notavailable);
+                            if (sage != null) {
+                                careportalEvent = MainApp.getDbHelper().getLastCareportalEvent(CareportalEvent.SENSORCHANGE);
+                                if(careportalEvent != null) {
+                                    isOld = careportalEvent.age(7).substring(0, 5);
+                                    if(isOld.equals("isOLD")){
+                                        sage.setTextColor(MainApp.sResources.getColor(R.color.low));
+                                        sage.setText(careportalEvent.age(7).substring(5));
+                                    } else {
+                                        sage.setText(careportalEvent.age(7));
+                                    }
+
+                                } else {
+                                    sage.setText(notavailable);
+                                }
+                            }
+                            if (iage != null) {
+                                careportalEvent = MainApp.getDbHelper().getLastCareportalEvent(CareportalEvent.INSULINCHANGE);
+                                if(careportalEvent != null) {
+                                    isOld = careportalEvent.age(7).substring(0, 5);
+                                    if(isOld.equals("isOLD")){
+                                        iage.setTextColor(MainApp.sResources.getColor(R.color.low));
+                                        iage.setText(careportalEvent.age(7).substring(5));
+                                    } else {
+                                        iage.setText(careportalEvent.age(7));
+                                    }
+
+                                } else {
+                                    iage.setText(notavailable);
+                                }
+                            }
+                            if (cage != null) {
+                                careportalEvent = MainApp.getDbHelper().getLastCareportalEvent(CareportalEvent.SITECHANGE);
+                                    if (careportalEvent != null) {
+                                        isOld = careportalEvent.age(3).substring(0, 5);
+                                        if(isOld.equals("isOLD")){
+                                            cage.setTextColor(MainApp.sResources.getColor(R.color.low));
+                                            cage.setText(careportalEvent.age(3).substring(5));
+                                        } else {
+                                            cage.setText(careportalEvent.age(3));
+                                        }
+
+                                    } else {
+                                        cage.setText(notavailable);
+                                    }
+                            }
+                            if (pbage != null) {
+                                careportalEvent = MainApp.getDbHelper().getLastCareportalEvent(CareportalEvent.PUMPBATTERYCHANGE);
+                                if(careportalEvent != null) {
+                                    isOld = careportalEvent.age(15).substring(0, 5);
+                                    if(isOld.equals("isOLD")){
+                                        pbage.setTextColor(MainApp.sResources.getColor(R.color.low));
+                                        pbage.setText(careportalEvent.age(15).substring(5));
+                                    } else {
+                                        pbage.setText(careportalEvent.age(15));
+                                    }
+
+                                } else {
+                                    pbage.setText(notavailable);
+                                }
+                            }
+                        }
+                    }
+            );
         }
-        return "";
     }
 
-    @Override
-    public long getDuration() {
-        try {
-            JSONObject object = new JSONObject(json);
-            if (object.has("duration"))
-                return object.getInt("duration") * 60 * 1000L;
-        } catch (JSONException e) {
-            log.error("Unhandled exception", e);
-        }
-        return 0;
-    }
-
-    @Override
-    public PointsWithLabelGraphSeries.Shape getShape() {
-        switch (eventType) {
-            case CareportalEvent.MBG:
-                return PointsWithLabelGraphSeries.Shape.MBG;
-            case CareportalEvent.BGCHECK:
-                return PointsWithLabelGraphSeries.Shape.BGCHECK;
-            case CareportalEvent.ANNOUNCEMENT:
-                return PointsWithLabelGraphSeries.Shape.ANNOUNCEMENT;
-            case CareportalEvent.OPENAPSOFFLINE:
-                return PointsWithLabelGraphSeries.Shape.OPENAPSOFFLINE;
-            case CareportalEvent.EXERCISE:
-                return PointsWithLabelGraphSeries.Shape.EXERCISE;
-        }
-        if (getDuration() > 0)
-            return PointsWithLabelGraphSeries.Shape.GENERALWITHDURATION;
-        return PointsWithLabelGraphSeries.Shape.GENERAL;
-    }
-
-    @Override
-    public float getSize() {
-        boolean isTablet = MainApp.sResources.getBoolean(R.bool.isTablet);
-        return isTablet ? 12 : 10;
-    }
-
-    @Override
-    public int getColor() {
-        if (eventType.equals(ANNOUNCEMENT))
-            return MainApp.sResources.getColor(R.color.notificationAnnouncement);
-        if (eventType.equals(MBG))
-            return Color.RED;
-        if (eventType.equals(BGCHECK))
-            return Color.RED;
-        if (eventType.equals(EXERCISE))
-            return Color.BLUE;
-        if (eventType.equals(OPENAPSOFFLINE))
-            return Color.GRAY;
-        return Color.GRAY;
-    }
-
-    @Override
-    public int getSecondColor() {
-        return 0;
-    }
 }
+
