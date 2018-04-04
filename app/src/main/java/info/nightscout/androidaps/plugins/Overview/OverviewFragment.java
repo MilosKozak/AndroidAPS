@@ -185,13 +185,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
     private int rangeToDisplay = 6; // for graph
 
     Handler sLoopHandler = new Handler();
-    Runnable sRefreshLoop = null;
-
-    final Object updateSync = new Object();
 
     public enum CHARTTYPE {PRE, BAS, IOB, COB, DEV, SEN}
-
-    ;
 
     private static final ScheduledExecutorService worker = Executors.newSingleThreadScheduledExecutor();
     private static ScheduledFuture<?> scheduledUpdate = null;
@@ -841,14 +836,6 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
     public void onResume() {
         super.onResume();
         MainApp.bus().register(this);
-        sRefreshLoop = new Runnable() {
-            @Override
-            public void run() {
-                scheduleUpdateGUI("refreshLoop");
-                sLoopHandler.postDelayed(sRefreshLoop, 60 * 1000L);
-            }
-        };
-        sLoopHandler.postDelayed(sRefreshLoop, 60 * 1000L);
         registerForContextMenu(apsModeView);
         registerForContextMenu(activeProfileView);
         updateGUI("onResume");
