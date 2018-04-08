@@ -13,16 +13,17 @@ public class Config {
     public static final boolean G5UPLOADER = BuildConfig.G5UPLOADER;
     public static final boolean PUMPCONTROL = BuildConfig.PUMPCONTROL;
 
-    public static final boolean DANAR = BuildConfig.PUMPDRIVERS;
+    public static final boolean HWPUMPS = BuildConfig.PUMPDRIVERS;
 
     public static final boolean ACTION = !BuildConfig.NSCLIENTOLNY && !BuildConfig.G5UPLOADER;
-    public static final boolean VIRTUALPUMP = !BuildConfig.NSCLIENTOLNY && !BuildConfig.G5UPLOADER;
     public static final boolean MDI = !BuildConfig.NSCLIENTOLNY && !BuildConfig.G5UPLOADER;
     public static final boolean OTHERPROFILES = !BuildConfig.NSCLIENTOLNY && !BuildConfig.G5UPLOADER;
     public static final boolean SAFETY = !BuildConfig.NSCLIENTOLNY && !BuildConfig.G5UPLOADER;
 
     public static final boolean SMSCOMMUNICATORENABLED = !BuildConfig.NSCLIENTOLNY && !BuildConfig.G5UPLOADER;
 
+
+    public static final boolean displayDeviationSlope = false;
 
     public static final boolean detailedLog = true;
     public static final boolean logFunctionCalls = true;
@@ -31,7 +32,6 @@ public class Config {
     public static final boolean logPumpComm = true;
     public static final boolean logPrefsChange = true;
     public static final boolean logConfigBuilder = true;
-    public static final boolean logConstraintsChanges = true;
     public static final boolean logNSUpload = true;
     public static final boolean logPumpActions = true;
     public static final boolean logCongigBuilderActions = true;

@@ -11,11 +11,12 @@ import info.nightscout.androidaps.queue.Callback;
 public abstract class Command {
     public enum CommandType {
         BOLUS,
+        SMB_BOLUS,
         TEMPBASAL,
         EXTENDEDBOLUS,
         BASALPROFILE,
         READSTATUS,
-        LOADHISTORY, // so far only Dana specific
+        LOADHISTORY, // TDDs and so far only Dana specific
         LOADEVENTS // so far only Dana specific
     }
 

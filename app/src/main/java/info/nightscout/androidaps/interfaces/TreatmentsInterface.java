@@ -9,7 +9,7 @@ import info.nightscout.androidaps.db.ExtendedBolus;
 import info.nightscout.androidaps.db.ProfileSwitch;
 import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.db.TemporaryBasal;
-import info.nightscout.androidaps.db.Treatment;
+import info.nightscout.androidaps.plugins.Treatments.Treatment;
 import info.nightscout.androidaps.data.Intervals;
 import info.nightscout.androidaps.data.ProfileIntervals;
 
@@ -30,6 +30,7 @@ public interface TreatmentsInterface {
 
     List<Treatment> getTreatmentsFromHistory();
     List<Treatment> getTreatments5MinBackFromHistory(long time);
+    long getLastBolusTime();
 
     // real basals (not faked by extended bolus)
     boolean isInHistoryRealTempBasalInProgress();
@@ -40,8 +41,6 @@ public interface TreatmentsInterface {
     // basal that can be faked by extended boluses
     boolean isTempBasalInProgress();
     TemporaryBasal getTempBasalFromHistory(long time);
-    double getTempBasalAbsoluteRateHistory();
-    double getTempBasalRemainingMinutesFromHistory();
     Intervals<TemporaryBasal> getTemporaryBasalsFromHistory();
 
     boolean isInHistoryExtendedBoluslInProgress();

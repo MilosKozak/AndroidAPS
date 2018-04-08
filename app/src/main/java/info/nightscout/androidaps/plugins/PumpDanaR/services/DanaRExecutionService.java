@@ -18,7 +18,7 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
-import info.nightscout.androidaps.db.Treatment;
+import info.nightscout.androidaps.plugins.Treatments.Treatment;
 import info.nightscout.androidaps.events.EventAppExit;
 import info.nightscout.androidaps.events.EventInitializationChanged;
 import info.nightscout.androidaps.events.EventPreferenceChange;
@@ -351,6 +351,11 @@ public class DanaRExecutionService extends AbstractDanaRExecutionService{
 
     @Override
     public boolean highTempBasal(int percent) {
+        return false;
+    }
+
+    @Override
+    public boolean tempBasalShortDuration(int percent, int durationInMinutes) {
         return false;
     }
 

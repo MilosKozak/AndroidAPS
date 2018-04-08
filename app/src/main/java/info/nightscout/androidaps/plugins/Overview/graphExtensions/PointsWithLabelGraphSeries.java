@@ -48,11 +48,11 @@ import java.util.Iterator;
  */
 public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> extends BaseSeries<E> {
     // Default spSize
-    int spSize = 12;
+    int spSize = 14;
     // Convert the sp to pixels
     Context context = MainApp.instance().getApplicationContext();
     float scaledTextSize = spSize * context.getResources().getDisplayMetrics().scaledDensity;
-    float scaledPxSize = context.getResources().getDisplayMetrics().scaledDensity * 1.5f;
+    float scaledPxSize = context.getResources().getDisplayMetrics().scaledDensity * 3f;
 
     /**
      * choose a predefined shape to render for
@@ -60,17 +60,12 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
      * You can also render a custom drawing via {@link com.jjoe64.graphview.series.PointsGraphSeries.CustomShape}
      */
     public enum Shape {
-        /**
-         * draws a point / circle
-         */
-        POINT,
-
-        /**
-         * draws a triangle
-         */
+        BG,
+        PREDICTION,
         TRIANGLE,
         RECTANGLE,
         BOLUS,
+        SMB,
         EXTENDEDBOLUS,
         PROFILE,
         MBG,
@@ -202,9 +197,19 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
 
             // draw data point
             if (!overdraw) {
-                if (value.getShape() == Shape.POINT) {
+                if (value.getShape() == Shape.BG) {
+                    mPaint.setStyle(Paint.Style.FILL);
                     mPaint.setStrokeWidth(0);
                     canvas.drawCircle(endX, endY, scaledPxSize, mPaint);
+                } else if (value.getShape() == Shape.PREDICTION) {
+                    mPaint.setColor(value.getColor());
+                    mPaint.setStyle(Paint.Style.FILL);
+                    mPaint.setStrokeWidth(0);
+                    canvas.drawCircle(endX, endY, scaledPxSize, mPaint);
+                    mPaint.setColor(value.getSecondColor());
+                    mPaint.setStyle(Paint.Style.FILL);
+                    mPaint.setStrokeWidth(0);
+                    canvas.drawCircle(endX, endY, scaledPxSize / 3, mPaint);
                 } else if (value.getShape() == Shape.RECTANGLE) {
                     canvas.drawRect(endX-scaledPxSize, endY-scaledPxSize, endX+scaledPxSize, endY+scaledPxSize, mPaint);
                 } else if (value.getShape() == Shape.TRIANGLE) {
@@ -225,6 +230,15 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
                     if (value.getLabel() != null) {
                         drawLabel45(endX, endY, value, canvas);
                     }
+                } else if (value.getShape() == Shape.SMB) {
+                    mPaint.setStrokeWidth(2);
+                    Point[] points = new Point[3];
+                    float size = value.getSize() * scaledPxSize;
+                    points[0] = new Point((int)endX, (int)(endY-size));
+                    points[1] = new Point((int)(endX+size), (int)(endY+size*0.67));
+                    points[2] = new Point((int)(endX-size), (int)(endY+size*0.67));
+                    mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+                    drawArrows(points, canvas, mPaint);
                 } else if (value.getShape() == Shape.EXTENDEDBOLUS) {
                     mPaint.setStrokeWidth(0);
                     if (value.getLabel() != null) {
