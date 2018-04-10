@@ -26,4 +26,7 @@
     </option>
     <option name="cloneParentDir" value="D:\Documents" />
   </component>
+  <component name="VcsApplicationSettings">
+    <option name="PATCH_STORAGE_LOCATION" value="D:/Documents/AndroidAPS-Combo-SMB3" />
+  </component>
 </application>
