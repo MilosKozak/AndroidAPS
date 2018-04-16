@@ -88,7 +88,7 @@ public class DetermineBasalAdapterAMAJS {
 
             //set module parent
             rhino.evaluateString(scope, "var module = {\"parent\":Boolean(1)};", "JavaScript", 0, null);
-            rhino.evaluateString(scope, "var round_basal = function round_basal(basal, profile) { return basal; };", "JavaScript", 0, null);
+            rhino.evaluateString(scope, "var round_basal = function round_basal(basal, profile) { return Math.round(basal * 40) / 40; };", "JavaScript", 0, null);
             rhino.evaluateString(scope, "require = function() {return round_basal;};", "JavaScript", 0, null);
 
             //generate functions "determine_basal" and "setTempBasal"
