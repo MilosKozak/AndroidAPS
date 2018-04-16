@@ -291,7 +291,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
 
     rT.COB=meal_data.mealCOB;
     rT.IOB=iob_data.iob;
-    rT.reason="COB: " + meal_data.mealCOB + ", Dev: " + deviation + ", BGI: " + bgi + ", ISF: " + convert_bg(sens, profile) + ", Target: " + convert_bg(target_bg, profile) + "; ";
+    rT.reason="COB: " + round(meal_data.mealCOB, 1) + ", Dev: " + deviation + ", BGI: " + bgi + ", ISF: " + convert_bg(sens, profile) + ", Target: " + convert_bg(target_bg, profile) + "; ";
     if (typeof autosens_data !== 'undefined' && profile.autosens_adjust_targets && autosens_data.ratio != 1)
         rT.reason += "Autosens: " + autosens_data.ratio + "; ";
     if (bg < threshold) { // low glucose suspend mode: BG is < ~80
