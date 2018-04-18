@@ -26,6 +26,8 @@ import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.MealData;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.TemporaryBasal;
+import info.nightscout.androidaps.interfaces.PumpDescription;
+import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugin;
 import info.nightscout.androidaps.plugins.Loop.ScriptReader;
 import info.nightscout.androidaps.plugins.OpenAPSMA.LoggerCallback;
@@ -88,7 +90,7 @@ public class DetermineBasalAdapterAMAJS {
 
             //set module parent
             rhino.evaluateString(scope, "var module = {\"parent\":Boolean(1)};", "JavaScript", 0, null);
-            rhino.evaluateString(scope, "var round_basal = function round_basal(basal, profile) { return basal; };", "JavaScript", 0, null);
+            rhino.evaluateString(scope, "var round_basal = function round_basal(basal, profile) { if (!profile.temp_basal_step) return basal; return Math.round(basal / profile.temp_basal_step) * profile.temp_basal_step; };", "JavaScript", 0, null);
             rhino.evaluateString(scope, "require = function() {return round_basal;};", "JavaScript", 0, null);
 
             //generate functions "determine_basal" and "setTempBasal"
@@ -179,6 +181,7 @@ public class DetermineBasalAdapterAMAJS {
     }
 
     public void setData(Profile profile,
+                        PumpInterface pump,
                         double maxIob,
                         double maxBasal,
                         double minBg,
@@ -213,10 +216,24 @@ public class DetermineBasalAdapterAMAJS {
         mProfile.put("autosens_adjust_targets", SP.getBoolean("openapsama_autosens_adjusttargets", true));
         mProfile.put("min_5m_carbimpact", SP.getDouble("openapsama_min_5m_carbimpact", 3d));
 
+        // Calculate tempBasalStep based on TBR values
+        double tempBasalStep = 0;
+        if ((pump.getPumpDescription().tempBasalStyle & PumpDescription.ABSOLUTE) == PumpDescription.ABSOLUTE)
+            tempBasalStep = pump.getPumpDescription().tempAbsoluteStep;
+
+        if ((pump.getPumpDescription().tempBasalStyle & PumpDescription.PERCENT) == PumpDescription.PERCENT) {
+            double currentBasal = pump.getBaseBasalRate();
+            double percentStep = currentBasal * pump.getPumpDescription().tempPercentStep / 100;
+            if (tempBasalStep == 0 || percentStep < tempBasalStep)
+                tempBasalStep = percentStep;
+        }
+        if (tempBasalStep > 0) {
+            mProfile.put("temp_basal_step", tempBasalStep);
+        }
+
         if (units.equals(Constants.MMOL)) {
             mProfile.put("out_units", "mmol/L");
         }
-        
 
         mCurrentTemp = new JSONObject();
         mCurrentTemp.put("temp", "absolute");

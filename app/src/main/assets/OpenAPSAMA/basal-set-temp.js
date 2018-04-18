@@ -11,8 +11,9 @@ tempBasalFunctions.getMaxSafeBasal = function getMaxSafeBasal(profile) {
 
 	var max_daily_safety_multiplier = (isNaN(profile.max_daily_safety_multiplier) || profile.max_daily_safety_multiplier == null) ? 3 : profile.max_daily_safety_multiplier;
 	var current_basal_safety_multiplier = (isNaN(profile.current_basal_safety_multiplier) || profile.current_basal_safety_multiplier == null) ? 4 : profile.current_basal_safety_multiplier;
-	
-	return Math.min(profile.max_basal, max_daily_safety_multiplier * profile.max_daily_basal, current_basal_safety_multiplier * profile.current_basal);
+
+    var round_basal = require('./round-basal');
+	return round_basal(Math.min(profile.max_basal, max_daily_safety_multiplier * profile.max_daily_basal, current_basal_safety_multiplier * profile.current_basal), profile);
 };
 
 tempBasalFunctions.setTempBasal = function setTempBasal(rate, duration, profile, rT, currenttemp) {
