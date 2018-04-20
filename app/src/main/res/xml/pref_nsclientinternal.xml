@@ -67,42 +67,6 @@
                 android:key="@string/key_nsalarm_urgent_low"
                 android:title="@string/nsalarm_urgentlow"/>
 
-            <SwitchPreference
-                android:defaultValue="false"
-                android:key="@string/key_nsalarm_staledata"
-                android:title="@string/nsalarm_staledata"/>
-
-            <com.andreabaccega.widget.ValidatingEditTextPreference
-                validate:testType="numericRange"
-                validate:minNumber="15"
-                validate:maxNumber="120"
-                android:digits="0123456789"
-                android:defaultValue="16"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:inputType="number"
-                android:maxLines="20"
-                android:title="@string/nsalarm_staledatavalue_label"
-                android:key="@string/key_nsalarm_staledatavalue" />
-
-            <SwitchPreference
-                android:defaultValue="false"
-                android:key="@string/key_nsalarm_urgent_staledata"
-                android:title="@string/nsalarm_urgentstaledata"/>
-
-            <com.andreabaccega.widget.ValidatingEditTextPreference
-                validate:testType="numericRange"
-                validate:minNumber="30"
-                validate:maxNumber="180"
-                android:digits="0123456789"
-                android:defaultValue="31"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:inputType="number"
-                android:maxLines="20"
-                android:title="@string/nsalarm_urgent_staledatavalue_label"
-                android:key="@string/key_nsalarm_urgent_staledatavalue" />
-
         </PreferenceScreen>
 
     </PreferenceCategory>
