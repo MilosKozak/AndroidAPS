@@ -69,10 +69,10 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     if (bg < 39) {  //Dexcom is in ??? mode or calibrating
         rT.reason = "CGM is calibrating or in ??? state";
         if (basal <= currenttemp.rate * 1.2) { // high temp is running
-            rT.reason += "; setting current basal of " + basal + " as temp";
+            rT.reason += "; setting current basal of " + round_basal(basal, profile) + " as temp";
             return tempBasalFunctions.setTempBasal(basal, 30, profile, rT, currenttemp);
         } else { //do nothing.
-            rT.reason += ", temp " + currenttemp.rate + " <~ current basal " + basal + "U/hr";
+            rT.reason += ", temp " + round_basal(currenttemp.rate, profile) + " <~ current basal " + round_basal(basal, profile) + "U/hr";
             return rT;
         }
     }
@@ -306,10 +306,10 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
             rT.reason += ", min delta " + minDelta.toFixed(2) + ">0";
         }
         if (currenttemp.duration > 15 && (round_basal(basal, profile) === round_basal(currenttemp.rate, profile))) {
-            rT.reason += ", temp " + currenttemp.rate + " ~ req " + basal + "U/hr";
+            rT.reason += ", temp " + round_basal(currenttemp.rate, profile) + " ~ req " + round_basal(basal, profile) + "U/hr";
             return rT;
         } else {
-            rT.reason += "; setting current basal of " + basal + " as temp";
+            rT.reason += "; setting current basal of " + round_basal(basal, profile) + " as temp";
             return tempBasalFunctions.setTempBasal(basal, 30, profile, rT, currenttemp);
         }
     }
