@@ -132,7 +132,7 @@ public class LocalProfileFragment extends SubscriberFragment {
                 @Override
                 public void onClick(View view) {
                     NewNSTreatmentDialog newDialog = new NewNSTreatmentDialog();
-                    final OptionsToShow profileswitch = CareportalFragment.PROFILESWITCHDIRECT;
+                    final OptionsToShow profileswitch = CareportalFragment.PROFILESWITCH;
                     profileswitch.executeProfileSwitch = true;
                     newDialog.setOptions(profileswitch, R.string.careportal_profileswitch);
                     newDialog.show(getFragmentManager(), "NewNSTreatmentDialog");
