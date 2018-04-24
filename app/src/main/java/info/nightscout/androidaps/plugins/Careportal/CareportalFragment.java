@@ -59,7 +59,6 @@ public class CareportalFragment extends SubscriberFragment implements View.OnCli
     public static final OptionsToShow TEMPBASALSTART = new OptionsToShow(R.id.careportal_tempbasalstart, R.string.careportal_tempbasalstart).date().bg().duration().percent().absolute();
     public static final OptionsToShow TEMPBASALEND = new OptionsToShow(R.id.careportal_tempbasalend, R.string.careportal_tempbasalend).date().bg();
     public static final OptionsToShow PROFILESWITCH = new OptionsToShow(R.id.careportal_profileswitch, R.string.careportal_profileswitch).date().duration().profile();
-    public static final OptionsToShow PROFILESWITCHDIRECT = new OptionsToShow(R.id.careportal_profileswitch, R.string.careportal_profileswitch).duration().profile();
     public static final OptionsToShow OPENAPSOFFLINE = new OptionsToShow(R.id.careportal_openapsoffline, R.string.careportal_openapsoffline).date().duration();
     public static final OptionsToShow TEMPTARGET = new OptionsToShow(R.id.careportal_temporarytarget, R.string.careportal_temporarytarget).date().duration().tempTarget();
 
