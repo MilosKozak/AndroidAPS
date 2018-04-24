@@ -571,7 +571,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         } else if (item.getTitle().equals(MainApp.gs(R.string.careportal_profileswitch))) {
             NewNSTreatmentDialog newDialog = new NewNSTreatmentDialog();
             final OptionsToShow profileswitch = CareportalFragment.PROFILESWITCH;
-            profileswitch.executeProfileSwitch = true;
+            profileswitch.executeProfileSwitch = false;
             newDialog.setOptions(profileswitch, R.string.careportal_profileswitch);
             newDialog.show(getFragmentManager(), "NewNSTreatmentDialog");
         } else if (item.getTitle().equals(MainApp.gs(R.string.danar_viewprofile))) {
