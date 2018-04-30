@@ -12,127 +12,89 @@ import com.squareup.otto.Subscribe;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.IobTotal;
-import info.nightscout.androidaps.db.TempBasal;
+import info.nightscout.androidaps.data.Profile;
+import info.nightscout.androidaps.db.TemporaryBasal;
+import info.nightscout.androidaps.events.EventExtendedBolusChange;
 import info.nightscout.androidaps.events.EventNewBG;
 import info.nightscout.androidaps.events.EventPreferenceChange;
-import info.nightscout.androidaps.events.EventRefreshGui;
+import info.nightscout.androidaps.events.EventRefreshOverview;
 import info.nightscout.androidaps.events.EventTempBasalChange;
 import info.nightscout.androidaps.events.EventTreatmentChange;
 import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.interfaces.PluginDescription;
+import info.nightscout.androidaps.interfaces.PluginType;
+import info.nightscout.androidaps.interfaces.TreatmentsInterface;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
+import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.utils.DecimalFormatter;
 
 /**
  * Created by adrian on 17/11/16.
  */
 
-public class StatuslinePlugin implements PluginBase {
+public class StatuslinePlugin extends PluginBase {
+
+    private static StatuslinePlugin statuslinePlugin;
+
+    public static StatuslinePlugin getPlugin() {
+        return statuslinePlugin;
+    }
 
     //broadcast related constants
-    public static final String EXTRA_STATUSLINE = "com.eveningoutpost.dexdrip.Extras.Statusline";
-    public static final String ACTION_NEW_EXTERNAL_STATUSLINE = "com.eveningoutpost.dexdrip.ExternalStatusline";
-    public static final String RECEIVER_PERMISSION = "com.eveningoutpost.dexdrip.permissions.RECEIVE_EXTERNAL_STATUSLINE";
+    private static final String EXTRA_STATUSLINE = "com.eveningoutpost.dexdrip.Extras.Statusline";
+    private static final String ACTION_NEW_EXTERNAL_STATUSLINE = "com.eveningoutpost.dexdrip.ExternalStatusline";
+    private static final String RECEIVER_PERMISSION = "com.eveningoutpost.dexdrip.permissions.RECEIVE_EXTERNAL_STATUSLINE";
 
 
-    static boolean fragmentEnabled = false;
-    private static boolean lastLoopStatus;
+    private boolean lastLoopStatus;
 
     private final Context ctx;
-    SharedPreferences mPrefs;
+    private SharedPreferences mPrefs;
 
-    StatuslinePlugin(Context ctx) {
+
+    public static StatuslinePlugin initPlugin(Context ctx) {
+        if (statuslinePlugin == null) {
+            statuslinePlugin = new StatuslinePlugin(ctx);
+        }
+
+        return statuslinePlugin;
+    }
+
+    public StatuslinePlugin(Context ctx) {
+        super(new PluginDescription()
+                .mainType(PluginType.GENERAL)
+                .pluginName(R.string.xdripstatus)
+                .shortName(R.string.xdripstatus_shortname)
+                .neverVisible(true)
+                .preferencesId(R.xml.pref_xdripstatus)
+        );
         this.ctx = ctx;
         this.mPrefs = PreferenceManager.getDefaultSharedPreferences(ctx);
     }
 
     @Override
-    public int getType() {
-        return PluginBase.GENERAL;
+    protected void onStart() {
+        MainApp.bus().register(this);
+        sendStatus();
+        super.onStart();
     }
 
     @Override
-    public String getFragmentClass() {
-        return StatuslineFragment.class.getName();
+    protected void onStop() {
+        super.onStop();
+        MainApp.bus().unregister(this);
+        sendStatus();
     }
-
-    @Override
-    public String getName() {
-        return ctx.getString(R.string.xdripstatus);
-    }
-
-    @Override
-    public String getNameShort() {
-        String name = MainApp.sResources.getString(R.string.xdripstatus_shortname);
-        if (!name.trim().isEmpty()) {
-            //only if translation exists
-            return name;
-        }
-        // use long name as fallback
-        return getName();
-    }
-
-    @Override
-    public boolean isEnabled(int type) {
-        return type == GENERAL && fragmentEnabled;
-    }
-
-    @Override
-    public boolean isVisibleInTabs(int type) {
-        return false;
-    }
-
-    @Override
-    public boolean canBeHidden(int type) {
-        return true;
-    }
-
-    @Override
-    public boolean hasFragment() {
-        return false;
-    }
-
-    @Override
-    public boolean showInList(int type) {
-        return true;
-    }
-
-    @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
-        if (type == GENERAL) {
-            this.fragmentEnabled = fragmentEnabled;
-
-            if (fragmentEnabled) {
-                try {
-                    MainApp.bus().register(this);
-                } catch (Exception e) {}
-                sendStatus();
-            }
-            else{
-                try {
-                    MainApp.bus().unregister(this);
-                } catch (Exception e) {}
-                sendStatus();
-            }
-        }
-    }
-
-    @Override
-    public void setFragmentVisible(int type, boolean fragmentVisible) {
-        // do nothing, no gui
-    }
-
 
     private void sendStatus() {
+        String status = ""; // sent once on disable
 
+        Profile profile = MainApp.getConfigBuilder().getProfile();
 
-        String status =  ""; // sent once on disable
-
-        if(fragmentEnabled) {
-            status = buildStatusString();
+        if (isEnabled(PluginType.GENERAL) && profile != null) {
+            status = buildStatusString(profile);
         }
-
 
         //sendData
         final Bundle bundle = new Bundle();
@@ -144,37 +106,31 @@ public class StatuslinePlugin implements PluginBase {
     }
 
     @NonNull
-    private String buildStatusString() {
+    private String buildStatusString(Profile profile) {
         String status = "";
-        boolean shortString = true; // make setting?
+        LoopPlugin loopPlugin = LoopPlugin.getPlugin();
 
-        LoopPlugin activeloop = MainApp.getConfigBuilder().getActiveLoop();
-
-        if (activeloop != null && !activeloop.isEnabled(PluginBase.LOOP)) {
+        if (!loopPlugin.isEnabled(PluginType.LOOP)) {
             status += ctx.getString(R.string.disabledloop) + "\n";
             lastLoopStatus = false;
-        } else if (activeloop != null && activeloop.isEnabled(PluginBase.LOOP)) {
+        } else if (loopPlugin.isEnabled(PluginType.LOOP)) {
             lastLoopStatus = true;
         }
 
         //Temp basal
-        PumpInterface pump = MainApp.getConfigBuilder();
+        TreatmentsInterface treatmentsInterface = TreatmentsPlugin.getPlugin();
 
-        if (pump.isTempBasalInProgress()) {
-            TempBasal activeTemp = pump.getTempBasal();
-            if (shortString) {
-                status += activeTemp.toStringShort();
-            } else {
-                status += activeTemp.toStringMedium();
-            }
+        TemporaryBasal activeTemp = treatmentsInterface.getTempBasalFromHistory(System.currentTimeMillis());
+        if (activeTemp != null) {
+            status += activeTemp.toStringShort() + " ";
         }
 
         //IOB
-        MainApp.getConfigBuilder().getActiveTreatments().updateTotalIOB();
-        IobTotal bolusIob = MainApp.getConfigBuilder().getActiveTreatments().getLastCalculation().round();
-        MainApp.getConfigBuilder().getActiveTempBasals().updateTotalIOB();
-        IobTotal basalIob = MainApp.getConfigBuilder().getActiveTempBasals().getLastCalculation().round();
-        status += (shortString ? "" : (ctx.getString(R.string.treatments_iob_label_string) + " ")) + DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob);
+        treatmentsInterface.updateTotalIOBTreatments();
+        IobTotal bolusIob = treatmentsInterface.getLastCalculationTreatments().round();
+        treatmentsInterface.updateTotalIOBTempBasals();
+        IobTotal basalIob = treatmentsInterface.getLastCalculationTempBasals().round();
+        status += DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob);
 
 
         if (mPrefs.getBoolean("xdripstatus_detailediob", true)) {
@@ -182,14 +138,14 @@ public class StatuslinePlugin implements PluginBase {
                     + DecimalFormatter.to2Decimal(bolusIob.iob) + "|"
                     + DecimalFormatter.to2Decimal(basalIob.basaliob) + ")";
         }
-        NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
-        if (!mPrefs.getBoolean("xdripstatus_showbgi", false) ||profile == null || profile.getIsf(NSProfile.secondsFromMidnight()) == null || profile.getIc(NSProfile.secondsFromMidnight()) == null) {
+
+        if (!mPrefs.getBoolean("xdripstatus_showbgi", false)) {
             return status;
         }
 
-        double bgi = -(bolusIob.activity + basalIob.activity)*5*profile.getIsf(NSProfile.secondsFromMidnight());
+        double bgi = -(bolusIob.activity + basalIob.activity) * 5 * profile.getIsf();
 
-        status += " " + ((bgi>=0)?"+":"") + DecimalFormatter.to2Decimal(bgi);
+        status += " " + ((bgi >= 0) ? "+" : "") + DecimalFormatter.to2Decimal(bgi);
 
         return status;
     }
@@ -212,26 +168,21 @@ public class StatuslinePlugin implements PluginBase {
     }
 
     @Subscribe
+    public void onStatusEvent(final EventExtendedBolusChange ev) {
+        sendStatus();
+    }
+
+    @Subscribe
     public void onStatusEvent(final EventNewBG ev) {
         sendStatus();
     }
 
     @Subscribe
-    public void onStatusEvent(final EventRefreshGui ev) {
-
+    public void onStatusEvent(final EventRefreshOverview ev) {
         //Filter events where loop is (de)activated
-
-        LoopPlugin activeloop = MainApp.getConfigBuilder().getActiveLoop();
-        if (activeloop == null) return;
-
-        if ((lastLoopStatus != activeloop.isEnabled(PluginBase.LOOP))) {
+        if ((lastLoopStatus != LoopPlugin.getPlugin().isEnabled(PluginType.LOOP))) {
             sendStatus();
         }
-    }
-
-
-    public static boolean isEnabled() {
-        return fragmentEnabled;
     }
 
 }

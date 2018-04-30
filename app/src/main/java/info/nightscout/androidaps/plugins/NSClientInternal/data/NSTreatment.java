@@ -2,10 +2,14 @@ package info.nightscout.androidaps.plugins.NSClientInternal.data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 
 public class NSTreatment {
+    private static Logger log = LoggerFactory.getLogger(NSTreatment.class);
+
     private JSONObject data;
     private String action = null; // "update", "remove" or null (add)
 
@@ -21,11 +25,11 @@ public class NSTreatment {
             try {
                 ret = data.getString(key);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         return ret;
-    };
+    }
 
     private Double getDoubleOrNull(String key) {
         Double ret = null;
@@ -33,11 +37,11 @@ public class NSTreatment {
             try {
                 ret = data.getDouble(key);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         return ret;
-    };
+    }
 
     private Integer getIntegerOrNull(String key) {
         Integer ret = null;
@@ -45,11 +49,11 @@ public class NSTreatment {
             try {
                 ret = data.getInt(key);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         return ret;
-    };
+    }
 
     private Long getLongOrNull(String key) {
         Long ret = null;
@@ -57,11 +61,11 @@ public class NSTreatment {
             try {
                 ret = data.getLong(key);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         return ret;
-    };
+    }
 
     private Date getDateOrNull(String key) {
         Date ret = null;
@@ -69,11 +73,11 @@ public class NSTreatment {
             try {
                 ret = new Date(data.getString(key));
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         return ret;
-    };
+    }
 
     public String getAction() { return action; }
     public JSONObject getData() { return data; }

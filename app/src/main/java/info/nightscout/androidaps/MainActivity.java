@@ -19,14 +19,18 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
-import android.util.AttributeSet;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
@@ -35,10 +39,16 @@ import com.squareup.otto.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.events.EventAppExit;
+import info.nightscout.androidaps.events.EventFeatureRunning;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.PluginBase;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.Food.FoodPlugin;
+import info.nightscout.androidaps.plugins.Overview.events.EventSetWakeLock;
+import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.tabs.SlidingTabLayout;
 import info.nightscout.androidaps.tabs.TabPageAdapter;
 import info.nightscout.utils.ImportExportPrefs;
@@ -54,11 +64,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     static final int CASE_STORAGE = 0x1;
     static final int CASE_SMS = 0x2;
+    static final int CASE_LOCATION = 0x3;
 
     private boolean askForSMS = false;
+    private boolean askForLocation = true;
 
     ImageButton menuButton;
 
+    protected PowerManager.WakeLock mWakeLock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +88,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Manifest.permission.WRITE_EXTERNAL_STORAGE}, CASE_STORAGE);
         }
         askForBatteryOptimizationPermission();
+        doMigrations();
         if (Config.logFunctionCalls)
             log.debug("onCreate");
 
+        onStatusEvent(new EventSetWakeLock(SP.getBoolean("lockscreen", false)));
+
         registerBus();
         setUpTabs(false);
+    }
+
+    @Subscribe
+    public void onStatusEvent(final EventSetWakeLock ev) {
+        final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        if (ev.lock) {
+            mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "AAPS");
+            if (!mWakeLock.isHeld())
+                mWakeLock.acquire();
+        } else {
+            if (mWakeLock != null && mWakeLock.isHeld())
+                mWakeLock.release();
+        }
     }
 
     @Subscribe
@@ -89,12 +118,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                recreate();
-                try { // activity may be destroyed
-                    setUpTabs(ev.isSwitchToLast());
-                } catch (IllegalStateException e) {
-                    e.printStackTrace();
+                if (ev.recreate) {
+                    recreate();
+                } else {
+                    try { // activity may be destroyed
+                        setUpTabs(true);
+                    } catch (IllegalStateException e) {
+                        log.error("Unhandled exception", e);
+                    }
                 }
+
+                boolean lockScreen = BuildConfig.NSCLIENTOLNY && SP.getBoolean("lockscreen", false);
+                if (lockScreen)
+                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                else
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             }
         });
     }
@@ -131,6 +169,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void doMigrations() {
+
+        checkUpgradeToProfileTarget();
+
+        // guarantee that the unreachable threshold is at least 30 and of type String
+        // Added in 1.57 at 21.01.2018
+        Integer unreachable_threshold = SP.getInt(R.string.key_pump_unreachable_threshold, 30);
+        SP.remove(R.string.key_pump_unreachable_threshold);
+        if (unreachable_threshold < 30) unreachable_threshold = 30;
+        SP.putString(R.string.key_pump_unreachable_threshold, unreachable_threshold.toString());
+    }
+
+
+    private void checkUpgradeToProfileTarget() { // TODO: can be removed in the future
+        boolean oldKeyExists = SP.contains("openapsma_min_bg");
+        if (oldKeyExists) {
+            Profile profile = MainApp.getConfigBuilder().getProfile();
+            String oldRange = SP.getDouble("openapsma_min_bg", 0d) + " - " + SP.getDouble("openapsma_max_bg", 0d);
+            String newRange = "";
+            if (profile != null) {
+                newRange = profile.getTargetLow() + " - " + profile.getTargetHigh();
+            }
+            String message = "Target range is changed in current version.\n\nIt's not taken from preferences but from profile.\n\n!!! REVIEW YOUR SETTINGS !!!";
+            message += "\n\nOld settings: " + oldRange;
+            message += "\nProfile settings: " + newRange;
+            OKDialog.show(this, "Target range change", message, new Runnable() {
+                @Override
+                public void run() {
+                    SP.remove("openapsma_min_bg");
+                    SP.remove("openapsma_max_bg");
+                    SP.remove("openapsma_target_bg");
+                }
+            });
+        }
+    }
+
     //check for sms permission if enable in prefernces
     @Subscribe
     public void onStatusEvent(final EventPreferenceChange ev) {
@@ -153,6 +227,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         askForSMSPermissions();
+        askForLocationPermissions();
+        MainApp.bus().post(new EventFeatureRunning(EventFeatureRunning.Feature.MAIN));
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mWakeLock != null)
+            if (mWakeLock.isHeld())
+                mWakeLock.release();
+        super.onDestroy();
     }
 
     private void askForBatteryOptimizationPermission() {
@@ -199,6 +283,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private synchronized void askForLocationPermissions() {
+        if (askForLocation) { //only when settings were changed an MainActivity resumes.
+            askForLocation = false;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                askForPermission(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_FINE_LOCATION}, CASE_LOCATION);
+            }
+        }
+    }
+
     private void askForPermission(String[] permission, Integer requestCode) {
         boolean test = false;
         for (int i = 0; i < permission.length; i++) {
@@ -222,6 +317,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         alert.setPositiveButton(R.string.ok, null);
                         alert.show();
                         break;
+                    case CASE_LOCATION:
                     case CASE_SMS:
                         break;
                 }
@@ -264,9 +360,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     @Override
                                     public void run() {
                                         Intent i = new Intent(v.getContext(), PreferencesActivity.class);
+                                        i.putExtra("id", -1);
                                         startActivity(i);
                                     }
                                 }, null);
+                                break;
+                            case R.id.nav_historybrowser:
+                                startActivity(new Intent(v.getContext(), HistoryBrowseActivity.class));
                                 break;
                             case R.id.nav_resetdb:
                                 new AlertDialog.Builder(v.getContext())
@@ -277,6 +377,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 MainApp.getDbHelper().resetDatabases();
+                                                // should be handled by Plugin-Interface and
+                                                // additional service interface and plugin registry
+                                                FoodPlugin.getPlugin().getService().resetFood();
+                                                TreatmentsPlugin.getPlugin().getService().resetTreatments();
                                             }
                                         })
                                         .create()
@@ -296,14 +400,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             case R.id.nav_about:
                                 AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
                                 builder.setTitle(getString(R.string.app_name) + " " + BuildConfig.VERSION);
-                                if (BuildConfig.NSCLIENTOLNY)
+                                if (Config.NSCLIENT || Config.G5UPLOADER)
                                     builder.setIcon(R.mipmap.yellowowl);
                                 else
                                     builder.setIcon(R.mipmap.blueowl);
-                                builder.setMessage("Build: " + BuildConfig.BUILDVERSION);
+                                String message = "Build: " + BuildConfig.BUILDVERSION + "\n";
+                                message += "Flavor: " + BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE + "\n";
+                                message += getString(R.string.configbuilder_nightscoutversion_label) + " " + ConfigBuilderPlugin.nightscoutVersionName;
+                                if (MainApp.engineeringMode)
+                                    message += "\n" + MainApp.gs(R.string.engineering_mode_enabled);
+                                message += getString(R.string.about_link_urls);
+                                final SpannableString messageSpanned =  new SpannableString(message);
+                                Linkify.addLinks(messageSpanned, Linkify.WEB_URLS);
+                                builder.setMessage(messageSpanned);
                                 builder.setPositiveButton(MainApp.sResources.getString(R.string.ok), null);
                                 AlertDialog alertDialog = builder.create();
                                 alertDialog.show();
+                                ((TextView)alertDialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
                                 break;
                             case R.id.nav_exit:
                                 log.debug("Exiting");

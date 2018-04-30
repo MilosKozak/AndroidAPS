@@ -2,12 +2,16 @@ package info.nightscout.androidaps.plugins.NSClientInternal.data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * {"mgdl":105,"mills":1455136282375,"device":"xDrip-BluetoothWixel","direction":"Flat","filtered":98272,"unfiltered":98272,"noise":1,"rssi":100}
  */
 public class NSSgv {
+    private static Logger log = LoggerFactory.getLogger(NSSgv.class);
+
     private JSONObject data;
 
     public NSSgv(JSONObject obj) {
@@ -20,11 +24,11 @@ public class NSSgv {
             try {
                 ret = data.getString(key);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         return ret;
-    };
+    }
 
     private Integer getIntegerOrNull(String key) {
         Integer ret = null;
@@ -32,11 +36,11 @@ public class NSSgv {
             try {
                 ret = data.getInt(key);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         return ret;
-    };
+    }
 
     private Long getLongOrNull(String key) {
         Long ret = null;
@@ -44,11 +48,11 @@ public class NSSgv {
             try {
                 ret = data.getLong(key);
             } catch (JSONException e) {
-                e.printStackTrace();
+                log.error("Unhandled exception", e);
             }
         }
         return ret;
-    };
+    }
 
     public JSONObject getData () { return data; }
     public Integer getMgdl () { return getIntegerOrNull("mgdl"); }
@@ -59,5 +63,6 @@ public class NSSgv {
     public Long getMills () { return getLongOrNull("mills"); }
     public String getDevice () { return getStringOrNull("device"); }
     public String getDirection () { return getStringOrNull("direction"); }
+    public String getId () { return getStringOrNull("_id"); }
 
 }

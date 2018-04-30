@@ -3,8 +3,10 @@ package info.nightscout.androidaps.data;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.app.NotificationCompat;
@@ -26,6 +28,8 @@ import java.util.concurrent.TimeUnit;
 
 import info.nightscout.androidaps.interaction.AAPSPreferences;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.interaction.actions.CPPActivity;
+import info.nightscout.androidaps.interaction.utils.SafeParse;
 
 /**
  * Created by emmablack on 12/26/14.
@@ -40,6 +44,7 @@ public class ListenerService extends WearableListenerService implements GoogleAp
 
     private static final String OPEN_SETTINGS = "/openwearsettings";
     private static final String NEW_STATUS_PATH = "/sendstatustowear";
+    private static final String NEW_PREFERENCES_PATH = "/sendpreferencestowear";
     public static final String BASAL_DATA_PATH = "/nightscout_watch_basal";
     public static final String BOLUS_PROGRESS_PATH = "/nightscout_watch_bolusprogress";
     public static final String ACTION_CONFIRMATION_REQUEST_PATH = "/nightscout_watch_actionconfirmationrequest";
@@ -252,7 +257,21 @@ public class ListenerService extends WearableListenerService implements GoogleAp
                     String title = DataMapItem.fromDataItem(event.getDataItem()).getDataMap().getString("title");
                     String message = DataMapItem.fromDataItem(event.getDataItem()).getDataMap().getString("message");
                     String actionstring = DataMapItem.fromDataItem(event.getDataItem()).getDataMap().getString("actionstring");
-                    showConfirmationDialog(title, message, actionstring);
+
+                    if("opencpp".equals(title) && actionstring.startsWith("opencpp")){
+                        String[] act = actionstring.split("\\s+");
+                        Intent intent = new Intent(this, CPPActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        //TODO adrian: parse actionstring and add parameters
+                        Bundle params = new Bundle();
+                        params.putInt("percentage", SafeParse.stringToInt(act[1]));
+                        params.putInt("timeshift", SafeParse.stringToInt(act[2]));
+                        intent.putExtras(params);
+                        startActivity(intent);
+                    } else {
+                        showConfirmationDialog(title, message, actionstring);
+                    }
+
                 }else if (path.equals(NEW_STATUS_PATH)) {
                     dataMap = DataMapItem.fromDataItem(event.getDataItem()).getDataMap();
                     Intent messageIntent = new Intent();
@@ -265,6 +284,15 @@ public class ListenerService extends WearableListenerService implements GoogleAp
                     messageIntent.setAction(Intent.ACTION_SEND);
                     messageIntent.putExtra("basals", dataMap.toBundle());
                     LocalBroadcastManager.getInstance(this).sendBroadcast(messageIntent);
+                } else if (path.equals(NEW_PREFERENCES_PATH)){
+                    dataMap = DataMapItem.fromDataItem(event.getDataItem()).getDataMap();
+                    if(dataMap.containsKey("wearcontrol")) {
+                        boolean wearcontrol = dataMap.getBoolean("wearcontrol", false);
+                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("wearcontrol", wearcontrol);
+                        editor.commit();
+                    }
                 } else {
                     dataMap = DataMapItem.fromDataItem(event.getDataItem()).getDataMap();
                     Intent messageIntent = new Intent();
@@ -336,6 +364,8 @@ public class ListenerService extends WearableListenerService implements GoogleAp
                         .setContentIntent(actionPendingIntent)
                         .setPriority(NotificationCompat.PRIORITY_MAX)
                         .setVibrate(vibratePattern)
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
+                        .extend(new NotificationCompat.WearableExtender())
                         .addAction(R.drawable.ic_confirm, title, actionPendingIntent);
 
         NotificationManagerCompat notificationManager =
@@ -382,11 +412,7 @@ public class ListenerService extends WearableListenerService implements GoogleAp
 
         @Override
         public void run() {
-            try {
-                Thread.sleep(seconds * 1000);
-            } catch (InterruptedException e) {
-                //e.printStackTrace();
-            }
+            SystemClock.sleep(seconds * 1000);
             synchronized (this) {
                 if(valid) {
                     NotificationManagerCompat notificationManager =

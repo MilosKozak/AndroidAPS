@@ -8,106 +8,73 @@ import java.io.IOException;
 import java.util.Date;
 
 import info.nightscout.androidaps.Config;
-import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.MealData;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.TempTarget;
+import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.interfaces.APSInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
+import info.nightscout.androidaps.interfaces.PluginDescription;
+import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.interfaces.TempBasalsInterface;
-import info.nightscout.androidaps.interfaces.TreatmentsInterface;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.ScriptReader;
-import info.nightscout.androidaps.plugins.NSClientInternal.data.NSProfile;
 import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSUpdateGui;
 import info.nightscout.androidaps.plugins.OpenAPSMA.events.EventOpenAPSUpdateResultGui;
-import info.nightscout.androidaps.plugins.TempTargetRange.TempTargetRangePlugin;
+import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.utils.DateUtil;
+import info.nightscout.utils.HardLimits;
 import info.nightscout.utils.Profiler;
 import info.nightscout.utils.Round;
-import info.nightscout.utils.SP;
-import info.nightscout.utils.SafeParse;
 
-import static info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin.checkOnlyHardLimits;
-import static info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin.verifyHardLimits;
+import static info.nightscout.utils.HardLimits.checkOnlyHardLimits;
+import static info.nightscout.utils.HardLimits.verifyHardLimits;
 
 /**
  * Created by mike on 05.08.2016.
  */
-public class OpenAPSMAPlugin implements PluginBase, APSInterface {
+public class OpenAPSMAPlugin extends PluginBase implements APSInterface {
     private static Logger log = LoggerFactory.getLogger(OpenAPSMAPlugin.class);
+
+    private static OpenAPSMAPlugin openAPSMAPlugin;
+
+    public static OpenAPSMAPlugin getPlugin() {
+        if (openAPSMAPlugin == null) {
+            openAPSMAPlugin = new OpenAPSMAPlugin();
+        }
+        return openAPSMAPlugin;
+    }
 
     // last values
     DetermineBasalAdapterMAJS lastDetermineBasalAdapterMAJS = null;
     Date lastAPSRun = null;
     DetermineBasalResultMA lastAPSResult = null;
 
-    boolean fragmentEnabled = false;
-    boolean fragmentVisible = true;
-
-    @Override
-    public String getName() {
-        return MainApp.instance().getString(R.string.openapsma);
+    public OpenAPSMAPlugin() {
+        super(new PluginDescription()
+                .mainType(PluginType.APS)
+                .fragmentClass(OpenAPSMAFragment.class.getName())
+                .pluginName(R.string.openapsma)
+                .shortName(R.string.oaps_shortname)
+                .preferencesId(R.xml.pref_openapsma)
+        );
     }
 
     @Override
-    public String getNameShort() {
-        String name = MainApp.sResources.getString(R.string.oaps_shortname);
-        if (!name.trim().isEmpty()){
-            //only if translation exists
-            return name;
-        }
-        // use long name as fallback
-        return getName();
+    public boolean specialEnableCondition() {
+        PumpInterface pump = ConfigBuilderPlugin.getActivePump();
+        return pump == null || pump.getPumpDescription().isTempBasalCapable;
     }
 
     @Override
-    public boolean isEnabled(int type) {
-        return type == APS && fragmentEnabled && MainApp.getConfigBuilder().getPumpDescription().isTempBasalCapable;
-    }
-
-    @Override
-    public boolean isVisibleInTabs(int type) {
-        return type == APS && fragmentVisible && MainApp.getConfigBuilder().getPumpDescription().isTempBasalCapable;
-    }
-
-    @Override
-    public boolean canBeHidden(int type) {
-        return true;
-    }
-
-    @Override
-    public boolean hasFragment() {
-        return true;
-    }
-
-    @Override
-    public boolean showInList(int type) {
-        return true;
-    }
-
-    @Override
-    public void setFragmentVisible(int type, boolean fragmentVisible) {
-        if (type == APS) this.fragmentVisible = fragmentVisible;
-    }
-
-    @Override
-    public void setFragmentEnabled(int type, boolean fragmentEnabled) {
-        if (type == APS) this.fragmentEnabled = fragmentEnabled;
-    }
-
-    @Override
-    public int getType() {
-        return PluginBase.APS;
-    }
-
-    @Override
-    public String getFragmentClass() {
-        return OpenAPSMAFragment.class.getName();
+    public boolean specialShowInListCondition() {
+        PumpInterface pump = ConfigBuilderPlugin.getActivePump();
+        return pump == null || pump.getPumpDescription().isTempBasalCapable;
     }
 
     @Override
@@ -121,8 +88,8 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
     }
 
     @Override
-    public void invoke(String initiator) {
-        log.debug("invoke from " + initiator);
+    public void invoke(String initiator, boolean tempBasalFallback) {
+        log.debug("invoke from " + initiator + " tempBasalFallback: "  + tempBasalFallback);
         lastAPSResult = null;
         DetermineBasalAdapterMAJS determineBasalAdapterMAJS = null;
         try {
@@ -133,10 +100,17 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
         }
 
         GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
-        NSProfile profile = MainApp.getConfigBuilder().getActiveProfile().getProfile();
-        PumpInterface pump = MainApp.getConfigBuilder();
+        Profile profile = MainApp.getConfigBuilder().getProfile();
+        PumpInterface pump = ConfigBuilderPlugin.getActivePump();
 
-        if (!isEnabled(PluginBase.APS)) {
+        if (profile == null) {
+            MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.noprofileselected)));
+            if (Config.logAPSResult)
+                log.debug(MainApp.instance().getString(R.string.noprofileselected));
+            return;
+        }
+
+        if (!isEnabled(PluginType.APS)) {
             MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.openapsma_disabled)));
             if (Config.logAPSResult)
                 log.debug(MainApp.instance().getString(R.string.openapsma_disabled));
@@ -150,113 +124,90 @@ public class OpenAPSMAPlugin implements PluginBase, APSInterface {
             return;
         }
 
-        if (profile == null) {
-            MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.openapsma_noprofile)));
-            if (Config.logAPSResult)
-                log.debug(MainApp.instance().getString(R.string.openapsma_noprofile));
-            return;
-        }
-
-        if (pump == null) {
-            MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.instance().getString(R.string.openapsma_nopump)));
-            if (Config.logAPSResult)
-                log.debug(MainApp.instance().getString(R.string.openapsma_nopump));
-            return;
-        }
-
         String units = profile.getUnits();
 
-        Double maxBgDefault = Constants.MAX_BG_DEFAULT_MGDL;
-        Double minBgDefault = Constants.MIN_BG_DEFAULT_MGDL;
-        Double targetBgDefault = Constants.TARGET_BG_DEFAULT_MGDL;
-        if (!units.equals(Constants.MGDL)) {
-            maxBgDefault = Constants.MAX_BG_DEFAULT_MMOL;
-            minBgDefault = Constants.MIN_BG_DEFAULT_MMOL;
-            targetBgDefault = Constants.TARGET_BG_DEFAULT_MMOL;
-        }
+        double maxBasal = MainApp.getConstraintChecker().getMaxBasalAllowed(profile).value();
 
-        Date now = new Date();
-
-        double maxIob = SP.getDouble("openapsma_max_iob", 1.5d);
-        double maxBasal = SafeParse.stringToDouble(SP.getString("openapsma_max_basal", "1"));
-        double minBg = NSProfile.toMgdl(SP.getDouble("openapsma_min_bg", minBgDefault), units);
-        double maxBg = NSProfile.toMgdl(SP.getDouble("openapsma_max_bg", maxBgDefault), units);
-        double targetBg = NSProfile.toMgdl(SP.getDouble("openapsma_target_bg", targetBgDefault), units);
+        double minBg = Profile.toMgdl(profile.getTargetLow(), units);
+        double maxBg = Profile.toMgdl(profile.getTargetHigh(), units);
+        double targetBg = Profile.toMgdl(profile.getTarget(), units);
 
         minBg = Round.roundTo(minBg, 0.1d);
         maxBg = Round.roundTo(maxBg, 0.1d);
 
         Date start = new Date();
-        TreatmentsInterface treatments = MainApp.getConfigBuilder().getActiveTreatments();
-        TempBasalsInterface tempBasals = MainApp.getConfigBuilder().getActiveTempBasals();
-        treatments.updateTotalIOB();
-        tempBasals.updateTotalIOB();
-        IobTotal bolusIob = treatments.getLastCalculation();
-        IobTotal basalIob = tempBasals.getLastCalculation();
+        TreatmentsPlugin.getPlugin().updateTotalIOBTreatments();
+        TreatmentsPlugin.getPlugin().updateTotalIOBTempBasals();
+        IobTotal bolusIob = TreatmentsPlugin.getPlugin().getLastCalculationTreatments();
+        IobTotal basalIob = TreatmentsPlugin.getPlugin().getLastCalculationTempBasals();
 
         IobTotal iobTotal = IobTotal.combine(bolusIob, basalIob).round();
 
-        MealData mealData = treatments.getMealData();
+        MealData mealData = TreatmentsPlugin.getPlugin().getMealData();
 
-        maxIob = MainApp.getConfigBuilder().applyMaxIOBConstraints(maxIob);
+        double maxIob = MainApp.getConstraintChecker().getMaxIOBAllowed().value();
         Profiler.log(log, "MA data gathering", start);
 
-        minBg = verifyHardLimits(minBg, "minBg", Constants.VERY_HARD_LIMIT_MIN_BG[0], Constants.VERY_HARD_LIMIT_MIN_BG[1]);
-        maxBg = verifyHardLimits(maxBg, "maxBg", Constants.VERY_HARD_LIMIT_MAX_BG[0], Constants.VERY_HARD_LIMIT_MAX_BG[1]);
-        targetBg = verifyHardLimits(targetBg, "targetBg", Constants.VERY_HARD_LIMIT_TARGET_BG[0], Constants.VERY_HARD_LIMIT_TARGET_BG[1]);
-        
-        TempTargetRangePlugin tempTargetRangePlugin = (TempTargetRangePlugin) MainApp.getSpecificPlugin(TempTargetRangePlugin.class);
-        if (tempTargetRangePlugin != null && tempTargetRangePlugin.isEnabled(PluginBase.GENERAL)) {
-            TempTarget tempTarget = tempTargetRangePlugin.getTempTargetInProgress(new Date().getTime());
-            if (tempTarget != null) {
-                minBg = verifyHardLimits(tempTarget.low, "minBg", Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MIN_BG[1]);
-                maxBg = verifyHardLimits(tempTarget.high, "maxBg", Constants.VERY_HARD_LIMIT_TEMP_MAX_BG[0], Constants.VERY_HARD_LIMIT_TEMP_MAX_BG[1]);
-                targetBg = verifyHardLimits((tempTarget.low + tempTarget.high) / 2, "targetBg", Constants.VERY_HARD_LIMIT_TEMP_TARGET_BG[0], Constants.VERY_HARD_LIMIT_TEMP_TARGET_BG[1]);
-            }
+        minBg = verifyHardLimits(minBg, "minBg", HardLimits.VERY_HARD_LIMIT_MIN_BG[0], HardLimits.VERY_HARD_LIMIT_MIN_BG[1]);
+        maxBg = verifyHardLimits(maxBg, "maxBg", HardLimits.VERY_HARD_LIMIT_MAX_BG[0], HardLimits.VERY_HARD_LIMIT_MAX_BG[1]);
+        targetBg = verifyHardLimits(targetBg, "targetBg", HardLimits.VERY_HARD_LIMIT_TARGET_BG[0], HardLimits.VERY_HARD_LIMIT_TARGET_BG[1]);
+
+        TempTarget tempTarget = TreatmentsPlugin.getPlugin().getTempTargetFromHistory(System.currentTimeMillis());
+        if (tempTarget != null) {
+            minBg = verifyHardLimits(tempTarget.low, "minBg", HardLimits.VERY_HARD_LIMIT_TEMP_MIN_BG[0], HardLimits.VERY_HARD_LIMIT_TEMP_MIN_BG[1]);
+            maxBg = verifyHardLimits(tempTarget.high, "maxBg", HardLimits.VERY_HARD_LIMIT_TEMP_MAX_BG[0], HardLimits.VERY_HARD_LIMIT_TEMP_MAX_BG[1]);
+            targetBg = verifyHardLimits(tempTarget.target(), "targetBg", HardLimits.VERY_HARD_LIMIT_TEMP_TARGET_BG[0], HardLimits.VERY_HARD_LIMIT_TEMP_TARGET_BG[1]);
         }
 
-        maxIob = verifyHardLimits(maxIob, "maxIob", 0, 7);
-        maxBasal = verifyHardLimits(maxBasal, "max_basal", 0.1, 10);
-
-        if (!checkOnlyHardLimits(profile.getDia(), "dia", 2, 7)) return;
-        if (!checkOnlyHardLimits(profile.getIc(profile.secondsFromMidnight()), "carbratio", 2, 100)) return;
-        if (!checkOnlyHardLimits(NSProfile.toMgdl(profile.getIsf(NSProfile.secondsFromMidnight()).doubleValue(), units), "sens", 2, 900)) return;
-        if (!checkOnlyHardLimits(profile.getMaxDailyBasal(), "max_daily_basal", 0.1, 10)) return;
-        if (!checkOnlyHardLimits(pump.getBaseBasalRate(), "current_basal", 0.01, 5)) return;
+        if (!checkOnlyHardLimits(profile.getDia(), "dia", HardLimits.MINDIA, HardLimits.MAXDIA))
+            return;
+        if (!checkOnlyHardLimits(profile.getIcTimeFromMidnight(profile.secondsFromMidnight()), "carbratio", HardLimits.MINIC, HardLimits.MAXIC))
+            return;
+        if (!checkOnlyHardLimits(Profile.toMgdl(profile.getIsf(), units), "sens", HardLimits.MINISF, HardLimits.MAXISF))
+            return;
+        if (!checkOnlyHardLimits(profile.getMaxDailyBasal(), "max_daily_basal", 0.05, HardLimits.maxBasal()))
+            return;
+        if (!checkOnlyHardLimits(pump.getBaseBasalRate(), "current_basal", 0.01, HardLimits.maxBasal()))
+            return;
 
         start = new Date();
-        determineBasalAdapterMAJS.setData(profile, maxIob, maxBasal, minBg, maxBg, targetBg, pump, iobTotal, glucoseStatus, mealData);
+        try {
+            determineBasalAdapterMAJS.setData(profile, maxIob, maxBasal, minBg, maxBg, targetBg, ConfigBuilderPlugin.getActivePump().getBaseBasalRate(), iobTotal, glucoseStatus, mealData);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
         Profiler.log(log, "MA calculation", start);
 
 
+        long now = System.currentTimeMillis();
+
         DetermineBasalResultMA determineBasalResultMA = determineBasalAdapterMAJS.invoke();
-        // Fix bug determine basal
-        if (determineBasalResultMA.rate == 0d && determineBasalResultMA.duration == 0 && !MainApp.getConfigBuilder().isTempBasalInProgress())
-            determineBasalResultMA.changeRequested = false;
+        // Fix bug determinef basal
+        if (determineBasalResultMA.rate == 0d && determineBasalResultMA.duration == 0 && !TreatmentsPlugin.getPlugin().isTempBasalInProgress())
+            determineBasalResultMA.tempBasalRequested = false;
         // limit requests on openloop mode
-        if (!MainApp.getConfigBuilder().isClosedModeEnabled()) {
-            if (MainApp.getConfigBuilder().isTempBasalInProgress() && Math.abs(determineBasalResultMA.rate - MainApp.getConfigBuilder().getTempBasalAbsoluteRate()) < 0.1)
-                determineBasalResultMA.changeRequested = false;
-            if (!MainApp.getConfigBuilder().isTempBasalInProgress() && Math.abs(determineBasalResultMA.rate - MainApp.getConfigBuilder().getBaseBasalRate()) < 0.1)
-                determineBasalResultMA.changeRequested = false;
+        if (!MainApp.getConstraintChecker().isClosedLoopAllowed().value()) {
+            TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(now);
+            if (activeTemp != null && determineBasalResultMA.rate == 0 && determineBasalResultMA.duration == 0) {
+                // going to cancel
+            } else if (activeTemp != null && Math.abs(determineBasalResultMA.rate - activeTemp.tempBasalConvertedToAbsolute(now, profile)) < 0.1) {
+                determineBasalResultMA.tempBasalRequested = false;
+            } else if (activeTemp == null && Math.abs(determineBasalResultMA.rate - ConfigBuilderPlugin.getActivePump().getBaseBasalRate()) < 0.1)
+                determineBasalResultMA.tempBasalRequested = false;
         }
 
         determineBasalResultMA.iob = iobTotal;
 
-        determineBasalAdapterMAJS.release();
-
         try {
             determineBasalResultMA.json.put("timestamp", DateUtil.toISOString(now));
         } catch (JSONException e) {
-            e.printStackTrace();
+            log.error("Unhandled exception", e);
         }
 
         lastDetermineBasalAdapterMAJS = determineBasalAdapterMAJS;
         lastAPSResult = determineBasalResultMA;
-        lastAPSRun = now;
+        lastAPSRun = new Date(now);
         MainApp.bus().post(new EventOpenAPSUpdateGui());
-
-        //deviceStatus.suggested = determineBasalResultMA.json;
     }
 
 

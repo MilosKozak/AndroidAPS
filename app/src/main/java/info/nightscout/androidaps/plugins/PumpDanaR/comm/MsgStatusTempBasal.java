@@ -5,15 +5,13 @@ import android.support.annotation.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.SQLException;
 import java.util.Date;
 
 import info.nightscout.androidaps.Config;
-import info.nightscout.androidaps.MainApp;
-import info.nightscout.androidaps.db.TempBasal;
-import info.nightscout.androidaps.events.EventTempBasalChange;
-import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
+import info.nightscout.androidaps.db.Source;
+import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
+import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 
 public class MsgStatusTempBasal extends MessageBase {
     private static Logger log = LoggerFactory.getLogger(MsgStatusTempBasal.class);
@@ -23,23 +21,30 @@ public class MsgStatusTempBasal extends MessageBase {
     }
 
     public void handleMessage(byte[] bytes) {
-        boolean isTempBasalInProgress = intFromBuff(bytes, 0, 1) == 1;
+        boolean isTempBasalInProgress = (intFromBuff(bytes, 0, 1) & 0x01) == 0x01;
+        boolean isAPSTempBasalInProgress = (intFromBuff(bytes, 0, 1) & 0x02) == 0x02;
         int tempBasalPercent = intFromBuff(bytes, 1, 1);
-        int tempBasalTotalSec = intFromBuff(bytes, 2, 1) * 60 * 60;
+        if (tempBasalPercent > 200) tempBasalPercent = (tempBasalPercent - 200) * 10;
+        int tempBasalTotalSec;
+        if (intFromBuff(bytes, 2, 1) == 150) tempBasalTotalSec = 15 * 60;
+        else if (intFromBuff(bytes, 2, 1) == 160) tempBasalTotalSec = 30 * 60;
+        else tempBasalTotalSec = intFromBuff(bytes, 2, 1) * 60 * 60;
         int tempBasalRunningSeconds = intFromBuff(bytes, 3, 3);
         int tempBasalRemainingMin = (tempBasalTotalSec - tempBasalRunningSeconds) / 60;
         Date tempBasalStart = isTempBasalInProgress ? getDateFromTempBasalSecAgo(tempBasalRunningSeconds) : new Date(0);
 
-        DanaRPlugin.getDanaRPump().isTempBasalInProgress = isTempBasalInProgress;
-        DanaRPlugin.getDanaRPump().tempBasalPercent = tempBasalPercent;
-        DanaRPlugin.getDanaRPump().tempBasalRemainingMin = tempBasalRemainingMin;
-        DanaRPlugin.getDanaRPump().tempBasalTotalSec = tempBasalTotalSec;
-        DanaRPlugin.getDanaRPump().tempBasalStart = tempBasalStart;
+        DanaRPump pump = DanaRPump.getInstance();
+        pump.isTempBasalInProgress = isTempBasalInProgress;
+        pump.tempBasalPercent = tempBasalPercent;
+        pump.tempBasalRemainingMin = tempBasalRemainingMin;
+        pump.tempBasalTotalSec = tempBasalTotalSec;
+        pump.tempBasalStart = tempBasalStart;
 
         updateTempBasalInDB();
 
         if (Config.logDanaMessageDetail) {
             log.debug("Is temp basal running: " + isTempBasalInProgress);
+            log.debug("Is APS temp basal running: " + isAPSTempBasalInProgress);
             log.debug("Current temp basal percent: " + tempBasalPercent);
             log.debug("Current temp basal remaining min: " + tempBasalRemainingMin);
             log.debug("Current temp basal total sec: " + tempBasalTotalSec);
@@ -49,54 +54,43 @@ public class MsgStatusTempBasal extends MessageBase {
 
     @NonNull
     private Date getDateFromTempBasalSecAgo(int tempBasalAgoSecs) {
-        return new Date((long) (Math.ceil(new Date().getTime() / 1000d) - tempBasalAgoSecs) * 1000);
+        return new Date((long) (Math.ceil(System.currentTimeMillis() / 1000d) - tempBasalAgoSecs) * 1000);
     }
 
     public static void updateTempBasalInDB() {
-        DanaRPlugin DanaRPlugin = (DanaRPlugin) MainApp.getSpecificPlugin(DanaRPlugin.class);
-        DanaRPump danaRPump = DanaRPlugin.getDanaRPump();
-        Date now = new Date();
+        DanaRPump danaRPump = DanaRPump.getInstance();
+        long now = System.currentTimeMillis();
 
-        try {
-
-            if (DanaRPlugin.isRealTempBasalInProgress()) {
-                TempBasal tempBasal = DanaRPlugin.getRealTempBasal();
-                if (danaRPump.isTempBasalInProgress) {
-                    if (tempBasal.percent != danaRPump.tempBasalPercent) {
-                        // Close current temp basal
-                        tempBasal.timeEnd = now;
-                        MainApp.getDbHelper().getDaoTempBasals().update(tempBasal);
-                        // Create new
-                        TempBasal newTempBasal = new TempBasal();
-                        newTempBasal.timeStart = now;
-                        newTempBasal.percent = danaRPump.tempBasalPercent;
-                        newTempBasal.isAbsolute = false;
-                        newTempBasal.duration = danaRPump.tempBasalTotalSec / 60;
-                        newTempBasal.isExtended = false;
-                        MainApp.getDbHelper().getDaoTempBasals().create(newTempBasal);
-                        MainApp.bus().post(new EventTempBasalChange());
-                    }
-                } else {
+        if (TreatmentsPlugin.getPlugin().isInHistoryRealTempBasalInProgress()) {
+            TemporaryBasal tempBasal = TreatmentsPlugin.getPlugin().getRealTempBasalFromHistory(System.currentTimeMillis());
+            if (danaRPump.isTempBasalInProgress) {
+                if (tempBasal.percentRate != danaRPump.tempBasalPercent) {
                     // Close current temp basal
-                    tempBasal.timeEnd = now;
-                    MainApp.getDbHelper().getDaoTempBasals().update(tempBasal);
-                    MainApp.bus().post(new EventTempBasalChange());
+                    TemporaryBasal tempStop = new TemporaryBasal().date(danaRPump.tempBasalStart.getTime() - 1000).source(Source.USER);
+                    TreatmentsPlugin.getPlugin().addToHistoryTempBasal(tempStop);
+                    // Create new
+                    TemporaryBasal newTempBasal = new TemporaryBasal()
+                            .date(danaRPump.tempBasalStart.getTime())
+                            .percent(danaRPump.tempBasalPercent)
+                            .duration(danaRPump.tempBasalTotalSec / 60)
+                            .source(Source.USER);
+                    TreatmentsPlugin.getPlugin().addToHistoryTempBasal(newTempBasal);
                 }
             } else {
-                if (danaRPump.isTempBasalInProgress) {
-                    // Create new
-                    TempBasal newTempBasal = new TempBasal();
-                    newTempBasal.timeStart = now;
-                    newTempBasal.percent = danaRPump.tempBasalPercent;
-                    newTempBasal.isAbsolute = false;
-                    newTempBasal.duration = danaRPump.tempBasalTotalSec / 60;
-                    newTempBasal.isExtended = false;
-                    MainApp.getDbHelper().getDaoTempBasals().create(newTempBasal);
-                    MainApp.bus().post(new EventTempBasalChange());
-                }
+                // Close current temp basal
+                TemporaryBasal tempStop = new TemporaryBasal().date(now).source(Source.USER);
+                TreatmentsPlugin.getPlugin().addToHistoryTempBasal(tempStop);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } else {
+            if (danaRPump.isTempBasalInProgress) {
+                // Create new
+                TemporaryBasal newTempBasal = new TemporaryBasal()
+                        .date(danaRPump.tempBasalStart.getTime())
+                        .percent(danaRPump.tempBasalPercent)
+                        .duration(danaRPump.tempBasalTotalSec / 60)
+                        .source(Source.USER);
+                TreatmentsPlugin.getPlugin().addToHistoryTempBasal(newTempBasal);
+            }
         }
     }
 }

@@ -19,15 +19,7 @@ import org.slf4j.LoggerFactory;
 public class DbRequest {
     private static Logger log = LoggerFactory.getLogger(DbRequest.class);
 
-    public String getNsClientID() {
-        return nsClientID;
-    }
-
-    public void setNsClientID(String nsClientID) {
-        this.nsClientID = nsClientID;
-    }
-
-    @DatabaseField(id = true, useGetSet = true)
+    @DatabaseField(id = true)
     public String nsClientID = null;
 
     @DatabaseField
@@ -85,7 +77,7 @@ public class DbRequest {
             if (_id != null) object.put("_id", _id);
             if (nsClientID != null) object.put("nsClientID", nsClientID);
         } catch (JSONException e) {
-            e.printStackTrace();
+            log.error("Unhandled exception", e);
         }
         return object;
     }
@@ -104,7 +96,7 @@ public class DbRequest {
             if (jsonObject.has("nsClientID"))
                 result.nsClientID = jsonObject.getString("nsClientID");
         } catch (JSONException e) {
-            e.printStackTrace();
+            log.error("Unhandled exception", e);
         }
         return result;
     }

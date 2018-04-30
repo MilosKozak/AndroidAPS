@@ -1,19 +1,15 @@
 package info.nightscout.androidaps.plugins.NSClientInternal.events;
 
-import android.text.Html;
-import android.text.Spanned;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import info.nightscout.androidaps.events.Event;
 
 /**
  * Created by mike on 15.02.2017.
  */
 
-public class EventNSClientNewLog {
+public class EventNSClientNewLog extends Event {
     public Date date = new Date();
     public String action;
     public String logText;
@@ -22,9 +18,16 @@ public class EventNSClientNewLog {
         this.logText = logText;
     }
 
-    public Spanned toHtml() {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        Spanned line = Html.fromHtml(timeFormat.format(date) + " <b>" + action + "</b> " + logText + "<br>");
-        return line;
+    SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+
+    public StringBuilder toPreparedHtml() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(timeFormat.format(date));
+        stringBuilder.append(" <b>");
+        stringBuilder.append(action);
+        stringBuilder.append("</b> ");
+        stringBuilder.append(logText);
+        stringBuilder.append("<br>");
+        return stringBuilder;
     }
 }

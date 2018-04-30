@@ -22,17 +22,16 @@ public class MsgCheckValue extends MessageBase {
 
     @Override
     public void handleMessage(byte[] bytes) {
-        DanaRPump pump = DanaRPlugin.getDanaRPump();
+        DanaRPump pump = DanaRPump.getInstance();
 
-        DanaRPlugin.getDanaRPump().isNewPump = true;
+        pump.isNewPump = true;
         log.debug("New firmware confirmed");
 
         pump.model = intFromBuff(bytes, 0, 1);
         pump.protocol = intFromBuff(bytes, 1, 1);
         pump.productCode = intFromBuff(bytes, 2, 1);
         if (pump.model != DanaRPump.EXPORT_MODEL) {
-            ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.wrongpumpdriverselected), R.raw.error);
-            ((DanaRPlugin) MainApp.getSpecificPlugin(DanaRPlugin.class)).doDisconnect("Wrong Model");
+            MainApp.getSpecificPlugin(DanaRPlugin.class).disconnect("Wrong Model");
             log.debug("Wrong model selected");
         }
 

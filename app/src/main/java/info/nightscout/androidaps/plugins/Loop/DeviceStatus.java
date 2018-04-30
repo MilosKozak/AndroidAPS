@@ -397,21 +397,9 @@ public class DeviceStatus {
             if (uploaderBattery != 0) record.put("uploaderBattery", uploaderBattery);
             if (created_at != null) record.put("created_at" , created_at);
         } catch (JSONException e) {
-            e.printStackTrace();
+            log.error("Unhandled exception", e);
         }
         return record;
     }
 
-    public void sendToNSClient() {
-        Context context = MainApp.instance().getApplicationContext();
-        Bundle bundle = new Bundle();
-        bundle.putString("action", "dbAdd");
-        bundle.putString("collection", "devicestatus");
-        bundle.putString("data", mongoRecord().toString());
-        Intent intent = new Intent(Intents.ACTION_DATABASE);
-        intent.putExtras(bundle);
-        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        context.sendBroadcast(intent);
-        DbLogger.dbAdd(intent, mongoRecord().toString(), DeviceStatus.class);
-    }
 }
