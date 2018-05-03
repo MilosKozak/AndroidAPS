@@ -181,19 +181,10 @@
     <string name="filenotfound">Archivo no encontrado</string>
     <string name="nav_export">Exportar ajustes</string>
     <string name="nav_import">Importar ajustes</string>
-    <string name="nl_lang">Holandes</string>
-    <string name="de_lang">German</string>
-    <string name="es_lang">Español</string>
-    <string name="el_lang">Griego</string>
-    <string name="it_lang">Italian</string>
-    <string name="ro_lang">Romanian</string>
-    <string name="ru_lang">Ruso</string>
-    <string name="sv_lang">Sueco</string>
     <string name="fr_lang">Frances</string>
     <string name="zh_lang">Chino</string>
-    <string name="openapsma_maxbasal_title">Max U/h para Basal Temporal</string>
+    <string name="de_lang">German</string>
     <string name="openapsma_maxbasal_summary">Este valor es llamado max basal en el contexto OpenAPS</string>
-    <string name="openapsma_maxiob_title">"Máxima Basal IOB OpenAPs puede emitir "</string>
     <string name="openapsma_maxiob_summary">Este valor es llamado Max Iob en el contexto OpenAPS\nEsta es la máxima insulina en [U] APS puede entregar a la vez.</string>
     <string name="bg_lang">Bulgarian</string>
     <string name="dismiss">DESCARTAR</string>
@@ -231,10 +222,8 @@
     <string name="smscommunicator_allowednumbers">Números de teléfono permitidos</string>
     <string name="smscommunicator_allowednumbers_summary">XXXXXXXXXX +; + YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode" formatted="false" >Para entregar bolo %.2fU responder con código %s</string>
-    <string name="smscommunicator_calibrationreplywithcode" formatted="false">Para enviar calibracion %.2f responder con código %s</string>
     <string name="smscommunicator_bolusfailed">Bolo falló</string>
     <string name="bolusdelivered" formatted="false">Bolo %.2fU entregado con éxito</string>
-    <string name="bolusrequested" formatted="false">Entregará %.2fU</string>
     <string name="smscommunicator_bolusdelivered">Bolo %.2fU enviado correctamente</string>
     <string name="bolusdelivering" formatted="false">Entregando %.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Permitir comandos remotos vía SMS</string>
@@ -246,7 +235,6 @@
     <string name="careportal_temporarytargetcancel">Cancelar Objetivo temporal</string>
     <string name="danarprofile">Configuración perfil DanaR</string>
     <string name="danarprofile_dia">DIA [h]</string>
-    <string name="danarprofile_dia_summary">Duración de acitividad de insulina</string>
     <string name="failedupdatebasalprofile">No se pudo actualizar el perfil basal</string>
     <string name="danar_historyreload">Recargar</string>
     <string name="uploading">Subiendo</string>
@@ -281,7 +269,6 @@
     <string name="occlusion">Oclusión</string>
     <string name="overview_bolusprogress_stop">Detener</string>
     <string name="overview_bolusprogress_stoppressed">Parar pulsado</string>
-    <string name="waitingforpump">Esperando bomba</string>
     <string name="overview_bolusprogress_goingtodeliver"  formatted="false">Se entregará %.2fU</string>
     <string name="objectives_0_objective">Configuración de visualización y monitoreo, y el análisis de los basales y ratios</string>
     <string name="objectives_0_gate">Comprobar que los datos de BG están disponibles en Nightscout, y que los datos de la bomba de insulina se están subiendo</string>
@@ -303,9 +290,7 @@
     <string name="smscommunicator_loophasbeenenabled">Loop se ha activado</string>
     <string name="smscommunicator_loopisdisabled">Loop inactivo</string>
     <string name="smscommunicator_loopisenabled">loop activo</string>
-    <string name="valuelimitedto" formatted="false">%.2f limitado a %.2f</string>
     <string name="valueoutofrange" formatted="false">Valor %s fuera de limites</string>
-
     <string name="overview_editquickwizard_buttontext">Botón Texto:</string>
     <string name="overview_editquickwizard_carbs">Carbs:</string>
     <string name="overview_editquickwizard_valid">Validar:</string>
@@ -315,9 +300,7 @@
     <string name="quickwizard">Asistente</string>
     <string name="quickwizardsettings">Asistente configuración</string>
     <string name="smscommunicator_remotebasalnotallowed">No permitidos ajustes basales remotos</string>
-    <string name="smscommunicator_remotecommandnotallowed">no permitido el mando remoto</string>
     <string name="smscommunicator_basalreplywithcode" formatted="false" >Para iniciar basal %.2fU/h responder con código %s</string>
-    <string name="smscommunicator_suspendreplywithcode" formatted="false">Para cancelar loop por %d minutos responde con código %s</string>
     <string name="smscommunicator_tempbasalset" formatted="false">Basal temporal %.2fU/h para %d min iniciada correctamente</string>
     <string name="smscommunicator_tempbasalfailed">Fallo inicio basal temporal</string>
     <string name="smscommunicator_basalstopreplywithcode" formatted="false">Para parar basal temporal responder con código %s</string>
@@ -333,14 +316,32 @@
     <string name="ns_upload_only_summary">NS solo subida. No efectivo con SGV salvo que este seleccionada una fuente local como xDrip. No efectivo en perfiles usando perfiles NS</string>
     <string name="pumpNotInitialized">¡Bomba no iniciada!</string>
     <string name="pumpNotInitializedProfileNotSet">Bomba no iniciada, ¡perfil no ajustado!</string>
-    <string name="primefill">Rellenar/Llenar</string>
     <string name="fillwarning">¡Por favor asegurar que la cantidad coincide con la especificación del set de infusión!</string>
     <string name="othersettings_title">Otros</string>
-    <string name="fillbolus_title">Llenar/Rellenar cantidad de insulina estándar</string>
     <string name="button1">Botón 1</string>
     <string name="button2">Botón 2</string>
     <string name="button3">Botón 3</string>
     <string name="units">Unidades:</string>
+    <string name="error_only_numeric_digits_allowed">Sólo se permiten caracteres numéricos</string>
+    <string name="error_only_numeric_digits_range_allowed" formatted="false">Sólo se permiten dígitos en el rango %1$s - %2$s</string>
+    <string name="error_field_must_not_be_empty">Este campo no puede estar vacío</string>
+    <string name="error_phone_not_valid">Número de teléfono inválido</string>
+    <string name="waitingforpump">Esperando bomba</string>
+    <string name="it_lang">Italian</string>
+    <string name="nl_lang">hollandes</string>
+    <string name="el_lang">Griego</string>
+    <string name="ru_lang">Ruso</string>
+    <string name="sv_lang">Sueco</string>
+    <string name="openapsma_maxbasal_title">Max U/h para el perfil base</string>
+    <string name="openapsma_maxiob_title">"Max IOB basal OpenAPs puede emitir "</string>
+    <string name="smscommunicator_calibrationreplywithcode" formatted="false">Para enviar calibracion %.2f responder con código %s</string>
+    <string name="bolusrequested" formatted="false">Entregaré %.2fU</string>
+    <string name="danarprofile_dia_summary">Duración de acitividad de insulina</string>
+    <string name="valuelimitedto" formatted="false">%.2f limitado a %.2f</string>
+    <string name="smscommunicator_remotecommandnotallowed">no permitido el mando remoto</string>
+    <string name="smscommunicator_suspendreplywithcode" formatted="false">Para cancelar loop por %d minutos responde con código %s</string>
+    <string name="primefill">Rellenar/Llenar</string>
+    <string name="fillbolus_title">Llenar/Rellenar cantidad de insulina estándar</string>
     <string name="mgdl">mg/dl</string>
     <string name="mmol">mmol/l</string>
     <string name="dia">DIA:</string>
@@ -486,9 +487,9 @@
     <string name="adult">Adulto</string>
     <string name="patientage_summary">Por favor elige edad del paciente para emplear limites de seguridad</string>
     <string name="Glimp">Glimp</string>
-    <string name="batteryoptimalizationerror">Aparato parece no soportar optimisacion de bateria whitelisting!</string>
+    <string name="batteryoptimalizationerror">Aparato parece no soportar optimizacion de bateria whitelisting!</string>
     <string name="pleaseallowpermission">Por favor permita Permission</string>
-    <string name="needwhitelisting" formatted="false">%s necesita optimisacion de bateria whitelisting para funcionar bien</string>
+    <string name="needwhitelisting" formatted="false">%s necesita optimizacion de bateria whitelisting para funcionar bien</string>
     <string name="loopsuspended">Loop desactivado</string>
     <string name="loopsuspendedfor" formatted="false">desactivado (%d m)</string>
     <string name="loopsuperbolusfor" formatted="false">Superbolus (%d m)</string>
@@ -509,8 +510,6 @@
     <string name="treatments_wizard_cob_label">COB</string>
     <string name="superbolus">Superbolo</string>
     <string name="ns_logappstartedevent">Indica app start en NS</string>
-
-
     <string name="restartingapp">Saliendo de la aplicacion para aplicar ajustes.</string>
     <string name="danarv2pump">DanaRv2</string>
     <string name="configbuilder_insulin">Insulina</string>
@@ -519,7 +518,6 @@
     <string name="ultrafastactinginsulincomment">Fiasp</string>
     <string name="insulin_shortname">INS</string>
     <string name="fastactinginsulinprolonged">Insulina acción rápida prolongada</string>
-
     <string name="enablesuperbolus">activar superbolo en wizard</string>
     <string name="enablesuperbolus_summary">Activar función superbolo en wizard. No lo actives hasta que hayas aprendido lo que realmente hace. PUEDE CAUSAR SOBREDOSIS DE INSULINA usandolo sin precaucion!</string>
     <string name="iob">IOB</string>
@@ -533,8 +531,8 @@
     <string name="xdripstatus_shortname">xds</string>
     <string name="wear_showbgi_title">Mostrar BGI</string>
     <string name="wear_showbgi_summary">agregar BGI a status line</string>
-    <string name="ns_noupload">No upload to NS</string>
-    <string name="ns_noupload_summary">Todos los datos mandados a NS son borrados. AAPS esta conectado to NS pero no hay cambios en NS</string>
+    <string name="ns_noupload">Datos no mandados a NS</string>
+    <string name="ns_noupload_summary">Todos los datos mandados a NS son borrados. AAPS esta conectado a NS pero no hay cambios en NS</string>
     <string name="basal_step">Nivel base</string>
     <string name="bolus_step">Nivel bolo</string>
     <string name="extendedbolus">Bolo prolongado</string>
@@ -550,16 +548,6 @@
     <string name="careportal_pbage_label">Edad bateria bomba</string>
     <string name="careportal_pumpbatterychange">Cambio bateria bomba</string>
     <string name="ns_alarmoptions">Opciones alama</string>
-
-
-
-
-
-
-
-
-
-
     <string name="nsalarm_urgenthigh">Urgente alto</string>
     <string name="nsalarm_high">Alto</string>
     <string name="nsalarm_low">Bajo</string>
@@ -602,7 +590,7 @@
     <string name="careportal_activity_label">ACTIVITY Y FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBS Y BOLUS</string>
     <string name="careportal_cgm_label">CGM Y OPENAPS</string>
-    <string name="careportal_pump_label">PUMP</string>
+    <string name="careportal_pump_label">BOMBA</string>
     <string name="overview_newtempbasal_basalabsolute">Valor base [U/h]</string>
     <string name="careportal_newnstreatment_duration_min_label">Duración [min]</string>
     <string name="insulin_oref_peak">IOB Curve Peak Time</string>
@@ -618,13 +606,13 @@
     <string name="pairingok">conexión OK</string>
     <string name="pairingtimedout">conexión fuera de tiempo</string>
     <string name="pairing">CONECTANDO</string>
-    <string name="danars_nodeviceavailable">aparato no enconrado</string>
+    <string name="danars_nodeviceavailable">aparato no encontrado</string>
     <string name="emptyreservoir">Deposito vacio</string>
     <string name="bloodsugarmeasurementalert">Alerta de control de BG</string>
     <string name="remaininsulinalert">Insulina restante en deposito</string>
     <string name="danarspump">DanaRS</string>
     <string name="danarspump_shortname">Dana</string>
-    <string name="selectedpump">Bomba sleccionada</string>
+    <string name="selectedpump">Bomba seleccionada</string>
     <string name="pairpump">Conectar bomba nueva</string>
     <string name="bolusspeed">Velocidad bolo</string>
     <string name="danar_setbasalstep001">Poner paso base a 0.01 U/h</string>
@@ -640,7 +628,7 @@
     <string name="gettingextendedbolusstatus">recibiendo estado de bolo prolongado</string>
     <string name="gettingbolusstatus">recibiendo estado bolo</string>
     <string name="gettingtempbasalstatus">recibiendo estado bolo temporal</string>
-    <string name="gettingpumpsettings">recibiendo ah´justes bomba</string>
+    <string name="gettingpumpsettings">recibiendo ajustes bomba</string>
     <string name="gettingpumptime">recibiendo hora bomba</string>
     <string name="reuse">usar otra vez</string>
     <string name="wearcontrol_title">Control desde reloj</string>
@@ -654,9 +642,9 @@
     <string name="shortprotein">Pr</string>
     <string name="shortfat">Grasa</string>
     <string name="active"><![CDATA[<Active>]]></string>
-    <string name="waitingforestimatedbolusend" formatted="false">Esperande terminar bolo. Faltan %d seg.</string>
+    <string name="waitingforestimatedbolusend" formatted="false">Esperando terminar bolo. Faltan %d seg.</string>
     <string name="processinghistory">Processando</string>
-    <string name="startingbolus">"Iniciando emisioin bolo "</string>
+    <string name="startingbolus">"Iniciando emision bolo "</string>
     <string name="executingrightnow">Orden se esta efectuando en este momento</string>
     <string name="pumpdrivercorrected">control de la bomba corigido</string>
     <string name="pump_unreachable">bomba no alcanzable</string>
@@ -729,22 +717,13 @@
     <string name="combo_notification_check_time_date">Se necesita actualizar reloj de la bomba</string>
     <string name="combo_warning">Alerta</string>
     <string name="combo_pump_tbr_cancelled_warrning">TBR cancelada, advertencia acceptada</string>
-    <string name="combo_error_no_bolus_delivered">Emision del bolo fallado. Ningún bolo se ha emitido. Para asegurarse, por favor controle la bomba para evitar bolo doble. Para evitar bugs no se reinician bolos automaticamente.</string>
+    <string name="combo_error_no_bolus_delivered">Emision del bolo fallada. Ningún bolo se ha emitido. Para asegurarse, por favor controle la bomba para evitar bolo doble. Para evitar bugs no se reinician bolos automaticamente.</string>
     <string name="combo_error_partial_bolus_delivered" formatted="false">"Solo %.2f U del bolo mandado de %.2f U ha sido emitido por causa de un error. Por favorn controla la bomba para confirmar y toma acciones apropiadas. "</string>
     <string name="combo_error_bolus_verification_failed">"Fallo de emitir bolo y de controlar historical de la bomba.Por favor controla manualmente y crea un record en Careportal si el bolo ha sido emitido. "</string>
     <string name="combo_error_bolus_recovery_progress">Reestablecido conexión fallada.</string>
     <string name="combo_reservoir_level_insufficient_for_bolus">"No hay suficiente insulina en el deposito para emitir bolo. "</string>
     <string name="extendedbolusdeliveryerror">"Error al emitir bolo prolongado. "</string>
     <string name="pump_unreachable_threshold">bomba no alcanzable treshold [min]</string>
-
-
-
-
-
-    <string name="error_only_numeric_digits_allowed">Sólo se permiten caracteres numéricos</string>
-    <string name="error_only_numeric_digits_range_allowed" formatted="false">Sólo se permiten dígitos en el rango %1$s - %2$s</string>
-    <string name="error_field_must_not_be_empty">Este campo no puede estar vacío</string>
-    <string name="error_phone_not_valid">Número de teléfono inválido</string>
     <string name="combo_error_multiple_boluses_with_identical_timestamp">"Actual multiplicador Basal de seguridad "</string>
     <string name="combo_activity_checking_for_history_changes">Comprobando cambios en el historial</string>
     <string name="combo_error_failure_reading_changed_basal_rate">Tasa Basal cambiada en bomba, pero falló al leer</string>
