@@ -25,6 +25,7 @@ import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugi
 import info.nightscout.utils.Round;
 import info.nightscout.utils.SP;
 import info.nightscout.utils.SafeParse;
+import info.nightscout.utils.T;
 
 /**
  * Created by mike on 24.06.2017.
@@ -96,7 +97,8 @@ public class SensitivityAAPSPlugin extends PluginBase implements SensitivityInte
                 continue;
             }
 
-            if (autosensData.time > toTime - hoursForDetection * 60 * 60 * 1000L)
+            if (autosensData.time > toTime - T.hours(hoursForDetection).msecs()
+                    && !autosensData.nonCarbsDeviation)
                 deviationsArray.add(autosensData.nonEqualDeviation ? autosensData.deviation : 0d);
             if (deviationsArray.size() > hoursForDetection * 60 / 5)
                 deviationsArray.remove(0);

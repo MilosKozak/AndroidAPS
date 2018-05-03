@@ -256,6 +256,7 @@ public class IobCobThread extends Thread {
                         }
                         autosensData.nonCarbsDeviation = true;
                     } else {
+                        autosensData.nonCarbsDeviation = false; // this is the default, make it rather explicit
                         autosensData.pastSensitivity += "C";
                     }
                     //log.debug("TIME: " + new Date(bgTime).toString() + " BG: " + bg + " SENS: " + sens + " DELTA: " + delta + " AVGDELTA: " + avgDelta + " IOB: " + iob.iob + " ACTIVITY: " + iob.activity + " BGI: " + bgi + " DEVIATION: " + deviation);

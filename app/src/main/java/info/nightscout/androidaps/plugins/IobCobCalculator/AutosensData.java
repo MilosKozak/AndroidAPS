@@ -59,7 +59,7 @@ public class AutosensData implements DataPointWithLabelInterface {
     long chartTime;
     public String pastSensitivity = "";
     public double deviation = 0d;
-    boolean nonCarbsDeviation = false;
+    public boolean nonCarbsDeviation = false;
     public boolean nonEqualDeviation = false;
     List<CarbsInPast> activeCarbsList = new ArrayList<>();
     double absorbed = 0d;
