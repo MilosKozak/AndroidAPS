@@ -62,7 +62,7 @@ public class AutosensData implements DataPointWithLabelInterface {
     public boolean nonCarbsDeviation = false;
     public boolean nonEqualDeviation = false;
     List<CarbsInPast> activeCarbsList = new ArrayList<>();
-    double absorbed = 0d;
+    public double absorbed = 0d;
     public double carbsFromBolus = 0d;
     public double cob = 0;
     public double bgi = 0d;
@@ -87,12 +87,11 @@ public class AutosensData implements DataPointWithLabelInterface {
 
     // remove carbs older than timeframe
     public void removeOldCarbs(long toTime) {
-        double maxAbsorptionHours = Constants.DEFAULT_MAX_ABSORPTION_TIME;
+        double maxAbsorptionHours = SP.getDouble(R.string.key_absorption_cutoff, Constants.DEFAULT_MAX_ABSORPTION_TIME);
         if (SensitivityAAPSPlugin.getPlugin().isEnabled(PluginType.SENSITIVITY) || SensitivityWeightedAveragePlugin.getPlugin().isEnabled(PluginType.SENSITIVITY)) {
             maxAbsorptionHours = SP.getDouble(R.string.key_absorption_maxtime, Constants.DEFAULT_MAX_ABSORPTION_TIME);
-        } else {
-            maxAbsorptionHours = SP.getDouble(R.string.key_absorption_cutoff, Constants.DEFAULT_MAX_ABSORPTION_TIME);
         }
+
         for (int i = 0; i < activeCarbsList.size(); i++) {
             CarbsInPast c = activeCarbsList.get(i);
             if (c.time + maxAbsorptionHours * 60 * 60 * 1000L < toTime) {
@@ -104,7 +103,7 @@ public class AutosensData implements DataPointWithLabelInterface {
         }
     }
 
-    public void substractAbosorbedCarbs() {
+    public void substractAbsorbedCarbs() {
         double ac = absorbed;
         for (int i = 0; i < activeCarbsList.size() && ac > 0; i++) {
             CarbsInPast c = activeCarbsList.get(i);

@@ -84,6 +84,7 @@ public class SensitivityAAPSPlugin extends PluginBase implements SensitivityInte
         List<Double> deviationsArray = new ArrayList<>();
         String pastSensitivity = "";
         int index = 0;
+        long cobTime = 0;
         while (index < autosensDataTable.size()) {
             AutosensData autosensData = autosensDataTable.valueAt(index);
 
@@ -97,12 +98,24 @@ public class SensitivityAAPSPlugin extends PluginBase implements SensitivityInte
                 continue;
             }
 
+            // find the first entry with cobs
+            if (!autosensData.nonCarbsDeviation && cobTime == 0 && autosensData.absorbed == 0) {
+                cobTime = autosensData.time;
+            }
+            // reset the cobTime to be able to reuse it for the next cob entry
+            if (cobTime + T.mins(45).msecs() < autosensData.time) {
+                cobTime = 0;
+            }
+
             if (autosensData.time > toTime - T.hours(hoursForDetection).msecs()
                     && !autosensData.nonCarbsDeviation)
                 deviationsArray.add(autosensData.nonEqualDeviation ? autosensData.deviation : 0d);
-            if (deviationsArray.size() > hoursForDetection * 60 / 5)
-                deviationsArray.remove(0);
 
+            // remove the deviation if the cob is only 45m behind current autosens time
+            if (deviationsArray.size() > hoursForDetection * 60 / 5
+                    || cobTime + T.mins(45).msecs() >= autosensData.time) {
+                deviationsArray.remove(0);
+            }
 
             pastSensitivity += autosensData.pastSensitivity;
             int secondsFromMidnight = Profile.secondsFromMidnight(autosensData.time);
