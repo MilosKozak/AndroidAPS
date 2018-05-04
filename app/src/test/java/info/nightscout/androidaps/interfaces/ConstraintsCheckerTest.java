@@ -2,6 +2,7 @@ package info.nightscout.androidaps.interfaces;
 
 import android.content.Context;
 
+import com.google.common.collect.Lists;
 import com.squareup.otto.Bus;
 
 import junit.framework.Assert;
@@ -234,13 +235,15 @@ public class ConstraintsCheckerTest {
         // No limit by default
         when(SP.getDouble(R.string.key_openapsma_max_iob, 1.5d)).thenReturn(1.5d);
         when(SP.getString(R.string.key_age, "")).thenReturn("teenage");
-        OpenAPSMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, true);
+        OpenAPSMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, false);
         OpenAPSAMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, true);
+        OpenAPSSMBPlugin.getPlugin().setPluginEnabled(PluginType.APS, false);
 
         // Apply all limits
-        assertThat(constraintChecker.getMaxIOBAllowed().value()).isEqualTo(1.5);
-        assertThat(constraintChecker.getMaxIOBAllowed().getReasonList()).hasSize(3);
-        assertThat(constraintChecker.getMaxIOBAllowed().getMostLimitingReasons())
+        Constraint<Double> maxIOBAllowed = constraintChecker.getMaxIOBAllowed();
+        assertThat(maxIOBAllowed.value()).isEqualTo(1.5);
+        assertThat(maxIOBAllowed.getReasonList()).hasSize(2);
+        assertThat(maxIOBAllowed.getMostLimitingReasons())
                 .isEqualTo("Safety: Limiting IOB to 1.5 U because of max value in preferences");
     }
 
@@ -249,12 +252,15 @@ public class ConstraintsCheckerTest {
         // No limit by default
         when(SP.getDouble(R.string.key_openapssmb_max_iob, 3d)).thenReturn(3d);
         when(SP.getString(R.string.key_age, "")).thenReturn("teenage");
+        OpenAPSMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, false);
+        OpenAPSAMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, false);
         OpenAPSSMBPlugin.getPlugin().setPluginEnabled(PluginType.APS, true);
 
         // Apply all limits
-        assertThat(constraintChecker.getMaxIOBAllowed().value()).isEqualTo(3);
-        assertThat(constraintChecker.getMaxIOBAllowed().getReasonList()).hasSize(4);
-        assertThat(constraintChecker.getMaxIOBAllowed().getMostLimitingReasons())
+        Constraint<Double> maxIOBAllowed = constraintChecker.getMaxIOBAllowed();
+        assertThat(maxIOBAllowed.value()).isEqualTo(3);
+        assertThat(maxIOBAllowed.getReasonList()).hasSize(2);
+        assertThat(maxIOBAllowed.getMostLimitingReasons())
                 .isEqualTo("Safety: Limiting IOB to 3.0 U because of max value in preferences");
     }
 

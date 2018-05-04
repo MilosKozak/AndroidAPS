@@ -177,7 +177,8 @@ public class ConstraintChecker implements ConstraintsInterface {
         ArrayList<PluginBase> constraintsPlugins = mainApp.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
-            if (!p.isEnabled(PluginType.CONSTRAINTS)) continue;
+            if (!p.isEnabled(PluginType.CONSTRAINTS))
+                continue;
             constrain.applyCarbsConstraints(carbs);
         }
         return carbs;
@@ -188,7 +189,8 @@ public class ConstraintChecker implements ConstraintsInterface {
         ArrayList<PluginBase> constraintsPlugins = mainApp.getSpecificPluginsListByInterface(ConstraintsInterface.class);
         for (PluginBase p : constraintsPlugins) {
             ConstraintsInterface constrain = (ConstraintsInterface) p;
-            if (!p.isEnabled(PluginType.CONSTRAINTS)) continue;
+            if (!p.isEnabled(PluginType.CONSTRAINTS))
+                continue;
             constrain.applyMaxIOBConstraints(maxIob);
         }
         return maxIob;
