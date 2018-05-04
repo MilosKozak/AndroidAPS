@@ -86,7 +86,7 @@ public class Constraint<T extends Comparable> {
             if (count++ != 0) sb.append("\n");
             sb.append(r);
         }
-        log.debug("Limiting origial value: " + originalValue + " to " + value + ". Reason: " + sb.toString());
+        log.debug("Limiting original value: " + originalValue + " to " + value + ". Reason: " + sb.toString());
         return sb.toString();
     }
 
@@ -94,14 +94,14 @@ public class Constraint<T extends Comparable> {
         return reasons;
     }
 
-    public String getMostLimitedReason() {
+    public String getMostLimitingReasons() {
         StringBuilder sb = new StringBuilder();
         int count = 0;
         for (String r : mostLimiting) {
             if (count++ != 0) sb.append("\n");
             sb.append(r);
         }
-        log.debug("Limiting origial value: " + originalValue + " to " + value + ". Reason: " + sb.toString());
+        log.debug("Limiting original value: " + originalValue + " to " + value + ". Reason: " + sb.toString());
         return sb.toString();
     }
 

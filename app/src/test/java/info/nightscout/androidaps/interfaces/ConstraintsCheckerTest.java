@@ -158,7 +158,7 @@ public class ConstraintsCheckerTest {
         Constraint<Double> d = constraintChecker.getMaxBasalAllowed(AAPSMocker.getValidProfile());
         Assert.assertEquals(0.8d, d.value());
         Assert.assertEquals(true, d.getReasonList().size() == 7); // 4x Safety & RS & R & Insight
-        Assert.assertEquals("DanaR: Limiting basal rate to 0.80 U/h because of pump limit", d.getMostLimitedReason());
+        Assert.assertEquals("DanaR: Limiting basal rate to 0.80 U/h because of pump limit", d.getMostLimitingReasons());
 
     }
 
@@ -185,7 +185,7 @@ public class ConstraintsCheckerTest {
         Constraint<Integer> i = constraintChecker.getMaxBasalPercentAllowed(AAPSMocker.getValidProfile());
         Assert.assertEquals((Integer) 100, i.value());
         Assert.assertEquals(true, i.getReasonList().size() == 9); // 6x Safety & RS & R & Insight
-        Assert.assertEquals("Safety: Limiting percent rate to 100% because of pump limit", i.getMostLimitedReason());
+        Assert.assertEquals("Safety: Limiting percent rate to 100% because of pump limit", i.getMostLimitingReasons());
 
     }
 
@@ -211,7 +211,7 @@ public class ConstraintsCheckerTest {
         Constraint<Double> d = constraintChecker.getMaxBolusAllowed();
         Assert.assertEquals(3d, d.value());
         Assert.assertEquals(true, d.getReasonList().size() == 5); // 2x Safety & RS & R & Insight
-        Assert.assertEquals("Safety: Limiting bolus to 3.0 U because of max value in preferences", d.getMostLimitedReason());
+        Assert.assertEquals("Safety: Limiting bolus to 3.0 U because of max value in preferences", d.getMostLimitingReasons());
 
     }
 
@@ -225,7 +225,7 @@ public class ConstraintsCheckerTest {
         Constraint<Integer> i = constraintChecker.getMaxCarbsAllowed();
         Assert.assertEquals((Integer) 48, i.value());
         Assert.assertEquals(true, i.getReasonList().size() == 1);
-        Assert.assertEquals("Safety: Limiting carbs to 48 g because of max value in preferences", i.getMostLimitedReason());
+        Assert.assertEquals("Safety: Limiting carbs to 48 g because of max value in preferences", i.getMostLimitingReasons());
     }
 
     // applyMaxIOBConstraints tests
@@ -240,7 +240,7 @@ public class ConstraintsCheckerTest {
         // Apply all limits
         assertThat(constraintChecker.getMaxIOBAllowed().value()).isEqualTo(1.5);
         assertThat(constraintChecker.getMaxIOBAllowed().getReasonList()).hasSize(3);
-        assertThat(constraintChecker.getMaxIOBAllowed().getMostLimitedReason())
+        assertThat(constraintChecker.getMaxIOBAllowed().getMostLimitingReasons())
                 .isEqualTo("Safety: Limiting IOB to 1.5 U because of max value in preferences");
     }
 
@@ -254,7 +254,7 @@ public class ConstraintsCheckerTest {
         // Apply all limits
         assertThat(constraintChecker.getMaxIOBAllowed().value()).isEqualTo(3);
         assertThat(constraintChecker.getMaxIOBAllowed().getReasonList()).hasSize(4);
-        assertThat(constraintChecker.getMaxIOBAllowed().getMostLimitedReason())
+        assertThat(constraintChecker.getMaxIOBAllowed().getMostLimitingReasons())
                 .isEqualTo("Safety: Limiting IOB to 3.0 U because of max value in preferences");
     }
 

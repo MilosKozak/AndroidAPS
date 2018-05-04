@@ -18,33 +18,33 @@ public class ConstraintTest {
         Constraint<Boolean> b = new Constraint<>(true);
         Assert.assertEquals(Boolean.TRUE, b.value());
         Assert.assertEquals("", b.getReasons());
-        Assert.assertEquals("", b.getMostLimitedReason());
+        Assert.assertEquals("", b.getMostLimitingReasons());
         b.set(false);
         Assert.assertEquals(Boolean.FALSE, b.value());
         Assert.assertEquals("", b.getReasons());
-        Assert.assertEquals("", b.getMostLimitedReason());
+        Assert.assertEquals("", b.getMostLimitingReasons());
         b.set(true, "Set true", this);
         Assert.assertEquals(Boolean.TRUE, b.value());
         Assert.assertEquals("ConstraintTest: Set true", b.getReasons());
-        Assert.assertEquals("ConstraintTest: Set true", b.getMostLimitedReason());
+        Assert.assertEquals("ConstraintTest: Set true", b.getMostLimitingReasons());
         b.set(false, "Set false", this);
         Assert.assertEquals(Boolean.FALSE, b.value());
         Assert.assertEquals("ConstraintTest: Set true\nConstraintTest: Set false", b.getReasons());
-        Assert.assertEquals("ConstraintTest: Set true\nConstraintTest: Set false", b.getMostLimitedReason());
+        Assert.assertEquals("ConstraintTest: Set true\nConstraintTest: Set false", b.getMostLimitingReasons());
 
         Constraint<Double> d = new Constraint<>(10d);
         d.set(5d, "Set 5d", this);
         Assert.assertEquals(5d, d.value());
         Assert.assertEquals("ConstraintTest: Set 5d", d.getReasons());
-        Assert.assertEquals("ConstraintTest: Set 5d", d.getMostLimitedReason());
+        Assert.assertEquals("ConstraintTest: Set 5d", d.getMostLimitingReasons());
         d.setIfSmaller(6d, "Set 6d", this);
         Assert.assertEquals(5d, d.value());
         Assert.assertEquals("ConstraintTest: Set 5d\nConstraintTest: Set 6d", d.getReasons());
-        Assert.assertEquals("ConstraintTest: Set 5d", d.getMostLimitedReason());
+        Assert.assertEquals("ConstraintTest: Set 5d", d.getMostLimitingReasons());
         d.setIfSmaller(4d, "Set 4d", this);
         Assert.assertEquals(4d, d.value());
         Assert.assertEquals("ConstraintTest: Set 5d\nConstraintTest: Set 6d\nConstraintTest: Set 4d", d.getReasons());
-        Assert.assertEquals("ConstraintTest: Set 4d", d.getMostLimitedReason());
+        Assert.assertEquals("ConstraintTest: Set 4d", d.getMostLimitingReasons());
         Assert.assertEquals(10d, d.originalValue());
     }
 }
