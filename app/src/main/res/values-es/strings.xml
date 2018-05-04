@@ -561,7 +561,7 @@
     <string name="pump">Bomba</string>
     <string name="openaps">OpenAPS</string>
     <string name="uploader">Uploader</string>
-    <string name="configbuilder_sensitivity">Deteccion sensividad</string>
+    <string name="configbuilder_sensitivity">Detección sensivilidad</string>
     <string name="sensitivity_shortname">SENS</string>
     <string name="sensitivityoref0">Sensitivity Oref0</string>
     <string name="sensitivityaaps">Sensitivity AAPS</string>
@@ -728,7 +728,7 @@
     <string name="combo_activity_checking_for_history_changes">Comprobando cambios en el historial</string>
     <string name="combo_error_failure_reading_changed_basal_rate">Tasa Basal cambiada en bomba, pero falló al leer</string>
     <string name="combo_warning_pump_basal_rate_changed">La tasa Basal en la bomba ha cambiado y será actualizada pronto</string>
-    <string name="combo_activity_checking_pump_state">Actualizando estado de la bomba</string>
+    <string name="combo_activity_checking_pump_state">Actualizando estado bomba</string>
     <string name="combo_high_temp_rejected_due_to_pump_history_changes">Rechazando temporal alta ya que el calculo no consideró loscambios recientes en el historial de la bomba</string>
     <string name="combo_error_updating_treatment_record">El bolus se administró con éxito, pero no se pudo agregar la entrada al tratamiento. Esto puede suceder si se administran dos bolos pequeños del mismo tamaño en los últimos dos minutos. Verifique el historial de la bomba y las entradas de tratamiento y use Careportal para agregar entradas faltantes. Asegúrese de no agregar ninguna entrada para el mismo minuto exacto y la misma cantidad.</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">El historial de la bomba ha cambiado después de que se realizó el cálculo del bolo. El bolo no fue entregado. Por favor, vuelva a calcular si aún se necesita un bolo. Si se requiere la misma cantidad de bolo, espere dos minutos ya que los bolos con la misma cantidad se bloquean cuando se solicita con menos de dos minutos entre ellos por seguridad (independientemente de si se administraron o no).</string>
