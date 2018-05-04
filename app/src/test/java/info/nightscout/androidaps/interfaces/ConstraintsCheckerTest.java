@@ -2,6 +2,7 @@ package info.nightscout.androidaps.interfaces;
 
 import android.content.Context;
 
+import com.google.common.collect.Lists;
 import com.squareup.otto.Bus;
 
 import junit.framework.Assert;
@@ -38,6 +39,7 @@ import info.nightscout.androidaps.plugins.Source.SourceGlimpPlugin;
 import info.nightscout.utils.FabricPrivacy;
 import info.nightscout.utils.SP;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 /**
@@ -157,7 +159,7 @@ public class ConstraintsCheckerTest {
         Constraint<Double> d = constraintChecker.getMaxBasalAllowed(AAPSMocker.getValidProfile());
         Assert.assertEquals(0.8d, d.value());
         Assert.assertEquals(true, d.getReasonList().size() == 7); // 4x Safety & RS & R & Insight
-        Assert.assertEquals("DanaR: Limiting basal rate to 0.80 U/h because of pump limit", d.getMostLimitedReasons());
+        Assert.assertEquals("DanaR: Limiting basal rate to 0.80 U/h because of pump limit", d.getMostLimitingReasons());
 
     }
 
@@ -184,7 +186,7 @@ public class ConstraintsCheckerTest {
         Constraint<Integer> i = constraintChecker.getMaxBasalPercentAllowed(AAPSMocker.getValidProfile());
         Assert.assertEquals((Integer) 100, i.value());
         Assert.assertEquals(true, i.getReasonList().size() == 9); // 6x Safety & RS & R & Insight
-        Assert.assertEquals("Safety: Limiting percent rate to 100% because of pump limit", i.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting percent rate to 100% because of pump limit", i.getMostLimitingReasons());
 
     }
 
@@ -210,7 +212,7 @@ public class ConstraintsCheckerTest {
         Constraint<Double> d = constraintChecker.getMaxBolusAllowed();
         Assert.assertEquals(3d, d.value());
         Assert.assertEquals(true, d.getReasonList().size() == 5); // 2x Safety & RS & R & Insight
-        Assert.assertEquals("Safety: Limiting bolus to 3.0 U because of max value in preferences", d.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting bolus to 3.0 U because of max value in preferences", d.getMostLimitingReasons());
 
     }
 
@@ -224,7 +226,7 @@ public class ConstraintsCheckerTest {
         Constraint<Integer> i = constraintChecker.getMaxCarbsAllowed();
         Assert.assertEquals((Integer) 48, i.value());
         Assert.assertEquals(true, i.getReasonList().size() == 1);
-        Assert.assertEquals("Safety: Limiting carbs to 48 g because of max value in preferences", i.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting carbs to 48 g because of max value in preferences", i.getMostLimitingReasons());
     }
 
     // applyMaxIOBConstraints tests
@@ -233,15 +235,16 @@ public class ConstraintsCheckerTest {
         // No limit by default
         when(SP.getDouble(R.string.key_openapsma_max_iob, 1.5d)).thenReturn(1.5d);
         when(SP.getString(R.string.key_age, "")).thenReturn("teenage");
-        OpenAPSMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, true);
+        OpenAPSMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, false);
         OpenAPSAMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, true);
+        OpenAPSSMBPlugin.getPlugin().setPluginEnabled(PluginType.APS, false);
 
         // Apply all limits
-        Constraint<Double> d = constraintChecker.getMaxIOBAllowed();
-        Assert.assertEquals(1.5d, d.value());
-        Assert.assertEquals(3, d.getReasonList().size());
-        Assert.assertEquals("Safety: Limiting IOB to 1.5 U because of max value in preferences", d.getMostLimitedReasons());
-
+        Constraint<Double> maxIOBAllowed = constraintChecker.getMaxIOBAllowed();
+        assertThat(maxIOBAllowed.value()).isEqualTo(1.5);
+        assertThat(maxIOBAllowed.getReasonList()).hasSize(2);
+        assertThat(maxIOBAllowed.getMostLimitingReasons())
+                .isEqualTo("Safety: Limiting IOB to 1.5 U because of max value in preferences");
     }
 
     @Test
@@ -249,14 +252,16 @@ public class ConstraintsCheckerTest {
         // No limit by default
         when(SP.getDouble(R.string.key_openapssmb_max_iob, 3d)).thenReturn(3d);
         when(SP.getString(R.string.key_age, "")).thenReturn("teenage");
+        OpenAPSMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, false);
+        OpenAPSAMAPlugin.getPlugin().setPluginEnabled(PluginType.APS, false);
         OpenAPSSMBPlugin.getPlugin().setPluginEnabled(PluginType.APS, true);
 
         // Apply all limits
-        Constraint<Double> d = constraintChecker.getMaxIOBAllowed();
-        Assert.assertEquals(3d, d.value());
-        Assert.assertEquals(4, d.getReasonList().size());
-        Assert.assertEquals("Safety: Limiting IOB to 3.0 U because of max value in preferences", d.getMostLimitedReasons());
-
+        Constraint<Double> maxIOBAllowed = constraintChecker.getMaxIOBAllowed();
+        assertThat(maxIOBAllowed.value()).isEqualTo(3);
+        assertThat(maxIOBAllowed.getReasonList()).hasSize(2);
+        assertThat(maxIOBAllowed.getMostLimitingReasons())
+                .isEqualTo("Safety: Limiting IOB to 3.0 U because of max value in preferences");
     }
 
     @Before

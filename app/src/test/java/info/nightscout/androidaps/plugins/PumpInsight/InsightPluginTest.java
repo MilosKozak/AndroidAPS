@@ -40,7 +40,7 @@ public class InsightPluginTest {
         insightPlugin.applyBasalConstraints(c, AAPSMocker.getValidProfile());
         Assert.assertEquals(1.1d, c.value());
         Assert.assertEquals("Insight: Limiting basal rate to 1.10 U/h because of pump limit", c.getReasons());
-        Assert.assertEquals("Insight: Limiting basal rate to 1.10 U/h because of pump limit", c.getMostLimitedReasons());
+        Assert.assertEquals("Insight: Limiting basal rate to 1.10 U/h because of pump limit", c.getMostLimitingReasons());
     }
 
     @Before

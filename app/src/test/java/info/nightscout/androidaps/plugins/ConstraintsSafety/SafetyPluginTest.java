@@ -19,7 +19,6 @@ import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.OpenAPSMAPlugin;
-import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.plugins.PumpVirtual.VirtualPumpPlugin;
 import info.nightscout.androidaps.plugins.Source.SourceGlimpPlugin;
 import info.nightscout.utils.SP;
@@ -114,7 +113,7 @@ public class SafetyPluginTest {
                 "Safety: Limiting basal rate to 4.00 U/h because of max basal multiplier\n" +
                 "Safety: Limiting basal rate to 3.00 U/h because of max daily basal multiplier\n" +
                 "Safety: Limiting basal rate to 2.00 U/h because of hard limit", c.getReasons());
-        Assert.assertEquals("Safety: Limiting basal rate to 1.00 U/h because of max value in preferences", c.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting basal rate to 1.00 U/h because of max value in preferences", c.getMostLimitingReasons());
 
     }
 
@@ -146,7 +145,7 @@ public class SafetyPluginTest {
                 "Safety: Limiting basal rate to 3.00 U/h because of max daily basal multiplier\n" +
                 "Safety: Limiting basal rate to 2.00 U/h because of hard limit\n" +
                 "Safety: Limiting percent rate to 100% because of pump limit", i.getReasons());
-        Assert.assertEquals("Safety: Limiting percent rate to 100% because of pump limit", i.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting percent rate to 100% because of pump limit", i.getMostLimitingReasons());
     }
 
     @Test
@@ -159,7 +158,7 @@ public class SafetyPluginTest {
         Assert.assertEquals("Safety: Percent rate -22% recalculated to -0.22 U/h with current basal 1.00 U/h\n" +
                 "Safety: Limiting basal rate to 0.00 U/h because of it must be positive value\n" +
                 "Safety: Limiting percent rate to 0% because of pump limit", i.getReasons());
-        Assert.assertEquals("Safety: Limiting percent rate to 0% because of pump limit", i.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting percent rate to 0% because of pump limit", i.getMostLimitingReasons());
     }
 
     @Test
@@ -172,7 +171,7 @@ public class SafetyPluginTest {
         Assert.assertEquals(3d, d.value());
         Assert.assertEquals("Safety: Limiting bolus to 3.0 U because of max value in preferences\n" +
                 "Safety: Limiting bolus to 5.0 U because of hard limit", d.getReasons());
-        Assert.assertEquals("Safety: Limiting bolus to 3.0 U because of max value in preferences", d.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting bolus to 3.0 U because of max value in preferences", d.getMostLimitingReasons());
     }
 
     @Test
@@ -184,7 +183,7 @@ public class SafetyPluginTest {
         d = safetyPlugin.applyBolusConstraints(d);
         Assert.assertEquals(0d, d.value());
         Assert.assertEquals("Safety: Limiting bolus to 0.0 U because of it must be positive value", d.getReasons());
-        Assert.assertEquals("Safety: Limiting bolus to 0.0 U because of it must be positive value", d.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting bolus to 0.0 U because of it must be positive value", d.getMostLimitingReasons());
     }
 
     @Test
@@ -219,7 +218,7 @@ public class SafetyPluginTest {
         Assert.assertEquals("Safety: Limiting IOB to 1.5 U because of max value in preferences\n" +
                 "Safety: Limiting IOB to 7.0 U because of hard limit\n" +
                 "Safety: Limiting IOB to 7.0 U because of hard limit", d.getReasons());
-        Assert.assertEquals("Safety: Limiting IOB to 1.5 U because of max value in preferences", d.getMostLimitedReasons());
+        Assert.assertEquals("Safety: Limiting IOB to 1.5 U because of max value in preferences", d.getMostLimitingReasons());
     }
 
     @Before
