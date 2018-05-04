@@ -42,7 +42,7 @@ public class DanaRPluginTest {
         danaRPlugin.applyBasalConstraints(c, AAPSMocker.getValidProfile());
         Assert.assertEquals(0.8d, c.value());
         Assert.assertEquals("DanaR: Limiting basal rate to 0.80 U/h because of pump limit", c.getReasons());
-        Assert.assertEquals("DanaR: Limiting basal rate to 0.80 U/h because of pump limit", c.getMostLimitedReasons());
+        Assert.assertEquals("DanaR: Limiting basal rate to 0.80 U/h because of pump limit", c.getMostLimitedReason());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class DanaRPluginTest {
         danaRPlugin.applyBasalPercentConstraints(c, AAPSMocker.getValidProfile());
         Assert.assertEquals((Integer) 200, c.value());
         Assert.assertEquals("DanaR: Limiting percent rate to 200% because of pump limit", c.getReasons());
-        Assert.assertEquals("DanaR: Limiting percent rate to 200% because of pump limit", c.getMostLimitedReasons());
+        Assert.assertEquals("DanaR: Limiting percent rate to 200% because of pump limit", c.getMostLimitedReason());
     }
 
     @Before

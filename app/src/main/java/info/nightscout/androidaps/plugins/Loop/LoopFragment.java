@@ -106,7 +106,7 @@ public class LoopFragment extends SubscriberFragment {
                             allConstraints.copyReasons(lastRun.constraintsProcessed.rateConstraint);
                         if (lastRun.constraintsProcessed.smbConstraint != null)
                             allConstraints.copyReasons(lastRun.constraintsProcessed.smbConstraint);
-                        constraints = allConstraints.getMostLimitedReasons();
+                        constraints = allConstraints.getMostLimitedReason();
                     }
                     constraintsView.setText(constraints);
                 }

@@ -94,7 +94,7 @@ public class Constraint<T extends Comparable> {
         return reasons;
     }
 
-    public String getMostLimitedReasons() {
+    public String getMostLimitedReason() {
         StringBuilder sb = new StringBuilder();
         int count = 0;
         for (String r : mostLimiting) {
