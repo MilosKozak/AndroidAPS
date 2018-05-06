@@ -314,8 +314,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             bgGraph.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    rangeToDisplay += 6;
-                    rangeToDisplay = rangeToDisplay > 24 ? 6 : rangeToDisplay;
+                    rangeToDisplay += 3;
+                    rangeToDisplay = rangeToDisplay > 24 ? 3 : rangeToDisplay;
                     SP.putInt(R.string.key_rangetodisplay, rangeToDisplay);
                     updateGUI("rangeChange");
                     return false;
