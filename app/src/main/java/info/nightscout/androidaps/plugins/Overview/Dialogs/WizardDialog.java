@@ -276,7 +276,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
 
     private void loadCheckedStates() {
         bgtrendCheckbox.setChecked(SP.getBoolean(MainApp.gs(R.string.key_wizard_include_trend_bg), false));
-        cobCheckbox.setChecked(SP.getBoolean(MainApp.gs(R.string.key_wizard_include_cob), false));
+        cobCheckbox.setChecked(SP.getBoolean(MainApp.gs(R.string.key_wizard_include_cob), true));
     }
 
     @Override
