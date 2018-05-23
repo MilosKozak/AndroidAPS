@@ -31,8 +31,11 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.Source;
+import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.Callback;
+import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.FabricPrivacy;
 import info.nightscout.utils.NumberPicker;
 import info.nightscout.utils.SafeParse;
@@ -95,14 +98,14 @@ public class NewTreatmentDialog extends DialogFragment implements OnClickListene
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-        maxCarbs = MainApp.getConfigBuilder().applyCarbsConstraints(Constants.carbsOnlyForCheckLimit);
-        maxInsulin = MainApp.getConfigBuilder().applyBolusConstraints(Constants.bolusOnlyForCheckLimit);
+        maxCarbs = MainApp.getConstraintChecker().getMaxCarbsAllowed().value();
+        maxInsulin = MainApp.getConstraintChecker().getMaxBolusAllowed().value();
 
         editCarbs = (NumberPicker) view.findViewById(R.id.treatments_newtreatment_carbsamount);
         editInsulin = (NumberPicker) view.findViewById(R.id.treatments_newtreatment_insulinamount);
 
         editCarbs.setParams(0d, 0d, (double) maxCarbs, 1d, new DecimalFormat("0"), false, textWatcher);
-        editInsulin.setParams(0d, 0d, maxInsulin, ConfigBuilderPlugin.getActivePump().getPumpDescription().bolusStep, new DecimalFormat("0.00"), false, textWatcher);
+        editInsulin.setParams(0d, 0d, maxInsulin, ConfigBuilderPlugin.getActivePump().getPumpDescription().bolusStep, DecimalFormatter.pumpSupportedBolusFormat(), false, textWatcher);
 
         recordOnlyCheckbox = (CheckBox) view.findViewById(R.id.newtreatment_record_only);
 
@@ -128,8 +131,8 @@ public class NewTreatmentDialog extends DialogFragment implements OnClickListene
 
                     String confirmMessage = MainApp.gs(R.string.entertreatmentquestion) + "<br/>";
 
-                    Double insulinAfterConstraints = MainApp.getConfigBuilder().applyBolusConstraints(insulin);
-                    Integer carbsAfterConstraints = MainApp.getConfigBuilder().applyCarbsConstraints(carbs);
+                    Double insulinAfterConstraints = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(insulin)).value();
+                    Integer carbsAfterConstraints = MainApp.getConstraintChecker().applyCarbsConstraints(new Constraint<>(carbs)).value();
 
                     if (insulin > 0) {
                         confirmMessage += MainApp.gs(R.string.bolus) + ": " + "<font color='" + MainApp.gc(R.color.colorCarbsButton) + "'>" + insulinAfterConstraints + "U" + "</font>";
@@ -184,7 +187,7 @@ public class NewTreatmentDialog extends DialogFragment implements OnClickListene
                                             }
                                         });
                                     } else {
-                                        MainApp.getConfigBuilder().addToHistoryTreatment(detailedBolusInfo);
+                                        TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo);
                                     }
                                     FabricPrivacy.getInstance().logCustom(new CustomEvent("Bolus"));
                                 }
