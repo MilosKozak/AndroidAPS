@@ -112,6 +112,10 @@ public class CommandQueue {
     }
 
     private synchronized void add(Command command) {
+        if (command instanceof CommandSMBBolus && bolusInQueue()) {
+            log.debug("QUEUE: Ignoring request for SMB, regular bolus is being delivered");
+            return;
+        }
         log.debug("QUEUE: Adding: " + command.getClass().getSimpleName() + " - " + command.status());
         queue.add(command);
     }
