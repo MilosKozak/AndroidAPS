@@ -134,6 +134,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
     TextView baseBasalView;
     TextView extendedBolusView;
     TextView activeProfileView;
+    TextView reservoirView;
     TextView iobView;
     TextView cobView;
     TextView apsModeView;
@@ -232,6 +233,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             baseBasalView = (TextView) view.findViewById(R.id.overview_basebasal);
             extendedBolusView = (TextView) view.findViewById(R.id.overview_extendedbolus);
             activeProfileView = (TextView) view.findViewById(R.id.overview_activeprofile);
+            reservoirView = (TextView) view.findViewById(R.id.overview_reservoir);
             pumpStatusView = (TextView) view.findViewById(R.id.overview_pumpstatus);
             pumpDeviceStatusView = (TextView) view.findViewById(R.id.overview_pump);
             openapsDeviceStatusView = (TextView) view.findViewById(R.id.overview_openaps);
@@ -1191,6 +1193,26 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
 
         activeProfileView.setText(MainApp.getConfigBuilder().getProfileName());
         activeProfileView.setBackgroundColor(Color.GRAY);
+
+        if (reservoirView != null) {
+            int reservoirCapacity = pump.isInitialized() ? pump.getPumpDescription().reservoirCapacity : 0;
+            int reservoirLevel = pump.isInitialized() ? (int) Math.round(pump.getReservoirLevel()) : -1;
+            if (reservoirCapacity > 0 && reservoirLevel != -1) {
+                reservoirView.setText(reservoirLevel + " " + MainApp.sResources.getString(R.string.insulin_unit_shortname));
+                if (reservoirLevel < 5) {
+                    reservoirView.setBackgroundColor(Color.RED);
+                    reservoirView.setTextColor(Color.GRAY);
+                } else if (reservoirLevel < 0.25 * reservoirCapacity) {
+                    reservoirView.setBackgroundColor(Color.YELLOW);
+                    reservoirView.setTextColor(Color.DKGRAY);
+                } else {
+                    reservoirView.setBackgroundColor(Color.GREEN);
+                    reservoirView.setTextColor(Color.DKGRAY);
+                }
+            } else {
+                reservoirView.setVisibility(View.GONE);
+            }
+        }
 
         tempTargetView.setOnLongClickListener(view -> {
             view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);

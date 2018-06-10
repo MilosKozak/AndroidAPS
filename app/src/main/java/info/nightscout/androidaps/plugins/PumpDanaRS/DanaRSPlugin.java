@@ -115,6 +115,8 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
 
         pumpDescription.supportsTDDs = true;
         pumpDescription.needsManualTDDLoad = true;
+
+        pumpDescription.reservoirCapacity = 300;
     }
 
     @Override
@@ -349,6 +351,11 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
     @Override
     public double getBaseBasalRate() {
         return pump.currentBasal;
+    }
+
+    @Override
+    public double getReservoirLevel() {
+        return pump.reservoirRemainingUnits;
     }
 
     @Override

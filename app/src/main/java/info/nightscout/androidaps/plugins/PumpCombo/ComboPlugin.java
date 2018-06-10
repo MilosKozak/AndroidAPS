@@ -116,6 +116,8 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
         pumpDescription.supportsTDDs = true;
         pumpDescription.needsManualTDDLoad = true;
+
+        pumpDescription.reservoirCapacity = 320;
     }
 
     @NonNull
@@ -420,6 +422,11 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
     public double getBaseBasalRate() {
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         return pump.basalProfile.hourlyRates[currentHour];
+    }
+
+    @Override
+    public double getReservoirLevel() {
+        return pump.reservoirLevel;
     }
 
     private static BolusProgressReporter bolusProgressReporter = (state, percent, delivered) -> {

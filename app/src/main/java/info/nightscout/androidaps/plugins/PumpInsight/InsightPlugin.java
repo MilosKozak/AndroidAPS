@@ -146,6 +146,8 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
 
         pumpDescription.supportsTDDs = true;
         pumpDescription.needsManualTDDLoad = false;
+
+        pumpDescription.reservoirCapacity = 160;
     }
 
 
@@ -383,6 +385,9 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
     public double getBaseBasalRate() {
         return basalRate;
     }
+
+    @Override
+    public double getReservoirLevel() { return -1; }
 
     public String getBaseBasalRateString() {
         final DecimalFormat df = new DecimalFormat("#.##");

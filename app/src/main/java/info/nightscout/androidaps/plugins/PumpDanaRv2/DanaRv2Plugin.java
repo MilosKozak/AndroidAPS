@@ -77,6 +77,8 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
 
         pumpDescription.supportsTDDs = true;
         pumpDescription.needsManualTDDLoad = true;
+
+        pumpDescription.reservoirCapacity = 300;
     }
 
     @Override

@@ -45,4 +45,6 @@ public class PumpDescription {
 
     public boolean supportsTDDs = false;
     public boolean needsManualTDDLoad = true;
+
+    public int reservoirCapacity = 0;
 }
