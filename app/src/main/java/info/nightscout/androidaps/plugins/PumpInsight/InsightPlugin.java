@@ -387,7 +387,7 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
     }
 
     @Override
-    public double getReservoirLevel() { return -1; }
+    public double getReservoirLevel() { return reservoirInUnits; }
 
     public String getBaseBasalRateString() {
         final DecimalFormat df = new DecimalFormat("#.##");
