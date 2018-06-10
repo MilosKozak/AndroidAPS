@@ -1195,14 +1195,16 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         activeProfileView.setBackgroundColor(Color.GRAY);
 
         if (reservoirView != null) {
-            int reservoirCapacity = pump.isInitialized() ? pump.getPumpDescription().reservoirCapacity : 0;
+            boolean showReservoirView = SP.getBoolean(R.string.key_show_reservoirview, false);
             int reservoirLevel = pump.isInitialized() ? (int) Math.round(pump.getReservoirLevel()) : -1;
-            if (reservoirCapacity > 0 && reservoirLevel != -1) {
+            if (showReservoirView && reservoirLevel != -1) {
+                int levelWarning = SP.getInt(R.string.key_reservoirview_levelwarning, 80);
+                int levelCritical = SP.getInt(R.string.key_reservoirview_levelcritical, 5);
                 reservoirView.setText(reservoirLevel + " " + MainApp.sResources.getString(R.string.insulin_unit_shortname));
-                if (reservoirLevel < 5) {
+                if (reservoirLevel < levelWarning) {
                     reservoirView.setBackgroundColor(Color.RED);
                     reservoirView.setTextColor(Color.GRAY);
-                } else if (reservoirLevel < 0.25 * reservoirCapacity) {
+                } else if (reservoirLevel < levelCritical) {
                     reservoirView.setBackgroundColor(Color.YELLOW);
                     reservoirView.setTextColor(Color.DKGRAY);
                 } else {
