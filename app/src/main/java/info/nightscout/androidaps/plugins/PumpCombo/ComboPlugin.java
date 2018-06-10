@@ -116,8 +116,6 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
         pumpDescription.supportsTDDs = true;
         pumpDescription.needsManualTDDLoad = true;
-
-        pumpDescription.reservoirCapacity = 320;
     }
 
     @NonNull

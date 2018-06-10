@@ -146,8 +146,6 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
 
         pumpDescription.supportsTDDs = true;
         pumpDescription.needsManualTDDLoad = false;
-
-        pumpDescription.reservoirCapacity = 160;
     }
 
 

@@ -115,8 +115,6 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
 
         pumpDescription.supportsTDDs = true;
         pumpDescription.needsManualTDDLoad = true;
-
-        pumpDescription.reservoirCapacity = 300;
     }
 
     @Override
