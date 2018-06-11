@@ -1201,10 +1201,10 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 int levelWarning = SP.getInt(R.string.key_reservoirview_levelwarning, 80);
                 int levelCritical = SP.getInt(R.string.key_reservoirview_levelcritical, 5);
                 reservoirView.setText(reservoirLevel + " " + MainApp.sResources.getString(R.string.insulin_unit_shortname));
-                if (reservoirLevel <= levelWarning) {
+                if (reservoirLevel <= levelCritical) {
                     reservoirView.setBackgroundColor(Color.RED);
                     reservoirView.setTextColor(Color.GRAY);
-                } else if (reservoirLevel <= levelCritical) {
+                } else if (reservoirLevel <= levelWarning) {
                     reservoirView.setBackgroundColor(Color.YELLOW);
                     reservoirView.setTextColor(Color.DKGRAY);
                 } else {
