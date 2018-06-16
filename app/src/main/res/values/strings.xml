@@ -1162,6 +1162,9 @@
     <string name="nth_objective">%1$d. Objective</string>
     <string name="poctech">Poctech</string>
     <string name="description_source_poctech">Receive BG values from Poctech app</string>
+    <string name="average_profile">Average Profile</string>
+    <string name="average_profile_short">AP</string>
+    <string name="average_profile_description">Define the average values for IC and ISF and they will automatically be calculated, so they align to the basal profile.</string>
    
     <plurals name="objective_days">
         <item quantity="one">%d day</item>
