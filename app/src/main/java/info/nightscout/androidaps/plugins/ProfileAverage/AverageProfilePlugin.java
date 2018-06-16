@@ -140,8 +140,8 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
             json.put("defaultProfile", AVERAGE_PROFILE);
             json.put("store", store);
             profile.put("dia", dia);
-            profile.put("carbratio", calculateAlignedValues(basal, ic, false));
-            profile.put("sens", calculateAlignedValues(basal, isf, true));
+            profile.put("carbratio", calculateAlignedValues(basal, ic));
+            profile.put("sens", calculateAlignedValues(basal, isf));
             profile.put("basal", basal);
             profile.put("target_low", targetLow);
             profile.put("target_high", targetHigh);
@@ -153,7 +153,7 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
         return new ProfileStore(json);
     }
 
-    private JSONArray calculateAlignedValues(JSONArray basalValues, double averageValue, boolean proportional) throws JSONException {
+    private JSONArray calculateAlignedValues(JSONArray basalValues, double averageValue) throws JSONException {
         double basalAverage = calculateAverageValue(basalValues);
         JSONArray alignedValues = new JSONArray();
         for (int i = 0; i < basalValues.length(); i++) {
@@ -161,9 +161,8 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
             String time = basalObject.getString("time");
             int timeAsSeconds = basalObject.getInt("timeAsSeconds");
             double basalValue = basalObject.getDouble("value");
-            double alignedValue = proportional ? averageValue / basalAverage * basalValue : averageValue * basalAverage / basalValue;
-            //You can't divide by zero
-            if (basalValue == 0 || basalAverage == 0) alignedValue = 0;
+            double alignedValue = averageValue * basalAverage / basalValue;
+            if (basalValue == 0) alignedValue = 0;
             JSONObject alignedObject = new JSONObject();
             alignedObject.put("time", time);
             alignedObject.put("timeAsSeconds", timeAsSeconds);
