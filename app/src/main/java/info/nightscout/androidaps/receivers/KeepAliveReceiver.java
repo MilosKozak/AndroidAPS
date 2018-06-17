@@ -22,6 +22,7 @@ import info.nightscout.androidaps.events.EventProfileSwitchChange;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
 import info.nightscout.androidaps.queue.commands.Command;
 import info.nightscout.utils.LocalAlertUtils;
 
@@ -44,7 +45,9 @@ public class KeepAliveReceiver extends BroadcastReceiver {
 
         LocalAlertUtils.shortenSnoozeInterval();
         LocalAlertUtils.checkStaleBGAlert();
-        checkPump();
+        if (!LoopPlugin.getPlugin().isDisconnected()) {
+            checkPump();
+        }
 
         log.debug("KeepAlive received");
         wl.release();
