@@ -1165,6 +1165,8 @@
     <string name="average_profile">Average Profile</string>
     <string name="average_profile_short">AP</string>
     <string name="average_profile_description">Define the average values for IC and ISF and they will automatically be calculated, so they align to the basal profile.</string>
+    <string name="ic_multiplier">IC multiplier</string>
+    <string name="isf_multiplier">ISF multiplier</string>
    
     <plurals name="objective_days">
         <item quantity="one">%d day</item>

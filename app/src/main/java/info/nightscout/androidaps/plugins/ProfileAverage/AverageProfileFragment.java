@@ -44,6 +44,8 @@ public class AverageProfileFragment extends SubscriberFragment {
     RadioButton mmolView;
     NumberPicker icView;
     NumberPicker isfView;
+    NumberPicker icMultiplierView;
+    NumberPicker isfMultiplierView;
     TimeListEdit basalView;
     TimeListEdit targetView;
     Button profileswitchButton;
@@ -93,8 +95,12 @@ public class AverageProfileFragment extends SubscriberFragment {
             mmolView = layout.findViewById(R.id.averageprofile_mmol);
             icView = layout.findViewById(R.id.averageprofile_ic);
             icView.setParams(AverageProfilePlugin.getPlugin().ic, 0.5d, 50d, 0.1d, new DecimalFormat("0.0"), false, textWatch);
+            icMultiplierView = layout.findViewById(R.id.averageprofile_ic_multiplier);
+            icMultiplierView.setParams(AverageProfilePlugin.getPlugin().icMultiplier, 0d, 5d, 0.1d, new DecimalFormat("0.0"), true, textWatch);
             isfView = layout.findViewById(R.id.averageprofile_isf);
             isfView.setParams(AverageProfilePlugin.getPlugin().isf, 0.5d, 500d, 0.1d, new DecimalFormat("0.0"), false, textWatch);
+            isfMultiplierView = layout.findViewById(R.id.averageprofile_isf_multiplier);
+            isfMultiplierView.setParams(AverageProfilePlugin.getPlugin().isfMultiplier, 0d, 5d, 0.1d, new DecimalFormat("0.0"), true, textWatch);
             basalView = new TimeListEdit(getContext(), layout, R.id.averageprofile_basal, MainApp.gs(R.string.nsprofileview_basal_label) + ": " + getSumLabel(), AverageProfilePlugin.getPlugin().basal, null, pumpDescription.basalMinimumRate, 10, 0.01d, new DecimalFormat("0.00"), save);
             targetView = new TimeListEdit(getContext(), layout, R.id.averageprofile_target, MainApp.gs(R.string.nsprofileview_target_label) + ":", AverageProfilePlugin.getPlugin().targetLow, AverageProfilePlugin.getPlugin().targetHigh, 3d, 200, 0.1d, new DecimalFormat("0.0"), save);
             profileswitchButton = layout.findViewById(R.id.averageprofile_profileswitch);
@@ -141,6 +147,8 @@ public class AverageProfileFragment extends SubscriberFragment {
                 isfView.setParams(AverageProfilePlugin.getPlugin().isf, 0.5d, 500d, 0.1d, new DecimalFormat("0.0"), false, textWatch);
                 basalView = new TimeListEdit(getContext(), layout, R.id.averageprofile_basal, MainApp.gs(R.string.nsprofileview_basal_label) + ": " + getSumLabel(), AverageProfilePlugin.getPlugin().basal, null, pumpDescription.basalMinimumRate, 10, 0.01d, new DecimalFormat("0.00"), save);
                 targetView = new TimeListEdit(getContext(), layout, R.id.averageprofile_target, MainApp.gs(R.string.nsprofileview_target_label) + ":", AverageProfilePlugin.getPlugin().targetLow, AverageProfilePlugin.getPlugin().targetHigh, 3d, 200, 0.1d, new DecimalFormat("0.0"), save);
+                icMultiplierView.setParams(AverageProfilePlugin.getPlugin().icMultiplier, 0d, 5d, 0.1d, new DecimalFormat("0.0"), true, textWatch);
+                isfMultiplierView.setParams(AverageProfilePlugin.getPlugin().isfMultiplier, 0d, 5d, 0.1d, new DecimalFormat("0.0"), true, textWatch);
                 updateGUI();
             });
 

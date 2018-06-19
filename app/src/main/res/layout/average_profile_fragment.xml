@@ -162,6 +162,59 @@
                 android:layout_height="wrap_content"
                 android:background="@color/linearBlockBackground"
                 android:layout_marginLeft="10px"
+                android:text="@string/ic_multiplier"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmall">
+
+                <!-- dummy to align with TimeListEdits added dynamically -->
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:minWidth="80dp"
+                    android:visibility="invisible"/>
+
+                <info.nightscout.utils.NumberPicker
+                    android:id="@+id/averageprofile_ic_multiplier"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <!-- dummy to align with TimeListEdits added dynamically -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/add"
+                    android:visibility="invisible"/>
+
+                <!-- dummy to align with TimeListEdits added dynamically -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/remove"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/linearBlockBackground"
+                android:layout_marginLeft="10px"
                 android:text="@string/nsprofileview_isf_label"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -186,6 +239,59 @@
 
                 <info.nightscout.utils.NumberPicker
                     android:id="@+id/averageprofile_isf"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <!-- dummy to align with TimeListEdits added dynamically -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/add"
+                    android:visibility="invisible"/>
+
+                <!-- dummy to align with TimeListEdits added dynamically -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/remove"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/linearBlockBackground"
+                android:layout_marginLeft="10px"
+                android:text="@string/isf_multiplier"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmall">
+
+                <!-- dummy to align with TimeListEdits added dynamically -->
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:minWidth="80dp"
+                    android:visibility="invisible"/>
+
+                <info.nightscout.utils.NumberPicker
+                    android:id="@+id/averageprofile_isf_multiplier"
                     android:layout_width="130dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="5dp"
