@@ -228,7 +228,7 @@ public class IobCobThread extends Thread {
                         autosensData.absorbed = ci * profile.getIc(bgTime) / sens;
                         // and add that to the running total carbsAbsorbed
                         autosensData.cob = Math.max(previous.cob - autosensData.absorbed, 0d);
-                        autosensData.substractAbosorbedCarbs();
+                        autosensData.substractAbsorbedCarbs();
                         autosensData.usedMinCarbsImpact = totalMinCarbsImpact;
                     }
                     autosensData.removeOldCarbs(bgTime);
@@ -256,6 +256,7 @@ public class IobCobThread extends Thread {
                         }
                         autosensData.nonCarbsDeviation = true;
                     } else {
+                        autosensData.nonCarbsDeviation = false; // this is the default, make it rather explicit
                         autosensData.pastSensitivity += "C";
                     }
                     //log.debug("TIME: " + new Date(bgTime).toString() + " BG: " + bg + " SENS: " + sens + " DELTA: " + delta + " AVGDELTA: " + avgDelta + " IOB: " + iob.iob + " ACTIVITY: " + iob.activity + " BGI: " + bgi + " DEVIATION: " + deviation);
