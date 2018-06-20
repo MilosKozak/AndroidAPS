@@ -78,8 +78,6 @@ public class AverageProfileFragment extends SubscriberFragment {
             AverageProfilePlugin.getPlugin().dia = SafeParse.stringToDouble(diaView.getText().toString());
             AverageProfilePlugin.getPlugin().ic = SafeParse.stringToDouble(icView.getText().toString());
             AverageProfilePlugin.getPlugin().isf = SafeParse.stringToDouble(isfView.getText().toString());
-            AverageProfilePlugin.getPlugin().icMultiplier = SafeParse.stringToDouble(icMultiplierView.getText().toString());
-            AverageProfilePlugin.getPlugin().isfMultiplier = SafeParse.stringToDouble(isfMultiplierView.getText().toString());
             doEdit();
         }
     };
