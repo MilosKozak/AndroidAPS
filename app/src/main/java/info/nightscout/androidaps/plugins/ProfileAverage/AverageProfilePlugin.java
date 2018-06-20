@@ -161,7 +161,7 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
             String time = basalObject.getString("time");
             int timeAsSeconds = basalObject.getInt("timeAsSeconds");
             double basalValue = basalObject.getDouble("value");
-            double alignedValue = averageValue * basalAverage / basalValue;
+            double alignedValue = averageValue / (basalValue / basalAverage);
             if (basalValue == 0) alignedValue = 0;
             JSONObject alignedObject = new JSONObject();
             alignedObject.put("time", time);
