@@ -19,7 +19,6 @@ import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
 import info.nightscout.utils.DecimalFormatter;
-import info.nightscout.utils.HardLimits;
 import info.nightscout.utils.SP;
 
 /**
@@ -54,9 +53,7 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
     boolean mmol;
     Double dia;
     Double ic;
-    Double icMultiplier;
     Double isf;
-    Double isfMultiplier;
     JSONArray basal;
     JSONArray targetLow;
     JSONArray targetHigh;
@@ -77,9 +74,7 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
         SP.putBoolean(AVERAGE_PROFILE + "mgdl", mgdl);
         SP.putString(AVERAGE_PROFILE + "dia", dia.toString());
         SP.putString(AVERAGE_PROFILE + "ic", ic.toString());
-        SP.putString(AVERAGE_PROFILE + "icmultiplier", icMultiplier.toString());
         SP.putString(AVERAGE_PROFILE + "isf", isf.toString());
-        SP.putString(AVERAGE_PROFILE + "isfmultiplier", isfMultiplier.toString());
         SP.putString(AVERAGE_PROFILE + "basal", basal.toString());
         SP.putString(AVERAGE_PROFILE + "targetlow", targetLow.toString());
         SP.putString(AVERAGE_PROFILE + "targethigh", targetHigh.toString());
@@ -100,8 +95,6 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
         dia = SP.getDouble(AVERAGE_PROFILE + "dia", Constants.defaultDIA);
         ic = SP.getDouble(AVERAGE_PROFILE + "ic", 0D);
         isf = SP.getDouble(AVERAGE_PROFILE + "isf", 0D);
-        icMultiplier = SP.getDouble(AVERAGE_PROFILE + "icmultiplier", 1D);
-        isfMultiplier = SP.getDouble(AVERAGE_PROFILE + "isfmultiplier", 1D);
         try {
             basal = new JSONArray(SP.getString(AVERAGE_PROFILE + "basal", DEFAULTARRAY));
         } catch (JSONException e1) {
@@ -147,8 +140,8 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
             json.put("defaultProfile", AVERAGE_PROFILE);
             json.put("store", store);
             profile.put("dia", dia);
-            profile.put("carbratio", calculateAlignedValues(basal, icMultiplier, ic));
-            profile.put("sens", calculateAlignedValues(basal, isfMultiplier, isf));
+            profile.put("carbratio", calculateAlignedValues(basal, ic));
+            profile.put("sens", calculateAlignedValues(basal, isf));
             profile.put("basal", basal);
             profile.put("target_low", targetLow);
             profile.put("target_high", targetHigh);
@@ -160,7 +153,7 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
         return new ProfileStore(json);
     }
 
-    private JSONArray calculateAlignedValues(JSONArray basalValues, double multiplier, double averageValue) throws JSONException {
+    private JSONArray calculateAlignedValues(JSONArray basalValues, double averageValue) throws JSONException {
         double basalAverage = calculateAverageValue(basalValues);
         JSONArray alignedValues = new JSONArray();
         for (int i = 0; i < basalValues.length(); i++) {
@@ -168,8 +161,8 @@ public class AverageProfilePlugin extends PluginBase implements ProfileInterface
             String time = basalObject.getString("time");
             int timeAsSeconds = basalObject.getInt("timeAsSeconds");
             double basalValue = basalObject.getDouble("value");
-            double alignedValue = averageValue + averageValue * (basalValue - basalAverage) * multiplier;
-            if (alignedValue < 0) alignedValue = 0;
+            double alignedValue = averageValue * basalAverage / basalValue;
+            if (basalValue == 0) alignedValue = 0;
             JSONObject alignedObject = new JSONObject();
             alignedObject.put("time", time);
             alignedObject.put("timeAsSeconds", timeAsSeconds);
