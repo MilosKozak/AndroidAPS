@@ -2,6 +2,7 @@ package info.nightscout.androidaps.plugins.Careportal.Dialogs;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
@@ -567,7 +568,7 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
             }
         } catch (JSONException e) {
             log.error("Unhandled exception", e);
-        }
+    }
         return data;
     }
 
@@ -682,10 +683,32 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(MainApp.gs(R.string.confirmation));
             builder.setMessage(confirmText);
-            builder.setPositiveButton(MainApp.gs(R.string.ok), (dialog, id) -> createNSTreatment(data));
+            builder.setPositiveButton(MainApp.gs(R.string.ok), (dialog, id) -> {
+                if (options.executeProfileSwitch && TreatmentsPlugin.getPlugin().getProfileSwitchesFromHistory().size() == 0) {
+                    try {
+                        confirmFirstProfileSwitch(builder.getContext(), data);
+                    } catch (JSONException e) {
+                        log.error("Unhandled exception", e);
+                    }
+                }
+                else createNSTreatment(data);
+            });
             builder.setNegativeButton(MainApp.gs(R.string.cancel), null);
             builder.show();
         }
+    }
+
+    private void confirmFirstProfileSwitch(Context context, JSONObject data) throws JSONException {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(MainApp.gs(R.string.attention));
+        builder.setMessage(MainApp.gs(R.string.profile_switch_warning,
+                profileStore.getSpecificProfile(data.getString("profile"))
+                        .baseBasalSum() / 100 * data.getInt("percentage")));
+        builder.setNegativeButton(MainApp.gs(R.string.no_i_dont), null);
+        builder.setPositiveButton(MainApp.gs(R.string.yes_i_do), (dialog, id) -> {
+            createNSTreatment(data);
+        });
+        builder.show();
     }
 
 

@@ -1162,7 +1162,11 @@
     <string name="nth_objective">%1$d. Objective</string>
     <string name="poctech">Poctech</string>
     <string name="description_source_poctech">Receive BG values from Poctech app</string>
-   
+    <string name="attention">Attention</string>
+    <string name="profile_switch_warning">AndroidAPS intends to manage the basal profile of any connected pump.\nThe basal profile you have defined within AndroidAPS will be sent to a connected pump and immediately become active. This will overwrite whatever current basal profile is there. The new daily basal rate is %1$s U.\nPlease confirm that you wish this to happen and understand the consequences.</string>
+    <string name="yes_i_do">Yes, I do.</string>
+    <string name="no_i_dont">No, I don\'t.</string>
+
     <plurals name="objective_days">
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
