@@ -1249,7 +1249,23 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return new ArrayList<>();
     }
 
-    public List<CareportalEvent> getCareportalEventsFromTime(boolean ascending) {
+    public List<CareportalEvent> getCareportalEventsFromTime(long mills, String type, boolean ascending) {
+        try {
+            List<CareportalEvent> careportalEvents;
+            QueryBuilder<CareportalEvent, Long> queryBuilder = getDaoCareportalEvents().queryBuilder();
+            queryBuilder.orderBy("date", ascending);
+            Where where = queryBuilder.where();
+            where.ge("date", mills).and().eq("eventType", type);
+            PreparedQuery<CareportalEvent> preparedQuery = queryBuilder.prepare();
+            careportalEvents = getDaoCareportalEvents().query(preparedQuery);
+            return careportalEvents;
+        } catch (SQLException e) {
+            log.error("Unhandled exception", e);
+        }
+        return new ArrayList<>();
+    }
+
+    public List<CareportalEvent> getCareportalEvents(boolean ascending) {
         try {
             List<CareportalEvent> careportalEvents;
             QueryBuilder<CareportalEvent, Long> queryBuilder = getDaoCareportalEvents().queryBuilder();
@@ -1470,14 +1486,19 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 profileSwitch.profileJson = trJson.getString("profileJson");
             else {
                 ProfileStore store = MainApp.getConfigBuilder().getActiveProfileInterface().getProfile();
-                Profile profile = store.getSpecificProfile(profileSwitch.profileName);
-                if (profile != null) {
-                    profileSwitch.profileJson = profile.getData().toString();
-                    log.debug("Profile switch prefilled with JSON from local store");
-                    // Update data in NS
-                    NSUpload.updateProfileSwitch(profileSwitch);
+                if (store != null) {
+                    Profile profile = store.getSpecificProfile(profileSwitch.profileName);
+                    if (profile != null) {
+                        profileSwitch.profileJson = profile.getData().toString();
+                        log.debug("Profile switch prefilled with JSON from local store");
+                        // Update data in NS
+                        NSUpload.updateProfileSwitch(profileSwitch);
+                    } else {
+                        log.debug("JSON for profile switch doesn't exist. Ignoring: " + trJson.toString());
+                        return;
+                    }
                 } else {
-                    log.debug("JSON for profile switch doesn't exist. Ignoring: " + trJson.toString());
+                    log.debug("Store for profile switch doesn't exist. Ignoring: " + trJson.toString());
                     return;
                 }
             }
