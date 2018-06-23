@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.crashlytics.android.Crashlytics;
 import com.squareup.otto.Subscribe;
 
 import org.slf4j.Logger;
@@ -27,6 +26,7 @@ import info.nightscout.androidaps.plugins.Careportal.Dialogs.NewNSTreatmentDialo
 import info.nightscout.androidaps.plugins.Careportal.OptionsToShow;
 import info.nightscout.androidaps.plugins.Common.SubscriberFragment;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.utils.FabricPrivacy;
 import info.nightscout.utils.SafeParse;
 
 public class SimpleProfileFragment extends SubscriberFragment {
@@ -73,34 +73,25 @@ public class SimpleProfileFragment extends SubscriberFragment {
             targetlowView.setText(SimpleProfilePlugin.getPlugin().targetLow.toString());
             targethighView.setText(SimpleProfilePlugin.getPlugin().targetHigh.toString());
 
-            mgdlView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    SimpleProfilePlugin.getPlugin().mgdl = mgdlView.isChecked();
-                    SimpleProfilePlugin.getPlugin().mmol = !SimpleProfilePlugin.getPlugin().mgdl;
-                    mmolView.setChecked(SimpleProfilePlugin.getPlugin().mmol);
-                    SimpleProfilePlugin.getPlugin().storeSettings();
-                }
+            mgdlView.setOnClickListener(v -> {
+                SimpleProfilePlugin.getPlugin().mgdl = mgdlView.isChecked();
+                SimpleProfilePlugin.getPlugin().mmol = !SimpleProfilePlugin.getPlugin().mgdl;
+                mmolView.setChecked(SimpleProfilePlugin.getPlugin().mmol);
+                SimpleProfilePlugin.getPlugin().storeSettings();
             });
-            mmolView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    SimpleProfilePlugin.getPlugin().mmol = mmolView.isChecked();
-                    SimpleProfilePlugin.getPlugin().mgdl = !SimpleProfilePlugin.getPlugin().mmol;
-                    mgdlView.setChecked(SimpleProfilePlugin.getPlugin().mgdl);
-                    SimpleProfilePlugin.getPlugin().storeSettings();
-                }
+            mmolView.setOnClickListener(v -> {
+                SimpleProfilePlugin.getPlugin().mmol = mmolView.isChecked();
+                SimpleProfilePlugin.getPlugin().mgdl = !SimpleProfilePlugin.getPlugin().mmol;
+                mgdlView.setChecked(SimpleProfilePlugin.getPlugin().mgdl);
+                SimpleProfilePlugin.getPlugin().storeSettings();
             });
 
-            profileswitchButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    NewNSTreatmentDialog newDialog = new NewNSTreatmentDialog();
-                    final OptionsToShow profileswitch = CareportalFragment.PROFILESWITCH;
-                    profileswitch.executeProfileSwitch = true;
-                    newDialog.setOptions(profileswitch, R.string.careportal_profileswitch);
-                    newDialog.show(getFragmentManager(), "NewNSTreatmentDialog");
-                }
+            profileswitchButton.setOnClickListener(view -> {
+                NewNSTreatmentDialog newDialog = new NewNSTreatmentDialog();
+                final OptionsToShow profileswitch = CareportalFragment.PROFILESWITCH;
+                profileswitch.executeProfileSwitch = true;
+                newDialog.setOptions(profileswitch, R.string.careportal_profileswitch);
+                newDialog.show(getFragmentManager(), "NewNSTreatmentDialog");
             });
 
             TextWatcher textWatch = new TextWatcher() {
@@ -137,7 +128,7 @@ public class SimpleProfileFragment extends SubscriberFragment {
 
             return layout;
         } catch (Exception e) {
-            Crashlytics.logException(e);
+            FabricPrivacy.logException(e);
         }
 
         return null;
@@ -152,20 +143,17 @@ public class SimpleProfileFragment extends SubscriberFragment {
     protected void updateGUI() {
         Activity activity = getActivity();
         if (activity != null)
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    boolean isValid = SimpleProfilePlugin.getPlugin().getProfile() != null && SimpleProfilePlugin.getPlugin().getProfile().getDefaultProfile().isValid(MainApp.gs(R.string.simpleprofile));
-                    if (!ConfigBuilderPlugin.getActivePump().isInitialized() || ConfigBuilderPlugin.getActivePump().isSuspended() || !isValid) {
-                        profileswitchButton.setVisibility(View.GONE);
-                    } else {
-                        profileswitchButton.setVisibility(View.VISIBLE);
-                    }
-                    if (isValid)
-                        invalidProfile.setVisibility(View.GONE);
-                    else
-                        invalidProfile.setVisibility(View.VISIBLE);
+            activity.runOnUiThread(() -> {
+                boolean isValid = SimpleProfilePlugin.getPlugin().getProfile() != null && SimpleProfilePlugin.getPlugin().getProfile().getDefaultProfile().isValid(MainApp.gs(R.string.simpleprofile));
+                if (!ConfigBuilderPlugin.getActivePump().isInitialized() || ConfigBuilderPlugin.getActivePump().isSuspended() || !isValid) {
+                    profileswitchButton.setVisibility(View.GONE);
+                } else {
+                    profileswitchButton.setVisibility(View.VISIBLE);
                 }
+                if (isValid)
+                    invalidProfile.setVisibility(View.GONE);
+                else
+                    invalidProfile.setVisibility(View.VISIBLE);
             });
     }
 

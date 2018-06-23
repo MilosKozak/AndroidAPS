@@ -61,6 +61,31 @@ public class ProfileSwitch implements Interval, DataPointWithLabelInterface {
 
     private Profile profile = null;
 
+    public ProfileSwitch date(long date) {
+        this.date = date;
+        return this;
+    }
+
+    public ProfileSwitch profileName(String profileName) {
+        this.profileName = profileName;
+        return this;
+    }
+
+    public ProfileSwitch profile(Profile profile) {
+        this.profile = profile;
+        return this;
+    }
+
+   public ProfileSwitch source(int source) {
+        this.source = source;
+        return this;
+    }
+
+   public ProfileSwitch duration(int duration) {
+        this.durationInMinutes = duration;
+        return this;
+    }
+
     @Nullable
     public Profile getProfileObject() {
         if (profile == null)
@@ -78,11 +103,14 @@ public class ProfileSwitch implements Interval, DataPointWithLabelInterface {
         if(LocalProfilePlugin.LOCAL_PROFILE.equals(name)){
             name = DecimalFormatter.to2Decimal(getProfileObject().percentageBasalSum()) + "U ";
         }
-        if (isCPP) {
-            name += "(" + percentage + "%";
-            if (timeshift != 0)
-                name += "," + timeshift + "h";
-            name += ")";
+        //Test if name is already containing percentage or timeshift
+        if (!name.endsWith("h)") || !name.endsWith("%)")) {
+            if (isCPP) {
+                name += "(" + percentage + "%";
+                if (timeshift != 0)
+                    name += "," + timeshift + "h";
+                name += ")";
+            }
         }
         return name;
     }

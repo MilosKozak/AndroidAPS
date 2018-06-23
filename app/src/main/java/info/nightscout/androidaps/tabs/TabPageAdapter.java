@@ -3,9 +3,11 @@ package info.nightscout.androidaps.tabs;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
 
@@ -14,13 +16,12 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
-import info.nightscout.androidaps.MainActivity;
 import info.nightscout.androidaps.interfaces.PluginBase;
 
 /**
  * Created by mike on 30.05.2016.
  */
-public class TabPageAdapter extends FragmentStatePagerAdapter {
+public class TabPageAdapter extends FragmentPagerAdapter {
 
     ArrayList<PluginBase> visibleFragmentList = new ArrayList<>();
 
@@ -37,7 +38,11 @@ public class TabPageAdapter extends FragmentStatePagerAdapter {
     @Nullable
     public Fragment getItem(int position) {
         //Fragment fragment = (Fragment) visibleFragmentList.get(position);
-        return Fragment.instantiate(context, visibleFragmentList.get(position).getFragmentClass());
+        return Fragment.instantiate(context, visibleFragmentList.get(position).pluginDescription.getFragmentClass());
+    }
+
+    public PluginBase getPluginAt(int position) {
+        return visibleFragmentList.get(position);
     }
 
     @Override
@@ -67,11 +72,14 @@ public class TabPageAdapter extends FragmentStatePagerAdapter {
     }
 
     public void registerNewFragment(PluginBase plugin) {
-        if (plugin.hasFragment() && plugin.isVisibleInTabs(plugin.getType())) {
+        if (plugin.hasFragment() && plugin.isFragmentVisible()) {
             visibleFragmentList.add(plugin);
             notifyDataSetChanged();
         }
     }
 
-
+    @Override
+    public long getItemId(int position) {
+        return System.identityHashCode(visibleFragmentList.get(position));
+    }
 }
