@@ -52,6 +52,7 @@ import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.plugins.Careportal.OptionsToShow;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.utils.DateUtil;
+import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.DefaultValueHelper;
 import info.nightscout.utils.FabricPrivacy;
 import info.nightscout.utils.HardLimits;
@@ -702,8 +703,8 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(MainApp.gs(R.string.attention));
         builder.setMessage(MainApp.gs(R.string.profile_switch_warning,
-                profileStore.getSpecificProfile(data.getString("profile"))
-                        .baseBasalSum() / 100 * data.getInt("percentage")));
+                DecimalFormatter.to2Decimal(profileStore.getSpecificProfile(data.getString("profile"))
+                        .baseBasalSum() / 100 * data.getInt("percentage"))));
         builder.setNegativeButton(MainApp.gs(R.string.no_i_dont), null);
         builder.setPositiveButton(MainApp.gs(R.string.yes_i_do), (dialog, id) -> {
             createNSTreatment(data);
