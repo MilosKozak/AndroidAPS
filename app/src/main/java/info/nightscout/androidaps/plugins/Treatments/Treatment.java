@@ -153,7 +153,7 @@ public class Treatment implements DataPointWithLabelInterface {
 
     @Override
     public double getY() {
-        return isSMB ? OverviewPlugin.getPlugin().determineLowLine() : yValue;
+        return yValue;
     }
 
     @Override
