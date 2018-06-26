@@ -1,4 +1,4 @@
-﻿<resources>
+<resources>
     <string name="treatmentssafety_title">Treatments safety</string>
     <string name="treatmentssafety_maxbolus_title">Max allowed bolus [U]</string>
     <string name="treatmentssafety_maxcarbs_title">Max allowed carbs [g]</string>
@@ -25,7 +25,7 @@
     <string name="description_ns_client">Synchronizes your data with Nightscout</string>
     <string name="description_ma">State of the algorithm in 2016</string>
     <string name="description_ama">State of the algorithm in 2017</string>
-    <string name="description_smb">Most recent and most stable</string>
+    <string name="description_smb">Most recent algorithm for advanced users</string>
     <string name="description_overview">Displays the current state of your loop and buttons for most common actions</string>
     <string name="description_persistent_notification">Shows an ongoing notification with a short overview of what your loop is doing</string>
     <string name="description_profile_local">Define a profile which is offline available.</string>
@@ -33,12 +33,15 @@
     <string name="description_profile_simple">Define a profile with only one time block.</string>
     <string name="description_pump_combo">Pump integration for Accu-Chek Combo pumps, requires having ruffy installed</string>
     <string name="description_pump_dana_r">Pump integration for DANA Diabecare R pumps</string>
+    <string name="description_pump_dana_r_korean">Pump integration for domestic DANA Diabecare R pumps</string>
+    <string name="description_pump_dana_r_v2">Pump integration for DANA Diabecare R pumps with upgraded firmware</string>
     <string name="description_pump_dana_rs">Pump integration for DANA Diabecare RS pumps</string>
     <string name="description_pump_insight">Pump integration for Accu-Chek Insight pumps, requires having SightRemote installed</string>
     <string name="description_pump_mdi">Pump integration for people who do multiple daily injections for their diabetes therapy</string>
     <string name="description_pump_virtual">Pump integration for pumps which don\'t have any driver yet (Open Loop)</string>
     <string name="description_sensitivity_aaps">Sensitivity is calculated the same way like Oref0, but you can specify timeframe to the past. Minimal carb absorption is calculated from max carb absorption time from preferences.</string>
     <string name="description_sensitivity_oref0">Sensitivity is calculated from 24h data in the past and carbs (if not absorbed) are cut after time specified in preferences.</string>
+    <string name="description_sensitivity_oref1">Sensitivity is calculated from 8h data in the past and carbs (if not absorbed) are cut after time specified in preferences. Plugin also calculates UAM.</string>
     <string name="description_sensitivity_weighted_average">Sensitivity is calculated as a weighted average from deviations. Newer deviations have higher weight. Minimal carb absorption is calculated from max carb absorption time from preferences. This algorithm is the fastest in following sensitivity changes.</string>
     <string name="description_source_dexcom_g5">Receive BG values from the patched Dexcom G5 app.</string>
     <string name="description_source_glimp">Receive BG values from Glimp.</string>
@@ -437,6 +440,7 @@
     <string name="openapsma_scriptdebugdata_label">Script debug</string>
     <string name="openapsama_useautosens">Use AMA autosens feature</string>
     <string name="refresheventsfromnightscout">Refresh events from NS</string>
+    <string name="deletefuturetreatments">Delete treatments in the future</string>
     <string name="eatingsoon">Eating Soon</string>
     <string name="hypo">Hypo</string>
     <string name="activity">Activity</string>
@@ -665,6 +669,7 @@
     <string name="configbuilder_sensitivity_description">Which sensitivity algorithm should be used?</string>
     <string name="sensitivity_shortname">SENS</string>
     <string name="sensitivityoref0">Sensitivity Oref0</string>
+    <string name="sensitivityoref1">Sensitivity Oref1</string>
     <string name="sensitivityaaps">Sensitivity AAPS</string>
     <string name="absorptionsettings_title">Absorption settings</string>
     <string name="key_absorption_maxtime" translatable="false">absorption_maxtime</string>
@@ -682,8 +687,8 @@
     <string name="uploader_short">UPLD</string>
     <string name="basal_short">BAS</string>
     <string name="virtualpump_extendedbolus_label_short">EXT</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="lock_screen_short">Lock</string>
+    <string name="keep_screen_on_title">Keep screen on</string>
+    <string name="keep_screen_on_summary">Prevent Android to turn screen off. It will consume lot of energy when not plugged to power outlet.</string>
     <string name="sensitivity_warning">By turning on Autosense feature remember to enter all eated carbs. Otherwise carbs deviations will be identified wrong as sensitivity change !!</string>
     <string name="sensitivityweightedaverage">Sensitivity WeightedAverage</string>
     <string name="mdtp_ok">OK</string>
@@ -714,7 +719,6 @@
     <string name="free_peak_oref">Free-Peak Oref</string>
     <string name="rapid_acting_oref">Rapid-Acting Oref</string>
     <string name="ultrarapid_oref">Ultra-Rapid Oref</string>
-    <string name="free_peak_oref_description">Custom insulin</string>
     <string name="dia_too_short" formatted="false">DIA of %f too short - using %f instead!</string>
     <string name="activate_profile">Activate profile</string>
     <string name="date">Date</string>
@@ -869,7 +873,7 @@
     <string name="combo_error_no_connection_no_bolus_delivered">The pump could not be reached. No bolus was given</string>
     <string name="combo_error_no_bolus_delivered">Bolus delivery failed. It appears no bolus was delivered. To be sure, please check the pump to avoid a double bolus and then bolus again. To guard against bugs, boluses are not automatically retried.</string>
     <string name="combo_error_partial_bolus_delivered">Only %.2f U of the requested bolus of %.2f U was delivered due to an error. Please check the pump to verify this and take appropriate actions.</string>
-    <string name="combo_error_bolus_verification_failed">Delivering the bolus and verifying the pump\'s history failed, please check the pump and manually create a bolus record using the Careportal tab if a bolus was delivered.</string>
+    <string name="combo_error_bolus_verification_failed">Delivering the bolus and verifying the pump\'s history failed, please check the pump and manually. If a bolus was delivered, it will be added to treatments during the next connection to the pump.</string>
     <string name="combo_error_bolus_recovery_progress">Recovering from connection loss</string>
     <string name="combo_reservoir_level_insufficient_for_bolus">Not enough insulin for bolus left in reservoir</string>
     <string name="extendedbolusdeliveryerror">Extended bolus delivery error</string>
@@ -993,7 +997,7 @@
     <string name="not_eng_mode_or_release">Engineering mode not enabled and not on release branch</string>
     <string name="pump_basebasalrate">%.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Reading basal profile</string>
-    <string name="combo_bolus_rejected_due_to_pump_history_change">The pump history has changed after the bolus calculation was performed. The bolus was not delivered. Please recalculate if a bolus is still needed. If the same bolus amount is required, please wait two minutes since boluses with the same amount are blocked when requested with less than two minutes between them for safety (regardless of whether they were administered or not).</string>
+    <string name="combo_bolus_rejected_due_to_pump_history_change">The pump history has changed after the bolus calculation was performed. The bolus was not delivered. Please recalculate if a bolus is still needed.</string>
     <string name="combo_error_updating_treatment_record">Bolus successfully delivered, but adding the treatment entry failed. This can happen if two small boluses of the same size are administered within the last two minutes. Please check the pump history and treatment entries and use the Careportal to add missing entries. Make sure not to add any entries for the exact same minute and same amount.</string>
     <string name="combo_high_temp_rejected_due_to_pump_history_changes">Rejecting high temp since calculation didn\'t consider recently changed pump history</string>
     <string name="combo_activity_checking_pump_state">Refreshing pump state</string>
@@ -1114,12 +1118,10 @@
     <string name="readstatus">Read status</string>
     <string name="adjustprofileinns">Changes must be done in NS</string>
     <string name="exitwizard">Skip setup wizard</string>
-    <string name="setupwizard_bgsource_description">Where should blood glucose(BG) data be comming from ?\n</string>
     <string name="setupwizard_loop_description">Press the button below to enable AndroidAPS to suggest/make basal changes</string>
     <string name="setupwizard_objectives_description">Press the button below to enable Objectives. Look in the Objectives tab, after you finish this wizard, to make AndroidAPS completely functional.\n</string>
     <string name="enableobjectives">Enable Objectives</string>
     <string name="apssetup">Configure APS plugin</string>
-    <string name="backupismissing">Exported configuration is missing thus import configuration is not possible.\n</string>
     <string name="key_setupwizard_processed" translatable="false">startupwizard_processed</string>
     <string name="sensitivitysetup">Configure Sensitivity plugin</string>
     <string name="setupwizard_sensitivity_description">Sensitivity plugin is used for sensitivity detection and COB calculation. For more info visit:</string>
@@ -1128,7 +1130,7 @@
     <string name="diawarning">Please remember: new insulin profiles require DIA at least 5h. DIA 5-6h on new profile is equal to DIA 3h on old insulin profiles.</string>
     <string name="bgsourcesetup">Configure BG source</string>
     <string name="setupwizard_profile_description">Please select source of profile. If patient is a child you should use NS profile. If there is nobody following you on Nightscout you will probably prefer Local profile. Please remember that you are only selecting the profile source. To use it you must activate it by executing \"Profile switch\"</string>
-    <string name="setupwizard_aps_description">Select one from availables algorithms. They are sorted from oldest to newest. Newer algorithm is usualy more powerfull and more aggresive. Thus if you are new looper you may probably start with AMA and not with latest one. Do not forget to read the OpenAPS documentation and configure it before use.</string>
+    <string name="setupwizard_aps_description">Select one from availables algorithms. They are sorted from oldest to newest. Newer algorithm is usually more powerful and more aggresive. Thus if you are new looper you may probably start with AMA and not with latest one. Do not forget to read the OpenAPS documentation and configure it before use.</string>
     <string name="startobjective">Start your first objective</string>
     <string name="permission">Permission</string>
     <string name="askforpermission">Ask for permission</string>
@@ -1156,6 +1158,37 @@
     <string name="open_navigation">Open navigation</string>
     <string name="close_navigation">Close navigation</string>
     <string name="nav_plugin_preferences">Plugin preferences</string>
+    <string name="completed_well_done">Completed, well done!</string>
+    <string name="not_completed_yet">Not completed yet</string>
+    <string name="time_elapsed">Time elapsed</string>
+    <string name="nth_objective">%1$d. Objective</string>
     <string name="poctech">Poctech</string>
     <string name="description_source_poctech">Receive BG values from Poctech app</string>
+    <string translatable="false" name="key_high_temptarget_raises_sensitivity">high_temptarget_raises_sensitivity</string>
+    <string translatable="false" name="key_low_temptarget_lowers_sensitivity">low_temptarget_lowers_sensitivity</string>
+    <string name="high_temptarget_raises_sensitivity_title">High temptarget raises sensitivity</string>
+    <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Raise sensitivity for temptargets >= 100]]></string>
+    <string name="low_temptarget_lowers_sensitivity_title">Low temptarget lowers sensitivity</string>
+    <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Lower sensitivity for temptargets < 100]]></string>
+    <string name="combo_invalid_setup">Invalid pump setup, check the docs and verify that the Quick Info menu is named "QUICK INFO" using the 360 configuration software.</string>
+    <string name="custom">Custom</string>
+    <string name="key_lockscreen" translatable="false">lockscreen</string>
+    <string name="largetimedifftitle">Large Time Difference</string>
+    <string name="largetimediff">Large time difference:\nTime in pump is off by more than 1.5 hours.\nPlease adjust the time manually on the pump and make sure that reading the history from the pump does not cause unexpected behaviour.\nIf possible, remove the history from the pump before changing the time or disable the closed loop for one DIA after the last wrong history entry but minimum one DIA from now.</string>
+    <string name="key_keep_screen_on" translatable="false">keep_screen_on</string>
+    <string name="careportal_removestartedevents">Clean AndroidAPS started</string>
+    <string name="storedsettingsfound">Stored settings found</string>
+
+    <plurals name="objective_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <plurals name="objective_hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <plurals name="objective_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
 </resources>
