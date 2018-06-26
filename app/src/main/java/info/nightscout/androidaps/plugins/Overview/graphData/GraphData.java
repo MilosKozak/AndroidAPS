@@ -8,7 +8,9 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.ValueDependentColor;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.Series;
 
 import java.util.ArrayList;
@@ -41,6 +43,7 @@ import info.nightscout.androidaps.plugins.Overview.graphExtensions.TimeAsXAxisLa
 import info.nightscout.androidaps.plugins.Treatments.Treatment;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.utils.Round;
+import info.nightscout.utils.ToastUtils;
 
 /**
  * Created by mike on 18.10.2017.
@@ -317,7 +320,15 @@ public class GraphData {
 
         DataPointWithLabelInterface[] treatmentsArray = new DataPointWithLabelInterface[filteredTreatments.size()];
         treatmentsArray = filteredTreatments.toArray(treatmentsArray);
-        addSeries(new PointsWithLabelGraphSeries<>(treatmentsArray));
+        PointsWithLabelGraphSeries series = new PointsWithLabelGraphSeries<>(treatmentsArray);
+        series.setOnDataPointTapListener(new OnDataPointTapListener() {
+            @Override
+            public void onTap(Series series, DataPointInterface dataPoint) {
+                DataPointWithLabelInterface label = (DataPointWithLabelInterface) dataPoint;
+                ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), label.getLabel());
+            }
+        });
+        addSeries(series);
     }
 
     private double getNearestBg(long date) {
