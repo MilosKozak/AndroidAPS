@@ -16,6 +16,7 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Iob;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.interfaces.InsulinInterface;
@@ -180,6 +181,17 @@ public class Treatment implements DataPointWithLabelInterface {
 
     @Override
     public float getSize() {
+        if (insulin > 0 || carbs > 0) {
+            Profile profile = MainApp.getConfigBuilder().getProfile();
+            double insulinSize = insulin * 10 / profile.baseBasalSum();
+            double carbSize = carbs * 10 / profile.getIc(date) / profile.baseBasalSum();
+
+            if (carbSize > insulinSize)
+                return (float) carbSize;
+
+            return (float) insulinSize;
+        }
+
         return 2;
     }
 
