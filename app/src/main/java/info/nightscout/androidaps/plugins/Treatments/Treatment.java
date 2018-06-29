@@ -189,9 +189,7 @@ public class Treatment implements DataPointWithLabelInterface {
 
     @Override
     public int getColor() {
-        if (isSMB)
-            return MainApp.gc(R.color.tempbasal);
-        else if (isValid)
+        if (isValid)
             return Color.WHITE;
         else
             return MainApp.instance().getResources().getColor(android.R.color.holo_red_light);
@@ -202,7 +200,8 @@ public class Treatment implements DataPointWithLabelInterface {
             return 0;
 
         Profile profile = MainApp.getConfigBuilder().getProfile();
-        return (float) (carbs * 10 / profile.getIc(date) / profile.baseBasalSum());
+        float carbSize = (float) (carbs * 10 / profile.getIc(date) / profile.baseBasalSum());
+        return Math.max(0.5f, carbSize);
     }
 
     public int getCarbColor() {
@@ -214,11 +213,12 @@ public class Treatment implements DataPointWithLabelInterface {
             return 0;
 
         Profile profile = MainApp.getConfigBuilder().getProfile();
-        return (float) (insulin * 10 / profile.baseBasalSum());
+        float insulinSize = (float) (insulin * 10 / profile.baseBasalSum());
+        return Math.max(0.5f, insulinSize);
     }
 
     public int getInsulinColor() {
-        return MainApp.gc(R.color.tempbasal);
+        return Color.BLUE;
     }
 
     @Override
