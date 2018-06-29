@@ -356,7 +356,7 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
     }
 
     private void drawBolus(Canvas canvas, Paint mPaint, int x, int y, Treatment treatment) {
-        mPaint.setStrokeWidth(1);
+        mPaint.setStrokeWidth(2);
 
         // Draw the outer circle
         mPaint.setStyle(Paint.Style.STROKE);
