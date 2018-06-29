@@ -181,16 +181,8 @@ public class Treatment implements DataPointWithLabelInterface {
 
     @Override
     public float getSize() {
-        if (insulin > 0 || carbs > 0) {
-            Profile profile = MainApp.getConfigBuilder().getProfile();
-            double insulinSize = insulin * 10 / profile.baseBasalSum();
-            double carbSize = carbs * 10 / profile.getIc(date) / profile.baseBasalSum();
-
-            if (carbSize > insulinSize)
-                return (float) carbSize;
-
-            return (float) insulinSize;
-        }
+        if (insulin > 0 || carbs > 0)
+            return Math.max(getCarbSize(), getInsulinSize());
 
         return 2;
     }
@@ -200,9 +192,33 @@ public class Treatment implements DataPointWithLabelInterface {
         if (isSMB)
             return MainApp.gc(R.color.tempbasal);
         else if (isValid)
-            return Color.CYAN;
+            return Color.WHITE;
         else
             return MainApp.instance().getResources().getColor(android.R.color.holo_red_light);
+    }
+
+    public float getCarbSize() {
+        if (carbs == 0)
+            return 0;
+
+        Profile profile = MainApp.getConfigBuilder().getProfile();
+        return (float) (carbs * 10 / profile.getIc(date) / profile.baseBasalSum());
+    }
+
+    public int getCarbColor() {
+        return Color.WHITE;
+    }
+
+    public float getInsulinSize() {
+        if (insulin == 0)
+            return 0;
+
+        Profile profile = MainApp.getConfigBuilder().getProfile();
+        return (float) (insulin * 10 / profile.baseBasalSum());
+    }
+
+    public int getInsulinColor() {
+        return MainApp.gc(R.color.tempbasal);
     }
 
     @Override
