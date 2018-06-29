@@ -43,6 +43,7 @@ import java.util.Iterator;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.plugins.Treatments.Treatment;
+import info.nightscout.utils.DecimalFormatter;
 
 // Added by Rumen for scalable text
 
@@ -229,14 +230,7 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
                 } else if (value.getShape() == Shape.BOLUS) {
                     drawBolus(canvas, mPaint, (int) endX, (int) endY, (Treatment)value);
                 } else if (value.getShape() == Shape.SMB) {
-                    mPaint.setStrokeWidth(2);
-                    Point[] points = new Point[3];
-                    float size = value.getSize() * scaledPxSize;
-                    points[0] = new Point((int) endX, (int) (endY - size));
-                    points[1] = new Point((int) (endX + size), (int) (endY + size * 0.67));
-                    points[2] = new Point((int) (endX - size), (int) (endY + size * 0.67));
-                    mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-                    drawArrows(points, canvas, mPaint);
+                    drawBolus(canvas, mPaint, (int) endX, (int) endY, (Treatment)value);
                 } else if (value.getShape() == Shape.EXTENDEDBOLUS) {
                     mPaint.setStrokeWidth(0);
                     if (value.getLabel() != null) {
@@ -369,6 +363,7 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
 
         // Draw the outer circle
         mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setColor(treatment.getCarbColor());
         float radius = scaledPxSize * treatment.getSize();
         canvas.drawCircle(x, y, radius, mPaint);
 
@@ -379,8 +374,20 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
             double carbSize = treatment.getCarbSize();
             float carbRadius = scaledPxSize * (float) carbSize;
             RectF oval = new RectF(x - carbRadius, y - carbRadius, x + carbRadius, y + carbRadius);
-            mPaint.setColor(treatment.getCarbColor());
             canvas.drawArc(oval, 180, 180, true, mPaint);
+
+            String carbLabel = DecimalFormatter.to0Decimal(treatment.carbs) + "g";
+
+            mPaint.setColor(treatment.getColor());
+            mPaint.setStrokeWidth(0);
+            mPaint.setTextSize((float) (scaledTextSize * 0.8));
+            mPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+            Rect bounds = new Rect();
+            mPaint.getTextBounds(carbLabel, 0, carbLabel.length(), bounds);
+            mPaint.setStyle(Paint.Style.STROKE);
+            float px = x - bounds.width() / 2;
+            float py = y - radius - scaledPxSize;
+            canvas.drawText(carbLabel, px, py, mPaint);
         }
 
         // If there is insulin, draw the lower semicircle
@@ -390,21 +397,19 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
             RectF oval = new RectF(x - insulinRadius, y - insulinRadius, x + insulinRadius, y + insulinRadius);
             mPaint.setColor(treatment.getInsulinColor());
             canvas.drawArc(oval, 0, 180, true, mPaint);
-        }
 
-        String label = treatment.getLabel();
+            String insulinLabel = DecimalFormatter.toPumpSupportedBolus(treatment.insulin) + "U";
 
-        if (label != null && !label.equals("")) {
             mPaint.setColor(treatment.getColor());
             mPaint.setStrokeWidth(0);
             mPaint.setTextSize((float) (scaledTextSize * 0.8));
             mPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
             Rect bounds = new Rect();
-            mPaint.getTextBounds(label, 0, label.length(), bounds);
+            mPaint.getTextBounds(insulinLabel, 0, insulinLabel.length(), bounds);
             mPaint.setStyle(Paint.Style.STROKE);
             float px = x - bounds.width() / 2;
             float py = y + radius + bounds.height() + scaledPxSize;
-            canvas.drawText(label, px, py, mPaint);
+            canvas.drawText(insulinLabel, px, py, mPaint);
         }
     }
 } 
