@@ -363,25 +363,35 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
 
         // Draw the outer circle
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setColor(treatment.getCarbColor());
         float radius = scaledPxSize * treatment.getSize();
-        canvas.drawCircle(x, y, radius, mPaint);
+        RectF fullOval = new RectF(x - radius, y - radius, x + radius, y + radius);
+
+        // Draw the top semicircle outline
+        mPaint.setColor(treatment.getCarbColor());
+        canvas.drawArc(fullOval, 180, 180, false, mPaint);
+        canvas.drawLine(x - radius, y - 0.5f, x + radius, y - 0.5f, mPaint);
+
+        // Draw the bottom semicircle outline
+        mPaint.setColor((treatment.getInsulinColor()));
+        canvas.drawArc(fullOval, 0, 180, false, mPaint);
+        canvas.drawLine(x - radius, y + 0.5f, x + radius, y + 0.5f, mPaint);
 
         mPaint.setStyle(Paint.Style.FILL);
 
-        // If there are carbs, draw the upper semicircle
+        // If there are carbs, fill the upper semicircle
         if (treatment.carbs > 0) {
             double carbSize = treatment.getCarbSize();
             float carbRadius = scaledPxSize * (float) carbSize;
             RectF oval = new RectF(x - carbRadius, y - carbRadius, x + carbRadius, y + carbRadius);
+            mPaint.setColor(treatment.getCarbColor());
             canvas.drawArc(oval, 180, 180, true, mPaint);
 
             String carbLabel = DecimalFormatter.to0Decimal(treatment.carbs) + "g";
 
             mPaint.setColor(treatment.getColor());
             mPaint.setStrokeWidth(0);
-            mPaint.setTextSize((float) (scaledTextSize * 0.8));
-            mPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+            mPaint.setTextSize((float) (scaledTextSize * 0.6));
+            mPaint.setTypeface(Typeface.DEFAULT);
             Rect bounds = new Rect();
             mPaint.getTextBounds(carbLabel, 0, carbLabel.length(), bounds);
             mPaint.setStyle(Paint.Style.STROKE);
@@ -390,7 +400,7 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
             canvas.drawText(carbLabel, px, py, mPaint);
         }
 
-        // If there is insulin, draw the lower semicircle
+        // If there is insulin, fill the lower semicircle
         if (treatment.insulin > 0) {
             double insulinSize = treatment.getInsulinSize();
             float insulinRadius = scaledPxSize * (float) insulinSize;
@@ -402,8 +412,8 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
 
             mPaint.setColor(treatment.getColor());
             mPaint.setStrokeWidth(0);
-            mPaint.setTextSize((float) (scaledTextSize * 0.8));
-            mPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+            mPaint.setTextSize((float) (scaledTextSize * 0.6));
+            mPaint.setTypeface(Typeface.DEFAULT);
             Rect bounds = new Rect();
             mPaint.getTextBounds(insulinLabel, 0, insulinLabel.length(), bounds);
             mPaint.setStyle(Paint.Style.STROKE);

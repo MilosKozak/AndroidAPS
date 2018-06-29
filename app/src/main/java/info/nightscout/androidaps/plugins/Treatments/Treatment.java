@@ -200,7 +200,7 @@ public class Treatment implements DataPointWithLabelInterface {
             return 0;
 
         Profile profile = MainApp.getConfigBuilder().getProfile();
-        float carbSize = (float) (carbs * 10 / profile.getIc(date) / profile.baseBasalSum());
+        float carbSize = (float) (carbs * 5 / profile.getIc(date) / profile.baseBasalSum());
         return Math.max(0.5f, carbSize);
     }
 
@@ -213,12 +213,14 @@ public class Treatment implements DataPointWithLabelInterface {
             return 0;
 
         Profile profile = MainApp.getConfigBuilder().getProfile();
-        float insulinSize = (float) (insulin * 10 / profile.baseBasalSum());
+        float insulinSize = (float) (insulin * 5 / profile.baseBasalSum());
         return Math.max(0.5f, insulinSize);
     }
 
     public int getInsulinColor() {
-        return Color.BLUE;
+        int val = MainApp.gc(R.color.tempbasal);
+        val |= 255 << 24;
+        return val;
     }
 
     @Override
