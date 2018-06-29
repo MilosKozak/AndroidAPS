@@ -101,7 +101,37 @@ public class GraphData {
         // set manual y bounds to have nice steps
         graph.getGridLabelRenderer().setNumVerticalLabels(numOfVertLines);
 
-        addSeries(new PointsWithLabelGraphSeries<>(bg));
+        PointsWithLabelGraphSeries series = new PointsWithLabelGraphSeries<>(bg);
+        series.setOnDataPointTapListener(new OnDataPointTapListener() {
+            @Override
+            public void onTap(Series series, DataPointInterface dataPoint) {
+                BgReading bg = (BgReading)dataPoint;
+
+                String label = null;
+                Profile profile = MainApp.getConfigBuilder().getProfile();
+
+                if (bg.isaCOBPrediction) {
+                    label = "ACOB Pred: " + bg.valueToUnitsToString(profile.getUnits());
+                }
+                else if (bg.isCOBPrediction) {
+                    label = "COB Pred: " + bg.valueToUnitsToString(profile.getUnits());
+                }
+                else if (bg.isIOBPrediction) {
+                    label = "IOB Pred: " + bg.valueToUnitsToString(profile.getUnits());
+                }
+                else if (bg.isUAMPrediction) {
+                    label = "UAM Pred: " + bg.valueToUnitsToString(profile.getUnits());
+                }
+                else if (bg.isZTPrediction) {
+                    label = "ZT Pred: " + bg.valueToUnitsToString(profile.getUnits());
+                }
+
+                if (label != null) {
+                    ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), label);
+                }
+            }
+        });
+        addSeries(series);
     }
 
     public void addInRangeArea(long fromTime, long toTime, double lowLine, double highLine) {
