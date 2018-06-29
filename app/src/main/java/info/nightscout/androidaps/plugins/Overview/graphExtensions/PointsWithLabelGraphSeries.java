@@ -212,12 +212,9 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
                     canvas.drawCircle(endX, endY, value.getSize() * scaledPxSize, mPaint);
                 } else if (value.getShape() == Shape.PREDICTION) {
                     mPaint.setColor(value.getColor());
-                    mPaint.setStyle(Paint.Style.FILL);
-                    mPaint.setStrokeWidth(0);
-                    canvas.drawCircle(endX, endY, scaledPxSize, mPaint);
-                    mPaint.setStyle(Paint.Style.FILL);
-                    mPaint.setStrokeWidth(0);
-                    canvas.drawCircle(endX, endY, scaledPxSize / 3, mPaint);
+                    mPaint.setStyle(Paint.Style.STROKE);
+                    mPaint.setStrokeWidth(3);
+                    canvas.drawCircle(endX, endY, value.getSize() * scaledPxSize - 3, mPaint);
                 } else if (value.getShape() == Shape.RECTANGLE) {
                     canvas.drawRect(endX - scaledPxSize, endY - scaledPxSize, endX + scaledPxSize, endY + scaledPxSize, mPaint);
                 } else if (value.getShape() == Shape.TRIANGLE) {
@@ -267,15 +264,15 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
                 } else if (value.getShape() == Shape.BGCHECK) {
                     mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                     mPaint.setStrokeWidth(0);
-                    canvas.drawCircle(endX, endY, scaledPxSize * 2, mPaint);
+                    canvas.drawCircle(endX, endY, scaledPxSize * 1.5f, mPaint);
                 } else if (value.getShape() == Shape.ANNOUNCEMENT) {
                     mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                     mPaint.setStrokeWidth(0);
-                    canvas.drawCircle(endX, endY, scaledPxSize * 2, mPaint);
+                    canvas.drawCircle(endX, endY, scaledPxSize * 1.5f, mPaint);
                 } else if (value.getShape() == Shape.GENERAL) {
                     mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                     mPaint.setStrokeWidth(0);
-                    canvas.drawCircle(endX, endY, scaledPxSize * 2, mPaint);
+                    canvas.drawCircle(endX, endY, scaledPxSize * 1.5f, mPaint);
                 } else if (value.getShape() == Shape.EXERCISE) {
                     mPaint.setStrokeWidth(0);
                     if (value.getLabel() != null) {
