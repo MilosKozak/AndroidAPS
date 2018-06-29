@@ -350,7 +350,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 old.copyFrom(bgReading);
                 getDaoBgReadings().update(old);
                 log.debug("BG: Updating record from: " + from + " New data: " + old.toString());
-                scheduleBgChange(bgReading);
                 return false;
             }
         } catch (SQLException e) {
