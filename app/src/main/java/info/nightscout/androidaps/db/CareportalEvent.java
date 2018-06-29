@@ -201,8 +201,27 @@ public class CareportalEvent implements DataPointWithLabelInterface, Interval {
     public String getLabel() {
         try {
             JSONObject object = new JSONObject(json);
-            if (object.has("notes") && !object.getString("notes").equals(""))
-                return StringUtils.abbreviate(object.getString("notes"), 40);
+            String label = "";
+
+            if (eventType.equals("BG Check")) {
+                label = object.getString("glucose") + " " + object.getString("units");
+            }
+
+            if (object.has("notes")) {
+                String notes = object.getString("notes");
+
+                if (!notes.equals("")) {
+                    notes = StringUtils.abbreviate(notes, 40);
+
+                    if (label.equals(""))
+                        return notes;
+
+                    return label + ". " + notes;
+                }
+            }
+
+            if (!label.equals(""))
+                return label;
         } catch (JSONException e) {
             log.error("Unhandled exception", e);
         }
