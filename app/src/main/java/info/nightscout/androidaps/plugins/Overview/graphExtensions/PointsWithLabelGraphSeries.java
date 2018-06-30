@@ -227,7 +227,17 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
                 } else if (value.getShape() == Shape.BOLUS) {
                     drawBolus(canvas, mPaint, (int) endX, (int) endY, (Treatment)value);
                 } else if (value.getShape() == Shape.SMB) {
-                    drawBolus(canvas, mPaint, (int) endX, (int) endY, (Treatment)value);
+                    mPaint.setStrokeWidth(0);
+                    mPaint.setStyle(Paint.Style.FILL);
+                    Point[] points = new Point[3];
+                    points[0] = new Point((int) endX, (int) (endY + scaledPxSize * 2));
+                    points[1] = new Point((int) (endX + scaledPxSize * 0.67), (int) (endY + scaledPxSize));
+                    points[2] = new Point((int) (endX - scaledPxSize * 0.67), (int) (endY + scaledPxSize));
+                    drawArrows(points, canvas, mPaint);
+
+                    mPaint.setTextSize(scaledTextSize * 0.5f);
+                    mPaint.setTypeface(Typeface.DEFAULT);
+                    canvas.drawText(DecimalFormatter.to1Decimal(((Treatment)value).insulin) + "U", endX + scaledPxSize, endY + scaledPxSize * 2, mPaint);
                 } else if (value.getShape() == Shape.EXTENDEDBOLUS) {
                     mPaint.setStrokeWidth(0);
                     if (value.getLabel() != null) {
