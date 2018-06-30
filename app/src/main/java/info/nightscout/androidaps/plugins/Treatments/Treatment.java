@@ -189,6 +189,8 @@ public class Treatment implements DataPointWithLabelInterface {
 
     @Override
     public int getColor() {
+        if (isSMB)
+            return getInsulinColor();
         if (isValid)
             return Color.WHITE;
         else
@@ -205,7 +207,7 @@ public class Treatment implements DataPointWithLabelInterface {
     }
 
     public int getCarbColor() {
-        return Color.WHITE;
+        return MainApp.gc(R.color.cob);
     }
 
     public float getInsulinSize() {
@@ -218,9 +220,7 @@ public class Treatment implements DataPointWithLabelInterface {
     }
 
     public int getInsulinColor() {
-        int val = MainApp.gc(R.color.tempbasal);
-        val |= 255 << 24;
-        return val;
+        return MainApp.gc(R.color.zt);
     }
 
     @Override
