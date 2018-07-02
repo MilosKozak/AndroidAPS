@@ -32,7 +32,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.Typeface;
 
 import com.jjoe64.graphview.GraphView;
@@ -41,9 +40,6 @@ import com.jjoe64.graphview.series.BaseSeries;
 import java.util.Iterator;
 
 import info.nightscout.androidaps.MainApp;
-import info.nightscout.androidaps.data.Profile;
-import info.nightscout.androidaps.plugins.Treatments.Treatment;
-import info.nightscout.utils.DecimalFormatter;
 
 // Added by Rumen for scalable text
 
@@ -212,9 +208,12 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
                     canvas.drawCircle(endX, endY, value.getSize() * scaledPxSize, mPaint);
                 } else if (value.getShape() == Shape.PREDICTION) {
                     mPaint.setColor(value.getColor());
-                    mPaint.setStyle(Paint.Style.STROKE);
-                    mPaint.setStrokeWidth(3);
-                    canvas.drawCircle(endX, endY, value.getSize() * scaledPxSize - 3, mPaint);
+                    mPaint.setStyle(Paint.Style.FILL);
+                    mPaint.setStrokeWidth(0);
+                    canvas.drawCircle(endX, endY, scaledPxSize, mPaint);
+                    mPaint.setStyle(Paint.Style.FILL);
+                    mPaint.setStrokeWidth(0);
+                    canvas.drawCircle(endX, endY, scaledPxSize / 3, mPaint);
                 } else if (value.getShape() == Shape.RECTANGLE) {
                     canvas.drawRect(endX - scaledPxSize, endY - scaledPxSize, endX + scaledPxSize, endY + scaledPxSize, mPaint);
                 } else if (value.getShape() == Shape.TRIANGLE) {
@@ -225,19 +224,25 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
                     points[2] = new Point((int) (endX - scaledPxSize), (int) (endY + scaledPxSize * 0.67));
                     drawArrows(points, canvas, mPaint);
                 } else if (value.getShape() == Shape.BOLUS) {
-                    drawBolus(canvas, mPaint, (int) endX, (int) endY, (Treatment)value);
-                } else if (value.getShape() == Shape.SMB) {
                     mPaint.setStrokeWidth(0);
-                    mPaint.setStyle(Paint.Style.FILL);
                     Point[] points = new Point[3];
-                    points[0] = new Point((int) endX, (int) (endY + scaledPxSize * 2));
-                    points[1] = new Point((int) (endX + scaledPxSize * 0.67), (int) (endY + scaledPxSize));
-                    points[2] = new Point((int) (endX - scaledPxSize * 0.67), (int) (endY + scaledPxSize));
+                    points[0] = new Point((int) endX, (int) (endY - scaledPxSize));
+                    points[1] = new Point((int) (endX + scaledPxSize), (int) (endY + scaledPxSize * 0.67));
+                    points[2] = new Point((int) (endX - scaledPxSize), (int) (endY + scaledPxSize * 0.67));
+                    mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                     drawArrows(points, canvas, mPaint);
-
-                    mPaint.setTextSize(scaledTextSize * 0.5f);
-                    mPaint.setTypeface(Typeface.DEFAULT);
-                    canvas.drawText(DecimalFormatter.to1Decimal(((Treatment)value).insulin) + "U", endX + scaledPxSize, endY + scaledPxSize * 2, mPaint);
+                    if (value.getLabel() != null) {
+                        drawLabel45(endX, endY, value, canvas);
+                    }
+                } else if (value.getShape() == Shape.SMB) {
+                    mPaint.setStrokeWidth(2);
+                    Point[] points = new Point[3];
+                    float size = value.getSize() * scaledPxSize;
+                    points[0] = new Point((int) endX, (int) (endY - size));
+                    points[1] = new Point((int) (endX + size), (int) (endY + size * 0.67));
+                    points[2] = new Point((int) (endX - size), (int) (endY + size * 0.67));
+                    mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+                    drawArrows(points, canvas, mPaint);
                 } else if (value.getShape() == Shape.EXTENDEDBOLUS) {
                     mPaint.setStrokeWidth(0);
                     if (value.getLabel() != null) {
@@ -274,15 +279,15 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
                 } else if (value.getShape() == Shape.BGCHECK) {
                     mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                     mPaint.setStrokeWidth(0);
-                    canvas.drawCircle(endX, endY, scaledPxSize * 1.5f, mPaint);
+                    canvas.drawCircle(endX, endY, scaledPxSize, mPaint);
                 } else if (value.getShape() == Shape.ANNOUNCEMENT) {
                     mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                     mPaint.setStrokeWidth(0);
-                    canvas.drawCircle(endX, endY, scaledPxSize * 1.5f, mPaint);
+                    canvas.drawCircle(endX, endY, scaledPxSize, mPaint);
                 } else if (value.getShape() == Shape.GENERAL) {
                     mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                     mPaint.setStrokeWidth(0);
-                    canvas.drawCircle(endX, endY, scaledPxSize * 1.5f, mPaint);
+                    canvas.drawCircle(endX, endY, scaledPxSize, mPaint);
                 } else if (value.getShape() == Shape.EXERCISE) {
                     mPaint.setStrokeWidth(0);
                     if (value.getLabel() != null) {
@@ -365,68 +370,29 @@ public class PointsWithLabelGraphSeries<E extends DataPointWithLabelInterface> e
         canvas.restore();
     }
 
-    private void drawBolus(Canvas canvas, Paint mPaint, int x, int y, Treatment treatment) {
-        mPaint.setStrokeWidth(2);
-
-        // Draw the outer circle
-        mPaint.setStyle(Paint.Style.STROKE);
-        float radius = scaledPxSize * treatment.getSize();
-        RectF fullOval = new RectF(x - radius, y - radius, x + radius, y + radius);
-
-        // Draw the top semicircle outline
-        mPaint.setColor(treatment.getCarbColor());
-        canvas.drawArc(fullOval, 180, 180, false, mPaint);
-        canvas.drawLine(x - radius, y - 0.5f, x + radius, y - 0.5f, mPaint);
-
-        // Draw the bottom semicircle outline
-        mPaint.setColor((treatment.getInsulinColor()));
-        canvas.drawArc(fullOval, 0, 180, false, mPaint);
-        canvas.drawLine(x - radius, y + 0.5f, x + radius, y + 0.5f, mPaint);
-
-        mPaint.setStyle(Paint.Style.FILL);
-
-        // If there are carbs, fill the upper semicircle
-        if (treatment.carbs > 0) {
-            double carbSize = treatment.getCarbSize();
-            float carbRadius = scaledPxSize * (float) carbSize;
-            RectF oval = new RectF(x - carbRadius, y - carbRadius, x + carbRadius, y + carbRadius);
-            mPaint.setColor(treatment.getCarbColor());
-            canvas.drawArc(oval, 180, 180, true, mPaint);
-
-            String carbLabel = DecimalFormatter.to0Decimal(treatment.carbs) + "g";
-
-            mPaint.setColor(treatment.getColor());
-            mPaint.setStrokeWidth(0);
-            mPaint.setTextSize((float) (scaledTextSize * 0.6));
-            mPaint.setTypeface(Typeface.DEFAULT);
-            Rect bounds = new Rect();
-            mPaint.getTextBounds(carbLabel, 0, carbLabel.length(), bounds);
-            mPaint.setStyle(Paint.Style.STROKE);
-            float px = x - bounds.width() / 2;
-            float py = y - radius - scaledPxSize;
-            canvas.drawText(carbLabel, px, py, mPaint);
-        }
-
-        // If there is insulin, fill the lower semicircle
-        if (treatment.insulin > 0) {
-            double insulinSize = treatment.getInsulinSize();
-            float insulinRadius = scaledPxSize * (float) insulinSize;
-            RectF oval = new RectF(x - insulinRadius, y - insulinRadius, x + insulinRadius, y + insulinRadius);
-            mPaint.setColor(treatment.getInsulinColor());
-            canvas.drawArc(oval, 0, 180, true, mPaint);
-
-            String insulinLabel = DecimalFormatter.toPumpSupportedBolus(treatment.insulin) + "U";
-
-            mPaint.setColor(treatment.getColor());
-            mPaint.setStrokeWidth(0);
-            mPaint.setTextSize((float) (scaledTextSize * 0.6));
-            mPaint.setTypeface(Typeface.DEFAULT);
-            Rect bounds = new Rect();
-            mPaint.getTextBounds(insulinLabel, 0, insulinLabel.length(), bounds);
-            mPaint.setStyle(Paint.Style.STROKE);
-            float px = x - bounds.width() / 2;
-            float py = y + radius + bounds.height() + scaledPxSize;
-            canvas.drawText(insulinLabel, px, py, mPaint);
+    void drawLabel45(float endX, float endY, E value, Canvas canvas) {
+        if (value.getLabel().startsWith("~")) {
+            float px = endX;
+            float py = endY + scaledPxSize;
+            canvas.save();
+            canvas.rotate(-45, px, py);
+            mPaint.setTextSize((float) (scaledTextSize * 0.8));
+            mPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+            mPaint.setFakeBoldText(true);
+            mPaint.setTextAlign(Paint.Align.RIGHT);
+            canvas.drawText(value.getLabel().substring(1), px - scaledPxSize, py, mPaint);
+            mPaint.setTextAlign(Paint.Align.LEFT);
+            canvas.restore();
+        } else {
+            float px = endX;
+            float py = endY - scaledPxSize;
+            canvas.save();
+            canvas.rotate(-45, px, py);
+            mPaint.setTextSize((float) (scaledTextSize * 0.8));
+            mPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+            mPaint.setFakeBoldText(true);
+            canvas.drawText(value.getLabel(), px + scaledPxSize, py, mPaint);
+            canvas.restore();
         }
     }
 } 

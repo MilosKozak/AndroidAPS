@@ -191,7 +191,7 @@ public class BgReading implements DataPointWithLabelInterface {
 
     @Override
     public float getSize() {
-        return 0.75f;
+        return 1;
     }
 
     @Override

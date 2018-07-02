@@ -16,7 +16,6 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Iob;
-import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.interfaces.InsulinInterface;
@@ -154,7 +153,7 @@ public class Treatment implements DataPointWithLabelInterface {
 
     @Override
     public double getY() {
-        return yValue;
+        return isSMB ? OverviewPlugin.getPlugin().determineLowLine() : yValue;
     }
 
     @Override
@@ -181,46 +180,17 @@ public class Treatment implements DataPointWithLabelInterface {
 
     @Override
     public float getSize() {
-        if (insulin > 0 || carbs > 0)
-            return Math.max(getCarbSize(), getInsulinSize());
-
         return 2;
     }
 
     @Override
     public int getColor() {
         if (isSMB)
-            return getInsulinColor();
-        if (isValid)
-            return Color.WHITE;
+            return MainApp.gc(R.color.tempbasal);
+        else if (isValid)
+            return Color.CYAN;
         else
             return MainApp.instance().getResources().getColor(android.R.color.holo_red_light);
-    }
-
-    public float getCarbSize() {
-        if (carbs == 0)
-            return 0;
-
-        Profile profile = MainApp.getConfigBuilder().getProfile();
-        float carbSize = (float) (carbs * 5 / profile.getIc(date) / profile.baseBasalSum());
-        return Math.max(0.5f, carbSize);
-    }
-
-    public int getCarbColor() {
-        return MainApp.gc(R.color.cob);
-    }
-
-    public float getInsulinSize() {
-        if (insulin == 0)
-            return 0;
-
-        Profile profile = MainApp.getConfigBuilder().getProfile();
-        float insulinSize = (float) (insulin * 5 / profile.baseBasalSum());
-        return Math.max(0.5f, insulinSize);
-    }
-
-    public int getInsulinColor() {
-        return MainApp.gc(R.color.zt);
     }
 
     @Override
