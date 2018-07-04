@@ -343,7 +343,8 @@ public class LoopPlugin extends PluginBase {
                     if (resultAfterConstraints.bolusRequested)
                         lastRun.smbSetByPump = waiting;
                     MainApp.bus().post(new EventLoopUpdateGui());
-                    FabricPrivacy.getInstance().logCustom(new CustomEvent("APSRequest"));
+                    FabricPrivacy.getInstance().logCustom(new CustomEvent("APSRequest")
+                            .putCustomAttribute("openapsVersion", ConfigBuilderPlugin.getActiveAPS().toString()));
                     MainApp.getConfigBuilder().applyTBRRequest(resultAfterConstraints, profile, new Callback() {
                         @Override
                         public void run() {

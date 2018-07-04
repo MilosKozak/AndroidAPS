@@ -227,4 +227,9 @@ public class OpenAPSAMAPlugin extends PluginBase implements APSInterface {
         //deviceStatus.suggested = determineBasalResultAMA.json;
     }
 
+    @Override
+    public String getVersion() {
+        return "oref0 AMA";
+    }
+
 }

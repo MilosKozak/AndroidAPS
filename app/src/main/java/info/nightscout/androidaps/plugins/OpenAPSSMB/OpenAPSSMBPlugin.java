@@ -246,6 +246,11 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
         //deviceStatus.suggested = determineBasalResultAMA.json;
     }
 
+    @Override
+    public String getVersion() {
+        return "oref1 0.6.0";
+    }
+
     // safety checks
     private static boolean checkOnlyHardLimits(Double value, String valueName, double lowLimit, double highLimit) {
         return value.equals(verifyHardLimits(value, valueName, lowLimit, highLimit));
