@@ -196,16 +196,18 @@ public class MainApp extends Application {
         }
         NSUpload.uploadAppStart();
 
-        if (Config.NSCLIENT)
+        if (Config.NSCLIENT) {
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-NSClient"));
-        else if (Config.G5UPLOADER)
+        } else if (Config.G5UPLOADER) {
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-G5Uploader"));
-        else if (Config.PUMPCONTROL)
+        } else if (Config.PUMPCONTROL) {
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-PumpControl"));
-        else if (MainApp.getConstraintChecker().isClosedLoopAllowed().value())
+        } else if (MainApp.getConstraintChecker().isClosedLoopAllowed().value()) {
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-ClosedLoop"));
-        else
+            uploadPluginStats();
+        } else {
             FabricPrivacy.getInstance().logCustom(new CustomEvent("AppStart-OpenLoop"));
+        }
 
         final PumpInterface pump = ConfigBuilderPlugin.getActivePump();
         if (pump != null) {
@@ -215,6 +217,14 @@ public class MainApp extends Application {
                 startKeepAliveService();
             }).start();
         }
+    }
+
+    private void uploadPluginStats() {
+        CustomEvent pluginStats = new CustomEvent("PluginStats");
+        for (PluginBase pluginBase : pluginsList) {
+            pluginStats.putCustomAttribute(pluginBase.getName(), pluginBase.isEnabled(pluginBase.getType()) ? "enabled" : "disabled");
+        }
+        FabricPrivacy.getInstance().logCustom(pluginStats);
     }
 
     private void registerLocalBroadcastReceiver() {
