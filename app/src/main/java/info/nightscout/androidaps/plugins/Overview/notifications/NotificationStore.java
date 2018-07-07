@@ -119,6 +119,16 @@ public class NotificationStore {
         }
     }
 
+    public synchronized List<Notification> sortOut(){
+        List<Notification> sorted = new ArrayList<Notification>();
+
+        for (Notification notification : store) {
+            if(notification.delay < System.currentTimeMillis())
+                sorted.add(notification);
+        }
+        return sorted;
+    }
+
     private void raiseSystemNotification(Notification n) {
         Context context = MainApp.instance().getApplicationContext();
         NotificationManager mgr = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

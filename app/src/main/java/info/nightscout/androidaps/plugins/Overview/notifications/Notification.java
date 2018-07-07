@@ -72,6 +72,7 @@ public class Notification {
     public String text;
     public int level;
     public Date validTo = new Date(0);
+    public long delay = 0;
 
     public NSAlarm nsAlarm = null;
     public Integer soundId = null;
@@ -120,6 +121,11 @@ public class Notification {
 
     public Notification sound(int soundId) {
         this.soundId = soundId;
+        return this;
+    }
+
+    public Notification delay(int minutes) {
+        this.delay = System.currentTimeMillis() + minutes * 60 * 1000L;
         return this;
     }
 
