@@ -1,5 +1,6 @@
 package info.nightscout.androidaps.plugins.Overview.notifications;
 
+import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,7 @@ import java.util.Objects;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.Services.AlarmSoundService;
 import info.nightscout.androidaps.plugins.NSClientInternal.broadcasts.BroadcastAckAlarm;
 import info.nightscout.androidaps.plugins.Overview.OverviewPlugin;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
@@ -59,6 +61,12 @@ public class NotificationRecyclerViewAdapter extends RecyclerView.Adapter<Notifi
             holder.cv.setBackgroundColor(ContextCompat.getColor(MainApp.instance(), R.color.notificationInfo));
         else if (notification.level == Notification.ANNOUNCEMENT)
             holder.cv.setBackgroundColor(ContextCompat.getColor(MainApp.instance(), R.color.notificationAnnouncement));
+
+        if (notification.soundId != null) {
+            Intent alarm = new Intent(MainApp.instance().getApplicationContext(), AlarmSoundService.class);
+            alarm.putExtra("soundid", notification.soundId);
+            MainApp.instance().startService(alarm);
+        }
     }
 
     @Override

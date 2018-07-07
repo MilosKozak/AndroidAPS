@@ -68,13 +68,6 @@ public class NotificationStore {
                 alarm.putExtra("soundid", n.soundId);
                 MainApp.instance().startService(alarm);
             }
-
-        } else {
-            if (n.soundId != null) {
-                Intent alarm = new Intent(MainApp.instance().getApplicationContext(), AlarmSoundService.class);
-                alarm.putExtra("soundid", n.soundId);
-                MainApp.instance().startService(alarm);
-            }
         }
 
         Collections.sort(store, new NotificationComparator());
