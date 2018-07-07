@@ -99,6 +99,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
     CheckBox cobCheckbox;
     TextView cob;
     TextView cobInsulin;
+    CheckBox alarmCheckbox;
 
     NumberPicker editBg;
     NumberPicker editCarbs;
@@ -227,6 +228,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         bolusIobCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_bolusiobcheckbox);
         basalIobCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_basaliobcheckbox);
         superbolusCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_sbcheckbox);
+        alarmCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_alarmcheckbox);
         loadCheckedStates();
 
         bgCheckbox.setOnCheckedChangeListener(this);
@@ -236,6 +238,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         basalIobCheckbox.setOnCheckedChangeListener(this);
         bolusIobCheckbox.setOnCheckedChangeListener(this);
         superbolusCheckbox.setOnCheckedChangeListener(this);
+        alarmCheckbox.setOnCheckedChangeListener(this);
 
         profileSpinner = (Spinner) view.findViewById(R.id.treatments_wizard_profile);
         profileSpinner.setOnItemSelectedListener(this);
@@ -329,6 +332,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
                     final Double bg = SafeParse.stringToDouble(editBg.getText());
                     final int carbTime = SafeParse.stringToInt(editCarbTime.getText());
                     final boolean useSuperBolus = superbolusCheckbox.isChecked();
+                    final boolean useAlarm = alarmCheckbox.isChecked();
                     final String finalNotes = notesEdit.getText().toString();
 
                     final AlertDialog.Builder builder = new AlertDialog.Builder(context);

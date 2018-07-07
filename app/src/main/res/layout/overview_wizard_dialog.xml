@@ -140,12 +140,24 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="left"
-                android:minWidth="45dp"
+                android:minWidth="35dp"
                 android:paddingLeft="5dp"
                 android:text="min"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-        </LinearLayout>
 
+            <CheckBox
+                android:id="@+id/treatments_wizard_alarmcheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="Alarm"
+                android:textAllCaps="false"
+                android:textIsSelectable="false" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/treatments_wizard_profile_layout"
