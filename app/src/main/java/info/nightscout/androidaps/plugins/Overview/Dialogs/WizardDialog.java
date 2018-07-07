@@ -60,6 +60,8 @@ import info.nightscout.androidaps.plugins.IobCobCalculator.CobInfo;
 import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugin;
 import info.nightscout.androidaps.plugins.IobCobCalculator.events.EventAutosensCalculationFinished;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
+import info.nightscout.androidaps.plugins.Overview.OverviewPlugin;
+import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.utils.BolusWizard;
@@ -393,6 +395,11 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
                                             }
                                         });
                                     } else {
+                                        //Set Alarm
+                                        if(useAlarm && carbTime > 0){
+                                            Notification notification = new Notification(Notification.EAT_REMINDER, carbTime + MainApp.gs(R.string.eat_reminder_notification),Notification.NORMAL);
+                                            OverviewPlugin.getPlugin().notificationStore.add(notification.sound(R.raw.alarm).delay(carbTime));
+                                        }
                                         TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo);
                                     }
                                     FabricPrivacy.getInstance().logCustom(new CustomEvent("Wizard"));

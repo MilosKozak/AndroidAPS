@@ -1178,6 +1178,7 @@
     <string name="key_keep_screen_on" translatable="false">keep_screen_on</string>
     <string name="careportal_removestartedevents">Clean AndroidAPS started</string>
     <string name="storedsettingsfound">Stored settings found</string>
+    <string name="eat_reminder_notification"> \u0020minutes have passed. Time to eat.</string>
 
     <plurals name="objective_days">
         <item quantity="one">%d day</item>
