@@ -397,7 +397,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
                                     } else {
                                         //Set Alarm
                                         if(useAlarm && carbTime > 0){
-                                            Notification notification = new Notification(Notification.EAT_REMINDER, carbTime + MainApp.gs(R.string.eat_reminder_notification),Notification.NORMAL);
+                                            Notification notification = new Notification(Notification.EAT_REMINDER, MainApp.gs(R.string.eat_reminder_notification, carbTime), Notification.NORMAL);
                                             OverviewPlugin.getPlugin().notificationStore.add(notification.sound(R.raw.alarm).delay(carbTime));
                                         }
                                         TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo);
