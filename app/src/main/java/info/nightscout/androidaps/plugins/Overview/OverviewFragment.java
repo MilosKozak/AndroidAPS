@@ -90,6 +90,7 @@ import info.nightscout.androidaps.plugins.IobCobCalculator.CobInfo;
 import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugin;
 import info.nightscout.androidaps.plugins.IobCobCalculator.events.EventAutosensCalculationFinished;
 import info.nightscout.androidaps.plugins.IobCobCalculator.events.EventIobCalculationProgress;
+import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSDeviceStatus;
@@ -118,6 +119,7 @@ import info.nightscout.utils.OKDialog;
 import info.nightscout.utils.Profiler;
 import info.nightscout.utils.SP;
 import info.nightscout.utils.SingleClickButton;
+import info.nightscout.utils.T;
 import info.nightscout.utils.ToastUtils;
 
 import static info.nightscout.utils.DateUtil.now;
@@ -343,7 +345,13 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             @Override
             public void onClick(View v) {
                 final LoopPlugin.LastRun finalLastRun = LoopPlugin.lastRun;
-                final boolean predictionsAvailable = finalLastRun != null && finalLastRun.request.hasPredictions;
+                boolean predictionsAvailable;
+                if (Config.APS)
+                    predictionsAvailable = finalLastRun != null && finalLastRun.request.hasPredictions;
+                else if (Config.NSCLIENT)
+                    predictionsAvailable = true;
+                else
+                    predictionsAvailable = false;
 
                 MenuItem item;
                 CharSequence title;
@@ -832,7 +840,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                             if (wizard.superBolus) {
                                 final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
                                 if (loopPlugin.isEnabled(PluginType.LOOP)) {
-                                    loopPlugin.superBolusTo(System.currentTimeMillis() + 2 * 60L * 60 * 1000);
+                                    loopPlugin.superBolusTo(System.currentTimeMillis() + T.hours(2).msecs());
                                     MainApp.bus().post(new EventRefreshOverview("WizardDialog"));
                                 }
                                 ConfigBuilderPlugin.getCommandQueue().tempBasalPercent(0, 120, true, profile, new Callback() {
@@ -1355,7 +1363,15 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             cobView.setText(cobText);
         }
 
-        final boolean predictionsAvailable = finalLastRun != null && finalLastRun.request.hasPredictions;
+        boolean predictionsAvailable;
+        if (Config.APS)
+            predictionsAvailable = finalLastRun != null && finalLastRun.request.hasPredictions;
+        else if (Config.NSCLIENT)
+            predictionsAvailable = true;
+        else
+            predictionsAvailable = false;
+        final boolean finalPredictionsAvailable = predictionsAvailable;
+
         // pump status from ns
         if (pumpDeviceStatusView != null) {
             pumpDeviceStatusView.setText(NSDeviceStatus.getInstance().getPumpStatus());
@@ -1398,18 +1414,25 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             final long toTime;
             final long fromTime;
             final long endTime;
-            if (predictionsAvailable && SP.getBoolean("showprediction", false)) {
-                int predHours = (int) (Math.ceil(finalLastRun.constraintsProcessed.getLatestPredictionsTime() - System.currentTimeMillis()) / (60 * 60 * 1000));
+
+            APSResult apsResult = null;
+
+            if (finalPredictionsAvailable && SP.getBoolean("showprediction", false)) {
+                if (Config.APS)
+                    apsResult = finalLastRun.constraintsProcessed;
+                else
+                    apsResult = NSDeviceStatus.getAPSResult();
+                int predHours = (int) (Math.ceil(apsResult.getLatestPredictionsTime() - System.currentTimeMillis()) / (60 * 60 * 1000));
                 predHours = Math.min(2, predHours);
                 predHours = Math.max(0, predHours);
                 hoursToFetch = rangeToDisplay - predHours;
                 toTime = calendar.getTimeInMillis() + 100000; // little bit more to avoid wrong rounding - Graphview specific
-                fromTime = toTime - hoursToFetch * 60 * 60 * 1000L;
-                endTime = toTime + predHours * 60 * 60 * 1000L;
+                fromTime = toTime - T.hours(hoursToFetch).msecs();
+                endTime = toTime + T.hours(predHours).msecs();
             } else {
                 hoursToFetch = rangeToDisplay;
                 toTime = calendar.getTimeInMillis() + 100000; // little bit more to avoid wrong rounding - Graphview specific
-                fromTime = toTime - hoursToFetch * 60 * 60 * 1000L;
+                fromTime = toTime - T.hours(hoursToFetch).msecs();
                 endTime = toTime;
             }
 
@@ -1425,9 +1448,9 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             graphData.addInRangeArea(fromTime, endTime, lowLine, highLine);
 
             // **** BG ****
-            if (predictionsAvailable && SP.getBoolean("showprediction", false))
+            if (finalPredictionsAvailable && SP.getBoolean("showprediction", false))
                 graphData.addBgReadings(fromTime, toTime, lowLine, highLine,
-                        finalLastRun.constraintsProcessed.getPredictions());
+                        apsResult.getPredictions());
             else
                 graphData.addBgReadings(fromTime, toTime, lowLine, highLine, null);
 
