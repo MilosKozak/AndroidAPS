@@ -124,8 +124,11 @@ public class Notification {
         return this;
     }
 
+    /**Because the notifications gets updated every minute
+     the delay won't be precise instead the notification will
+     trigger anytime between 30 seconds before or after the given delay*/
     public Notification delay(int minutes) {
-        this.delay = System.currentTimeMillis() + minutes * 60 * 1000L;
+        this.delay = System.currentTimeMillis() + minutes * 60 * 1000L - 30000L;
         return this;
     }
 
