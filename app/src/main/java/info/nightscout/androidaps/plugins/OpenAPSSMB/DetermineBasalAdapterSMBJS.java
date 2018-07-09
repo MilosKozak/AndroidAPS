@@ -27,6 +27,7 @@ import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.MealData;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.TemporaryBasal;
+import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugin;
 import info.nightscout.androidaps.plugins.Loop.ScriptReader;
 import info.nightscout.androidaps.plugins.OpenAPSMA.LoggerCallback;
@@ -259,6 +260,7 @@ public class DetermineBasalAdapterSMBJS {
         mProfile.put("enableSMB_after_carbs", SP.getBoolean(R.string.key_enableSMB_after_carbs, false) && advancedFiltering);
         mProfile.put("maxSMBBasalMinutes", SP.getInt("key_smbmaxminutes", SMBDefaults.maxSMBBasalMinutes));
         mProfile.put("carbsReqThreshold", SMBDefaults.carbsReqThreshold);
+        mProfile.put("bolus_increment", MainApp.getConfigBuilder().getActivePump().getPumpDescription().bolusStep);
 
         mProfile.put("current_basal", basalrate);
         mProfile.put("temptargetSet", tempTargetSet);
