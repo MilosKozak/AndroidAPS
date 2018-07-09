@@ -12,4 +12,6 @@ public interface APSInterface {
     public Date getLastAPSRun();
 
     public void invoke(String initiator, boolean tempBasalFallback);
+
+    String getVersion();
 }

@@ -211,5 +211,10 @@ public class OpenAPSMAPlugin extends PluginBase implements APSInterface {
         MainApp.bus().post(new EventOpenAPSUpdateGui());
     }
 
+    @Override
+    public String getVersion() {
+        return "oref0 MA";
+    }
+
 
 }
