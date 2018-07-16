@@ -228,4 +228,11 @@ public class OpenAPSAMAPlugin extends PluginBase implements APSInterface {
         //deviceStatus.suggested = determineBasalResultAMA.json;
     }
 
+    public AutosensResult getLastAutosensResult(){
+        if (lastAutosensResult != null ) {
+            return lastAutosensResult;
+        } else {
+            return null;
+        }
+    }
 }

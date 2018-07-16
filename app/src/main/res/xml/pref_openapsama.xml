@@ -25,6 +25,11 @@
             android:title="@string/openapsama_useautosens" />
 
         <SwitchPreference
+            android:defaultValue="false"
+            android:key="overview_show_autosens"
+            android:title="@string/overview_show_autosens" />
+
+        <SwitchPreference
             android:defaultValue="true"
             android:key="@string/key_openapsama_autosens_adjusttargets"
             android:summary="@string/openapsama_autosens_adjusttargets_summary"

@@ -94,6 +94,8 @@ import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.Loop.events.EventNewOpenLoopNotification;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSDeviceStatus;
+import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
+import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.CalibrationDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.ErrorHelperActivity;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.NewCarbsDialog;
@@ -114,6 +116,7 @@ import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.DefaultValueHelper;
 import info.nightscout.utils.FabricPrivacy;
+import info.nightscout.utils.JSONFormatter;
 import info.nightscout.utils.NSUpload;
 import info.nightscout.utils.OKDialog;
 import info.nightscout.utils.Profiler;
@@ -1249,7 +1252,23 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 extendedBolusView.setVisibility(View.VISIBLE);
         }
 
-        activeProfileView.setText(MainApp.getConfigBuilder().getProfileName());
+        double autosensRatio = 1;
+
+        if (OpenAPSAMAPlugin.getPlugin().getLastAutosensResult() != null && OpenAPSAMAPlugin.getPlugin().isEnabled(PluginType.APS)) {
+            autosensRatio = OpenAPSAMAPlugin.getPlugin().getLastAutosensResult().ratio;
+            log.debug("overview_show_autosens (AMA) ratio is set to " + autosensRatio);
+        }
+        if (OpenAPSSMBPlugin.getPlugin().getLastAutosensResult() != null && OpenAPSSMBPlugin.getPlugin().isEnabled(PluginType.APS)) {
+            autosensRatio = OpenAPSSMBPlugin.getPlugin().getLastAutosensResult().ratio;
+            log.debug("overview_show_autosens (SMB) ratio is set to " + autosensRatio);
+        }
+        if (SP.getBoolean("overview_show_autosens", false ) && autosensRatio != 1d) {
+            log.debug("overview_show_autosens is TRUE " + autosensRatio);
+            activeProfileView.setText(MainApp.getConfigBuilder().getProfileName() + " * "+autosensRatio);
+        } else {
+            log.debug("overview_show_autosens is FALSE or value is "+autosensRatio);
+            activeProfileView.setText(MainApp.getConfigBuilder().getProfileName());
+        }
         activeProfileView.setBackgroundColor(Color.GRAY);
 
         // QuickWizard button

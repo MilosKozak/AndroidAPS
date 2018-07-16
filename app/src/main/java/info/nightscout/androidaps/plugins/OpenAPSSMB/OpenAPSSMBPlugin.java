@@ -267,4 +267,12 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
         return newvalue;
     }
 
+    public AutosensResult getLastAutosensResult(){
+        if (lastAutosensResult != null ) {
+            return lastAutosensResult;
+        } else {
+            return null;
+        }
+    }
+
 }
