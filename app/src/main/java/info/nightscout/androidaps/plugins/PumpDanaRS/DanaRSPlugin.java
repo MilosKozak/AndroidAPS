@@ -2,10 +2,13 @@ package info.nightscout.androidaps.plugins.PumpDanaRS;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
 
 import com.squareup.otto.Subscribe;
 
@@ -36,6 +39,7 @@ import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
 import info.nightscout.androidaps.interfaces.PumpDescription;
 import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
 import info.nightscout.androidaps.plugins.ConfigBuilder.DetailedBolusInfoStorage;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
@@ -53,6 +57,7 @@ import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.Round;
 import info.nightscout.utils.SP;
+import info.nightscout.utils.T;
 
 /**
  * Created by mike on 03.09.2017.
@@ -145,6 +150,31 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
         context.unbindService(mConnection);
 
         MainApp.bus().unregister(this);
+    }
+
+    @Override
+    public void switchAllowed(ConfigBuilderFragment.PluginViewHolder.PluginSwitcher pluginSwitcher, FragmentActivity context) {
+        boolean allowHardwarePump = SP.getBoolean("allow_hardware_pump", false);
+        if (allowHardwarePump || context == null){
+            pluginSwitcher.invoke();
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage(R.string.allow_hardware_pump_text)
+                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            pluginSwitcher.invoke();
+                            SP.putBoolean("allow_hardware_pump", true);
+                            log.debug("First time HW pump allowed!");
+                        }
+                    })
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            pluginSwitcher.cancel();
+                            log.debug("User does not allow switching to HW pump!");
+                        }
+                    });
+            builder.create().show();
+        }
     }
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -382,6 +412,7 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
             double carbs = detailedBolusInfo.carbs;
             detailedBolusInfo.carbs = 0;
             int carbTime = detailedBolusInfo.carbTime;
+            if (carbTime == 0) carbTime--; // better set 1 min back to prevents clash with insulin
             detailedBolusInfo.carbTime = 0;
 
             DetailedBolusInfoStorage.add(detailedBolusInfo); // will be picked up on reading history
@@ -390,7 +421,7 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
             t.isSMB = detailedBolusInfo.isSMB;
             boolean connectionOK = false;
             if (detailedBolusInfo.insulin > 0 || carbs > 0)
-                connectionOK = danaRSService.bolus(detailedBolusInfo.insulin, (int) carbs, DateUtil.now() + carbTime * 60 * 1000, t);
+                connectionOK = danaRSService.bolus(detailedBolusInfo.insulin, (int) carbs, DateUtil.now() + T.mins(carbTime).msecs(), t);
             PumpEnactResult result = new PumpEnactResult();
             result.success = connectionOK && Math.abs(detailedBolusInfo.insulin - t.insulin) < pumpDescription.bolusStep;
             result.bolusDelivered = t.insulin;
@@ -486,8 +517,12 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
             // Convert duration from minutes to hours
             if (Config.logPumpActions)
                 log.debug("setTempBasalAbsolute: Setting temp basal " + percentRate + "% for " + durationInMinutes + " mins (doLowTemp || doHighTemp)");
-            // use special APS temp basal call ... 100+/15min .... 100-/30min
-            result = setHighTempBasalPercent(percentRate);
+            if (percentRate == 0 && durationInMinutes > 30) {
+                result = setTempBasalPercent(percentRate, durationInMinutes, profile, false);
+            } else {
+                // use special APS temp basal call ... 100+/15min .... 100-/30min
+                result = setHighTempBasalPercent(percentRate);
+            }
             if (!result.success) {
                 log.error("setTempBasalAbsolute: Failed to set hightemp basal");
                 return result;
