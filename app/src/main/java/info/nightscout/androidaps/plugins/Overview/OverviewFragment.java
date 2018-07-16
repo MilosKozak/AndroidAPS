@@ -1255,16 +1255,16 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         double autosensRatio = 1;
 
         if (OpenAPSAMAPlugin.getPlugin().getLastAutosensResult() != null && OpenAPSAMAPlugin.getPlugin().isEnabled(PluginType.APS)) {
-            autosensRatio = OpenAPSAMAPlugin.getPlugin().getLastAutosensResult().ratio;
-            log.debug("overview_show_autosens (AMA) ratio is set to " + autosensRatio);
+            autosensRatio = (OpenAPSAMAPlugin.getPlugin().getLastAutosensResult().ratio * 100) / 100;
+            log.debug("overview_show_autosens (AMA) ratio is set to " + autosensRatio * 100 +"%");
         }
         if (OpenAPSSMBPlugin.getPlugin().getLastAutosensResult() != null && OpenAPSSMBPlugin.getPlugin().isEnabled(PluginType.APS)) {
-            autosensRatio = OpenAPSSMBPlugin.getPlugin().getLastAutosensResult().ratio;
-            log.debug("overview_show_autosens (SMB) ratio is set to " + autosensRatio);
+            autosensRatio = (OpenAPSSMBPlugin.getPlugin().getLastAutosensResult().ratio * 100) / 100;
+            log.debug("overview_show_autosens (SMB) ratio is set to " + autosensRatio * 100 +"%");
         }
         if (SP.getBoolean("overview_show_autosens", false ) && autosensRatio != 1d) {
             log.debug("overview_show_autosens is TRUE " + autosensRatio);
-            activeProfileView.setText(MainApp.getConfigBuilder().getProfileName() + " * "+autosensRatio);
+            activeProfileView.setText(MainApp.getConfigBuilder().getProfileName() + " * " + autosensRatio * 100 +"%");
         } else {
             log.debug("overview_show_autosens is FALSE or value is "+autosensRatio);
             activeProfileView.setText(MainApp.getConfigBuilder().getProfileName());
