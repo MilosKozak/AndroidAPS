@@ -435,6 +435,7 @@
     <string name="openapsma_autosensdata_label">Autosens data</string>
     <string name="openapsma_scriptdebugdata_label">Script debug</string>
     <string name="openapsama_useautosens">Use AMA autosens feature</string>
+    <string name="overview_show_autosens">Show AMA autosens result in overview screen</string>
     <string name="refresheventsfromnightscout">Refresh events from NS</string>
     <string name="deletefuturetreatments">Delete treatments in the future</string>
     <string name="eatingsoon">Eating Soon</string>
