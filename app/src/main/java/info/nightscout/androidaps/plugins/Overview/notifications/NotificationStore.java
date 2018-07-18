@@ -68,13 +68,6 @@ public class NotificationStore {
                 alarm.putExtra("soundid", n.soundId);
                 MainApp.instance().startService(alarm);
             }
-
-        } else {
-            if (n.soundId != null) {
-                Intent alarm = new Intent(MainApp.instance().getApplicationContext(), AlarmSoundService.class);
-                alarm.putExtra("soundid", n.soundId);
-                MainApp.instance().startService(alarm);
-            }
         }
 
         Collections.sort(store, new NotificationComparator());
@@ -117,6 +110,16 @@ public class NotificationStore {
             add(notification);
             log.debug("Snoozed to current time and added back notification!");
         }
+    }
+
+    public synchronized List<Notification> sortOut(){
+        List<Notification> sorted = new ArrayList<Notification>();
+
+        for (Notification notification : store) {
+            if(notification.delay < System.currentTimeMillis())
+                sorted.add(notification);
+        }
+        return sorted;
     }
 
     private void raiseSystemNotification(Notification n) {

@@ -67,13 +67,14 @@ public class Notification {
     public static final int PERMISSION_BATTERY = 37;
     public static final int PERMISSION_SMS = 38;
     public static final int MAXIMUM_BASAL_VALUE_REPLACED = 39;
-
+    public static final int EAT_REMINDER = 40;
 
     public int id;
     public Date date;
     public String text;
     public int level;
     public Date validTo = new Date(0);
+    public long delay = 0;
 
     public NSAlarm nsAlarm = null;
     public Integer soundId = null;
@@ -122,6 +123,14 @@ public class Notification {
 
     public Notification sound(int soundId) {
         this.soundId = soundId;
+        return this;
+    }
+
+    /**Because the notifications gets updated every minute
+     the delay won't be precise instead the notification will
+     trigger anytime between 30 seconds before or after the given delay*/
+    public Notification delay(int minutes) {
+        this.delay = System.currentTimeMillis() + minutes * 60 * 1000L - 30000L;
         return this;
     }
 

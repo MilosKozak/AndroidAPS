@@ -1533,7 +1533,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         nstore.removeExpired();
         nstore.unSnooze();
         if (nstore.store.size() > 0) {
-            NotificationRecyclerViewAdapter adapter = new NotificationRecyclerViewAdapter(nstore.store);
+            NotificationRecyclerViewAdapter adapter = new NotificationRecyclerViewAdapter(nstore.sortOut());
             notificationsView.setAdapter(adapter);
             notificationsView.setVisibility(View.VISIBLE);
         } else {

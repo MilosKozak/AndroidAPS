@@ -60,6 +60,8 @@ import info.nightscout.androidaps.plugins.IobCobCalculator.CobInfo;
 import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugin;
 import info.nightscout.androidaps.plugins.IobCobCalculator.events.EventAutosensCalculationFinished;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
+import info.nightscout.androidaps.plugins.Overview.OverviewPlugin;
+import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.utils.BolusWizard;
@@ -99,6 +101,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
     CheckBox cobCheckbox;
     TextView cob;
     TextView cobInsulin;
+    CheckBox alarmCheckbox;
 
     NumberPicker editBg;
     NumberPicker editCarbs;
@@ -227,6 +230,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         bolusIobCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_bolusiobcheckbox);
         basalIobCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_basaliobcheckbox);
         superbolusCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_sbcheckbox);
+        alarmCheckbox = (CheckBox) view.findViewById(R.id.treatments_wizard_alarmcheckbox);
         loadCheckedStates();
 
         bgCheckbox.setOnCheckedChangeListener(this);
@@ -236,6 +240,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         basalIobCheckbox.setOnCheckedChangeListener(this);
         bolusIobCheckbox.setOnCheckedChangeListener(this);
         superbolusCheckbox.setOnCheckedChangeListener(this);
+        alarmCheckbox.setOnCheckedChangeListener(this);
 
         profileSpinner = (Spinner) view.findViewById(R.id.treatments_wizard_profile);
         profileSpinner.setOnItemSelectedListener(this);
@@ -329,6 +334,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
                     final Double bg = SafeParse.stringToDouble(editBg.getText());
                     final int carbTime = SafeParse.stringToInt(editCarbTime.getText());
                     final boolean useSuperBolus = superbolusCheckbox.isChecked();
+                    final boolean useAlarm = alarmCheckbox.isChecked();
                     final String finalNotes = notesEdit.getText().toString();
 
                     final AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -389,6 +395,11 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
                                             }
                                         });
                                     } else {
+                                        //Set Alarm
+                                        if(useAlarm && carbTime > 0){
+                                            Notification notification = new Notification(Notification.EAT_REMINDER, MainApp.gs(R.string.eat_reminder_notification, carbTime), Notification.NORMAL);
+                                            OverviewPlugin.getPlugin().notificationStore.add(notification.sound(R.raw.alarm).delay(carbTime));
+                                        }
                                         TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo);
                                     }
                                     FabricPrivacy.getInstance().logCustom(new CustomEvent("Wizard"));
