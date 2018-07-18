@@ -62,7 +62,6 @@ public class QueueThread extends Thread {
                 long secondsElapsed = (System.currentTimeMillis() - connectionStartTime) / 1000;
 
                 if (!pump.isConnected() && secondsElapsed > Constants.PUMP_MAX_CONNECTION_TIME_IN_SECONDS) {
-                    MainApp.bus().post(new EventDismissBolusprogressIfRunning(null));
                     MainApp.bus().post(new EventPumpStatusChanged(MainApp.gs(R.string.connectiontimedout)));
                     log.debug("QUEUE: timed out");
                     pump.stopConnecting();
