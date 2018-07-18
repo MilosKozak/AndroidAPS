@@ -39,8 +39,8 @@ public class TimeListEdit {
 
     private View[] intervals = new View[24];
     private SpinnerHelper[] spinners = new SpinnerHelper[24];
-    private NumberPicker[] numberPickers1 = new NumberPicker[24];
-    private NumberPicker[] numberPickers2 = new NumberPicker[24];
+    private TransientNumberPicker[] TransientNumberPickers1 = new TransientNumberPicker[24];
+    private TransientNumberPicker[] TransientNumberPickers2 = new TransientNumberPicker[24];
     private ImageView[] addButtons = new ImageView[24];
     private ImageView[] removeButtons = new ImageView[24];
     private ImageView finalAdd;
@@ -121,8 +121,8 @@ public class TimeListEdit {
         LayoutInflater inflater = LayoutInflater.from(context);
         View childview = intervals[i] = inflater.inflate(R.layout.timelistedit_element, layout, false);
         spinners[i] = new SpinnerHelper(childview.findViewById(R.id.timelistedit_time));
-        numberPickers1[i] = (NumberPicker) childview.findViewById(R.id.timelistedit_edit1);
-        numberPickers2[i] = (NumberPicker) childview.findViewById(R.id.timelistedit_edit2);
+        TransientNumberPickers1[i] = (TransientNumberPicker) childview.findViewById(R.id.timelistedit_edit1);
+        TransientNumberPickers2[i] = (TransientNumberPicker) childview.findViewById(R.id.timelistedit_edit2);
         addButtons[i] = (ImageView) childview.findViewById(R.id.timelistedit_add);
         removeButtons[i] = (ImageView) childview.findViewById(R.id.timelistedit_remove);
 
@@ -173,10 +173,10 @@ public class TimeListEdit {
                 }
         );
 
-        numberPickers1[i].setTextWatcher(new TextWatcher() {
+        TransientNumberPickers1[i].setTextWatcher(new TextWatcher() {
              @Override
              public void afterTextChanged(Editable s) {
-                 editItem(fixedPos, secondFromMidnight(fixedPos), SafeParse.stringToDouble(numberPickers1[fixedPos].getText()), value2(fixedPos));
+                 editItem(fixedPos, secondFromMidnight(fixedPos), SafeParse.stringToDouble(TransientNumberPickers1[fixedPos].getText()), value2(fixedPos));
                  callSave();
                  log();
              }
@@ -193,10 +193,10 @@ public class TimeListEdit {
          });
 
 
-        numberPickers2[i].setTextWatcher(new TextWatcher() {
+        TransientNumberPickers2[i].setTextWatcher(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                editItem(fixedPos, secondFromMidnight(fixedPos), value1(fixedPos), SafeParse.stringToDouble(numberPickers2[fixedPos].getText()));
+                editItem(fixedPos, secondFromMidnight(fixedPos), value1(fixedPos), SafeParse.stringToDouble(TransientNumberPickers2[fixedPos].getText()));
                 callSave();
                 log();
             }
@@ -235,8 +235,8 @@ public class TimeListEdit {
     private View buildInterval(int i) {
         SpinnerHelper timeSpinner = spinners[i];
         View childview = intervals[i];
-        final NumberPicker editText1 = numberPickers1[i];
-        final NumberPicker editText2 = numberPickers2[i];
+        final TransientNumberPicker editText1 = TransientNumberPickers1[i];
+        final TransientNumberPicker editText2 = TransientNumberPickers2[i];
 
 
         int previous = i == 0 ? -1 * ONEHOURINSECONDS : secondFromMidnight(i - 1);

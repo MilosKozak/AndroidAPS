@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
+import info.nightscout.utils.TransientNumberPicker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,7 +40,7 @@ import info.nightscout.utils.TimeListEdit;
 public class LocalProfileFragment extends SubscriberFragment {
     private static Logger log = LoggerFactory.getLogger(LocalProfileFragment.class);
 
-    NumberPicker diaView;
+    TransientNumberPicker diaView;
     RadioButton mgdlView;
     RadioButton mmolView;
     TimeListEdit icView;
