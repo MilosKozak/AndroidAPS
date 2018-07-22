@@ -62,6 +62,7 @@ public class OpenAPSAMAPlugin extends PluginBase implements APSInterface {
                 .pluginName(R.string.openapsama)
                 .shortName(R.string.oaps_shortname)
                 .preferencesId(R.xml.pref_openapsama)
+                .description(R.string.description_ama)
         );
     }
 
@@ -172,9 +173,10 @@ public class OpenAPSAMAPlugin extends PluginBase implements APSInterface {
 
         startPart = new Date();
         if (MainApp.getConstraintChecker().isAutosensModeEnabled().value()) {
-            lastAutosensResult = IobCobCalculatorPlugin.getPlugin().detectSensitivityWithLock(IobCobCalculatorPlugin.getPlugin().oldestDataAvailable(), System.currentTimeMillis());
+            lastAutosensResult = IobCobCalculatorPlugin.getPlugin().getLastAutosensDataSynchronized("OpenAPSPlugin").autosensResult;
         } else {
             lastAutosensResult = new AutosensResult();
+            lastAutosensResult.sensResult = "autosens disabled";
         }
         Profiler.log(log, "detectSensitivityandCarbAbsorption()", startPart);
         Profiler.log(log, "AMA data gathering", start);
