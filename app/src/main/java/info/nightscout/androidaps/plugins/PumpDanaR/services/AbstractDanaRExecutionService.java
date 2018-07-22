@@ -21,10 +21,9 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
-import info.nightscout.androidaps.db.Treatment;
+import info.nightscout.androidaps.plugins.Treatments.Treatment;
 import info.nightscout.androidaps.events.EventPumpStatusChanged;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
-import info.nightscout.androidaps.plugins.PumpDanaR.SerialIOThread;
 import info.nightscout.androidaps.plugins.PumpDanaR.comm.MessageBase;
 import info.nightscout.androidaps.plugins.PumpDanaR.comm.MsgBolusStop;
 import info.nightscout.androidaps.plugins.PumpDanaR.comm.MsgHistoryAlarm;
@@ -66,6 +65,11 @@ public abstract class AbstractDanaRExecutionService extends Service {
 
     protected final UUID SPP_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 
+    protected long lastWrongPumpPassword = 0;
+
+    protected long lastApproachingDailyLimit = 0;
+
+
     public abstract boolean updateBasalsInPump(final Profile profile);
 
     public abstract void connect();
@@ -78,6 +82,8 @@ public abstract class AbstractDanaRExecutionService extends Service {
 
     public abstract boolean highTempBasal(int percent); // Rv2 only
 
+    public abstract boolean tempBasalShortDuration(int percent, int durationInMinutes); // Rv2 only
+
     public abstract boolean tempBasal(int percent, int durationInHours);
 
     public abstract boolean tempBasalStop();
@@ -86,6 +92,7 @@ public abstract class AbstractDanaRExecutionService extends Service {
 
     public abstract boolean extendedBolusStop();
 
+    public abstract PumpEnactResult setUserOptions();
 
     protected BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
@@ -133,7 +140,7 @@ public abstract class AbstractDanaRExecutionService extends Service {
     }
 
     protected void getBTSocketForSelectedPump() {
-        mDevName = SP.getString(MainApp.sResources.getString(R.string.key_danar_bt_name), "");
+        mDevName = SP.getString(MainApp.gs(R.string.key_danar_bt_name), "");
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         if (bluetoothAdapter != null) {
@@ -151,10 +158,10 @@ public abstract class AbstractDanaRExecutionService extends Service {
                 }
             }
         } else {
-            ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.nobtadapter));
+            ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.nobtadapter));
         }
         if (mBTDevice == null) {
-            ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.sResources.getString(R.string.devicenotfound));
+            ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.devicenotfound));
         }
     }
 

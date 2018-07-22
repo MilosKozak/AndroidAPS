@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.utils.DateUtil;
 import info.nightscout.utils.Round;
 import info.nightscout.utils.SP;
@@ -124,7 +125,7 @@ public class NSDeviceStatus {
     static DeviceStatusPumpData deviceStatusPumpData = null;
 
     public Spanned getExtendedPumpStatus() {
-        if (deviceStatusPumpData.extended != null)
+        if (deviceStatusPumpData != null && deviceStatusPumpData.extended != null)
             return deviceStatusPumpData.extended;
         return Html.fromHtml("");
     }
@@ -374,7 +375,7 @@ public class NSDeviceStatus {
     public String getUploaderStatus() {
         Iterator iter = uploaders.entrySet().iterator();
         int minBattery = 100;
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
             Map.Entry pair = (Map.Entry) iter.next();
             Uploader uploader = (Uploader) pair.getValue();
             if (minBattery > uploader.battery)
@@ -388,7 +389,7 @@ public class NSDeviceStatus {
         StringBuilder string = new StringBuilder();
 
         Iterator iter = uploaders.entrySet().iterator();
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
             Map.Entry pair = (Map.Entry) iter.next();
             Uploader uploader = (Uploader) pair.getValue();
             String device = (String) pair.getKey();
@@ -396,6 +397,13 @@ public class NSDeviceStatus {
         }
 
         return Html.fromHtml(string.toString());
+    }
+
+    public static APSResult getAPSResult() {
+        APSResult result = new APSResult();
+        result.json = deviceStatusOpenAPSData.suggested;
+        result.date = deviceStatusOpenAPSData.clockSuggested;
+        return result;
     }
 
 }
