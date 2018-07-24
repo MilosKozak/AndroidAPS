@@ -37,6 +37,7 @@ public class DetailedBolusInfo {
     public DetailedBolusInfo copy() {
         DetailedBolusInfo n = new DetailedBolusInfo();
         n.date = date;
+        n.lastKnownBolusTime = lastKnownBolusTime;
         n.eventType = eventType;
         n.insulin = insulin;
         n.carbs = carbs;
@@ -56,12 +57,23 @@ public class DetailedBolusInfo {
 
     @Override
     public String toString() {
-        return new Date(date).toLocaleString() +
-                " insulin: " + insulin +
-                " carbs: " + carbs +
-                " isValid: " + isValid +
-                " carbTime: " + carbTime +
-                " isSMB: " + isSMB +
-                " deliverAt: " + new Date(deliverAt).toLocaleString();
+        return "DetailedBolusInfo{" +
+                "date=" + date +
+                ", lastKnownBolusTime=" + lastKnownBolusTime +
+                ", eventType='" + eventType + '\'' +
+                ", insulin=" + insulin +
+                ", carbs=" + carbs +
+                ", source=" + source +
+                ", isValid=" + isValid +
+                ", glucose=" + glucose +
+                ", glucoseType='" + glucoseType + '\'' +
+                ", carbTime=" + carbTime +
+                ", boluscalc=" + boluscalc +
+                ", context=" + context +
+                ", pumpId=" + pumpId +
+                ", isSMB=" + isSMB +
+                ", deliverAt=" + deliverAt +
+                ", notes='" + notes + '\'' +
+                '}';
     }
 }

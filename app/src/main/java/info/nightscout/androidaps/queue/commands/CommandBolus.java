@@ -27,6 +27,8 @@ public class CommandBolus extends Command {
         PumpEnactResult r = ConfigBuilderPlugin.getActivePump().deliverTreatment(detailedBolusInfo);
 
         BolusProgressDialog.bolusEnded = true;
+        // The bolus progress dialog was opened at queue time (CommandQueue.bolus), so it's displayed when the
+        // user requests it, to avoid not showing anything until the bolus starts
         MainApp.bus().post(new EventDismissBolusprogressIfRunning(r));
 
         if (callback != null)

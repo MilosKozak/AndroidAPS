@@ -2,6 +2,7 @@ package info.nightscout.androidaps.plugins.PumpVirtual;
 
 import android.os.SystemClock;
 
+import info.nightscout.androidaps.plugins.Treatments.Treatment;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -208,11 +209,14 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
 
         Double delivering = 0d;
 
+        Treatment treatment = new Treatment();
+        treatment.isSMB = detailedBolusInfo.isSMB;
         while (delivering < detailedBolusInfo.insulin) {
             SystemClock.sleep(200);
             EventOverviewBolusProgress bolusingEvent = EventOverviewBolusProgress.getInstance();
             bolusingEvent.status = String.format(MainApp.gs(R.string.bolusdelivering), delivering);
             bolusingEvent.percent = Math.min((int) (delivering / detailedBolusInfo.insulin * 100), 100);
+            bolusingEvent.t = treatment;
             MainApp.bus().post(bolusingEvent);
             delivering += 0.1d;
         }

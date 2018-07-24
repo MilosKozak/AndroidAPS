@@ -119,6 +119,9 @@ public class BolusProgressDialog extends DialogFragment implements View.OnClickL
 
     @Subscribe
     public void onStatusEvent(final EventOverviewBolusProgress ev) {
+        if (ev.isSMB()) {
+            return;
+        }
         Activity activity = getActivity();
         if (activity != null) {
             activity.runOnUiThread(() -> {

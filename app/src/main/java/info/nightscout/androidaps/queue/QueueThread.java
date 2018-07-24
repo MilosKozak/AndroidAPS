@@ -62,7 +62,6 @@ public class QueueThread extends Thread {
                 long secondsElapsed = (System.currentTimeMillis() - connectionStartTime) / 1000;
 
                 if (!pump.isConnected() && secondsElapsed > Constants.PUMP_MAX_CONNECTION_TIME_IN_SECONDS) {
-                    MainApp.bus().post(new EventDismissBolusprogressIfRunning(null));
                     MainApp.bus().post(new EventPumpStatusChanged(MainApp.gs(R.string.connectiontimedout)));
                     log.debug("QUEUE: timed out");
                     pump.stopConnecting();
@@ -72,7 +71,7 @@ public class QueueThread extends Thread {
                     long last_watchdog = SP.getLong(R.string.key_btwatchdog_lastbark, 0l);
                     watchdog = watchdog && System.currentTimeMillis() - last_watchdog > (Constants.MIN_WATCHDOG_INTERVAL_IN_SECONDS * 1000);
                     if(watchdog) {
-                        log.debug("BT watchdog - toggeling the phonest bluetooth");
+                        log.debug("BT watchdog - toggling the phones' bluetooth");
                         //write time
                         SP.putLong(R.string.key_btwatchdog_lastbark, System.currentTimeMillis());
                         //toggle BT
@@ -91,7 +90,8 @@ public class QueueThread extends Thread {
                         pump.connect("watchdog");
                     } else {
                         queue.clear();
-                        log.debug("QUEUE: no connection possible");
+                        MainApp.bus().post(new EventDismissBolusprogressIfRunning(null));
+                        log.debug("QUEUE: no connection possible, queue cleared");
                         MainApp.bus().post(new EventPumpStatusChanged(EventPumpStatusChanged.DISCONNECTING));
                         pump.disconnect("Queue empty");
                         MainApp.bus().post(new EventPumpStatusChanged(EventPumpStatusChanged.DISCONNECTED));
