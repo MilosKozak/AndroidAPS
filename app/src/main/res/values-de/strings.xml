@@ -40,8 +40,8 @@
   <string name="description_pump_mdi">Pumpen-Integration für Personen, die täglich mehrere Injektionen für ihre Diabetestherapie vornehmen</string>
   <string name="description_pump_virtual">Pumpen-Integration für Pumpen, die noch nicht über einen Treiber verfügen (Open Loop)</string>
   <string name="description_sensitivity_aaps">Die Empfindlichkeit wird genauso wie bei Oref0 berechnet, aber du kannst das Zeitfenster in Vergangenheit angeben. Die minimale Kohlenhydrat-Absorptionsrate wird aus der maximalen Absorptionsdauer aus den Einstellungen abgeleitet.</string>
-  <string name="description_sensitivity_oref0">Die Empfindlichkeit wird aus den letzten 24 Stunden berechnet und Kohlenhydrate (falls nicht bereits absorbiert) werden nach der in den Einstellungen angegebenen Zeit als absorbiert betrachtet.</string>
-  <string name="description_sensitivity_oref1">Sensitivity is calculated from 8h data in the past and carbs (if not absorbed) are cut after time specified in preferences. Plugin also calculates UAM.</string>
+  <string name="description_sensitivity_oref0">Die Empfindlichkeit wird aus den Daten der letzten 24 Stunden berechnet und Kohlenhydrate (falls nicht bereits absorbiert) werden nach der in den Einstellungen angegebenen Zeit als absorbiert betrachtet.</string>
+  <string name="description_sensitivity_oref1">Die Empfindlichkeit wird aus den Daten der letzten 8 Stunden berechnet und Kohlenhydrate (falls nicht bereits absorbiert) werden nach der in den Einstellungen angegebenen Zeit als absorbiert betrachtet. Das Plugin bezieht Zeiträume, in denen UAM annimmt, dass Kohlenhydrate aktiv waren, nicht mit in die Berechnung ein.</string>
   <string name="description_sensitivity_weighted_average">Sensitivity is calculated as a weighted average from deviations. Newer deviations have higher weight. Minimal carb absorption is calculated from max carb absorption time from preferences. This algorithm is the fastest in following sensitivity changes.</string>
   <string name="description_source_dexcom_g5">Receive BG values from the patched Dexcom G5 app.</string>
   <string name="description_source_glimp">Receive BG values from Glimp.</string>
