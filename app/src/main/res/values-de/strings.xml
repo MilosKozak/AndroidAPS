@@ -26,11 +26,11 @@
   <string name="description_ma">Stand des Algorithmus in 2016</string>
   <string name="description_ama">Stand des Algorithmus in 2017</string>
   <string name="description_smb">Der aktuellste Algorithmus für erfahrene Nutzer</string>
-  <string name="description_overview">Displays the current state of your loop and buttons for most common actions</string>
-  <string name="description_persistent_notification">Shows an ongoing notification with a short overview of what your loop is doing</string>
-  <string name="description_profile_local">Define a profile which is offline available.</string>
-  <string name="description_profile_nightscout">Provides the profile you have defined in Nightscout</string>
-  <string name="description_profile_simple">Define a profile with only one time block.</string>
+  <string name="description_overview">Zeigt den aktuellen Status deines Loops und Knöpfe für die gelaufigsten Aktionen an</string>
+  <string name="description_persistent_notification">Zeigt eine fortlaufende Benachrichtigung mit einer kurzen Übersicht darüber, was dein Loop derzeit tut</string>
+  <string name="description_profile_local">Definiere ein Profil, das auch offline verfügbar ist.</string>
+  <string name="description_profile_nightscout">Stellt das Profil zur Verfügung, das in Nightscout definiert ist</string>
+  <string name="description_profile_simple">Definiere ein Profil mit nur einem Zeitblock.</string>
   <string name="description_pump_combo">Pump integration for Accu-Chek Combo pumps, requires having ruffy installed</string>
   <string name="description_pump_dana_r">Pump integration for DANA Diabecare R pumps</string>
   <string name="description_pump_dana_r_korean">Pump integration for domestic DANA Diabecare R pumps</string>
