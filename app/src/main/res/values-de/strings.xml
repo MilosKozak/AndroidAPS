@@ -31,11 +31,11 @@
   <string name="description_profile_local">Definiere ein Profil, das auch offline verfügbar ist.</string>
   <string name="description_profile_nightscout">Stellt das Profil zur Verfügung, das in Nightscout definiert ist</string>
   <string name="description_profile_simple">Definiere ein Profil mit nur einem Zeitblock.</string>
-  <string name="description_pump_combo">Pump integration for Accu-Chek Combo pumps, requires having ruffy installed</string>
-  <string name="description_pump_dana_r">Pump integration for DANA Diabecare R pumps</string>
-  <string name="description_pump_dana_r_korean">Pump integration for domestic DANA Diabecare R pumps</string>
-  <string name="description_pump_dana_r_v2">Pump integration for DANA Diabecare R pumps with upgraded firmware</string>
-  <string name="description_pump_dana_rs">Pump integration for DANA Diabecare RS pumps</string>
+  <string name="description_pump_combo">Pumpen-Integration für Accu-Chek Combo Pumpen, erfordert, dass ruffy installiert ist</string>
+  <string name="description_pump_dana_r">Pumpen-Integration für DANA Diabecare R Pumpen</string>
+  <string name="description_pump_dana_r_korean">Pumpen-Integration für koreanische DANA Diabecare R Pumpen</string>
+  <string name="description_pump_dana_r_v2">Pumpen-Integration für DANA Diabecare R Pumpen mit aktualisierter Firmware</string>
+  <string name="description_pump_dana_rs">Pumpen-Integration für Dana Diabecare RS Pumpen</string>
   <string name="description_pump_insight">Pump integration for Accu-Chek Insight pumps, requires having SightRemote installed</string>
   <string name="description_pump_mdi">Pump integration for people who do multiple daily injections for their diabetes therapy</string>
   <string name="description_pump_virtual">Pump integration for pumps which don\'t have any driver yet (Open Loop)</string>
