@@ -463,11 +463,11 @@
   <string name="smscommunicator_shortname">SMS</string>
   <string name="short_tabtitles">Krátké názvy modulů</string>
   <string name="always_use_shortavg">Vždy používat krátkodobý průměrný rozdíl glykémií místo rozdílu posledních 2 hodnot</string>
-  <string name="always_use_shortavg_summary">Výhodné, pokud data z xDripu obsahují velký šum</string>
+  <string name="always_use_shortavg_summary">Výhodné, pokud data z xDripu obsahují velký šum.</string>
   <string name="advancedsettings_title">Rozšířené nastavení</string>
   <string name="danar_model">Model: %1$02X Protokol: %2$02X Kód: %3$02X</string>
   <string name="profile">Profil</string>
-  <string name="openapsama_max_daily_safety_multiplier_summary">Výchozí hodnota: 3 Toto je klíčová hodnota zabezpečení. Říká, že maximánlní nastavitelný bazál je trojnásobkem maximálního denního bazálu. Patrně to nebudete muset měnit, případně si přečtete o tématu \"3x max denní; 4x aktuální\"</string>
+  <string name="openapsama_max_daily_safety_multiplier_summary">Výchozí hodnota: 3 Toto je klíčová hodnota zabezpečení. Říká, že maximální nastavitelný bazál je trojnásobkem maximálního denního bazálu. Patrně to nebudete muset měnit, případně si přečtete o tématu \"3x max denní; 4x aktuální\".</string>
   <string name="openapsama_current_basal_safety_multiplier_summary">Výchozí hodnota: 4 Toto je druhá klíčová hodnota. Říká, že maximální hodnota dočasného bazálu nikdy nebude větší, než čtyřnásobek aktuálního bazálu. Je to proto, aby se lidé nedostali do hodnot nebezpečných bazálu dříve, než pochpí jak OpenAPS pracuje. Znovy vychozí hodnota je 4 a většina lidí ji nidky nebude muset změnit. Pokud nestačí, obvykle je problém někde jinde.</string>
   <string name="openapsama_autosens_max_summary">Výchozí hodnota: 1.2 Toto je bezpečnostní nastavení pro detekci sensitivity. Říká, že autosens může zvýšit bazály, snížit ISF a snížit cílovou hodnotu glykémie o 20%</string>
   <string name="openapsama_autosens_min_summary">Výchozí hodnota: 0.7 Toto je bezpečnostní nastavení pro detekci sensitivity. Říká, že autosens může snížit bazály, zvýšit ISF a zvýšit cílovou hodnotu glykémie na 70%</string>
