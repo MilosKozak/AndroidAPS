@@ -49,9 +49,9 @@
   <string name="description_source_ns_client">Lade Blutzucker-Daten von Nightscout</string>
   <string name="description_source_xdrip">Empfange Blutzucker-Werte von xDrip.</string>
   <string name="description_treatments">Saves all treatments that were made</string>
-  <string name="description_wear">Monitor and control AndroidAPS using your WearOS watch.</string>
-  <string name="description_xdrip_status_line">Show information about your loop on your xDrip+ watchface.</string>
-  <string name="description_sms_communicator">Remote control AndroidAPS using SMS commands.</string>
+  <string name="description_wear">Überwache und steuere AndroidAPS mit Deiner WearOS-Smartwatch.</string>
+  <string name="description_xdrip_status_line">Zeige Loop-Informationen auf Deinem xDrip+-Watchface.</string>
+  <string name="description_sms_communicator">Steuere AndroiAPS fern mittels SMS-Anweisungen.</string>
   <string name="objectives_button_start">Start</string>
   <string name="objectives_button_verify">Bestätigen</string>
   <string name="nsprofileview_units_label">Einheiten</string>
@@ -160,7 +160,7 @@
   <string name="changeyourinput">Ändere deine Eingabe!</string>
   <string name="setextendedbolusquestion">Setze neuen verlängerten Bolus:</string>
   <string name="configbuilder_bgsource">BZ-Quelle</string>
-  <string name="configbuilder_bgsource_description">Where should AndroidAPS gain  it\'s data from?</string>
+  <string name="configbuilder_bgsource_description">Woher soll AndroidAPS seine Blutzuckerwerte beziehen?</string>
   <string name="xdrip">xDrip</string>
   <string name="apsmode_title">APS-Modus</string>
   <string name="closedloop">Closed Loop</string>
@@ -426,7 +426,7 @@
   <string name="openapsma_scriptdebugdata_label">Skript Debug</string>
   <string name="openapsama_useautosens">Verwende AMA Autosense</string>
   <string name="refresheventsfromnightscout">Aktualisiere Einträge von Nightscout</string>
-  <string name="deletefuturetreatments">Delete treatments in the future</string>
+  <string name="deletefuturetreatments">Lösche Behandlungen in der Zukunft</string>
   <string name="eatingsoon">Bald essen</string>
   <string name="hypo">Hypo</string>
   <string name="activity">Aktivität</string>
@@ -611,7 +611,7 @@
   <string name="openaps">OpenAPS</string>
   <string name="uploader">Uploader</string>
   <string name="configbuilder_sensitivity">Empfindlichkeitserkennung</string>
-  <string name="configbuilder_sensitivity_description">Which sensitivity algorithm should be used?</string>
+  <string name="configbuilder_sensitivity_description">Welcher Empfindlichkeits-Algorithmus soll verwendet werden?</string>
   <string name="sensitivity_shortname">SENS</string>
   <string name="sensitivityoref0">Sensitivität Oref0</string>
   <string name="sensitivityoref1">Sensitivity Oref1</string>
