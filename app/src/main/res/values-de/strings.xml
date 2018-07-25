@@ -85,7 +85,7 @@
   <string name="vitualpump_label">VIRTUELLE PUMPE</string>
   <string name="pump_basebasalrate_label">Basis-Basalrate</string>
   <string name="pump_tempbasal_label">TBR</string>
-  <string name="virtualpump_extendedbolus_label">Verlängerter Bolus</string>
+  <string name="virtualpump_extendedbolus_label">Verzögerter Bolus</string>
   <string name="pump_battery_label">Batterie</string>
   <string name="pump_reservoir_label">Reservoir</string>
   <string name="virtualpump_resultok">OK</string>
