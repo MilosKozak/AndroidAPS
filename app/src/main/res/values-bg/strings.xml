@@ -117,8 +117,8 @@
   <string name="virtualpump">Виртуална помпа</string>
   <string name="careportal">Careportal</string>
   <string name="configbuilder_pump">Помпа</string>
-  <string name="configbuilder_pump_description">Which pump would you like to use with AndroidAPS?</string>
-  <string name="configbuilder_treatments">Treatments</string>
+  <string name="configbuilder_pump_description">Коя помпа ще използвате с AndroidAPS?</string>
+  <string name="configbuilder_treatments">Лечения</string>
   <string name="configbuilder_treatments_description">Which plugin should be used for treatment handling?</string>
   <string name="configbuilder_profile">Профил</string>
   <string name="configbuilder_profile_description">Which profile should AndroidAPS use?</string>
