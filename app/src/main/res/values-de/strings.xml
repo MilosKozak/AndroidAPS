@@ -1014,24 +1014,24 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
   <string name="danar_shutdown">Shutdown(hours)</string>
   <string name="danar_lowreservoir">Low reservoir (Units)</string>
   <string name="danar_saveuseroptions">Save options to pump</string>
-  <string name="option_on">On</string>
-  <string name="option_off">Off</string>
+  <string name="option_on">Ein</string>
+  <string name="option_off">Aus</string>
   <string name="open_navigation">Open navigation</string>
   <string name="close_navigation">Close navigation</string>
   <string name="nav_plugin_preferences">Plugin preferences</string>
-  <string name="completed_well_done">Completed, well done!</string>
-  <string name="not_completed_yet">Not completed yet</string>
-  <string name="time_elapsed">Time elapsed</string>
-  <string name="nth_objective">%1$d. Objective</string>
+  <string name="completed_well_done">Abgeschlossen, gut gemacht!</string>
+  <string name="not_completed_yet">Noch nicht vollständig ausgefüllt</string>
+  <string name="time_elapsed">Vergangene Zeit</string>
+  <string name="nth_objective">%1$d. Ziel</string>
   <string name="poctech">Poctech</string>
-  <string name="description_source_poctech">Receive BG values from Poctech app</string>
-  <string name="high_temptarget_raises_sensitivity_title">High temptarget raises sensitivity</string>
-  <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Raise sensitivity for temptargets >= 100]]></string>
-  <string name="low_temptarget_lowers_sensitivity_title">Low temptarget lowers sensitivity</string>
-  <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Lower sensitivity for temptargets < 100]]></string>
-  <string name="combo_invalid_setup">Invalid pump setup, check the docs and verify that the Quick Info menu is named QUICK INFO using the 360 configuration software.</string>
-  <string name="custom">Custom</string>
-  <string name="largetimedifftitle">Large Time Difference</string>
+  <string name="description_source_poctech">Empfange Blutzucker-Werte von der Poctech-App.</string>
+  <string name="high_temptarget_raises_sensitivity_title">Hohe temporäre Ziele erhöhen die Sensitivität</string>
+  <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Erhöhe die Sensitivität für temporäre Ziele >= 100]]></string>
+  <string name="low_temptarget_lowers_sensitivity_title">Niedrige temporäre Ziele senken die Sensitivität</string>
+  <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Senke die Sensitivität für temporäre Ziele < 100]]></string>
+  <string name="combo_invalid_setup">Ungültige Pumpen-Einstellungen. Lies das Wiki und stelle mit der 360° Konfigurations-Software sicher, dass das Quick-Info-Menü \"QUICK INFO\" heißt.</string>
+  <string name="custom">Benutzerdefiniert</string>
+  <string name="largetimedifftitle">Große Zeitdifferenz</string>
   <string name="largetimediff">Large time difference:\nTime in pump is off by more than 1.5 hours.\nPlease adjust the time manually on the pump and make sure that reading the history from the pump does not cause unexpected behaviour.\nIf possible, remove the history from the pump before changing the time or disable the closed loop for one DIA after the last wrong history entry but minimum one DIA from now.</string>
   <string name="careportal_removestartedevents">Clean AndroidAPS started</string>
   <string name="storedsettingsfound">Stored settings found</string>
@@ -1039,18 +1039,18 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
   <string name="error_adding_treatment_title">Treatment data incomplete</string>
   <!-- TODO convert to proper style -->
   <string name="error_adding_treatment_message" formatted="false">A treatment (insulin: %.2f, carbs: %d, at: %s) could not be added to treatments. Please check and manually add a record as appropriate.</string>
-  <string name="generated_ecarbs_note">Generated eCarbs with amount: %1$dg, duration: %2$dh, delay: %3$dm</string>
-  <string name="openaps_noasdata">No autosens data available</string>
+  <string name="generated_ecarbs_note">eCarbs: %1$d g (%2$d h), delay: %3$d m</string>
+  <string name="openaps_noasdata">Keine autosens Daten verfügbar</string>
   <plurals name="objective_days">
-    <item quantity="one">%d day</item>
-    <item quantity="other">%d days</item>
+    <item quantity="one">%d Tag</item>
+    <item quantity="other">%d Tag</item>
   </plurals>
   <plurals name="objective_hours">
-    <item quantity="one">%d hour</item>
-    <item quantity="other">%d hours</item>
+    <item quantity="one">%d Stunde</item>
+    <item quantity="other">%d Stunde</item>
   </plurals>
   <plurals name="objective_minutes">
-    <item quantity="one">%d minute</item>
-    <item quantity="other">%d minutes</item>
+    <item quantity="one">%d Minute</item>
+    <item quantity="other">%d Minuten</item>
   </plurals>
 </resources>
