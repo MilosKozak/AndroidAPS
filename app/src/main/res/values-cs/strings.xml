@@ -468,16 +468,16 @@
   <string name="danar_model">Model: %1$02X Protokol: %2$02X Kód: %3$02X</string>
   <string name="profile">Profil</string>
   <string name="openapsama_max_daily_safety_multiplier_summary">Výchozí hodnota: 3 Toto je klíčová hodnota zabezpečení. Říká, že maximální nastavitelný bazál je trojnásobkem maximálního denního bazálu. Patrně to nebudete muset měnit, případně si přečtete o tématu \"3x max denní; 4x aktuální\".</string>
-  <string name="openapsama_current_basal_safety_multiplier_summary">Výchozí hodnota: 4 Toto je druhá klíčová hodnota. Říká, že maximální hodnota dočasného bazálu nikdy nebude větší, než čtyřnásobek aktuálního bazálu. Je to proto, aby se lidé nedostali do hodnot nebezpečných bazálu dříve, než pochpí jak OpenAPS pracuje. Znovy vychozí hodnota je 4 a většina lidí ji nidky nebude muset změnit. Pokud nestačí, obvykle je problém někde jinde.</string>
+  <string name="openapsama_current_basal_safety_multiplier_summary">Výchozí hodnota: 4 Toto je druhá klíčová hodnota. Říká, že maximální hodnota dočasného bazálu nikdy nebude větší, než čtyřnásobek aktuálního bazálu. Je to proto, aby se lidé nedostali do nebezpečných hodnot dříve, než pochopí jak OpenAPS pracuje. Znovu, výchozí hodnota je 4 a většina lidí ji nikdy nebude muset změnit. Pokud nestačí, obvykle je problém někde jinde.</string>
   <string name="openapsama_autosens_max_summary">Výchozí hodnota: 1.2 Toto je bezpečnostní nastavení pro detekci sensitivity. Říká, že autosens může zvýšit bazály, snížit ISF a snížit cílovou hodnotu glykémie o 20%</string>
   <string name="openapsama_autosens_min_summary">Výchozí hodnota: 0.7 Toto je bezpečnostní nastavení pro detekci sensitivity. Říká, že autosens může snížit bazály, zvýšit ISF a zvýšit cílovou hodnotu glykémie na 70%</string>
   <string name="openapsama_autosens_adjusttargets">Úprava cílové glykémie pomocí Autosens</string>
-  <string name="openapsama_autosens_adjusttargets_summary">Výchozí hodnota: zapnuto Toto nastavení říká, že autosens může měnit také cílové hodnoty glykémií.</string>
-  <string name="openapsama_bolussnooze_dia_divisor_summary">Výchozí hodnota: 2 Toto nastavení říká, po jakou část z hodnoty DIA smyčka po bolusu čeká a nereaguje na změny glykémií (zde 3DIA/2 = 1,5h)</string>
-  <string name="openapsama_min_5m_carbimpact_summary">Výchozí hodnota: 3.0 Tato hodnota definuje minimální část strávených sacharidů za každých 5 min. Výchozí hodnota je 3mg/dl/5min. Tato hodnota ovlivňuje výpočet COB</string>
-  <string name="openapsama_link_to_preferncejson_doc_txt">Pozor! Za normálních okolností tyto hodnoty nemusíte měnit. Klikněte ZDE, PŘEČTĚTE si informace a UJISTĚTE se, že jim rozumíte dříve, než je začnete měnit.</string>
-  <string name="error_only_numeric_digits_allowed">Povoleny pouze číslice</string>
-  <string name="error_only_numeric_digits_range_allowed">Povoleny pouze čísla v rozsahu %1$s - %2$s</string>
+  <string name="openapsama_autosens_adjusttargets_summary">Výchozí hodnota: zapnuto\nToto nastavení říká, že autosens může měnit také cílové hodnoty glykémií.</string>
+  <string name="openapsama_bolussnooze_dia_divisor_summary">Výchozí hodnota: 2\nToto nastavení říká, po jakou část z hodnoty DIA smyčka po bolusu čeká a nereaguje na změny glykémií (zde 3DIA/2 = 1,5h).</string>
+  <string name="openapsama_min_5m_carbimpact_summary">Výchozí hodnota: 3.0 Tato hodnota definuje minimální část strávených sacharidů za každých 5 min. Výchozí hodnota je 3mg/dl/5min. Tato hodnota ovlivňuje výpočet COB.</string>
+  <string name="openapsama_link_to_preferncejson_doc_txt">Pozor!\nZa normálních okolností tyto hodnoty nemusíte měnit. Klikněte ZDE, PŘEČTĚTE si informace a UJISTĚTE se, že jim rozumíte dříve, než je začnete měnit.</string>
+  <string name="error_only_numeric_digits_allowed">Povoleny pouze číslice.</string>
+  <string name="error_only_numeric_digits_range_allowed">Povoleny pouze čísla v rozsahu %1$s - %2$s.</string>
   <string name="error_field_must_not_be_empty">Toto pole nesmí být prázdné</string>
   <string name="error_phone_not_valid">Neplatné telefonní číslo</string>
   <string name="smscommunicator_invalidphonennumber">Špatné telefonní číslo</string>
