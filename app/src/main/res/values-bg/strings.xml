@@ -17,10 +17,10 @@
   <string name="description_careportal">Enter advanced log book entries.</string>
   <string name="description_config_builder">За конфигурация на активните плъгини</string>
   <string name="description_objectives">Learning program</string>
-  <string name="description_food">Displays the food presets defined in Nightscout</string>
-  <string name="description_insulin_rapid">Insulin preset for Humalog and NovoRapid / NovoLog</string>
-  <string name="description_insulin_ultra_rapid">Insulin preset for Fiasp</string>
-  <string name="description_insulin_free_peak">Allows you to define the peak of the insulin activity and should only be used by advanced users</string>
+  <string name="description_food">Показва въведените в Nightscout храни</string>
+  <string name="description_insulin_rapid">За инсулините Humalog и NovoRapid / NovoLog</string>
+  <string name="description_insulin_ultra_rapid">крива за ползващите Fiasp</string>
+  <string name="description_insulin_free_peak">Позволява да дефинирате самим пика на инсулиновата активност и трябва да го използват само напреднали потребители</string>
   <string name="description_loop">Activate or deactivate the implementation triggering the loop.</string>
   <string name="description_ns_client">Synchronizes your data with Nightscout</string>
   <string name="description_ma">State of the algorithm in 2016</string>
