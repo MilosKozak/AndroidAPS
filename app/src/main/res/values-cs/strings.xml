@@ -421,7 +421,7 @@
   <string name="openapsama">OpenAPS AMA</string>
   <string name="short_avgdelta">Krátkodobý průměr</string>
   <string name="long_avgdelta">Dlouhodobý průměr</string>
-  <string name="array_of_elements">Pole %d prvků. Aktuální hodnota:</string>
+  <string name="array_of_elements">Pole %d prvků.\nAktuální hodnota:</string>
   <string name="openapsma_autosensdata_label">Data detekce senzitivity</string>
   <string name="openapsma_scriptdebugdata_label">Ladící informace</string>
   <string name="openapsama_useautosens">Používat autodetekci senzitivity</string>
