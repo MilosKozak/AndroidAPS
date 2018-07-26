@@ -897,7 +897,7 @@
   <string name="about_link_urls"> http://www.androidaps.org  facebook: http://facebook.androidaps.org</string>
   <string name="combo_check_date">Последният болус е с време от преди 24 часа или е в бъдеще. Моля, проверете дали датата на помпата е зададена правилно.</string>
   <string name="combo_suspious_bolus_time">Времето/датата на доставения болус на помпата изглежда погрешно, IOB вероятно е неправилно. Моля, проверете часа/датата на помпата.</string>
-  <string name="profileswitch_ismissing">Смяната на профила липсва. Моля, направете превключване на потребителския профил или натиснете \"Активирай профил\" в Локален профил.</string>
+  <string name="profileswitch_ismissing">Смяната на профила не е отразена. Моля, направете превключване на потребителския профил или натиснете \"Активирай профил\" в Локален профил.</string>
   <string name="combo_bolus_count">Брой болуси</string>
   <string name="combo_tbr_count">Брой TBR</string>
   <string name="objectivenotstarted" formatted="false">ЦЕЛ %d не е стартирана</string>
