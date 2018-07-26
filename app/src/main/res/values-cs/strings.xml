@@ -539,6 +539,7 @@
   <string name="needwhitelisting">%s potřebuje vypnout optimalizace baterie pro optimální výkon</string>
   <string name="loopsuspended">Smyčka pozastavena</string>
   <string name="loopsuspendedfor" formatted="false">Pozastaveno (%d min)</string>
+  <string name="loopsuperbolusfor" formatted="false">Superbolus (%d m)</string>
   <string name="suspendloopfor1h">Pozastavit smyčku na 1 h</string>
   <string name="suspendloopfor2h">Pozastavit smyčku na 2 h</string>
   <string name="suspendloopfor3h">Pozastavit smyčku na 3 h</string>
@@ -557,17 +558,25 @@
   <string name="superbolus">Superbolus</string>
   <string name="ns_logappstartedevent">Zaznamenávat spuštění aplikace do NS</string>
   <string name="restartingapp">Ukončuji aplikaci, aby se nastavení projevilo.</string>
+  <string name="danarv2pump">DanaRv2</string>
   <string name="configbuilder_insulin">Inzulín</string>
   <string name="configbuilder_insulin_description">Jaký druh inzulínu používáte?</string>
   <string name="fastactinginsulin">Rychlý inzulín</string>
+  <string name="fastactinginsulincomment">Novorapid</string>
+  <string name="ultrafastactinginsulincomment">Fiasp</string>
   <string name="insulin_shortname">INZ</string>
   <string name="enablesuperbolus">Povolit superbolus</string>
   <string name="enablesuperbolus_summary">Povolení superbolusu v kalkulátoru. Nepovolujte, dokud se nenaučíte, co to opravdu dělá. MŮŽE ZPŮSOBIT PŘEDÁVKOVÁNÍ INZULÍNEM PŘI NESPRÁVNÉM POUŽITÍ!</string>
+  <string name="iob">IOB</string>
+  <string name="cob">COB</string>
+  <string name="virtualpump_firmware_label">Firmware</string>
   <string name="pump_lastconnection_label">Poslední spojení</string>
+  <string name="danar_bluetooth_status">Stav Bluetooth</string>
   <string name="nav_about">O aplikaci</string>
   <string name="smscommunicator_missingsmspermission">Chybějící povolení SMS</string>
   <string name="xdripstatus_settings">Status z xDripu (hodinky)</string>
   <string name="xdripstatus">Statusový řádek xDripu (hodinky)</string>
+  <string name="xdripstatus_shortname">XDS</string>
   <string name="wear_showbgi_title">Zobrazovat BGI</string>
   <string name="wear_showbgi_summary">Přidat BGI do stavové řádky</string>
   <string name="ns_noupload">Zakázat nahrávání do NS</string>
@@ -598,8 +607,11 @@
   <string name="openapsama_autosens_period">Interval pro detekci senzitivity [h]</string>
   <string name="openapsama_autosens_period_summary">Počet hodin do minulosti pro detekci senzitivity</string>
   <string name="pump">Pumpa</string>
+  <string name="openaps">OpenAPS</string>
+  <string name="uploader">Uploader</string>
   <string name="configbuilder_sensitivity">Detekce citlivosti</string>
   <string name="configbuilder_sensitivity_description">Jaký druh algoritmu pro detekci citlivosti chcete použít?</string>
+  <string name="sensitivity_shortname">SENZ</string>
   <string name="sensitivityoref0">Sensitivita Oref0</string>
   <string name="sensitivityoref1">Sensitivita Oref1</string>
   <string name="sensitivityaaps">Sensitivita AAPS</string>
@@ -611,11 +623,15 @@
   <string name="careportal_insulinage_label_short">INZ</string>
   <string name="careportal_canulaage_label_short">KAN</string>
   <string name="careportal_pbage_label_short">BAT</string>
+  <string name="openaps_short">OAPS</string>
+  <string name="uploader_short">UPLD</string>
   <string name="basal_short">BAZ</string>
+  <string name="virtualpump_extendedbolus_label_short">EXT</string>
   <string name="keep_screen_on_title">Nechat obrazovku zapnutou</string>
   <string name="keep_screen_on_summary">Zabránit Androidu ve zhasínání obrazovky. Bez připojení do nabíječky vybije velice rychle baterii!</string>
   <string name="sensitivity_warning">Při zapnuté detekci sensitivity nezapomeňte vkládat všechny sacharidy. Jinak budou odchylky mylně vyhodnocovány jako změna sensitivity !!</string>
   <string name="sensitivityweightedaverage">Sensitivita vážený průměr</string>
+  <string name="mdtp_ok">OK</string>
   <string name="mdtp_cancel">Zrušit</string>
   <string name="notloadedplugins">Všechny profily nenačteny!</string>
   <string name="valuesnotstored">Hodnoty nejsou uloženy!</string>
@@ -623,9 +639,12 @@
   <string name="ns_localbroadcasts_title">Povolení odesílaní</string>
   <string name="careportal_activity_label">AKTIVITA &amp; ZPĚTNÁ VAZBA</string>
   <string name="careportal_carbsandbolus_label">SACHARIDY &amp; BOLUSY</string>
+  <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
   <string name="careportal_pump_label">PUMPA</string>
   <string name="overview_newtempbasal_basalabsolute">Hodnota bazálu [U/h]</string>
   <string name="careportal_newnstreatment_duration_min_label">Trvání [min]</string>
+  <string name="openapssmb">OpenAPS SMB</string>
+  <string name="smb_shortname">SMB</string>
   <string name="enableuam">Povolit UAM</string>
   <string name="enablesmb">Povolit SMB</string>
   <string name="enablesmb_summary">Použít super mikro bolusy místo dočasných bazálů pro zrychlení účinku</string>
@@ -647,6 +666,8 @@
   <string name="emptyreservoir">Prázdný zásobník</string>
   <string name="bloodsugarmeasurementalert">Výstraha měření glykémie</string>
   <string name="remaininsulinalert">Zbývající inzulín</string>
+  <string name="danarspump">DanaRS</string>
+  <string name="danarspump_shortname">Dana</string>
   <string name="selectedpump">Vybraná pumpa</string>
   <string name="pairpump">Párování pumpy</string>
   <string name="bolusspeed">Rychlost bolusu</string>
@@ -672,7 +693,13 @@
   <string name="wearcontrol_summary">Nastavování dočasných cílů a vkládání ošetření na hodinkách Wear.</string>
   <string name="connectiontimedout">Vypršel čas připojování</string>
   <string name="food">Jídlo</string>
+  <string name="shortgramm">g</string>
+  <string name="shortminute">m</string>
+  <string name="shorthour">h</string>
   <string name="none"><![CDATA[<prázdný>]]></string>
+  <string name="shortkilojoul">kJ</string>
+  <string name="shortenergy">En</string>
+  <string name="shortprotein">Pr</string>
   <string name="shortfat">Tuk</string>
   <string name="active"><![CDATA[<Aktivní>]]></string>
   <string name="waitingforestimatedbolusend" formatted="false">Čekání na konec bolusu. Zbývá %d sek.</string>
@@ -688,6 +715,8 @@
   <string name="enable_pump_unreachable_alert">Výstraha při nedostupné pumpě</string>
   <string name="pump_unreachable_threshold">Limit pro nedostupnost pumpy [min]</string>
   <string name="urgent_alarm">Urgentní alarm</string>
+  <string name="info">INFO</string>
+  <string name="bluetooth">Bluetooth</string>
   <string name="btwatchdog_title">Hlídač BT</string>
   <string name="btwatchdog_summary">Vypne na 1 sek bluetooth v telefonu, pokud se nedaří připojit k pumpě. Může to pomoci u telefonů, které mají problémy s BT</string>
   <string name="DexcomG5">DexcomG5 aplikace (upravená)</string>
@@ -709,6 +738,7 @@
   <string name="overview_editquickwizard_usetrend">Kalkulace trendu</string>
   <string name="overview_editquickwizard_usesuperbolus">Kalkulace superbolusu</string>
   <string name="yes">Ano</string>
+  <string name="no">Ne</string>
   <string name="positiveonly">Pouze kladné</string>
   <string name="negativeonly">Pouze záporné</string>
   <string name="overview_editquickwizard_usecob">Kalkulace COB</string>
@@ -758,6 +788,7 @@
   <string name="combo_error_bolus_verification_failed">Podání bolusu a kontrola historie pumpy selhala. Zkontrolujte pumpu ručně. Pokus bolus proběhl, načte se při příštím připojení automaticky.</string>
   <string name="combo_reservoir_level_insufficient_for_bolus">Nedostatek inzulínu pro takovýto bolus</string>
   <string name="extendedbolusdeliveryerror">Chyba spuštění extended bolusu</string>
+  <string name="insightpump_shortname">Insight</string>
   <string name="insightpump">Insight</string>
   <string name="status_no_colon">Stav</string>
   <string name="changed">Změněno</string>
@@ -769,6 +800,7 @@
   <string name="insight_min_left">min zbývá</string>
   <string name="log_book">Historie</string>
   <string name="insight_last_completed_action">Poslední vykonaný příkaz</string>
+  <string name="insight_min">min</string>
   <string name="insight_stay_always_connected">Zůstat stále připojený</string>
   <string name="insight_history_idle">NEČINNÝ</string>
   <string name="insight_history_syncing">SYNCHRONIZUJI</string>
@@ -817,6 +849,7 @@
   <string name="carb_increment_button_message">Množství sacharidů přidané po stisknutí tlačítka</string>
   <string name="insulin_increment_button_message">Množství inzulínu přidané po stisknutí tlačítka</string>
   <string name="error_starting_cgm">Nelze spustit aplikace CGM. Ujistěte se, že je nainstalovaná.</string>
+  <string name="overview_cgm">CGM</string>
   <string name="nav_historybrowser">Prohlížeč historie</string>
   <string name="wear_notifysmb_title">Oznámení při SMB</string>
   <string name="wear_notifysmb_summary">Ukazovat SMB na hodinkách jako normální bolus.</string>
@@ -847,6 +880,7 @@
   <string name="closed_loop_disabled_on_dev_branch">Běží DEV verze. Uzavřená smyčka je zakázána.</string>
   <string name="engineering_mode_enabled">Expertní mód povolen</string>
   <string name="not_eng_mode_or_release">Expertní mód není povolen a neběží vydaná verze</string>
+  <string name="pump_basebasalrate">%.2f U/h</string>
   <string name="combo_actvity_reading_basal_profile">Načítám bazální profil</string>
   <string name="combo_bolus_rejected_due_to_pump_history_change">Historie v pumpě se změnila po spočítání bolusu. Bolus nebyl proveden. Prosím spočítejte ho znovu, pokud je to stále potřeba.</string>
   <string name="combo_error_updating_treatment_record">Bolus úspěšně podán, ale zápis se nezdařil. To se může stát pokud jsou podány bolusy stejné velikosti během 2 minut. Zkontrolujte historii pumpy a zadejte chybějící položky do ošetření. Ujistěte se, že nezadáváte stejnou velikost v rámci 1 minuty.</string>
@@ -890,6 +924,7 @@
   <string name="smbalwaysdisabled">\"SMB vždy\" a \"po jídle\" zakázáno protože zdroj glykémie nepodporuje rozšířené filtrování</string>
   <string name="smbnotallowedinopenloopmode">SBM není povoleno v otevřené smyčce</string>
   <string name="food_short">Jídlo</string>
+  <string name="reset">Resetovat</string>
   <string name="waitingfortimesynchronization">Čekání na synchronizaci času (%d s)</string>
   <string name="loopdisconnectedfor">Odpojeno (%d m)</string>
   <string name="automatic_careportal_events">Automatické vkládání péče</string>
@@ -915,7 +950,9 @@
   <string name="firstcarbsincrement">První přídavek sacharidů</string>
   <string name="secondcarbsincrement">Druhý přídavek sacharidů</string>
   <string name="thirdcarbsincrement">Třetí přídavek sacharidů</string>
+  <string name="cgm">CGM</string>
   <string name="ns_wifionly">Používat pouze WiFi</string>
+  <string name="ns_wifi_ssids">WiFi SSID</string>
   <string name="ns_chargingonly">Pouze při nabíjení</string>
   <string name="connectionsettings_title">Nastavení připojení</string>
   <string name="ns_wifi_allowedssids">Povolené SSID (oddělené středníkem)</string>
@@ -961,6 +998,7 @@
   <string name="danar_timedisplay">Formát času</string>
   <string name="danar_buttonscroll">Posun při stisknutí tlačítka</string>
   <string name="danar_beep">Zvuk při stisknutí tlačítka</string>
+  <string name="danar_pumpalarm">Alarm</string>
   <string name="danar_pumpalarm_sound">Zvuk</string>
   <string name="danar_pumpalarm_vibrate">Vibrace</string>
   <string name="danar_pumpalarm_both">Oboje</string>
@@ -979,6 +1017,7 @@
   <string name="not_completed_yet">Nedokončeno</string>
   <string name="time_elapsed">Čas</string>
   <string name="nth_objective">%1$d. cíl</string>
+  <string name="poctech">Poctech</string>
   <string name="description_source_poctech">Získávat glykémie z aplikace Poctech</string>
   <string name="high_temptarget_raises_sensitivity_title">Vysoký dočasný cíl zvýší senzitivitu</string>
   <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Zvýšení senzitivity pro dočasné cíle >= 5.5]]></string>
@@ -991,6 +1030,9 @@
   <string name="careportal_removestartedevents">Vyčistit události \"AndroidAPS restartován\"</string>
   <string name="storedsettingsfound">Nalezeno uložené nastavení</string>
   <string name="allow_hardware_pump_text">POZOR: Pokud aktivuje a připojíte skutečnou pumpu, AndroidAPS nakopíruje (a bude udržovat) nastavení bazálu z aktivního profilu do pumpy. Nastavení bazálu v pumpě bude přepsáno. Pokud si nejste jistí nebo nechcete přepsat bazály v pumpě, stiskněte Zrušit a opakujte přepnutí na jinou pumpu později.</string>
+  <string name="error_adding_treatment_title">Data ošetření neúplná</string>
   <!-- TODO convert to proper style -->
+  <string name="error_adding_treatment_message">Ošetření (inzulín: %1$.2f, sacharidy: %2$d, čas: %3$s) nelze přidat. Zkontrolujte a podle potřeby ručně přidejte záznam.</string>
+  <string name="generated_ecarbs_note">Generované eCarbs: %1$dg, délka: %2$dh, zpoždění: %3$dm</string>
   <string name="openaps_noasdata">Nedostupná data o glykémiích</string>
 </resources>
