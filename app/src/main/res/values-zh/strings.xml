@@ -133,24 +133,24 @@
   <string name="configbuilder_loop">闭环</string>
   <string name="configbuilder_loop_description">使用此激活 AndroidAPS 的闭环集成。</string>
   <string name="loop_aps_label">APS</string>
-  <string name="loop_constraintsprocessed_label">After processed constraints</string>
+  <string name="loop_constraintsprocessed_label">通过约束条件之后</string>
   <string name="loop_tbrsetbypump_label">通过泵设置临时基础率</string>
-  <string name="openapsma_lastenact_label">Last enacted</string>
+  <string name="openapsma_lastenact_label">上次执行</string>
   <string name="ok">确定</string>
   <string name="cancel">取消</string>
-  <string name="noapsselected">NO APS SELECTED OR PROVIDED RESULT</string>
+  <string name="noapsselected">APS没有被选择或者提供结果</string>
   <string name="safety">安全性</string>
   <string name="openapsma_disabled">插件已禁用</string>
-  <string name="constraints_violation">Constraints violation</string>
+  <string name="constraints_violation">违反约束条件</string>
   <string name="treatmentdeliveryerror">大剂量输注错误</string>
   <string name="tempbasaldeliveryerror">临时基础输注错误</string>
   <string name="overview_newtempbasal_basalpercent">基础率数值 [%]</string>
-  <string name="overview_newtempbasal_percent_label">% (100% = current)</string>
+  <string name="overview_newtempbasal_percent_label">% (100% = 当前)</string>
   <string name="setbasalquestion">接受新的临时基础率</string>
   <string name="overview_treatment_label">治疗</string>
   <string name="overview_calculator_label">计算器</string>
   <string name="constraintapllied">应用约束!</string>
-  <string name="confirmation">Confirmation</string>
+  <string name="confirmation">确认</string>
   <string name="entertreatmentquestion">Enter new treatment:</string>
   <string name="bolus">Bolus</string>
   <string name="sms_bolus">Bolus:</string>
