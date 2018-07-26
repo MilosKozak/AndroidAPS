@@ -893,11 +893,11 @@
   <string name="combo_warning_pump_basal_rate_changed">Базалите в помпата са променени и скоро ще се обновят</string>
   <string name="combo_error_failure_reading_changed_basal_rate">Базалният процент е променен в помпата, но прочитането е неуспешно</string>
   <string name="combo_activity_checking_for_history_changes">Проверка за промени в историята на помпата</string>
-  <string name="combo_error_multiple_boluses_with_identical_timestamp">Multiple boluses with the same amount within the same minute were just imported. Only one record could be added to treatments. Please check the pump and manually add a bolus record using the Careportal tab. Make sure to create a bolus with a time no other bolus uses.</string>
+  <string name="combo_error_multiple_boluses_with_identical_timestamp">Бяха внесени няколко болуса със същото количество в рамките на една и съща минута. Само един запис може да бъде добавен към лечението. Моля, проверете помпата и ръчно добавете болус запис, като използвате раздела Careportal . Уверете се, че сте създали болус и нямате друг болус за същото време.</string>
   <string name="about_link_urls"> http://www.androidaps.org  facebook: http://facebook.androidaps.org</string>
-  <string name="combo_check_date">The last bolus is older than 24 hours or is in the future. Please check the date on the pump is set correctly.</string>
-  <string name="combo_suspious_bolus_time">Time/date of the delivered bolus on pump seems wrong, IOB is likely incorrect. Please check pump time/date.</string>
-  <string name="profileswitch_ismissing">ProfileSwitch missing. Please do a profile switch or press \"Activate Profile\" in the LocalProfile.</string>
+  <string name="combo_check_date">Последният болус е с време от преди 24 часа или е в бъдеще. Моля, проверете дали датата на помпата е зададена правилно.</string>
+  <string name="combo_suspious_bolus_time">Времето/датата на доставения болус на помпата изглежда погрешно, IOB(общ инсулин в тялото) вероятно е неправилно. Моля, проверете часа/датата на помпата.</string>
+  <string name="profileswitch_ismissing">Смяната на профила липсва. Моля, направете превключване на потребителския профил или натиснете \"Активирай профил\" в раздел \"Профил\".</string>
   <string name="combo_bolus_count">Брой болуси</string>
   <string name="combo_tbr_count">Брой TBR</string>
   <string name="objectivenotstarted" formatted="false">ЦЕЛ %d не е стартирана</string>
@@ -941,9 +941,9 @@
   <string name="absorption_cutoff_title">Макс. време за усвояване на храна (часа)</string>
   <string name="absorption_cutoff_summary">Време за което всяко хранене се счита за усвоено. Оставащите въглехидрати ще бъдат изчиствани.</string>
   <string name="time">Време</string>
-  <string name="overview_show_notes_field_in_dialogs_title">Show notes field in treatment dialogs</string>
-  <string name="next_button">Next</string>
-  <string name="previous_button">Prev</string>
+  <string name="overview_show_notes_field_in_dialogs_title">Показване на поле \"бележки\" в диалоговите прозорци за лечени</string>
+  <string name="next_button">Следващ</string>
+  <string name="previous_button">Предишен</string>
   <string name="nav_setupwizard">Setup Wizard</string>
   <string name="setupwizard_finish">FINISH</string>
   <string name="setupwizard_language_prompt">Select your language</string>
