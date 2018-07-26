@@ -14,9 +14,9 @@
   <string name="ns_sync_use_absolute_title">Винаги използвай абсолютни базални стойности</string>
   <string name="alert_dialog_storage_permission_text">Рестартирайте телефона/AndroidAPS от системните настройки или Android APS няма да записва проблемите (което е важно за работата на алгоритъма)!</string>
   <string name="description_actions">Бутони за бърз достъп до основни функции</string>
-  <string name="description_careportal">Enter advanced log book entries.</string>
+  <string name="description_careportal">Въвеждане на разширени записи в дневника.</string>
   <string name="description_config_builder">Конфигурация на активните добавки</string>
-  <string name="description_objectives">Learning program</string>
+  <string name="description_objectives">Разучаване на програмата</string>
   <string name="description_food">Показва въведените чрез Nightscout въглехидрати</string>
   <string name="description_insulin_rapid">Действие на инсулините Humalog и NovoRapid / NovoLog</string>
   <string name="description_insulin_ultra_rapid">Действие на инсулин Fiasp</string>
@@ -119,7 +119,7 @@
   <string name="configbuilder_pump">Помпа</string>
   <string name="configbuilder_pump_description">Каква помпа използвате с AndroidAPS?</string>
   <string name="configbuilder_treatments">Лечения</string>
-  <string name="configbuilder_treatments_description">Which plugin should be used for treatment handling?</string>
+  <string name="configbuilder_treatments_description">Коя приставка да използваме за леченията?</string>
   <string name="configbuilder_profile">Профил</string>
   <string name="configbuilder_profile_description">Кой тип профил да използва AndroidAPS?</string>
   <string name="configbuilder_aps">Алгоритъм за APS</string>
@@ -426,7 +426,7 @@
   <string name="openapsma_scriptdebugdata_label">Script debug</string>
   <string name="openapsama_useautosens">Разреши AMA autosens</string>
   <string name="refresheventsfromnightscout">Обнови от NS</string>
-  <string name="deletefuturetreatments">Delete treatments in the future</string>
+  <string name="deletefuturetreatments">Изтрий записите в бъдещето</string>
   <string name="eatingsoon">Преди хранене</string>
   <string name="hypo">Хипоглекимия</string>
   <string name="activity">Физ.активност</string>
