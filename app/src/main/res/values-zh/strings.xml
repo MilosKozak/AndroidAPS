@@ -21,10 +21,10 @@
   <string name="description_insulin_rapid">胰岛素预设为 Humalog(优泌乐) 和 NovoRapid(门冬)/NovoLog(诺和锐)</string>
   <string name="description_insulin_ultra_rapid">Fiasp 胰岛素预设</string>
   <string name="description_insulin_free_peak">允许您定义胰岛素作用的峰值, 并且只应由高级用户使用</string>
-  <string name="description_loop">Activate or deactivate the implementation triggering the loop.</string>
-  <string name="description_ns_client">Synchronizes your data with Nightscout</string>
-  <string name="description_ma">State of the algorithm in 2016</string>
-  <string name="description_ama">State of the algorithm in 2017</string>
+  <string name="description_loop">激活或停用这个工具触发闭环。</string>
+  <string name="description_ns_client">将数据与 Nightscout 同步</string>
+  <string name="description_ma">算法的状态在2016年</string>
+  <string name="description_ama">算法的状态在2017年</string>
   <string name="description_smb">Most recent algorithm for advanced users</string>
   <string name="description_overview">Displays the current state of your loop and buttons for most common actions</string>
   <string name="description_persistent_notification">Shows an ongoing notification with a short overview of what your loop is doing</string>
