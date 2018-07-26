@@ -42,11 +42,11 @@
   <string name="description_sensitivity_aaps">灵敏度的计算方式与 Oref0 相同, 但可以指定过去的时间范围。碳水化合物吸收最小值是根据属性里的碳水化合物吸收时间最大值计算得来的</string>
   <string name="description_sensitivity_oref0">灵敏度是根据过去的24小时数据计算出来的, 而碳水化合物 (如果不吸收) 则在属性里指定的时间后减掉</string>
   <string name="description_sensitivity_oref1">灵敏度是根据过去的24小时数据计算出来的, 而碳水化合物 (如果不吸收) 则在属性里指定的时间后减掉。插件还计算 UAM。</string>
-  <string name="description_sensitivity_weighted_average">Sensitivity is calculated as a weighted average from deviations. Newer deviations have higher weight. Minimal carb absorption is calculated from max carb absorption time from preferences. This algorithm is the fastest in following sensitivity changes.</string>
+  <string name="description_sensitivity_weighted_average">灵敏度计算根据偏差的加权平均值。新的偏差有更高的权重。碳水化合物吸收最小值是根据属性里的碳水化合物吸收时间最大值计算得来的好。此算法在敏感度变化后最快。</string>
   <string name="description_source_dexcom_g5">从安卓版的 Dexcom G5 app接收血糖值。</string>
   <string name="description_source_glimp">从 Glimp 接收血糖值。</string>
-  <string name="description_source_mm640g">Receive BG values from the 600SeriesAndroidUploader.</string>
-  <string name="description_source_ns_client">Downloads BG data from Nightscout</string>
+  <string name="description_source_mm640g">从美敦力600Series 的AndroidUploader 接收血糖值。</string>
+  <string name="description_source_ns_client">从 Nightscout 下载 血糖数据</string>
   <string name="description_source_xdrip">从 xDrip 接收血糖值。</string>
   <string name="description_treatments">保存所做的所有治疗</string>
   <string name="description_wear">使用您的 WearOS 手表监视和控制 AndroidAPS。</string>
