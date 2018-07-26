@@ -51,10 +51,10 @@
   <string name="description_treatments">保存所做的所有治疗</string>
   <string name="description_wear">使用您的 WearOS 手表监视和控制 AndroidAPS。</string>
   <string name="description_xdrip_status_line">在 xDrip + 表盘上显示有关闭环的信息。</string>
-  <string name="description_sms_communicator">Remote control AndroidAPS using SMS commands.</string>
-  <string name="objectives_button_start">Start</string>
-  <string name="objectives_button_verify">Verify</string>
-  <string name="nsprofileview_units_label">Units</string>
+  <string name="description_sms_communicator">远程控制 AndroidAPS 使用 SMS 短信命令。</string>
+  <string name="objectives_button_start">开始</string>
+  <string name="objectives_button_verify">验证</string>
+  <string name="nsprofileview_units_label">单位</string>
   <string name="nsprofileview_dia_label">DIA</string>
   <string name="nsprofileview_ic_label">IC</string>
   <string name="nsprofileview_isf_label">ISF</string>
