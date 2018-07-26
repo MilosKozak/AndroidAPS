@@ -18,9 +18,9 @@
   <string name="description_config_builder">用于配置活动插件</string>
   <string name="description_objectives">学习计划</string>
   <string name="description_food">显示 Nightscout 中定义的食物预设</string>
-  <string name="description_insulin_rapid">Insulin preset for Humalog and NovoRapid / NovoLog</string>
-  <string name="description_insulin_ultra_rapid">Insulin preset for Fiasp</string>
-  <string name="description_insulin_free_peak">Allows you to define the peak of the insulin activity and should only be used by advanced users</string>
+  <string name="description_insulin_rapid">胰岛素预设为 Humalog(优泌乐) 和 NovoRapid(门冬)/NovoLog(诺和锐)</string>
+  <string name="description_insulin_ultra_rapid">Fiasp 胰岛素预设</string>
+  <string name="description_insulin_free_peak">允许您定义胰岛素作用的峰值, 并且只应由高级用户使用</string>
   <string name="description_loop">Activate or deactivate the implementation triggering the loop.</string>
   <string name="description_ns_client">Synchronizes your data with Nightscout</string>
   <string name="description_ma">State of the algorithm in 2016</string>
