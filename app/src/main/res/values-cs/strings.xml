@@ -386,8 +386,8 @@
   <string name="button2">Tlačítko 2</string>
   <string name="button3">Tlačítko 3</string>
   <string name="units">Jednotky:</string>
-  <string name="mgdl">mg/dl</string>
-  <string name="mmol">mmol/l</string>
+  <string name="mgdl">mg/dL</string>
+  <string name="mmol">mmol/L</string>
   <string name="dia">DIA:</string>
   <string name="target_range">Cílový rozsah:</string>
   <string name="prefs_range_title">Rozsah pro zobrazení</string>
@@ -436,7 +436,7 @@
   <string name="danar_stats_expweight">Exponenciálně vážené TDD</string>
   <string name="danar_stats_basalrate">Bazál</string>
   <string name="danar_stats_bolus">Bolus</string>
-  <string name="danar_stats_tdd">TDD</string>
+  <string name="danar_stats_tdd">CDD</string>
   <string name="danar_stats_date">Datum</string>
   <string name="danar_stats_ratio">Koef</string>
   <string name="danar_stats_amount_days">Dní</string>
@@ -508,7 +508,7 @@
   <string name="approachingdailylimit">Blíží se denní limit inzulínu</string>
   <string name="nsclientinternal">NSClient</string>
   <string name="nsclientinternal_shortname">NSCl</string>
-  <string name="nsclientinternal_url">URL:</string>
+  <string name="nsclientinternal_url">Adresa URL:</string>
   <string name="nsclientinternal_autoscroll">Posouvat</string>
   <string name="restart">Restart</string>
   <string name="nsclientinternal_title">Interní NSClient</string>
@@ -581,7 +581,7 @@
   <string name="wear_showbgi_title">Zobrazovat BGI</string>
   <string name="wear_showbgi_summary">Přidat BGI do stavové řádky</string>
   <string name="ns_noupload">Zakázat nahrávání do NS</string>
-  <string name="ns_noupload_summary">Všechna data odeslaná do NS jsou zahozena. AAPS je připojen k NS, ale nedělá do něj žádné změny.</string>
+  <string name="ns_noupload_summary">Všechna data odeslaná do NS jsou zahozena. AAPS je připojen k NS, ale nedělá do něj žádné změny</string>
   <string name="basal_step">Krok bazálu</string>
   <string name="bolus_step">Krok bolusu</string>
   <string name="extendedbolus">ProdlouženýBolus</string>
@@ -604,7 +604,7 @@
   <string name="nsalarm_staledata">Zastaralá data</string>
   <string name="nsalarm_urgentstaledata">Urgentně zastaralá data</string>
   <string name="nsalarm_staledatavalue_label">Mezní hodnota pro zastaralá data [min]</string>
-  <string name="nsalarm_urgent_staledatavalue_label">Urgetní mezní hodnota pro zastaralá data [min]</string>
+  <string name="nsalarm_urgent_staledatavalue_label">Urgentní mezní hodnota pro zastaralá data [min]</string>
   <string name="openapsama_autosens_period">Interval pro detekci senzitivity [h]</string>
   <string name="openapsama_autosens_period_summary">Počet hodin do minulosti pro detekci senzitivity</string>
   <string name="pump">Pumpa</string>
@@ -616,8 +616,8 @@
   <string name="sensitivityoref0">Sensitivita Oref0</string>
   <string name="sensitivityoref1">Sensitivita Oref1</string>
   <string name="sensitivityaaps">Sensitivita AAPS</string>
-  <string name="absorptionsettings_title">Nastavení absorbce sacharidů</string>
-  <string name="absorption_maxtime_title">Max. doba absorbce sacharidu [h]</string>
+  <string name="absorptionsettings_title">Nastavení absorpce sacharidů</string>
+  <string name="absorption_maxtime_title">Max. doba absorpce sacharidů [h]</string>
   <string name="absorption_maxtime_summary">Čas v hodinách, ve kterém předpokládáme, že všechny sacharidy budou strávené</string>
   <string name="danar_visualizeextendedaspercentage_title">Zobrazovat prodloužený bolus v %</string>
   <string name="careportal_sensorage_label_short">SEN</string>
@@ -630,11 +630,11 @@
   <string name="virtualpump_extendedbolus_label_short">EXT</string>
   <string name="keep_screen_on_title">Nechat obrazovku zapnutou</string>
   <string name="keep_screen_on_summary">Zabránit Androidu ve zhasínání obrazovky. Bez připojení do nabíječky vybije velice rychle baterii!</string>
-  <string name="sensitivity_warning">Při zapnuté detektci sensitivity nezapomeňte vkládat všechny sacharidy. Jinak budou odchylky mylně vyhodnocovány jako změna sensitivity !!</string>
+  <string name="sensitivity_warning">Při zapnuté detekci sensitivity nezapomeňte vkládat všechny sacharidy. Jinak budou odchylky mylně vyhodnocovány jako změna sensitivity !!</string>
   <string name="sensitivityweightedaverage">Sensitivita vážený průměr</string>
   <string name="mdtp_ok">OK</string>
   <string name="mdtp_cancel">Zrušit</string>
-  <string name="notloadedplugins">Všechny profily nenačteny</string>
+  <string name="notloadedplugins">Všechny profily nenačteny!</string>
   <string name="valuesnotstored">Hodnoty nejsou uloženy!</string>
   <string name="ns_localbroadcasts">Povolit odesílání do ostatních aplikací (jako xDrip)</string>
   <string name="ns_localbroadcasts_title">Povolení odesílaní</string>
@@ -1039,7 +1039,7 @@
   <!-- TODO convert to proper style -->
   <string name="error_adding_treatment_message">A treatment (insulin: %1$.2f, carbs: %2$d, at: %3$s) could not be added to treatments. Please check and manually add a record as appropriate.</string>
   <string name="generated_ecarbs_note">Generated eCarbs with amount: %1$dg, duration: %2$dh, delay: %3$dm</string>
-  <string name="openaps_noasdata">No autosens data available</string>
+  <string name="openaps_noasdata">Nedostupná data o glykémiích</string>
   <plurals name="objective_days">
     <item quantity="one">%d day</item>
     <item quantity="few">%d days</item>
