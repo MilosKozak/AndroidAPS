@@ -443,6 +443,7 @@
   <string name="danar_stats_warning_Message">Pravděpodobně nepřesné při používání bolusů k doplňování</string>
   <string name="danar_stats_olddata_Message">Zastaralá data. Prosím načtěte je znovu</string>
   <string name="danar_stats_tbb">Celk. denní bazál</string>
+  <string name="danar_stats_tbb2">TBB * 2</string>
   <string name="initializing">Inicializuji ...</string>
   <string name="actions_shortname">AKCE</string>
   <string name="configbuilder_shortname">KONF</string>
@@ -534,6 +535,7 @@
   <string name="adult">Dospělý</string>
   <string name="resistantadult">Dospělý s nízkou citlivostí</string>
   <string name="patientage_summary">Vyberte věk pacienta pro nastavení bezpečnostních limitů</string>
+  <string name="Glimp">Glimp</string>
   <string name="needwhitelisting">%s potřebuje vypnout optimalizace baterie pro optimální výkon</string>
   <string name="loopsuspended">Smyčka pozastavena</string>
   <string name="loopsuspendedfor" formatted="false">Pozastaveno (%d min)</string>
