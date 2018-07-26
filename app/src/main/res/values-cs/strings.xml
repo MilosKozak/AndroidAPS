@@ -655,7 +655,7 @@
   <string name="free_peak_oref">Volitelný vrchol - Oref</string>
   <string name="rapid_acting_oref">Rychle působící - Oref</string>
   <string name="ultrarapid_oref">Ultra rychlý - Oref</string>
-  <string name="dia_too_short">DIA %1$f je příliž krátké - použito %2$f !</string>
+  <string name="dia_too_short">DIA %1$f je příliš krátké - použito %2$f !</string>
   <string name="activate_profile">Aktivovat profil</string>
   <string name="date">Datum</string>
   <string name="invalid">NEPLATNÝ</string>
@@ -691,7 +691,7 @@
   <string name="gettingpumptime">Nahrávám čas v pumpě</string>
   <string name="reuse">znovu použít</string>
   <string name="wearcontrol_title">Řízení z hodinek Wear</string>
-  <string name="wearcontrol_summary">Nastavování dočasných cílů a vkládání ošetření na hodinkách Wear</string>
+  <string name="wearcontrol_summary">Nastavování dočasných cílů a vkládání ošetření na hodinkách Wear.</string>
   <string name="connectiontimedout">Vypršel čas připojování</string>
   <string name="food">Jídlo</string>
   <string name="shortgramm">g</string>
@@ -715,7 +715,7 @@
   <string name="enable_missed_bg_readings_alert">Výstraha při nedostupných glykémiích</string>
   <string name="enable_pump_unreachable_alert">Výstraha při nedostupné pumpě</string>
   <string name="pump_unreachable_threshold">Limit pro nedostupnost pumpy [min]</string>
-  <string name="urgent_alarm">Urgetní alarm</string>
+  <string name="urgent_alarm">Urgentní alarm</string>
   <string name="info">INFO</string>
   <string name="bluetooth">Bluetooth</string>
   <string name="btwatchdog_title">Hlídač BT</string>
@@ -733,7 +733,7 @@
   <string name="nsclientbg">Glykémie z NS</string>
   <string name="minimalbasalvaluereplaced">Hodnota bazálu nahrazena minimální možnou</string>
   <string name="maximumbasalvaluereplaced">Hodnota bazálu nahrazena maximální možnou</string>
-  <string name="overview_editquickwizard_usebg">Kalkulace  glykémie</string>
+  <string name="overview_editquickwizard_usebg">Kalkulace glykémie</string>
   <string name="overview_editquickwizard_usebolusiob">Kalkulace bolusového IOB</string>
   <string name="overview_editquickwizard_usebasaliob">Kalkulace bazálního IOB</string>
   <string name="overview_editquickwizard_usetrend">Kalkulace trendu</string>
@@ -761,14 +761,14 @@
   <string name="combo_pump_state_initializing">Inicializace</string>
   <string name="combo_pump_state_suspended_due_to_error">Vypnuto díky chybě</string>
   <string name="combo_pump_state_suspended_by_user">Vypnuto uživatelem</string>
-  <string name="combo_pump_state_running">Beží</string>
+  <string name="combo_pump_state_running">Běží</string>
   <string name="combo_pump_action_cancelling_tbr">Rušení dočasného bazálu</string>
   <string name="combo_pump_action_setting_tbr">Nastavování doč. bazálu (%1$d%% / %2$d min)</string>
   <string name="combo_pump_action_bolusing">Bolus (%.1f U)</string>
   <string name="combo_pump_action_refreshing">Obnovování</string>
   <string name="combo_pump_unsupported_operation">Požadovaná operace není pumpou podporována</string>
   <string name="combo_low_suspend_forced_notification">Nebezpečné použití: extended nebo multiwave bolus je aktivní. Pumpa byla vypnuta jen na 6 hodin. Povolené jsou pouze normální bolusy.</string>
-  <string name="combo_force_disabled_notification">Nebezpečné použití: pumpa má nastavený jiný bazální profil než první. Smyčka byla zakázána. Nastavete první profil a znovu načtěte.</string>
+  <string name="combo_force_disabled_notification">Nebezpečné použití: pumpa má nastavený jiný bazální profil než první. Smyčka byla zakázána. Nastavte první profil a znovu načtěte.</string>
   <string name="bolus_frequency_exceeded">Bolus stejné velikosti už byl během poslední minuty požadován. Jako preventivní ochrana před zdvojeným bolusem byla operace zakázána.</string>
   <string name="combo_pump_connected_now">Teď</string>
   <string name="combo_activity_reading_pump_history">Načítání historie pumpy</string>
@@ -786,7 +786,7 @@
   <string name="combo_error_no_connection_no_bolus_delivered">Pumpa nedostupná. Bolus nebyl podán</string>
   <string name="combo_error_no_bolus_delivered">Provádění bolusu selhalo. Zdá se, že žádný bolus nebyl podán. Zkontrolujte pumpu a případně pošlete bolus znovu. Jako bezpečnostní opatření podání bolusu není opakováno.</string>
   <string name="combo_error_partial_bolus_delivered">Pouze %1$.2f U z bolusu %2$.2f bylo podáno díky chybě. Zkontrolujte pumpu a proveďte nápravu.</string>
-  <string name="combo_error_bolus_verification_failed">Podání bolusu a kontrola historie pumpy selhala. Zkontrolujte pumpu ručně. Pokus bolus proběhl, načte se při přístím připojení automaticky.</string>
+  <string name="combo_error_bolus_verification_failed">Podání bolusu a kontrola historie pumpy selhala. Zkontrolujte pumpu ručně. Pokus bolus proběhl, načte se při příštím připojení automaticky.</string>
   <string name="combo_reservoir_level_insufficient_for_bolus">Nedostatek inzulínu pro takovýto bolus</string>
   <string name="extendedbolusdeliveryerror">Chyba spuštění extended bolusu</string>
   <string name="insightpump_shortname">Insight</string>
