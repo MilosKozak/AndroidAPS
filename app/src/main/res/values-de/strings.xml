@@ -13,5 +13,8 @@
   <string name="alert_dialog_storage_permission_text">Bitte starte dein Telefon neu oder starte AndroidAPS in den System-Einstellungen neu.\nAndernfalls wird AndroidAPS nichts protokollieren (wichtig zum Nachverfolgen und Verifizieren, dass der Algorithmus korrekt funktioniert)!</string>
   <string name="description_actions">Schaltflächen, um schnell auf geläufige Funktionen zugreifen zu können</string>
   <string name="description_careportal">Gib erweiterte Tagebuch-Einträge ein.</string>
+  <string name="description_insulin_rapid">Insulinprofil für Humalog und NovoRapid / NovoLog</string>
+  <string name="description_insulin_ultra_rapid">Insulinprofil für Fiasp</string>
+  <string name="description_sensitivity_aaps">Die Empfindlichkeit wird genauso wie bei Oref0 berechnet, aber du kannst dafür ein Zeitfenster bestimmen. Die minimale Kohlenhydrat-Absorptionsrate wird aus der maximalen Absorptionsdauer aus den Einstellungen abgeleitet.</string>
   <!-- TODO convert to proper style -->
 </resources>
