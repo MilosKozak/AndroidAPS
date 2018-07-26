@@ -944,9 +944,9 @@
   <string name="overview_show_notes_field_in_dialogs_title">Показване на поле \"бележки\" в диалоговите прозорци за лечени</string>
   <string name="next_button">Следващ</string>
   <string name="previous_button">Предишен</string>
-  <string name="nav_setupwizard">Setup Wizard</string>
-  <string name="setupwizard_finish">FINISH</string>
-  <string name="setupwizard_language_prompt">Select your language</string>
+  <string name="nav_setupwizard">Съветник за настройване</string>
+  <string name="setupwizard_finish">КРАЙ</string>
+  <string name="setupwizard_language_prompt">Избиране на език</string>
   <string name="boluserrorcode">Поискано: %1$.2fU Доставено: %2$.2fU Error code: %3$d</string>
   <string name="firstinsulinincrement">Първо добавяне за инсулин</string>
   <string name="secondinsulinincrement">Второ добавяне за инсулин</string>
@@ -954,7 +954,7 @@
   <string name="firstcarbsincrement">Първо добавяне за въглехидрати</string>
   <string name="secondcarbsincrement">Второ добавяне за въглехидрати</string>
   <string name="thirdcarbsincrement">Трето добавяне за въглехидрати</string>
-  <string name="cgm">CGM</string>
+  <string name="cgm">Постоянен мониторинг на КЗ</string>
   <string name="ns_wifionly">Използвай само WiFi</string>
   <string name="ns_wifi_ssids">WiFi SSID</string>
   <string name="ns_chargingonly">Само при зареждане</string>
