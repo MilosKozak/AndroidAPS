@@ -91,5 +91,6 @@
   <string name="danarpump">DanaR</string>
   <string name="danar_pump_settings">DanaR Pumpen-Einstellungen</string>
   <string name="objectives_0_objective">Konfiguriere die Anzeige und das Monitoring (Nightscout) und analysiere Basal-Raten und Faktoren</string>
+  <string name="careportal_removestartedevents">\"AndroidAPS gestartet\" Ereignisse löschen</string>
   <!-- TODO convert to proper style -->
 </resources>
