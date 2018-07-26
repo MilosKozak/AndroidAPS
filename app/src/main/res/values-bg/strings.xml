@@ -347,12 +347,12 @@
   <string name="noprofileselected">Няма избран профил</string>
   <string name="smscommunicator_loophasbeendisabled">Цикъла е деактивиран</string>
   <string name="smscommunicator_loophasbeenenabled">Цикъла е активиен</string>
-  <string name="smscommunicator_loopisdisabled">Loop is disabled</string>
+  <string name="smscommunicator_loopisdisabled">Loop е изключен</string>
   <string name="smscommunicator_loopisenabled">Loop включен</string>
   <string name="valuelimitedto">%1$.2f ограничен до %2$.2f</string>
   <string name="valueoutofrange" formatted="false">Стойността %s е извън границите</string>
   <string name="smscommunicator_remotebasalnotallowed">Отдалечено прилагане на базал е забранено</string>
-  <string name="smscommunicator_remotecommandnotallowed">Remote command is not allowed</string>
+  <string name="smscommunicator_remotecommandnotallowed">Отдалеченото управление не е разрешено</string>
   <string name="smscommunicator_basalreplywithcode">To start basal %1$.2fU/h reply with code %2$s</string>
   <string name="smscommunicator_suspendreplywithcode">To suspend loop for %1$d minutes reply with code %2$s</string>
   <string name="smscommunicator_tempbasalset">Temp basal %1$.2fU/h for %2$d min started successfully</string>
@@ -789,7 +789,7 @@
   <string name="combo_error_bolus_verification_failed">Свързването с помпата при доставката на болус се провали. Моля, проверете ръчно в историята на помпата доставен ли е болусът. Ако болусът е доставен, ще бъде добавен автоматично при следващото свързване с помпата.</string>
   <string name="combo_reservoir_level_insufficient_for_bolus">Няма достатъчно инсулин в резервоара</string>
   <string name="extendedbolusdeliveryerror">Грешка при доставяне на удължен болус</string>
-  <string name="insightpump_shortname">Вмъкване</string>
+  <string name="insightpump_shortname">Insight</string>
   <string name="insightpump">Insight помпа</string>
   <string name="status_no_colon">Статус</string>
   <string name="changed">Променено</string>
@@ -920,7 +920,7 @@
   <string name="limitingcarbs">Ограничаване на въглехидрати до %1$d гр. поради %2$s</string>
   <string name="limitingiob">Ограничаване на IOB до %1$.1f Е поради %2$s</string>
   <string name="maxvalueinpreferences">макс. стойност в настройките</string>
-  <string name="hardlimit">hard limit</string>
+  <string name="hardlimit">твърд лимит</string>
   <string name="unsafeusage">опасно използване</string>
   <string name="readstatusfailed">Четенето на статуса се провали</string>
   <string name="record_pump_site_change">Записва смяна на сет</string>
