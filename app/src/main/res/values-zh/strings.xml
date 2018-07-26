@@ -266,30 +266,30 @@
   <string name="reloadprofile">重新加载配置文件</string>
   <string name="danar_viewprofile">查看配置文件</string>
   <string name="enacted">Enacted</string>
-  <string name="comment">Comment</string>
-  <string name="success">Success</string>
-  <string name="percent">Percent</string>
-  <string name="absolute">Absolute</string>
-  <string name="canceltemp">Cancel temp basal</string>
-  <string name="smscommunicator">SMS Communicator</string>
-  <string name="waitingforpumpresult">Waiting for result</string>
-  <string name="smscommunicator_allowednumbers">Allowed phone numbers</string>
+  <string name="comment">评论</string>
+  <string name="success">成功</string>
+  <string name="percent">百分比</string>
+  <string name="absolute">绝对值</string>
+  <string name="canceltemp">取消临时基础率</string>
+  <string name="smscommunicator">SMS 通信器</string>
+  <string name="waitingforpumpresult">正在等待结果</string>
+  <string name="smscommunicator_allowednumbers">允许的手机号码</string>
   <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
-  <string name="smscommunicator_bolusreplywithcode">To deliver bolus %1$.2fU reply with code %2$s</string>
-  <string name="smscommunicator_calibrationreplywithcode">To send calibration %1$.2f reply with code %2$s</string>
-  <string name="smscommunicator_bolusfailed">Bolus failed</string>
-  <string name="bolusdelivered" formatted="false">Bolus %.2fU delivered successfully</string>
-  <string name="bolusrequested" formatted="false">Going to deliver %.2fU</string>
-  <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2fU delivered successfully</string>
-  <string name="bolusdelivering" formatted="false">Delivering %.2fU</string>
-  <string name="smscommunicator_remotecommandsallowed">Allow remote commands via SMS</string>
-  <string name="smscommunicator_remotebolusnotallowed">Remote bolus not allowed</string>
-  <string name="glucosetype_finger">Finger</string>
-  <string name="glucosetype_sensor">Sensor</string>
-  <string name="manual">Manual</string>
-  <string name="careportal_temporarytarget">Temporary Target</string>
-  <string name="careportal_temporarytargetcancel">Temporary Target Cancel</string>
-  <string name="danarprofile">DanaR profile settings</string>
+  <string name="smscommunicator_bolusreplywithcode">要输注大剂量胰岛素%1$.2fU 回复如下代码 %2$s</string>
+  <string name="smscommunicator_calibrationreplywithcode">要发送校准值 %1$.2f 回复如下代码 %2$s</string>
+  <string name="smscommunicator_bolusfailed">大剂量输注失败</string>
+  <string name="bolusdelivered" formatted="false">成功输注大剂量%.2fU</string>
+  <string name="bolusrequested" formatted="false">将要输注 %.2fU</string>
+  <string name="smscommunicator_bolusdelivered" formatted="false">成功输注大剂量%.2fU</string>
+  <string name="bolusdelivering" formatted="false">正在输注 %.2fU</string>
+  <string name="smscommunicator_remotecommandsallowed">通过 SMS 允许远程命令</string>
+  <string name="smscommunicator_remotebolusnotallowed">远程大剂量没有被允许</string>
+  <string name="glucosetype_finger">手指</string>
+  <string name="glucosetype_sensor">传感器</string>
+  <string name="manual">手动</string>
+  <string name="careportal_temporarytarget">临时目标</string>
+  <string name="careportal_temporarytargetcancel">临时目标取消</string>
+  <string name="danarprofile">DanaR 配置文件设置</string>
   <string name="danarprofile_dia">DIA [h]</string>
   <string name="danarprofile_dia_summary">Duration of Insulin Activity</string>
   <string name="failedupdatebasalprofile">Failed to update basal profile</string>
