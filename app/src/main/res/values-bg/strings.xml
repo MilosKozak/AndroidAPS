@@ -353,11 +353,11 @@
   <string name="valueoutofrange" formatted="false">Стойността %s е извън границите</string>
   <string name="smscommunicator_remotebasalnotallowed">Отдалечено прилагане на базал е забранено</string>
   <string name="smscommunicator_remotecommandnotallowed">Отдалеченото управление не е разрешено</string>
-  <string name="smscommunicator_basalreplywithcode">To start basal %1$.2fU/h reply with code %2$s</string>
-  <string name="smscommunicator_suspendreplywithcode">To suspend loop for %1$d minutes reply with code %2$s</string>
-  <string name="smscommunicator_tempbasalset">Temp basal %1$.2fU/h for %2$d min started successfully</string>
+  <string name="smscommunicator_basalreplywithcode">За да стартирате базал от %1$.2fЕ отговорете с код %2$s</string>
+  <string name="smscommunicator_suspendreplywithcode">За да спрете цикъла за %1$d минути отговорете с код %2$s</string>
+  <string name="smscommunicator_tempbasalset">Временен базал от %1$.2fЕ/ч за %2$d мин стартиран успешно</string>
   <string name="smscommunicator_tempbasalfailed">Неуспешно стартиране на временен базал</string>
-  <string name="smscommunicator_basalstopreplywithcode" formatted="false">To stop temp basal reply with code %s</string>
+  <string name="smscommunicator_basalstopreplywithcode" formatted="false">За да спрете времен базал отговорете с код %s</string>
   <string name="smscommunicator_tempbasalcanceled">Временният базал е отменен</string>
   <string name="smscommunicator_tempbasalcancelfailed">Спирането на временния базал е неуспешно</string>
   <string name="smscommunicator_unknowncommand">Uknonwn command or wrong reply</string>
@@ -401,7 +401,7 @@
   <string name="lowbattery">Изтощена батерия</string>
   <string name="pumpshutdown">Помпата е изключена</string>
   <string name="batterydischarged">Батерията на помпата е изтощена</string>
-  <string name="danarkoreanpump">DanaR Korean</string>
+  <string name="danarkoreanpump">DanaR Корейска</string>
   <string name="basal_rate">Базал:</string>
   <string name="profile_set_failed">Неуспешно задаване на базален профил</string>
   <string name="profile_set_ok">Профила на помпата е обновен</string>
@@ -416,14 +416,14 @@
   <string name="ongoingnotificaction">Текущи известия</string>
   <string name="old_data">СТАРИ ДАННИ</string>
   <string name="minago">преди %d мин</string>
-  <string name="sms_minago">%dmin ago</string>
+  <string name="sms_minago">преди %dмин</string>
   <string name="localprofile">Локален профил</string>
   <string name="openapsama">OpenAPS AMA</string>
   <string name="short_avgdelta">Краткоср. Δ:</string>
   <string name="long_avgdelta">Дългоср. Δ:</string>
   <string name="array_of_elements">Масив от %d елемента.Актуална стойност:</string>
   <string name="openapsma_autosensdata_label">Autosens данни</string>
-  <string name="openapsma_scriptdebugdata_label">Script debug</string>
+  <string name="openapsma_scriptdebugdata_label">От скрипта</string>
   <string name="openapsama_useautosens">Разреши AMA autosens</string>
   <string name="refresheventsfromnightscout">Обнови от NS</string>
   <string name="deletefuturetreatments">Изтрий записите в бъдещето</string>
@@ -818,7 +818,7 @@
   <string name="insight_unknown">Неизвестно</string>
   <string name="insight_waiting_for_code">Изчаква се потвърждение на кода</string>
   <string name="insight_code_rejected">Кодът е отхвърлен</string>
-  <string name="insight_app_binding">App binding</string>
+  <string name="insight_app_binding">Свързване с апликацията</string>
   <string name="insight_not_authorized">Не е разрешено</string>
   <string name="insight_incompatible">Несъвместимо</string>
   <string name="second">секунда</string>
@@ -956,7 +956,7 @@
   <string name="thirdcarbsincrement">Трето добавяне за въглехидрати</string>
   <string name="cgm">Постоянен мониторинг на КЗ</string>
   <string name="ns_wifionly">Използвай само WiFi</string>
-  <string name="ns_wifi_ssids">WiFi SSID</string>
+  <string name="ns_wifi_ssids">WiFi име</string>
   <string name="ns_chargingonly">Само при зареждане</string>
   <string name="connectionsettings_title">Настройки за свързване</string>
   <string name="ns_wifi_allowedssids">Разрешени WiFi мрежи(разделени с запетая)</string>
@@ -984,7 +984,7 @@
   <string name="enableobjectives">Разреши Цели</string>
   <string name="apssetup">Конфигуриране на APS плъгин</string>
   <string name="sensitivitysetup">Конфигуриране па плъгин за чувствителност</string>
-  <string name="setupwizard_sensitivity_description">Sensitivity plugin is used for sensitivity detection and COB calculation. For more info visit:</string>
+  <string name="setupwizard_sensitivity_description">Плъгините за чувствителност се използва за откриване на чувствителност и COB(въглехидрати в тялото) изчисление. За повече информация посетете:</string>
   <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
   <string name="nsclientinfotext">NSClient поддържа връзка с Nightscout. Можете да пропуснете тази настройка сега, но вие няма можете да преминете целите, докато вие го настроите.</string>
   <string name="diawarning">Моля запомнете: новите профили на инсулините изискват време на действие(DIA) от поне 5ч. DIA 5-6ч в нов профил е равно на 3ч в стария инсулинов профил.</string>
@@ -1000,7 +1000,7 @@
   <string name="insulinsourcesetup">Конфигуриране на плъгин за Инсулин</string>
   <string name="exit">Изход</string>
   <string name="danar_useroptions">Потребителски опции</string>
-  <string name="danar_timedisplay">Display time format</string>
+  <string name="danar_timedisplay">Формат на времето</string>
   <string name="danar_buttonscroll">Превъртане при задъжане</string>
   <string name="danar_beep">Звуков сигнал при натискане на бутон</string>
   <string name="danar_pumpalarm">Тип аларма</string>
@@ -1037,19 +1037,19 @@
   <string name="allow_hardware_pump_text">Внимание: Ако активирате и свържете с хардуерна помпа, AndroidAPS ще копира основните настройки от профила в помпата, като презапише съществуващата базова скорост, съхранявана на помпата. Уверете се, че имате правилните основни настройки в AndroidAPS. Ако не сте сигурни или не искате да презапишете основните настройки на помпата, натиснете Cancel и повторете превключването към помпата по-късно.</string>
   <string name="error_adding_treatment_title">Данните за лечението не са пълни</string>
   <!-- TODO convert to proper style -->
-  <string name="error_adding_treatment_message">A treatment (insulin: %1$.2f, carbs: %2$d, at: %3$s) could not be added to treatments. Please check and manually add a record as appropriate.</string>
-  <string name="generated_ecarbs_note">Generated eCarbs with amount: %1$dg, duration: %2$dh, delay: %3$dm</string>
+  <string name="error_adding_treatment_message">Събитие (инсулин: %1$.2f, въглехидрати: %2$d, в: %3$s) не може да бъде добавено към събития. Моля уверете се, че е правилно и го добавете ръчно.</string>
+  <string name="generated_ecarbs_note">Генерирани eCarbs с параметри: %1$dгр, продължителност: %2$dh, след: %3$dm</string>
   <string name="openaps_noasdata">Няма налични данни за авточувствителност</string>
   <plurals name="objective_days">
-    <item quantity="one">%d day</item>
+    <item quantity="one">%d дни</item>
     <item quantity="other">%d days</item>
   </plurals>
   <plurals name="objective_hours">
-    <item quantity="one">%d hour</item>
+    <item quantity="one">%d часа</item>
     <item quantity="other">%d hours</item>
   </plurals>
   <plurals name="objective_minutes">
-    <item quantity="one">%d minute</item>
+    <item quantity="one">%d минути</item>
     <item quantity="other">%d minutes</item>
   </plurals>
 </resources>
