@@ -24,7 +24,7 @@
   <string name="description_loop">Включва или изключва цикъла (loop).</string>
   <string name="description_ns_client">Синхронизира локалните данни с Nightscout</string>
   <string name="description_ma">Състояние на алгоритъма от 2016г</string>
-  <string name="description_ama">Състояние на алгоритъма от 2017</string>
+  <string name="description_ama">Алгоритъма, какъвто е бил през 2017</string>
   <string name="description_smb">Най-новият алгоритъм (само за напреднали потребители)</string>
   <string name="description_overview">Показва текущото състояние на вашия цикъл и бутони за най-често използваните действия</string>
   <string name="description_persistent_notification">Показва известие с резюме на това, което прави вашия цикъл</string>
@@ -130,7 +130,7 @@
   <string name="days">дни</string>
   <string name="constraints">Ограничения</string>
   <string name="loop">Loop</string>
-  <string name="configbuilder_loop">Цикъл</string>
+  <string name="configbuilder_loop">Loop</string>
   <string name="configbuilder_loop_description">Използвайте това, за да активирате loop интеграцията в \'AndroidAPS.</string>
   <string name="loop_aps_label">Алгоритъм за APS</string>
   <string name="loop_constraintsprocessed_label">След ограничения</string>
@@ -378,7 +378,7 @@
   <string name="ns_upload_only_summary">Само качване на данните в NS. Няма ефект върху данните за КЗ ако локален източник като xDrip е избран. Няма ефект върху профила освен ако не е избран  NS-профил.</string>
   <string name="pumpNotInitialized">Помпата не е инициализирана!</string>
   <string name="pumpNotInitializedProfileNotSet">Помпата не е инициализирана, профила не е зададен!</string>
-  <string name="primefill">Основно/Напълване</string>
+  <string name="primefill">Prime/Fill</string>
   <string name="fillwarning">Моля, уверете се, че стойността съответсва на вашият сет! Този инсулин не се включва в IOB!</string>
   <string name="othersettings_title">Други</string>
   <string name="fillbolus_title">Fill/Prime количества инсулин по подразбиране.</string>
@@ -388,7 +388,7 @@
   <string name="units">Единици:</string>
   <string name="mgdl">мг/дл</string>
   <string name="mmol">ммол/л</string>
-  <string name="dia">DIA (Време на действие на инсулина):</string>
+  <string name="dia">DIA:</string>
   <string name="target_range">Целева КЗ:</string>
   <string name="prefs_range_title">Диапазон за визуализация</string>
   <string name="prefs_range_summary">Стойност на линиите за ниска и висока КЗ (mmol/l)  за телефона и часовника</string>
@@ -896,8 +896,8 @@
   <string name="combo_error_multiple_boluses_with_identical_timestamp">Бяха внесени няколко болуса със същото количество в рамките на една и съща минута. Само един запис може да бъде добавен към лечението. Моля, проверете помпата и ръчно добавете болус запис, като използвате раздела Careportal . Уверете се, че сте създали болус и нямате друг болус за същото време.</string>
   <string name="about_link_urls"> http://www.androidaps.org  facebook: http://facebook.androidaps.org</string>
   <string name="combo_check_date">Последният болус е с време от преди 24 часа или е в бъдеще. Моля, проверете дали датата на помпата е зададена правилно.</string>
-  <string name="combo_suspious_bolus_time">Времето/датата на доставения болус на помпата изглежда погрешно, IOB(общ инсулин в тялото) вероятно е неправилно. Моля, проверете часа/датата на помпата.</string>
-  <string name="profileswitch_ismissing">Смяната на профила липсва. Моля, направете превключване на потребителския профил или натиснете \"Активирай профил\" в раздел \"Профил\".</string>
+  <string name="combo_suspious_bolus_time">Времето/датата на доставения болус на помпата изглежда погрешно, IOB вероятно е неправилно. Моля, проверете часа/датата на помпата.</string>
+  <string name="profileswitch_ismissing">Смяната на профила липсва. Моля, направете превключване на потребителския профил или натиснете \"Активирай профил\" в Локален профил.</string>
   <string name="combo_bolus_count">Брой болуси</string>
   <string name="combo_tbr_count">Брой TBR</string>
   <string name="objectivenotstarted" formatted="false">ЦЕЛ %d не е стартирана</string>
@@ -941,7 +941,7 @@
   <string name="absorption_cutoff_title">Макс. време за усвояване на храна (часа)</string>
   <string name="absorption_cutoff_summary">Време за което всяко хранене се счита за усвоено. Оставащите въглехидрати ще бъдат изчиствани.</string>
   <string name="time">Време</string>
-  <string name="overview_show_notes_field_in_dialogs_title">Показване на поле \"бележки\" в диалоговите прозорци за лечени</string>
+  <string name="overview_show_notes_field_in_dialogs_title">Показване на поле \"бележки\" в диалоговите прозорци за лечение</string>
   <string name="next_button">Следващ</string>
   <string name="previous_button">Предишен</string>
   <string name="nav_setupwizard">Съветник за настройване</string>
@@ -954,7 +954,7 @@
   <string name="firstcarbsincrement">Първо добавяне за въглехидрати</string>
   <string name="secondcarbsincrement">Второ добавяне за въглехидрати</string>
   <string name="thirdcarbsincrement">Трето добавяне за въглехидрати</string>
-  <string name="cgm">Постоянен мониторинг на КЗ</string>
+  <string name="cgm">CGM</string>
   <string name="ns_wifionly">Използвай само WiFi</string>
   <string name="ns_wifi_ssids">WiFi име</string>
   <string name="ns_chargingonly">Само при зареждане</string>
@@ -963,7 +963,7 @@
   <string name="ns_allowroaming">Позволи връзка в роуминг</string>
   <string name="openapsama_autosens_max">Макс. стойност за аутосенс</string>
   <string name="openapsama_autosens_min">Мин. стойност за аутосенс</string>
-  <string name="openapsama_bolussnooze_dia_divisor">Делител за изместване на болус по време на инсулиновото действие</string>
+  <string name="openapsama_bolussnooze_dia_divisor">Делител за изместване на болус по време на продължителността на действието на инсулина</string>
   <string name="openapsama_max_daily_safety_multiplier">Макс. множител за най-големия базал за денонощието</string>
   <string name="openapsama_current_basal_safety_multiplier">Макс. множител за настоящ базал</string>
   <string name="value_unavailable_short">---</string>
