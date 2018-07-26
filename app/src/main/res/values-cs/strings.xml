@@ -560,7 +560,6 @@
   <string name="insulin_shortname">INZ</string>
   <string name="enablesuperbolus">Povolit superbolus</string>
   <string name="enablesuperbolus_summary">Povolení superbolusu v kalkulátoru. Nepovolujte, dokud se nenaučíte, co to opravdu dělá. MŮŽE ZPŮSOBIT PŘEDÁVKOVÁNÍ INZULÍNEM PŘI NESPRÁVNÉM POUŽITÍ!</string>
-  <string name="cob">COB</string>
   <string name="pump_lastconnection_label">Poslední spojení</string>
   <string name="nav_about">O aplikaci</string>
   <string name="smscommunicator_missingsmspermission">Chybějící povolení SMS</string>
@@ -609,13 +608,11 @@
   <string name="careportal_insulinage_label_short">INZ</string>
   <string name="careportal_canulaage_label_short">KAN</string>
   <string name="careportal_pbage_label_short">BAT</string>
-  <string name="openaps_short">OAPS</string>
   <string name="basal_short">BAZ</string>
   <string name="keep_screen_on_title">Nechat obrazovku zapnutou</string>
   <string name="keep_screen_on_summary">Zabránit Androidu ve zhasínání obrazovky. Bez připojení do nabíječky vybije velice rychle baterii!</string>
   <string name="sensitivity_warning">Při zapnuté detekci sensitivity nezapomeňte vkládat všechny sacharidy. Jinak budou odchylky mylně vyhodnocovány jako změna sensitivity !!</string>
   <string name="sensitivityweightedaverage">Sensitivita vážený průměr</string>
-  <string name="mdtp_ok">OK</string>
   <string name="mdtp_cancel">Zrušit</string>
   <string name="notloadedplugins">Všechny profily nenačteny!</string>
   <string name="valuesnotstored">Hodnoty nejsou uloženy!</string>
