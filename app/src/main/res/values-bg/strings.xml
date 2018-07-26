@@ -786,10 +786,10 @@
   <string name="combo_error_no_connection_no_bolus_delivered">Помпата е недостъпна. Не беше доставен болус.</string>
   <string name="combo_error_no_bolus_delivered">Болусът беше неуспешен.  За да сте сигурни, моля, проверете помпата, за да избегнете повторение на вече доставен болус. За да се избегнат бъгове болусите не се повтарят автоматично.</string>
   <string name="combo_error_partial_bolus_delivered">Само %1$.2f U от искания болус от %2$.2f U е доставен поради грешка. Моля, проверете помпата, за да потвърдите това и да предприемете съответните действия.</string>
-  <string name="combo_error_bolus_verification_failed">Delivering the bolus and verifying the pump\'s history failed, please check the pump and manually. If a bolus was delivered, it will be added to treatments during the next connection to the pump.</string>
+  <string name="combo_error_bolus_verification_failed">Свързването с помпата при доставката на болус се провали. Моля, проверете ръчно в историята на помпата доставен ли е болусът. Ако болусът е доставен, ще бъде добавен автоматично при следващото свързване с помпата.</string>
   <string name="combo_reservoir_level_insufficient_for_bolus">Няма достатъчно инсулин в резервоара</string>
   <string name="extendedbolusdeliveryerror">Грешка при доставяне на удължен болус</string>
-  <string name="insightpump_shortname">Insight</string>
+  <string name="insightpump_shortname">Вмъкване</string>
   <string name="insightpump">Insight помпа</string>
   <string name="status_no_colon">Статус</string>
   <string name="changed">Променено</string>
@@ -802,9 +802,9 @@
   <string name="log_book">История</string>
   <string name="insight_last_completed_action">Последно извършено действие</string>
   <string name="insight_min">мин.</string>
-  <string name="insight_remaining_over">remaining over</string>
-  <string name="insight_total_with">total with</string>
-  <string name="insight_upfront_with">upfront with</string>
+  <string name="insight_remaining_over">Останало</string>
+  <string name="insight_total_with">Общо с</string>
+  <string name="insight_upfront_with">Преди</string>
   <string name="insight_stay_always_connected">Stay always connected</string>
   <string name="insight_history_idle">IDLE</string>
   <string name="insight_history_syncing">SYNCING</string>
