@@ -331,7 +331,7 @@
   <string name="objectives_0_objective">设置可视化和监视, 并分析基础率和比率</string>
   <string name="objectives_0_gate">验证 Nightscout 中的血糖是否可用, 并且正在上传泵的胰岛素数据</string>
   <string name="objectives_1_objective">开始开环</string>
-  <string name="objectives_1_gate">Run in Open Loop mode for a few days and manually enact lots of temp basals. Set up and use temporary and default temporary targets (e.g. for activity or hypo treatment carbs)</string>
+  <string name="objectives_1_gate">在开环模式下运行几天，并在手机上手动制定很多次临时基础率。设置和使用临时目标和默认的临时目标 (例如, 用于活动或处理碳水化合物)</string>
   <string name="objectives_2_objective">Understanding your open loop, including its temp basal recommendations</string>
   <string name="objectives_2_gate">Based on that experience, decide what max basal should be, and set it on the pump and preferences</string>
   <string name="objectives_3_objective">Starting to close the loop with Low Glucose Suspend</string>
