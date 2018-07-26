@@ -699,7 +699,7 @@
   <string name="shorthour">ч.</string>
   <string name="none"><![CDATA[<празно>]]></string>
   <string name="shortkilojoul">kJ</string>
-  <string name="shortenergy">En</string>
+  <string name="shortenergy">Английски език</string>
   <string name="shortprotein">Бел.</string>
   <string name="shortfat">Маз.</string>
   <string name="active"><![CDATA[<Активно>]]></string>
@@ -717,13 +717,13 @@
   <string name="pump_unreachable_threshold">Лимит за недостъпна помпа [мин]</string>
   <string name="urgent_alarm">Спешна аларма</string>
   <string name="info">ИНФО</string>
-  <string name="bluetooth">Bluetooth</string>
-  <string name="btwatchdog_title">BT Watchdog</string>
+  <string name="bluetooth">Блутуут</string>
+  <string name="btwatchdog_title">Блутуут ограничения</string>
   <string name="btwatchdog_summary">Изключва Bluetooth на телефона за една секунда, ако няма връзка с помпата. Това може да помогне на някои телефони, където Bluetooth блокира.</string>
   <string name="DexcomG5">Dexcom G5 приложение (модифицирано)</string>
   <string name="dexcomg5_nsupload_title">Качвай данните за КЗ в NS</string>
   <string name="dexcomg5_upload">G5 настройки за upload</string>
-  <string name="poctech_upload">Poctech upload settings</string>
+  <string name="poctech_upload">Настройки за качване на Poctech</string>
   <string name="wear_detailed_delta_title">Показвай подробна делта</string>
   <string name="wear_detailed_delta_summary">Показвай делта с още един десетичен знак</string>
   <string name="smbmaxminutes_summary">Максимални минути за ограничаване на базала от SMB</string>
@@ -732,7 +732,7 @@
   <string name="dexcomg5_xdripupload_summary">В xDrip+ изберете 640g/Eversense за източник на данни</string>
   <string name="nsclientbg">КЗ от NS</string>
   <string name="minimalbasalvaluereplaced">Базалната стойност е заместена от минимално подържаната</string>
-  <string name="maximumbasalvaluereplaced">Basal value replaced by maximum supported value</string>
+  <string name="maximumbasalvaluereplaced">Базалната стойност е заменена с максимално зададената</string>
   <string name="overview_editquickwizard_usebg">Калкулиране на КЗ</string>
   <string name="overview_editquickwizard_usebolusiob">Калкулиране на Болус IOB</string>
   <string name="overview_editquickwizard_usebasaliob">Калкулиране на базален IOB</string>
