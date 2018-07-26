@@ -805,10 +805,10 @@
   <string name="insight_remaining_over">Останало</string>
   <string name="insight_total_with">Общо с</string>
   <string name="insight_upfront_with">Преди</string>
-  <string name="insight_stay_always_connected">Stay always connected</string>
-  <string name="insight_history_idle">IDLE</string>
-  <string name="insight_history_syncing">SYNCING</string>
-  <string name="insight_history_busy">BUSY</string>
+  <string name="insight_stay_always_connected">Винаги свързано</string>
+  <string name="insight_history_idle">Незает</string>
+  <string name="insight_history_syncing">Синхронизиран</string>
+  <string name="insight_history_busy">Зает</string>
   <string name="insight_history_synced">SYNCED</string>
   <string name="insight_startup_uppercase">STARTUP</string>
   <string name="insight_needs">needs</string>
