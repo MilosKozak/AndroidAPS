@@ -129,10 +129,10 @@
   <string name="configbuilder_constraints_description">Кои ограничения да се прилагат?</string>
   <string name="days">дни</string>
   <string name="constraints">Ограничения</string>
-  <string name="loop">Лууп</string>
-  <string name="configbuilder_loop">Лууп</string>
+  <string name="loop">Loop</string>
+  <string name="configbuilder_loop">Loop</string>
   <string name="configbuilder_loop_description">Използвайте това, за да активирате loop интеграцията в \'AndroidAPS.</string>
-  <string name="loop_aps_label">APS (Система \"изкуствен панкреас\")</string>
+  <string name="loop_aps_label">APS</string>
   <string name="loop_constraintsprocessed_label">След ограничения</string>
   <string name="loop_tbrsetbypump_label">Временният базал е зададен от помпата</string>
   <string name="openapsma_lastenact_label">Последно зададено</string>
@@ -251,7 +251,7 @@
   <string name="disconnected">Не е сврзана</string>
   <string name="danar_pump_settings">DanaR настройки</string>
   <string name="end_user_license_agreement">Лицензионно споразумение с краен потребител</string>
-  <string name="end_user_license_agreement_text">MUST NOT BE USED TO MAKE MEDICAL DECISIONS. THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</string>
+  <string name="end_user_license_agreement_text">НЕ ТРЯБВА ДА СЕ ИЗПОЛЗВА ЗА ВЗЕМАНЕ НА МЕДИЦИНСКИ РЕШЕНИЯ. НЯМА ГАРАНЦИЯ ЗА ПРОГРАМАТА, ДО СТЕПЕНТА, ПОЗВОЛЕНА ОТ ПРИЛОЖИМОТО ПРАВО. ОСВЕН КОГАТО Е ПОСОЧЕНО ДРУГО В ПИСМЕН ВИД, ПРИТЕЖАТЕЛИТЕ НА АВТОРСКОТО ПРАВО И/ИЛИ ДРУГИ СТРАНИ ПРЕДОСТАВЯТ ПРОГРАМАТА \"КАКТО Е\", БЕЗ ГАРАНЦИИ ОТ ВСЯКАКЪВ ВИД,  ИЗРАЗЕНИ ИЛИ ПОДРАЗБИРАЩИ СЕ, ВКЛЮЧИТЕЛНО, НО НЕ САМО, ПОДРАЗБИРАЩИ СЕ ГАРАНЦИИ ЗА ПРОДАВАЕМОСТ И ПРИГОДНОСТ ЗА  КОНКРЕТНА ЦЕЛ. ЦЕЛИЯ РИСК ПО ОТНОШЕНИЕ НА КАЧЕСТВОТО И ЕФЕКТИВНОСТТА НА ПРОГРАМАТА Е САМО ВАШ. АКО ПРОГРАМАТА НЕ СРАБОТИ, ВИЕ ПОЕМАТЕ  ВСИЧКИ НЕОБХОДИМИ РАЗХОДИ ЗА ОБСЛУЖВАНЕ, РЕМОНТ ИЛИ КОРЕКЦИЯ.</string>
   <string name="end_user_license_agreement_i_understand">Разбирам и приемам</string>
   <string name="save">Съхрани</string>
   <string name="nobtadapter">Не е открит Bluetooth адаптер</string>
@@ -887,19 +887,19 @@
   <string name="pump_basebasalrate">%.2f Е/ч</string>
   <string name="combo_actvity_reading_basal_profile">Прочита базалният профил</string>
   <string name="combo_bolus_rejected_due_to_pump_history_change">\"Историята на помпата се промени след извършване на изчислението за болус. Болусът не беше доставен. Моля, преизчислете дали все още е необходим болус.</string>
-  <string name="combo_error_updating_treatment_record">Bolus successfully delivered, but adding the treatment entry failed. This can happen if two small boluses of the same size are administered within the last two minutes. Please check the pump history and treatment entries and use the Careportal to add missing entries. Make sure not to add any entries for the exact same minute and same amount.</string>
-  <string name="combo_high_temp_rejected_due_to_pump_history_changes">Rejecting high temp since calculation didn\'t consider recently changed pump history</string>
-  <string name="combo_activity_checking_pump_state">Refreshing pump state</string>
-  <string name="combo_warning_pump_basal_rate_changed">The basal rate on the pump has changed and will be updated soon</string>
-  <string name="combo_error_failure_reading_changed_basal_rate">Basal rate changed on pump, but reading it failed</string>
-  <string name="combo_activity_checking_for_history_changes">Checking for history changes</string>
+  <string name="combo_error_updating_treatment_record">Болус успешно инжектиран, но добавянето на лечение в базата данни е неуспешно. Това може да се случи, ако два малки болуса със същия размер са направени в рамките на последните две минути. Проверете записите в историята на помпата и използвайте Careportal, за да добавите липсващи записи. Уверете се,че не добавяте еднакви записи за точно една и съща минута и същото количество инсулин.</string>
+  <string name="combo_high_temp_rejected_due_to_pump_history_changes">Отказан временен базал поради лиса на синхронизация с историята на помпата</string>
+  <string name="combo_activity_checking_pump_state">Взима състоянието на помпата</string>
+  <string name="combo_warning_pump_basal_rate_changed">Базалите в помпата са променени и скоро ще се обновят</string>
+  <string name="combo_error_failure_reading_changed_basal_rate">Базалният процент е променен в помпата, но прочитането е неуспешно</string>
+  <string name="combo_activity_checking_for_history_changes">Проверка за промени в историята на помпата</string>
   <string name="combo_error_multiple_boluses_with_identical_timestamp">Multiple boluses with the same amount within the same minute were just imported. Only one record could be added to treatments. Please check the pump and manually add a bolus record using the Careportal tab. Make sure to create a bolus with a time no other bolus uses.</string>
   <string name="about_link_urls"> http://www.androidaps.org  facebook: http://facebook.androidaps.org</string>
   <string name="combo_check_date">The last bolus is older than 24 hours or is in the future. Please check the date on the pump is set correctly.</string>
   <string name="combo_suspious_bolus_time">Time/date of the delivered bolus on pump seems wrong, IOB is likely incorrect. Please check pump time/date.</string>
   <string name="profileswitch_ismissing">ProfileSwitch missing. Please do a profile switch or press \"Activate Profile\" in the LocalProfile.</string>
-  <string name="combo_bolus_count">Bolus count</string>
-  <string name="combo_tbr_count">TBR count</string>
+  <string name="combo_bolus_count">Брой болуси</string>
+  <string name="combo_tbr_count">Брой TBR</string>
   <string name="objectivenotstarted" formatted="false">ЦЕЛ %d не е стартирана</string>
   <string name="objectivenotfinished" formatted="false">ЦЕЛ %d не е завършена</string>
   <string name="pumpisnottempbasalcapable">Помпата не може да подава временен базал</string>
