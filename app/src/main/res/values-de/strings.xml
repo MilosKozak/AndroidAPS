@@ -59,5 +59,37 @@
   <string name="days">Tage</string>
   <string name="configbuilder_loop_description">Nutze dies, um die Loop-Integration von AndroidAPS zu aktivieren.</string>
   <string name="openapsma_disabled">Plugin ist deaktiviert</string>
+  <string name="constraints_violation">Beschränkungen wurden verletzt oder Limit erreicht.</string>
+  <string name="treatmentdeliveryerror">Bolus-Abgabefehler</string>
+  <string name="tempbasaldeliveryerror">TBR Abgabe-Fehler</string>
+  <string name="setbasalquestion">Akzeptiere neue TBR:</string>
+  <string name="configbuilder_bgsource">BZ-Quelle</string>
+  <string name="configbuilder_bgsource_description">Woher soll AndroidAPS seine Blutzuckerwerte beziehen?</string>
+  <string name="xdrip">xDrip</string>
+  <string name="apsmode_title">APS-Modus</string>
+  <string name="unsupportedclientver">Nicht unterstützte Version des Nightscout-Clients</string>
+  <string name="unsupportednsversion">Nicht unterstütze Nightscout-Version</string>
+  <string name="nsclientnotinstalled">Nightscout-Client ist nicht installiert. Eintrag verloren!</string>
+  <string name="objectives_bgavailableinns">BZ verfügbar in Nightscout</string>
+  <string name="objectives_pumpstatusavailableinns">Pumpen-Status verfügbar in Nightscout</string>
+  <string name="treatments_wizard_basaliob_label">Basal-IOB</string>
+  <string name="bolusconstraintapplied">Bolus-Beschränkung angewendet</string>
+  <string name="careportal_cgmsensorinsert">CGM-Sensor gesetzt</string>
+  <string name="careportal_cgmsensorstart">CGM-Sensor Start</string>
+  <string name="careportal_tempbasalstart">TBR Start</string>
+  <string name="careportal_tempbasalend">TBR Ende</string>
+  <string name="careportal_openapsoffline">OpenAPS offline</string>
+  <string name="careportal_newnstreatment_carbtime_label">KH-Zeit</string>
+  <string name="noprofile">Bisher noch kein Profil von Nightscout geladen</string>
+  <string name="overview_tempbasal_button">TBR</string>
+  <string name="configbuilder_nightscoutversion_label">Nightscout-Version:</string>
+  <string name="sv_lang">Swedish</string>
+  <string name="openapsma_maxbasal_title">Max IE/h, die als TBR gesetzt werden können</string>
+  <string name="openapsma_maxbasal_summary">Dieser Wert wird \"max basal\" in OpenAPS genannt.</string>
+  <string name="openapsma_maxiob_title">Maximales Basal-IOB, das OpenAPS abgeben darf [IE]</string>
+  <string name="openapsma_maxiob_summary">Maximale Menge von nicht Bolus-IOB, die OpenAPs abgeben kann.</string>
+  <string name="danarpump">DanaR</string>
+  <string name="danar_pump_settings">DanaR Pumpen-Einstellungen</string>
+  <string name="objectives_0_objective">Konfiguriere die Anzeige und das Monitoring (Nightscout) und analysiere Basal-Raten und Faktoren</string>
   <!-- TODO convert to proper style -->
 </resources>
