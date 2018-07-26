@@ -974,7 +974,7 @@
   <string name="wear_display_settings">Настройки за визуализация</string>
   <string name="wear_general_settings">Основни настройки</string>
   <string name="enable_nsclient">Разреши NSClient</string>
-  <string name="welcometosetupwizard">Добре дошли в съветника за настройки. Той ще ви преведе през инсталационните процеси.</string>
+  <string name="welcometosetupwizard">Добре дошли в съветника за настройки. Той ще ви преведе през етапите на настройка.</string>
   <string name="pumpsetup">Настройки на помпата</string>
   <string name="readstatus">Получавам състоянието на помпата</string>
   <string name="adjustprofileinns">Промени трябва да се направят и в NS</string>
@@ -982,9 +982,9 @@
   <string name="setupwizard_loop_description">Натиснете бутона по-долу за да позволите AndroidAPS да предлага/прави промени в базалните стойности</string>
   <string name="setupwizard_objectives_description">Натиснете бутона по долу за да разрешите Цели-те. Погледнете в раздела Цели, след като завършите този съветник, за да направите AndroidAPS напълно функционален. \n</string>
   <string name="enableobjectives">Разреши Цели</string>
-  <string name="apssetup">Конфигуриране на APS плъгин</string>
-  <string name="sensitivitysetup">Конфигуриране па плъгин за чувствителност</string>
-  <string name="setupwizard_sensitivity_description">Плъгините за чувствителност се използва за откриване на чувствителност и COB(въглехидрати в тялото) изчисление. За повече информация посетете:</string>
+  <string name="apssetup">Конфигуриране на APS модул</string>
+  <string name="sensitivitysetup">Конфигуриране на модул за чувствителност</string>
+  <string name="setupwizard_sensitivity_description">Плъгините за чувствителност се използва за откриване на чувствителност и COB изчисление. За повече информация посетете:</string>
   <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
   <string name="nsclientinfotext">NSClient поддържа връзка с Nightscout. Можете да пропуснете тази настройка сега, но вие няма можете да преминете целите, докато вие го настроите.</string>
   <string name="diawarning">Моля запомнете: новите профили на инсулините изискват време на действие(DIA) от поне 5ч. DIA 5-6ч в нов профил е равно на 3ч в стария инсулинов профил.</string>
@@ -1031,7 +1031,7 @@
   <string name="combo_invalid_setup">Невалидни настройки на помпата, проверете wiki и се уверете че меню Quick Info се казва UICK INFO, с помощта на 360 софтуера.</string>
   <string name="custom">По избор</string>
   <string name="largetimedifftitle">Голяма времева разлика</string>
-  <string name="largetimediff">Голяма времева разлика: Помпата е изключена за повече от 1,5 часа. Моля, регулирайте ръчно времето на помпата и се уверете, че четенето на историята от помпата не води до неочаквано поведение. Ако е възможно, премахнете историята от помпата, преди да промените времето или да изключите затворения цикъл за едно DIA(време на инсулинова активност) след последното погрешно влизане в историята, но поне едно DIA отсега.</string>
+  <string name="largetimediff">Голяма времева разлика: Помпата е изключена за повече от 1,5 часа. Моля, регулирайте ръчно времето на помпата и се уверете, че четенето на историята от помпата не води до неочаквано поведение. Ако е възможно, премахнете историята от помпата, преди да промените времето или да изключите затворения цикъл за едно DIA след последното погрешно влизане в историята, но поне едно DIA отсега.</string>
   <string name="careportal_removestartedevents"> AndroidAPS стартира</string>
   <string name="storedsettingsfound">Съхранените настройки са намерени</string>
   <string name="allow_hardware_pump_text">Внимание: Ако активирате и свържете с хардуерна помпа, AndroidAPS ще копира основните настройки от профила в помпата, като презапише съществуващата базова скорост, съхранявана на помпата. Уверете се, че имате правилните основни настройки в AndroidAPS. Ако не сте сигурни или не искате да презапишете основните настройки на помпата, натиснете Cancel и повторете превключването към помпата по-късно.</string>
