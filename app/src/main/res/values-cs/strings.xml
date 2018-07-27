@@ -1031,7 +1031,6 @@
   <string name="storedsettingsfound">Nalezeno uložené nastavení</string>
   <string name="allow_hardware_pump_text">POZOR: Pokud aktivuje a připojíte skutečnou pumpu, AndroidAPS nakopíruje (a bude udržovat) nastavení bazálu z aktivního profilu do pumpy. Nastavení bazálu v pumpě bude přepsáno. Pokud si nejste jistí nebo nechcete přepsat bazály v pumpě, stiskněte Zrušit a opakujte přepnutí na jinou pumpu později.</string>
   <string name="error_adding_treatment_title">Data ošetření neúplná</string>
-  <!-- TODO convert to proper style -->
   <string name="error_adding_treatment_message">Ošetření (inzulín: %1$.2f, sacharidy: %2$d, čas: %3$s) nelze přidat. Zkontrolujte a podle potřeby ručně přidejte záznam.</string>
   <string name="generated_ecarbs_note">Generované eCarbs: %1$dg, délka: %2$dh, zpoždění: %3$dm</string>
   <string name="openaps_noasdata">Nedostupná data o glykémiích</string>
