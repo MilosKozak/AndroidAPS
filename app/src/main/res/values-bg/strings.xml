@@ -94,5 +94,21 @@
   <string name="treatmentdeliveryerror">Грешка при подаване на болус</string>
   <string name="tempbasaldeliveryerror">Грешка при подаване на временен базал</string>
   <string name="overview_newtempbasal_basalpercent">Стойност на базал [%]</string>
+  <string name="overview_newtempbasal_percent_label">% (100% = текущ)</string>
+  <string name="setbasalquestion">Приложи нов временен базал:</string>
+  <string name="overview_treatment_label">Болус</string>
+  <string name="overview_calculator_label">Калкулатор</string>
+  <string name="constraintapllied">Приложено ограничение!</string>
+  <string name="confirmation">Потвърждение</string>
+  <string name="entertreatmentquestion">Въведете ново лечение:</string>
+  <string name="bolus">Болус</string>
+  <string name="sms_bolus">Болус:</string>
+  <string name="basal">Базал</string>
+  <string name="sms_basal">Базал:</string>
+  <string name="carbs">Въглехидрати</string>
+  <string name="changeyourinput">Променете данните!</string>
+  <string name="setextendedbolusquestion">Задай нов удължен болус:</string>
+  <string name="configbuilder_bgsource">Източник на данни за КЗ</string>
+  <string name="configbuilder_bgsource_description">От къде трябва да AndroidAPS да си взима данни?</string>
   <!-- TODO convert to proper style -->
 </resources>
