@@ -7,6 +7,7 @@
   <string name="nav_refreshtreatments">Erneure Behandlungen von Nightscout</string>
   <string name="nav_resetdb">Datenbanken zurücksetzen</string>
   <string name="reset_db_confirm">Möchtest du die Datenbank wirklich zurücksetzen?</string>
+  <string name="nav_exit">Schließen</string>
   <string name="danar_useextended_title">Benutze verlängerten Bolus für hohe TBR (&gt;200%).</string>
   <string name="danar_bt_name_title">DanaR Blueetooth--Gerät</string>
   <string name="ns_sync_use_absolute_title">Verwende absolute statt prozentuale Basalwerte beim Upload zu NightScout.</string>
@@ -218,6 +219,7 @@
   <string name="export_to">Einstellungen exportieren nach</string>
   <string name="import_from">Importiere Einstellungen von</string>
   <string name="setting_imported">Einstellungen importiert</string>
+  <string name="filenotfound">Datei nicht gefunden</string>
   <string name="nav_export">Einstellungen exportieren</string>
   <string name="nav_import">Einstellungen importieren</string>
   <string name="sv_lang">Swedish</string>
@@ -225,9 +227,20 @@
   <string name="openapsma_maxbasal_summary">Dieser Wert wird \"max basal\" in OpenAPS genannt.</string>
   <string name="openapsma_maxiob_title">Maximales Basal-IOB, das OpenAPS abgeben darf [IE]</string>
   <string name="openapsma_maxiob_summary">Maximale Menge von nicht Bolus-IOB, die OpenAPs abgeben kann.</string>
+  <string name="dismiss">VERWERFEN</string>
+  <string name="language">Sprache</string>
   <string name="danarpump">DanaR</string>
+  <string name="connecting">Verbinden</string>
+  <string name="connected">Verbunden</string>
+  <string name="disconnected">Getrennt</string>
   <string name="danar_pump_settings">DanaR Pumpen-Einstellungen</string>
+  <string name="end_user_license_agreement">Endbenutzervereinbarung</string>
   <string name="end_user_license_agreement_text">DAS PROGRAMM DARF NICHT FÜR MEDIZINISCHE ENTSCHEIDUNGEN BENUTZT WERDEN. ES GIBT IN DIESEM PROJEKT KEINE GEWÄHRLEISTUNG ODER GARANTIERTE UNTERSTÜTZUNG IN IRGENDEINER ART. WENN DU DICH ENTSCHEIDEST, ES ZU NUTZEN, HÄNGT DIE QUALITÄT UND LEISTUNGSFÄHIGKEIT DIESES PROJEKTES VON DIR SELBST AB. ES WIRD \"WIE BESEHEN\" ZUR VERFÜGUNG GESTELLT. SOLLTE SICH DAS PROGRAMM ALS FEHLERHAFT ERWEISEN, ÜBERNEHMEN SIE ALLE NOTWENDIGEN KRANKHEITSKOSTEN, SERVICELEISTUNGEN, REPARATUREN ODER KORREKTUREN.</string>
+  <string name="end_user_license_agreement_i_understand">Ich verstehe und stimme zu.</string>
+  <string name="save">Speichern</string>
+  <string name="devicenotfound">Ausgewähltes Gerät nicht gefunden</string>
+  <string name="connectionerror">Pumpen-Verbindungsfehler</string>
+  <string name="danar_dailyunits">Tägliche Einheiten</string>
   <string name="pump_lastbolus_label">Letzter Bolus:</string>
   <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
   <string name="smscommunicator_calibrationreplywithcode">Um die Kalibrierung %1$.2f zu senden, antworte mit dem Code %2$s.</string>
