@@ -254,7 +254,6 @@
   <string name="danar_glucose">Glukose</string>
   <string name="danar_carbohydrate">Kohlenhydrate</string>
   <string name="danar_alarm">Alarm</string>
-  <string name="danar_totaluploaded" formatted="false">Insgesamt %1$d Einträge erfolgreich hochgeladen</string>
   <string name="danar_sbolus">S-Bolus</string>
   <string name="danar_history_alarm">Alarme</string>
   <string name="danar_history_bolus">Boli</string>
@@ -263,7 +262,6 @@
   <string name="danar_history_errors">Fehler</string>
   <string name="danar_history_glucose">Glukose</string>
   <string name="danar_history_refill">Füllmenge</string>
-  <string name="danar_history_connectingfor" formatted="false">Verbindungsaufbau seit %d s</string>
   <string name="danar_password_title">Pumpen-Passwort</string>
   <string name="wrongpumppassword">Falsches Pumpen-Passwort!</string>
   <string name="pumpbusy">Pumpe ist beschäftigt</string>
