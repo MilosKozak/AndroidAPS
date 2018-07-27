@@ -348,13 +348,25 @@ maxIOB=durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
   <string name="smscommunicator_loopisdisabled">Loop ist deaktiviert.</string>
   <string name="smscommunicator_loopisenabled">Loop ist aktiviert.</string>
   <string name="valuelimitedto">%1$.2f limitiert auf %2$.2f</string>
+  <string name="valueoutofrange" formatted="false">Wert %1$s ist außerhalb des festen Limits.</string>
   <string name="smscommunicator_remotebasalnotallowed">Ferngesteuerte Basal-Einstellungen sind nicht erlaubt.</string>
   <string name="smscommunicator_remotecommandnotallowed">Ferngesteuerte Befehle sind nicht erlaubt.</string>
   <string name="smscommunicator_basalreplywithcode">Um eine BR mit %1$.2f IE/h zu starten, antworte mit dem Code %2$s.</string>
+  <string name="smscommunicator_suspendreplywithcode">Um das Loopen für %1$d Minuten zu unterbrechen, antworte mit dem Code %2$s.</string>
   <string name="smscommunicator_tempbasalset">TBR mit %1$.2f IE/h für %2$d min wurde erfolgreich gestartet</string>
   <string name="smscommunicator_tempbasalfailed">Das Starten der TBR ist fehlgeschlagen.</string>
+  <string name="smscommunicator_basalstopreplywithcode" formatted="false">Um die TBR abzubrechen, antworte mit dem Code %s.</string>
+  <string name="smscommunicator_tempbasalcanceled">TBR abgebrochen</string>
+  <string name="smscommunicator_tempbasalcancelfailed">Das Abbrechen der TBR ist fehlgeschlagen.</string>
+  <string name="smscommunicator_unknowncommand">Unbekannter Befehl oder falsche Antwort</string>
   <string name="quickwizardsettings">QuickWizard-Einstellungen</string>
   <string name="overview_editquickwizard_buttontext">Schaltflächen-Text:</string>
+  <string name="overview_editquickwizard_carbs">Kohlenhydrate:</string>
+  <string name="overview_editquickwizard_valid">Gültigkeit:</string>
+  <string name="overview_editquickwizardlistactivity_add">Hinzufügen</string>
+  <string name="overview_quickwizard_item_edit_button">Bearbeiten</string>
+  <string name="overview_quickwizard_item_remove_button">Löschen</string>
+  <string name="mealbolus">Essensbolus</string>
   <string name="button1">Schaltfläche 1</string>
   <string name="button2">Schaltfläche 2</string>
   <string name="button3">Schaltfläche 3</string>
