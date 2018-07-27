@@ -122,14 +122,38 @@
   <string name="configbuilder_profile_description">Welches Profil soll AndroidAPS nutzen?</string>
   <string name="configbuilder_aps">APS</string>
   <string name="configbuilder_aps_description">Welcher APS-Algorithmus soll Therapie-Anpassungen vornehmen?</string>
+  <string name="configbuilder_general">Allgemein</string>
   <string name="configbuilder_general_description">Dies sind einige generelle Plugins, die du vielleicht hilfreich findest.</string>
+  <string name="configbuilder_constraints_description">Welche Beschränkungen werden angewendet?</string>
   <string name="days">Tage</string>
+  <string name="constraints">Beschränkungen</string>
+  <string name="loop">Loop</string>
+  <string name="configbuilder_loop">Loop</string>
   <string name="configbuilder_loop_description">Nutze dies, um die Loop-Integration von AndroidAPS zu aktivieren.</string>
+  <string name="loop_aps_label">APS</string>
+  <string name="loop_constraintsprocessed_label">Beschränkungen angewendet</string>
+  <string name="loop_tbrsetbypump_label">Temp. Basal der Pumpe</string>
+  <string name="ok">OK</string>
+  <string name="cancel">Abbrechen</string>
+  <string name="noapsselected">KEIN APS AUSGEWÄHLT ODER KEIN ERGEBNIS VORHANDEN</string>
+  <string name="safety">Sicherheit</string>
   <string name="openapsma_disabled">Plugin ist deaktiviert</string>
   <string name="constraints_violation">Beschränkungen wurden verletzt oder Limit erreicht.</string>
   <string name="treatmentdeliveryerror">Bolus-Abgabefehler</string>
   <string name="tempbasaldeliveryerror">TBR Abgabe-Fehler</string>
+  <string name="overview_newtempbasal_basalpercent">Basal-Wert [%]</string>
+  <string name="overview_newtempbasal_percent_label">% (100% = aktuell)</string>
   <string name="setbasalquestion">Akzeptiere neue TBR:</string>
+  <string name="overview_calculator_label">Rechner</string>
+  <string name="constraintapllied">Beschränkungen angewendet!</string>
+  <string name="confirmation">Bestätigung</string>
+  <string name="entertreatmentquestion">Gebe neue Behandlung ein:</string>
+  <string name="bolus">Bolus</string>
+  <string name="sms_bolus">Bolus:</string>
+  <string name="basal">Basal</string>
+  <string name="sms_basal">Basal:</string>
+  <string name="carbs">Kohlenhydrate</string>
+  <string name="changeyourinput">Ändere deine Eingabe!</string>
   <string name="setextendedbolusquestion">Setze neuen verlängerten Bolus:</string>
   <string name="configbuilder_bgsource">BZ-Quelle</string>
   <string name="configbuilder_bgsource_description">Woher soll AndroidAPS seine Blutzuckerwerte beziehen?</string>
@@ -181,6 +205,7 @@
   <string name="careportal_newnstreatment_duration_label">Dauer</string>
   <string name="careportal_newnstreatment_percent_label">Prozent</string>
   <string name="careportal_newnstreatment_absolute_label">Absolut</string>
+  <string name="careportal_newnstreatment_notes_label">Notiz</string>
   <string name="careportal_newnstreatment_eventtime_label">Ereignis-Zeit</string>
   <string name="careportal_newnstreatment_profile_label">Profil</string>
   <string name="careportal_newnstreatment_enteredby_title">Eingegeben durch</string>
@@ -189,6 +214,7 @@
   <string name="overview_tempbasal_button">TBR</string>
   <string name="overview_extendedbolus_button">Verlängerter Bolus</string>
   <string name="configbuilder_nightscoutversion_label">Nightscout-Version:</string>
+  <string name="missing">Fehlend</string>
   <string name="export_to">Einstellungen exportieren nach</string>
   <string name="import_from">Importiere Einstellungen von</string>
   <string name="setting_imported">Einstellungen importiert</string>
@@ -202,6 +228,50 @@
   <string name="danarpump">DanaR</string>
   <string name="danar_pump_settings">DanaR Pumpen-Einstellungen</string>
   <string name="end_user_license_agreement_text">DAS PROGRAMM DARF NICHT FÜR MEDIZINISCHE ENTSCHEIDUNGEN BENUTZT WERDEN. ES GIBT IN DIESEM PROJEKT KEINE GEWÄHRLEISTUNG ODER GARANTIERTE UNTERSTÜTZUNG IN IRGENDEINER ART. WENN DU DICH ENTSCHEIDEST, ES ZU NUTZEN, HÄNGT DIE QUALITÄT UND LEISTUNGSFÄHIGKEIT DIESES PROJEKTES VON DIR SELBST AB. ES WIRD \"WIE BESEHEN\" ZUR VERFÜGUNG GESTELLT. SOLLTE SICH DAS PROGRAMM ALS FEHLERHAFT ERWEISEN, ÜBERNEHMEN SIE ALLE NOTWENDIGEN KRANKHEITSKOSTEN, SERVICELEISTUNGEN, REPARATUREN ODER KORREKTUREN.</string>
+  <string name="bolusdelivered" formatted="false">%.2f IE Bolus erfolgreich abgegeben</string>
+  <string name="bolusrequested" formatted="false">Werde %.2f IE abgeben</string>
+  <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2f IE erfolgreich abgegeben</string>
+  <string name="smscommunicator_remotecommandsallowed">Erlaube externe Befehle per SMS</string>
+  <string name="smscommunicator_remotebolusnotallowed">Ferngesteuerter Bolus ist nicht erlaubt</string>
+  <string name="glucosetype_finger">Finger</string>
+  <string name="glucosetype_sensor">Sensor</string>
+  <string name="manual">Manuell</string>
+  <string name="careportal_temporarytarget">Temporäres Ziel</string>
+  <string name="careportal_temporarytargetcancel">Temporäres Ziel abbrechen</string>
+  <string name="danarprofile">DanaR Profil-Einstellungen</string>
+  <string name="danarprofile_dia">DIA [h]</string>
+  <string name="danarprofile_dia_summary">Dauer der Insulinwirkung</string>
+  <string name="failedupdatebasalprofile">Fehler beim Aktualisieren der Basalrate</string>
+  <string name="danar_historyreload">Neu laden</string>
+  <string name="uploading">Hochladen</string>
+  <string name="danar_ebolus">E-Bolus</string>
+  <string name="danar_dsbolus">DS-Bolus</string>
+  <string name="danar_debolus">DE-Bolus</string>
+  <string name="danar_refill">Befüllen</string>
+  <string name="danar_glucose">Glukose</string>
+  <string name="danar_carbohydrate">Kohlenhydrate</string>
+  <string name="danar_alarm">Alarm</string>
+  <string name="danar_totaluploaded" formatted="false">Insgesamt %1$d Einträge erfolgreich hochgeladen</string>
+  <string name="danar_sbolus">S-Bolus</string>
+  <string name="danar_history_alarm">Alarme</string>
+  <string name="danar_history_bolus">Boli</string>
+  <string name="danar_history_carbohydrates">Kohlenhydrate</string>
+  <string name="danar_history_dailyinsulin">Insulin-Tagesmengen</string>
+  <string name="danar_history_errors">Fehler</string>
+  <string name="danar_history_glucose">Glukose</string>
+  <string name="danar_history_refill">Füllmenge</string>
+  <string name="danar_history_connectingfor" formatted="false">Verbindungsaufbau seit %d s</string>
+  <string name="danar_password_title">Pumpen-Passwort</string>
+  <string name="wrongpumppassword">Falsches Pumpen-Passwort!</string>
+  <string name="pumpbusy">Pumpe ist beschäftigt</string>
+  <string name="overview_bolusprogress_delivered">Abgegeben</string>
+  <string name="overview_bolusprogress_stoped">Gestoppt</string>
+  <string name="bolusstopped">Bolus gestoppt</string>
+  <string name="bolusstopping">Bolus wird gestoppt</string>
+  <string name="occlusion">Verstopfung</string>
+  <string name="overview_bolusprogress_stop">Stopp</string>
+  <string name="overview_bolusprogress_stoppressed">STOPP GEDRÜCKT</string>
+  <string name="waitingforpump">Warte auf Pumpe</string>
   <string name="objectives_0_objective">Konfiguriere die Anzeige und das Monitoring (Nightscout) und analysiere Basal-Raten und Faktoren</string>
   <string name="quickwizardsettings">QuickWizard-Einstellungen</string>
   <string name="overview_editquickwizard_buttontext">Schaltflächen-Text:</string>
