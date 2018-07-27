@@ -228,9 +228,12 @@
   <string name="danarpump">DanaR</string>
   <string name="danar_pump_settings">DanaR Pumpen-Einstellungen</string>
   <string name="end_user_license_agreement_text">DAS PROGRAMM DARF NICHT FÜR MEDIZINISCHE ENTSCHEIDUNGEN BENUTZT WERDEN. ES GIBT IN DIESEM PROJEKT KEINE GEWÄHRLEISTUNG ODER GARANTIERTE UNTERSTÜTZUNG IN IRGENDEINER ART. WENN DU DICH ENTSCHEIDEST, ES ZU NUTZEN, HÄNGT DIE QUALITÄT UND LEISTUNGSFÄHIGKEIT DIESES PROJEKTES VON DIR SELBST AB. ES WIRD \"WIE BESEHEN\" ZUR VERFÜGUNG GESTELLT. SOLLTE SICH DAS PROGRAMM ALS FEHLERHAFT ERWEISEN, ÜBERNEHMEN SIE ALLE NOTWENDIGEN KRANKHEITSKOSTEN, SERVICELEISTUNGEN, REPARATUREN ODER KORREKTUREN.</string>
+  <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
+  <string name="smscommunicator_calibrationreplywithcode">Um die Kalibrierung %1$.2f zu senden, antworte mit dem Code %2$s.</string>
   <string name="bolusdelivered" formatted="false">%.2f IE Bolus erfolgreich abgegeben</string>
   <string name="bolusrequested" formatted="false">Werde %.2f IE abgeben</string>
   <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2f IE erfolgreich abgegeben</string>
+  <string name="bolusdelivering" formatted="false">Abgabe %1$.2f IE</string>
   <string name="smscommunicator_remotecommandsallowed">Erlaube externe Befehle per SMS</string>
   <string name="smscommunicator_remotebolusnotallowed">Ferngesteuerter Bolus ist nicht erlaubt</string>
   <string name="glucosetype_finger">Finger</string>
@@ -272,7 +275,11 @@
   <string name="overview_bolusprogress_stop">Stopp</string>
   <string name="overview_bolusprogress_stoppressed">STOPP GEDRÜCKT</string>
   <string name="waitingforpump">Warte auf Pumpe</string>
+  <string name="overview_bolusprogress_goingtodeliver" formatted="false">%1$.2f IE werden abgegeben.</string>
   <string name="objectives_0_objective">Konfiguriere die Anzeige und das Monitoring (Nightscout) und analysiere Basal-Raten und Faktoren</string>
+  <string name="valuelimitedto">%1$.2f limitiert auf %2$.2f</string>
+  <string name="smscommunicator_basalreplywithcode">Um eine BR mit %1$.2f IE/h zu starten, antworte mit dem Code %2$s.</string>
+  <string name="smscommunicator_tempbasalset">TBR mit %1$.2f IE/h für %2$d min wurde erfolgreich gestartet</string>
   <string name="quickwizardsettings">QuickWizard-Einstellungen</string>
   <string name="overview_editquickwizard_buttontext">Schaltflächen-Text:</string>
   <string name="button1">Schaltfläche 1</string>
@@ -313,6 +320,7 @@
   <string name="combo_low_suspend_forced_notification">Unsichere Verwendung: Ein verlängerter oder Multiwave-Bolus ist aktiv. Der Loop wird für die nächsten 6 Stunden kein zusätzliches Insulin abgeben. Nur normale Boli werden vom Loop unterstützt.</string>
   <string name="combo_activity_setting_basal_profile">Basalratenprofil wird aktualisiert</string>
   <string name="combo_pump_battery_low_warrning">Die Batterie in der Pumpe ist fast leer</string>
+  <string name="combo_error_partial_bolus_delivered">Wegen eines Fehlers wurden nur %1$.2f IE von den angeforderten %2$.2f IE abgegeben. Bitte prüfe den abgegebenen Bolus auf der Pumpe.</string>
   <string name="extendedbolusdeliveryerror">Fehler bei der Abgabe eines verlängerten Bolus</string>
   <string name="not_recommended_due_to_battery_drain">Wegen des hohen Energieverbrauchs nicht empfohlen</string>
   <string name="overview_buttons_selection">Schaltflächen</string>
@@ -322,15 +330,20 @@
   <string name="start_activity_tt">Starte TZ Aktivität</string>
   <string name="start_eating_soon_tt">Starte TZ Essen</string>
   <string name="start_hypo_tt">Starte TZ Hypo</string>
+  <string name="pump_basebasalrate">%1$.2f IE/h</string>
   <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
+  <string name="limitingbasalratio">Begrenzung der max. Basalrate auf %1$.2f IE/h wegen %2$s</string>
   <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Automatischer Nightscout-Upload von Reservoir-, Katheter- und Batteriewechseln</string>
+  <string name="boluserrorcode">Angefragt: %1$.2f IE. Abgegeben: %2$.2f IE. Fehlercode: %3$d</string>
   <string name="connectionsettings_title">Verbindungs-Einstellungen</string>
   <string name="wear_wizard_settings">Einrichtungsassistent</string>
   <string name="wear_display_settings">Anzeigeeinstellungen</string>
   <string name="wear_general_settings">Allgemeine Einstellungen</string>
   <string name="setupwizard_sensitivity_url">http://androidaps.readthedocs.io/en/latest/DE/konfigurations-generator.html#empfindlichkeitserkennung</string>
+  <string name="setupwizard_profile_description">Wähle eine Profilquelle aus. Verwende für ein Kind das NS-Profil. Wenn Dir niemand auf Nightscout folgt, wirst Du wahrscheinlich das lokale Profil bevorzugen. Beachte, dass hier nur die Profilquelle festgelegt wird. Damit das Profil verwendet werden kann, muss es mit einem \"Profil-Wechsel\" aktiviert werden.</string>
   <string name="danar_buttonscroll">Scrollfunktion</string>
   <string name="careportal_removestartedevents">\"AndroidAPS gestartet\" Ereignisse löschen</string>
   <string name="storedsettingsfound">Gespeicherte Einstellungen gefunden</string>
   <!-- TODO convert to proper style -->
+  <string name="error_adding_treatment_message">Der Eintrag (Insulin: %1$.2f, Kohlenhydrate: %2$d, um: %3$s) konnte nicht als Behandlung gespeichert werden. Bitte überprüfe die aktuelle Liste und füge, falls notwendig, den Datensatz manuell hinzu.</string>
 </resources>
