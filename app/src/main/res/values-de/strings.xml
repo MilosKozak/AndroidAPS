@@ -135,6 +135,7 @@
   <string name="loop_aps_label">APS</string>
   <string name="loop_constraintsprocessed_label">Beschränkungen angewendet</string>
   <string name="loop_tbrsetbypump_label">Temp. Basal der Pumpe</string>
+  <string name="openapsma_lastenact_label">Zuletzt abgegeben</string>
   <string name="ok">OK</string>
   <string name="cancel">Abbrechen</string>
   <string name="noapsselected">KEIN APS AUSGEWÄHLT ODER KEIN ERGEBNIS VORHANDEN</string>
@@ -146,6 +147,7 @@
   <string name="overview_newtempbasal_basalpercent">Basal-Wert [%]</string>
   <string name="overview_newtempbasal_percent_label">% (100% = aktuell)</string>
   <string name="setbasalquestion">Akzeptiere neue TBR:</string>
+  <string name="overview_treatment_label">Bolus</string>
   <string name="overview_calculator_label">Rechner</string>
   <string name="constraintapllied">Beschränkungen angewendet!</string>
   <string name="confirmation">Bestätigung</string>
@@ -172,6 +174,7 @@
   <string name="nsclientnotinstalled">Nightscout-Client ist nicht installiert. Eintrag verloren!</string>
   <string name="objectives_bgavailableinns">BZ verfügbar in Nightscout</string>
   <string name="objectives_pumpstatusavailableinns">Pumpen-Status verfügbar in Nightscout</string>
+  <string name="objectives_manualenacts">Manuelle Aktionen</string>
   <string name="loopdisabled">LOOP DEAKTIVIERT DURCH BESCHRÄNKUNGEN</string>
   <string name="cs_lang">Czech</string>
   <string name="en_lang">English</string>
@@ -217,17 +220,29 @@
   <string name="overview_extendedbolus_button">Verlängerter Bolus</string>
   <string name="configbuilder_nightscoutversion_label">Nightscout-Version:</string>
   <string name="missing">Fehlend</string>
+  <string name="exported">Einstellungen exportiert</string>
   <string name="export_to">Einstellungen exportieren nach</string>
   <string name="import_from">Importiere Einstellungen von</string>
   <string name="setting_imported">Einstellungen importiert</string>
   <string name="filenotfound">Datei nicht gefunden</string>
   <string name="nav_export">Einstellungen exportieren</string>
   <string name="nav_import">Einstellungen importieren</string>
+  <string name="nl_lang">Niederländisch</string>
+  <string name="de_lang">Deutsch</string>
+  <string name="es_lang">Spanisch</string>
+  <string name="el_lang">Griechisch</string>
+  <string name="it_lang">Italienisch</string>
+  <string name="ro_lang">Rumänisch</string>
+  <string name="ru_lang">Russisch</string>
   <string name="sv_lang">Swedish</string>
+  <string name="fr_lang">Französisch</string>
+  <string name="zh_lang">Chinesisch</string>
+  <string name="pl_lang">Polnisch</string>
   <string name="openapsma_maxbasal_title">Max IE/h, die als TBR gesetzt werden können</string>
   <string name="openapsma_maxbasal_summary">Dieser Wert wird \"max basal\" in OpenAPS genannt.</string>
   <string name="openapsma_maxiob_title">Maximales Basal-IOB, das OpenAPS abgeben darf [IE]</string>
   <string name="openapsma_maxiob_summary">Maximale Menge von nicht Bolus-IOB, die OpenAPs abgeben kann.</string>
+  <string name="bg_lang">Bulgarisch</string>
   <string name="dismiss">VERWERFEN</string>
   <string name="language">Sprache</string>
   <string name="danarpump">DanaR</string>
@@ -243,6 +258,10 @@
   <string name="connectionerror">Pumpen-Verbindungsfehler</string>
   <string name="danar_dailyunits">Tägliche Einheiten</string>
   <string name="pump_lastbolus_label">Letzter Bolus:</string>
+  <string name="danar_invalidinput">Ungültige Eingabedaten</string>
+  <string name="danar_valuenotsetproperly">Wert nicht korrekt gesetzt</string>
+  <string name="reloadprofile">Profil neu laden</string>
+  <string name="danar_viewprofile">Profil anzeigen</string>
   <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
   <string name="smscommunicator_calibrationreplywithcode">Um die Kalibrierung %1$.2f zu senden, antworte mit dem Code %2$s.</string>
   <string name="bolusdelivered" formatted="false">%.2f IE Bolus erfolgreich abgegeben</string>
