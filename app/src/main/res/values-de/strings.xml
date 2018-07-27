@@ -262,8 +262,12 @@
   <string name="danar_valuenotsetproperly">Wert nicht korrekt gesetzt</string>
   <string name="reloadprofile">Profil neu laden</string>
   <string name="danar_viewprofile">Profil anzeigen</string>
+  <string name="comment">Kommentar</string>
+  <string name="success">Erfolgreich</string>
+  <string name="percent">Prozent</string>
   <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
   <string name="smscommunicator_calibrationreplywithcode">Um die Kalibrierung %1$.2f zu senden, antworte mit dem Code %2$s.</string>
+  <string name="smscommunicator_bolusfailed">Bolus fehlgeschlagen</string>
   <string name="bolusdelivered" formatted="false">%.2f IE Bolus erfolgreich abgegeben</string>
   <string name="bolusrequested" formatted="false">Werde %.2f IE abgeben</string>
   <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2f IE erfolgreich abgegeben</string>
@@ -284,6 +288,7 @@
   <string name="danar_ebolus">E-Bolus</string>
   <string name="danar_dsbolus">DS-Bolus</string>
   <string name="danar_debolus">DE-Bolus</string>
+  <string name="danar_error">Fehler</string>
   <string name="danar_refill">Befüllen</string>
   <string name="danar_glucose">Glukose</string>
   <string name="danar_carbohydrate">Kohlenhydrate</string>
