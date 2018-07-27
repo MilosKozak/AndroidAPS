@@ -333,6 +333,14 @@
   <string name="objectives_2_gate">Anhand dieser Erfahrungen entscheide, wie hoch max Basal sein sollte und übernimm den Wert in die Pumpen- und AAPS-Einstellungen.</string>
   <string name="objectives_3_objective">Starte den Closed Loop Modus mit Vermeiden niedriger Werte</string>
   <string name="objectives_3_gate">Erprobe den Closed Loop Modus mit max IOB = 0 für ein paar Tage, ohne zu viele Unterzuckerungen zu haben.</string>
+  <string name="objectives_4_objective">Verfeinere die Closed Loop-Einstellung, erhöhe max IOB über 0 und setze den Zielbereich langsam herunter</string>
+  <string name="objectives_4_gate">Verwende es ein paar Tage und mindestens eine Nacht ohne Niedrig-Alarme (UZ), bevor du den BZ-Zielbereich senkst.</string>
+  <string name="objectives_5_objective">Falls notwendig, passe Basal und Faktoren an und aktiviere dann die Autosense-Funktion</string>
+  <string name="objectives_5_gate">Loope eine Woche erfolgreich am Tag mit regelmäßiger Kohlenhydrat-Eingabe.</string>
+  <string name="objectives_6_objective">Aktiviere zusätzliche Funktionen wie z. B. den Mahlzeitenassistenten</string>
+  <string name="objectives_7_objective">Aktiviere zusätzliche Funktionen wie z. B. SMB</string>
+  <string name="noprofileselected">Kein Profil ausgewählt</string>
+  <string name="smscommunicator_loophasbeendisabled">Loop wurde deaktiviert.</string>
   <string name="valuelimitedto">%1$.2f limitiert auf %2$.2f</string>
   <string name="smscommunicator_basalreplywithcode">Um eine BR mit %1$.2f IE/h zu starten, antworte mit dem Code %2$s.</string>
   <string name="smscommunicator_tempbasalset">TBR mit %1$.2f IE/h für %2$d min wurde erfolgreich gestartet</string>
