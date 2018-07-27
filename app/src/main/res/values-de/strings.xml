@@ -264,11 +264,13 @@
   <string name="danar_valuenotsetproperly">Wert nicht korrekt gesetzt</string>
   <string name="reloadprofile">Profil neu laden</string>
   <string name="danar_viewprofile">Profil anzeigen</string>
+  <string name="enacted">Ausgeführt</string>
   <string name="comment">Kommentar</string>
   <string name="success">Erfolgreich</string>
   <string name="percent">Prozent</string>
   <string name="absolute">Absolut</string>
   <string name="canceltemp">TBR abbrechen</string>
+  <string name="smscommunicator">SMS-Kommunikator</string>
   <string name="waitingforpumpresult">Auf Pumpenergebnis warten</string>
   <string name="smscommunicator_allowednumbers">Erlaubte Telefonnummern</string>
   <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
@@ -309,6 +311,7 @@
   <string name="danar_history_errors">Fehler</string>
   <string name="danar_history_glucose">Glukose</string>
   <string name="danar_history_refill">Füllmenge</string>
+  <string name="danar_history_syspend">Unterbrechungen</string>
   <string name="danar_history_connectingfor">Verbindungsaufbau seit %1$d s</string>
   <string name="danar_password_title">Pumpen-Passwort</string>
   <string name="wrongpumppassword">Falsches Pumpen-Passwort!</string>
@@ -323,6 +326,13 @@
   <string name="waitingforpump">Warte auf Pumpe</string>
   <string name="overview_bolusprogress_goingtodeliver" formatted="false">%1$.2f IE werden abgegeben.</string>
   <string name="objectives_0_objective">Konfiguriere die Anzeige und das Monitoring (Nightscout) und analysiere Basal-Raten und Faktoren</string>
+  <string name="objectives_0_gate">Verifiziere, dass BZ- und Pumpen-Insulin-Daten in Nightscout erfolgreich hoch geladen werden.</string>
+  <string name="objectives_1_objective">Starte den Open Loop Modus</string>
+  <string name="objectives_1_gate">Erprobe den Open Loop Modus für ein paar Tage und setze manuell temporäre Basal-Raten. Richte temporäre Ziele ein und nutze sie (z.B. für Bewegung, unterstützend zur Hypobehandlung).</string>
+  <string name="objectives_2_objective">Verstehe den Open Loop und die TBR-Empfehlungen</string>
+  <string name="objectives_2_gate">Anhand dieser Erfahrungen entscheide, wie hoch max Basal sein sollte und übernimm den Wert in die Pumpen- und AAPS-Einstellungen.</string>
+  <string name="objectives_3_objective">Starte den Closed Loop Modus mit Vermeiden niedriger Werte</string>
+  <string name="objectives_3_gate">Erprobe den Closed Loop Modus mit max IOB = 0 für ein paar Tage, ohne zu viele Unterzuckerungen zu haben.</string>
   <string name="valuelimitedto">%1$.2f limitiert auf %2$.2f</string>
   <string name="smscommunicator_basalreplywithcode">Um eine BR mit %1$.2f IE/h zu starten, antworte mit dem Code %2$s.</string>
   <string name="smscommunicator_tempbasalset">TBR mit %1$.2f IE/h für %2$d min wurde erfolgreich gestartet</string>
