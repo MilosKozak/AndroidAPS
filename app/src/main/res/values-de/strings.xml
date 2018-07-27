@@ -237,7 +237,6 @@
   <string name="sv_lang">Swedish</string>
   <string name="fr_lang">Französisch</string>
   <string name="zh_lang">Chinesisch</string>
-  <string name="pl_lang">Polnisch</string>
   <string name="openapsma_maxbasal_title">Max IE/h, die als TBR gesetzt werden können</string>
   <string name="openapsma_maxbasal_summary">Dieser Wert wird \"max basal\" in OpenAPS genannt.</string>
   <string name="openapsma_maxiob_title">Maximales Basal-IOB, das OpenAPS abgeben darf [IE]</string>
