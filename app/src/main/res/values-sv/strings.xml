@@ -40,4 +40,14 @@
   <string name="openapsma_glucosestatus_label">Glukosstatus</string>
   <string name="openapsma_currenttemp_label">Nuvarande temp</string>
   <string name="openapsma_iobdata_label">IOB-data</string>
+  <string name="openapsma_noglucosedata">Ingen BG-data tillänglig</string>
+  <string name="nochangerequested">Ingen ändring behövs</string>
+  <string name="reason">Orsak</string>
+  <string name="glucose">Glukos</string>
+  <string name="configbuilder">Konfigurationsverktyg</string>
+  <string name="objectives">Mål</string>
+  <string name="overview">Översikt</string>
+  <string name="nsprofile">NS-profil</string>
+  <string name="simpleprofile">Enkel profil</string>
+  <string name="treatments">Behandlingar</string>
 </resources>
