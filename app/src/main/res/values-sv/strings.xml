@@ -12,9 +12,7 @@
   <string name="ns_sync_use_absolute_title">Använd alltid absoluta värden i basal</string>
   <string name="alert_dialog_storage_permission_text">Starta om telefonen eller AndroidAPS från systeminställningar,\nannars kommer AndroidAPS inte kunna logga fel (viktigt att kunna spåra och verifiera att algoritmerna fungerar korrekt)!</string>
   <string name="description_food">Visar förutbestämda inställningar för mat i Nightscout</string>
-  <string name="description_insulin_free_peak">Låter dig ställa in tidpunkten för toppen på insulinets aktivitet. Bör endast användas av avancerade användare</string>
   <string name="description_persistent_notification">Visar en konstant avisering med en kort sammanfattning av vad din loop gör</string>
-  <string name="description_profile_local">Definiera en profil som är tillgänglig offline.</string>
   <string name="description_pump_combo">Pumpintegration för Accu-Chek Combo. Kräver att Ruffy är installerat</string>
   <string name="description_pump_dana_r">Pumpintegration för DANA Diabecare R</string>
   <string name="description_pump_dana_r_korean">Pumpintegration för DANA Diabecare R, koreansk version</string>
