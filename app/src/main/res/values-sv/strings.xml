@@ -102,4 +102,73 @@
   <string name="careportal_newnstreatment_carbtime_label">KH-tid</string>
   <string name="careportal_newnstreatment_split_label">Delad</string>
   <string name="careportal_newnstreatment_percent_label">Procent</string>
+  <string name="careportal_newnstreatment_absolute_label">Absolut</string>
+  <string name="careportal_newnstreatment_notes_label">Anteckning</string>
+  <string name="careportal_newnstreatment_eventtime_label">Tid</string>
+  <string name="careportal_newnstreatment_profile_label">Profil</string>
+  <string name="careportal_newnstreatment_enteredby_title">Loggat av</string>
+  <string name="careportal_newnstreatment_glucosetype">Glukostyp</string>
+  <string name="noprofile">Ingen profil laddad från Nightscout ännu</string>
+  <string name="overview_tempbasal_button">Temp basal</string>
+  <string name="hoursago">%.1f tim sedan</string>
+  <string name="danar_invalidinput">Fel på inmatning</string>
+  <string name="danar_valuenotsetproperly">Misslyckades med inställning</string>
+  <string name="reloadprofile">Ladda om profil</string>
+  <string name="danar_viewprofile">Visa profil</string>
+  <string name="comment">Kommentar</string>
+  <string name="success">Lyckad</string>
+  <string name="percent">Procent</string>
+  <string name="absolute">Absolut</string>
+  <string name="canceltemp">Avbryt temp basal</string>
+  <string name="smscommunicator">SMS-tjänst</string>
+  <string name="waitingforpumpresult">Väntar på resultat</string>
+  <string name="smscommunicator_allowednumbers">Godkända telefonnummer</string>
+  <string name="smscommunicator_allowednumbers_summary">+4670XXXXXXX; +4670YYYYYYY</string>
+  <string name="smscommunicator_bolusreplywithcode">För att ge bolus %1$.2f enheter, svara med kod %2$s</string>
+  <string name="smscommunicator_calibrationreplywithcode">För att skicka kalibrering %1$.2f, svara med kod %2$s</string>
+  <string name="smscommunicator_bolusfailed">Bolus misslyckades</string>
+  <string name="bolusdelivered" formatted="false">Bolus %.2f enheter korrekt tillförd</string>
+  <string name="bolusrequested" formatted="false">Kommer att tillföra %.2f enheter</string>
+  <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2f enheter tillförd</string>
+  <string name="bolusdelivering" formatted="false">Tillför %.2f enheter</string>
+  <string name="smscommunicator_remotecommandsallowed">Tillåt fjärrstyrning via SMS</string>
+  <string name="smscommunicator_remotebolusnotallowed">Fjärrbolus är inte tillåtet</string>
+  <string name="glucosetype_finger">Finger</string>
+  <string name="glucosetype_sensor">Sensor</string>
+  <string name="manual">Manuell</string>
+  <string name="danarprofile">Dana R profilinställningar</string>
+  <string name="danarprofile_dia">DIA [tim]</string>
+  <string name="danarprofile_dia_summary">Insulinets verkningstid</string>
+  <string name="failedupdatebasalprofile">Lyckades inte uppdatera basalprofilen</string>
+  <string name="uploading">Laddar upp</string>
+  <string name="danar_ebolus">Förlängd bolus</string>
+  <string name="danar_dsbolus">Standardbolus</string>
+  <string name="danar_debolus">Kombibolus</string>
+  <string name="danar_error">fel</string>
+  <string name="danar_refill">påfyllning</string>
+  <string name="danar_basalhour">basal tim</string>
+  <string name="danar_glucose">glukos</string>
+  <string name="danar_carbohydrate">kolhydrat</string>
+  <string name="danar_alarm">larm</string>
+  <string name="danar_totaluploaded">Laddade upp totalt %1$d värden</string>
+  <string name="danar_sbolus">S bolus</string>
+  <string name="danar_history_alarm">Larm</string>
+  <string name="danar_history_basalhours">Basaltimmar</string>
+  <string name="danar_history_bolus">Bolusar</string>
+  <string name="danar_history_carbohydrates">Kolhydrater</string>
+  <string name="smscommunicator_tempbasalfailed">Fel vid start av temp basal</string>
+  <string name="smscommunicator_basalstopreplywithcode" formatted="false">För att stoppa temp basal, svara med kod %s</string>
+  <string name="smscommunicator_tempbasalcanceled">Temp basal avbruten</string>
+  <string name="smscommunicator_tempbasalcancelfailed">Misslyckades med att avbryta temp basal</string>
+  <string name="smscommunicator_unknowncommand">Okänt kommando eller fel svar</string>
+  <string name="quickwizard">Kalkylator</string>
+  <string name="quickwizardsettings">Kalkylatorinställningar</string>
+  <string name="overview_editquickwizard_buttontext">Knapptext:</string>
+  <string name="overview_editquickwizard_carbs">KH:</string>
+  <string name="overview_editquickwizard_valid">Giltig:</string>
+  <string name="overview_editquickwizardlistactivity_add">Lägg till</string>
+  <string name="overview_quickwizard_item_edit_button">Ändra</string>
+  <string name="overview_quickwizard_item_remove_button">Ta bort</string>
+  <string name="mealbolus">Måltid</string>
+  <string name="actions">Åtgärder</string>
 </resources>
