@@ -135,7 +135,7 @@
   <string name="loop_aps_label">APS</string>
   <string name="loop_constraintsprocessed_label">通过约束条件之后</string>
   <string name="loop_tbrsetbypump_label">通过泵设置临时基础率</string>
-  <string name="openapsma_lastenact_label">上次执行</string>
+  <string name="openapsma_lastenact_label">上次制定</string>
   <string name="ok">确定</string>
   <string name="cancel">取消</string>
   <string name="noapsselected">APS没有被选择或者提供结果</string>
@@ -174,7 +174,7 @@
   <string name="nsclientnotinstalled">未安装 NSClient。记录丢失!</string>
   <string name="objectives_bgavailableinns">血糖在NS中可用</string>
   <string name="objectives_pumpstatusavailableinns">泵状态在 NS 中可用</string>
-  <string name="objectives_manualenacts">手动执行</string>
+  <string name="objectives_manualenacts">手动制定</string>
   <string name="loopdisabled">按约束条件禁用循环</string>
   <string name="treatments_wizard_basaliob_label">基础 IOB</string>
   <string name="bolusconstraintapplied">大剂量约束条件应用了</string>
@@ -405,6 +405,7 @@
   <string name="openapsama">OpenAPS AMA</string>
   <string name="short_avgdelta">短平均增量</string>
   <string name="long_avgdelta">长平均增量</string>
+  <string name="array_of_elements">%1$d 元素的数组. \n 实际值:</string>
   <string name="openapsma_autosensdata_label">Autosens 数据</string>
   <string name="openapsma_scriptdebugdata_label">脚本调试</string>
   <string name="openapsama_useautosens">使用 AMA autosens 功能</string>
@@ -908,6 +909,7 @@
   <string name="readstatusfailed">读取状态失败了</string>
   <string name="record_pump_site_change">记录泵管路更换</string>
   <string name="record_insulin_cartridge_change">记录胰岛素储药器变化</string>
+  <string name="smbalwaysdisabled">SMB always and after carbs disabled 因为实时的血糖来源不支持高级筛选</string>
   <string name="smbnotallowedinopenloopmode">在开环模式下不允许使用SMB－微型大剂量</string>
   <string name="food_short">食物</string>
   <string name="reset">重置</string>
@@ -951,6 +953,7 @@
   <string name="value_unavailable_short">不适用</string>
   <string name="ns_autobackfill_title">Autobackfill 血糖</string>
   <string name="wear_wizard_settings">向导设置</string>
+  <string name="wear_wizard_settings_summary">包含在向导中的计算结果：</string>
   <string name="wear_display_settings">显示设置</string>
   <string name="wear_general_settings">常规设置</string>
   <string name="enable_nsclient">启用 NSClient</string>
