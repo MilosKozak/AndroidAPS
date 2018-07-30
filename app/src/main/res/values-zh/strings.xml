@@ -701,6 +701,13 @@
   <string name="time_plural">s</string>
   <string name="insight_keepalive_format_string">%1$ds 过期 %2$s</string>
   <string name="insight_keep_alive_status">保持活动状态</string>
+  <string name="statistics">统计</string>
+  <string name="connect_preemptively">抢先连接</string>
+  <string name="automatically_connect_when">当 AndroidAPS 屏幕打开时, 在请求任何泵命令之前自动连接, 以减少连接延迟</string>
+  <string name="not_recommended_due_to_battery_drain">由于电池耗尽而不推荐</string>
+  <string name="enablesmbalways">始终启用 SMB</string>
+  <string name="enablesmbwithcob">启用带活性碳水化合物的SMB</string>
+  <string name="enablesmbwithcob_summary">当有活性碳水化合物时启动SMB</string>
   <string name="enablesmbwithtemptarget">启用带有临时目标的SMB</string>
   <string name="enablesmbwithtemptarget_summary">当临时目标处于活动状态时启用 SMB (很快吃饭, 运动)</string>
   <string name="enablesmbwithhightemptarget">启用具有高临时目标的 SMB</string>
@@ -723,6 +730,7 @@
   <string name="wear_predictions_summary">在手表的表盘上显示预测</string>
   <string name="wear_predictions_title">预测</string>
   <string name="data_choices">数据选择</string>
+  <string name="fabric_upload">通过Fabric上传</string>
   <string name="start_activity_tt">开始运动临时目标</string>
   <string name="start_eating_soon_tt">开始很快吃饭TT(临时目标)</string>
   <string name="temptargetshort">TT(临时目标)</string>
@@ -747,6 +755,7 @@
   <string name="combo_bolus_rejected_due_to_pump_history_change">在大剂量计算之后，泵的历史记录已经发生变化了。大剂量将不会被输注，如果仍然需要大剂量输注请重新计算</string>
   <string name="combo_error_updating_treatment_record">大剂量输注成功，但添加到治疗记录时失败。如果在最近两分钟内使用相同量的两个小大剂量，就会发生这种情况。请检查泵的历史记录和治疗条目，并使用记录标签添加丢失的条目。确保在同一分钟不要添加重复的条目</string>
   <string name="combo_high_temp_rejected_due_to_pump_history_changes">由于泵的历史事件变化了，拒绝过高的临时基础率</string>
+  <string name="basal_set_correctly">正确地设置基础率</string>
   <string name="limitingpercentrate">由于 %2$s, 将最大百分比限制为 %1$d%%</string>
   <string name="limitingbolus">由于 %2$s, 将大剂量限制为 %1$.1f U</string>
   <string name="limitingmaxiob">由于 %2$s, 将最大 IOB(活性胰岛素) 限制为 %1$.1f U</string>
@@ -849,4 +858,31 @@
   <string name="completed_well_done">完成了，做的好</string>
   <string name="not_completed_yet">尚未完成</string>
   <string name="time_elapsed">已用时间</string>
+  <string name="nth_objective">%1$d．目标</string>
+  <string name="poctech">Poctech</string>
+  <string name="description_source_poctech">从 Poctech app 接收血糖值。</string>
+  <string name="high_temptarget_raises_sensitivity_title">高临时目标增加灵敏度</string>
+  <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[当临时目标 >= 100时提高灵敏度]]></string>
+  <string name="low_temptarget_lowers_sensitivity_title">低临时目标降低灵敏度</string>
+  <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[当临时目标 ＜= 100时降低灵敏度]]></string>
+  <string name="combo_invalid_setup">泵设置的无效，检查文档并核实这个Quick Info 菜单被命名为 QUICK INFO，使用360 configuration 这个软件　</string>
+  <string name="custom">自定义</string>
+  <string name="largetimedifftitle">手机和泵的时间相差很大</string>
+  <string name="largetimediff">手机和泵的时间相差很大\n泵上的时间已经偏离１. ５小时\n请在泵上手动调整时间，并且确定可以顺利读取泵历史，没有出现意外的行为。\n如果可能的话，在更改泵时间之前从泵上删除历史。或者禁用闭环至少一个DIA的时间，也就是胰岛素作用时间。</string>
+  <string name="careportal_removestartedevents">Clean AndroidAPS 启动了</string>
+  <string name="storedsettingsfound">发现曾经保存过的设置</string>
+  <string name="allow_hardware_pump_text">注意：如果你激活并且连接到了一个硬件泵，AndroidAPS将会从配置文件复制基础率到泵上。覆盖泵上已有的基础率。请确定你已经在AndroidAPS上设置了正确的基础率。如果你不确定或者不想覆盖泵上的基础率设置，按取消键，以后再切换激活配置文件。</string>
+  <string name="error_adding_treatment_title">治疗数据不完整</string>
+  <string name="error_adding_treatment_message">一个治疗 (胰岛素: %1$.2f, 碳水: %2$d, 在: %3$s)不能被添加到治疗里。请检查并手动记录是合适的。</string>
+  <string name="generated_ecarbs_note">产生以下数量的碳水化合物: %1$dg, 持续时间: %2$dh, 延迟: %3$dm</string>
+  <string name="openaps_noasdata">Autosens 数据不可用</string>
+  <plurals name="objective_days">
+    <item quantity="other">%1$d　天</item>
+  </plurals>
+  <plurals name="objective_hours">
+    <item quantity="other">%1$d 小时</item>
+  </plurals>
+  <plurals name="objective_minutes">
+    <item quantity="other">%1$d 分钟</item>
+  </plurals>
 </resources>
