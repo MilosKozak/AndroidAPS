@@ -250,6 +250,7 @@
   <string name="danar_valuenotsetproperly">数值设定的不正确</string>
   <string name="reloadprofile">重新加载配置文件</string>
   <string name="danar_viewprofile">查看配置文件</string>
+  <string name="enacted">制定</string>
   <string name="comment">评论</string>
   <string name="success">成功</string>
   <string name="percent">百分比</string>
@@ -773,10 +774,12 @@
   <string name="extendedbolusdeliveryerror">扩展大剂量(方波) 输注错误</string>
   <string name="insightpump_shortname">Insight</string>
   <string name="insightpump">Insight胰岛素泵</string>
+  <string name="status_no_colon">状态</string>
   <string name="changed">已更改</string>
   <string name="pump_stopped_uppercase">泵停止了</string>
   <string name="status_updated">状态已更新</string>
   <string name="ago">之前</string>
+  <string name="with">with</string>
   <string name="insight_active_tbr">现在用的临时基础率</string>
   <string name="insight_min_left">剩余分钟数</string>
   <string name="log_book">日志簿</string>
@@ -784,6 +787,7 @@
   <string name="insight_min">分</string>
   <string name="insight_remaining_over">剩余</string>
   <string name="insight_total_with">合计</string>
+  <string name="insight_upfront_with">upfront with</string>
   <string name="insight_stay_always_connected">始终保持连接</string>
   <string name="insight_history_idle">空闲</string>
   <string name="insight_history_syncing">正在同步</string>
@@ -1014,6 +1018,8 @@
   <string name="error_adding_treatment_message">一个治疗 (胰岛素: %1$.2f, 碳水: %2$d, 在: %3$s)不能被添加到治疗里。请检查并手动记录是合适的。</string>
   <string name="generated_ecarbs_note">产生以下数量的碳水化合物: %1$dg, 持续时间: %2$dh, 延迟: %3$dm</string>
   <string name="openaps_noasdata">Autosens 数据不可用</string>
+  <string name="nav_logsettings">日志设置</string>
+  <string name="resettodefaults">重置为默认值</string>
   <plurals name="objective_days">
     <item quantity="other">%1$d　天</item>
   </plurals>
