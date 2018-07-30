@@ -921,6 +921,7 @@
   <string name="pump_started">泵启动了</string>
   <string name="pump_paused">泵暂停了</string>
   <string name="absorption_cutoff_title">膳食最大吸收时间 [h]</string>
+  <string name="absorption_cutoff_summary">任何膳食被认为完全吸收的时间。 剩余的碳水化合物将被忽略</string>
   <string name="time">时间</string>
   <string name="overview_show_notes_field_in_dialogs_title">在治疗对话框中显示备注字段</string>
   <string name="next_button">下一个</string>
