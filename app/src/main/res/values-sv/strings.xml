@@ -155,7 +155,6 @@
   <string name="bolusdelivered" formatted="false">Bolus %.2f enheter korrekt tillförd</string>
   <string name="bolusrequested" formatted="false">Kommer att tillföra %.2f enheter</string>
   <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2f enheter tillförd</string>
-  <string name="bolusdelivering" formatted="false">Tillför %.2f enheter</string>
   <string name="smscommunicator_remotecommandsallowed">Tillåt fjärrstyrning via SMS</string>
   <string name="smscommunicator_remotebolusnotallowed">Fjärrbolus är inte tillåtet</string>
   <string name="glucosetype_finger">Finger</string>
