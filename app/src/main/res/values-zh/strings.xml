@@ -716,6 +716,8 @@
   <string name="overview_editquickwizard_usesuperbolus">超级大剂量计算</string>
   <string name="yes">是</string>
   <string name="no">否</string>
+  <string name="positiveonly">仅正数</string>
+  <string name="negativeonly">仅负数</string>
   <string name="overview_editquickwizard_usecob">COB计算</string>
   <string name="overview_editquickwizard_usetemptarget">临时目标血糖计算</string>
   <string name="loopenabled">闭环启用了</string>
