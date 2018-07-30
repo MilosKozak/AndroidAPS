@@ -785,6 +785,9 @@
   <string name="log_book">Historie</string>
   <string name="insight_last_completed_action">Poslední vykonaný příkaz</string>
   <string name="insight_min">min</string>
+  <string name="insight_remaining_over">zůstává nad</string>
+  <string name="insight_total_with">celkem se</string>
+  <string name="insight_upfront_with">předem se s</string>
   <string name="insight_stay_always_connected">Zůstat stále připojený</string>
   <string name="insight_history_idle">NEČINNÝ</string>
   <string name="insight_history_syncing">SYNCHRONIZUJI</string>
@@ -965,8 +968,10 @@
   <string name="sensitivitysetup">Nastavení senzitivity</string>
   <string name="setupwizard_sensitivity_description">Plugin senzitivita slouží k detekci změn v senzitivitě a k počítání COB. Více informací zde:</string>
   <string name="nsclientinfotext">NSClient slouží ke spojení s Nightscoutem. Nastavení můžete nyní přeskočit, ale nebudete schopni dokončit cíle, dokud nastavení neprovedete.</string>
+  <string name="diawarning">Pozor: Nové inzulínové profily vyžadují DIA minimálně 5h. DIA 5–6 hodin odpovídá zhruba nastavení 3h na starších typech profilů nebo v pumpě.</string>
   <string name="bgsourcesetup">Konfigurace zdroje glykémií</string>
   <string name="setupwizard_profile_description">Vyberte zdroj profilů. Pokud jde o dítě, využijte nejspíše NS profil. Pokud Vás nikdo přes NS nesleduje, budete patrně preferovat Místní profil. Uvědomte si, že nastavujete pouze zdroj profilů. Na to aby se opravdu profil začal používat, je třeba provést aktivaci profilu použitím \"Přepnutí profilu\"</string>
+  <string name="setupwizard_aps_description">Vyberte jeden z algoritmů. Jsou setříděné od nejstaršího po nejnovější. Novější je obvykle lepší a agresivnější, ale vyžaduje přesnější nastavení. Proto pokud se smyčkou začínáte, měli byste nejdříve vybrat jen AMA a ne ten poslední. Nezapomeňte si přečíst dokumentaci k OpenAPS a provést nastavení, než ho začnete používat.</string>
   <string name="startobjective">Spusťte první cíl</string>
   <string name="permission">Povolení</string>
   <string name="askforpermission">Získat povolení</string>
@@ -1015,4 +1020,6 @@
   <string name="error_adding_treatment_message">Ošetření (inzulín: %1$.2f, sacharidy: %2$d, čas: %3$s) nelze přidat. Zkontrolujte a podle potřeby ručně přidejte záznam.</string>
   <string name="generated_ecarbs_note">Generované eCarbs: %1$dg, délka: %2$dh, zpoždění: %3$dm</string>
   <string name="openaps_noasdata">Nedostupná data o glykémiích</string>
+  <string name="nav_logsettings">Nastavení logování</string>
+  <string name="resettodefaults">Obnovit výchozí</string>
 </resources>
