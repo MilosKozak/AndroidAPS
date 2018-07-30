@@ -426,6 +426,7 @@
   <string name="actions_shortname">操作</string>
   <string name="configbuilder_shortname">配置</string>
   <string name="loop_shortname">闭环</string>
+  <string name="simpleprofile_shortname">本地</string>
   <string name="oaps_shortname">OpenAPS</string>
   <string name="localprofile_shortname">本地配置文件</string>
   <string name="danarpump_shortname">丹纳泵</string>
@@ -509,6 +510,11 @@
   <string name="patientage">病人年龄</string>
   <string name="child">儿童</string>
   <string name="teenage">青少年</string>
+  <string name="adult">成人</string>
+  <string name="resistantadult">胰岛素抵抗成人</string>
+  <string name="patientage_summary">请选择患者年龄以设置安全限制</string>
+  <string name="Glimp">Glimp</string>
+  <string name="needwhitelisting">%s 需要加入电池优化白名单才能正常运行</string>
   <string name="loopsuspended">闭环暂停了</string>
   <string name="loopsuspendedfor">暂停了 (%1$d m)</string>
   <string name="loopsuperbolusfor">超级大剂量 (%1$d m)</string>
@@ -609,6 +615,7 @@
   <string name="valuesnotstored">值没有被存储</string>
   <string name="ns_localbroadcasts">启用广播到其他应用程序（如xDrip）.</string>
   <string name="ns_localbroadcasts_title">启用本地广播。</string>
+  <string name="careportal_activity_label">活动 &amp; 反馈</string>
   <string name="careportal_carbsandbolus_label">碳水化合物 &amp; 大剂量</string>
   <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
   <string name="careportal_pump_label">泵</string>
@@ -710,6 +717,7 @@
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="overview_editquickwizard_usecob">COB计算</string>
+  <string name="overview_editquickwizard_usetemptarget">临时目标血糖计算</string>
   <string name="loopenabled">闭环启用了</string>
   <string name="apsselected">APS已选择</string>
   <string name="nsclienthaswritepermission">NSClient 具有写入权限</string>
@@ -757,6 +765,7 @@
   <string name="extendedbolusdeliveryerror">扩展大剂量(方波) 输注错误</string>
   <string name="insightpump_shortname">Insight</string>
   <string name="insightpump">Insight胰岛素泵</string>
+  <string name="changed">已更改</string>
   <string name="pump_stopped_uppercase">泵停止了</string>
   <string name="status_updated">状态已更新</string>
   <string name="ago">之前</string>
