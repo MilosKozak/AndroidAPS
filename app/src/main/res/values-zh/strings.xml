@@ -278,6 +278,8 @@
   <string name="danar_historyreload">重新加载</string>
   <string name="uploading">正在上传···</string>
   <string name="danar_ebolus">扩展大剂量</string>
+  <string name="danar_dsbolus">DS bolus</string>
+  <string name="danar_debolus">DE bolus</string>
   <string name="danar_error">错误</string>
   <string name="danar_refill">充盈</string>
   <string name="danar_basalhour">基础率 小时</string>
@@ -285,6 +287,7 @@
   <string name="danar_carbohydrate">碳水化合物</string>
   <string name="danar_alarm">报警</string>
   <string name="danar_totaluploaded">总计上传了%1$d个记录</string>
+  <string name="danar_sbolus">S bolus</string>
   <string name="danar_history_alarm">报警</string>
   <string name="danar_history_basalhours">基础率 小时</string>
   <string name="danar_history_bolus">大剂量</string>
@@ -676,6 +679,7 @@
   <string name="shorthour">小时</string>
   <string name="none"><![CDATA[<none>]]></string>
   <string name="shortkilojoul">kJ</string>
+  <string name="shortenergy">En</string>
   <string name="shortprotein">蛋白质</string>
   <string name="shortfat">脂肪</string>
   <string name="active"><![CDATA[<Active>]]></string>
@@ -903,6 +907,7 @@
   <string name="reset">重置</string>
   <string name="waitingfortimesynchronization">正在等待时间同步 (%1$d 秒)</string>
   <string name="loopdisconnectedfor">已断开连接 (%1$d 分)</string>
+  <string name="automatic_careportal_events">自动记录的护理事件</string>
   <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">自动上传胰岛素更换，管路更换和电池更换以及泵警报至Nightscout</string>
   <string name="openapssmb_maxiob_title">OpenAPS的IOB活性胰岛素总数的最大值不能超过[U]</string>
   <string name="openapssmb_maxiob_summary">该值在OpenAPS中称为最大 IOB\n如果当前IOB大于此值，则OpenAPS不会输注更多胰岛素</string>
