@@ -174,6 +174,7 @@
   <string name="nsclientnotinstalled">未安装 NSClient。记录丢失!</string>
   <string name="objectives_bgavailableinns">血糖在NS中可用</string>
   <string name="objectives_pumpstatusavailableinns">泵状态在 NS 中可用</string>
+  <string name="objectives_manualenacts">手动执行</string>
   <string name="loopdisabled">按约束条件禁用循环</string>
   <string name="treatments_wizard_basaliob_label">基础 IOB</string>
   <string name="bolusconstraintapplied">大剂量约束条件应用了</string>
@@ -186,6 +187,7 @@
   <string name="careportal_pumpsitechange">泵更换管路</string>
   <string name="careportal_cgmsensorinsert">CGM 传感器插入</string>
   <string name="careportal_cgmsensorstart">CGM 传感器启动</string>
+  <string name="careportal_insulincartridgechange">更换储药器</string>
   <string name="careportal_profileswitch">配置文件切换</string>
   <string name="careportal_snackbolus">零食大剂量</string>
   <string name="careportal_mealbolus">餐时大剂量</string>
