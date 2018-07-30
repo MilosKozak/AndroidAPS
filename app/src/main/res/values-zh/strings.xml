@@ -279,6 +279,46 @@
   <string name="danar_error">错误</string>
   <string name="danar_refill">充盈</string>
   <string name="danar_glucose">血糖</string>
+  <string name="danar_carbohydrate">碳水化合物</string>
+  <string name="danar_alarm">报警</string>
+  <string name="danar_totaluploaded">总计上传了%1$d个记录</string>
+  <string name="danar_history_alarm">报警</string>
+  <string name="danar_history_basalhours">基础率 小时</string>
+  <string name="danar_history_bolus">大剂量</string>
+  <string name="danar_history_carbohydrates">碳水化合物</string>
+  <string name="danar_history_dailyinsulin">每日胰岛素用量</string>
+  <string name="danar_history_errors">错误</string>
+  <string name="danar_history_glucose">血糖</string>
+  <string name="danar_history_refill">充盈</string>
+  <string name="danar_history_syspend">暂停</string>
+  <string name="danar_history_connectingfor">正在连接 %1$d s</string>
+  <string name="danar_password_title">泵密码</string>
+  <string name="wrongpumppassword">错误的泵密码</string>
+  <string name="pumpbusy">胰岛素泵忙碌中</string>
+  <string name="overview_bolusprogress_delivered">已输注</string>
+  <string name="overview_bolusprogress_stoped">已停止</string>
+  <string name="bolusstopped">大剂量停止了</string>
+  <string name="bolusstopping">正在停止大剂量</string>
+  <string name="occlusion">堵管</string>
+  <string name="overview_bolusprogress_stop">停止</string>
+  <string name="overview_bolusprogress_stoppressed">停止键按下了</string>
+  <string name="waitingforpump">正在等待泵</string>
+  <string name="overview_bolusprogress_goingtodeliver" formatted="false">将要输注 %.2fU</string>
+  <string name="objectives_0_objective">设置可视化和监视, 并分析基础率和比率</string>
+  <string name="objectives_0_gate">验证 Nightscout 中的血糖是否可用, 并且正在上传泵的胰岛素数据</string>
+  <string name="objectives_1_objective">开始开环</string>
+  <string name="objectives_1_gate">在开环模式下运行几天，并在手机上手动制定很多次临时基础率。设置和使用临时目标和默认的临时目标 (例如, 用于活动或处理碳水化合物)</string>
+  <string name="objectives_2_objective">了解你的开环，包括它的临时基础率建议</string>
+  <string name="objectives_2_gate">基于以上的经验，决定适合自己的最大基础率，在泵和本软件的属性上设置</string>
+  <string name="objectives_3_objective">开始闭环模式，低血糖自动暂停</string>
+  <string name="objectives_3_gate">在闭环模式下运行，设置最大IOB = 0 运行几天确保没有太多的低血糖事件</string>
+  <string name="objectives_4_objective">优化闭环，逐渐增加最大IOB，并逐渐降低目标血糖值</string>
+  <string name="objectives_4_gate">运行几天，至少一个晚上没有低血糖报警，然后才可以继续调低目标血糖</string>
+  <string name="objectives_5_objective">如果需要的话，调整基础率和比值，然后再启用auto-sense</string>
+  <string name="objectives_5_gate">一个星期成功的白天闭环，常规的碳水化合物摄入</string>
+  <string name="objectives_6_objective">启用额外的功能以供白天使用，例如用餐助手(meal assist)</string>
+  <string name="objectives_7_objective">启用额外的功能以供白天使用, 例如微型大剂量 SMB</string>
+  <string name="objectives_7_gate">为了让微型大剂量工作的更好，你必须读指南，提高最大IOB的值。 建议是最大IOB值=餐时大剂量的平均值+3倍 的每日基础率中的最大值</string>
   <string name="noprofileselected">没有选定配置文件</string>
   <string name="smscommunicator_loophasbeendisabled">闭环已经被禁用</string>
   <string name="smscommunicator_loophasbeenenabled">闭环已经被启用</string>
