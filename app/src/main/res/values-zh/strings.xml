@@ -730,6 +730,7 @@
   <string name="wear_notifysmb_title">在 SMB 上通知</string>
   <string name="wear_notifysmb_summary">在手表上像显示常规大剂量一样显示SMB微型大剂量</string>
   <string name="ns_create_announcements_from_errors_title">创建错误公告</string>
+  <string name="ns_create_announcements_from_errors_summary">为错误对话框和本地警报创建Nightscout公告(在治疗标签下的护理记录里也可查看)</string>
   <string name="wear_predictions_summary">在手表的表盘上显示预测</string>
   <string name="wear_predictions_title">预测</string>
   <string name="data_choices">数据选择</string>
