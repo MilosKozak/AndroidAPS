@@ -18,7 +18,7 @@ import info.nightscout.utils.ToastUtils;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by mike on 20.11.2017.
+ * Created by Rumen on 31.07.2018.
  */
 
 @RunWith(PowerMockRunner.class)
