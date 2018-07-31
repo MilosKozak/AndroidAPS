@@ -263,9 +263,9 @@
   <string name="smscommunicator_bolusreplywithcode">För att ge bolus %1$.2f enheter, svara med kod %2$s</string>
   <string name="smscommunicator_calibrationreplywithcode">För att skicka kalibrering %1$.2f, svara med kod %2$s</string>
   <string name="smscommunicator_bolusfailed">Bolus misslyckades</string>
-  <string name="bolusdelivered" formatted="false">Bolus %.2f enheter korrekt tillförd</string>
-  <string name="bolusrequested" formatted="false">Kommer att tillföra %.2f enheter</string>
-  <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2f enheter tillförd</string>
+  <string name="bolusdelivered" formatted="false">Bolus %.2f enheter korrekt levererad</string>
+  <string name="bolusrequested" formatted="false">Kommer att leverera %.2f enheter</string>
+  <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2f enheter levererad</string>
   <string name="bolusdelivering" formatted="false">Levererar %.2f enheter</string>
   <string name="smscommunicator_remotecommandsallowed">Tillåt fjärrstyrning via SMS</string>
   <string name="smscommunicator_remotebolusnotallowed">Fjärrbolus är inte tillåtet</string>
