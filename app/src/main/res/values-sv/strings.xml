@@ -135,7 +135,7 @@
   <string name="loop_aps_label">APS</string>
   <string name="loop_constraintsprocessed_label">Efter begränsningar</string>
   <string name="loop_tbrsetbypump_label">Temp basal satt i pump</string>
-  <string name="openapsma_lastenact_label">Senast startad</string>
+  <string name="openapsma_lastenact_label">Senaste justering</string>
   <string name="ok">OK</string>
   <string name="cancel">Avbryt</string>
   <string name="noapsselected">INGEN APS VALD</string>
@@ -225,7 +225,7 @@
   <string name="filenotfound">Hittade inte filen</string>
   <string name="nav_export">Exportera inställningar</string>
   <string name="nav_import">Importera inställningar</string>
-  <string name="openapsma_maxbasal_title">Max enheter per timme som temp basal kan sättas till</string>
+  <string name="openapsma_maxbasal_title">Max enheter per timme</string>
   <string name="openapsma_maxbasal_summary">Detta värde kallas max basal inom OpenAPS</string>
   <string name="openapsma_maxiob_title">Maximal basal IOB som OpenAPS kan ge [E]</string>
   <string name="openapsma_maxiob_summary">Detta värde kallas Max IOB i OpenAPS. Det är ställt till noll från start. Efter flera dagar till veckor, beroende på hur du känner, kan du välja att justera denna.</string>
@@ -1022,6 +1022,8 @@
   <string name="error_adding_treatment_message">En behandling (insulin: %1$.2f, kolhydrater: %2$d, tid: %3$s) kunde inte läggas till listan i Behandlingar. Vänligen kontrollera och lägg till en post manuellt vid behov.</string>
   <string name="generated_ecarbs_note">Genererade eCarbs för %1$dg kolhydrater över %2$dh med fördröjning på %3$dm</string>
   <string name="openaps_noasdata">Ingen data tillgänglig för autosens</string>
+  <string name="nav_logsettings">Loggningsinställningar</string>
+  <string name="resettodefaults">Återställ standardinställningar</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dag</item>
     <item quantity="other">%1$d dagar</item>
