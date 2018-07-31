@@ -55,7 +55,9 @@ public class DanaRS_Packet_Basal_Get_Basal_Rate extends DanaRS_Packet {
 		if (pump.basalStep != 0.01d) {
 			Notification notification = new Notification(Notification.WRONGBASALSTEP, MainApp.gs(R.string.danar_setbasalstep001), Notification.URGENT);
 			MainApp.bus().post(new EventNewNotification(notification));
+			failed = false;
 		} else {
+			failed = true;
 			MainApp.bus().post(new EventDismissNotification(Notification.WRONGBASALSTEP));
 		}
 
