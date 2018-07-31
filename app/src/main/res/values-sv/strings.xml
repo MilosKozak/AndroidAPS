@@ -660,7 +660,7 @@
   <string name="serialnumber">Serienummer</string>
   <string name="careportal_newnstreatment_percentage_label">Procent</string>
   <string name="careportal_newnstreatment_timeshift_label">Tidsförskjutning</string>
-  <string name="default_temptargets">Standardvärde för temp mål</string>
+  <string name="default_temptargets">Standardmålvärden</string>
   <string name="eatingsoon_duration">Äta snart [min]</string>
   <string name="eatingsoon_target">Mål vid Äta snart</string>
   <string name="activity_duration">Träning [min]</string>
@@ -823,9 +823,9 @@
   <string name="enablesmbaftercarbs_summary">Använd SMB i 6 timmar efter kolhydrater, även med 0 COB. Endast möjligt med en bra filtrerad BG-källa, t ex Dexcom G5.</string>
   <string name="enablesmbwithcob">Använd SMB med kolhydrater (COB)</string>
   <string name="enablesmbwithcob_summary">Använd SMB medan du har kolhydrater aktiva (COB)</string>
-  <string name="enablesmbwithtemptarget">Använd SMB när temp målvärde är satt</string>
+  <string name="enablesmbwithtemptarget">Använd SMB vid temp målvärde</string>
   <string name="enablesmbwithtemptarget_summary">Använd SMB när temp mål är satt, t ex Äta snart eller Träning</string>
-  <string name="enablesmbwithhightemptarget">Använd SMB även när ett högt temp målvärde är satt</string>
+  <string name="enablesmbwithhightemptarget">Använd SMB vid högt målvärde</string>
   <string name="enablesmbwithhightemptarget_summary">Använd SMB även när ett högt temp målvärde är satt (över 5,5 mmol)</string>
   <string name="let_temp_basal_run">Låt temp basalen gå</string>
   <string name="mute">Tysta</string>
@@ -1007,9 +1007,9 @@
   <string name="nth_objective">%1$d. Mål</string>
   <string name="poctech">Poctech</string>
   <string name="description_source_poctech">Ta emot BG-data från Poctechappen</string>
-  <string name="high_temptarget_raises_sensitivity_title">Högt temp målvärde höjer känsligheten</string>
+  <string name="high_temptarget_raises_sensitivity_title">Högt målvärde höjer känsligheten</string>
   <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Höj känsligheten om temp målvärde är 100 mg/dl (5.5 mmol/l) eller högre]]></string>
-  <string name="low_temptarget_lowers_sensitivity_title">Lågt temp målvärde sänker känsligheten</string>
+  <string name="low_temptarget_lowers_sensitivity_title">Lågt målvärde sänker känsligheten</string>
   <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Sänk känsligheten om temp målvärde är mindre än 100 mg/dl (5.5 mmol/l)]]></string>
   <string name="combo_invalid_setup">Felaktig pumpinstallation. Kontrollera dokumentationen och verifiera att Snabbmenyn heter QUICK INFO med hjälp av 360-mjukvaran.</string>
   <string name="custom">Anpassad</string>
