@@ -31,7 +31,9 @@ import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.PumpDescription;
 import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.Overview.events.EventOverviewBolusProgress;
@@ -51,7 +53,7 @@ import info.nightscout.androidaps.plugins.PumpInsight.utils.StatusItem;
 import info.nightscout.androidaps.plugins.Treatments.Treatment;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.utils.DateUtil;
-import info.nightscout.utils.NSUpload;
+import info.nightscout.androidaps.plugins.NSClientInternal.NSUpload;
 import info.nightscout.utils.SP;
 import sugar.free.sightparser.applayer.descriptors.ActiveBolus;
 import sugar.free.sightparser.applayer.descriptors.ActiveBolusType;
@@ -61,7 +63,6 @@ import sugar.free.sightparser.applayer.descriptors.configuration_blocks.BRProfil
 import sugar.free.sightparser.applayer.messages.AppLayerMessage;
 import sugar.free.sightparser.applayer.messages.remote_control.BolusMessage;
 import sugar.free.sightparser.applayer.messages.remote_control.CancelBolusMessage;
-import sugar.free.sightparser.applayer.messages.remote_control.CancelTBRMessage;
 import sugar.free.sightparser.applayer.messages.remote_control.ExtendedBolusMessage;
 import sugar.free.sightparser.applayer.messages.remote_control.StandardBolusMessage;
 import sugar.free.sightparser.applayer.messages.status.ActiveBolusesMessage;
@@ -456,12 +457,12 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
             bolusingEvent.bolusId = bolusId;
             bolusingEvent.percent = 0;
             MainApp.bus().post(bolusingEvent);
-            TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo);
+            TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, true);
         } else {
             log.debug("Failure to deliver treatment");
         }
 
-        if (Config.logPumpComm)
+        if (L.isEnabled(L.PUMPCOMM))
             log.debug("Delivering treatment insulin: " + detailedBolusInfo.insulin + "U carbs: " + detailedBolusInfo.carbs + "g " + result);
 
         updateGui();
@@ -557,7 +558,7 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
                     .source(Source.USER);
             TreatmentsPlugin.getPlugin().addToHistoryTempBasal(tempBasal);
             updateGui();
-            if (Config.logPumpComm) log.debug("Set temp basal " + percent + "% for " + durationInMinutes + "m");
+            if (L.isEnabled(L.PUMPCOMM)) log.debug("Set temp basal " + percent + "% for " + durationInMinutes + "m");
             connector.requestHistorySync(5000);
             connector.tryToGetPumpStatusAgain();
             return new PumpEnactResult().success(true).enacted(true).percent(percent);
@@ -575,7 +576,7 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
             cancelExtendedBolus();
             realTBRCancel();
             updateGui();
-            if (Config.logPumpComm) log.debug("Canceling temp basal");
+            if (L.isEnabled(L.PUMPCOMM)) log.debug("Canceling temp basal");
             connector.requestHistorySync(5000);
             connector.tryToGetPumpStatusAgain();
             return new PumpEnactResult().success(true).enacted(true).isTempCancel(true);
@@ -612,7 +613,7 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
             updateGui();
             connector.requestHistorySync(30000);
             connector.tryToGetPumpStatusAgain();
-            if (Config.logPumpComm)
+            if (L.isEnabled(L.PUMPCOMM))
                 log.debug("Setting extended bolus: " + insulin + " mins:" + durationInMinutes);
             return new PumpEnactResult().success(true).enacted(true).duration(durationInMinutes).bolusDelivered(insulin);
         } catch (Exception e) {
@@ -633,7 +634,7 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
                 exStop.source = Source.USER;
                 TreatmentsPlugin.getPlugin().addToHistoryExtendedBolus(exStop);
             }
-            if (Config.logPumpComm) log.debug("Cancel extended bolus:");
+            if (L.isEnabled(L.PUMPCOMM)) log.debug("Cancel extended bolus:");
             if (bolusId != null) connector.requestHistorySync(5000);
             connector.tryToGetPumpStatusAgain();
             updateGui();
@@ -671,7 +672,7 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
             status.put("timestamp", DateUtil.toISOString(connector.getLastContactTime()));
             extended.put("Version", BuildConfig.VERSION_NAME + "-" + BuildConfig.BUILDVERSION);
             try {
-                extended.put("ActiveProfile", MainApp.getConfigBuilder().getProfileName());
+                extended.put("ActiveProfile", ProfileFunctions.getInstance().getProfileName());
             } catch (Exception e) {
             }
             TemporaryBasal tb = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(now);
@@ -914,7 +915,14 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
     public Constraint<Double> applyBolusConstraints(Constraint<Double> insulin) {
         if (statusResult != null) {
             insulin.setIfSmaller(statusResult.maximumBolusAmount, String.format(MainApp.gs(R.string.limitingbolus), statusResult.maximumBolusAmount, MainApp.gs(R.string.pumplimit)), this);
-            insulin.setIfGreater(statusResult.minimumBolusAmount, String.format(MainApp.gs(R.string.limitingbolus), statusResult.maximumBolusAmount, MainApp.gs(R.string.pumplimit)), this);
+            if (insulin.value() < statusResult.minimumBolusAmount) {
+
+                //TODO: Add function to Constraints or use different approach
+                // This only works if the interface of the InsightPlugin is called last.
+                // If not, another contraint could theoretically set the value between 0 and minimumBolusAmount
+
+                insulin.set(0d, String.format(MainApp.gs(R.string.limitingbolus), statusResult.minimumBolusAmount, MainApp.gs(R.string.pumplimit)), this);
+            }
         }
         return insulin;
     }
