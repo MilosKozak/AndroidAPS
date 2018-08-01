@@ -1020,7 +1020,6 @@
   <string name="allow_hardware_pump_text">注意：如果你激活并且连接到了一个硬件泵，AndroidAPS将会从配置文件复制基础率到泵上。覆盖泵上已有的基础率。请确定你已经在AndroidAPS上设置了正确的基础率。如果你不确定或者不想覆盖泵上的基础率设置，按取消键，以后再切换激活配置文件。</string>
   <string name="error_adding_treatment_title">治疗数据不完整</string>
   <string name="error_adding_treatment_message">一个治疗 (胰岛素: %1$.2f, 碳水: %2$d, 在: %3$s)不能被添加到治疗里。请检查并手动记录是合适的。</string>
-  <string name="generated_ecarbs_note">产生以下数量的碳水化合物: %1$dg, 持续时间: %2$dh, 延迟: %3$dm</string>
   <string name="openaps_noasdata">Autosens 数据不可用</string>
   <string name="nav_logsettings">日志设置</string>
   <string name="resettodefaults">重置为默认值</string>
