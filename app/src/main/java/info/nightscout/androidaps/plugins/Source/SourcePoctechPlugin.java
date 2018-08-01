@@ -1,5 +1,6 @@
 package info.nightscout.androidaps.plugins.Source;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import org.json.JSONArray;
@@ -7,9 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
@@ -20,15 +18,16 @@ import info.nightscout.androidaps.interfaces.BgSourceInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
+import info.nightscout.androidaps.logging.L;
 import info.nightscout.utils.JsonHelper;
-import info.nightscout.utils.NSUpload;
+import info.nightscout.androidaps.plugins.NSClientInternal.NSUpload;
 import info.nightscout.utils.SP;
 
 /**
  * Created by mike on 05.08.2016.
  */
 public class SourcePoctechPlugin extends PluginBase implements BgSourceInterface {
-    private static final Logger log = LoggerFactory.getLogger(SourcePoctechPlugin.class);
+    private static Logger log = LoggerFactory.getLogger(L.BGSOURCE);
 
     private static SourcePoctechPlugin plugin = null;
 
@@ -50,40 +49,48 @@ public class SourcePoctechPlugin extends PluginBase implements BgSourceInterface
     }
 
     @Override
-    public List<BgReading> processNewData(Bundle bundle) {
-        List<BgReading> bgReadings = new ArrayList<>();
+    public boolean advancedFilteringSupported() {
+        return false;
+    }
+
+    @Override
+    public void handleNewData(Intent intent) {
+
+        if (!isEnabled(PluginType.BGSOURCE)) return;
+
+        Bundle bundle = intent.getExtras();
+        if (bundle == null) return;
+
+        BgReading bgReading = new BgReading();
 
         String data = bundle.getString("data");
-        log.debug("Received Poctech Data", data);
+        if (L.isEnabled(L.BGSOURCE))
+            log.debug("Received Poctech Data", data);
 
         try {
             JSONArray jsonArray = new JSONArray(data);
-            log.debug("Received Poctech Data size:" + jsonArray.length());
+            if (L.isEnabled(L.BGSOURCE))
+                log.debug("Received Poctech Data size:" + jsonArray.length());
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
-                BgReading bgReading = new BgReading();
                 bgReading.value = json.getDouble("current");
                 bgReading.direction = json.getString("direction");
                 bgReading.date = json.getLong("date");
                 bgReading.raw = json.getDouble("raw");
-                bgReading.isFiltered = false;
-                bgReading.sourcePlugin = getName();
-                if (JsonHelper.safeGetString(json, "utils", Constants.MGDL).equals("mmol/L"))
+                if (JsonHelper.safeGetString(json, "units", Constants.MGDL).equals("mmol/L"))
                     bgReading.value = bgReading.value * Constants.MMOLL_TO_MGDL;
-                boolean isNew = MainApp.getDbHelper().createIfNotExists(bgReading, getName());
-                if (isNew) {
-                    bgReadings.add(bgReading);
-                    if (SP.getBoolean(R.string.key_dexcomg5_nsupload, false)) {
-                        NSUpload.uploadBg(bgReading);
-                    }
-                    if (SP.getBoolean(R.string.key_dexcomg5_xdripupload, false)) {
-                        NSUpload.sendToXdrip(bgReading);
-                    }
+                boolean isNew = MainApp.getDbHelper().createIfNotExists(bgReading, "Poctech");
+                if (isNew && SP.getBoolean(R.string.key_dexcomg5_nsupload, false)) {
+                    NSUpload.uploadBg(bgReading);
+                }
+                if (isNew && SP.getBoolean(R.string.key_dexcomg5_xdripupload, false)) {
+                    NSUpload.sendToXdrip(bgReading);
                 }
             }
+
         } catch (JSONException e) {
-            log.error("Unhandled exception", e);
+            log.error("Exception: ", e);
         }
-        return bgReadings;
     }
+
 }

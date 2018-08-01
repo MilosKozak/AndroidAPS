@@ -1,5 +1,6 @@
 package info.nightscout.androidaps.plugins.Source;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import org.json.JSONArray;
@@ -8,10 +9,6 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.db.BgReading;
@@ -19,12 +16,13 @@ import info.nightscout.androidaps.interfaces.BgSourceInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
+import info.nightscout.androidaps.logging.L;
 
 /**
  * Created by mike on 05.08.2016.
  */
 public class SourceMM640gPlugin extends PluginBase implements BgSourceInterface {
-    private static final Logger log = LoggerFactory.getLogger(SourceMM640gPlugin.class);
+    private static Logger log = LoggerFactory.getLogger(L.BGSOURCE);
 
     private static SourceMM640gPlugin plugin = null;
 
@@ -44,11 +42,25 @@ public class SourceMM640gPlugin extends PluginBase implements BgSourceInterface 
     }
 
     @Override
-    public List<BgReading> processNewData(Bundle bundle) {
-        List<BgReading> bgReadings = new ArrayList<>();
+    public boolean advancedFilteringSupported() {
+        return false;
+    }
 
-        if (Objects.equals(bundle.getString("collection"), "entries")) {
+    @Override
+    public void handleNewData(Intent intent) {
+
+        if (!isEnabled(PluginType.BGSOURCE)) return;
+
+        Bundle bundle = intent.getExtras();
+        if (bundle == null) return;
+
+        final String collection = bundle.getString("collection");
+        if (collection == null) return;
+
+        if (collection.equals("entries")) {
             final String data = bundle.getString("data");
+            if (L.isEnabled(L.BGSOURCE))
+                log.debug("Received MM640g Data: ", data);
 
             if ((data != null) && (data.length() > 0)) {
                 try {
@@ -64,24 +76,18 @@ public class SourceMM640gPlugin extends PluginBase implements BgSourceInterface 
                                 bgReading.direction = json_object.getString("direction");
                                 bgReading.date = json_object.getLong("date");
                                 bgReading.raw = json_object.getDouble("sgv");
-                                bgReading.isFiltered = true;
-                                bgReading.sourcePlugin = getName();
 
-                                boolean isNew = MainApp.getDbHelper().createIfNotExists(bgReading, getName());
-                                if (isNew) {
-                                    bgReadings.add(bgReading);
-                                }
+                                MainApp.getDbHelper().createIfNotExists(bgReading, "MM640g");
                                 break;
                             default:
-                                log.debug("Unknown entries type: " + type);
+                                if (L.isEnabled(L.BGSOURCE))
+                                    log.debug("Unknown entries type: " + type);
                         }
                     }
                 } catch (JSONException e) {
-                    log.error("Got JSON exception: " + e);
+                    log.error("Exception: ", e);
                 }
             }
         }
-
-        return bgReadings;
     }
 }

@@ -1,13 +1,8 @@
 package info.nightscout.androidaps.setupwizard;
 
 import android.Manifest;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
-import android.os.PowerManager;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 
 import com.squareup.otto.Subscribe;
@@ -19,8 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import info.nightscout.androidaps.BuildConfig;
+import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
-import info.nightscout.androidaps.PreferencesActivity;
+import info.nightscout.androidaps.activities.PreferencesActivity;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.events.EventConfigBuilderChange;
 import info.nightscout.androidaps.events.EventPumpStatusChanged;
@@ -31,6 +27,7 @@ import info.nightscout.androidaps.plugins.Careportal.Dialogs.NewNSTreatmentDialo
 import info.nightscout.androidaps.plugins.Careportal.OptionsToShow;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.ConstraintsObjectives.ObjectivesFragment;
 import info.nightscout.androidaps.plugins.ConstraintsObjectives.ObjectivesPlugin;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
@@ -58,7 +55,6 @@ import info.nightscout.utils.ImportExportPrefs;
 import info.nightscout.utils.LocaleHelper;
 import info.nightscout.utils.PasswordProtection;
 import info.nightscout.utils.SP;
-import info.nightscout.utils.ToastUtils;
 
 public class SWDefinition {
     private static Logger log = LoggerFactory.getLogger(SWDefinition.class);
@@ -87,7 +83,7 @@ public class SWDefinition {
     }
 
     SWDefinition() {
-        if (BuildConfig.FLAVOR.equals("full"))
+        if (BuildConfig.FLAVOR.equals("full") || BuildConfig.FLAVOR.equals("pumpcontrol"))
             SWDefinitionFull();
         else if (BuildConfig.FLAVOR.equals("nsclient"))
             SWDefinitionNSClient();
@@ -311,8 +307,8 @@ public class SWDefinition {
                                     newDialog.setOptions(profileswitch, R.string.careportal_profileswitch);
                                     newDialog.show(getActivity().getSupportFragmentManager(), "NewNSTreatmentDialog");
                                 }))
-                        .validator(() -> MainApp.getConfigBuilder().getProfile() != null)
-                        .visibility(() -> MainApp.getConfigBuilder().getProfile() == null)
+                        .validator(() -> ProfileFunctions.getInstance().getProfile() != null)
+                        .visibility(() -> ProfileFunctions.getInstance().getProfile() == null)
                 )
         .add(new SWScreen(R.string.configbuilder_pump)
                 .skippable(false)
@@ -368,6 +364,7 @@ public class SWDefinition {
                         })
                         .visibility(() -> MainApp.getConfigBuilder().getActiveAPS() != null && ((PluginBase) MainApp.getConfigBuilder().getActiveAPS()).getPreferencesId() > 0))
                 .validator(() -> MainApp.getConfigBuilder().getActiveAPS() != null)
+                .visibility(() -> Config.APS)
         )
         .add(new SWScreen(R.string.configbuilder_loop)
                 .skippable(false)
@@ -386,7 +383,7 @@ public class SWDefinition {
                         })
                         .visibility(() -> !LoopPlugin.getPlugin().isEnabled(PluginType.LOOP)))
                 .validator(() -> LoopPlugin.getPlugin().isEnabled(PluginType.LOOP))
-                .visibility(() -> !LoopPlugin.getPlugin().isEnabled(PluginType.LOOP))
+                .visibility(() -> !LoopPlugin.getPlugin().isEnabled(PluginType.LOOP) && Config.APS)
         )
         .add(new SWScreen(R.string.configbuilder_sensitivity)
                 .skippable(false)
@@ -428,18 +425,18 @@ public class SWDefinition {
                         })
                         .visibility(() -> !ObjectivesPlugin.getPlugin().isFragmentVisible()))
                 .validator(() -> ObjectivesPlugin.getPlugin().isEnabled(PluginType.CONSTRAINTS))
-                .visibility(() -> !ObjectivesPlugin.getPlugin().isFragmentVisible())
+                .visibility(() -> !ObjectivesPlugin.getPlugin().isFragmentVisible() && Config.APS)
         )
         .add(new SWScreen(R.string.objectives)
-                        .skippable(false)
-                        .add(new SWInfotext()
-                                .label(R.string.startobjective))
-                        .add(new SWBreak())
-                        .add(new SWFragment(this)
-                                .add(new ObjectivesFragment()))
-                        .validator(() -> ObjectivesPlugin.getPlugin().objectives.get(0).isStarted())
-                        .visibility(() -> !ObjectivesPlugin.getPlugin().objectives.get(0).isStarted())
-                )
+                .skippable(false)
+                .add(new SWInfotext()
+                        .label(R.string.startobjective))
+                .add(new SWBreak())
+                .add(new SWFragment(this)
+                        .add(new ObjectivesFragment()))
+                .validator(() -> ObjectivesPlugin.getPlugin().objectives.get(0).isStarted())
+                .visibility(() -> !ObjectivesPlugin.getPlugin().objectives.get(0).isStarted() && Config.APS)
+        )
         ;
     }
 

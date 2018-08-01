@@ -1,5 +1,7 @@
 package info.nightscout.androidaps.db;
 
+import android.content.res.Resources;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -13,6 +15,8 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Profile;
+import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSSgv;
 import info.nightscout.androidaps.plugins.Overview.OverviewPlugin;
 import info.nightscout.androidaps.plugins.Overview.graphExtensions.DataPointWithLabelInterface;
@@ -22,7 +26,7 @@ import info.nightscout.utils.SP;
 
 @DatabaseTable(tableName = DatabaseHelper.DATABASE_BGREADINGS)
 public class BgReading implements DataPointWithLabelInterface {
-    private static Logger log = LoggerFactory.getLogger(BgReading.class);
+    private static Logger log = LoggerFactory.getLogger(L.DATABASE);
 
     @DatabaseField(id = true)
     public long date;
@@ -36,10 +40,6 @@ public class BgReading implements DataPointWithLabelInterface {
     public String direction;
     @DatabaseField
     public double raw;
-    @DatabaseField
-    public boolean isFiltered;
-    @DatabaseField
-    public String sourcePlugin;
 
     @DatabaseField
     public int source = Source.NONE;
@@ -122,9 +122,17 @@ public class BgReading implements DataPointWithLabelInterface {
                 ", value=" + value +
                 ", direction=" + direction +
                 ", raw=" + raw +
-                ", filtered=" + isFiltered +
-                ", sourcePlugin=" + sourcePlugin +
                 '}';
+    }
+
+    public boolean isDataChanging(BgReading other) {
+        if (date != other.date) {
+            log.error("Comparing different");
+            return false;
+        }
+        if (value != other.value)
+            return true;
+        return false;
     }
 
     public boolean isEqual(BgReading other) {
@@ -136,7 +144,7 @@ public class BgReading implements DataPointWithLabelInterface {
             return false;
         if (raw != other.raw)
             return false;
-        if (!direction.equals(other.direction))
+        if (!Objects.equals(direction, other.direction))
             return false;
         if (!Objects.equals(_id, other._id))
             return false;
@@ -162,7 +170,7 @@ public class BgReading implements DataPointWithLabelInterface {
 
     @Override
     public double getY() {
-        String units = MainApp.getConfigBuilder().getProfileUnits();
+        String units = ProfileFunctions.getInstance().getProfileUnits();
         return valueToUnits(units);
     }
 
@@ -196,7 +204,7 @@ public class BgReading implements DataPointWithLabelInterface {
 
     @Override
     public int getColor() {
-        String units = MainApp.getConfigBuilder().getProfileUnits();
+        String units = ProfileFunctions.getInstance().getProfileUnits();
         Double lowLine = SP.getDouble("low_mark", 0d);
         Double highLine = SP.getDouble("high_mark", 0d);
         if (lowLine < 1) {

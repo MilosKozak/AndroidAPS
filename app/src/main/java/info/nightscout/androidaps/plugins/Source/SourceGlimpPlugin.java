@@ -1,11 +1,10 @@
 package info.nightscout.androidaps.plugins.Source;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.common.collect.Lists;
-
-import java.util.Collections;
-import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
@@ -14,11 +13,14 @@ import info.nightscout.androidaps.interfaces.BgSourceInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
+import info.nightscout.androidaps.logging.BundleLogger;
+import info.nightscout.androidaps.logging.L;
 
 /**
  * Created by mike on 05.08.2016.
  */
 public class SourceGlimpPlugin extends PluginBase implements BgSourceInterface {
+    private static Logger log = LoggerFactory.getLogger(L.BGSOURCE);
 
     private static SourceGlimpPlugin plugin = null;
 
@@ -38,17 +40,28 @@ public class SourceGlimpPlugin extends PluginBase implements BgSourceInterface {
     }
 
     @Override
-    public List<BgReading> processNewData(Bundle bundle) {
+    public boolean advancedFilteringSupported() {
+        return false;
+    }
+
+    @Override
+    public void handleNewData(Intent intent) {
+
+        if (!isEnabled(PluginType.BGSOURCE)) return;
+
+        Bundle bundle = intent.getExtras();
+        if (bundle == null) return;
+
+        if (L.isEnabled(L.BGSOURCE))
+            log.debug("Received Glimp Data: " + BundleLogger.log(bundle));
+
         BgReading bgReading = new BgReading();
 
         bgReading.value = bundle.getDouble("mySGV");
         bgReading.direction = bundle.getString("myTrend");
         bgReading.date = bundle.getLong("myTimestamp");
         bgReading.raw = 0;
-        bgReading.isFiltered = false;
-        bgReading.sourcePlugin = getName();
 
-        boolean isNew = MainApp.getDbHelper().createIfNotExists(bgReading, getName());
-        return isNew ? Lists.newArrayList(bgReading) : Collections.emptyList();
+        MainApp.getDbHelper().createIfNotExists(bgReading, "GLIMP");
     }
 }

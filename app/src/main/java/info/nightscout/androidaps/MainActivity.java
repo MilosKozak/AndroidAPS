@@ -38,14 +38,21 @@ import com.squareup.otto.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import info.nightscout.androidaps.activities.AgreementActivity;
+import info.nightscout.androidaps.activities.HistoryBrowseActivity;
+import info.nightscout.androidaps.activities.PreferencesActivity;
+import info.nightscout.androidaps.activities.SingleFragmentActivity;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.events.EventAppExit;
 import info.nightscout.androidaps.events.EventFeatureRunning;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.logging.LogSettingActivity;
+import info.nightscout.androidaps.plugins.ConfigBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.Food.FoodPlugin;
+import info.nightscout.androidaps.plugins.NSClientInternal.data.NSSettingsStatus;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.setupwizard.SetupWizardActivity;
 import info.nightscout.androidaps.tabs.TabPageAdapter;
@@ -56,9 +63,10 @@ import info.nightscout.utils.LogDialog;
 import info.nightscout.utils.OKDialog;
 import info.nightscout.utils.PasswordProtection;
 import info.nightscout.utils.SP;
+import info.nightscout.utils.VersionChecker;
 
 public class MainActivity extends AppCompatActivity {
-    private static Logger log = LoggerFactory.getLogger(MainActivity.class);
+    private static Logger log = LoggerFactory.getLogger(L.CORE);
 
     protected PowerManager.WakeLock mWakeLock;
 
@@ -70,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Config.logFunctionCalls)
+        if (L.isEnabled(L.CORE))
             log.debug("onCreate");
 
         Iconify.with(new FontAwesomeModule());
@@ -111,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+        VersionChecker.check();
     }
 
     private void checkPluginPreferences(ViewPager viewPager) {
@@ -129,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (L.isEnabled(L.CORE))
+            log.debug("onResume");
 
         if (!SP.getBoolean(R.string.key_setupwizard_processed, false)) {
             Intent intent = new Intent(this, SetupWizardActivity.class);
@@ -149,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onDestroy() {
+        if (L.isEnabled(L.CORE))
+            log.debug("onDestroy");
         if (mWakeLock != null)
             if (mWakeLock.isHeld())
                 mWakeLock.release();
@@ -281,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkUpgradeToProfileTarget() { // TODO: can be removed in the future
         boolean oldKeyExists = SP.contains("openapsma_min_bg");
         if (oldKeyExists) {
-            Profile profile = MainApp.getConfigBuilder().getProfile();
+            Profile profile = ProfileFunctions.getInstance().getProfile();
             String oldRange = SP.getDouble("openapsma_min_bg", 0d) + " - " + SP.getDouble("openapsma_max_bg", 0d);
             String newRange = "";
             if (profile != null) {
@@ -391,6 +405,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_show_logcat:
                 LogDialog.showLogcat(this);
                 return true;
+            case R.id.nav_logsettings:
+                startActivity(new Intent(this, LogSettingActivity.class));
+                return true;
             case R.id.nav_about:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(MainApp.gs(R.string.app_name) + " " + BuildConfig.VERSION);
@@ -400,7 +417,7 @@ public class MainActivity extends AppCompatActivity {
                     builder.setIcon(R.mipmap.blueowl);
                 String message = "Build: " + BuildConfig.BUILDVERSION + "\n";
                 message += "Flavor: " + BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE + "\n";
-                message += MainApp.gs(R.string.configbuilder_nightscoutversion_label) + " " + ConfigBuilderPlugin.nightscoutVersionName;
+                message += MainApp.gs(R.string.configbuilder_nightscoutversion_label) + " " + NSSettingsStatus.getInstance().nightscoutVersionName;
                 if (MainApp.engineeringMode)
                     message += "\n" + MainApp.gs(R.string.engineering_mode_enabled);
                 message += MainApp.gs(R.string.about_link_urls);
