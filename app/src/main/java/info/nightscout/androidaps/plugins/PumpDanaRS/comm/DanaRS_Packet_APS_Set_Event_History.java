@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
 import info.nightscout.utils.DateUtil;
 
 public class DanaRS_Packet_APS_Set_Event_History extends DanaRS_Packet {
@@ -30,7 +31,7 @@ public class DanaRS_Packet_APS_Set_Event_History extends DanaRS_Packet {
         this.type = type;
         this.time = time;
         // Bolus or CARBS can't be negative
-        if ((type == 5 || type == 14) && param1 <= 0) {
+        if ((type == DanaRPump.CARBS || type == DanaRPump.BOLUS) && param1 <= 0) {
             this.param1 = 0;
         } else {
             this.param1 = param1;
