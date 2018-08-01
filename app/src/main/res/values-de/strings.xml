@@ -789,6 +789,7 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
   <string name="insight_min">min</string>
   <string name="insight_remaining_over">verbleibend über</string>
   <string name="insight_total_with">insgesamt mit</string>
+  <string name="insight_upfront_with">insgesamt mit</string>
   <string name="insight_stay_always_connected">Bleibe immer verbunden</string>
   <string name="insight_history_idle">LEERLAUF</string>
   <string name="insight_history_syncing">SYNCHRONISIERUNG</string>
