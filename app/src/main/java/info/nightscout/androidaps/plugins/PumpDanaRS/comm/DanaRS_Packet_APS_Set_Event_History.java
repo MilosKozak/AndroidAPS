@@ -29,7 +29,12 @@ public class DanaRS_Packet_APS_Set_Event_History extends DanaRS_Packet {
 
         this.type = type;
         this.time = time;
-        this.param1 = param1;
+        // Bolus or CARBS can't be negative
+        if ((type == 5 || type == 14) && param1 <= 0) {
+            this.param1 = 0;
+        } else {
+            this.param1 = param1;
+        }
         this.param2 = param2;
         if (L.isEnabled(L.PUMPCOMM))
             log.debug("Set history entry: " + DateUtil.dateAndTimeString(time) + " type: " + type + " param1: " + param1 + " param2: " + param2);

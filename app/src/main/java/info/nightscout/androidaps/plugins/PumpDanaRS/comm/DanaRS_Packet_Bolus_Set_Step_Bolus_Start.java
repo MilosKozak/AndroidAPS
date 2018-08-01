@@ -50,6 +50,8 @@ public class DanaRS_Packet_Bolus_Set_Step_Bolus_Start extends DanaRS_Packet {
     @Override
     public void handleMessage(byte[] data) {
         errorCode = intFromBuff(data, 0, 1);
+        if (errorCode != 0)
+            failed = true;
         if (L.isEnabled(L.PUMPCOMM)) {
             if (errorCode == 0) {
                 log.debug("Result OK");

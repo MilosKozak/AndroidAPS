@@ -21,9 +21,9 @@ public class DanaRS_Packet_Basal_Get_Basal_Rate extends DanaRS_Packet {
 	public DanaRS_Packet_Basal_Get_Basal_Rate() {
 		super();
 		opCode = BleCommandUtil.DANAR_PACKET__OPCODE_BASAL__GET_BASAL_RATE;
-		if (L.isEnabled(L.PUMPCOMM)) {
+//		if (L.isEnabled(L.PUMPCOMM)) {
 			log.debug("Requesting basal rates");
-		}
+//		}
 	}
 
 	@Override
@@ -42,7 +42,9 @@ public class DanaRS_Packet_Basal_Get_Basal_Rate extends DanaRS_Packet {
 		pump.pumpProfiles[pump.activeProfile] = new double[24];
 		for (int i = 0, size = 24; i < size; i++) {
 			dataIndex += dataSize;
-			dataSize = 2;
+			dataSize = data.length;
+			if (data.length > 2)
+				dataSize = 2;
 			pump.pumpProfiles[pump.activeProfile][i] = byteArrayToInt(getBytes(data, dataIndex, dataSize)) / 100d;
 		}
 		if (L.isEnabled(L.PUMPCOMM)) {
@@ -54,9 +56,19 @@ public class DanaRS_Packet_Basal_Get_Basal_Rate extends DanaRS_Packet {
 
 		if (pump.basalStep != 0.01d) {
 			Notification notification = new Notification(Notification.WRONGBASALSTEP, MainApp.gs(R.string.danar_setbasalstep001), Notification.URGENT);
-			MainApp.bus().post(new EventNewNotification(notification));
+            try {
+			    MainApp.bus().post(new EventNewNotification(notification));
+            } catch (Exception e){
+                // something to do here
+            }
+			failed = true;
 		} else {
-			MainApp.bus().post(new EventDismissNotification(Notification.WRONGBASALSTEP));
+			failed = false;
+			try {
+                MainApp.bus().post(new EventDismissNotification(Notification.WRONGBASALSTEP));
+            } catch (Exception e){
+			    // something to do here
+            }
 		}
 
 	}
