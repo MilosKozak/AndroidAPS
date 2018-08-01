@@ -67,8 +67,9 @@ public class DanaRS_Packet {
     protected static byte[] getBytes(byte[] data, int srcStart, int srcLength) {
         try {
             byte[] ret = new byte[srcLength];
-
-            System.arraycopy(data, srcStart, ret, 0, srcLength);
+            if (data.length > 0 && srcStart > -1 && srcLength > 0) {
+                System.arraycopy(data, srcStart, ret, 0, srcLength);
+            }
 
             return ret;
         } catch (Exception e) {
