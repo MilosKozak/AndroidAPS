@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({MainApp.class, SP.class})
-public class DanaRS_Packet_Basal_Get_Basal_RateTest extends DanaRS_Packet_Basal_Get_Basal_Rate {
+public class DanaRS_Packet_Basal_Set_Basal_RateTest extends DanaRS_Packet_Basal_Set_Basal_Rate {
 
     @Test
     public void runTest() {
@@ -30,13 +30,26 @@ public class DanaRS_Packet_Basal_Get_Basal_RateTest extends DanaRS_Packet_Basal_
         AAPSMocker.mockApplicationContext();
         AAPSMocker.mockSP();
         // test message decoding
-        // rate is 0.01
-        handleMessage(createArray(100, (byte) 1));
+        DanaRS_Packet_Basal_Set_Basal_Rate test = new DanaRS_Packet_Basal_Set_Basal_Rate(createArray(24, 5));
+        byte[] requested = test.getRequestParams();
+        byte lookingFor = (byte) ((5 * 100) & 0xff);
+        assertEquals(lookingFor, requested[24]);
+        lookingFor = (byte) ((500 >>> 8) & 0xff);
+        assertEquals(lookingFor, requested[25]);
+        handleMessage(createArray(3, (byte) 0));
         assertEquals(false, failed);
-        handleMessage(createArray(100, (byte) 5));
+        handleMessage(createArray(3, (byte) 1));
         assertEquals(true, failed);
 
-        assertEquals("BASAL__GET_BASAL_RATE", getFriendlyName());
+        assertEquals("BASAL__SET_BASAL_RATE", getFriendlyName());
+    }
+
+    double[] createArray(int length, double fillWith){
+        double[] ret = new double[length];
+        for(int i = 0; i<length; i++){
+            ret[i] = fillWith;
+        }
+        return ret;
     }
 
     byte[] createArray(int length, byte fillWith){
