@@ -991,7 +991,6 @@
   <string name="danar_pumpalarm_vibrate">Vibrera</string>
   <string name="danar_pumpalarm_both">Båda</string>
   <string name="danar_screentimeout">LCD på, tid [s]</string>
-  <string name="danar_backlight">Bakgrundsbelysning på, tid [h]</string>
   <string name="danar_glucoseunits">Glukosenheter</string>
   <string name="danar_shutdown">Stäng av (timmar)</string>
   <string name="danar_lowreservoir">Låg nivå reservoar (enheter)</string>
