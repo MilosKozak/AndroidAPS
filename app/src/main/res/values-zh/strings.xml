@@ -991,7 +991,6 @@
   <string name="danar_pumpalarm_vibrate">振动</string>
   <string name="danar_pumpalarm_both">两者都</string>
   <string name="danar_screentimeout">LCD屏幕亮的时间[s]</string>
-  <string name="danar_backlight">背景光开启的时间[h]</string>
   <string name="danar_glucoseunits">血糖单位</string>
   <string name="danar_shutdown">关机(小时)</string>
   <string name="danar_lowreservoir">储药器药量低(单位)</string>
