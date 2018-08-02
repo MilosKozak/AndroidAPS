@@ -411,9 +411,6 @@
   <string name="error_field_must_not_be_empty">Acest câmp nu trebuie lăsat necompletat</string>
   <string name="error_phone_not_valid">Numărul de telefon este invalid</string>
   <string name="smscommunicator_invalidphonennumber">Număr de telefon SMS invalid</string>
-  <string name="copy_to_clipboard">Copiază în clipboard</string>
-  <string name="copied_to_clipboard">Copiat în clipboard</string>
-  <string name="nav_show_logcat">Afișează istoricul</string>
   <string name="overview_calibration">Calibrare</string>
   <string name="send_calibration" formatted="false">Trimite calibrarea %.1f către xDrip?</string>
   <string name="xdripnotinstalled">xDrip+ nu este instalat.</string>
