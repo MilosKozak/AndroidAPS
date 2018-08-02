@@ -465,9 +465,6 @@
   <string name="error_field_must_not_be_empty">Detta fält får inte vara tomt</string>
   <string name="error_phone_not_valid">Ogiltigt telefonnummer</string>
   <string name="smscommunicator_invalidphonennumber">Ogiltigt telefonnummer för SMS</string>
-  <string name="copy_to_clipboard">Kopiera till Urklipp</string>
-  <string name="copied_to_clipboard">Kopierat till Urklipp</string>
-  <string name="nav_show_logcat">Visa logg</string>
   <string name="overview_calibration">Kalibrering</string>
   <string name="send_calibration" formatted="false">Skicka kalibrering %.1f till xDrip?</string>
   <string name="xdripnotinstalled">xDrip+ inte installerat</string>
