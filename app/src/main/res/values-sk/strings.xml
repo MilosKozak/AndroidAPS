@@ -800,6 +800,8 @@
   <string name="insight_unknown">Neznámy</string>
   <string name="insight_waiting_for_code">Čakám na potvrdenie kódu</string>
   <string name="insight_code_rejected">Kód odmietnutý</string>
+  <string name="insight_app_binding">Pripájanie aplikácie</string>
+  <string name="insight_not_authorized">Neautorizovaný</string>
   <string name="insight_incompatible">Nekompatibilný</string>
   <string name="second">sekunda</string>
   <string name="minute">minút</string>
@@ -982,4 +984,5 @@
   <string name="danar_lowreservoir">Nízky stav zásobníka [U]</string>
   <string name="danar_saveuseroptions">Uložiť do pumpy</string>
   <string name="option_on">ZAP</string>
+  <string name="versionavailable">Verzia %1$s je k dispozícii</string>
 </resources>
