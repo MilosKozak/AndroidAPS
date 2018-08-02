@@ -991,7 +991,6 @@
   <string name="danar_pumpalarm_vibrate">Вибрация</string>
   <string name="danar_pumpalarm_both">И двете</string>
   <string name="danar_screentimeout">Включен екран за [сек]</string>
-  <string name="danar_backlight">Подсветка за [сек]</string>
   <string name="danar_glucoseunits">Единици на КЗ</string>
   <string name="danar_shutdown">Изключване след(часа)</string>
   <string name="danar_lowreservoir">Минимален инсулин в резервоара (единици)</string>
