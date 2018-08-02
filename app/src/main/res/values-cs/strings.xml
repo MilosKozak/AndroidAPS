@@ -464,9 +464,6 @@
   <string name="error_field_must_not_be_empty">Toto pole nesmí být prázdné</string>
   <string name="error_phone_not_valid">Neplatné telefonní číslo</string>
   <string name="smscommunicator_invalidphonennumber">Špatné telefonní číslo</string>
-  <string name="copy_to_clipboard">Kopírovat do schránky</string>
-  <string name="copied_to_clipboard">Nakopírováno do schránky</string>
-  <string name="nav_show_logcat">Zobrazit log</string>
   <string name="overview_calibration">Kalibrace</string>
   <string name="send_calibration" formatted="false">Poslat do xDripu kalibraci %.1f ?</string>
   <string name="xdripnotinstalled">xDrip+ není nainstalován</string>
