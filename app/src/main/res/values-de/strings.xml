@@ -466,9 +466,6 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
   <string name="error_field_must_not_be_empty">Pflichtfeld</string>
   <string name="error_phone_not_valid">Telefonnummer ist nicht gültig</string>
   <string name="smscommunicator_invalidphonennumber">Falsche/ungültige Telefonnummer</string>
-  <string name="copy_to_clipboard">In den Zwischenspeicher kopieren</string>
-  <string name="copied_to_clipboard">In den Zwischenspeicher kopiert</string>
-  <string name="nav_show_logcat">Logs anzeigen</string>
   <string name="overview_calibration">Kalibrierung</string>
   <string name="send_calibration" formatted="false">Kalibrierung %1$.1f an xDrip+ senden?</string>
   <string name="xdripnotinstalled">xDrip+ nicht installiert</string>
