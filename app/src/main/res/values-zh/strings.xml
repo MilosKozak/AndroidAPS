@@ -950,7 +950,7 @@
   <string name="openapsama_bolussnooze_dia_divisor">大剂量snooze 胰岛素持续作用时间除数</string>
   <string name="openapsama_max_daily_safety_multiplier">最大日基础率安全倍数</string>
   <string name="openapsama_current_basal_safety_multiplier">当前基础率安全倍数</string>
-  <string name="value_unavailable_short">不适用</string>
+  <string name="value_unavailable_short">无可用</string>
   <string name="ns_autobackfill_title">Autobackfill 血糖</string>
   <string name="wear_wizard_settings">向导设置</string>
   <string name="wear_wizard_settings_summary">包含在向导中的计算结果：</string>
