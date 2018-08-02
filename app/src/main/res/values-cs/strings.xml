@@ -989,6 +989,7 @@
   <string name="danar_pumpalarm_vibrate">Vibrace</string>
   <string name="danar_pumpalarm_both">Oboje</string>
   <string name="danar_screentimeout">Čas před vypnutím displeje [s]</string>
+  <string name="danar_backlight">Podsvícení [s]</string>
   <string name="danar_glucoseunits">Jednotky</string>
   <string name="danar_shutdown">Vypnutí [h]</string>
   <string name="danar_lowreservoir">Nízký stav zásobníku [U]</string>
