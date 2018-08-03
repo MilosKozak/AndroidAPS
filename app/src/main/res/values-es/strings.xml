@@ -26,6 +26,24 @@
   <string name="description_ma">Condición del algoritmo en 2016</string>
   <string name="description_ama">Condición del algoritmo en 2017</string>
   <string name="description_smb">Algoritmo más reciente para usuarios avanzados</string>
+  <string name="description_overview">Muestra el estado actual de tu bucle y los botones para las acciones más usadas</string>
+  <string name="description_persistent_notification">Muestra una notificación en curso con un breve resumen de lo que está haciendo tu bucle</string>
+  <string name="description_profile_local">Define un perfil que estará disponible sin conexión.</string>
+  <string name="description_profile_nightscout">Usa el perfil introducido en Nightscout</string>
+  <string name="description_profile_simple">Definir un perfil con un solo bloque de tiempo.</string>
+  <string name="description_pump_combo">Integración de bombas de insulina Accu-Check Combo, necesita tener ruffy instalado</string>
+  <string name="description_pump_dana_r">Integración de bombas de insulina de DANA Diabecare R</string>
+  <string name="description_pump_dana_r_korean">Integración de bombas de insulina domésticas de DANA Diabecare R</string>
+  <string name="description_pump_dana_r_v2">Integración para bombas de insulina DANA Diabecare R con el firmware actualizado</string>
+  <string name="description_pump_dana_rs">Integración de bombas de insulina de DANA Diabecare RS</string>
+  <string name="description_pump_insight">Integración de bombas de insulina Accu-Check Insight, necesita tener SightRemote instalado</string>
+  <string name="description_pump_mdi">Integración de bomba de insulina para personas que usan varias inyecciones diarias para su terapia de diabetes</string>
+  <string name="description_pump_virtual">Integración para bombas de insulina que aún no tienen ningún controlador/driver (bucle abierto)</string>
+  <string name="description_sensitivity_aaps">Sensibilidad calculada de la misma manera que Oref0, pero puede especificarse el rango de tiempo. Absorción de carbohidratos mínima se calcula con el máximo tiempo de absorción de carbohidratos en preferencias.</string>
+  <string name="description_sensitivity_oref0">La sensibilidad se calcula con las últimas 24 h y los carbohidratos (si no son absorbidos) se anulan después del tiempo indicado en preferencias.</string>
+  <string name="description_sensitivity_oref1">La sensibilidad se calcula con las últimas 8 h y los carbohidratos (si no son absorbidos) se anulan después del tiempo indicado en preferencias. El complemento también calcula UAM.</string>
+  <string name="description_sensitivity_weighted_average">La sensibilidad se calcula como un promedio ampliado de las desviaciones. Desviaciones más recientes tienen mayor impacto. Absorción de carbohidratos mínima se calcula desde el tiempo de absorción de carbohidratos máximo en preferencias. Este algoritmo es el más rápido en los siguientes cambios de sensibilidad.</string>
+  <string name="description_xdrip_status_line">Mostrar información sobre tu bucle en tu esfera xDrip+.</string>
   <string name="loop">Bucle</string>
   <string name="configbuilder_loop">Bucle</string>
   <string name="configbuilder_loop_description">Utiliza esto para activar la integración del bucle de AndroidAPS.</string>
@@ -38,4 +56,5 @@
   <string name="objectives_4_objective">Ajuste del bucle cerrado, aumentando máximo IOB por encima de 0 y bajando gradualmente objetivos BG</string>
   <string name="loop_shortname">BUCLE</string>
   <string name="closed_loop_disabled_on_dev_branch">Ejecutando versión dev. Bucle cerrado no disponible.</string>
+  <string name="largetimediff">Gran diferencia de tiempo: \nLa bomba esta desincronizada más de 1,5 horas. \npor favor ajusta la hora manualmente en la bomba y asegúrate de que la lectura del histórico de la bomba no causa comportamiento inesperado. \nSi es posible, borra la historia de la bomba antes de cambiar la hora o desactiva el bucle cerrado durante un DIA (duracion insulina activa) después de la última entrada errónea del histórico pero mínimo un DIA a partir de ahora.</string>
 </resources>
