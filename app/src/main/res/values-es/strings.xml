@@ -26,4 +26,16 @@
   <string name="description_ma">Condición del algoritmo en 2016</string>
   <string name="description_ama">Condición del algoritmo en 2017</string>
   <string name="description_smb">Algoritmo más reciente para usuarios avanzados</string>
+  <string name="loop">Bucle</string>
+  <string name="configbuilder_loop">Bucle</string>
+  <string name="configbuilder_loop_description">Utiliza esto para activar la integración del bucle de AndroidAPS.</string>
+  <string name="openloop">Bucle abierto</string>
+  <string name="disabledloop">Bucle Inactivo</string>
+  <string name="disableloop">Desactivar bucle</string>
+  <string name="enableloop">Activar bucle</string>
+  <string name="objectives_1_objective">Empezar con bucle abierto</string>
+  <string name="objectives_3_objective">Iniciando el bucle cerrado con suspensión con baja glucosa</string>
+  <string name="objectives_4_objective">Ajuste del bucle cerrado, aumentando máximo IOB por encima de 0 y bajando gradualmente objetivos BG</string>
+  <string name="loop_shortname">BUCLE</string>
+  <string name="closed_loop_disabled_on_dev_branch">Ejecutando versión dev. Bucle cerrado no disponible.</string>
 </resources>
