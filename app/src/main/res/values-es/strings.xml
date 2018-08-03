@@ -590,6 +590,7 @@
   <string name="openapsama_autosens_period_summary">Horas en el pasado para detectar sensibilidad (tiempo de absorción de carbohidratos no incluidos)</string>
   <string name="pump">Bomba</string>
   <string name="openaps">OpenAPS</string>
+  <string name="uploader">Cargador datos</string>
   <string name="configbuilder_sensitivity">Detección sensibilidad</string>
   <string name="configbuilder_sensitivity_description">¿Que algoritmo de sensibilidad se debe usar?</string>
   <string name="sensitivity_shortname">SENS</string>
@@ -955,6 +956,7 @@
   <string name="enable_nsclient">Activar NSClient</string>
   <string name="welcometosetupwizard">Bienvenido al asistente de instalación. Le guiará a través del proceso de configuración\n</string>
   <string name="pumpsetup">Ajustes de la bomba</string>
+  <string name="readstatus">Leer estado</string>
   <string name="adjustprofileinns">Cambios deben hacerse en NS</string>
   <string name="exitwizard">Saltar asistente de configuración</string>
   <string name="setupwizard_loop_description">Presiona el botón de abajo para permitir a AndroidAPS sugerir/hacer cambios en basales</string>
@@ -1019,6 +1021,7 @@
   <string name="invalid_email_message">Email inválido</string>
   <string name="maintenance_amount">Ningún registro para enviar</string>
   <string name="maintenance">Mantenimiento</string>
+  <string name="maintenance_shortname">MANT</string>
   <string name="description_maintenance">Facilita varias funciones para el mantenimiento (ej. envío de registro, borrado de registro).</string>
   <string name="send_all_logs">Enviar registros por email</string>
   <string name="delete_logs">Borrar registros</string>
@@ -1028,7 +1031,9 @@
   <string name="nav_logsettings">Ajustes del registro</string>
   <string name="resettodefaults">Restablecer valores predeterminados</string>
   <string name="nsmalfunction">NSClient fallando. Considera reiniciar NS y NSClient.</string>
+  <string name="as">AS</string>
   <string name="versionavailable">Versión %1$s disponible</string>
+  <string name="time_offset">Desfase horario</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d día</item>
     <item quantity="other">%1$d días</item>
