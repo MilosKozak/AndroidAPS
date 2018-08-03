@@ -20,4 +20,10 @@
   <string name="description_food">Muestra los ajustes preestablecidos de alimentos definidos en Nightscout</string>
   <string name="description_insulin_rapid">Ajustes de insulina preestablecidos para Humalog y NovoRapid /NovoLog</string>
   <string name="description_insulin_ultra_rapid">Ajuste preestablecido para insulina Fiasp</string>
+  <string name="description_insulin_free_peak">Permite definir el pico de la actividad de la insulina. Debe ser utilizado únicamente por usuarios avanzados</string>
+  <string name="description_loop">Activar o desactivar la posibilidad para activar el bucle.</string>
+  <string name="description_ns_client">Sincroniza tus datos con Nightscout</string>
+  <string name="description_ma">Condición del algoritmo en 2016</string>
+  <string name="description_ama">Condición del algoritmo en 2017</string>
+  <string name="description_smb">Algoritmo más reciente para usuarios avanzados</string>
 </resources>
