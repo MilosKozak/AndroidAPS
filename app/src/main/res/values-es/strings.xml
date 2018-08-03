@@ -399,7 +399,7 @@
   <string name="MM640g">MM640g</string>
   <string name="ongoingnotificaction">Avisos permanentes</string>
   <string name="old_data">DATOS CADUCADOS</string>
-  <string name="minago">hace %1$d min</string>
+  <string name="minago">%1$d min antes</string>
   <string name="sms_minago">hace %1$d min</string>
   <string name="localprofile">Perfil Local</string>
   <string name="openapsama">OpenAPS AMA</string>
