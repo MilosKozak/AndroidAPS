@@ -27,6 +27,7 @@
   <string name="description_ama">Condición del algoritmo en 2017</string>
   <string name="description_smb">Algoritmo más reciente para usuarios avanzados</string>
   <string name="description_overview">Muestra el estado actual de tu lazo y los botones para las acciones más usadas</string>
+  <string name="description_persistent_notification">Muestra una notificación en curso con un breve resumen de lo que está haciendo tu lazo</string>
   <string name="description_profile_local">Define un perfil que estará disponible sin conexión.</string>
   <string name="description_profile_nightscout">Usa el perfil introducido en Nightscout</string>
   <string name="description_profile_simple">Definir un perfil con un solo bloque de tiempo.</string>
@@ -37,6 +38,7 @@
   <string name="description_pump_dana_rs">Integración de bombas de insulina de DANA Diabecare RS</string>
   <string name="description_pump_insight">Integración de bombas de insulina Accu-Check Insight, necesita tener SightRemote instalado</string>
   <string name="description_pump_mdi">Integración de bomba de insulina para personas que usan varias inyecciones diarias para su terapia de diabetes</string>
+  <string name="description_pump_virtual">Integración para bombas de insulina que aún no tienen ningún controlador/driver (lazo abierto)</string>
   <string name="description_sensitivity_aaps">Sensibilidad calculada de la misma manera que Oref0, pero puede especificarse el rango de tiempo. Absorción de carbohidratos mínima se calcula con el máximo tiempo de absorción de carbohidratos en preferencias.</string>
   <string name="description_sensitivity_oref0">La sensibilidad se calcula con las últimas 24 h y los carbohidratos (si no son absorbidos) se anulan después del tiempo indicado en preferencias.</string>
   <string name="description_sensitivity_oref1">La sensibilidad se calcula con las últimas 8 h y los carbohidratos (si no son absorbidos) se anulan después del tiempo indicado en preferencias. El complemento también calcula UAM.</string>
@@ -48,6 +50,7 @@
   <string name="description_source_xdrip">Recibir valores de glucosa de xDrip.</string>
   <string name="description_treatments">Guarda todos los tratamientos que se realizaron</string>
   <string name="description_wear">Observar y controlar AndroidAPS usando tu reloj WearOs.</string>
+  <string name="description_xdrip_status_line">Mostrar información sobre tu lazo en tu esfera xDrip+.</string>
   <string name="description_sms_communicator">Control remoto de AndroidAPS mediante comandos SMS.</string>
   <string name="objectives_button_start">Inicio</string>
   <string name="objectives_button_verify">Verificar</string>
@@ -72,9 +75,9 @@
   <string name="tempbasals_iobtotal_label_string">IOB Total:</string>
   <string name="treatments_newtreatment_insulinamount_label">Insulina [U]</string>
   <string name="treatments_newtreatment_carbsamount_label">Carbohidratos [g]</string>
-  <string name="treatments_wizard_bg_label">Glucosa</string>
+  <string name="treatments_wizard_bg_label">BG</string>
   <string name="treatments_wizard_tt_label">OT</string>
-  <string name="treatments_wizard_carbs_label">Carbohidratos [g]</string>
+  <string name="treatments_wizard_carbs_label">Carbohidratos</string>
   <string name="treatments_wizard_correction_label">Corrección</string>
   <string name="insulin_unit_shortname">Uds</string>
   <string name="treatments_wizard_bolusiob_label">Bolo IOB</string>
@@ -126,6 +129,9 @@
   <string name="configbuilder_constraints_description">¿Qué restricciones se aplican?</string>
   <string name="days">días</string>
   <string name="constraints">Restricciones</string>
+  <string name="loop">Lazo</string>
+  <string name="configbuilder_loop">Lazo</string>
+  <string name="configbuilder_loop_description">Utiliza esto para activar la integración del lazo de AndroidAPS.</string>
   <string name="loop_aps_label">APS</string>
   <string name="loop_constraintsprocessed_label">Tras procesar restricciones</string>
   <string name="loop_tbrsetbypump_label">Basal temporal en la bomba</string>
@@ -158,6 +164,10 @@
   <string name="xdrip">xDrip</string>
   <string name="apsmode_title">Modo APS</string>
   <string name="closedloop">Lazo cerrado</string>
+  <string name="openloop">Lazo abierto</string>
+  <string name="disabledloop">Lazo Inactivo</string>
+  <string name="disableloop">Desactivar lazo</string>
+  <string name="enableloop">Activar lazo</string>
   <string name="openloop_newsuggestion">Nueva propuesta disponible</string>
   <string name="unsupportedclientver">Versión de NSClient no soportada</string>
   <string name="unsupportednsversion">Versión no aceptada de Nightscout</string>
@@ -305,10 +315,13 @@
   <string name="overview_bolusprogress_goingtodeliver" formatted="false">Se entregará %.2fU</string>
   <string name="objectives_0_objective">Configuración de visualización y monitorización, y análisis de basales y ratios</string>
   <string name="objectives_0_gate">Comprobar que los datos de BG están disponibles en Nightscout, y que los datos de la bomba de insulina se están subiendo</string>
+  <string name="objectives_1_objective">Empezar con lazo abierto</string>
   <string name="objectives_1_gate">Ejecutar en modo de lazo abierto durante unos días, y aceptar manualmente las basales temporales. Configure y use objetivos temporales y predeterminados (por ejemplo, para actividad o carbohidratos para hipoglucemia)</string>
   <string name="objectives_2_objective">Entender el lazo abierto, incluidas las recomendaciones de basales temporales</string>
   <string name="objectives_2_gate">Sobre la base de esa experiencia, decidir valores de máximo basal, y ajustar la bomba y preferencias</string>
+  <string name="objectives_3_objective">Iniciando el lazo cerrado con suspensión con baja glucosa</string>
   <string name="objectives_3_gate">Ejecutar en lazo cerrado con max IOB=0 durante unos días sin demasiados valores bajos de glucosa</string>
+  <string name="objectives_4_objective">Ajuste del lazo cerrado, aumentando máximo IOB por encima de 0 y bajando gradualmente objetivos BG</string>
   <string name="objectives_4_gate">Funcionando unos cuantos días, y al menos una noche sin alarmas de glucosa baja, antes de bajar valor de glucosa</string>
   <string name="objectives_5_objective">Ajustar los basales y ratios, si es necesario, y luego activar auto-sens</string>
   <string name="objectives_5_gate">Una semana con éxito en lazo cerrado durante el día con entrada regular de carbohidratos</string>
@@ -419,6 +432,7 @@
   <string name="initializing">Inicializando...</string>
   <string name="actions_shortname">ACC</string>
   <string name="configbuilder_shortname">CONF</string>
+  <string name="loop_shortname">LAZO</string>
   <string name="simpleprofile_shortname">PERFSIM</string>
   <string name="oaps_shortname">OAPS</string>
   <string name="localprofile_shortname">PERFLOC</string>
@@ -521,7 +535,7 @@
   <string name="smscommunicator_wrongduration">Duración incorrecta</string>
   <string name="smscommunicator_loopsuspended">Lazo desactivado</string>
   <string name="smscommunicator_loopresumed">Lazo reiniciado</string>
-  <string name="treatments_wizard_bgtrend_label">Tendencia 15 min</string>
+  <string name="treatments_wizard_bgtrend_label">Tend. 15 min</string>
   <string name="treatments_wizard_cob_label">COB</string>
   <string name="superbolus">Superbolo</string>
   <string name="ns_logappstartedevent">Registrar el inicio de la aplicación en NS</string>
@@ -848,6 +862,7 @@
   <string name="overview_show_basals">Basales</string>
   <string name="no_action_selected">Ninguna acción seleccionada, nada sucederá</string>
   <string name="start_hypo_tt">Inicio OT Hipo</string>
+  <string name="closed_loop_disabled_on_dev_branch">Ejecutando versión dev. Lazo cerrado no disponible.</string>
   <string name="engineering_mode_enabled">Modo de ingeniería activado</string>
   <string name="not_eng_mode_or_release">Modo de ingeniería no está activado y no disponible en esta rama</string>
   <string name="pump_basebasalrate">%.2f U/h</string>
@@ -996,7 +1011,7 @@
   <string name="combo_invalid_setup">Configuración de la bomba incorrecta, leer la documentación y comprobar que el menú de Quick Info se llama QUICK INFO usando el software de configuración 360.</string>
   <string name="custom">Personalizado</string>
   <string name="largetimedifftitle">Diferencia de tiempo grande</string>
-  <string name="largetimediff">Gran diferencia de tiempo: \nLa bomba esta desincronizada más de 1,5 horas. \npor favor ajusta la hora manualmente en la bomba y asegúrate de que la lectura del histórico de la bomba no causa comportamiento inesperado. \nSi es posible, borra la historia de la bomba antes de cambiar la hora o desactiva el bucle cerrado durante un DIA (duracion insulina activa) después de la última entrada errónea del histórico pero mínimo un DIA a partir de ahora.</string>
+  <string name="largetimediff">Gran diferencia de tiempo: \nLa bomba esta desincronizada más de 1,5 horas. \npor favor ajusta la hora manualmente en la bomba y asegúrate de que la lectura del histórico de la bomba no causa comportamiento inesperado. \nSi es posible, borra la historia de la bomba antes de cambiar la hora o desactiva el lazo cerrado durante un DIA (duracion insulina activa) después de la última entrada errónea del histórico pero mínimo un DIA a partir de ahora.</string>
   <string name="careportal_removestartedevents">Limpiar eventos AndroidAPS iniciado</string>
   <string name="storedsettingsfound">Ajustes guardados encontrados</string>
   <string name="allow_hardware_pump_text">Atención: si activas y conectas al hardware de la bomba, AndroidAPS copiará los ajustes basales del perfil de la bomba, sobrescribiendo el actual perfil basal de la bomba. Comprueba que tengas el perfil basal correcto en AndroidAPS. Si no estás seguro o no quieres sobrescribir los ajustes basales en la bomba, presiona cancelar y repite cambio de la bomba más tarde.</string>
