@@ -340,6 +340,16 @@
   <string name="profile_set_failed">Error al activar perfil basal</string>
   <string name="profile_set_ok">Perfil basal actualizado en bomba</string>
   <string name="loop_shortname">BUCLE</string>
+  <string name="careportal_shortname">CP</string>
+  <string name="objectives_shortname">OBJ</string>
+  <string name="wear_shortname">RELOJ</string>
+  <string name="smscommunicator_shortname">SMS</string>
+  <string name="short_tabtitles">Título corto en pestaña</string>
+  <string name="always_use_shortavg">Usa siempre delta media corto en vez de delta simple</string>
+  <string name="always_use_shortavg_summary">Útil cuando los datos de fuentes sin filtrar como los de xDrip son inestables.</string>
+  <string name="advancedsettings_title">Ajustes avanzados</string>
+  <string name="danar_model">Modelo: %1$02X Protocolo: %2$02X Codigo: %3$02X</string>
+  <string name="profile">Perfiles</string>
   <string name="closed_loop_disabled_on_dev_branch">Ejecutando versión dev. Bucle cerrado no disponible.</string>
   <string name="largetimediff">Gran diferencia de tiempo: \nLa bomba esta desincronizada más de 1,5 horas. \npor favor ajusta la hora manualmente en la bomba y asegúrate de que la lectura del histórico de la bomba no causa comportamiento inesperado. \nSi es posible, borra la historia de la bomba antes de cambiar la hora o desactiva el bucle cerrado durante un DIA (duracion insulina activa) después de la última entrada errónea del histórico pero mínimo un DIA a partir de ahora.</string>
 </resources>
