@@ -577,7 +577,7 @@
   <string name="profileswitch">Cambio Perfil</string>
   <string name="careportal_pbage_label">Edad batería bomba</string>
   <string name="careportal_pumpbatterychange">Cambio batería bomba</string>
-  <string name="ns_alarmoptions">Opciones alama</string>
+  <string name="ns_alarmoptions">Opciones alarma</string>
   <string name="nsalarm_urgenthigh">Urgente alto</string>
   <string name="nsalarm_high">Alto</string>
   <string name="nsalarm_low">Bajo</string>
