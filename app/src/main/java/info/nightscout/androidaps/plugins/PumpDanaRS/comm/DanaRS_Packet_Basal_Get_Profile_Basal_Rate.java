@@ -10,6 +10,7 @@ import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
 
 public class DanaRS_Packet_Basal_Get_Profile_Basal_Rate extends DanaRS_Packet {
     private Logger log = LoggerFactory.getLogger(L.PUMPCOMM);
+    DanaRPump pump = DanaRPump.getInstance();
 
     private int profileNumber;
 
@@ -36,7 +37,6 @@ public class DanaRS_Packet_Basal_Get_Profile_Basal_Rate extends DanaRS_Packet {
 
     @Override
     public void handleMessage(byte[] data) {
-        DanaRPump pump = DanaRPump.getInstance();
 
         int dataIndex = DATA_START;
         int dataSize = 2;

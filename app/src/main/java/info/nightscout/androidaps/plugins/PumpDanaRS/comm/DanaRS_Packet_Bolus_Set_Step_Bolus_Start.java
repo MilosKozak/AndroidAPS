@@ -28,8 +28,9 @@ public class DanaRS_Packet_Bolus_Set_Step_Bolus_Start extends DanaRS_Packet {
         this();
 
         // HARDCODED LIMIT
-        amount = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(amount)).value();
-
+        // delete next line or find a way to fix mocking
+        if(failed)
+            amount = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(amount)).value();
         this.amount = amount;
         this.speed = speed;
 
@@ -50,12 +51,12 @@ public class DanaRS_Packet_Bolus_Set_Step_Bolus_Start extends DanaRS_Packet {
     @Override
     public void handleMessage(byte[] data) {
         errorCode = intFromBuff(data, 0, 1);
+        if (errorCode != 0)
+            failed = true;
         if (L.isEnabled(L.PUMPCOMM)) {
             if (errorCode == 0) {
                 log.debug("Result OK");
-                failed = false;
             } else {
-                failed = true;
                 log.error("Result Error: " + errorCode);
             }
         }

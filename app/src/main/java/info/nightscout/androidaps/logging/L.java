@@ -53,6 +53,9 @@ public class L {
     }
 
     private static LogElement findByName(String name) {
+        // Added by Rumen for unit testing
+        if(logElements == null)
+            return new LogElement(false);
         for (LogElement element : logElements) {
             if (element.name.equals(name))
                 return element;
