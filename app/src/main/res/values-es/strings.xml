@@ -795,6 +795,7 @@
   <string name="insight_unknown">Desconocido</string>
   <string name="insight_waiting_for_code">Esperando código de confirmación</string>
   <string name="insight_code_rejected">Código rechazado</string>
+  <string name="insight_app_binding">Vincular con aplicación</string>
   <string name="insight_not_authorized">No autorizado</string>
   <string name="insight_incompatible">Incompatible</string>
   <string name="second">segundo</string>
@@ -825,6 +826,10 @@
   <string name="overview_carbs_label">Carbohidratos</string>
   <string name="overview_buttons_selection">Botones</string>
   <string name="show_calibration_button_summary">Envía una calibración a xDrip+ o abre el diálogo de calibración G5</string>
+  <string name="show_cgm_button_summary">Abre xDrip+, el botón atrás regresará a AAPS</string>
+  <string name="carb_increment_button_message">Cantidad de Carbohidratos que se agregan cuando se presiona el botón </string>
+  <string name="insulin_increment_button_message">Cantidad de insulina que se agrega cuando se presiona el botón</string>
+  <string name="error_starting_cgm">No se pudo iniciar la aplicación CGM. Asegúrate de que está instalada.</string>
   <string name="overview_cgm">CGM</string>
   <string name="nav_historybrowser">Historial</string>
   <string name="wear_notifysmb_title">Notificar SMB</string>
@@ -939,6 +944,7 @@
   <string name="openapsama_max_daily_safety_multiplier">Máximo multiplicador diario de seguridad</string>
   <string name="openapsama_current_basal_safety_multiplier">Multiplicador de seguridad basal actual</string>
   <string name="value_unavailable_short">n/a</string>
+  <string name="ns_autobackfill_title">Auto Rellenar glucosas omitidas (Autobackfill BG)</string>
   <string name="wear_wizard_settings">Configuración del Asistente</string>
   <string name="wear_wizard_settings_summary">Cálculos incluidos en el resultado del asistente:</string>
   <string name="wear_display_settings">Ajustes pantalla</string>
@@ -1001,6 +1007,7 @@
   <string name="custom">Personalizado</string>
   <string name="largetimedifftitle">Diferencia de tiempo grande</string>
   <string name="largetimediff">Gran diferencia de tiempo: \nLa bomba esta desincronizada más de 1,5 horas. \npor favor ajusta la hora manualmente en la bomba y asegúrate de que la lectura del histórico de la bomba no causa comportamiento inesperado. \nSi es posible, borra la historia de la bomba antes de cambiar la hora o desactiva el bucle cerrado durante un DIA (duracion insulina activa) después de la última entrada errónea del histórico pero mínimo un DIA a partir de ahora.</string>
+  <string name="careportal_removestartedevents">Limpiar eventos AndroidAPS iniciado</string>
   <string name="storedsettingsfound">Ajustes guardados encontrados</string>
   <string name="allow_hardware_pump_text">Atención: si activas y conectas al hardware de la bomba, AndroidAPS copiará los ajustes basales del perfil de la bomba, sobrescribiendo el actual perfil basal de la bomba. Comprueba que tengas el perfil basal correcto en AndroidAPS. Si no estás seguro o no quieres sobrescribir los ajustes basales en la bomba, presiona cancelar y repite cambio de la bomba más tarde.</string>
   <string name="error_adding_treatment_title">Datos de tratamiento incompletos</string>
@@ -1018,4 +1025,17 @@
   <string name="nav_logsettings">Ajustes del registro</string>
   <string name="resettodefaults">Restablecer valores predeterminados</string>
   <string name="nsmalfunction">NSClient fallando. Considera reiniciar NS y NSClient.</string>
+  <string name="versionavailable">Versión %1$s disponible</string>
+  <plurals name="objective_days">
+    <item quantity="one">%1$d día</item>
+    <item quantity="other">%1$d días</item>
+  </plurals>
+  <plurals name="objective_hours">
+    <item quantity="one">%1$d hora</item>
+    <item quantity="other">%1$d horas</item>
+  </plurals>
+  <plurals name="objective_minutes">
+    <item quantity="one">%1$d minuto</item>
+    <item quantity="other">%1$d minutos</item>
+  </plurals>
 </resources>
