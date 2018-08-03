@@ -489,6 +489,17 @@
   <string name="startingbolus">Iniciando emisión bolo</string>
   <string name="executingrightnow">Orden se esta efectuando en este momento</string>
   <string name="pumpdrivercorrected">Control de la bomba corregido</string>
+  <string name="combo_pump_state_initializing">Inicializando</string>
+  <string name="combo_pump_state_suspended_due_to_error">Suspendido debido a un error</string>
+  <string name="combo_pump_state_suspended_by_user">Suspendido por el usuario</string>
+  <string name="combo_pump_state_running">Funcionando</string>
+  <string name="combo_pump_action_cancelling_tbr">Cancelando TBR</string>
+  <string name="combo_pump_action_setting_tbr">Poniendo TBR (%1$d%% / %2$d min)</string>
+  <string name="combo_pump_action_bolusing">Emitiendo bolo (%.1f U)</string>
+  <string name="combo_pump_action_refreshing">Actualizando</string>
+  <string name="combo_pump_unsupported_operation">Acción requerida no disponible por la bomba</string>
+  <string name="combo_low_suspend_forced_notification">Uso inseguro: bolo prolongado o multionda activo. El modo del lazo ha sido fijado a sólo suspensión en baja glucosa durante 6 horas. En modo lazo sólo se soportan los bolo estándar.</string>
+  <string name="combo_force_disabled_notification">Uso inseguro: la bomba usa un perfil basal diferente al primero. El lazo ha sido apagado. Elige el primer perfil basal en la bomba y acualiza.</string>
   <string name="closed_loop_disabled_on_dev_branch">Ejecutando versión dev. Bucle cerrado no disponible.</string>
   <string name="largetimediff">Gran diferencia de tiempo: \nLa bomba esta desincronizada más de 1,5 horas. \npor favor ajusta la hora manualmente en la bomba y asegúrate de que la lectura del histórico de la bomba no causa comportamiento inesperado. \nSi es posible, borra la historia de la bomba antes de cambiar la hora o desactiva el bucle cerrado durante un DIA (duracion insulina activa) después de la última entrada errónea del histórico pero mínimo un DIA a partir de ahora.</string>
 </resources>
