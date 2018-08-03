@@ -109,7 +109,7 @@
   <string name="configbuilder">Tabla de configuraciones</string>
   <string name="objectives">Objetivos</string>
   <string name="openapsma">OpenAPS AMA</string>
-  <string name="overview">Sinopsis</string>
+  <string name="overview">Inicio</string>
   <string name="nsprofile">Perfil NS</string>
   <string name="simpleprofile">Perfil simple</string>
   <string name="tempbasal">Basal temporal</string>
@@ -375,7 +375,7 @@
   <string name="dia">DIA (Duración Insulina Activa):</string>
   <string name="target_range">Rango Objetivo:</string>
   <string name="prefs_range_title">Rango de visualización</string>
-  <string name="prefs_range_summary">Marcas Alta y Baja para gráficos en Sinopsis y Smartwatch</string>
+  <string name="prefs_range_summary">Marcas Alta y Baja para gráficos en pantalla Inicio y Smartwatch</string>
   <string name="low_mark">Marca BAJA</string>
   <string name="high_mark">Marca ALTA</string>
   <string name="wear">Reloj</string>
@@ -437,7 +437,7 @@
   <string name="oaps_shortname">OAPS</string>
   <string name="localprofile_shortname">PERFLOC</string>
   <string name="danarpump_shortname">DANA</string>
-  <string name="overview_shortname">GENERAL</string>
+  <string name="overview_shortname">INICIO</string>
   <string name="virtualpump_shortname">BOMBAV</string>
   <string name="profileviewer_shortname">NSPERF</string>
   <string name="treatments_shortname">TRAT</string>
