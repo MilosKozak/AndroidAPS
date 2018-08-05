@@ -712,8 +712,6 @@
   <string name="dexcomg5_xdripupload_title">Trimite date glicemie la xDrip+</string>
   <string name="dexcomg5_xdripupload_summary">Selectați 640g/Eversense ca sursă de date în xDrip+</string>
   <string name="nsclientbg">Glicemie NSClient</string>
-  <string name="minimalbasalvaluereplaced">Valoare bazală înlocuită cu valoarea minimă suportată</string>
-  <string name="maximumbasalvaluereplaced">Valoarea bazalei este înlocuită de valoarea maximă suportată</string>
   <string name="overview_editquickwizard_usebg">Calcul glicemie</string>
   <string name="overview_editquickwizard_usebolusiob">Calcul IOB bolus</string>
   <string name="overview_editquickwizard_usebasaliob">Calcul IOB bazală</string>
