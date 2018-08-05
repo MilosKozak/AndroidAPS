@@ -712,8 +712,6 @@
   <string name="dexcomg5_xdripupload_title">将血糖数据发送到 xDrip +</string>
   <string name="dexcomg5_xdripupload_summary">在 xDrip + 选择640ｇ/Eversense 数据源</string>
   <string name="nsclientbg">NSClient 血糖</string>
-  <string name="minimalbasalvaluereplaced">基础率值被泵支持的最小值替换了</string>
-  <string name="maximumbasalvaluereplaced">基础率值被泵支持的最大值替换了</string>
   <string name="overview_editquickwizard_usebg">血糖计算</string>
   <string name="overview_editquickwizard_usebolusiob">大剂量IOB (活性胰岛素) 计算</string>
   <string name="overview_editquickwizard_usebasaliob">基础率IOB (活性胰岛素) 计算</string>
