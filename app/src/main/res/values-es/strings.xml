@@ -712,8 +712,6 @@
   <string name="dexcomg5_xdripupload_title">Mandar datos BG a xDrip+</string>
   <string name="dexcomg5_xdripupload_summary">En xDrip+ elige 640g/Eversense como fuente de datos</string>
   <string name="nsclientbg">NSClient BG</string>
-  <string name="minimalbasalvaluereplaced">Valor basal remplazado por valor mínimo soportado</string>
-  <string name="maximumbasalvaluereplaced">Valor basal reemplazado por valor máximo soportado</string>
   <string name="overview_editquickwizard_usebg">Cálculo BG</string>
   <string name="overview_editquickwizard_usebolusiob">Cálculo bolo IOB</string>
   <string name="overview_editquickwizard_usebasaliob">Cálculo basal IOB</string>
