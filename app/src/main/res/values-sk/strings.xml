@@ -713,8 +713,6 @@
   <string name="dexcomg5_xdripupload_title">Odosielať glykémie do xDrip+</string>
   <string name="dexcomg5_xdripupload_summary">V xDrip+ vyberte zdroj dát 640g/Eversense</string>
   <string name="nsclientbg">Glykémie z NS</string>
-  <string name="minimalbasalvaluereplaced">Hodnota bazálu nahradená minimálnou možnou</string>
-  <string name="maximumbasalvaluereplaced">Hodnota bazálu nahradená maximálnou možnou</string>
   <string name="overview_editquickwizard_usebg">Výpočet glykémie</string>
   <string name="overview_editquickwizard_usebolusiob">Výpočet bolusového IOB</string>
   <string name="overview_editquickwizard_usebasaliob">Výpočet bazálneho IOB</string>
