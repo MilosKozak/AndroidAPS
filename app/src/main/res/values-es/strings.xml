@@ -767,7 +767,6 @@
   <string name="combo_error_no_connection_no_bolus_delivered">Bomba inalcanzable. No se administró ningún Bolo</string>
   <string name="combo_error_no_bolus_delivered">Emisión del bolo fallada. Ningún bolo se ha emitido. Para asegurarse, por favor controle la bomba para evitar bolo doble. Para evitar bugs no se reinician bolos automáticamente.</string>
   <string name="combo_error_partial_bolus_delivered">Sólo %1$.2f U del bolo mandado de %2$.2f U ha sido suministrado a causa de un error. Por favor verifica esto en la bomba y toma las acciones apropiadas.</string>
-  <string name="combo_error_bolus_verification_failed">Entrega del bolo y verificar la historia de la bomba falló, por favor, revise la bomba manualmente. Si un bolo fue entregado, se añadirá a los tratamientos con la próxima conexión a la bomba.</string>
   <string name="combo_reservoir_level_insufficient_for_bolus">No hay suficiente insulina en el depósito para emitir bolo</string>
   <string name="extendedbolusdeliveryerror">Error al emitir bolo extendido</string>
   <string name="insightpump_shortname">Insight</string>
