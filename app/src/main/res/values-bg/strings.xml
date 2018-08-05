@@ -625,8 +625,6 @@
   <string name="dexcomg5_xdripupload_title">Изпращай данни за КЗ към xDrip+</string>
   <string name="dexcomg5_xdripupload_summary">В xDrip+ изберете 640g/Eversense за източник на данни</string>
   <string name="nsclientbg">КЗ от NS</string>
-  <string name="minimalbasalvaluereplaced">Базалната стойност е заместена от минимално подържаната</string>
-  <string name="maximumbasalvaluereplaced">Базалната стойност е заменена с максимално зададената</string>
   <string name="overview_editquickwizard_usebg">Калкулиране на КЗ</string>
   <string name="overview_editquickwizard_usebolusiob">Калкулиране на Болус IOB</string>
   <string name="overview_editquickwizard_usebasaliob">Калкулиране на базален IOB</string>
