@@ -236,6 +236,7 @@
   <string name="disconnected">Odpojeno</string>
   <string name="danar_pump_settings">DanaR nastavení</string>
   <string name="end_user_license_agreement">Licenční ujednání</string>
+  <string name="end_user_license_agreement_text">MUST NOT BE USED TO MAKE MEDICAL DECISIONS. THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</string>
   <string name="end_user_license_agreement_i_understand">ROZUMÍM A POTVRZUJI</string>
   <string name="save">Uložit</string>
   <string name="nobtadapter">Nenalezen Bluetooth adaptér</string>
@@ -964,6 +965,7 @@
   <string name="apssetup">Nastavení APS</string>
   <string name="sensitivitysetup">Nastavení senzitivity</string>
   <string name="setupwizard_sensitivity_description">Plugin senzitivita slouží k detekci změn v senzitivitě a k počítání COB. Více informací zde:</string>
+  <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
   <string name="nsclientinfotext">NSClient slouží ke spojení s Nightscoutem. Nastavení můžete nyní přeskočit, ale nebudete schopni dokončit cíle, dokud nastavení neprovedete.</string>
   <string name="diawarning">Pozor: Nové inzulínové profily vyžadují DIA minimálně 5h. DIA 5–6 hodin odpovídá zhruba nastavení 3h na starších typech profilů nebo v pumpě.</string>
   <string name="bgsourcesetup">Konfigurace zdroje glykémií</string>
