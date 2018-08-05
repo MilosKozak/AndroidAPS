@@ -766,7 +766,6 @@
   <string name="combo_error_no_connection_no_bolus_delivered">Pumpa nedostupná. Bolus nebyl podán</string>
   <string name="combo_error_no_bolus_delivered">Provádění bolusu selhalo. Zdá se, že žádný bolus nebyl podán. Zkontrolujte pumpu a případně pošlete bolus znovu. Jako bezpečnostní opatření podání bolusu není opakováno.</string>
   <string name="combo_error_partial_bolus_delivered">Pouze %1$.2f U z bolusu %2$.2f bylo podáno díky chybě. Zkontrolujte pumpu a proveďte nápravu.</string>
-  <string name="combo_error_bolus_verification_failed">Podání bolusu a kontrola historie pumpy selhala. Zkontrolujte pumpu ručně. Pokus bolus proběhl, načte se při příštím připojení automaticky.</string>
   <string name="combo_reservoir_level_insufficient_for_bolus">Nedostatek inzulínu pro takovýto bolus</string>
   <string name="extendedbolusdeliveryerror">Chyba spuštění extended bolusu</string>
   <string name="insightpump_shortname">Insight</string>
