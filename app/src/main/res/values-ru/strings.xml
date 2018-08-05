@@ -19,6 +19,21 @@
   <string name="description_objectives">Обучающая программа</string>
   <string name="description_food">Показывает предварительные настройки приема пищи из Nightscout</string>
   <string name="description_insulin_rapid">Предустановки для Humalog и Novorapid / Novolog</string>
+  <string name="description_insulin_ultra_rapid">Предустановки для Fiasp</string>
+  <string name="description_insulin_free_peak">Позволяет самостоятельно задавать пик активности инсулина - только для опытных пользователей</string>
+  <string name="description_loop">Активировать или деактивировать запуск цикла.</string>
+  <string name="description_ns_client">Синхронизирует данные с Nightscout</string>
+  <string name="description_ma">Состояние алгоритма в 2016 году</string>
+  <string name="description_ama">Состояние алгоритма в 2017 году</string>
+  <string name="description_smb">Самый новый алгоритм для опытных пользователей</string>
+  <string name="description_overview">Отображает текущее состояние цикла и часто используемые кнопки</string>
+  <string name="description_persistent_notification">Показывает текущие уведомления и краткий обзор событий цикла</string>
+  <string name="description_profile_local">Определить профиль, доступный автономно.</string>
+  <string name="description_profile_nightscout">Содержит профиль, заданный в Nightscout</string>
+  <string name="description_profile_simple">Определите профиль только в одном блоке времени.</string>
+  <string name="description_pump_combo">Интеграция с помпой Accu-Chek Combo, требует наличия установленного алгоритма</string>
+  <string name="description_pump_dana_r">Интеграция с помпой DANA Diabetcare R</string>
+  <string name="description_pump_dana_r_korean">Интеграция с отечественной помпой DANA Diabetcare R</string>
   <string name="combo_error_bolus_verification_failed">Подача болюса и проверка истории помпы не состоялись, пожалуйста проверьте помпу. Если болюс был подан, он будет добавлен в назначения во время следующего соединения с помпой.</string>
   <string name="time_offset">Смещение по времени</string>
 </resources>
