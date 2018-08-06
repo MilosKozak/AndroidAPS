@@ -199,6 +199,26 @@
   <string name="danar_history_errors">ошибки</string>
   <string name="danar_history_glucose">гликемия</string>
   <string name="danar_history_connectingfor">Связь установлена за %1$d сек</string>
+  <string name="danar_password_title">пароль помпы</string>
+  <string name="wrongpumppassword">неверный пароль помпы</string>
+  <string name="pumpbusy">помпа занята</string>
+  <string name="overview_bolusprogress_delivered">Болюс подан</string>
+  <string name="overview_bolusprogress_stoped">остановлено</string>
+  <string name="bolusstopped">Болюс остановлен</string>
+  <string name="bolusstopping">Остановка болюса</string>
+  <string name="occlusion">закупорка</string>
+  <string name="overview_bolusprogress_stop">стоп</string>
+  <string name="overview_bolusprogress_stoppressed">нажат стоп</string>
+  <string name="waitingforpump">ожидание помпы</string>
+  <string name="overview_bolusprogress_goingtodeliver" formatted="false">Будет доставлено %.2fU ед. инс</string>
+  <string name="objectives_0_objective">настройка визуализации и мониторинга, анализ базала и коэффициентов</string>
+  <string name="objectives_0_gate">убедитесь что СК и данные помпы передаются в NS</string>
+  <string name="objectives_1_objective">старт незамкнутого цикла</string>
+  <string name="objectives_1_gate">Работа в режиме незамкнутого цикла и ручной подстройки величины временного базала. Установите и применяйте временные цели и временные цели по умолчанию (напр. углеводы при нагрузке или купировании гипо)</string>
+  <string name="objectives_2_objective">анализ вашего незамкнутого цикла включая рекомендации по врем базалу</string>
+  <string name="objectives_2_gate">на основе полученного опыта определите макс величину базала и введите ее в помпу и настройки</string>
+  <string name="objectives_3_objective">закольцовывание цикла с Low Glucose Suspend (приостановка на низких СК)</string>
+  <string name="objectives_3_gate">работа в замкнутом цикле с макс IOB = 0 несколько дней избегая событий типа Low Suspend</string>
   <string name="combo_error_bolus_verification_failed">Подача болюса и проверка истории помпы не состоялись, пожалуйста проверьте помпу. Если болюс был подан, он будет добавлен в назначения во время следующего соединения с помпой.</string>
   <string name="time_offset">Смещение по времени</string>
 </resources>
