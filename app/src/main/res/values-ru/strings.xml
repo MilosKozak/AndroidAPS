@@ -281,6 +281,14 @@
   <string name="danar_historyreload">Перезагрузка истории</string>
   <string name="uploading">передача данных</string>
   <string name="danar_ebolus">Болюс E (удлиненный)</string>
+  <string name="danar_dsbolus">Болюс DS (комбинированный стандартный)</string>
+  <string name="danar_debolus">Болюс DE (комбинированный расширенный)</string>
+  <string name="danar_error">ошибка</string>
+  <string name="danar_refill">дозаправка</string>
+  <string name="danar_basalhour">почасовой базал</string>
+  <string name="danar_glucose">гликемия</string>
+  <string name="danar_carbohydrate">углеводы</string>
+  <string name="danar_alarm">внимание!</string>
   <string name="danar_totaluploaded">Всего передано %1$d записей</string>
   <string name="danar_sbolus">болюс S</string>
   <string name="danar_history_alarm">оповещения об опасности</string>
@@ -411,6 +419,7 @@
   <string name="send_calibration" formatted="false">отправить калибровку %.1f на xdrip?</string>
   <string name="xdripnotinstalled">xdrip+ не установлен</string>
   <string name="calibrationsent">калибровка передается на xdrip</string>
+  <string name="smscommunicator_remotecalibrationnotallowed">удаленная калибровка не разрешена</string>
   <string name="loopsuspended">ЗЦ остановлен</string>
   <string name="loopsuspendedfor">Остановлен на(%1$d m)</string>
   <string name="loopsuperbolusfor">Суперболюс(%1$d m)</string>
