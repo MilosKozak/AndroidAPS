@@ -503,4 +503,5 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
   <string name="clear_queue">Ledig wachtrij</string>
   <string name="nowritepermission">NSCLIENT heeft geen schrijfrechten. Verkeerde API secret?</string>
   <string name="needwhitelisting">%s benodigd batterij optimalistaie vrijwaring voor goede werking</string>
+  <string name="restartingapp">Sluiten van applicatie om instellingen bij te werken.</string>
 </resources>
