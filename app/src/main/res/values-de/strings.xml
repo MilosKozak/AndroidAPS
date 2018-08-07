@@ -1014,6 +1014,7 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
   <string name="allow_hardware_pump_text">WARNUNG: Wenn Du eine echte Pumpe aktivierst und anschließt, kopiert AndroidAPS die Basaleinstellungen vom aktiven Profil zur Pumpe (und behält sie bei). Die Einstellungen in der Pumpe werden hierbei überschrieben. Wenn Du Dir nicht sicher bist oder die Basaleinstellungen in der Pumpe nicht überschreiben möchten, drücke \"Abbrechen\" und vollziehe den Wechsel zur Pumpe später.</string>
   <string name="error_adding_treatment_title">Behandlungsdaten unvollständig</string>
   <string name="maintenance_settings">Wartungseinstellungen</string>
+  <string name="maintenance_amount">Anzahl der zu sendenden Logs</string>
   <string name="maintenance">Wartung</string>
   <string name="description_maintenance">Stellt mehrere Wartungsfunktionen zur Verfügung (z.B. das Versenden von Logs oder Löschen dieser)</string>
   <string name="delete_logs">Logs löschen</string>
