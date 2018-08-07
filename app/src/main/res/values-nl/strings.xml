@@ -273,12 +273,76 @@
   <string name="glucosetype_sensor">Sensor</string>
   <string name="manual">Manueel</string>
   <string name="careportal_temporarytarget">Tijd. streefdoel</string>
+  <string name="careportal_temporarytargetcancel">Tijdelijk streefdoel annuleren</string>
+  <string name="danarprofile">DanaR profiel instellingen</string>
   <string name="danarprofile_dia">DIA [h]</string>
   <string name="danarprofile_dia_summary">Duur van insuline activiteit</string>
+  <string name="failedupdatebasalprofile">Update basaal profiel mislukt</string>
+  <string name="danar_historyreload">Vernieuw</string>
+  <string name="uploading">Uploaden</string>
+  <string name="danar_ebolus">E bolus</string>
+  <string name="danar_dsbolus">DS bolus</string>
+  <string name="danar_debolus">DE bolus</string>
   <string name="danar_error">storing</string>
   <string name="danar_refill">hervullen</string>
   <string name="danar_basalhour">basaal uur</string>
+  <string name="danar_glucose">glucose</string>
   <string name="danar_carbohydrate">koolhydraten</string>
   <string name="danar_alarm">alarm</string>
+  <string name="danar_totaluploaded">Totaal %1$d gegevens geupload</string>
+  <string name="danar_sbolus">S Bolus</string>
+  <string name="danar_history_alarm">Alarm</string>
+  <string name="danar_history_basalhours">Basale uren</string>
+  <string name="danar_history_bolus">Bulossen</string>
+  <string name="danar_history_carbohydrates">Koolhydraten</string>
+  <string name="danar_history_dailyinsulin">Dagtotaal insuline</string>
+  <string name="danar_history_errors">Storing</string>
+  <string name="danar_history_glucose">Glucose</string>
+  <string name="danar_history_refill">Hervullen</string>
+  <string name="danar_history_syspend">Onderbreken</string>
+  <string name="danar_history_connectingfor">Verbonden gedurende %1$d s</string>
+  <string name="danar_password_title">Pomp wachtwoord</string>
+  <string name="wrongpumppassword">Verkeerd pomp wachtwoord!</string>
+  <string name="pumpbusy">Pomp is in gebruik</string>
+  <string name="overview_bolusprogress_delivered">Toegediend</string>
+  <string name="overview_bolusprogress_stoped">Gestopt</string>
+  <string name="bolusstopped">Bolus gestopt</string>
+  <string name="bolusstopping">Stoppen van bolus</string>
+  <string name="occlusion">Afsluiting</string>
+  <string name="overview_bolusprogress_stop">Stop</string>
+  <string name="overview_bolusprogress_stoppressed">STOP INGEDRUKT</string>
+  <string name="waitingforpump">Wacht op pomp</string>
+  <string name="overview_bolusprogress_goingtodeliver" formatted="false">Er worden %.2fE toegediend</string>
   <string name="objectives_0_objective">Opzetten van visualisatie en monitoring en analyzeren van basaal en ratio\'s</string>
+  <string name="objectives_0_gate">Controleren van beschikbaarheid BG en insuline pomp data op Nightscout</string>
+  <string name="objectives_1_objective">Starten met de Open Loop modus</string>
+  <string name="objectives_1_gate">In Open Loop modus werken voor enkele dagen en handmatig meermaals tijdelijke basaal instellen.
+Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sporten of koolhydraten inname bij hypo)</string>
+  <string name="objectives_2_objective">De Open Loop begrijpen, inclusief de voorgestelde tijdelijke basaalstanden</string>
+  <string name="objectives_2_gate">Gebaseerd op deze ervaringen beslissen wat het maximale basaal mag zijn en dit in de pomp instellen</string>
+  <string name="objectives_3_objective">Starten met closed Loop met bescherming tegen lage BG</string>
+  <string name="objectives_3_gate">In closed Loop werken met een max. IOB = 0 gedurende enkele dagen met een beperkt aantal lage BG</string>
+  <string name="objectives_4_objective">Inregelen van de closed loop, verhoog de max IOB boven 0 en laat gelijdelijk het streef BG dalen</string>
+  <string name="objectives_4_gate">Verhoog max. IOB en test enkele dagen als ook minstens 1 nacht zonder een laag BG alarm voordat je jouw streef BG verlaagt</string>
+  <string name="objectives_5_objective">Pas het basaal en de ratios aan indien nodig, activeer hierna de auto-sens optie</string>
+  <string name="objectives_5_gate">Gedurende 1 week succesvol closed loop met invoer van koolhydraten</string>
+  <string name="objectives_6_objective">Activeren van extra functies overdag zoals AMA</string>
+  <string name="objectives_7_objective">Activeren van extra functies overdag zoals SMB</string>
+  <string name="objectives_7_gate">Lees de wiki en verhoog maxIOB om SMB goed werkend te krijgen. Een goed begin is maxIOB=gemiddelde maaltijdbolus + 3 x max dagelijkse basaal</string>
+  <string name="youareonallowedlimit">Limiet bereikt</string>
+  <string name="noprofileselected">Geen profiel geselecteerd</string>
+  <string name="smscommunicator_loophasbeendisabled">Loop was uitgeschakeld</string>
+  <string name="smscommunicator_loophasbeenenabled">Loop was ingeschakeld</string>
+  <string name="smscommunicator_loopisdisabled">Loop is uitgeschakeld</string>
+  <string name="smscommunicator_loopisenabled">Loop is ingeschakeld</string>
+  <string name="valuelimitedto">%1$.2f gelimiteerd tot %2$.2f</string>
+  <string name="valueoutofrange" formatted="false">Waarde %s is buiten de toegestane limieten</string>
+  <string name="smscommunicator_remotecommandnotallowed">Commando\'s op afstand zijn niet toegestaan</string>
+  <string name="smscommunicator_basalreplywithcode">Om het basaal %1$.2fU/hr te starten antwoord met de code %2$s</string>
+  <string name="smscommunicator_unknowncommand">Onbekend commando of verkeerd antwoord</string>
+  <string name="ns_upload_only">Alleen NS upload (sync. gedeactiveerd)</string>
+  <string name="ns_upload_only_summary">Alleen NS upload. Heeft geen effect op de SGV behalve als een lokale bron zoals xDipp geselecteerd is. Heeft geen effect op de profielen wanneer het NS profiel is gekozen.</string>
+  <string name="pumpNotInitialized">Pomp niet geïnitialiseerd!</string>
+  <string name="prefs_range_summary">Hoge en lage grens voor grafieken op het Overzicht en op Wear</string>
+  <string name="high_mark">HOOG grens</string>
 </resources>
