@@ -88,11 +88,7 @@ public class ImportExportPrefs {
                 .show();
     }
 
-    public static void exportPrefs(final Fragment f) {
-        exportPrefs(f.getContext(), false);
-    }
-
-    private static void exportPrefs(Context c, boolean showToast) {
+    public static File exportPrefs(Context c, boolean showToast) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
         try {
             FileWriter fw = new FileWriter(file);
@@ -106,12 +102,17 @@ public class ImportExportPrefs {
             if (showToast) {
                 ToastUtils.showToastInUiThread(c, MainApp.gs(R.string.exported));
             }
+
+            return file;
         } catch (FileNotFoundException e) {
             ToastUtils.showToastInUiThread(c, MainApp.gs(R.string.filenotfound) + " " + file);
             log.error("Unhandled exception", e);
         } catch (IOException e) {
             log.error("Unhandled exception", e);
         }
+
+
+        return null;
     }
 
     public static void importSharedPreferences(final Fragment fragment) {

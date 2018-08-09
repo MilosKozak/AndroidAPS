@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.File;
+
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.plugins.Food.FoodPlugin;
@@ -61,20 +63,17 @@ public class MaintenanceFragment extends Fragment {
                 .show());
 
         view.findViewById(R.id.pref_send).setOnClickListener(view1 -> {
-            // start activity for checking permissions...
             ImportExportPrefs.verifyStoragePermissions(f);
-            ImportExportPrefs.exportPrefs(f);
-
+            File file = ImportExportPrefs.exportPrefs(f.getContext(), false);
+            MaintenancePlugin.getPlugin().sendPrefs(file);
         });
 
         view.findViewById(R.id.nav_export).setOnClickListener(view1 -> {
-            // start activity for checking permissions...
             ImportExportPrefs.verifyStoragePermissions(f);
             ImportExportPrefs.exportSharedPreferences(f);
         });
 
         view.findViewById(R.id.nav_import).setOnClickListener(view1 -> {
-            // start activity for checking permissions...
             ImportExportPrefs.verifyStoragePermissions(f);
             ImportExportPrefs.importSharedPreferences(f);
         });

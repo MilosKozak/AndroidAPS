@@ -80,26 +80,21 @@ public class MaintenancePlugin extends PluginBase {
         LOG.debug("zipFile: {}", zipFile.getAbsolutePath());
         File zip = this.zipLogs(zipFile, logs);
 
-        Uri attachementUri = FileProvider.getUriForFile(this.ctx, "info.nightscout.androidaps.fileprovider", zip);
-        Intent emailIntent = this.sendMail(attachementUri, recipient, "Log Export");
-        LOG.debug("sending emailIntent");
-        ctx.startActivity(emailIntent);
+
+        sendMail(recipient, zip, "Log Export");
     }
 
-    public void snedPrefs() {
+    public void sendPrefs(File file) {
         String recipient = SP.getString("key_maintenance_logs_email", "logs@androidaps.org");
 
-        String logDirectory = LoggerUtils.getLogDirectory();
-        List<File> logs = this.getLogfiles(logDirectory, amount);
+        sendMail(recipient, file, "Preferences");
+    }
 
-        File zipDir = this.ctx.getExternalFilesDir("exports");
-        File zipFile = new File(zipDir, this.constructName());
+    private void sendMail(String email, File file, String subject) {
+        String recipient = SP.getString("key_maintenance_logs_email", email);
 
-        LOG.debug("zipFile: {}", zipFile.getAbsolutePath());
-        File zip = this.zipLogs(zipFile, logs);
-
-        Uri attachementUri = FileProvider.getUriForFile(this.ctx, "info.nightscout.androidaps.fileprovider", zip);
-        Intent emailIntent = this.sendMail(attachementUri, recipient, "Log Export");
+        Uri attachementUri = FileProvider.getUriForFile(this.ctx, "info.nightscout.androidaps.fileprovider", file);
+        Intent emailIntent = this.sendMail(attachementUri, recipient, subject);
         LOG.debug("sending emailIntent");
         ctx.startActivity(emailIntent);
     }
