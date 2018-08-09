@@ -86,6 +86,24 @@ public class MaintenancePlugin extends PluginBase {
         ctx.startActivity(emailIntent);
     }
 
+    public void snedPrefs() {
+        String recipient = SP.getString("key_maintenance_logs_email", "logs@androidaps.org");
+
+        String logDirectory = LoggerUtils.getLogDirectory();
+        List<File> logs = this.getLogfiles(logDirectory, amount);
+
+        File zipDir = this.ctx.getExternalFilesDir("exports");
+        File zipFile = new File(zipDir, this.constructName());
+
+        LOG.debug("zipFile: {}", zipFile.getAbsolutePath());
+        File zip = this.zipLogs(zipFile, logs);
+
+        Uri attachementUri = FileProvider.getUriForFile(this.ctx, "info.nightscout.androidaps.fileprovider", zip);
+        Intent emailIntent = this.sendMail(attachementUri, recipient, "Log Export");
+        LOG.debug("sending emailIntent");
+        ctx.startActivity(emailIntent);
+    }
+
     //todo replace this with a call on startup of the application, specifically to remove
     // unnecessary garbage from the log exports
     public void deleteLogs() {

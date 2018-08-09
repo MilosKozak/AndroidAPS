@@ -60,6 +60,13 @@ public class MaintenanceFragment extends Fragment {
                 .create()
                 .show());
 
+        view.findViewById(R.id.pref_send).setOnClickListener(view1 -> {
+            // start activity for checking permissions...
+            ImportExportPrefs.verifyStoragePermissions(f);
+            ImportExportPrefs.exportPrefs(f);
+
+        });
+
         view.findViewById(R.id.nav_export).setOnClickListener(view1 -> {
             // start activity for checking permissions...
             ImportExportPrefs.verifyStoragePermissions(f);

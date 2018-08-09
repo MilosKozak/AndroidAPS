@@ -81,28 +81,37 @@ public class ImportExportPrefs {
                 .setMessage(MainApp.gs(R.string.export_to) + " " + file + " ?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
-                        try {
-                            FileWriter fw = new FileWriter(file);
-                            PrintWriter pw = new PrintWriter(fw);
-                            Map<String, ?> prefsMap = prefs.getAll();
-                            for (Map.Entry<String, ?> entry : prefsMap.entrySet()) {
-                                pw.println(entry.getKey() + "::" + entry.getValue().toString());
-                            }
-                            pw.close();
-                            fw.close();
-                            ToastUtils.showToastInUiThread(c, MainApp.gs(R.string.exported));
-                        } catch (FileNotFoundException e) {
-                            ToastUtils.showToastInUiThread(c, MainApp.gs(R.string.filenotfound) + " " + file);
-                            log.error("Unhandled exception", e);
-                        } catch (IOException e) {
-                            log.error("Unhandled exception", e);
-                        }
+                        exportPrefs(c, true);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    public static void exportPrefs(final Fragment f) {
+        exportPrefs(f.getContext(), false);
+    }
+
+    private static void exportPrefs(Context c, boolean showToast) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
+        try {
+            FileWriter fw = new FileWriter(file);
+            PrintWriter pw = new PrintWriter(fw);
+            Map<String, ?> prefsMap = prefs.getAll();
+            for (Map.Entry<String, ?> entry : prefsMap.entrySet()) {
+                pw.println(entry.getKey() + "::" + entry.getValue().toString());
+            }
+            pw.close();
+            fw.close();
+            if (showToast) {
+                ToastUtils.showToastInUiThread(c, MainApp.gs(R.string.exported));
+            }
+        } catch (FileNotFoundException e) {
+            ToastUtils.showToastInUiThread(c, MainApp.gs(R.string.filenotfound) + " " + file);
+            log.error("Unhandled exception", e);
+        } catch (IOException e) {
+            log.error("Unhandled exception", e);
+        }
     }
 
     public static void importSharedPreferences(final Fragment fragment) {
