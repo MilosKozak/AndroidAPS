@@ -772,7 +772,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
   <string name="combo_reservoir_level_insufficient_for_bolus">Niet genoeg insuline aanwezig in reservoir voor de bolus</string>
   <string name="extendedbolusdeliveryerror">Vertraagde bolus toedien storing</string>
   <string name="insightpump_shortname">Inzicht</string>
-  <string name="insightpump">Inzicht pomp</string>
+  <string name="insightpump">Insight pomp</string>
   <string name="status_no_colon">Status</string>
   <string name="changed">Verwisseld</string>
   <string name="pump_stopped_uppercase">Pomp Gestopt</string>
