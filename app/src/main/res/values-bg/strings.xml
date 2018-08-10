@@ -5,6 +5,13 @@
   <string name="treatmentssafety_maxbolus_title">Максимален инсулин при болус [единици]</string>
   <string name="treatmentssafety_maxcarbs_title">Максимални въглехидрати [гр]</string>
   <string name="nav_preferences">Опции</string>
+  <string name="nav_refreshtreatments">Обнови леченията от NS</string>
+  <string name="nav_resetdb">Нулирай базата данни</string>
+  <string name="reset_db_confirm">Сигурни ли сте че искате да изтриете всички данни?</string>
+  <string name="nav_exit">Изход</string>
+  <string name="danar_useextended_title">Използвай удължен болус за над 200%</string>
+  <string name="danar_bt_name_title">DanaR Bluetooth устройство</string>
+  <string name="ns_sync_use_absolute_title">Използване на абсолютни стойности за базал</string>
   <string name="description_careportal">Въвеждане на разширени записи в логовете.</string>
   <string name="treatments_activity_string">Активен:</string>
   <string name="openapsma_inputparameters_label">Параметри на входа</string>
