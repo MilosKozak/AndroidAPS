@@ -1026,9 +1026,22 @@
   <string name="generated_ecarbs_note">eCarbs: %1$d г (%2$d ч), старт: %3$d м</string>
   <string name="openaps_noasdata">Няма налични данни за авточувствителност</string>
   <string name="nav_logsettings">Настройки на логовете</string>
+  <string name="resettodefaults">Възстанови настройките по подразбиране</string>
   <string name="nsmalfunction">Грешка в NSClient. Рестартирайте Nightscout и NSClient</string>
   <string name="as">като
 </string>
   <string name="versionavailable">Има налично обновяване до версия %1$s </string>
   <string name="time_offset">времево отместване</string>
+  <plurals name="objective_days">
+    <item quantity="one">%1$d дeн</item>
+    <item quantity="other">%1$d дни</item>
+  </plurals>
+  <plurals name="objective_hours">
+    <item quantity="one">%1$d часа</item>
+    <item quantity="other">%1$d часа</item>
+  </plurals>
+  <plurals name="objective_minutes">
+    <item quantity="one">%1$d минута</item>
+    <item quantity="other">%1$d минутa</item>
+  </plurals>
 </resources>
