@@ -1027,7 +1027,6 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
   <string name="send_all_logs">Verstuur Logs per e-mail</string>
   <string name="delete_logs">Verwijder Logs</string>
   <string name="error_adding_treatment_message">Een Behandeling (insuline: %1$.2f, koolhydraten: %2$d, in: %3$s) niet konden worden toegevoegd aan Behandelingen. Gelieve te controleren en handmatig een record toe te voegen indien nodig.</string>
-  <string name="generated_ecarbs_note">eCarbs: %1$d g (%2$d h), start: %3$d m</string>
   <string name="openaps_noasdata">Geen autosens-gegevens beschikbaar</string>
   <string name="nav_logsettings">Log instellingen</string>
   <string name="resettodefaults">Terug naar standaardinstellingen</string>
