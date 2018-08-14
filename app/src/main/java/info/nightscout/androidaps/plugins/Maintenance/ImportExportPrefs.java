@@ -81,19 +81,28 @@ public class ImportExportPrefs {
         new AlertDialog.Builder(c)
                 .setMessage(MainApp.gs(R.string.export_to) + " " + file + " ?")
                 .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                            exportPrefs(c, true);
+                            exportPrefs(c, file, true, true);
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
     }
 
-    public static File exportPrefs(Context c, boolean showToast) {
+    public static File exportPrefs(Context c, final File exportFile,
+                                   boolean showToast, boolean exportSecrets) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
         try {
-            FileWriter fw = new FileWriter(file);
+            FileWriter fw = new FileWriter(exportFile);
             PrintWriter pw = new PrintWriter(fw);
             Map<String, ?> prefsMap = prefs.getAll();
             for (Map.Entry<String, ?> entry : prefsMap.entrySet()) {
+                if (!exportSecrets) {
+                    if (MainApp.gs(R.string.key_nsclientinternal_api_secret).equals(entry.getKey())
+                            || MainApp.gs(R.string.key_danar_password).equals(entry.getKey())
+                            || MainApp.gs(R.string.key_danars_pairingkey).equals(entry.getKey())) {
+                        continue;
+                    }
+                }
+
                 pw.println(entry.getKey() + "::" + entry.getValue().toString());
             }
             pw.close();
@@ -102,7 +111,7 @@ public class ImportExportPrefs {
                 ToastUtils.showToastInUiThread(c, MainApp.gs(R.string.exported));
             }
 
-            return file;
+            return exportFile;
         } catch (FileNotFoundException e) {
             ToastUtils.showToastInUiThread(c, MainApp.gs(R.string.filenotfound) + " " + file);
             log.error("Unhandled exception", e);

@@ -64,7 +64,10 @@ public class MaintenanceFragment extends Fragment {
 
         view.findViewById(R.id.pref_send).setOnClickListener(view1 -> {
             ImportExportPrefs.verifyStoragePermissions(f);
-            File file = ImportExportPrefs.exportPrefs(f.getContext(), false);
+            File file = new File(ImportExportPrefs.path,
+                    MainApp.gs(R.string.app_name) + "prefs_export");
+
+            file = ImportExportPrefs.exportPrefs(f.getContext(), file, false, false);
             MaintenancePlugin.getPlugin().sendPrefs(file);
         });
 

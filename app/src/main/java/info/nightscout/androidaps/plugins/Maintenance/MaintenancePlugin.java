@@ -91,10 +91,8 @@ public class MaintenancePlugin extends PluginBase {
     }
 
     private void sendMail(String email, File file, String subject) {
-        String recipient = SP.getString("key_maintenance_logs_email", email);
-
         Uri attachementUri = FileProvider.getUriForFile(this.ctx, BuildConfig.APPLICATION_ID + ".provider", file);
-        Intent emailIntent = this.sendMail(attachementUri, recipient, "Log Export");
+        Intent emailIntent = this.sendMail(attachementUri, email, "Log Export");
 
         LOG.debug("sending emailIntent");
         ctx.startActivity(emailIntent);
