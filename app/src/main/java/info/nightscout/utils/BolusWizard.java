@@ -1,5 +1,8 @@
 package info.nightscout.utils;
 
+import android.view.View;
+
+import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.Profile;
@@ -88,7 +91,10 @@ public class BolusWizard {
 
         // Insuling from carbs
         ic = specificProfile.getIc();
+        Double maxInsulinFromCarbs = SP.getDouble(R.string.key_maxinsulinfromcarbs, 0d);
         insulinFromCarbs = carbs / ic;
+        if (maxInsulinFromCarbs > 0 && insulinFromCarbs > maxInsulinFromCarbs)
+            insulinFromCarbs = maxInsulinFromCarbs;
         insulinFromCOB = cob / ic;
 
         // Insulin from IOB
