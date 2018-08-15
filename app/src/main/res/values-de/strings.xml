@@ -67,7 +67,7 @@
   <string name="sms_iob">IOB:</string>
   <string name="treatments_activity_string">Aktivität:</string>
   <string name="treatments_iobtotal_label_string">Gesamt IOB:</string>
-  <string name="treatments_iobactivitytotal_label_string">Gesamt IOB Aktivität:</string>
+  <string name="treatments_iobactivitytotal_label_string">Ges. IOB Aktivität:</string>
   <string name="tempbasals_realduration_label_string">Dauer:</string>
   <string name="tempbasals_netratio_label_string">Verhältnis:</string>
   <string name="tempbasals_netinsulin_label_string">Ins:</string>
