@@ -1039,4 +1039,5 @@ Context | Edit Context</string>
   <string name="setupwizard_preferred_aps_mode">Предпочитаемый режим APS</string>
   <string name="treatments_wizard_total_label">Итого</string>
   <string name="calculation_short">Кальк</string>
+  <string name="handshaking">Подтверждение связи</string>
 </resources>
