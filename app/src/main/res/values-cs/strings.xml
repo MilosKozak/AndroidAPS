@@ -1037,6 +1037,7 @@
   <string name="setupwizard_preferred_aps_mode">Preferovaný režim APS</string>
   <string name="treatments_wizard_total_label">Výsledek</string>
   <string name="calculation_short">Kalk</string>
+  <string name="handshaking">Navazování spojení</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d den</item>
     <item quantity="few">%1$d dnů</item>
