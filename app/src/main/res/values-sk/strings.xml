@@ -230,7 +230,7 @@
   <string name="openapsma_maxiob_title">Maximálny bazálny IOB, ktorý OpenAPS môže podať [U]</string>
   <string name="openapsma_maxiob_summary">Táto hodnota je nazývaná v kontexte OpenAPS ako max IOB, je to maximálne množstvo inzulínu v [U], ktoré APS môže naraz podať.
 </string>
-  <string name="dismiss">ZAMIETNUŤ</string>
+  <string name="dismiss">POTVRDIŤ</string>
   <string name="danarpump">DanaR</string>
   <string name="connecting">Pripájanie</string>
   <string name="connected">Pripojené</string>
@@ -1038,6 +1038,7 @@
   <string name="setupwizard_preferred_aps_mode">Preferovaný režim APS</string>
   <string name="treatments_wizard_total_label">Spolu</string>
   <string name="calculation_short">Kalk</string>
+  <string name="handshaking">Overovanie</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d deň</item>
     <item quantity="few">%1$d dní</item>
