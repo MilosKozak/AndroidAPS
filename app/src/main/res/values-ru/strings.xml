@@ -948,6 +948,7 @@
   <string name="openapsama_max_daily_safety_multiplier">Множитель безопасности макс суточного базала</string>
   <string name="openapsama_current_basal_safety_multiplier">Текущий множитель безопасности базала</string>
   <string name="value_unavailable_short">н/д</string>
+  <string name="virtualpump_type">Тип виртуальной помпы</string>
   <string name="ns_autobackfill_title">Автозаполнение пропущенных данных СК</string>
   <string name="wear_wizard_settings">Параметры мастера настройки смарт-часов wear</string>
   <string name="wear_wizard_settings_summary">Расчеты, включены в результат мастера настройки смарт-часов wear:</string>
