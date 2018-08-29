@@ -255,5 +255,105 @@
   <string name="percent">퍼센트</string>
   <string name="absolute">절대값</string>
   <string name="canceltemp">임시기초주입 취소하기</string>
-  <string name="smscommunicator">SMS 전송</string>
+  <string name="smscommunicator">SMS 통신기</string>
+  <string name="waitingforpumpresult">결과 기다리는 중</string>
+  <string name="smscommunicator_allowednumbers">허가된 전화번호</string>
+  <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
+  <string name="smscommunicator_bolusreplywithcode">식사주입 %1$.2fU 을 실행하려면 %2$s 를 입력하고 답장하세요</string>
+  <string name="smscommunicator_calibrationreplywithcode">보정값 %1$.2f을 전송하려면 %2$s 를 입력하고 답장하세요</string>
+  <string name="smscommunicator_bolusfailed">Bolus failed</string>
+  <string name="bolusdelivered" formatted="false">식사주입 %.2fU이 주입되었습니다.</string>
+  <string name="bolusrequested" formatted="false">%.2fU 주입 예정입니다.</string>
+  <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2fU delivered successfully</string>
+  <string name="bolusdelivering" formatted="false">%.2fU 주입중</string>
+  <string name="smscommunicator_remotecommandsallowed">SMS 원격 명령 사용하기</string>
+  <string name="smscommunicator_remotebolusnotallowed">원격 식사주입 허용되지 않음</string>
+  <string name="glucosetype_finger">체혈</string>
+  <string name="glucosetype_sensor">센서</string>
+  <string name="manual">수동</string>
+  <string name="careportal_temporarytarget">임시목표</string>
+  <string name="careportal_temporarytargetcancel">임시목표 취소</string>
+  <string name="danarprofile">DanaR 프로파일 설정</string>
+  <string name="danarprofile_dia">인슐린활동시간(DIA) [h]</string>
+  <string name="danarprofile_dia_summary">인슐린 활동 기간</string>
+  <string name="failedupdatebasalprofile">기초주입 프로파일 갱신 실패</string>
+  <string name="danar_historyreload">새로고침</string>
+  <string name="uploading">업로드중</string>
+  <string name="danar_ebolus">E bolus</string>
+  <string name="danar_dsbolus">DS bolus</string>
+  <string name="danar_debolus">DE bolus</string>
+  <string name="danar_error">에러</string>
+  <string name="danar_refill">교체</string>
+  <string name="danar_basalhour">기초주입 시간</string>
+  <string name="danar_glucose">혈당</string>
+  <string name="danar_carbohydrate">탄수화물</string>
+  <string name="danar_alarm">알람</string>
+  <string name="danar_totaluploaded">총 %1$d 기록들이 업로드되었습니다.</string>
+  <string name="danar_sbolus">S bolus</string>
+  <string name="danar_history_alarm">알람</string>
+  <string name="danar_history_basalhours">기초주입 시간</string>
+  <string name="danar_history_bolus">식사주입</string>
+  <string name="danar_history_carbohydrates">탄수화물</string>
+  <string name="danar_history_dailyinsulin">일일 인슐린</string>
+  <string name="danar_history_errors">에러</string>
+  <string name="danar_history_glucose">혈당</string>
+  <string name="danar_history_refill">교체</string>
+  <string name="danar_history_syspend">중지</string>
+  <string name="danar_history_connectingfor">%1$d 초 동안 연결중</string>
+  <string name="danar_password_title">펌프 비밀번호</string>
+  <string name="wrongpumppassword">펌프 비밀번호가 잘못되었습니다!</string>
+  <string name="pumpbusy">펌프가 바쁩니다</string>
+  <string name="overview_bolusprogress_delivered">주입됨</string>
+  <string name="overview_bolusprogress_stoped">정지됨</string>
+  <string name="bolusstopped">식사주입 중지됨</string>
+  <string name="bolusstopping">식사주입 중지중</string>
+  <string name="occlusion">막힘</string>
+  <string name="overview_bolusprogress_stop">정지</string>
+  <string name="overview_bolusprogress_stoppressed">정지 누름</string>
+  <string name="waitingforpump">펌프를 기다리는 중</string>
+  <string name="overview_bolusprogress_goingtodeliver" formatted="false">%.2fU을 주입합니다</string>
+  <string name="objectives_0_objective">표시설정과 모니터링설정을 완료하고, 기초주입과 비율을 분석한다.</string>
+  <string name="objectives_0_gate">나이트스카우트에서 혈당 데이터가 잘 들어오는지, 펌프데이터가 업로드 되는지 확인한다.</string>
+  <string name="objectives_1_objective">Open Loop를 시작한다.</string>
+  <string name="objectives_1_gate">Open Loop 모드에서 몇일간 사용하여보고, 임시기초주입을 여러번 수동으로 실행하여본다. Set up and use temporary and default temporary targets (e.g. for activity or hypo treatment carbs)</string>
+  <string name="objectives_2_objective">임시기초주입 추천기능을 포함해서, Open Loop에 대해 이해한다.</string>
+  <string name="objectives_2_gate">이 경험을 토대로, 최대 기초주입량을 결정하고 이를 펌프와 설정에 입력한다.</string>
+  <string name="objectives_3_objective">Closed Loop를 시작하고 저혈당인슐린 중지 기능을 사용해본다.</string>
+  <string name="objectives_3_gate">최대 IOB = 0 인 상태로 Closed Loop를 몇일동안 실행시켜 본다. 저혈당 인슐린일시중지가 많이 발생하지 않도록 한다.</string>
+  <string name="objectives_4_objective">Closed Loop를 조정하여 최대 IOB를 0 이상으로 올려서 서서히 혈당 목표치를 낮춘다.</string>
+  <string name="objectives_4_gate">혈당을 낮추기 전에 몇일간 사용해보되 최소한 하루는 저혈당 혈당 알람이 발생하지 않도록 해본다.</string>
+  <string name="objectives_5_objective">필요하면 기초주입과 비율을 조절하고, auto-sens를 활성화한다.</string>
+  <string name="objectives_5_gate">평소의 탄수화물을 입력하면서 1주일동안 낮시간대에 loop를 성공적으로 사용해본다.</string>
+  <string name="objectives_6_objective">AMA(Advanced Meal Assist)같은 낮시간대를 위한 추가적인 기능들을 실행하여 본다.</string>
+  <string name="objectives_7_objective">낮시간대에 SMB(Super Micro Bolus)같은 추가기능을 활성화해 사용해본다.</string>
+  <string name="objectives_7_gate">SMB가 잘 작동하게 하기위해서 wiki를 반드시 읽은다음 maxIOB를 올려주세요. maxIOB=평균 식사주입 + 3 x 최대하루 기초주입량이면 괜찮은 시작값입니다.</string>
+  <string name="youareonallowedlimit">허용된 제한값에 도달하였습니다</string>
+  <string name="noprofileselected">프로파일이 선택되지 않았습니다</string>
+  <string name="smscommunicator_loophasbeendisabled">Loop가 중지되었습니다.</string>
+  <string name="smscommunicator_loophasbeenenabled">Loop가 실행되었습니다.</string>
+  <string name="smscommunicator_loopisdisabled">Loop가 중지중입니다.</string>
+  <string name="smscommunicator_loopisenabled">Loop가 실행중입니다.</string>
+  <string name="valuelimitedto">%1$.2f, %2$.2f으로 제한됨</string>
+  <string name="valueoutofrange" formatted="false">%s값이 하드한계(Hard Limit)를 벗어났습니다</string>
+  <string name="smscommunicator_remotebasalnotallowed">원격 기초주입설정이 허가되지 않았습니다</string>
+  <string name="smscommunicator_remotecommandnotallowed">원격 명령이 허가되지 않았습니다</string>
+  <string name="smscommunicator_basalreplywithcode">기초주입 %1$.2fU/h 을 실행하려면 %2$s 를 입력하고 답장하세요</string>
+  <string name="smscommunicator_suspendreplywithcode">%1$d분동안 Loop 일시중지하려면 %2$s 를 입력하고 답장하세요</string>
+  <string name="smscommunicator_tempbasalset">Temp basal %1$.2fU/h for %2$d min started successfully</string>
+  <string name="smscommunicator_tempbasalfailed">Temp basal start failed</string>
+  <string name="smscommunicator_basalstopreplywithcode" formatted="false">임시기초주입을 중지하려면 %s 를 입력하고 답장하세요</string>
+  <string name="smscommunicator_tempbasalcanceled">Temp basal canceled</string>
+  <string name="smscommunicator_tempbasalcancelfailed">Canceling temp basal failed</string>
+  <string name="smscommunicator_unknowncommand">알려지지 않은 명령이거나 잘못된 답장입니다.</string>
+  <string name="quickwizard">빠른마법사</string>
+  <string name="quickwizardsettings">빠른마법사 설정</string>
+  <string name="overview_editquickwizard_buttontext">버튼명:</string>
+  <string name="overview_editquickwizard_carbs">탄수화물:</string>
+  <string name="overview_editquickwizard_valid">유효기간:</string>
+  <string name="overview_editquickwizardlistactivity_add">추가</string>
+  <string name="overview_quickwizard_item_edit_button">수정</string>
+  <string name="overview_quickwizard_item_remove_button">삭제</string>
+  <string name="mealbolus">식사주입</string>
+  <string name="correctionbous">교정주입</string>
+  <string name="actions">실행</string>
 </resources>
