@@ -927,7 +927,6 @@
   <string name="nav_setupwizard">Мастер настройки</string>
   <string name="setupwizard_finish">ГОТОВО</string>
   <string name="setupwizard_language_prompt">Выберите Ваш язык</string>
-  <string name="boluserrorcode">Запрошено: %1$.2f ед. Подано: %2$.2f ед. Код ошибки: %3$d</string>
   <string name="firstinsulinincrement">Первый шаг увеличения инсулина</string>
   <string name="secondinsulinincrement">Второй шаг увеличения инсулина</string>
   <string name="thirdinsulinincrement">Третий шаг увеличения инсулина</string>
