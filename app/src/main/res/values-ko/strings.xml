@@ -356,4 +356,5 @@
   <string name="mealbolus">식사주입</string>
   <string name="correctionbous">교정주입</string>
   <string name="actions">실행</string>
+  <string name="androidaps_start">AndroidAPS 시작</string>
 </resources>
