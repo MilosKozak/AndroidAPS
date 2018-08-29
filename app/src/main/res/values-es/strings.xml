@@ -927,7 +927,6 @@
   <string name="nav_setupwizard">Asistente de configuración</string>
   <string name="setupwizard_finish">FINALIZAR</string>
   <string name="setupwizard_language_prompt">Selecciona tu idioma</string>
-  <string name="boluserrorcode">Solicitado: %1$.2fU Entregado: %2$.2fU Código de error: %3$d</string>
   <string name="firstinsulinincrement">Primer incremento insulina</string>
   <string name="secondinsulinincrement">Segundo incremento insulina</string>
   <string name="thirdinsulinincrement">Tercer incremento insulina</string>
