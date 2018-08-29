@@ -927,7 +927,6 @@
   <string name="nav_setupwizard">Průvodce nastavením</string>
   <string name="setupwizard_finish">Dokončit</string>
   <string name="setupwizard_language_prompt">Vyberte jazyk</string>
-  <string name="boluserrorcode">Požadováno: %1$.2fU Doručeno: %2$.2fU Chyba: %3$d</string>
   <string name="firstinsulinincrement">První přídavek inzulínu</string>
   <string name="secondinsulinincrement">Druhý přídavek inzulínu</string>
   <string name="thirdinsulinincrement">Třetí přídavek inzulínu</string>
