@@ -927,7 +927,6 @@
   <string name="nav_setupwizard">Installationsguide</string>
   <string name="setupwizard_finish">Avsluta</string>
   <string name="setupwizard_language_prompt">Välj språk</string>
-  <string name="boluserrorcode">Angivet: %1$.2f enheter. Levererat: %2$.2f enheter. Felkod: %3$d</string>
   <string name="firstinsulinincrement">Första snabbknabben för insulin</string>
   <string name="secondinsulinincrement">Andra snabbknabben för insulin</string>
   <string name="thirdinsulinincrement">Tredje snabbknabben för insulin</string>
