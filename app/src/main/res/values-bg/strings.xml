@@ -439,7 +439,6 @@
   <string name="openapsama_autosens_adjusttargets">Да променя ли autosens и целевата КЗ</string>
   <string name="openapsama_autosens_adjusttargets_summary">По подразбиране: разрешено\nТова позволява на autosens да променя и целевите КЗ(освен чувствителност и базал).</string>
   <string name="openapsama_bolussnooze_dia_divisor_summary">По подразбиране: 2\nBolus snooze се активира след като поставите болус за основно хранене, така Loop няма да пуснка/намаля базалите веднага след като сте се хранили. Примерът тук е с 2; така при 3 часа DIA това ще означава че bolus snooze ще бъде внимателно изместен 1.5 часа (3DIA/2).</string>
-  <string name="openapsama_min_5m_carbimpact_summary">По подразбиране: 3.0\nТова е настройка на количеството на покачване на КЗ при усвояване на въглехидратите за всеки 5 минути. По подразбиране 3мг/дл/5мин. Това се отразява на това колко бързо се усвояват COB според алгоритъма, и как това се отразява в предвиждането на КЗ, когато тя не се покачва или пада с различен темп от очакваното.</string>
   <string name="openapsama_link_to_preferncejson_doc_txt">Внимание! Обикновено Вие не трябва да променяте тези стойности. Моля НАТИСНЕТЕ ТУК, прочетете текста и бъдете сигурни, че го РАЗБИРАТЕ преди да направите каквито и да е промени!</string>
   <string name="error_only_numeric_digits_allowed">Позволени са само числа</string>
   <string name="error_only_numeric_digits_range_allowed">Позволени са числа между %1$s - %2$s</string>
