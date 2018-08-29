@@ -928,7 +928,6 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
   <string name="nav_setupwizard">Einrichtungsassistent</string>
   <string name="setupwizard_finish">FERTIG</string>
   <string name="setupwizard_language_prompt">Wähle Deine Sprache.</string>
-  <string name="boluserrorcode">Angefragt: %1$.2f IE. Abgegeben: %2$.2f IE. Fehlercode: %3$d</string>
   <string name="firstinsulinincrement">Erste Insulin-Erhöhung</string>
   <string name="secondinsulinincrement">Zweite Insulin-Erhöhung</string>
   <string name="thirdinsulinincrement">Dritte Insulin-Erhöhung</string>
