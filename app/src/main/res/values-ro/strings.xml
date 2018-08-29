@@ -927,7 +927,6 @@
   <string name="nav_setupwizard">Asistent de configurare</string>
   <string name="setupwizard_finish">TERMINARE</string>
   <string name="setupwizard_language_prompt">Alegeți limba</string>
-  <string name="boluserrorcode">Solicitat: %1$.2fU Livrat: %2$.2fU Cod eroare: %3$d</string>
   <string name="firstinsulinincrement">Primul increment de insulină</string>
   <string name="secondinsulinincrement">Al doilea increment de insulină</string>
   <string name="thirdinsulinincrement">Al treilea increment de insulină</string>
