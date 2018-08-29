@@ -897,7 +897,6 @@
   <string name="nav_setupwizard">Съветник за настройване</string>
   <string name="setupwizard_finish">КРАЙ</string>
   <string name="setupwizard_language_prompt">Избиране на език</string>
-  <string name="boluserrorcode">Поискано: %1$.2fU Доставено: %2$.2fU Error code: %3$d</string>
   <string name="firstinsulinincrement">Стойност на първия бърз бутон [e]</string>
   <string name="secondinsulinincrement">Стойност на втория бърз бутон [e]</string>
   <string name="thirdinsulinincrement">Стойност на третия бърз бутон [e]</string>
