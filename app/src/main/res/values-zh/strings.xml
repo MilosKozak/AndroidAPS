@@ -927,7 +927,6 @@
   <string name="nav_setupwizard">设置向导</string>
   <string name="setupwizard_finish">完成</string>
   <string name="setupwizard_language_prompt">选择你的语言</string>
-  <string name="boluserrorcode">已请求: %1$.2fU 已输注: %2$.2fU 错误代码: %3$d</string>
   <string name="firstinsulinincrement">第一胰岛素增量</string>
   <string name="secondinsulinincrement">第二胰岛素增量</string>
   <string name="thirdinsulinincrement">第三胰岛素增量</string>
