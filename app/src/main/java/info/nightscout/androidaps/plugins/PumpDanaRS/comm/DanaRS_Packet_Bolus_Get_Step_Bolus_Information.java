@@ -59,11 +59,7 @@ public class DanaRS_Packet_Bolus_Get_Step_Bolus_Information extends DanaRS_Packe
         dataIndex += dataSize;
         dataSize = 1;
         pump.bolusStep = byteArrayToInt(getBytes(data, dataIndex, dataSize)) / 100d;
-<<<<<<< HEAD
-        if ( error != 0)
-=======
         if (error != 0)
->>>>>>> 4082f52dd9e88ebbd7064db1fb8816b06d65cf74
             failed = true;
         if (L.isEnabled(L.PUMPCOMM)) {
             log.debug("Result: " + error);
