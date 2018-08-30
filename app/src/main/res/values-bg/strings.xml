@@ -458,6 +458,7 @@
   <string name="openapsama_autosens_adjusttargets">Да променя ли autosens и целевата КЗ</string>
   <string name="openapsama_autosens_adjusttargets_summary">По подразбиране: разрешено\nТова позволява на autosens да променя и целевите КЗ(освен чувствителност и базал).</string>
   <string name="openapsama_bolussnooze_dia_divisor_summary">По подразбиране: 2\nBolus snooze се активира след като поставите болус за основно хранене, така Loop няма да пуснка/намаля базалите веднага след като сте се хранили. Примерът тук е с 2; така при 3 часа DIA това ще означава че bolus snooze ще бъде внимателно изместен 1.5 часа (3DIA/2).</string>
+  <string name="openapsama_min_5m_carbimpact_summary">Стойност по подразбиране: 3.0 (АМА) или 8.0 (SMB). Това е настройка на количеството на покачване на КЗ при усвояване на въглехидратите за всеки 5 минути. По подразбиране 3мг/дл за 5мин. Това се отразява на това колко бързо се усвояват COB според алгоритъма, и как това се отразява в предвиждането на КЗ, когато тя не се покачва или пада с различен темп от очакваното.</string>
   <string name="openapsama_link_to_preferncejson_doc_txt">Внимание! Обикновено Вие не трябва да променяте тези стойности. Моля НАТИСНЕТЕ ТУК, прочетете текста и бъдете сигурни, че го РАЗБИРАТЕ преди да направите каквито и да е промени!</string>
   <string name="error_only_numeric_digits_allowed">Позволени са само числа</string>
   <string name="error_only_numeric_digits_range_allowed">Позволени са числа между %1$s - %2$s</string>
@@ -927,6 +928,7 @@
   <string name="nav_setupwizard">Съветник за настройване</string>
   <string name="setupwizard_finish">КРАЙ</string>
   <string name="setupwizard_language_prompt">Избиране на език</string>
+  <string name="boluserrorcode">Стартирано: %1$.2fЕ Доставено: %2$.2fЕ Код на грешка: %3$s</string>
   <string name="firstinsulinincrement">Стойност на първия бърз бутон [e]</string>
   <string name="secondinsulinincrement">Стойност на втория бърз бутон [e]</string>
   <string name="thirdinsulinincrement">Стойност на третия бърз бутон [e]</string>
@@ -1042,6 +1044,10 @@
   <string name="calculation_short">Калк</string>
   <string name="handshaking">Сдвояване</string>
   <string name="sendlogfiles">Изпрати последните лог файлове на разработчиците. Непредвидена ситуация.</string>
+  <string name="maxbolusviolation">Превишавате макс болус</string>
+  <string name="commanderror">Грешка при команда</string>
+  <string name="speederror">Скорост грешка</string>
+  <string name="insulinlimitviolation">Нарушение на макс дневен инсулин</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d дeн</item>
     <item quantity="other">%1$d дни</item>
