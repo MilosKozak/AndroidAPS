@@ -26,6 +26,8 @@ import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.NSClientInternal.NSUpload;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.DbLogger;
+import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
+import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentService;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.CommandQueue;
@@ -107,7 +109,9 @@ public class AAPSMocker {
     public static MainApp mockMainApp() {
         PowerMockito.mockStatic(MainApp.class);
         MainApp mainApp = mock(MainApp.class);
+        DanaRPlugin danaRPlugin = mock(DanaRPlugin.class);
         when(MainApp.instance()).thenReturn(mainApp);
+        when(MainApp.getSpecificPlugin(DanaRPlugin.class)).thenReturn(danaRPlugin);
         return mainApp;
     }
 
@@ -164,6 +168,15 @@ public class AAPSMocker {
         TreatmentsPlugin treatmentsPlugin = PowerMockito.mock(TreatmentsPlugin.class);
         PowerMockito.whenNew(TreatmentService.class).withNoArguments().thenReturn(treatmentService);
         when(TreatmentsPlugin.getPlugin()).thenReturn(treatmentsPlugin);
+    }
+
+    public static DanaRPlugin mockDanaRPlugin() {
+        PowerMockito.mockStatic(DanaRPlugin.class);
+        DanaRPlugin danaRPlugin = mock(DanaRPlugin.class);
+        DanaRKoreanPlugin danaRKoreanPlugin = mock(DanaRKoreanPlugin.class);
+        when(MainApp.getSpecificPlugin(DanaRPlugin.class)).thenReturn(danaRPlugin);
+        when(MainApp.getSpecificPlugin(DanaRKoreanPlugin.class)).thenReturn(danaRKoreanPlugin);
+        return danaRPlugin;
     }
 
     public static Profile getValidProfile() {

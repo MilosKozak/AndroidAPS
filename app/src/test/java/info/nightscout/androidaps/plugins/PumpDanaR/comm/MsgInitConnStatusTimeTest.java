@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({MainApp.class, SP.class, L.class, ConfigBuilderPlugin.class})
-public class MsgInitConnStatusOptionTest {
+public class MsgInitConnStatusTimeTest {
     @Test
     public void runTest() {
         AAPSMocker.mockMainApp();
@@ -30,15 +30,16 @@ public class MsgInitConnStatusOptionTest {
         AAPSMocker.mockL();
         AAPSMocker.mockBus();
         AAPSMocker.mockConfigBuilder();
-        MsgInitConnStatusOption packet = new MsgInitConnStatusOption();
+        AAPSMocker.mockCommandQueue();
+        AAPSMocker.mockDanaRPlugin();
+        MsgInitConnStatusTime packet = new MsgInitConnStatusTime();
 
         // test message decoding
         packet.handleMessage(createArray(20, (byte) 1));
-        // message smaller than 21
+        // message smaller than 10
+        assertEquals(false, packet.failed);
+        packet.handleMessage(createArray(15, (byte) 1));
         assertEquals(true, packet.failed);
-        packet.handleMessage(createArray(22, (byte) 1));
-        DanaRPump pump = DanaRPump.getInstance();
-        assertEquals(false, pump.isPasswordOK());
 
     }
 
