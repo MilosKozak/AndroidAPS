@@ -14,17 +14,21 @@ import info.nightscout.utils.SP;
 import static org.junit.Assert.*;
 
 /**
- * Created by Rumen Georgiev on 8/28/2018.
+ * Created by Rumen Georgiev on 8/31/2018.
  */
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({MainApp.class, SP.class, L.class})
-public class MessageOriginalNamesTest {
+public class MessageHashTableTest {
+
     @Test
     public void runTest() {
-        MessageOriginalNames packet = new MessageOriginalNames();
-        String testName = packet.getName(0x41f2);
-        assertEquals("CMD_HISTORY_ALL", testName);
+        AAPSMocker.mockMainApp();
+        AAPSMocker.mockSP();
+        AAPSMocker.mockL();
+        MessageHashTable messageHashTable = new MessageHashTable();
+        MessageBase testMessage = messageHashTable.findMessage(0x41f2);
+        assertEquals("CMD_HISTORY_ALL", testMessage.getMessageName());
 
     }
 

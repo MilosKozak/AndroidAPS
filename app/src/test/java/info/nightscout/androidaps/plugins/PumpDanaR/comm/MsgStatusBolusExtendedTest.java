@@ -1,7 +1,10 @@
 package info.nightscout.androidaps.plugins.PumpDanaR.comm;
 
+import android.content.Context;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -21,19 +24,26 @@ import static org.junit.Assert.*;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({MainApp.class, SP.class, L.class})
-public class MsgSettingActiveProfileTest {
+public class MsgStatusBolusExtendedTest {
+    @Mock
+    Context context;
     @Test
-    public void runTest() {
+    public void runTest() throws Exception{
         AAPSMocker.mockMainApp();
         AAPSMocker.mockApplicationContext();
         AAPSMocker.mockSP();
         AAPSMocker.mockL();
-        MsgSettingActiveProfile packet = new MsgSettingActiveProfile();
+        try {
+            AAPSMocker.mockTreatmentService();
+        } catch (Exception e){
 
+        }
+        MsgStatusBolusExtended packet = new MsgStatusBolusExtended();
         // test message decoding
-        packet.handleMessage(createArray(34, (byte) 7));
+        //TODO Find a way to mock treatments plugin
+//        packet.handleMessage(createArray(34, (byte) 7));
         DanaRPump pump = DanaRPump.getInstance();
-        assertEquals(MessageBase.intFromBuff(createArray(34, (byte) 7), 0, 1), pump.activeProfile);
+//        assertEquals((double) MessageBase.intFromBuff(createArray(10, (byte) 7), 2, 2)/100d, pump.extendedBolusAmount,0);
 
     }
 

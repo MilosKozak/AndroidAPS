@@ -2,6 +2,7 @@ package info.nightscout.androidaps.plugins.PumpDanaR.comm;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -14,34 +15,26 @@ import info.nightscout.androidaps.plugins.Treatments.Treatment;
 import info.nightscout.utils.SP;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
 
 /**
- * Created by Rumen Georgiev on 8/30/2018.
+ * Created by Rumen Georgiev on 8/31/2018.
  */
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({MainApp.class, SP.class, L.class})
-public class MsgSettingActiveProfileTest {
+public class MsgStatusTempBasalTest {
     @Test
     public void runTest() {
         AAPSMocker.mockMainApp();
         AAPSMocker.mockApplicationContext();
         AAPSMocker.mockSP();
         AAPSMocker.mockL();
-        MsgSettingActiveProfile packet = new MsgSettingActiveProfile();
-
-        // test message decoding
-        packet.handleMessage(createArray(34, (byte) 7));
+        MsgStatusTempBasal packet = new MsgStatusTempBasal();
         DanaRPump pump = DanaRPump.getInstance();
-        assertEquals(MessageBase.intFromBuff(createArray(34, (byte) 7), 0, 1), pump.activeProfile);
+        // test message decoding
+        // Calling context.getResources() before super.onCreate() returns nullPointerException
 
-    }
-
-    byte[] createArray(int length, byte fillWith){
-        byte[] ret = new byte[length];
-        for(int i = 0; i<length; i++){
-            ret[i] = fillWith;
-        }
-        return ret;
     }
 }

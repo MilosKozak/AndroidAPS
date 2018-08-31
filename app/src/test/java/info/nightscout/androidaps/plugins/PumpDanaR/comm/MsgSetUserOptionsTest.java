@@ -21,19 +21,17 @@ import static org.junit.Assert.*;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({MainApp.class, SP.class, L.class})
-public class MsgSettingActiveProfileTest {
+public class MsgSetUserOptionsTest {
     @Test
     public void runTest() {
         AAPSMocker.mockMainApp();
         AAPSMocker.mockApplicationContext();
         AAPSMocker.mockSP();
         AAPSMocker.mockL();
-        MsgSettingActiveProfile packet = new MsgSettingActiveProfile();
-
+        MsgSetUserOptions packet = new MsgSetUserOptions();
         // test message decoding
         packet.handleMessage(createArray(34, (byte) 7));
-        DanaRPump pump = DanaRPump.getInstance();
-        assertEquals(MessageBase.intFromBuff(createArray(34, (byte) 7), 0, 1), pump.activeProfile);
+        assertEquals(true, packet.failed);
 
     }
 
