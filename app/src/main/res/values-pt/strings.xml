@@ -867,6 +867,9 @@
   <string name="not_eng_mode_or_release">Modo de engenharia não habilitado e não no na versão mestra</string>
   <string name="pump_basebasalrate">%.2f U/h</string>
   <string name="combo_actvity_reading_basal_profile">A ler perfil basal</string>
+  <string name="combo_bolus_rejected_due_to_pump_history_change">O histórico da bomba foi alterado após o cálculo do bolo ter sido realizado. O bolus não foi injectado. Por favor, verifique se bolus ainda é necessário.</string>
+  <string name="combo_error_updating_treatment_record">O bolus foi injectado, mas não foi possível adicionar ao histórico. Isto é possível se dois bolus do mesmo valor baixo foram administrados nos últimos dois minutos. Por favor verifique o histórico da bomba e use o Careportal para adicionar os dados em falta caso necessário. Cuidado para não adicionar dados com o mesmo valor no mesmo minuto.</string>
+  <string name="combo_high_temp_rejected_due_to_pump_history_changes">A rejeitar a temporal alta uma vez que o cálculo não considerou as mudanças do histórico da bomba</string>
   <string name="combo_activity_checking_pump_state">A actualizar estado bomba</string>
   <string name="combo_activity_checking_for_history_changes">A verificar se há alterações de histórico</string>
   <string name="combo_bolus_count">Contagem Bólus</string>
