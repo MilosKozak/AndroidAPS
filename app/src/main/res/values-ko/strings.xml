@@ -12,7 +12,7 @@
   <string name="danar_useextended_title">&gt;200% 주입위한 확장식사주입</string>
   <string name="danar_bt_name_title">다나R 블루투스</string>
   <string name="ns_sync_use_absolute_title">기초주입량 절대값 사용하기</string>
-  <string name="alert_dialog_storage_permission_text">폰을 재부팅하고나 AndroidAPS를 재시작하세요 \n그렇지 않으면 로그가 기록이되지 않습니다.(알고리즘이 제대로 작동하는지 확인하기 위해 로그가 필요합니다.)!</string>
+  <string name="alert_dialog_storage_permission_text">폰을 재부팅하거나 AndroidAPS를 재시작하세요 \n그렇지 않으면 로그 기록이 되지 않습니다.(알고리즘이 정상적인 작동하는지 확인하기 위해 로그가 필요합니다.)!</string>
   <string name="description_actions">일반 기능을 빠르게 실행시킬 버튼</string>
   <string name="description_careportal">고급 로그 항목을 입력합니다.</string>
   <string name="description_config_builder">활성화된 플러그인을 구성하는 데 사용됩니다.</string>
@@ -236,9 +236,7 @@
   <string name="disconnected">연결 끊김</string>
   <string name="danar_pump_settings">다나R 펌프 설정</string>
   <string name="end_user_license_agreement">최종 사용자 라이선스 동의서</string>
-  <string name="end_user_license_agreement_text">이 프로그램을 의학적 결정을 내리는 데 사용해서는 안되며, 여기에 대한 어떠한 보증도 없습니다. 이 프로그램의 품질과 성능에 관한 모든 위험은 사용자에게 있습니다.
-
-MUST NOT BE USED TO MAKE MEDICAL DECISIONS. THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</string>
+  <string name="end_user_license_agreement_text">이 프로그램을 의학적 결정을 내리는 데 사용해서는 안되며, 여기에 대한 어떠한 보증도 없습니다. 이 프로그램의 품질과 성능에 관한 모든 위험은 사용자에게 있습니다.\nMUST NOT BE USED TO MAKE MEDICAL DECISIONS. THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</string>
   <string name="end_user_license_agreement_i_understand">모두 이해하였고 동의합니다.</string>
   <string name="save">저장</string>
   <string name="nobtadapter">블루투스 어댑터를 찾지 못했습니다</string>
