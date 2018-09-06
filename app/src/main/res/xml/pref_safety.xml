@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:validate="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
         android:key="treatmentssafety"
         android:title="@string/treatmentssafety_title">
@@ -16,5 +17,31 @@
             android:defaultValue="48"
             android:inputType="numberDecimal">
         </EditTextPreference>
+
+        <com.andreabaccega.widget.ValidatingEditTextPreference
+            android:defaultValue="0.0"
+            android:dialogMessage="@string/max_insulin_from_carbs_message"
+            android:inputType="numberDecimal|numberSigned"
+            android:key="@string/key_maxinsulinfromcarbs"
+            android:maxLines="20"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/maxinsulinfromcarbs"
+            validate:floatmaxNumber="5.0"
+            validate:floatminNumber="0.0"
+            validate:testType="floatNumericRange" />
+
+        <com.andreabaccega.widget.ValidatingEditTextPreference
+            android:defaultValue="0.0"
+            android:dialogMessage="@string/min_bg_for_bolus"
+            android:inputType="numberDecimal|numberSigned"
+            android:key="@string/key_minbgforbolus"
+            android:maxLines="20"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/minbgforbolus"
+            validate:floatmaxNumber="5.0"
+            validate:floatminNumber="0.0"
+            validate:testType="floatNumericRange" />
     </PreferenceCategory>
 </PreferenceScreen>

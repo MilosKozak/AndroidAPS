@@ -8,6 +8,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.Profile;
@@ -56,6 +57,16 @@ public class BolusWizardTest {
         Double bolusForLowBg = bw.doCalc(profile, null, 20, 0d,3.6, 0d, 100d, true, true, false, false);
         Double bolusForBgInRange = bw.doCalc(profile, null, 20, 0.0,5.4, 0d, 100d, true, true, false, false);
         Assert.assertTrue(bolusForLowBg < bolusForBgInRange);
+    }
+
+    @Test
+    public void shouldCalculateZeroBolusWhenBGBelowThreshold() throws Exception {
+        BolusWizard bw = new BolusWizard();
+        Profile profile = setupProfile(4d, 8d, 20d, 12d);
+        SP.putString(R.string.key_minbgforbolus, "4");
+
+        Double bolusForLowBg = bw.doCalc(profile, null, 20, 0d,3.6, 0d, 100d, true, true, false, false);
+        Assert.assertEquals(new Double(0D), bolusForLowBg);
     }
 
     private Profile setupProfile(Double targetLow, Double targetHigh, Double insulinSensitivityFactor, Double insulinToCarbRatio) {
