@@ -167,7 +167,9 @@ public class CommandQueue {
         }
     }
 
-    public static void independentConnect(String reason, Callback callback) {
+    public void independentConnect(String reason, Callback callback) {
+        if (L.isEnabled(L.PUMPQUEUE))
+            log.debug("Starting new queue");
         CommandQueue tempCommandQueue = new CommandQueue();
         tempCommandQueue.readStatus(reason, callback);
     }
@@ -296,7 +298,7 @@ public class CommandQueue {
             return false;
         }
 
-        Double rateAfterConstraints = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(insulin)).value();
+        Double rateAfterConstraints = MainApp.getConstraintChecker().applyExtendedBolusConstraints(new Constraint<>(insulin)).value();
 
         // remove all unfinished
         removeAll(Command.CommandType.EXTENDEDBOLUS);

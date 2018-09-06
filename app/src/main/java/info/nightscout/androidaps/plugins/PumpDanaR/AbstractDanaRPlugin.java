@@ -143,8 +143,8 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
     }
 
     @Override
-    public Date lastDataTime() {
-        return new Date(DanaRPump.getInstance().lastConnection);
+    public long lastDataTime() {
+        return DanaRPump.getInstance().lastConnection;
     }
 
     @Override
@@ -214,7 +214,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
     @Override
     public PumpEnactResult setExtendedBolus(Double insulin, Integer durationInMinutes) {
         DanaRPump pump = DanaRPump.getInstance();
-        insulin = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(insulin)).value();
+        insulin = MainApp.getConstraintChecker().applyExtendedBolusConstraints(new Constraint<>(insulin)).value();
         // needs to be rounded
         int durationInHalfHours = Math.max(durationInMinutes / 30, 1);
         insulin = Round.roundTo(insulin, getPumpDescription().extendedBolusStep);
@@ -333,8 +333,8 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
             status.put("timestamp", DateUtil.toISOString(pump.lastConnection));
             extended.put("Version", BuildConfig.VERSION_NAME + "-" + BuildConfig.BUILDVERSION);
             extended.put("PumpIOB", pump.iob);
-            if (pump.lastBolusTime.getTime() != 0) {
-                extended.put("LastBolus", pump.lastBolusTime.toLocaleString());
+            if (pump.lastBolusTime != 0) {
+                extended.put("LastBolus", DateUtil.dateAndTimeFullString(pump.lastBolusTime));
                 extended.put("LastBolusAmount", pump.lastBolusAmount);
             }
             TemporaryBasal tb = TreatmentsPlugin.getPlugin().getRealTempBasalFromHistory(now);
@@ -409,6 +409,11 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
         return insulin;
     }
 
+    @Override
+    public Constraint<Double> applyExtendedBolusConstraints(Constraint<Double> insulin) {
+        return applyBolusConstraints(insulin);
+    }
+
     @Nullable
     @Override
     public ProfileStore getProfile() {
@@ -441,7 +446,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
             int agoMin = (int) (agoMsec / 60d / 1000d);
             ret += "LastConn: " + agoMin + " minago\n";
         }
-        if (pump.lastBolusTime.getTime() != 0) {
+        if (pump.lastBolusTime != 0) {
             ret += "LastBolus: " + DecimalFormatter.to2Decimal(pump.lastBolusAmount) + "U @" + android.text.format.DateFormat.format("HH:mm", pump.lastBolusTime) + "\n";
         }
         TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getRealTempBasalFromHistory(System.currentTimeMillis());

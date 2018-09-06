@@ -207,7 +207,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.overview_wizard_dialog, null, false);
+        View view = inflater.inflate(R.layout.overview_wizard_dialog, container, false);
 
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -339,7 +339,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
                     if (carbsAfterConstraints > 0)
                         confirmMessage += "<br/>" + MainApp.gs(R.string.carbs) + ": " + "<font color='" + MainApp.gc(R.color.carbs) + "'>" + carbsAfterConstraints + "g" + "</font>";
 
-                    if (insulinAfterConstraints - calculatedTotalInsulin != 0 || !carbsAfterConstraints.equals(calculatedCarbs)) {
+                    if (Math.abs(insulinAfterConstraints - calculatedTotalInsulin) > 0.01d || !carbsAfterConstraints.equals(calculatedCarbs)) {
                         okClicked = false;
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
                         builder.setTitle(MainApp.gs(R.string.treatmentdeliveryerror));
@@ -483,9 +483,10 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
             return; // not initialized yet
         String selectedAlternativeProfile = profileSpinner.getSelectedItem().toString();
         Profile specificProfile;
-        if (selectedAlternativeProfile.equals(MainApp.gs(R.string.active)))
+        if (selectedAlternativeProfile.equals(MainApp.gs(R.string.active))) {
             specificProfile = ProfileFunctions.getInstance().getProfile();
-        else
+            selectedAlternativeProfile = MainApp.getConfigBuilder().getActiveProfileInterface().getProfileName();
+        } else
             specificProfile = profileStore.getSpecificProfile(selectedAlternativeProfile);
 
         // Entered values
@@ -495,13 +496,13 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         Double corrAfterConstraint = c_correction;
         if (c_correction > 0)
             c_correction = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(c_correction)).value();
-        if (c_correction - corrAfterConstraint != 0) { // c_correction != corrAfterConstraint doesn't work
+        if (Math.abs(c_correction - corrAfterConstraint) > 0.01d) { // c_correction != corrAfterConstraint doesn't work
             editCorr.setValue(0d);
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.bolusconstraintapplied));
             return;
         }
         Integer carbsAfterConstraint = MainApp.getConstraintChecker().applyCarbsConstraints(new Constraint<>(c_carbs)).value();
-        if (c_carbs - carbsAfterConstraint != 0) {
+        if (Math.abs(c_carbs - carbsAfterConstraint) > 0.01d) {
             editCarbs.setValue(0d);
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.carbsconstraintapplied));
             return;
@@ -579,12 +580,15 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         boluscalcJSON = new JSONObject();
         try {
             boluscalcJSON.put("profile", selectedAlternativeProfile);
+            boluscalcJSON.put("notes", notesEdit.getText());
             boluscalcJSON.put("eventTime", DateUtil.toISOString(new Date()));
             boluscalcJSON.put("targetBGLow", wizard.targetBGLow);
             boluscalcJSON.put("targetBGHigh", wizard.targetBGHigh);
             boluscalcJSON.put("isf", wizard.sens);
             boluscalcJSON.put("ic", wizard.ic);
             boluscalcJSON.put("iob", -(wizard.insulingFromBolusIOB + wizard.insulingFromBasalsIOB));
+            boluscalcJSON.put("bolusiob", wizard.insulingFromBolusIOB);
+            boluscalcJSON.put("basaliob", wizard.insulingFromBasalsIOB);
             boluscalcJSON.put("bolusiobused", bolusIobCheckbox.isChecked());
             boluscalcJSON.put("basaliobused", basalIobCheckbox.isChecked());
             boluscalcJSON.put("bg", c_bg);
@@ -594,11 +598,18 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
             boluscalcJSON.put("insulincarbs", wizard.insulinFromCarbs);
             boluscalcJSON.put("carbs", c_carbs);
             boluscalcJSON.put("cob", c_cob);
+            boluscalcJSON.put("cobused", cobCheckbox.isChecked());
             boluscalcJSON.put("insulincob", wizard.insulinFromCOB);
             boluscalcJSON.put("othercorrection", corrAfterConstraint);
             boluscalcJSON.put("insulinsuperbolus", wizard.insulinFromSuperBolus);
             boluscalcJSON.put("insulintrend", wizard.insulinFromTrend);
             boluscalcJSON.put("insulin", calculatedTotalInsulin);
+            boluscalcJSON.put("superbolusused", superbolusCheckbox.isChecked());
+            boluscalcJSON.put("insulinsuperbolus", wizard.insulinFromSuperBolus);
+            boluscalcJSON.put("trendused", bgtrendCheckbox.isChecked());
+            boluscalcJSON.put("insulintrend", wizard.insulinFromTrend);
+            boluscalcJSON.put("trend", bgTrend.getText());
+            boluscalcJSON.put("ttused", ttCheckbox.isChecked());
         } catch (JSONException e) {
             log.error("Unhandled exception", e);
         }

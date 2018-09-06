@@ -74,7 +74,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public static final String DATABASE_PROFILESWITCHES = "ProfileSwitches";
     public static final String DATABASE_TDDS = "TDDs";
 
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
 
     public static Long earliestDataChange = null;
 
@@ -133,6 +133,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
             if (oldVersion == 7 && newVersion == 8) {
                 log.debug("Upgrading database from v7 to v8");
+            } else if (oldVersion == 8 && newVersion == 9) {
+                log.debug("Upgrading database from v8 to v9");
             } else {
                 log.info(DatabaseHelper.class.getName(), "onUpgrade");
                 TableUtils.dropTable(connectionSource, TempTarget.class, true);
@@ -198,7 +200,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         } catch (SQLException e) {
             log.error("Unhandled exception", e);
         }
-        VirtualPumpPlugin.setFakingStatus(true);
+        VirtualPumpPlugin.getPlugin().setFakingStatus(true);
         scheduleBgChange(null); // trigger refresh
         scheduleTemporaryBasalChange();
         scheduleExtendedBolusChange();
@@ -234,7 +236,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         } catch (SQLException e) {
             log.error("Unhandled exception", e);
         }
-        VirtualPumpPlugin.setFakingStatus(false);
+        VirtualPumpPlugin.getPlugin().setFakingStatus(false);
         scheduleTemporaryBasalChange();
     }
 
@@ -317,7 +319,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     public static long roundDateToSec(long date) {
-        return date - date % 1000;
+        long rounded = date - date % 1000;
+        if (rounded != date)
+            if (L.isEnabled(L.DATABASE))
+                log.debug("Rounding " + date + " to " + rounded);
+        return rounded;
     }
     // -------------------  BgReading handling -----------------------
 
@@ -961,8 +967,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 extendedBolus.durationInMinutes = trJson.getInt("duration");
                 extendedBolus.insulin = trJson.getDouble("originalExtendedAmount");
                 extendedBolus._id = trJson.getString("_id");
-                if (!VirtualPumpPlugin.getFakingStatus()) {
-                    VirtualPumpPlugin.setFakingStatus(true);
+                if (!VirtualPumpPlugin.getPlugin().getFakingStatus()) {
+                    VirtualPumpPlugin.getPlugin().setFakingStatus(true);
                     updateEarliestDataChange(0);
                     scheduleTemporaryBasalChange();
                 }
@@ -975,8 +981,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 extendedBolus.durationInMinutes = 0;
                 extendedBolus.insulin = 0;
                 extendedBolus._id = trJson.getString("_id");
-                if (!VirtualPumpPlugin.getFakingStatus()) {
-                    VirtualPumpPlugin.setFakingStatus(true);
+                if (!VirtualPumpPlugin.getPlugin().getFakingStatus()) {
+                    VirtualPumpPlugin.getPlugin().setFakingStatus(true);
                     updateEarliestDataChange(0);
                     scheduleTemporaryBasalChange();
                 }
@@ -1347,7 +1353,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             if (list.size() == 1) {
                 CareportalEvent record = list.get(0);
                 if (L.isEnabled(L.DATABASE))
-                    log.debug("Removing CareportalEvent record from database: " + record.log());
+                    log.debug("Removing CareportalEvent record from database: " + record.toString());
                 delete(record);
             } else {
                 if (L.isEnabled(L.DATABASE))
@@ -1419,6 +1425,24 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             QueryBuilder<ProfileSwitch, Long> queryBuilder = daoProfileSwitch.queryBuilder();
             queryBuilder.orderBy("date", ascending);
             queryBuilder.limit(100L);
+            PreparedQuery<ProfileSwitch> preparedQuery = queryBuilder.prepare();
+            profileSwitches = daoProfileSwitch.query(preparedQuery);
+            return profileSwitches;
+        } catch (SQLException e) {
+            log.error("Unhandled exception", e);
+        }
+        return new ArrayList<>();
+    }
+
+    public List<ProfileSwitch> getProfileSwitchEventsFromTime(long mills, boolean ascending) {
+        try {
+            Dao<ProfileSwitch, Long> daoProfileSwitch = getDaoProfileSwitch();
+            List<ProfileSwitch> profileSwitches;
+            QueryBuilder<ProfileSwitch, Long> queryBuilder = daoProfileSwitch.queryBuilder();
+            queryBuilder.orderBy("date", ascending);
+            queryBuilder.limit(100L);
+            Where where = queryBuilder.where();
+            where.ge("date", mills);
             PreparedQuery<ProfileSwitch> preparedQuery = queryBuilder.prepare();
             profileSwitches = daoProfileSwitch.query(preparedQuery);
             return profileSwitches;
