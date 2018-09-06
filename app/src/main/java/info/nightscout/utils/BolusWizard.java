@@ -133,6 +133,11 @@ public class BolusWizard {
             calculatedTotalInsulin = 0d;
         }
 
+        Double minBGForBolus = SP.getDouble(R.string.key_minbgforbolus, 0d);
+        if (minBGForBolus > 0 && bg < minBGForBolus) {
+            calculatedTotalInsulin = 0d;
+        }
+
         double bolusStep = ConfigBuilderPlugin.getActivePump().getPumpDescription().bolusStep;
         calculatedTotalInsulin = Round.roundTo(calculatedTotalInsulin, bolusStep);
 
