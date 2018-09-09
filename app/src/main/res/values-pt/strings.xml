@@ -169,7 +169,7 @@
   <string name="disableloop">Desactivar Loop</string>
   <string name="enableloop">Activar Loop</string>
   <string name="openloop_newsuggestion">Disponível nova sugestão</string>
-  <string name="unsupportedclientver">Versão não suportada do NSClient</string>
+  <string name="unsupportedclientver">Versão não suportada do NSCliente</string>
   <string name="unsupportednsversion">Versão sem suporte do Nightscout</string>
   <string name="nsclientnotinstalled">NSCliente em falta. Perdido registo!</string>
   <string name="objectives_bgavailableinns">Glic disponível no NS</string>
@@ -962,6 +962,7 @@
   <string name="apssetup">Configurar plugin APS</string>
   <string name="sensitivitysetup">Configurar plugin Sensibilidade</string>
   <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+  <string name="nsclientinfotext">NSCliente gere a ligação ao Nightscout. Pode saltar esta parte mas não será possível passar os objectivos até que o configure.</string>
   <string name="bgsourcesetup">Configure a fonte das glicemias</string>
   <string name="startobjective">Iniciar primeiro objectivo</string>
   <string name="permission">Permissão</string>
@@ -1016,7 +1017,7 @@
   <string name="openaps_noasdata">Sem dados Autosens disponíveis</string>
   <string name="nav_logsettings">Definições de registo</string>
   <string name="resettodefaults">Repor definições por defeito</string>
-  <string name="nsmalfunction">Erro de funcionamento do NSClient. Pondere reiniciar o NS e NSClient.</string>
+  <string name="nsmalfunction">Erro de funcionamento do NSCliente. Pondere reiniciar o NS e NSCliente.</string>
   <string name="as">AS</string>
   <string name="versionavailable">Disponível %1$s disponível</string>
   <string name="time_offset">Fuso horário</string>
