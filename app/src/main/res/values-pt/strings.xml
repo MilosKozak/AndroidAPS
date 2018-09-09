@@ -874,6 +874,8 @@
   <string name="combo_warning_pump_basal_rate_changed">O rácio da basal foi alterado na bomba e vai ser actualizado em breve</string>
   <string name="combo_error_failure_reading_changed_basal_rate">Rácio da basal foi alterado na bomba, mas a leitura falhou</string>
   <string name="combo_activity_checking_for_history_changes">A verificar se há alterações de histórico</string>
+  <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
+  <string name="combo_suspious_bolus_time">Hora/data da entrega do bólus na bomba parece errado, IOB aparentemente está incorrecto. Verifique hora/data na bomba.</string>
   <string name="combo_bolus_count">Contagem Bólus</string>
   <string name="combo_tbr_count">Contagem TBR</string>
   <string name="objectivenotstarted">Objetivo %1$d não iniciado</string>
@@ -897,6 +899,7 @@
   <string name="limitingcarbs">A limitar hidratos para %1$d g porque %2$s</string>
   <string name="limitingiob">A limitar IOB para %1$.1f U porque %2$s</string>
   <string name="maxvalueinpreferences">valor máx nas preferências</string>
+  <string name="hardlimit">limite rígido</string>
   <string name="unsafeusage">uso não seguro</string>
   <string name="readstatusfailed">Erro na leitura de estado</string>
   <string name="record_pump_site_change">Registar mudança de sítio</string>
@@ -904,6 +907,7 @@
   <string name="smbnotallowedinopenloopmode">SMB não permitido no modo open loop</string>
   <string name="food_short">Alimentos</string>
   <string name="reset">repor</string>
+  <string name="waitingfortimesynchronization">À espera da sincronização da hora (%1$d sec)</string>
   <string name="loopdisconnectedfor">Desligado (%1$d m)</string>
   <string name="automatic_careportal_events">Eventos careportal automáticos</string>
   <string name="openapssmb_maxiob_title">Máximo total IOS OpenAPS não pode superar [U]</string>
@@ -967,6 +971,8 @@
   <string name="danar_pumpalarm_sound">Som</string>
   <string name="danar_pumpalarm_vibrate">Vibrar</string>
   <string name="danar_pumpalarm_both">Ambos</string>
+  <string name="danar_screentimeout">Desligar LCD [s]</string>
+  <string name="danar_backlight">Desligar luz de fundo [s]</string>
   <string name="danar_glucoseunits">Unidades de Glucose</string>
   <string name="danar_shutdown">Desligar(horas)</string>
   <string name="danar_lowreservoir">Reservatório baixo (Unidades)</string>
@@ -999,6 +1005,7 @@
   <string name="openaps_noasdata">Sem dados Autosens disponíveis</string>
   <string name="nav_logsettings">Definições de registo</string>
   <string name="resettodefaults">Repor definições por defeito</string>
+  <string name="nsmalfunction">Erro de funcionamento do NSClient. Pondere reiniciar o NS e NSClient.</string>
   <string name="as">AS</string>
   <string name="versionavailable">Disponível %1$s disponível</string>
   <string name="time_offset">Fuso horário</string>
@@ -1006,9 +1013,12 @@
   <string name="treatments_wizard_total_label">Total</string>
   <string name="calculation_short">Calc</string>
   <string name="handshaking">Cumprimento</string>
+  <string name="sendlogfiles">Enviar os ficheiros de registo do dia de hoje para os programadores. Situação inesperada.</string>
+  <string name="maxbolusviolation">Transgressão Bólus máx</string>
   <string name="commanderror">Erro no comando</string>
   <string name="speederror">Erro velocidade</string>
   <string name="insulinlimitviolation">Transgressão limite insulina</string>
+  <string name="loop_openmode_min_change">Pedido de mudança mínima [%]</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dia</item>
     <item quantity="other">%1$d dias</item>
