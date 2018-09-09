@@ -888,6 +888,12 @@
   <string name="maxdailybasalmultiplier">multiplicador de basal máx diária</string>
   <string name="smb_frequency_exceeded">Um bolus foi injectado nos últimos 3 minutos, saltando SMB</string>
   <string name="basal_set_correctly">Basal correctamente definida</string>
+  <string name="limitingpercentrate">A limitar rácio percentagem máx para %1$d%% porque %2$s</string>
+  <string name="limitingbolus">A limitar bólus para %1$.1f U porque %2$s</string>
+  <string name="limitingextendedbolus">A limitar bólus estendido para %1$.1f U porque %2$s</string>
+  <string name="limitingmaxiob">A limitar IOB máx. para %1$.1f U porque %2$s</string>
+  <string name="limitingcarbs">A limitar hidratos para %1$d g porque %2$s</string>
+  <string name="limitingiob">A limitar IOB para %1$.1f U porque %2$s</string>
   <string name="maxvalueinpreferences">valor máx nas preferências</string>
   <string name="unsafeusage">uso não seguro</string>
   <string name="readstatusfailed">Erro na leitura de estado</string>
@@ -902,6 +908,7 @@
   <string name="pump_paused">Bomba suspensa</string>
   <string name="absorption_cutoff_title">Tempo máx. absorção refeição [h]</string>
   <string name="time">Hora</string>
+  <string name="overview_show_notes_field_in_dialogs_title">Mostrar campo de notas na janela de tratamentos</string>
   <string name="next_button">Seguinte</string>
   <string name="previous_button">Anterior</string>
   <string name="nav_setupwizard">Assistente de Configuração</string>
@@ -1001,5 +1008,9 @@
   <plurals name="objective_hours">
     <item quantity="one">%1$d hora</item>
     <item quantity="other">%1$d hora</item>
+  </plurals>
+  <plurals name="objective_minutes">
+    <item quantity="one">%1$d minuto</item>
+    <item quantity="other">%1$d minutos</item>
   </plurals>
 </resources>
