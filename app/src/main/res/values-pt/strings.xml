@@ -877,6 +877,7 @@
   <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
   <string name="combo_check_date">O último bólus tem mais de 24 horas ou está no futuro. Por favor verifique se a data está definida correctamente na bomba.</string>
   <string name="combo_suspious_bolus_time">Hora/data da entrega do bólus na bomba parece errado, IOB aparentemente está incorrecto. Verifique hora/data na bomba.</string>
+  <string name="profileswitch_ismissing">TrocaPerfil em falta. Por favor faça uma troca de perfil ou pressione \"Activar Perfil\" em PerfilLocal.</string>
   <string name="combo_bolus_count">Contagem Bólus</string>
   <string name="combo_tbr_count">Contagem TBR</string>
   <string name="objectivenotstarted">Objetivo %1$d não iniciado</string>
@@ -905,12 +906,14 @@
   <string name="readstatusfailed">Erro na leitura de estado</string>
   <string name="record_pump_site_change">Registar mudança de sítio</string>
   <string name="record_insulin_cartridge_change">Registar mudança cartucho</string>
+  <string name="smbalwaysdisabled">SMB sempre e depois dos hidratos desactivado por fonte da Glicemia activa não suportar filtro avançado</string>
   <string name="smbnotallowedinopenloopmode">SMB não permitido no modo open loop</string>
   <string name="food_short">Alimentos</string>
   <string name="reset">repor</string>
   <string name="waitingfortimesynchronization">À espera da sincronização da hora (%1$d sec)</string>
   <string name="loopdisconnectedfor">Desligado (%1$d m)</string>
   <string name="automatic_careportal_events">Eventos careportal automáticos</string>
+  <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Automaticamente envia mudança de insulina, canula, pilha e alarmes da bomba para o NightScout</string>
   <string name="openapssmb_maxiob_title">Máximo total IOS OpenAPS não pode superar [U]</string>
   <string name="pump_stopped">Bomba parada</string>
   <string name="pump_started">Bomba iniciada</string>
@@ -939,6 +942,7 @@
   <string name="ns_allowroaming">Permitir ligação em roaming</string>
   <string name="openapsama_autosens_max">Rácio máx. autosens</string>
   <string name="openapsama_autosens_min">Rácio min. autosens</string>
+  <string name="openapsama_bolussnooze_dia_divisor">Pausa bólus divisor DIA</string>
   <string name="openapsama_max_daily_safety_multiplier">Multiplicador máx. diário de segurança</string>
   <string name="openapsama_current_basal_safety_multiplier">Multiplicador actual de segurança basal</string>
   <string name="value_unavailable_short">n/a</string>
@@ -949,7 +953,7 @@
   <string name="wear_wizard_settings_summary">Resultado cálculos incluídos no Assistente:</string>
   <string name="wear_display_settings">Mostrar Configurações</string>
   <string name="wear_general_settings">Configurações gerais</string>
-  <string name="enable_nsclient">Activar NSClient</string>
+  <string name="enable_nsclient">Activar NSCliente</string>
   <string name="pumpsetup">Configurações da bomba</string>
   <string name="readstatus">Ler estado</string>
   <string name="adjustprofileinns">Alterações devem ser feitas no NS</string>
@@ -992,7 +996,9 @@
   <string name="poctech">Poctech</string>
   <string name="description_source_poctech">Receber valores Glucose da app Poctech</string>
   <string name="high_temptarget_raises_sensitivity_title">Alto alvotempo aumenta sensibilidade</string>
+  <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Aumentar sensibilidade para alvostemp >= 100]]></string>
   <string name="low_temptarget_lowers_sensitivity_title">Baixo alvotemp baixa sensibilidade</string>
+  <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Baixar sensibilidade para alvostemp < 100]]></string>
   <string name="custom">Personalizado</string>
   <string name="largetimedifftitle">Grande diferença Horária</string>
   <string name="careportal_removestartedevents">Limpar AndroidAPS iniciado</string>
