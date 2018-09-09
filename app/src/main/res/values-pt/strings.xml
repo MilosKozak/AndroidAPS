@@ -871,6 +871,8 @@
   <string name="combo_error_updating_treatment_record">O bolus foi injectado, mas não foi possível adicionar ao histórico. Isto é possível se dois bolus do mesmo valor baixo foram administrados nos últimos dois minutos. Por favor verifique o histórico da bomba e use o Careportal para adicionar os dados em falta caso necessário. Cuidado para não adicionar dados com o mesmo valor no mesmo minuto.</string>
   <string name="combo_high_temp_rejected_due_to_pump_history_changes">A rejeitar a temporal alta uma vez que o cálculo não considerou as mudanças do histórico da bomba</string>
   <string name="combo_activity_checking_pump_state">A actualizar estado bomba</string>
+  <string name="combo_warning_pump_basal_rate_changed">O rácio da basal foi alterado na bomba e vai ser actualizado em breve</string>
+  <string name="combo_error_failure_reading_changed_basal_rate">Rácio da basal foi alterado na bomba, mas a leitura falhou</string>
   <string name="combo_activity_checking_for_history_changes">A verificar se há alterações de histórico</string>
   <string name="combo_bolus_count">Contagem Bólus</string>
   <string name="combo_tbr_count">Contagem TBR</string>
@@ -903,6 +905,8 @@
   <string name="food_short">Alimentos</string>
   <string name="reset">repor</string>
   <string name="loopdisconnectedfor">Desligado (%1$d m)</string>
+  <string name="automatic_careportal_events">Eventos careportal automáticos</string>
+  <string name="openapssmb_maxiob_title">Máximo total IOS OpenAPS não pode superar [U]</string>
   <string name="pump_stopped">Bomba parada</string>
   <string name="pump_started">Bomba iniciada</string>
   <string name="pump_paused">Bomba suspensa</string>
@@ -914,6 +918,7 @@
   <string name="nav_setupwizard">Assistente de Configuração</string>
   <string name="setupwizard_finish">TERMINAR</string>
   <string name="setupwizard_language_prompt">Selecione o seu Idioma</string>
+  <string name="boluserrorcode">Pedido: %1$.2fU Entregue: %2$.2fU Código Erro: %3$s</string>
   <string name="firstinsulinincrement">Primeiro incremento insulina</string>
   <string name="secondinsulinincrement">Segundo incremento insulina</string>
   <string name="thirdinsulinincrement">Terceiro incremento insulina</string>
@@ -929,6 +934,8 @@
   <string name="ns_allowroaming">Permitir ligação em roaming</string>
   <string name="openapsama_autosens_max">Rácio máx. autosens</string>
   <string name="openapsama_autosens_min">Rácio min. autosens</string>
+  <string name="openapsama_max_daily_safety_multiplier">Multiplicador máx. diário de segurança</string>
+  <string name="openapsama_current_basal_safety_multiplier">Multiplicador actual de segurança basal</string>
   <string name="value_unavailable_short">n/a</string>
   <string name="virtualpump_type">Tipo da Bomba Virtual</string>
   <string name="virtualpump_definition">Definição da Bomba</string>
