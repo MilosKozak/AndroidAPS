@@ -1008,6 +1008,7 @@
   <string name="handshaking">Cumprimento</string>
   <string name="commanderror">Erro no comando</string>
   <string name="speederror">Erro velocidade</string>
+  <string name="insulinlimitviolation">Transgressão limite insulina</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dia</item>
     <item quantity="other">%1$d dias</item>
