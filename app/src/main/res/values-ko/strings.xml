@@ -313,17 +313,17 @@
   <string name="overview_bolusprogress_stoppressed">정지 누름</string>
   <string name="waitingforpump">펌프를 기다리는 중</string>
   <string name="overview_bolusprogress_goingtodeliver" formatted="false">%.2fU을 주입합니다</string>
-  <string name="objectives_0_objective">표시설정과 모니터링설정을 완료하고, 기초주입과 비율을 분석한다.</string>
+  <string name="objectives_0_objective">표시설정과 모니터설정을 완료하고, Basal과 비율을 분석한다.</string>
   <string name="objectives_0_gate">나이트스카우트에서 혈당 데이터가 잘 들어오는지, 펌프데이터가 업로드 되는지 확인한다.</string>
   <string name="objectives_1_objective">Open Loop를 시작한다.</string>
-  <string name="objectives_1_gate">Open Loop 모드에서 몇일간 사용하여보고, 임시기초주입을 여러번 수동으로 실행하여본다. Set up and use temporary and default temporary targets (e.g. for activity or hypo treatment carbs)</string>
-  <string name="objectives_2_objective">임시기초주입 추천기능을 포함해서, Open Loop에 대해 이해한다.</string>
-  <string name="objectives_2_gate">이 경험을 토대로, 최대 기초주입량을 결정하고 이를 펌프와 설정에 입력한다.</string>
+  <string name="objectives_1_gate">Open Loop 모드에서 몇일간 사용하여보고, 임시 Basal을 여러번 수동으로 주입해 본다. 임시목표와 기본임시목표(\'식사직전\', \'활동\',\'저혈당\' 임시목표)를 설정하고 사용해 본다.</string>
+  <string name="objectives_2_objective">임시Basal 추천기능을 포함해서, Open Loop에 대해 이해한다.</string>
+  <string name="objectives_2_gate">이 경험을 토대로, 최대 Basal을 결정하고 이를 펌프와 설정에 입력한다.</string>
   <string name="objectives_3_objective">Closed Loop를 시작하고 저혈당인슐린 중지 기능을 사용해본다.</string>
   <string name="objectives_3_gate">최대 IOB = 0 인 상태로 Closed Loop를 몇일동안 실행시켜 본다. 저혈당 인슐린일시중지가 많이 발생하지 않도록 한다.</string>
   <string name="objectives_4_objective">Closed Loop를 조정하여 최대 IOB를 0 이상으로 올려서 서서히 혈당 목표치를 낮춘다.</string>
   <string name="objectives_4_gate">혈당을 낮추기 전에 몇일간 사용해보되 최소한 하루는 저혈당 혈당 알람이 발생하지 않도록 해본다.</string>
-  <string name="objectives_5_objective">필요하면 기초주입과 비율을 조절하고, auto-sens를 활성화한다.</string>
+  <string name="objectives_5_objective">필요하면 Basal과 비율을 조절하고, auto-sens를 활성화한다.</string>
   <string name="objectives_5_gate">평소의 탄수화물을 입력하면서 1주일동안 낮시간대에 loop를 성공적으로 사용해본다.</string>
   <string name="objectives_6_objective">AMA(Advanced Meal Assist)같은 낮시간대를 위한 추가적인 기능들을 실행하여 본다.</string>
   <string name="objectives_7_objective">낮시간대에 SMB(Super Micro Bolus)같은 추가기능을 활성화해 사용해본다.</string>
@@ -387,8 +387,8 @@
   <string name="batterydischarged">펌프배터리 방전</string>
   <string name="danarkoreanpump">다나R 한글</string>
   <string name="basal_rate">Basal 양:</string>
-  <string name="profile_set_failed">기초주입 프로파일 설정이 실패하였습니다</string>
-  <string name="profile_set_ok">기초주입 프로파일이 펌프에 업데이트 되었습니다</string>
+  <string name="profile_set_failed">Basal 프로파일 설정이 실패하였습니다</string>
+  <string name="profile_set_ok">Basal 프로파일이 펌프에 업데이트 되었습니다</string>
   <string name="danar_disableeasymode">펌프에서 이지모드(EasyUI)를 해제하세요</string>
   <string name="danar_enableextendedbolus">펌프에서 확장 Bolus를 활성화 하세요</string>
   <string name="danar_switchtouhmode">펌프에서 U/d에서 U/h로 모드를 변경하세요</string>
@@ -427,7 +427,7 @@
   <string name="danar_stats_weight">가중</string>
   <string name="danar_stats_warning_Message">교체/채움을 위해 Bolus를 사용한 경우 부정확할 수 있습니다!!</string>
   <string name="danar_stats_olddata_Message">오래된 데이터입니다. \"새로고침\"을 누르세요.</string>
-  <string name="danar_stats_tbb">총기초량</string>
+  <string name="danar_stats_tbb">총 기본 Basal</string>
   <string name="danar_stats_tbb2">총기초량 * 2</string>
   <string name="initializing">초기화중 ...</string>
   <string name="actions_shortname">ACT</string>
@@ -451,12 +451,12 @@
   <string name="advancedsettings_title">고급 설정</string>
   <string name="danar_model">모델: %1$02X 프로토콜: %2$02X 코드: %3$02X</string>
   <string name="profile">프로파일</string>
-  <string name="openapsama_max_daily_safety_multiplier_summary">기본값: 3\n이 값은 중요한 OpenAPS 안전장치입니다. 이 값의 역할은 펌프에 설정되어 있는 최대기초주입량보다 3배를 초과할 수 없게 제한하는 것입니다. 이 값을 변경할 필요는 없을 것이지만, 안전을 위해 \"3x max daily; 4x current\"이 의미하는 바를 알고 있어야 합니다.</string>
+  <string name="openapsama_max_daily_safety_multiplier_summary">기본값: 3\n이 값은 중요한 OpenAPS 안전장치입니다. 이 값의 역할은 펌프에 설정되어 있는 최대Basal보다 3배를 초과할 수 없게 제한하는 것입니다. 이 값을 변경할 필요는 없을 것이지만, 안전을 위해 \"3x max daily; 4x current\"이 의미하는 바를 알고 있어야 합니다.</string>
   <string name="openapsama_current_basal_safety_multiplier_summary">기본값: 4\n이 값은 \"3x max daily; 4x current\"의 나머지 절반에 해당하는 또 다른 중요한 OpenAPS 안전장치입니다. 이것은, 펌프에 설정된 최대 Basal과는 관계없이, Basal이 설정된 현재시간의 Basal에 이 값을 곱한 양을 초과할 수 없다는 것을 의미합니다. 이는 알고리즘의 작동 방식을 이해하기 전에 과도하게 높은 최대 기본을 설정하여 위험한 상황에 빠지지 않도록 보호하기 위한 것입니다. 다시한번, 기본 값은 4배인 것을 알아두세요; 일반적으로 이것을 조정할 필요는 전혀 없으며, 대신 이 안전장치를 변경해야할것처럼 생각이 된다면, 다른 설정을 변경해야 할 가능성이 더 큽니다.</string>
-  <string name="openapsama_autosens_max_summary">기본값: 1.2\n이 값은 autosens가 autosens 비율을 얼마나 높게 할 수 있는지에 대한 최대 한계를 20%로 설정하는 승수장치입니다. 이는 autosens가 얼마나 높게 기초주입량을 조절할수 있는지, ISF를 얼마나 낮게 조절할수 있는지, 혈당 목표범위를 얼마나 낮게 설정할수 있는지를 결정합니다.</string>
-  <string name="openapsama_autosens_min_summary">기본값: 0.7\nautosens 안전 제한의 나머지 부분입니다. 이는 기초주입량을 얼마나 낮게 조절할 수 있는지, ISF와 혈당 목표범위를 얼마나 높게 설정할 수 있는지를 결정합니다.</string>
+  <string name="openapsama_autosens_max_summary">기본값: 1.2\n이 값은 autosens가 autosens 비율을 얼마나 높게 할 수 있는지에 대한 최대 한계를 20%로 설정하는 승수장치입니다. 이는 autosens가 얼마나 높게 Basal을 조절할수 있는지, ISF를 얼마나 낮게 조절할수 있는지, 혈당 목표범위를 얼마나 낮게 설정할수 있는지를 결정합니다.</string>
+  <string name="openapsama_autosens_min_summary">기본값: 0.7\nautosens 안전 제한의 나머지 부분입니다. 이는 Basal을 얼마나 낮게 조절할 수 있는지, ISF와 혈당 목표범위를 얼마나 높게 설정할 수 있는지를 결정합니다.</string>
   <string name="openapsama_autosens_adjusttargets">Autosens가 목표도 조절합니다.</string>
-  <string name="openapsama_autosens_adjusttargets_summary">기본값: 활성\n이것은 autosens가 ISF와 기초주입뿐만 아니라, 혈당 목표범위를 조절할 수 있게 합니다.</string>
+  <string name="openapsama_autosens_adjusttargets_summary">기본값: 활성\n이것은 autosens가 ISF와 Basal뿐만 아니라, 혈당 목표범위를 조절할 수 있게 합니다.</string>
   <string name="openapsama_bolussnooze_dia_divisor_summary">기본값: 2\n식사주입 후 Bolus snooze가 수행되게 되고, 따라서 식사주입 직후엔 loop가 low temp에 대응하지 않게 됩니다. 기본값이 2일때 예제는 다음과 같습니다; DIA가 3시간일 경우  bolus snooz는 점차적으로 1.5시간에 걸쳐 단계적으로 사라지게 됩니다.(3DIA/2).</string>
   <string name="openapsama_min_5m_carbimpact_summary">기본값: 3.0 (AMA) 또는 8.0 (SMB). 5분당 탄수화물이 얼만큼 흡수되었는지에 대한 기본값 설정입니다. 기본값은 3mg/dl / 5분 입니다. 이는 혈당이 예상보다 빨리 떨어지거나 혹은 예상보다 오르지 않을때, COB가 얼마나 빨리 사라지게 되는지에 영향을 주게 되고, 추정된 탄수화물 흡수량이 미래 혈당 예측 계산시에도 영향을 주게 됩니다.</string>
   <string name="openapsama_link_to_preferncejson_doc_txt">주의!\n보통의 경우 아래의 값을 변경하면 안됩니다. 이 값들을 변경하기 전에 반드시 이곳을 클릭하고 글을 정독해서 확실하게 이해를 하여야 합니다.</string>
@@ -707,7 +707,7 @@
   <string name="poctech_upload">Poctech 업로드 설정</string>
   <string name="wear_detailed_delta_title">델타(혈당증분값) 자세히 보여주기</string>
   <string name="wear_detailed_delta_summary">소수점 자리 추가된 증분값 보여주기</string>
-  <string name="smbmaxminutes_summary">SMB가 기초주입량을 제한할 수 있는 최대 시간(분)</string>
+  <string name="smbmaxminutes_summary">SMB가 Basal을 제한할 수 있는 최대 시간(분)</string>
   <string name="unsupportedfirmware">지원되지 않는 펌프 펌웨어</string>
   <string name="dexcomg5_xdripupload_title">혈당 데이터를 xDrip+에 전송하기</string>
   <string name="dexcomg5_xdripupload_summary">xDrip+ 데이터 소스에서 640g/Eversense을 선택하세요</string>
