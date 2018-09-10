@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -76,19 +75,16 @@ public class LoggingBus extends Bus {
             log.debug("    receiver: <unknown>");
         }
 
-        try {
-            if (everyMinute < System.currentTimeMillis()) {
-                log.debug("***************** Event -> receiver pairings seen so far ****************");
-                for (Map.Entry<String, Set<String>> stringSetEntry : event2Receiver.entrySet()) {
-                    log.debug("  " + stringSetEntry.getKey());
-                    for (String s : stringSetEntry.getValue()) {
-                        log.debug("    -> " + s);
-                    }
+        if (everyMinute < System.currentTimeMillis()) {
+            log.debug("***************** Event -> receiver pairings seen so far ****************");
+            for (Map.Entry<String, Set<String>> stringSetEntry : event2Receiver.entrySet()) {
+                log.debug("  " + stringSetEntry.getKey());
+                for (String s : stringSetEntry.getValue()) {
+                    log.debug("    -> " + s);
                 }
-                log.debug("*************************************************************************");
-                everyMinute = System.currentTimeMillis() + 60 * 1000;
             }
-        } catch (ConcurrentModificationException ignored) {
+            log.debug("*************************************************************************");
+            everyMinute = System.currentTimeMillis() + 60 * 1000;
         }
 
         super.dispatch(event, wrapper);
