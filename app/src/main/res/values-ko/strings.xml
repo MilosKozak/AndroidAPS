@@ -11,7 +11,7 @@
   <string name="nav_exit">종료</string>
   <string name="danar_useextended_title">&gt;200% 주입위한 확장 Bolus 사용</string>
   <string name="danar_bt_name_title">다나R 블루투스</string>
-  <string name="ns_sync_use_absolute_title">기초주입량 절대값 사용하기</string>
+  <string name="ns_sync_use_absolute_title">Basal 절대값 사용하기</string>
   <string name="alert_dialog_storage_permission_text">폰을 재부팅하거나 AndroidAPS를 재시작하세요 \n그렇지 않으면 로그 기록이 되지 않습니다.(알고리즘이 정상적인 작동하는지 확인하기 위해 로그가 필요합니다.)!</string>
   <string name="description_actions">일반 기능을 빠르게 실행시킬 버튼</string>
   <string name="description_careportal">고급 로그 항목을 입력합니다.</string>
@@ -134,7 +134,7 @@
   <string name="configbuilder_loop_description">AndroidAPS의 Loop를 활성하기 위해서 이것을 사용하세요.</string>
   <string name="loop_aps_label">APS</string>
   <string name="loop_constraintsprocessed_label">제약 적용 후</string>
-  <string name="loop_tbrsetbypump_label">펌프에 의한 임시기초설정</string>
+  <string name="loop_tbrsetbypump_label">펌프에 의한 임시 Basal 설정</string>
   <string name="openapsma_lastenact_label">최근 실행</string>
   <string name="ok">네</string>
   <string name="cancel">취소</string>
@@ -227,7 +227,7 @@
   <string name="nav_import">설정 불러오기</string>
   <string name="openapsma_maxbasal_title">임시 Basal 최대량 [U/hr]</string>
   <string name="openapsma_maxbasal_summary">이 값은 OpenAPS에서 Max Basal(최대 Basal)로 설정되는 값입니다</string>
-  <string name="openapsma_maxiob_title">OpenAPS가 주입할수 있는 최대 기초주입 IOB [U]</string>
+  <string name="openapsma_maxiob_title">OpenAPS가 주입할수 있는 최대 Basal IOB [U]</string>
   <string name="openapsma_maxiob_summary">이 값은 OpenAPS에서 Max IOB라고 부르는 값입니다\n기본값은 0으로 설정되어 있습니다. 몇일 혹은 몇주 정도 사용 후 적절한 값으로 변경할 수 있습니다.</string>
   <string name="dismiss">무시</string>
   <string name="danarpump">다나R</string>
@@ -255,7 +255,7 @@
   <string name="success">성공</string>
   <string name="percent">퍼센트</string>
   <string name="absolute">절대값</string>
-  <string name="canceltemp">임시기초주입 취소하기</string>
+  <string name="canceltemp">임시 Basal 취소하기</string>
   <string name="smscommunicator">SMS 통신기</string>
   <string name="waitingforpumpresult">결과 기다리는 중</string>
   <string name="smscommunicator_allowednumbers">허가된 전화번호</string>
@@ -452,7 +452,7 @@
   <string name="danar_model">모델: %1$02X 프로토콜: %2$02X 코드: %3$02X</string>
   <string name="profile">프로파일</string>
   <string name="openapsama_max_daily_safety_multiplier_summary">기본값: 3\n이 값은 중요한 OpenAPS 안전장치입니다. 이 값의 역할은 펌프에 설정되어 있는 최대기초주입량보다 3배를 초과할 수 없게 제한하는 것입니다. 이 값을 변경할 필요는 없을 것이지만, 안전을 위해 \"3x max daily; 4x current\"이 의미하는 바를 알고 있어야 합니다.</string>
-  <string name="openapsama_current_basal_safety_multiplier_summary">기본값: 4\n이 값은 \"3x max daily; 4x current\"의 나머지 절반에 해당하는 또 다른 중요한 OpenAPS 안전장치입니다. 이 값은 펌프에 설정된 최대기초주입량과 관계없이, 설정된 현재시간의 기초주입량에 이 값을 곱한 양을 초과할 수 없게됩니다. 이는 알고리즘의 작동 방식을 이해하기 전에 과도하게 높은 최대 기본을 설정하여 위험한 상황에 빠지지 않도록 보호하기 위한 것입니다. 다시한번, 기본 값은 4배인 것을 알아두세요; 일반적으로 이것을 조정할 필요는 전혀 없으며, 대신 이 안전장치를 변경해야할것처럼 생각이 된다면, 다른 설정을 변경해야 할 가능성이 더 큽니다.</string>
+  <string name="openapsama_current_basal_safety_multiplier_summary">기본값: 4\n이 값은 \"3x max daily; 4x current\"의 나머지 절반에 해당하는 또 다른 중요한 OpenAPS 안전장치입니다. 이것은, 펌프에 설정된 최대 Basal과는 관계없이, Basal이 설정된 현재시간의 Basal에 이 값을 곱한 양을 초과할 수 없다는 것을 의미합니다. 이는 알고리즘의 작동 방식을 이해하기 전에 과도하게 높은 최대 기본을 설정하여 위험한 상황에 빠지지 않도록 보호하기 위한 것입니다. 다시한번, 기본 값은 4배인 것을 알아두세요; 일반적으로 이것을 조정할 필요는 전혀 없으며, 대신 이 안전장치를 변경해야할것처럼 생각이 된다면, 다른 설정을 변경해야 할 가능성이 더 큽니다.</string>
   <string name="openapsama_autosens_max_summary">기본값: 1.2\n이 값은 autosens가 autosens 비율을 얼마나 높게 할 수 있는지에 대한 최대 한계를 20%로 설정하는 승수장치입니다. 이는 autosens가 얼마나 높게 기초주입량을 조절할수 있는지, ISF를 얼마나 낮게 조절할수 있는지, 혈당 목표범위를 얼마나 낮게 설정할수 있는지를 결정합니다.</string>
   <string name="openapsama_autosens_min_summary">기본값: 0.7\nautosens 안전 제한의 나머지 부분입니다. 이는 기초주입량을 얼마나 낮게 조절할 수 있는지, ISF와 혈당 목표범위를 얼마나 높게 설정할 수 있는지를 결정합니다.</string>
   <string name="openapsama_autosens_adjusttargets">Autosens가 목표도 조절합니다.</string>
@@ -474,11 +474,11 @@
   <string name="smscommunicator_calibrationfailed">xDrip에서 보정을 받지 못합니다.</string>
   <string name="pumpsuspended">펌프 일시중지됨</string>
   <string name="gettingpumpstatus">펌프 상태 가져오는중</string>
-  <string name="settingtempbasal">임시기초주입 설정중</string>
-  <string name="stoppingtempbasal">임시기초주입 취소중</string>
+  <string name="settingtempbasal">임시 Basal 설정중</string>
+  <string name="stoppingtempbasal">임시 Basal 취소중</string>
   <string name="settingextendedbolus">확장 Bolus 설정중</string>
   <string name="stoppingextendedbolus">확장 Bolus 취소중</string>
-  <string name="updatingbasalrates">기초주입량 업데이트중</string>
+  <string name="updatingbasalrates">Basal 양 업데이트중</string>
   <string name="disconnecting">연결끊기중</string>
   <string name="executing">실행중</string>
   <string name="virtualpump_settings">가상펌프 설정</string>
@@ -563,7 +563,7 @@
   <string name="wear_showbgi_summary">BGI를 상태라인에 추가하기</string>
   <string name="ns_noupload">NS에 업로드하지 않기</string>
   <string name="ns_noupload_summary">NS로 보낼 모든 데이터가 버려집니다. AAPS는 NS에 연결되어 있지만 NS에는 변화가 없을것입니다.</string>
-  <string name="basal_step">기초주입 최소단위</string>
+  <string name="basal_step">Basal 단위</string>
   <string name="bolus_step">Bolus 단위</string>
   <string name="extendedbolus">확장 Bolus</string>
   <string name="temptarget">임시목표</string>
@@ -572,7 +572,7 @@
   <string name="careportal_canulaage_label">캐뉼라 사용기간</string>
   <string name="careportal_insulinage_label">인슐린 사용기간</string>
   <string name="hours">시간</string>
-  <string name="overview_newtempbasal_basaltype_label">기초주입 종류</string>
+  <string name="overview_newtempbasal_basaltype_label">Basal 종류</string>
   <string name="invalidprofile">프로파일이 유효하지 않습니다!!!</string>
   <string name="profileswitch">프로파일변경</string>
   <string name="careportal_pbage_label">펌프배터리사용기간</string>
@@ -623,7 +623,7 @@
   <string name="careportal_carbsandbolus_label">탄수화물 &amp; Bolus</string>
   <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
   <string name="careportal_pump_label">펌프</string>
-  <string name="overview_newtempbasal_basalabsolute">기초주입량 [U/h]</string>
+  <string name="overview_newtempbasal_basalabsolute">Basal 양 [U/h]</string>
   <string name="careportal_newnstreatment_duration_min_label">기간 [min]</string>
   <string name="openapssmb">OpenAPS SMB</string>
   <string name="smb_shortname">SMB</string>
@@ -653,7 +653,7 @@
   <string name="selectedpump">선택된 펌프</string>
   <string name="pairpump">새 펌프와 연동</string>
   <string name="bolusspeed">Bolus 속도</string>
-  <string name="danar_setbasalstep001">기초주입 단위를 0.01 U/h로 설정하세요</string>
+  <string name="danar_setbasalstep001">Basal 단위를 0.01 U/h로 설정하세요</string>
   <string name="serialnumber">시리얼번호</string>
   <string name="careportal_newnstreatment_percentage_label">퍼센트</string>
   <string name="careportal_newnstreatment_timeshift_label">시간 이동</string>
@@ -667,7 +667,7 @@
   <string name="danar_history_prime">교체</string>
   <string name="gettingextendedbolusstatus">확장 Bolus 상태 가져오는중</string>
   <string name="gettingbolusstatus">Bolus 상태 가져오는중</string>
-  <string name="gettingtempbasalstatus">임시기초주입상태 가져오는중</string>
+  <string name="gettingtempbasalstatus">임시 Basal 상태 가져오는중</string>
   <string name="gettingpumpsettings">펌프설정 가져오는중</string>
   <string name="gettingpumptime">펌프시간 가져오는중</string>
   <string name="reuse">재사용</string>
@@ -712,11 +712,11 @@
   <string name="dexcomg5_xdripupload_title">혈당 데이터를 xDrip+에 전송하기</string>
   <string name="dexcomg5_xdripupload_summary">xDrip+ 데이터 소스에서 640g/Eversense을 선택하세요</string>
   <string name="nsclientbg">NSClient 혈당</string>
-  <string name="minimalbasalvaluereplaced">지원되는 최소값으로 기초주입량이 대체되었습니다:%s</string>
-  <string name="maximumbasalvaluereplaced">지원되는 최대값으로 기초주입량이 대체되었습니다:%s</string>
+  <string name="minimalbasalvaluereplaced">지원되는 최소값으로 Basal 양이 대체되었습니다:%s</string>
+  <string name="maximumbasalvaluereplaced">지원되는 최대값으로 Basal 양이 대체되었습니다:%s</string>
   <string name="overview_editquickwizard_usebg">혈당 계산</string>
   <string name="overview_editquickwizard_usebolusiob">Bolus IOB 계산</string>
-  <string name="overview_editquickwizard_usebasaliob">기초주입 IOB 계산</string>
+  <string name="overview_editquickwizard_usebasaliob">Basal IOB 계산</string>
   <string name="overview_editquickwizard_usetrend">추세계산</string>
   <string name="overview_editquickwizard_usesuperbolus">Superbolus 계산</string>
   <string name="yes">네</string>
@@ -731,7 +731,7 @@
   <string name="closedmodeenabled">Closed 모드가 활성화됨</string>
   <string name="maxiobset">최대 IOB가 바르게 설정됨</string>
   <string name="hasbgdata">선택한 소스에서 혈당이 들어옵니다.</string>
-  <string name="basalprofilenotaligned" formatted="false">기초주입값이 시간단위로 설정되지 않았습니다: %s</string>
+  <string name="basalprofilenotaligned" formatted="false">Basal 값이 시간단위로 설정되지 않았습니다: %s</string>
   <string name="zerovalueinprofile" formatted="false">유효하지 않은 프로파일: %s</string>
   <string name="combo_programming_bolus">Bolus 주입을 위한 펌프 프로그래밍</string>
   <string name="combo_refresh">새로고침</string>
@@ -754,7 +754,7 @@
   <string name="combo_pump_connected_now">현재</string>
   <string name="combo_activity_reading_pump_history">펌프 이력 읽기</string>
   <string name="danar_history">펌프 이력</string>
-  <string name="combo_activity_setting_basal_profile">기초주입 프로파일 설정</string>
+  <string name="combo_activity_setting_basal_profile">Basal 프로파일 설정</string>
   <string name="combo_pump_cartridge_low_warrning">펌프 카트리지 레벨이 낮습니다.</string>
   <string name="combo_pump_battery_low_warrning">펌프배터리가 부족합니다.</string>
   <string name="combo_is_in_error_state">펌프가 E%1$d: %2$s 에러를 보여줍니다.</string>
@@ -824,7 +824,7 @@
   <string name="enablesmbwithtemptarget_summary">활성화된 임시 목표(식사직전, 운동)가 있으면 SMB를 사용합니다.</string>
   <string name="enablesmbwithhightemptarget">높은임시 목표와 SMB를 사용합니다.</string>
   <string name="enablesmbwithhightemptarget_summary">활성화된 높은 임시 목표(운동)가 있으면 SMB를 사용합니다.</string>
-  <string name="let_temp_basal_run">임시 기초 주입 실행 허용</string>
+  <string name="let_temp_basal_run">임시 Basal 허용</string>
   <string name="mute">음소거</string>
   <string name="overview_insulin_label">인슐린</string>
   <string name="overview_carbs_label">탄수화물</string>
@@ -859,20 +859,20 @@
   <string name="overview_show_deviations">편차</string>
   <string name="overview_show_cob">체내탄수화물양(COB)</string>
   <string name="overview_show_iob">체내인슐린양(IOB)</string>
-  <string name="overview_show_basals">기초주입</string>
+  <string name="overview_show_basals">Basal</string>
   <string name="no_action_selected">선택한 실행이 없습니다. 아무런 실행이 되지 않습니다.</string>
   <string name="start_hypo_tt">저혈당 임시목표 시작</string>
   <string name="closed_loop_disabled_on_dev_branch">개발자버전을 실행중입니다. Closed Loop는 비활성화 됩니다.</string>
   <string name="engineering_mode_enabled">전문가 모드 사용</string>
   <string name="not_eng_mode_or_release">전문가 모드가 활성화되어 있지 않고 Release 버전이 실행되고 있지 않습니다.</string>
   <string name="pump_basebasalrate">%.2f U/h</string>
-  <string name="combo_actvity_reading_basal_profile">기초주입 프로파일 읽는중</string>
+  <string name="combo_actvity_reading_basal_profile">Basal 프로파일 읽는중</string>
   <string name="combo_bolus_rejected_due_to_pump_history_change">Bolus 계산이 수행된 후 펌프 이력이 변경되었습니다. Bolus가 주입되지 않았습니다. Bolus가 여전히 필요하다면 다시 계산하세요.</string>
   <string name="combo_error_updating_treatment_record">Bolus가 성공적으로 주입되었지만, 관리 항목에 추가하지 못했습니다. 이것은 동일한 양의 소량의 2개의 Bolus가 최근 2 분 이내에 주입되는 경우에 발생할 수 있습니다. 펌프 이력과 관리 항목을 확인하고 손실된 항목을 추가하기위해 케어포털을 이용하세요. 동일한 시간과 인슐린양의 항목을 추가하지 마세요.</string>
   <string name="combo_high_temp_rejected_due_to_pump_history_changes">계산기가 최근 변경된 펌프 이력을 고려하지 못해 임시기초주입 추가를 거절했습니다.</string>
   <string name="combo_activity_checking_pump_state">펌프상태 새로고침중</string>
-  <string name="combo_warning_pump_basal_rate_changed">펌프의 기초주입량이 변경되었고 곧 업데이트됩니다.</string>
-  <string name="combo_error_failure_reading_changed_basal_rate">펌프의 기초주입량이 변경되었지만 읽기를 실패했습니다.</string>
+  <string name="combo_warning_pump_basal_rate_changed">펌프의 Basal 양이 변경되었고 곧 업데이트됩니다.</string>
+  <string name="combo_error_failure_reading_changed_basal_rate">펌프의 Basal 양이 변경되었지만 읽기를 실패했습니다.</string>
   <string name="combo_activity_checking_for_history_changes">이력 변경 확인중</string>
   <string name="combo_error_multiple_boluses_with_identical_timestamp">동일한 시간(분)에 동일한 양의 2개이상의 Bolus가 주입되었습니다. 오직 하나의 기록만이 관리에 입력될 수 있습니다. 펌프를 확인한 후 케어포털 탭에서 Bolus 기록을 수동으로 추가하세요. 동일한 시간에 동일한 양의 Bolus를 주입하지 않도록 하세요.</string>
   <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
@@ -883,18 +883,18 @@
   <string name="combo_tbr_count">임시기초주입 수</string>
   <string name="objectivenotstarted">목표%1$d이 시작되지 않았습니다.</string>
   <string name="objectivenotfinished">목표%1$d이 완료되지 않았습니다.</string>
-  <string name="pumpisnottempbasalcapable">이 펌프 임시 기초 주입을 지원하지 않습니다.</string>
-  <string name="novalidbasalrate">펌프에서 유효한 기초주입량을 읽을 수 없습니다.</string>
+  <string name="pumpisnottempbasalcapable">이 펌프 임시 Basal을 지원하지 않습니다.</string>
+  <string name="novalidbasalrate">펌프에서 유효한 Basal 양을 읽을 수 없습니다.</string>
   <string name="closedmodedisabledinpreferences">설정에서 Closed Loop 모드가 비활성화되었습니다.</string>
   <string name="autosensdisabledinpreferences">설정에서 Autosens가 비활성화 되었습니다.</string>
   <string name="smbdisabledinpreferences">설정에서 SMB가 비활성화 되었습니다.</string>
-  <string name="limitingbasalratio">%2$s로 인해 최대 기초주입량이 %1$.2f U/h으로 제한됩니다.</string>
+  <string name="limitingbasalratio">%2$s로 인해 최대 Basal 양이 %1$.2f U/h으로 제한됩니다.</string>
   <string name="pumplimit">펌프 제한</string>
   <string name="itmustbepositivevalue">양의 값이어야 합니다.</string>
-  <string name="maxbasalmultiplier">최대 기초주입량 승수</string>
-  <string name="maxdailybasalmultiplier">최대 일 기초주입량 승수</string>
+  <string name="maxbasalmultiplier">최대 Basal 승수</string>
+  <string name="maxdailybasalmultiplier">최대 일 Basal 승수</string>
   <string name="smb_frequency_exceeded">최근 3분 이내에 Bolus가 주입되었습니다. SMB를 건너뜁니다.</string>
-  <string name="basal_set_correctly">기초주입이 정상적으로 설정되었습니다.</string>
+  <string name="basal_set_correctly">Basal이 정상적으로 설정되었습니다.</string>
   <string name="limitingpercentrate">%2$s로 인해 최대 비율이 %1$d%%로 제한됩니다.</string>
   <string name="limitingbolus">%2$s로 인해 Bolus가 %1$.1f U로 제한됩니다.</string>
   <string name="limitingextendedbolus">%2$s로 인해 확장 Bolus가 %1$.1f U로 제한됩니다.</string>
@@ -947,7 +947,7 @@
   <string name="openapsama_autosens_min">최저 autosens 비율</string>
   <string name="openapsama_bolussnooze_dia_divisor">Bolus snooze DIA 나눗수</string>
   <string name="openapsama_max_daily_safety_multiplier">최대 일 안전 승수</string>
-  <string name="openapsama_current_basal_safety_multiplier">현재 기초주입 안전 승수</string>
+  <string name="openapsama_current_basal_safety_multiplier">현재 Basal 안전 승수</string>
   <string name="value_unavailable_short">사용불가</string>
   <string name="virtualpump_type">가성펌프 종류</string>
   <string name="virtualpump_definition">펌프 정의</string>
