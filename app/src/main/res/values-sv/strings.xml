@@ -1049,7 +1049,6 @@
   <string name="speederror">Felaktig hastighet</string>
   <string name="insulinlimitviolation">Insulingräns nådd</string>
   <string name="loop_openmode_min_change">Minsta ändring som ger notifiering [%]</string>
-  <string name="loop_openmode_min_change_summary">Loopen kommer bara att be om basalförändring om ändringen skiljer sig tillräckligt mycket från nuvarande. Standardvärde är 30%</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dag</item>
     <item quantity="other">%1$d dagar</item>
