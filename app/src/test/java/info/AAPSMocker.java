@@ -111,7 +111,6 @@ public class AAPSMocker {
     public static MainApp mockMainApp() {
         PowerMockito.mockStatic(MainApp.class);
         MainApp mainApp = mock(MainApp.class);
-        DanaRPlugin danaRPlugin = mock(DanaRPlugin.class);
         when(MainApp.instance()).thenReturn(mainApp);
 
         return mainApp;
