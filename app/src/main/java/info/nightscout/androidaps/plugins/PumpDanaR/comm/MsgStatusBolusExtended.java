@@ -67,7 +67,7 @@ public class MsgStatusBolusExtended extends MessageBase {
     }
 
     public static void updateExtendedBolusInDB() {
-        TreatmentsInterface treatmentsInterface = new TreatmentsPlugin();
+        TreatmentsInterface treatmentsInterface = TreatmentsPlugin.getPlugin();
         DanaRPump pump = DanaRPump.getInstance();
         long now = System.currentTimeMillis();
 
