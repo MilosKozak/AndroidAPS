@@ -969,6 +969,7 @@
   <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
   <string name="nsclientinfotext">NSCliente gere a ligação ao Nightscout. Pode saltar esta parte mas não será possível passar os objectivos até que o configure.</string>
   <string name="bgsourcesetup">Configure a fonte das glicemias</string>
+  <string name="setupwizard_aps_description">Seleccione um dos algoritmos disponíveis. Eles são classificados do mais antigo para o mais recente. Algoritmo mais recente é geralmente mais forte e mais agressivo. Assim, se você é novo looper, poderá provavelmente começar com AMA e não com a versão mais recente. Não se esqueça de ler a documentação de OpenAPS e configurá-lo antes de usar.</string>
   <string name="startobjective">Iniciar primeiro objectivo</string>
   <string name="permission">Permissão</string>
   <string name="askforpermission">Pedir permissão</string>
@@ -1039,6 +1040,7 @@
   <string name="speederror">Erro velocidade</string>
   <string name="insulinlimitviolation">Transgressão limite insulina</string>
   <string name="loop_openmode_min_change">Pedido de mudança mínima [%]</string>
+  <string name="loop_openmode_min_change_summary">Loop sugerirá nova alteração somente se a mudança é maior do que este valor. O valor padrão é 30%</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dia</item>
     <item quantity="other">%1$d dias</item>
