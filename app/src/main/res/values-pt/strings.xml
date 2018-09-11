@@ -1013,6 +1013,7 @@
   <string name="maintenance_amount">Nr. de registos a enviar</string>
   <string name="maintenance">Manutenção</string>
   <string name="maintenance_shortname">MANU</string>
+  <string name="description_maintenance">Fornece várias funções para manutenção (ex. envio de relatórios, eliminação de relatórios).</string>
   <string name="send_all_logs">Enviar Logs por e-mail</string>
   <string name="delete_logs">Eliminar registos</string>
   <string name="generated_ecarbs_note">eCarbs: %1$d g (%2$d h), atraso: %3$d m</string>
