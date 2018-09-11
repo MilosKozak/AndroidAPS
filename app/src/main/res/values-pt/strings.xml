@@ -1046,7 +1046,6 @@
   <string name="speederror">Erro velocidade</string>
   <string name="insulinlimitviolation">Transgressão limite insulina</string>
   <string name="loop_openmode_min_change">Pedido de mudança mínima [%]</string>
-  <string name="loop_openmode_min_change_summary">Loop sugerirá nova alteração somente se a mudança é maior do que este valor. O valor padrão é 30%</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dia</item>
     <item quantity="other">%1$d dias</item>
