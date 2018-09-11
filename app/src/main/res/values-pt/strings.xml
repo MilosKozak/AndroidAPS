@@ -919,6 +919,7 @@
   <string name="pump_started">Bomba iniciada</string>
   <string name="pump_paused">Bomba suspensa</string>
   <string name="absorption_cutoff_title">Tempo máx. absorção refeição [h]</string>
+  <string name="absorption_cutoff_summary">Hora em que qualquer refeição é considerada absorvida. Restantes hidratos de carbono serão cortados.</string>
   <string name="time">Hora</string>
   <string name="overview_show_notes_field_in_dialogs_title">Mostrar campo de notas na janela de tratamentos</string>
   <string name="next_button">Seguinte</string>
@@ -960,9 +961,11 @@
   <string name="adjustprofileinns">Alterações devem ser feitas no NS</string>
   <string name="exitwizard">Saltar assistente de configuração</string>
   <string name="setupwizard_loop_description">Pressione o botão abaixo para activar o AndroidAPS para sugerir/fazer alterações basais</string>
+  <string name="setupwizard_objectives_description">Pressione o botão abaixo para activar os Objectivos. Veja o separador Objetivos, depois de concluir este assistente, para tornar o AndroidAPS completamente funcional.\n</string>
   <string name="enableobjectives">Activar Objectivos</string>
   <string name="apssetup">Configurar plugin APS</string>
   <string name="sensitivitysetup">Configurar plugin Sensibilidade</string>
+  <string name="setupwizard_sensitivity_description">Plugin de Sensibilidade é usado para detecção de sensibilidade e cálculos COB. Para mais info visite:</string>
   <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
   <string name="nsclientinfotext">NSCliente gere a ligação ao Nightscout. Pode saltar esta parte mas não será possível passar os objectivos até que o configure.</string>
   <string name="bgsourcesetup">Configure a fonte das glicemias</string>
@@ -970,6 +973,7 @@
   <string name="permission">Permissão</string>
   <string name="askforpermission">Pedir permissão</string>
   <string name="needlocationpermission">Aplicação requer permissão de localização para pesquisa BT</string>
+  <string name="needstoragepermission">Aplicação necessita da permissão de armazenamento para ser capaz de armazenar ficheiros de registo</string>
   <string name="request">Pedido</string>
   <string name="insulinsourcesetup">Configurar plugin Insulina</string>
   <string name="exit">Sair</string>
@@ -1002,6 +1006,7 @@
   <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Aumentar sensibilidade para alvostemp >= 100]]></string>
   <string name="low_temptarget_lowers_sensitivity_title">Baixo alvotemp baixa sensibilidade</string>
   <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Baixar sensibilidade para alvostemp < 100]]></string>
+  <string name="combo_invalid_setup">Configuração da bomba inválida, verifique a documentação e se o menu de informações rápidas está nomeado de QUICK INFO utilizando o programa de configuração 360.</string>
   <string name="custom">Personalizado</string>
   <string name="largetimedifftitle">Grande diferença Horária</string>
   <string name="careportal_removestartedevents">Limpar AndroidAPS iniciado</string>
