@@ -57,7 +57,7 @@ public class MsgSettingBasalProfileAll extends MessageBase {
                         try {
                             log.debug("Basal profile " + profile + ": " + String.format("%02d", index) + "h: " + pump.pumpProfiles[profile][index]);
                         } catch (Exception e){
-
+                            log.error("Unhandled exception" , e);
                         }
                     }
                 }
@@ -71,7 +71,7 @@ public class MsgSettingBasalProfileAll extends MessageBase {
                                     ":" + String.format("%02d", (index % 2) * 30) + " : " +
                                     pump.pumpProfiles[profile][index]);
                         } catch (Exception e){
-
+                            log.error("Unhandled exception" , e);
                         }
                     }
                 }

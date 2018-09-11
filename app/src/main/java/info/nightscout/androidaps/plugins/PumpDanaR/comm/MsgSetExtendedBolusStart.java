@@ -22,11 +22,12 @@ public class MsgSetExtendedBolusStart extends MessageBase {
         // HARDCODED LIMITS
         if (halfhours < 1) halfhours = 1;
         if (halfhours > 16) halfhours = 16;
-        Constraint<Double> insulinAmount = new Constraint(amount);
-        if ( MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(amount)) != null)
-            amount = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(amount)).value();
-
-        AddParamInt((int) (amount * 100));
+        Constraint<Double> constrainedAmount = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(amount));
+        if (constrainedAmount != null) {
+            AddParamInt((int) (constrainedAmount.value() * 100));
+        } else {
+            log.debug("constrainedAmount of insulin is null!!");
+        }
         AddParamByte(halfhours);
         if (L.isEnabled(L.PUMPCOMM))
             log.debug("Set extended bolus start: " + (((int) (amount * 100)) / 100d) + "U halfhours: " + (int) halfhours);

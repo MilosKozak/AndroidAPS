@@ -113,7 +113,6 @@ public class AAPSMocker {
         MainApp mainApp = mock(MainApp.class);
         DanaRPlugin danaRPlugin = mock(DanaRPlugin.class);
         when(MainApp.instance()).thenReturn(mainApp);
-        when(MainApp.getSpecificPlugin(DanaRPlugin.class)).thenReturn(danaRPlugin);
 
         return mainApp;
     }
