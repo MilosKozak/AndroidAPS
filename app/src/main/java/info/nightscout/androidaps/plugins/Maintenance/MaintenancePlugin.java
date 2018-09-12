@@ -27,12 +27,13 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
+import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSSettingsStatus;
 import info.nightscout.utils.SP;
 
 public class MaintenancePlugin extends PluginBase {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MaintenancePlugin.class);
+    private static final Logger LOG = LoggerFactory.getLogger(L.CORE);
 
     private final Context ctx;
 
@@ -209,6 +210,9 @@ public class MaintenancePlugin extends PluginBase {
     public static Intent sendMail(Uri attachementUri, String recipient, String subject)  {
         StringBuilder builder =new StringBuilder();
         
+        builder.append("ADD TIME OF EVENT HERE: " + System.lineSeparator());
+        builder.append("ADD ISSUE DESCRIPTION OR GITHUB ISSUE REFERENCE NUMBER: " + System.lineSeparator());
+        builder.append("-------------------------------------------------------" + System.lineSeparator());
         builder.append(MainApp.gs(R.string.app_name) + " " + BuildConfig.VERSION + System.lineSeparator());
         if (Config.NSCLIENT)
             builder.append("NSCLIENT" + System.lineSeparator());

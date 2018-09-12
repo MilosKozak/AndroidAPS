@@ -897,6 +897,7 @@
   <string name="basal_set_correctly">Базалът е зададен коректно</string>
   <string name="limitingpercentrate">Ограничаване на максималната процентна стойност до %1$d%% поради %2$s</string>
   <string name="limitingbolus">Ограничаване на болус до %1$.1f Е поради %2$s</string>
+  <string name="limitingextendedbolus">Ограничение на удължен болус до %1$.1f Е поради %2$s</string>
   <string name="limitingmaxiob">Ограничаване на макс. IOB до %1$.1f Е поради %2$s</string>
   <string name="limitingcarbs">Ограничаване на въглехидрати до %1$d гр. поради %2$s</string>
   <string name="limitingiob">Ограничаване на IOB до %1$.1f Е поради %2$s</string>
@@ -1048,6 +1049,7 @@
   <string name="commanderror">Грешка при команда</string>
   <string name="speederror">Скорост грешка</string>
   <string name="insulinlimitviolation">Нарушение на макс дневен инсулин</string>
+  <string name="loop_openmode_min_change">Минимална стойност за промяна [%]</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d дeн</item>
     <item quantity="other">%1$d дни</item>
