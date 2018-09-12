@@ -3,9 +3,13 @@
 <resources>
   <string name="openapsma_profile_label">Profil</string>
   <string name="openapsma_mealdata_label">Données repas</string>
+  <string name="openapsma">OpenAPS MA</string>
   <string name="configbuilder_aps">APS</string>
+  <string name="configbuilder_aps_description">Quel algorithme APS doit faire les ajustements de thérapie?</string>
   <string name="loop_aps_label">APS</string>
   <string name="apsmode_title">Mode APS</string>
+  <string name="careportal_openapsoffline">OpenAPS hors ligne</string>
+  <string name="oaps_shortname">OAPS</string>
   <string name="wear_display_settings">Parametres d\'affichage</string>
   <string name="wear_general_settings">Paramètres généraux</string>
   <string name="enable_nsclient">Activer NSClient</string>
