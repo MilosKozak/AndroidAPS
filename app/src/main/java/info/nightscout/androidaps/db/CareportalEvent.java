@@ -144,6 +144,7 @@ public class CareportalEvent implements DataPointWithLabelInterface, Interval {
                 return true;
             }
         }
+        //log.debug("No found event for time: " + DateUtil.dateAndTimeString(time));
         return false;
     }
 

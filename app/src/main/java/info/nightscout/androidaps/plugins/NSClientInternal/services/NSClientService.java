@@ -324,8 +324,7 @@ public class NSClientService extends Service {
             return;
         }
         MainApp.bus().post(new EventNSClientNewLog("AUTH", "requesting auth"));
-        if (mSocket != null)
-            mSocket.emit("authorize", authMessage, ack);
+        mSocket.emit("authorize", authMessage, ack);
     }
 
     @Subscribe
