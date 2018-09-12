@@ -2,6 +2,7 @@ package info;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 
 import com.squareup.otto.Bus;
 
