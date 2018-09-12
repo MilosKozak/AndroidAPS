@@ -13,4 +13,13 @@
   <string name="maintenance_amount">Nombre de journaux (Logs) à envoyer</string>
   <string name="maintenance">Maintenance</string>
   <string name="maintenance_shortname">MAINT</string>
+  <string name="error_adding_treatment_message">Le traitement (insuline : %1$.2f, glucides : %2$d, à : %3$s) n\'a pas pu être ajouté aux traitements. Vérifiez et ajoutez SVP manuellement ce traitement.</string>
+  <string name="generated_ecarbs_note">eCarbs : %1$d g (%2$d h), retard : %3$d m</string>
+  <string name="nsmalfunction">Dysfonctionnement du NSClient. Considérerez une réinitialisation de NS et de NSClient.</string>
+  <string name="as">AS</string>
+  <string name="versionavailable">Version %1$s disponible</string>
+  <string name="time_offset">Décalage horaire</string>
+  <string name="treatments_wizard_total_label">Total</string>
+  <string name="calculation_short">Calc</string>
+  <string name="handshaking">Poignée de main</string>
 </resources>
