@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import org.json.JSONObject;
 
-import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.JsonHelper;
@@ -32,7 +31,7 @@ public class WizardInfoDialog extends DialogFragment implements OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.treatments_wizardinfo_dialog, container, false);
+        View view = inflater.inflate(R.layout.treatments_wizardinfo_dialog, null, false);
 
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 

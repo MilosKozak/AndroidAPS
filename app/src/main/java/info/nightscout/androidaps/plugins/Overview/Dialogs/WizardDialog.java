@@ -207,7 +207,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.overview_wizard_dialog, container, false);
+        View view = inflater.inflate(R.layout.overview_wizard_dialog, null, false);
 
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -491,13 +491,13 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         Double corrAfterConstraint = c_correction;
         if (c_correction > 0)
             c_correction = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(c_correction)).value();
-        if (Math.abs(c_correction - corrAfterConstraint) > 0.01d) { // c_correction != corrAfterConstraint doesn't work
+        if (c_correction - corrAfterConstraint != 0) { // c_correction != corrAfterConstraint doesn't work
             editCorr.setValue(0d);
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.bolusconstraintapplied));
             return;
         }
         Integer carbsAfterConstraint = MainApp.getConstraintChecker().applyCarbsConstraints(new Constraint<>(c_carbs)).value();
-        if (Math.abs(c_carbs - carbsAfterConstraint) > 0.01d) {
+        if (c_carbs - carbsAfterConstraint != 0) {
             editCarbs.setValue(0d);
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.carbsconstraintapplied));
             return;

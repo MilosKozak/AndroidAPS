@@ -14,6 +14,8 @@ public class DetermineBasalResultSMB extends APSResult {
 
     private double eventualBG;
     private double snoozeBG;
+    //public double insulinReq;
+    //public double carbsReq;
 
     DetermineBasalResultSMB(JSONObject result) {
         this();
@@ -68,10 +70,24 @@ public class DetermineBasalResultSMB extends APSResult {
     @Override
     public DetermineBasalResultSMB clone() {
         DetermineBasalResultSMB newResult = new DetermineBasalResultSMB();
-        doClone(newResult);
+        newResult.reason = reason;
+        newResult.rate = rate;
+        newResult.duration = duration;
+        newResult.tempBasalRequested = tempBasalRequested;
+        newResult.bolusRequested = bolusRequested;
+        newResult.rate = rate;
+        newResult.duration = duration;
+        newResult.smb = smb;
+        newResult.deliverAt = deliverAt;
 
+        try {
+            newResult.json = new JSONObject(json.toString());
+        } catch (JSONException e) {
+            log.error("Error clone parsing determine-basal result", e);
+        }
         newResult.eventualBG = eventualBG;
         newResult.snoozeBG = snoozeBG;
+        newResult.date = date;
         return newResult;
     }
 

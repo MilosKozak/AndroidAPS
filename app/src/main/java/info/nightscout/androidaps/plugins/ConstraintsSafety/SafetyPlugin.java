@@ -126,7 +126,7 @@ public class SafetyPlugin extends PluginBase implements ConstraintsInterface {
 
         PumpInterface pump = MainApp.getConfigBuilder().getActivePump();
         // check for pump max
-        if (pump != null && pump.getPumpDescription().tempBasalStyle == PumpDescription.ABSOLUTE) {
+        if (pump != null) {
             double pumpLimit = pump.getPumpDescription().pumpType.getTbrSettings().getMaxDose();
             absoluteRate.setIfSmaller(pumpLimit, String.format(MainApp.gs(R.string.limitingbasalratio), pumpLimit, MainApp.gs(R.string.pumplimit)), this);
         }
@@ -151,7 +151,6 @@ public class SafetyPlugin extends PluginBase implements ConstraintsInterface {
         percentRate.copyReasons(absoluteConstraint);
 
         PumpInterface pump = MainApp.getConfigBuilder().getActivePump();
-
         Integer percentRateAfterConst = Double.valueOf(absoluteConstraint.value() / currentBasal * 100).intValue();
         if (pump != null) {
             if (percentRateAfterConst < 100)
@@ -161,11 +160,6 @@ public class SafetyPlugin extends PluginBase implements ConstraintsInterface {
         }
 
         percentRate.set(percentRateAfterConst, String.format(MainApp.gs(R.string.limitingpercentrate), percentRateAfterConst, MainApp.gs(R.string.pumplimit)), this);
-
-        if (pump != null && pump.getPumpDescription().tempBasalStyle == PumpDescription.PERCENT) {
-            double pumpLimit = pump.getPumpDescription().pumpType.getTbrSettings().getMaxDose();
-            percentRate.setIfSmaller((int) pumpLimit, String.format(MainApp.gs(R.string.limitingbasalratio), pumpLimit, MainApp.gs(R.string.pumplimit)), this);
-        }
 
         return percentRate;
     }
