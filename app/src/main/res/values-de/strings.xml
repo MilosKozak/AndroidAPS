@@ -9,7 +9,7 @@
   <string name="nav_resetdb">Datenbanken zurücksetzen</string>
   <string name="reset_db_confirm">Möchtest du die Datenbank wirklich zurücksetzen?</string>
   <string name="nav_exit">Schließen</string>
-  <string name="danar_useextended_title">Benutze verlängerten Bolus für hohe TBR (&gt;200%).</string>
+  <string name="danar_useextended_title">Benutze verzögerten Bolus für hohe TBR (&gt;200%).</string>
   <string name="danar_bt_name_title">DanaR Blueetooth--Gerät</string>
   <string name="ns_sync_use_absolute_title">Verwende absolute statt prozentuale Basalwerte beim Upload zu NightScout.</string>
   <string name="alert_dialog_storage_permission_text">Bitte starte dein Telefon neu oder starte AndroidAPS in den System-Einstellungen neu.\nAndernfalls wird AndroidAPS nichts protokollieren (wichtig zum Nachverfolgen und Verifizieren, dass der Algorithmus korrekt funktioniert)!</string>
@@ -606,7 +606,7 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
   <string name="careportal_insulinage_label_short">IAGE</string>
   <string name="careportal_canulaage_label_short">CAGE</string>
   <string name="careportal_pbage_label_short">BAT</string>
-  <string name="openaps_short">OASP</string>
+  <string name="openaps_short">OAPS</string>
   <string name="uploader_short">UPLD</string>
   <string name="basal_short">BAS</string>
   <string name="virtualpump_extendedbolus_label_short">EXT</string>
