@@ -22,6 +22,17 @@
   <string name="description_insulin_ultra_rapid">Profil insulinowy dla Fiasp</string>
   <string name="description_insulin_free_peak">Pozwala na określenie czasu wartości szczytowej działania insuliny i powinno być używane tylko przez zaawansowanych użytkowników</string>
   <string name="description_ns_client">Synchronizuje twoje dane z Nightscout</string>
+  <string name="description_ma">Stan algorytmu w 2016</string>
+  <string name="description_ama">Stan algorytmu w 2017</string>
+  <string name="description_smb">Najnowszy algorytm dla zaawansowanych użytkowników</string>
+  <string name="description_persistent_notification">Wyświetla bieżące powiadomienia z krótkim omówieniem działania pętli</string>
+  <string name="description_profile_simple">Zdefiniuj profil z tylko jednym blokiem czasowym.</string>
+  <string name="description_pump_combo">Integracja z pompą Accu-Chek Combo, wymaga zainstalowania sterownika ruffy</string>
+  <string name="description_pump_dana_r">Integracja z pompą DANA R Diabecare</string>
+  <string name="description_pump_dana_r_korean">Integracja z pompą DANA R Diabetes, wersja koreańska</string>
+  <string name="description_pump_dana_r_v2">Integracja z pompą DANA R Diabecare z oprogramowaniem v2</string>
+  <string name="description_pump_dana_rs">Integracja z pompą DANA RS Diabecare</string>
+  <string name="description_pump_insight">Integracja z pompą Accu-Chek Insight, wymaga zainstalowania SightRemote</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dzień</item>
     <item quantity="few">%1$d dni</item>
