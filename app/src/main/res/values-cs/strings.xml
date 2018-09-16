@@ -641,8 +641,6 @@
   <string name="date">Datum</string>
   <string name="invalid">NEPLATNÝ</string>
   <string name="waitingforpairing">Čekání na spárování na pumpě</string>
-  <string name="pairingok">Spárováno</string>
-  <string name="pairingtimedout">Vypršel časový limit pro párování</string>
   <string name="pairing">PÁROVÁNÍ</string>
   <string name="danars_nodeviceavailable">Prozatím žádné zařízení nenalezeno</string>
   <string name="emptyreservoir">Prázdný zásobník</string>
