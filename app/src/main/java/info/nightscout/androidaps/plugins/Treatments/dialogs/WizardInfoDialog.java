@@ -40,37 +40,37 @@ public class WizardInfoDialog extends DialogFragment implements OnClickListener 
 
         // BG
         ((TextView) view.findViewById(R.id.treatments_wizard_bg)).setText(DecimalFormatter.to1Decimal(JsonHelper.safeGetDouble(json, "bg")) + " ISF: " + DecimalFormatter.to1Decimal(JsonHelper.safeGetDouble(json, "isf")));
-        ((TextView) view.findViewById(R.id.treatments_wizard_bginsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulinbg")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_bginsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulinbg")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         ((CheckBox) view.findViewById(R.id.treatments_wizard_bgcheckbox)).setChecked(JsonHelper.safeGetBoolean(json, "insulinbgused"));
         ((CheckBox) view.findViewById(R.id.treatments_wizard_ttcheckbox)).setChecked(JsonHelper.safeGetBoolean(json, "ttused"));
         // Trend
         ((TextView) view.findViewById(R.id.treatments_wizard_bgtrend)).setText(JsonHelper.safeGetString(json, "trend"));
-        ((TextView) view.findViewById(R.id.treatments_wizard_bgtrendinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulintrend")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_bgtrendinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulintrend")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         ((CheckBox) view.findViewById(R.id.treatments_wizard_bgtrendcheckbox)).setChecked(JsonHelper.safeGetBoolean(json, "trendused"));
         // COB
         ((TextView) view.findViewById(R.id.treatments_wizard_cob)).setText(DecimalFormatter.to0Decimal(JsonHelper.safeGetDouble(json, "cob")) + "g IC: " + DecimalFormatter.to1Decimal(JsonHelper.safeGetDouble(json, "ic")));
-        ((TextView) view.findViewById(R.id.treatments_wizard_cobinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulincob")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_cobinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulincob")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         ((CheckBox) view.findViewById(R.id.treatments_wizard_cobcheckbox)).setChecked(JsonHelper.safeGetBoolean(json, "cobused"));
         // Bolus IOB
-        ((TextView) view.findViewById(R.id.treatments_wizard_bolusiobinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "bolusiob")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_bolusiobinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "bolusiob")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         ((CheckBox) view.findViewById(R.id.treatments_wizard_bolusiobcheckbox)).setChecked(JsonHelper.safeGetBoolean(json, "bolusiobused"));
         // Basal IOB
-        ((TextView) view.findViewById(R.id.treatments_wizard_basaliobinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "basaliob")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_basaliobinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "basaliob")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         ((CheckBox) view.findViewById(R.id.treatments_wizard_basaliobcheckbox)).setChecked(JsonHelper.safeGetBoolean(json, "basaliobused"));
         // Superbolus
-        ((TextView) view.findViewById(R.id.treatments_wizard_sbinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulinsuperbolus")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_sbinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulinsuperbolus")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         ((CheckBox) view.findViewById(R.id.treatments_wizard_sbcheckbox)).setChecked(JsonHelper.safeGetBoolean(json, "superbolusused"));
         // Carbs
         ((TextView) view.findViewById(R.id.treatments_wizard_carbs)).setText(DecimalFormatter.to0Decimal(JsonHelper.safeGetDouble(json, "carbs")) + "g IC: " + DecimalFormatter.to1Decimal(JsonHelper.safeGetDouble(json, "ic")));
-        ((TextView) view.findViewById(R.id.treatments_wizard_carbsinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulincarbs")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_carbsinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulincarbs")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         // Correction
-        ((TextView) view.findViewById(R.id.treatments_wizard_correctioninsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "othercorrection")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_correctioninsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "othercorrection")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         // Profile
         ((TextView) view.findViewById(R.id.treatments_wizard_profile)).setText(JsonHelper.safeGetString(json, "profile"));
         // Notes
         ((TextView) view.findViewById(R.id.treatments_wizard_notes)).setText(JsonHelper.safeGetString(json, "notes"));
         // Total
-        ((TextView) view.findViewById(R.id.treatments_wizard_totalinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulin")) + "U");
+        ((TextView) view.findViewById(R.id.treatments_wizard_totalinsulin)).setText(DecimalFormatter.to2Decimal(JsonHelper.safeGetDouble(json, "insulin")) + " " + MainApp.gs(R.string.insulin_unit_shortname));
 
         setCancelable(true);
         return view;

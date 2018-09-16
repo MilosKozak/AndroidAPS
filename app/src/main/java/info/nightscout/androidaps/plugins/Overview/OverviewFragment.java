@@ -781,8 +781,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 Double insulinAfterConstraints = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(wizard.calculatedTotalInsulin)).value();
                 Integer carbsAfterConstraints = MainApp.getConstraintChecker().applyCarbsConstraints(new Constraint<>(quickWizardEntry.carbs())).value();
 
-                confirmMessage += "\n" + MainApp.gs(R.string.bolus) + ": " + formatNumber2decimalplaces.format(insulinAfterConstraints) + "U";
-                confirmMessage += "\n" + MainApp.gs(R.string.carbs) + ": " + carbsAfterConstraints + "g";
+                confirmMessage += "\n" + MainApp.gs(R.string.bolus) + ": " + formatNumber2decimalplaces.format(insulinAfterConstraints) + " " + MainApp.gs(R.string.insulin_unit_shortname);
+                confirmMessage += "\n" + MainApp.gs(R.string.carbs) + ": " + carbsAfterConstraints + " g";
 
                 if (!insulinAfterConstraints.equals(wizard.calculatedTotalInsulin) || !carbsAfterConstraints.equals(quickWizardEntry.carbs())) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -1178,10 +1178,10 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             if (activeTemp != null) {
                 basalText = "T: " + activeTemp.toStringVeryShort();
             } else {
-                basalText = DecimalFormatter.to2Decimal(profile.getBasal()) + "U/h";
+                basalText = DecimalFormatter.to2Decimal(profile.getBasal()) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h";
             }
             baseBasalView.setOnClickListener(v -> {
-                String fullText = MainApp.gs(R.string.pump_basebasalrate_label) + ": " + DecimalFormatter.to2Decimal(profile.getBasal()) + "U/h\n";
+                String fullText = MainApp.gs(R.string.pump_basebasalrate_label) + ": " + DecimalFormatter.to2Decimal(profile.getBasal()) + MainApp.gs(R.string.insulin_unit_shortname) + "/h\n";
                 if (activeTemp != null) {
                     fullText += MainApp.gs(R.string.pump_tempbasal_label) + ": " + activeTemp.toStringFull();
                 }
@@ -1193,9 +1193,9 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 basalText = activeTemp.toStringFull() + " ";
             }
             if (Config.NSCLIENT)
-                basalText += "(" + DecimalFormatter.to2Decimal(profile.getBasal()) + " U/h)";
+                basalText += "(" + DecimalFormatter.to2Decimal(profile.getBasal()) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h)";
             else if (pump.getPumpDescription().isTempBasalCapable) {
-                basalText += "(" + DecimalFormatter.to2Decimal(pump.getBaseBasalRate()) + "U/h)";
+                basalText += "(" + DecimalFormatter.to2Decimal(pump.getBaseBasalRate()) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h)";
             }
         }
         if (activeTemp != null) {
@@ -1212,7 +1212,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         if (extendedBolusView != null) { // must not exists in all layouts
             if (shorttextmode) {
                 if (extendedBolus != null && !pump.isFakingTempsByExtendedBoluses()) {
-                    extendedBolusText = DecimalFormatter.to2Decimal(extendedBolus.absoluteRate()) + "U/h";
+                    extendedBolusText = DecimalFormatter.to2Decimal(extendedBolus.absoluteRate()) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h";
                 }
             } else {
                 if (extendedBolus != null && !pump.isFakingTempsByExtendedBoluses()) {
@@ -1236,9 +1236,9 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         QuickWizardEntry quickWizardEntry = OverviewPlugin.getPlugin().quickWizard.getActive();
         if (quickWizardEntry != null && lastBG != null && pump.isInitialized() && !pump.isSuspended()) {
             quickWizardButton.setVisibility(View.VISIBLE);
-            String text = quickWizardEntry.buttonText() + "\n" + DecimalFormatter.to0Decimal(quickWizardEntry.carbs()) + "g";
+            String text = quickWizardEntry.buttonText() + "\n" + DecimalFormatter.to0Decimal(quickWizardEntry.carbs()) + " g";
             BolusWizard wizard = quickWizardEntry.doCalc(profile, tempTarget, lastBG, false);
-            text += " " + DecimalFormatter.toPumpSupportedBolus(wizard.calculatedTotalInsulin) + "U";
+            text += " " + DecimalFormatter.toPumpSupportedBolus(wizard.calculatedTotalInsulin) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             quickWizardButton.setText(text);
             if (wizard.calculatedTotalInsulin <= 0)
                 quickWizardButton.setVisibility(View.GONE);
@@ -1303,21 +1303,21 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         final IobTotal basalIob = TreatmentsPlugin.getPlugin().getLastCalculationTempBasals().round();
 
         if (shorttextmode) {
-            String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U";
+            String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             iobView.setText(iobtext);
             iobView.setOnClickListener(v -> {
-                String iobtext1 = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U\n"
-                        + MainApp.gs(R.string.bolus) + ": " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U\n"
-                        + MainApp.gs(R.string.basal) + ": " + DecimalFormatter.to2Decimal(basalIob.basaliob) + "U\n";
+                String iobtext1 = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n"
+                        + MainApp.gs(R.string.bolus) + ": " + DecimalFormatter.to2Decimal(bolusIob.iob) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n"
+                        + MainApp.gs(R.string.basal) + ": " + DecimalFormatter.to2Decimal(basalIob.basaliob) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
                 OKDialog.show(getActivity(), MainApp.gs(R.string.iob), iobtext1, null);
             });
         } else if (MainApp.sResources.getBoolean(R.bool.isTablet)) {
-            String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U ("
-                    + MainApp.gs(R.string.bolus) + ": " + DecimalFormatter.to2Decimal(bolusIob.iob) + "U "
-                    + MainApp.gs(R.string.basal) + ": " + DecimalFormatter.to2Decimal(basalIob.basaliob) + "U)";
+            String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " ("
+                    + MainApp.gs(R.string.bolus) + ": " + DecimalFormatter.to2Decimal(bolusIob.iob) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " "
+                    + MainApp.gs(R.string.basal) + ": " + DecimalFormatter.to2Decimal(basalIob.basaliob) + " " + MainApp.gs(R.string.insulin_unit_shortname) + ")";
             iobView.setText(iobtext);
         } else {
-            String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U ("
+            String iobtext = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " ("
                     + DecimalFormatter.to2Decimal(bolusIob.iob) + "/"
                     + DecimalFormatter.to2Decimal(basalIob.basaliob) + ")";
             iobView.setText(iobtext);

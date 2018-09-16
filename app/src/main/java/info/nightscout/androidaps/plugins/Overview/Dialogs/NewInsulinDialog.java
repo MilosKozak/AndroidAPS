@@ -221,7 +221,7 @@ public class NewInsulinDialog extends DialogFragment implements OnClickListener 
 
             List<String> actions = new LinkedList<>();
             if (insulin > 0) {
-                actions.add(MainApp.gs(R.string.bolus) + ": " + "<font color='" + MainApp.gc(R.color.bolus) + "'>" + DecimalFormatter.toPumpSupportedBolus(insulinAfterConstraints) + "U" + "</font>");
+                actions.add(MainApp.gs(R.string.bolus) + ": " + "<font color='" + MainApp.gc(R.color.bolus) + "'>" + DecimalFormatter.toPumpSupportedBolus(insulinAfterConstraints) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "</font>");
                 if (recordOnlyCheckbox.isChecked()) {
                     actions.add("<font color='" + MainApp.gc(R.color.warning) + "'>" + MainApp.gs(R.string.bolusrecordedonly) + "</font>");
                 }

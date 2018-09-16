@@ -364,7 +364,7 @@ public class NewCarbsDialog extends DialogFragment implements OnClickListener, C
                 actions.add(MainApp.gs(R.string.duration) + ": " + duration + MainApp.gs(R.string.shorthour));
             }
             if (carbs > 0) {
-                actions.add(MainApp.gs(R.string.carbs) + ": " + "<font color='" + MainApp.gc(R.color.carbs) + "'>" + carbsAfterConstraints + "g" + "</font>");
+                actions.add(MainApp.gs(R.string.carbs) + ": " + "<font color='" + MainApp.gc(R.color.carbs) + "'>" + carbsAfterConstraints + " g" + "</font>");
             }
             if (!carbsAfterConstraints.equals(carbs)) {
                 actions.add("<font color='" + MainApp.gc(R.color.warning) + "'>" + MainApp.gs(R.string.carbsconstraintapplied) + "</font>");

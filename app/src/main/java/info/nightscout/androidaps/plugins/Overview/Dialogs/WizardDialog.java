@@ -336,9 +336,9 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
                     Integer carbsAfterConstraints = MainApp.getConstraintChecker().applyCarbsConstraints(new Constraint<>(calculatedCarbs)).value();
 
                     if (insulinAfterConstraints > 0)
-                        confirmMessage += "<br/>" + MainApp.gs(R.string.bolus) + ": " + "<font color='" + MainApp.gc(R.color.bolus) + "'>" + DecimalFormatter.toPumpSupportedBolus(insulinAfterConstraints) + "U" + "</font>";
+                        confirmMessage += "<br/>" + MainApp.gs(R.string.bolus) + ": " + "<font color='" + MainApp.gc(R.color.bolus) + "'>" + DecimalFormatter.toPumpSupportedBolus(insulinAfterConstraints) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "</font>";
                     if (carbsAfterConstraints > 0)
-                        confirmMessage += "<br/>" + MainApp.gs(R.string.carbs) + ": " + "<font color='" + MainApp.gc(R.color.carbs) + "'>" + carbsAfterConstraints + "g" + "</font>";
+                        confirmMessage += "<br/>" + MainApp.gs(R.string.carbs) + ": " + "<font color='" + MainApp.gc(R.color.carbs) + "'>" + carbsAfterConstraints + " g" + "</font>";
 
                     if (Math.abs(insulinAfterConstraints - calculatedTotalInsulin) > pump.getPumpDescription().pumpType.determineCorrectBolusSize(insulinAfterConstraints) || !carbsAfterConstraints.equals(calculatedCarbs)) {
                         confirmMessage += "<br/><font color='" + MainApp.gc(R.color.warning) + "'>" + MainApp.gs(R.string.bolusconstraintapplied) + "</font>";
@@ -466,8 +466,8 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         TreatmentsPlugin.getPlugin().updateTotalIOBTempBasals();
         IobTotal basalIob = TreatmentsPlugin.getPlugin().getLastCalculationTempBasals().round();
 
-        bolusIobInsulin.setText(DecimalFormatter.to2Decimal(-bolusIob.iob) + "U");
-        basalIobInsulin.setText(DecimalFormatter.to2Decimal(-basalIob.basaliob) + "U");
+        bolusIobInsulin.setText(DecimalFormatter.to2Decimal(-bolusIob.iob) + " " + MainApp.gs(R.string.insulin_unit_shortname));
+        basalIobInsulin.setText(DecimalFormatter.to2Decimal(-basalIob.basaliob) + " " + MainApp.gs(R.string.insulin_unit_shortname));
 
         calculateInsulin();
     }
@@ -518,15 +518,15 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         wizard.doCalc(specificProfile, tempTarget, carbsAfterConstraint, c_cob, c_bg, corrAfterConstraint, bolusIobCheckbox.isChecked(), basalIobCheckbox.isChecked(), superbolusCheckbox.isChecked(), bgtrendCheckbox.isChecked());
 
         bg.setText(c_bg + " ISF: " + DecimalFormatter.to1Decimal(wizard.sens));
-        bgInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromBG) + "U");
+        bgInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromBG) + " " + MainApp.gs(R.string.insulin_unit_shortname));
 
         carbs.setText(DecimalFormatter.to0Decimal(c_carbs) + "g IC: " + DecimalFormatter.to1Decimal(wizard.ic));
-        carbsInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromCarbs) + "U");
+        carbsInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromCarbs) + " " + MainApp.gs(R.string.insulin_unit_shortname));
 
-        bolusIobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulingFromBolusIOB) + "U");
-        basalIobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulingFromBasalsIOB) + "U");
+        bolusIobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulingFromBolusIOB) + " " + MainApp.gs(R.string.insulin_unit_shortname));
+        basalIobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulingFromBasalsIOB) + " " + MainApp.gs(R.string.insulin_unit_shortname));
 
-        correctionInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromCorrection) + "U");
+        correctionInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromCorrection) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         calculatedTotalInsulin = wizard.calculatedTotalInsulin;
 
         calculatedCarbs = carbsAfterConstraint;
@@ -537,7 +537,7 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         } else {
             superbolus.setText("");
         }
-        superbolusInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromSuperBolus) + "U");
+        superbolusInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromSuperBolus) + " " + MainApp.gs(R.string.insulin_unit_shortname));
 
         // Trend
         if (bgtrendCheckbox.isChecked()) {
@@ -549,26 +549,26 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         } else {
             bgTrend.setText("");
         }
-        bgTrendInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromTrend) + "U");
+        bgTrendInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromTrend) + " " + MainApp.gs(R.string.insulin_unit_shortname));
 
         // COB
         if (cobCheckbox.isChecked()) {
             cob.setText(DecimalFormatter.to2Decimal(c_cob) + "g IC: " + DecimalFormatter.to1Decimal(wizard.ic));
-            cobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromCOB) + "U");
+            cobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromCOB) + " " + MainApp.gs(R.string.insulin_unit_shortname));
         } else {
             cob.setText("");
             cobInsulin.setText("");
         }
 
         if (calculatedTotalInsulin > 0d || calculatedCarbs > 0d) {
-            String insulinText = calculatedTotalInsulin > 0d ? (DecimalFormatter.toPumpSupportedBolus(calculatedTotalInsulin) + "U") : "";
-            String carbsText = calculatedCarbs > 0d ? (DecimalFormatter.to0Decimal(calculatedCarbs) + "g") : "";
+            String insulinText = calculatedTotalInsulin > 0d ? (DecimalFormatter.toPumpSupportedBolus(calculatedTotalInsulin) + " " + MainApp.gs(R.string.insulin_unit_shortname)) : "";
+            String carbsText = calculatedCarbs > 0d ? (DecimalFormatter.to0Decimal(calculatedCarbs) + " g") : "";
             total.setText(MainApp.gs(R.string.result) + ": " + insulinText + " " + carbsText);
             okButton.setVisibility(View.VISIBLE);
         } else {
             // TODO this should also be run when loading the dialog as the OK button is initially visible
             //      but does nothing if neither carbs nor insulin is > 0
-            total.setText(MainApp.gs(R.string.missing) + " " + DecimalFormatter.to0Decimal(wizard.carbsEquivalent) + "g");
+            total.setText(MainApp.gs(R.string.missing) + " " + DecimalFormatter.to0Decimal(wizard.carbsEquivalent) + " g");
             okButton.setVisibility(View.INVISIBLE);
         }
 

@@ -140,7 +140,7 @@ public class NewTreatmentDialog extends DialogFragment implements OnClickListene
                     Integer carbsAfterConstraints = MainApp.getConstraintChecker().applyCarbsConstraints(new Constraint<>(carbs)).value();
 
                     if (insulin > 0) {
-                        confirmMessage += MainApp.gs(R.string.bolus) + ": " + "<font color='" + MainApp.gc(R.color.bolus) + "'>" + DecimalFormatter.toPumpSupportedBolus(insulinAfterConstraints) + "U" + "</font>";
+                        confirmMessage += MainApp.gs(R.string.bolus) + ": " + "<font color='" + MainApp.gc(R.color.bolus) + "'>" + DecimalFormatter.toPumpSupportedBolus(insulinAfterConstraints) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "</font>";
                         if (recordOnlyCheckbox.isChecked()) {
                             confirmMessage += "<br/><font color='" + MainApp.gc(R.color.warning) + "'>" + MainApp.gs(R.string.bolusrecordedonly) + "</font>";
                         }
@@ -148,7 +148,7 @@ public class NewTreatmentDialog extends DialogFragment implements OnClickListene
                             confirmMessage += "<br/><font color='" + MainApp.gc(R.color.warning) + "'>" + MainApp.gs(R.string.bolusconstraintapplied) + "</font>";
                     }
                     if (carbsAfterConstraints > 0)
-                        confirmMessage += "<br/>" + MainApp.gs(R.string.carbs) + ": " + "<font color='" + MainApp.gc(R.color.carbs) + "'>" + carbsAfterConstraints + "g" + "</font>";
+                        confirmMessage += "<br/>" + MainApp.gs(R.string.carbs) + ": " + "<font color='" + MainApp.gc(R.color.carbs) + "'>" + carbsAfterConstraints + " g" + "</font>";
 
 
                     final double finalInsulinAfterConstraints = insulinAfterConstraints;
