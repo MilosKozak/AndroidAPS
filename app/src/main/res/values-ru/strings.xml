@@ -641,6 +641,8 @@
   <string name="date">дата</string>
   <string name="invalid">НЕВЕРНО</string>
   <string name="waitingforpairing">Ожидание соединения на помпе</string>
+  <string name="pairingok">Соединение OK</string>
+  <string name="pairingtimedout">Истекло время ожидания соединения</string>
   <string name="pairing">Установка соединения</string>
   <string name="danars_nodeviceavailable">Устройства пока не найдены</string>
   <string name="emptyreservoir">Резервуар пуст</string>
