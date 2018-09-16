@@ -641,8 +641,6 @@
   <string name="date">날짜</string>
   <string name="invalid">유효하지 않음</string>
   <string name="waitingforpairing">펌프연동 대기중</string>
-  <string name="pairingok">연동완료</string>
-  <string name="pairingtimedout">연동시간초과</string>
   <string name="pairing">연동중</string>
   <string name="danars_nodeviceavailable">현재까지 발견된 기기가 없습니다.</string>
   <string name="emptyreservoir">빈 주사기</string>
