@@ -397,7 +397,7 @@ public class Profile {
     public String getIsfList() {
         if (isf_v == null)
             isf_v = convertToSparseArray(isf);
-        return getValuesList(isf_v, null, new DecimalFormat("0.0"), getUnits() + "/U");
+        return getValuesList(isf_v, null, new DecimalFormat("0.0"), getUnits() + "/" + MainApp.gs(R.string.insulin_unit_shortname));
     }
 
     public double getIc() {
@@ -417,7 +417,7 @@ public class Profile {
     public String getIcList() {
         if (ic_v == null)
             ic_v = convertToSparseArray(ic);
-        return getValuesList(ic_v, null, new DecimalFormat("0.0"), " g/U");
+        return getValuesList(ic_v, null, new DecimalFormat("0.0"), "g/U");
     }
 
     public double getBasal() {
