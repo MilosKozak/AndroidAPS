@@ -76,7 +76,7 @@
   <string name="treatments_newtreatment_insulinamount_label">Insulin-Menge</string>
   <string name="treatments_newtreatment_carbsamount_label">Kohlenhydrat-Menge</string>
   <string name="treatments_wizard_bg_label">BZ</string>
-  <string name="treatments_wizard_tt_label">TZ</string>
+  <string name="treatments_wizard_tt_label">TT</string>
   <string name="treatments_wizard_carbs_label">Kohlenhydrate</string>
   <string name="treatments_wizard_correction_label">Korr</string>
   <string name="insulin_unit_shortname">IE</string>
@@ -277,7 +277,7 @@
   <string name="danarprofile">DanaR Profil-Einstellungen</string>
   <string name="danarprofile_dia">DIA [h]</string>
   <string name="danarprofile_dia_summary">Dauer der Insulinwirkung</string>
-  <string name="failedupdatebasalprofile">Fehler beim Aktualisieren der Basalrate</string>
+  <string name="failedupdatebasalprofile">Fehler beim Aktualisieren des Basalprofils</string>
   <string name="danar_historyreload">Neu laden</string>
   <string name="uploading">Hochladen</string>
   <string name="danar_ebolus">E-Bolus</string>
@@ -314,7 +314,7 @@
   <string name="waitingforpump">Warte auf Pumpe</string>
   <string name="overview_bolusprogress_goingtodeliver" formatted="false">%1$.2f IE werden abgegeben.</string>
   <string name="objectives_0_objective">Konfiguriere die Anzeige und das Monitoring (Nightscout) und analysiere Basal-Raten und Faktoren</string>
-  <string name="objectives_0_gate">Verifiziere, dass BZ- und Pumpen-Insulin-Daten in Nightscout erfolgreich hoch geladen werden.</string>
+  <string name="objectives_0_gate">Verifiziere, dass BZ- und Pumpen-Insulin-Daten erfolgreich zu Nightscout hochgeladen werden.</string>
   <string name="objectives_1_objective">Starte den Open Loop Modus</string>
   <string name="objectives_1_gate">Erprobe den Open Loop Modus für ein paar Tage und setze manuell temporäre Basal-Raten. Richte temporäre Ziele ein und nutze sie (z.B. für Bewegung, unterstützend zur Hypobehandlung).</string>
   <string name="objectives_2_objective">Verstehe den Open Loop und die TBR-Empfehlungen</string>
@@ -323,7 +323,7 @@
   <string name="objectives_3_gate">Erprobe den Closed Loop Modus mit max IOB = 0 für ein paar Tage, ohne zu viele Unterzuckerungen zu haben.</string>
   <string name="objectives_4_objective">Stelle den Closed-Loop fein ein, erhöhe Max-IOB über 0 und setze den Zielbereich langsam herunter.</string>
   <string name="objectives_4_gate">Verwende es ein paar Tage und zumindest eine Nacht ohne Niedrig-Alarme (UZ), bevor du den BZ-Zielbereich senkst.</string>
-  <string name="objectives_5_objective">Passe, falls notwendig, Basal und Faktoren an und aktiviere dann die Autosense-Funktion.</string>
+  <string name="objectives_5_objective">Passe, falls notwendig, Basal und Faktoren an und aktiviere dann die Autosens-Funktion.</string>
   <string name="objectives_5_gate">Loope eine Woche erfolgreich am Tag mit regelmäßiger Kohlenhydrat-Eingabe.</string>
   <string name="objectives_6_objective">Aktiviere zusätzliche Funktionen wie z. B. den Mahlzeitenassistenten</string>
   <string name="objectives_7_objective">Aktiviere zusätzliche Funktionen wie z. B. SMB</string>
