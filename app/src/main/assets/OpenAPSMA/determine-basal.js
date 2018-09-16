@@ -144,7 +144,7 @@ var determine_basal = function determine_basal(glucose_status, currenttemp, iob_
     }
     if (eventualBG < profile.min_bg) { // if eventual BG is below target:
         if (rT.mealAssist.indexOf("On") == 0) {
-            rT.reason = "Meal assist: " + meal_data.carbs + "g, " + meal_data.boluses + "U";
+            rT.reason = "Meal assist: " + meal_data.carbs + " g, " + meal_data.boluses + "U";
         } else {
             rT.reason = "Eventual BG " + eventualBG + "<" + profile.min_bg;
             // if 5m or 15m avg BG is rising faster than expected delta

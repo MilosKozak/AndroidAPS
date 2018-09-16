@@ -417,7 +417,7 @@ public class Profile {
     public String getIcList() {
         if (ic_v == null)
             ic_v = convertToSparseArray(ic);
-        return getValuesList(ic_v, null, new DecimalFormat("0.0"), "g/U");
+        return getValuesList(ic_v, null, new DecimalFormat("0.0"), " g/U");
     }
 
     public double getBasal() {

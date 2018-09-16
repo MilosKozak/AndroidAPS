@@ -252,7 +252,7 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
         MainApp.bus().post(bolusingEvent);
         SystemClock.sleep(1000);
         if (L.isEnabled(L.PUMPCOMM))
-            log.debug("Delivering treatment insulin: " + detailedBolusInfo.insulin + "U carbs: " + detailedBolusInfo.carbs + "g " + result);
+            log.debug("Delivering treatment insulin: " + detailedBolusInfo.insulin + "U carbs: " + detailedBolusInfo.carbs + " g " + result);
         MainApp.bus().post(new EventVirtualPumpUpdateGui());
         lastDataTime = System.currentTimeMillis();
         TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, false);

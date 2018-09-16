@@ -199,7 +199,7 @@ public class Treatment implements DataPointWithLabelInterface {
         String label = "";
         if (insulin > 0) label += DecimalFormatter.toPumpSupportedBolus(insulin) + " " + MainApp.gs(R.string.insulin_unit_shortname);
         if (carbs > 0)
-            label += "~" + DecimalFormatter.to0Decimal(carbs) + "g";
+            label += "~" + DecimalFormatter.to0Decimal(carbs) + " g";
         return label;
     }
 

@@ -24,7 +24,7 @@ public class CobInfo {
             if (futureCarbs > 0) {
                 cobStringResult += "(" + DecimalFormatter.to0Decimal(futureCarbs) + ")";
             }
-            cobStringResult += "g";
+            cobStringResult += " g";
         }
         return cobStringResult;
     }

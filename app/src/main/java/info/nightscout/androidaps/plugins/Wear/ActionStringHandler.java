@@ -249,13 +249,13 @@ public class ActionStringHandler {
             } else {
                 rAction = actionstring;
             }
-            rMessage += "Carbs: " + bolusWizard.carbs + "g";
+            rMessage += "Carbs: " + bolusWizard.carbs + " g";
             rMessage += "\nBolus: " + format.format(bolusWizard.calculatedTotalInsulin) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             rMessage += "\n_____________";
             rMessage += "\nCalc (IC:" + DecimalFormatter.to1Decimal(bolusWizard.ic) + ", " + "ISF:" + DecimalFormatter.to1Decimal(bolusWizard.sens) + "): ";
             rMessage += "\nFrom Carbs: " + format.format(bolusWizard.insulinFromCarbs) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (useCOB)
-                rMessage += "\nFrom" + formatInt.format(cobInfo.displayCob) + "g COB : " + format.format(bolusWizard.insulinFromCOB) + " " + MainApp.gs(R.string.insulin_unit_shortname);
+                rMessage += "\nFrom" + formatInt.format(cobInfo.displayCob) + " g COB : " + format.format(bolusWizard.insulinFromCOB) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (useBG) rMessage += "\nFrom BG: " + format.format(bolusWizard.insulinFromBG) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (useBolusIOB)
                 rMessage += "\nBolus IOB: " + format.format(bolusWizard.insulingFromBolusIOB) + " " + MainApp.gs(R.string.insulin_unit_shortname);
@@ -341,7 +341,7 @@ public class ActionStringHandler {
             int duration = SafeParse.stringToInt(act[3]);
             long starttimestamp = System.currentTimeMillis() + starttime*60*1000;
             Integer carbsAfterConstraints = MainApp.getConstraintChecker().applyCarbsConstraints(new Constraint<>(carbs)).value();
-            rMessage += MainApp.gs(R.string.carbs) + ": " + carbsAfterConstraints + "g";
+            rMessage += MainApp.gs(R.string.carbs) + ": " + carbsAfterConstraints + " g";
             rMessage += "\n" + MainApp.gs(R.string.time) + ": " +  DateUtil.timeString(starttimestamp);
             rMessage += "\n" + MainApp.gs(R.string.duration) + ": " + duration + "h";
 

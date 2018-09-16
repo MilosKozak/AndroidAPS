@@ -457,7 +457,7 @@ public class InsightPlugin extends PluginBase implements PumpInterface, Constrai
         }
 
         if (L.isEnabled(L.PUMP))
-            log.debug("Delivering treatment insulin: " + detailedBolusInfo.insulin + "U carbs: " + detailedBolusInfo.carbs + "g " + result);
+            log.debug("Delivering treatment insulin: " + detailedBolusInfo.insulin + "U carbs: " + detailedBolusInfo.carbs + " g " + result);
 
         updateGui();
         connector.tryToGetPumpStatusAgain();
