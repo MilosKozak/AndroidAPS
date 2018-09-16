@@ -641,6 +641,8 @@
   <string name="date">Data</string>
   <string name="invalid">INVALID</string>
   <string name="waitingforpairing">Se așteaptă conectarea la pompă</string>
+  <string name="pairingok">Conectare OK</string>
+  <string name="pairingtimedout">Conectare nereușită</string>
   <string name="pairing">CONECTARE</string>
   <string name="danars_nodeviceavailable">Niciun dispozitiv găsit până acum</string>
   <string name="emptyreservoir">Rezervor gol</string>
