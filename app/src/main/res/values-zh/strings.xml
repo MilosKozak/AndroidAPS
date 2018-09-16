@@ -640,8 +640,6 @@
   <string name="date">日期</string>
   <string name="invalid">无效</string>
   <string name="waitingforpairing">等待泵配对</string>
-  <string name="pairingok">配对成功</string>
-  <string name="pairingtimedout">配对超时</string>
   <string name="pairing">正在配对</string>
   <string name="danars_nodeviceavailable">迄今未找到任何设备</string>
   <string name="emptyreservoir">储药器空了</string>
