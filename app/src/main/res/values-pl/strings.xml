@@ -36,12 +36,6 @@
   <string name="description_pump_virtual">Integracja z pompami, które nie posiadają jeszcze żadnego sterownika (Open Loop)</string>
   <string name="description_sensitivity_aaps">Wrażliwość jest obliczana w taki sam sposób, jak algorytm Oref0, ale możliwe jest podanie okresu z przeszłości. Minimalne wchłanianie węglowodanów jest obliczana na podstawie czasu wchłaniania max carb, określonego w ustawieniu.</string>
   <string name="description_sensitivity_oref0">Wrażliwość jest obliczana na podstawie danych z ostatnich 24 godzin, a węglowodany niewchłonięte nie są brane pod uwagę, po czasie określonym w ustawieniach.</string>
-  <string name="configbuilder_loop">Pętla</string>
-  <string name="configbuilder_loop_description">Użyj tego, aby aktywować integrację pętli AndroidAPS.</string>
-  <string name="loop_aps_label">APS</string>
-  <string name="loop_constraintsprocessed_label">Po ograniczeniach</string>
-  <string name="loop_tbrsetbypump_label">Baza tymczasowa ustawiona przez pompę</string>
-  <string name="openapsma_lastenact_label">Ostatnie działanie</string>
   <string name="ok">OK</string>
   <string name="cancel">Anuluj</string>
   <string name="noapsselected">NIE WYBRANO APS LUB NIE UZYSKANO WYNIKU</string>
