@@ -188,7 +188,7 @@
   <string name="careportal_cgmsensorinsert">CGM-Sensor gesetzt</string>
   <string name="careportal_cgmsensorstart">CGM-Sensor Start</string>
   <string name="careportal_insulincartridgechange">Insulinreservoir Wechsel</string>
-  <string name="careportal_profileswitch">Profil Wechsel</string>
+  <string name="careportal_profileswitch">Profilwechsel</string>
   <string name="careportal_snackbolus">Snack Bolus</string>
   <string name="careportal_mealbolus">Mahlzeiten Bolus</string>
   <string name="careportal_correctionbolus">Korrektur Bolus</string>
@@ -197,7 +197,7 @@
   <string name="careportal_tempbasalend">TBR Ende</string>
   <string name="careportal_carbscorrection">Kohlenhydrat Korrektur</string>
   <string name="careportal_openapsoffline">OpenAPS offline</string>
-  <string name="careportal_newnstreatment_eventtype">Ereignis Typ</string>
+  <string name="careportal_newnstreatment_eventtype">Ereignistyp</string>
   <string name="careportal_newnstreatment_other">Anderes</string>
   <string name="careportal_newnstreatment_meter">Messgerät</string>
   <string name="careportal_newnstreatment_sensor">Sensor</string>
@@ -321,9 +321,9 @@
   <string name="objectives_2_gate">Entscheide anhand von dieser Erfahrung, wie hoch max Basal sein sollte, und übernehme den Wert in die Pumpen- und AAPS-Einstellungen.</string>
   <string name="objectives_3_objective">Starte den Closed Loop Modus mit Abschaltung bei niedrigen Werten</string>
   <string name="objectives_3_gate">Erprobe den Closed Loop Modus mit max IOB = 0 für ein paar Tage, ohne zu viele Unterzuckerungen zu haben.</string>
-  <string name="objectives_4_objective">Stelle den Closed Loop fein ein, erhöhe max IOB über 0 und setze den Zielbereich langsam herunter</string>
+  <string name="objectives_4_objective">Stelle den Closed-Loop fein ein, erhöhe Max-IOB über 0 und setze den Zielbereich langsam herunter.</string>
   <string name="objectives_4_gate">Verwende es ein paar Tage und zumindest eine Nacht ohne Niedrig-Alarme (UZ), bevor du den BZ-Zielbereich senkst.</string>
-  <string name="objectives_5_objective">Passe, falls notwendig, Basal und Faktoren an und aktiviere dann die Autosense-Funktion</string>
+  <string name="objectives_5_objective">Passe, falls notwendig, Basal und Faktoren an und aktiviere dann die Autosense-Funktion.</string>
   <string name="objectives_5_gate">Loope eine Woche erfolgreich am Tag mit regelmäßiger Kohlenhydrat-Eingabe.</string>
   <string name="objectives_6_objective">Aktiviere zusätzliche Funktionen wie z. B. den Mahlzeitenassistenten</string>
   <string name="objectives_7_objective">Aktiviere zusätzliche Funktionen wie z. B. SMB</string>
