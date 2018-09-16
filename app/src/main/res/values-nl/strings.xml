@@ -641,8 +641,6 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
   <string name="date">Datum</string>
   <string name="invalid">Ongeldig</string>
   <string name="waitingforpairing">Wachten op koppelen van de pomp</string>
-  <string name="pairingok">Koppeling geslaagd</string>
-  <string name="pairingtimedout">Koppeling verlopen</string>
   <string name="pairing">Koppelen</string>
   <string name="danars_nodeviceavailable">Geen toestel gevonden</string>
   <string name="emptyreservoir">Ampul leeg</string>
