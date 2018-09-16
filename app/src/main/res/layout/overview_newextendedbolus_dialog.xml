@@ -44,7 +44,7 @@
             android:gravity="left"
             android:minWidth="45dp"
             android:paddingLeft="5dp"
-            android:text="U"
+            android:text="@string/insulin_unit_shortname"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
     </LinearLayout>

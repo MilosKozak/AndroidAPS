@@ -159,7 +159,7 @@
                     android:gravity="left"
                     android:minWidth="45dp"
                     android:paddingLeft="5dp"
-                    android:text="U"
+                    android:text="@string/insulin_unit_shortname"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
@@ -339,6 +339,7 @@
                     android:layout_height="40dp" />
 
                 <TextView
+                    android:id="@+id/careportal_newnstreatment_absolute_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
