@@ -5,6 +5,7 @@
   <string name="treatmentssafety_maxbolus_title">Maks. dopuszczalny bolus [U]</string>
   <string name="treatmentssafety_maxcarbs_title">Maks. dopuszczalne węglowodany [g]</string>
   <string name="nav_preferences">Ustawienia</string>
+  <string name="nav_refreshtreatments">Odśwież/pobierz zdarzenia z NS</string>
   <string name="nav_resetdb">Zresetuj bazy danych</string>
   <string name="reset_db_confirm">Na pewno chcesz zresetować bazy danych?</string>
   <string name="nav_exit">Wyjście</string>
@@ -19,6 +20,8 @@
   <string name="description_food">Wyświetla dane posiłków zdefiniowanych w Nightscout</string>
   <string name="description_insulin_rapid">Profil insulinowy dla Humalog i Novorapid / NovoLog</string>
   <string name="description_insulin_ultra_rapid">Profil insulinowy dla Fiasp</string>
+  <string name="description_insulin_free_peak">Pozwala na określenie czasu wartości szczytowej działania insuliny i powinno być używane tylko przez zaawansowanych użytkowników</string>
+  <string name="description_ns_client">Synchronizuje twoje dane z Nightscout</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dzień</item>
     <item quantity="few">%1$d dni</item>
