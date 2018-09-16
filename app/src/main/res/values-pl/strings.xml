@@ -33,6 +33,9 @@
   <string name="description_pump_dana_r_v2">Integracja z pompą DANA R Diabecare z oprogramowaniem v2</string>
   <string name="description_pump_dana_rs">Integracja z pompą DANA RS Diabecare</string>
   <string name="description_pump_insight">Integracja z pompą Accu-Chek Insight, wymaga zainstalowania SightRemote</string>
+  <string name="description_pump_virtual">Integracja z pompami, które nie posiadają jeszcze żadnego sterownika (Open Loop)</string>
+  <string name="description_sensitivity_aaps">Wrażliwość jest obliczana w taki sam sposób, jak algorytm Oref0, ale możliwe jest podanie okresu z przeszłości. Minimalne wchłanianie węglowodanów jest obliczana na podstawie czasu wchłaniania max carb, określonego w ustawieniu.</string>
+  <string name="description_sensitivity_oref0">Wrażliwość jest obliczana na podstawie danych z ostatnich 24 godzin, a węglowodany niewchłonięte nie są brane pod uwagę, po czasie określonym w ustawieniach.</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dzień</item>
     <item quantity="few">%1$d dni</item>
