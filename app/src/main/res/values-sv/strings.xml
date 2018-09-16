@@ -641,6 +641,8 @@
   <string name="date">Datum</string>
   <string name="invalid">OGILTIG</string>
   <string name="waitingforpairing">Väntar på parkoppling med pump</string>
+  <string name="pairingok">Parkopplingen klar</string>
+  <string name="pairingtimedout">Parkopplingen tog för lång tid</string>
   <string name="pairing">PARKOPPLAR</string>
   <string name="danars_nodeviceavailable">Ingen enhet funnen ännu</string>
   <string name="emptyreservoir">Tom reservoar</string>
