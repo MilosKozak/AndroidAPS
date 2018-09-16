@@ -641,8 +641,6 @@
   <string name="date">Data</string>
   <string name="invalid">INVÁLIDO</string>
   <string name="waitingforpairing">Aguardando emparelhamento na bomba</string>
-  <string name="pairingok">Emparelhamento OK</string>
-  <string name="pairingtimedout">Tempo limite emparelhamento</string>
   <string name="pairing">A EMPARELHAR</string>
   <string name="danars_nodeviceavailable">Nenhum dispositivo encontrado até agora</string>
   <string name="emptyreservoir">Reservatório vazio</string>
