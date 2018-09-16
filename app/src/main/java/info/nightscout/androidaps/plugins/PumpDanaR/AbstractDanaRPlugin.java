@@ -447,7 +447,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
             ret += "LastConn: " + agoMin + " minago\n";
         }
         if (pump.lastBolusTime != 0) {
-            ret += "LastBolus: " + DecimalFormatter.to2Decimal(pump.lastBolusAmount) + "U @" + android.text.format.DateFormat.format("HH:mm", pump.lastBolusTime) + "\n";
+            ret += "LastBolus: " + DecimalFormatter.to2Decimal(pump.lastBolusAmount) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " @" + android.text.format.DateFormat.format("HH:mm", pump.lastBolusTime) + "\n";
         }
         TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getRealTempBasalFromHistory(System.currentTimeMillis());
         if (activeTemp != null) {
@@ -458,10 +458,10 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
             ret += "Extended: " + activeExtendedBolus.toString() + "\n";
         }
         if (!veryShort) {
-            ret += "TDD: " + DecimalFormatter.to0Decimal(pump.dailyTotalUnits) + " / " + pump.maxDailyTotalUnits + " U\n";
+            ret += "TDD: " + DecimalFormatter.to0Decimal(pump.dailyTotalUnits) + " / " + pump.maxDailyTotalUnits + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
         }
-        ret += "IOB: " + pump.iob + "U\n";
-        ret += "Reserv: " + DecimalFormatter.to0Decimal(pump.reservoirRemainingUnits) + "U\n";
+        ret += "IOB: " + pump.iob + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
+        ret += "Reserv: " + DecimalFormatter.to0Decimal(pump.reservoirRemainingUnits) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
         ret += "Batt: " + pump.batteryRemaining + "\n";
         return ret;
     }

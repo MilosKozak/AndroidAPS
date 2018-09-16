@@ -89,7 +89,7 @@ public class VirtualPumpFragment extends SubscriberFragment {
                 @Override
                 public void run() {
                     VirtualPumpPlugin virtualPump = VirtualPumpPlugin.getPlugin();
-                    basaBasalRateView.setText(virtualPump.getBaseBasalRate() + "U");
+                    basaBasalRateView.setText(virtualPump.getBaseBasalRate() + " " + MainApp.gs(R.string.insulin_unit_shortname));
                     TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(System.currentTimeMillis());
                     if (activeTemp != null) {
                         tempBasalView.setText(activeTemp.toStringFull());
@@ -102,8 +102,8 @@ public class VirtualPumpFragment extends SubscriberFragment {
                     } else {
                         extendedBolusView.setText("");
                     }
-                    batteryView.setText(virtualPump.batteryPercent + "%");
-                    reservoirView.setText(virtualPump.reservoirInUnits + "U");
+                    batteryView.setText(virtualPump.batteryPercent + " %");
+                    reservoirView.setText(virtualPump.reservoirInUnits + " " + MainApp.gs(R.string.insulin_unit_shortname));
 
                     virtualPump.refreshConfiguration();
 

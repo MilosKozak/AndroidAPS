@@ -83,6 +83,7 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
 
     TextView dateButton;
     TextView timeButton;
+    TextView absoluteUnit;
 
     TextView bgUnitsView;
     RadioButton meterRadioButton;
@@ -144,6 +145,8 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
 
         layoutPercent = (LinearLayout) view.findViewById(R.id.careportal_newnstreatment_percent_layout);
         layoutAbsolute = (LinearLayout) view.findViewById(R.id.careportal_newnstreatment_absolute_layout);
+        absoluteUnit = (TextView) view.findViewById(R.id.careportal_newnstreatment_absolute_unit);
+        absoluteUnit.setText(MainApp.gs(R.string.insulin_unit_shortname) + "/h");
 
         layoutReuse = (LinearLayout) view.findViewById(R.id.careportal_newnstreatment_reuse_layout);
 
@@ -631,7 +634,7 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
             ret += MainApp.gs(R.string.careportal_newnstreatment_insulin_label);
             ret += ": ";
             ret += JsonHelper.safeGetObject(data, "insulin", "");
-            ret += " U\n";
+            ret += " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
         }
         if (data.has("duration")) {
             ret += MainApp.gs(R.string.careportal_newnstreatment_duration_label);
@@ -649,7 +652,7 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
             ret += MainApp.gs(R.string.careportal_newnstreatment_absolute_label);
             ret += ": ";
             ret += JsonHelper.safeGetObject(data, "absolute", "");
-            ret += " U/h\n";
+            ret += " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h\n";
         }
         if (data.has("preBolus")) {
             ret += MainApp.gs(R.string.careportal_newnstreatment_carbtime_label);

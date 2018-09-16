@@ -252,9 +252,9 @@ public class DanaRHistoryActivity extends Activity {
                     holder.alarm.setVisibility(View.GONE);
                     break;
                 case RecordTypes.RECORD_TYPE_DAILY:
-                    holder.dailybasal.setText(DecimalFormatter.to2Decimal(record.recordDailyBasal) + "U");
-                    holder.dailybolus.setText(DecimalFormatter.to2Decimal(record.recordDailyBolus) + "U");
-                    holder.dailytotal.setText(DecimalFormatter.to2Decimal(record.recordDailyBolus + record.recordDailyBasal) + "U");
+                    holder.dailybasal.setText(DecimalFormatter.to2Decimal(record.recordDailyBasal) + " " + MainApp.gs(R.string.insulin_unit_shortname));
+                    holder.dailybolus.setText(DecimalFormatter.to2Decimal(record.recordDailyBolus) + " " + MainApp.gs(R.string.insulin_unit_shortname));
+                    holder.dailytotal.setText(DecimalFormatter.to2Decimal(record.recordDailyBolus + record.recordDailyBasal) + " " + MainApp.gs(R.string.insulin_unit_shortname));
                     holder.time.setText(DateUtil.dateString(record.recordDate));
                     holder.time.setVisibility(View.VISIBLE);
                     holder.value.setVisibility(View.GONE);

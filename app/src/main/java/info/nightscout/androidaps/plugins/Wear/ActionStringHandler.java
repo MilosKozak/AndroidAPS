@@ -102,7 +102,7 @@ public class ActionStringHandler {
                 return;
             }
             Double insulinAfterConstraints = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(amount)).value();
-            rMessage += MainApp.gs(R.string.primefill) + ": " + insulinAfterConstraints + "U";
+            rMessage += MainApp.gs(R.string.primefill) + ": " + insulinAfterConstraints + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (insulinAfterConstraints - amount != 0)
                 rMessage += "\n" + MainApp.gs(R.string.constraintapllied);
 
@@ -113,7 +113,7 @@ public class ActionStringHandler {
             double amount = SafeParse.stringToDouble(act[1]);
 
             Double insulinAfterConstraints = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(amount)).value();
-            rMessage += MainApp.gs(R.string.primefill) + ": " + insulinAfterConstraints + "U";
+            rMessage += MainApp.gs(R.string.primefill) + ": " + insulinAfterConstraints + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (insulinAfterConstraints - amount != 0)
                 rMessage += "\n" + MainApp.gs(R.string.constraintapllied);
 
@@ -125,8 +125,8 @@ public class ActionStringHandler {
             int carbs = SafeParse.stringToInt(act[2]);
             Double insulinAfterConstraints = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(insulin)).value();
             Integer carbsAfterConstraints = MainApp.getConstraintChecker().applyCarbsConstraints(new Constraint<>(carbs)).value();
-            rMessage += MainApp.gs(R.string.bolus) + ": " + insulinAfterConstraints + "U\n";
-            rMessage += MainApp.gs(R.string.carbs) + ": " + carbsAfterConstraints + "g";
+            rMessage += MainApp.gs(R.string.bolus) + ": " + insulinAfterConstraints + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
+            rMessage += MainApp.gs(R.string.carbs) + ": " + carbsAfterConstraints + " g";
 
             if ((insulinAfterConstraints - insulin != 0) || (carbsAfterConstraints - carbs != 0)) {
                 rMessage += "\n" + MainApp.gs(R.string.constraintapllied);
@@ -250,21 +250,21 @@ public class ActionStringHandler {
                 rAction = actionstring;
             }
             rMessage += "Carbs: " + bolusWizard.carbs + "g";
-            rMessage += "\nBolus: " + format.format(bolusWizard.calculatedTotalInsulin) + "U";
+            rMessage += "\nBolus: " + format.format(bolusWizard.calculatedTotalInsulin) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             rMessage += "\n_____________";
             rMessage += "\nCalc (IC:" + DecimalFormatter.to1Decimal(bolusWizard.ic) + ", " + "ISF:" + DecimalFormatter.to1Decimal(bolusWizard.sens) + "): ";
-            rMessage += "\nFrom Carbs: " + format.format(bolusWizard.insulinFromCarbs) + "U";
+            rMessage += "\nFrom Carbs: " + format.format(bolusWizard.insulinFromCarbs) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (useCOB)
-                rMessage += "\nFrom" + formatInt.format(cobInfo.displayCob) + "g COB : " + format.format(bolusWizard.insulinFromCOB) + "U";
-            if (useBG) rMessage += "\nFrom BG: " + format.format(bolusWizard.insulinFromBG) + "U";
+                rMessage += "\nFrom" + formatInt.format(cobInfo.displayCob) + "g COB : " + format.format(bolusWizard.insulinFromCOB) + " " + MainApp.gs(R.string.insulin_unit_shortname);
+            if (useBG) rMessage += "\nFrom BG: " + format.format(bolusWizard.insulinFromBG) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (useBolusIOB)
-                rMessage += "\nBolus IOB: " + format.format(bolusWizard.insulingFromBolusIOB) + "U";
+                rMessage += "\nBolus IOB: " + format.format(bolusWizard.insulingFromBolusIOB) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (useBasalIOB)
-                rMessage += "\nBasal IOB: " + format.format(bolusWizard.insulingFromBasalsIOB) + "U";
+                rMessage += "\nBasal IOB: " + format.format(bolusWizard.insulingFromBasalsIOB) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (useTrend)
-                rMessage += "\nFrom 15' trend: " + format.format(bolusWizard.insulinFromTrend) + "U";
+                rMessage += "\nFrom 15' trend: " + format.format(bolusWizard.insulinFromTrend) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             if (percentage != 100) {
-                rMessage += "\nPercentage: " + format.format(bolusWizard.totalBeforePercentageAdjustment) + "U * " + percentage + "% -> ~" + format.format(bolusWizard.calculatedTotalInsulin) + "U";
+                rMessage += "\nPercentage: " + format.format(bolusWizard.totalBeforePercentageAdjustment) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " * " + percentage + "% -> ~" + format.format(bolusWizard.calculatedTotalInsulin) + " " + MainApp.gs(R.string.insulin_unit_shortname);
             }
 
             lastBolusWizard = bolusWizard;
@@ -402,11 +402,11 @@ public class ActionStringHandler {
         if (df.format(new Date(historyList.get(0).date)).equals(df.format(new Date()))) {
             double tdd = historyList.get(0).getTotal();
             historyList.remove(0);
-            message += "Today: " + DecimalFormatter.to2Decimal(tdd) + "U " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + "\n";
+            message += "Today: " + DecimalFormatter.to2Decimal(tdd) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + "\n";
             message += "\n";
         } else if (pump != null && pump instanceof DanaRPlugin) {
             double tdd = DanaRPump.getInstance().dailyTotalUnits;
-            message += "Today: " + DecimalFormatter.to2Decimal(tdd) + "U " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + "\n";
+            message += "Today: " + DecimalFormatter.to2Decimal(tdd) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + "\n";
             message += "\n";
         }
 
@@ -432,16 +432,16 @@ public class ActionStringHandler {
             i++;
         }
         message += "weighted:\n";
-        message += "0.3: " + DecimalFormatter.to2Decimal(weighted03) + "U " + (DecimalFormatter.to0Decimal(100 * weighted03 / refTDD) + "%") + "\n";
-        message += "0.5: " + DecimalFormatter.to2Decimal(weighted05) + "U " + (DecimalFormatter.to0Decimal(100 * weighted05 / refTDD) + "%") + "\n";
-        message += "0.7: " + DecimalFormatter.to2Decimal(weighted07) + "U " + (DecimalFormatter.to0Decimal(100 * weighted07 / refTDD) + "%") + "\n";
+        message += "0.3: " + DecimalFormatter.to2Decimal(weighted03) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " " + (DecimalFormatter.to0Decimal(100 * weighted03 / refTDD) + "%") + "\n";
+        message += "0.5: " + DecimalFormatter.to2Decimal(weighted05) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " " + (DecimalFormatter.to0Decimal(100 * weighted05 / refTDD) + "%") + "\n";
+        message += "0.7: " + DecimalFormatter.to2Decimal(weighted07) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " " + (DecimalFormatter.to0Decimal(100 * weighted07 / refTDD) + "%") + "\n";
         message += "\n";
         Collections.reverse(historyList);
 
         //add TDDs:
         for (TDD record : historyList) {
             double tdd = record.getTotal();
-            message += df.format(new Date(record.date)) + " " + DecimalFormatter.to2Decimal(tdd) + "U " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + (dummies.contains(record) ? "x" : "") + "\n";
+            message += df.format(new Date(record.date)) + " " + DecimalFormatter.to2Decimal(tdd) + " " + MainApp.gs(R.string.insulin_unit_shortname) + " " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + (dummies.contains(record) ? "x" : "") + "\n";
         }
         return message;
     }
@@ -582,6 +582,8 @@ public class ActionStringHandler {
             ret += MainApp.gs(R.string.canceltemp) + "\n";
         } else {
             ret += MainApp.gs(R.string.rate) + ": " + DecimalFormatter.to2Decimal(result.rate) + " U/h " +
+                    "(" + DecimalFormatter.to2Decimal(result.rate / ConfigBuilderPlugin.getPlugin().getActivePump().getBaseBasalRate() * 100) + "%)\n" +
+            ret += MainApp.gs(R.string.rate) + ": " + DecimalFormatter.to2Decimal(result.rate) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h " +
                     "(" + DecimalFormatter.to2Decimal(result.rate / ConfigBuilderPlugin.getPlugin().getActivePump().getBaseBasalRate() * 100) + "%)\n" +
                     MainApp.gs(R.string.duration) + ": " + DecimalFormatter.to0Decimal(result.duration) + " min\n";
         }

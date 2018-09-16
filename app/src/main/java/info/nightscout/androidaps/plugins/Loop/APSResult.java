@@ -96,16 +96,16 @@ public class APSResult {
                 ret = MainApp.gs(R.string.let_temp_basal_run) + "\n";
             else if (usePercent)
                 ret = MainApp.gs(R.string.rate) + ": " + DecimalFormatter.to2Decimal(percent) + "% " +
-                        "(" + DecimalFormatter.to2Decimal(percent * pump.getBaseBasalRate() / 100d) + " U/h)\n" +
+                        "(" + DecimalFormatter.to2Decimal(percent * pump.getBaseBasalRate() / 100d) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h)\n" +
                         MainApp.gs(R.string.duration) + ": " + DecimalFormatter.to2Decimal(duration) + " min\n";
             else
-                ret = MainApp.gs(R.string.rate) + ": " + DecimalFormatter.to2Decimal(rate) + " U/h " +
+                ret = MainApp.gs(R.string.rate) + ": " + DecimalFormatter.to2Decimal(rate) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h " +
                         "(" + DecimalFormatter.to2Decimal(rate / pump.getBaseBasalRate() * 100) + "%) \n" +
                         MainApp.gs(R.string.duration) + ": " + DecimalFormatter.to2Decimal(duration) + " min\n";
 
             // smb
             if (smb != 0)
-                ret += ("SMB: " + DecimalFormatter.toPumpSupportedBolus(smb) + " U\n");
+                ret += ("SMB: " + DecimalFormatter.toPumpSupportedBolus(smb) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n");
 
             // reason
             ret += MainApp.gs(R.string.reason) + ": " + reason;
@@ -125,16 +125,16 @@ public class APSResult {
                 ret = MainApp.gs(R.string.let_temp_basal_run) + "<br>";
             else if (usePercent)
                 ret = "<b>" + MainApp.gs(R.string.rate) + "</b>: " + DecimalFormatter.to2Decimal(percent) + "% " +
-                        "(" + DecimalFormatter.to2Decimal(percent * pump.getBaseBasalRate() / 100d) + " U/h)<br>" +
+                        "(" + DecimalFormatter.to2Decimal(percent * pump.getBaseBasalRate() / 100d) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h)<br>" +
                         "<b>" + MainApp.gs(R.string.duration) + "</b>: " + DecimalFormatter.to2Decimal(duration) + " min<br>";
             else
-                ret = "<b>" + MainApp.gs(R.string.rate) + "</b>: " + DecimalFormatter.to2Decimal(rate) + " U/h " +
+                ret = "<b>" + MainApp.gs(R.string.rate) + "</b>: " + DecimalFormatter.to2Decimal(rate) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h " +
                         "(" + DecimalFormatter.to2Decimal(rate / pump.getBaseBasalRate() * 100d) + "%) <br>" +
                         "<b>" + MainApp.gs(R.string.duration) + "</b>: " + DecimalFormatter.to2Decimal(duration) + " min<br>";
 
             // smb
             if (smb != 0)
-                ret += ("<b>" + "SMB" + "</b>: " + DecimalFormatter.toPumpSupportedBolus(smb) + " U<br>");
+                ret += ("<b>" + "SMB" + "</b>: " + DecimalFormatter.toPumpSupportedBolus(smb) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "<br>");
 
             // reason
             ret += "<b>" + MainApp.gs(R.string.reason) + "</b>: " + reason.replace("<", "&lt;").replace(">", "&gt;");

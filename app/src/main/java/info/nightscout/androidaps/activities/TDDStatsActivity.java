@@ -365,19 +365,19 @@ public class TDDStatsActivity extends Activity {
 
                     TextView labelBASAL = new TextView(TDDStatsActivity.this);
                     labelBASAL.setId(300 + i);
-                    labelBASAL.setText(DecimalFormatter.to2Decimal(record.basal) + " U");
+                    labelBASAL.setText(DecimalFormatter.to2Decimal(record.basal) + " " + MainApp.gs(R.string.insulin_unit_shortname));
                     labelBASAL.setTextColor(Color.WHITE);
                     tr.addView(labelBASAL);
 
                     TextView labelBOLUS = new TextView(TDDStatsActivity.this);
                     labelBOLUS.setId(400 + i);
-                    labelBOLUS.setText(DecimalFormatter.to2Decimal(record.bolus) + " U");
+                    labelBOLUS.setText(DecimalFormatter.to2Decimal(record.bolus) + " " + MainApp.gs(R.string.insulin_unit_shortname));
                     labelBOLUS.setTextColor(Color.WHITE);
                     tr.addView(labelBOLUS);
 
                     TextView labelTDD = new TextView(TDDStatsActivity.this);
                     labelTDD.setId(500 + i);
-                    labelTDD.setText(DecimalFormatter.to2Decimal(tdd) + " U");
+                    labelTDD.setText(DecimalFormatter.to2Decimal(tdd) + " " + MainApp.gs(R.string.insulin_unit_shortname));
                     labelTDD.setTextColor(Color.WHITE);
                     tr.addView(labelTDD);
 
@@ -424,7 +424,7 @@ public class TDDStatsActivity extends Activity {
 
                     TextView labelCUMTDD = new TextView(TDDStatsActivity.this);
                     labelCUMTDD.setId(900 + i);
-                    labelCUMTDD.setText(DecimalFormatter.to2Decimal(sum / i) + " U");
+                    labelCUMTDD.setText(DecimalFormatter.to2Decimal(sum / i) + " " + MainApp.gs(R.string.insulin_unit_shortname));
                     labelCUMTDD.setTextColor(Color.WHITE);
                     ctr.addView(labelCUMTDD);
 
@@ -490,8 +490,8 @@ public class TDDStatsActivity extends Activity {
                 TextView labelEXPTDD = new TextView(TDDStatsActivity.this);
                 labelEXPTDD.setId(1300 + i);
                 labelEXPTDD.setText(DecimalFormatter.to2Decimal(weighted03)
-                        + " U\n" + DecimalFormatter.to2Decimal(weighted05)
-                        + " U\n" + DecimalFormatter.to2Decimal(weighted07) + " U");
+                        + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n" + DecimalFormatter.to2Decimal(weighted05)
+                        + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n" + DecimalFormatter.to2Decimal(weighted07) + " " + MainApp.gs(R.string.insulin_unit_shortname));
                 labelEXPTDD.setTextColor(Color.WHITE);
                 etr.addView(labelEXPTDD);
 

@@ -75,12 +75,12 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
                     holder.date.setText(DateUtil.dateAndTimeString(extendedBolus.date) + " - " + DateUtil.timeString(extendedBolus.end()));
                 }
                 holder.duration.setText(DecimalFormatter.to0Decimal(extendedBolus.durationInMinutes) + " min");
-                holder.insulin.setText(DecimalFormatter.toPumpSupportedBolus(extendedBolus.insulin) + " U");
+                holder.insulin.setText(DecimalFormatter.toPumpSupportedBolus(extendedBolus.insulin) + " " + MainApp.gs(R.string.insulin_unit_shortname));
                 holder.realDuration.setText(DecimalFormatter.to0Decimal(extendedBolus.getRealDuration()) + " min");
                 IobTotal iob = extendedBolus.iobCalc(System.currentTimeMillis());
-                holder.iob.setText(DecimalFormatter.to2Decimal(iob.iob) + " U");
-                holder.insulinSoFar.setText(DecimalFormatter.to2Decimal(extendedBolus.insulinSoFar()) + " U");
-                holder.ratio.setText(DecimalFormatter.to2Decimal(extendedBolus.absoluteRate()) + " U/h");
+                holder.iob.setText(DecimalFormatter.to2Decimal(iob.iob) + " " + MainApp.gs(R.string.insulin_unit_shortname));
+                holder.insulinSoFar.setText(DecimalFormatter.to2Decimal(extendedBolus.insulinSoFar()) + " " + MainApp.gs(R.string.insulin_unit_shortname));
+                holder.ratio.setText(DecimalFormatter.to2Decimal(extendedBolus.absoluteRate()) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h");
                 if (extendedBolus.isInProgress())
                     holder.date.setTextColor(ContextCompat.getColor(MainApp.instance(), R.color.colorActive));
                 else

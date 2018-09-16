@@ -126,7 +126,7 @@ public class PumpEnactResult {
                 if (!comment.isEmpty())
                     ret += "\n" + MainApp.gs(R.string.comment) + ": " + comment;
                 ret += "\n" + MainApp.gs(R.string.duration) + ": " + duration + " min";
-                ret += "\n" + MainApp.gs(R.string.absolute) + ": " + absolute + " U/h";
+                ret += "\n" + MainApp.gs(R.string.absolute) + ": " + absolute + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h";
             }
         } else {
             ret += "\n" + MainApp.gs(R.string.comment) + ": " + comment;
@@ -159,7 +159,7 @@ public class PumpEnactResult {
                 if (!comment.isEmpty())
                     ret += "<br><b>" + MainApp.gs(R.string.comment) + "</b>: " + comment;
                 ret += "<br><b>" + MainApp.gs(R.string.duration) + "</b>: " + duration + " min";
-                ret += "<br><b>" + MainApp.gs(R.string.absolute) + "</b>: " + DecimalFormatter.to2Decimal(absolute) + " U/h";
+                ret += "<br><b>" + MainApp.gs(R.string.absolute) + "</b>: " + DecimalFormatter.to2Decimal(absolute) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h";
             }
         } else {
             ret += "<br><b>" + MainApp.gs(R.string.comment) + "</b>: " + comment;

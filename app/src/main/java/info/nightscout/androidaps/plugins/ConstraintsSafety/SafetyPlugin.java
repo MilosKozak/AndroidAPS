@@ -144,7 +144,7 @@ public class SafetyPlugin extends PluginBase implements ConstraintsInterface {
         Double currentBasal = profile.getBasal();
         Double absoluteRate = currentBasal * ((double) percentRate.originalValue() / 100);
 
-        percentRate.addReason("Percent rate " + percentRate.originalValue() + "% recalculated to " + DecimalFormatter.to2Decimal(absoluteRate) + " U/h with current basal " + DecimalFormatter.to2Decimal(currentBasal) + " U/h", this);
+        percentRate.addReason("Percent rate " + percentRate.originalValue() + "% recalculated to " + DecimalFormatter.to2Decimal(absoluteRate) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h with current basal " + DecimalFormatter.to2Decimal(currentBasal) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h", this);
 
         Constraint<Double> absoluteConstraint = new Constraint<>(absoluteRate);
         applyBasalConstraints(absoluteConstraint, profile);

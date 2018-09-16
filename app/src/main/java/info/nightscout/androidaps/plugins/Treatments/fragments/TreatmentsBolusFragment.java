@@ -79,10 +79,10 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
                 return;
             Treatment t = treatments.get(position);
             holder.date.setText(DateUtil.dateAndTimeString(t.date));
-            holder.insulin.setText(DecimalFormatter.toPumpSupportedBolus(t.insulin) + " U");
+            holder.insulin.setText(DecimalFormatter.toPumpSupportedBolus(t.insulin) + " " + MainApp.gs(R.string.insulin_unit_shortname));
             holder.carbs.setText(DecimalFormatter.to0Decimal(t.carbs) + " g");
             Iob iob = t.iobCalc(System.currentTimeMillis(), profile.getDia());
-            holder.iob.setText(DecimalFormatter.to2Decimal(iob.iobContrib) + " U");
+            holder.iob.setText(DecimalFormatter.to2Decimal(iob.iobContrib) + " " + MainApp.gs(R.string.insulin_unit_shortname));
             holder.mealOrCorrection.setText(t.isSMB ? "SMB" : t.mealBolus ? MainApp.gs(R.string.mealbolus) : MainApp.gs(R.string.correctionbous));
             holder.ph.setVisibility(t.source == Source.PUMP ? View.VISIBLE : View.GONE);
             holder.ns.setVisibility(NSUpload.isIdValid(t._id) ? View.VISIBLE : View.GONE);

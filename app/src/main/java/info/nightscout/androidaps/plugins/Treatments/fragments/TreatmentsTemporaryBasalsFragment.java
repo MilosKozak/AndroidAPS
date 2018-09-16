@@ -87,7 +87,7 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
                 if (tempBasal.isAbsolute) {
                     Profile profile = ProfileFunctions.getInstance().getProfile(tempBasal.date);
                     if (profile != null) {
-                        holder.absolute.setText(DecimalFormatter.to0Decimal(tempBasal.tempBasalConvertedToAbsolute(tempBasal.date, profile), " U/h"));
+                        holder.absolute.setText(DecimalFormatter.to0Decimal(tempBasal.tempBasalConvertedToAbsolute(tempBasal.date, profile), " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h"));
                         holder.percent.setText("");
                     } else {
                         holder.absolute.setText(MainApp.gs(R.string.noprofile));
@@ -103,9 +103,9 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
                 Profile profile = ProfileFunctions.getInstance().getProfile(now);
                 if (profile != null)
                     iob = tempBasal.iobCalc(now, profile);
-                holder.iob.setText(DecimalFormatter.to2Decimal(iob.basaliob, " U"));
-                holder.netInsulin.setText(DecimalFormatter.to2Decimal(iob.netInsulin, " U"));
-                holder.netRatio.setText(DecimalFormatter.to2Decimal(iob.netRatio, " U/h"));
+                holder.iob.setText(DecimalFormatter.to2Decimal(iob.basaliob, " " + MainApp.gs(R.string.insulin_unit_shortname)));
+                holder.netInsulin.setText(DecimalFormatter.to2Decimal(iob.netInsulin, " " + MainApp.gs(R.string.insulin_unit_shortname)));
+                holder.netRatio.setText(DecimalFormatter.to2Decimal(iob.netRatio, " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h"));
                 holder.extendedFlag.setVisibility(View.GONE);
                 if (iob.basaliob != 0)
                     holder.iob.setTextColor(ContextCompat.getColor(MainApp.instance(), R.color.colorActive));
@@ -224,7 +224,7 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
                 recyclerView.swapAdapter(new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getTemporaryBasalsFromHistory()), false);
                 IobTotal tempBasalsCalculation = TreatmentsPlugin.getPlugin().getLastCalculationTempBasals();
                 if (tempBasalsCalculation != null)
-                    tempBasalTotalView.setText(DecimalFormatter.to2Decimal(tempBasalsCalculation.basaliob, " U"));
+                    tempBasalTotalView.setText(DecimalFormatter.to2Decimal(tempBasalsCalculation.basaliob, " " + MainApp.gs(R.string.insulin_unit_shortname)));
             });
     }
 

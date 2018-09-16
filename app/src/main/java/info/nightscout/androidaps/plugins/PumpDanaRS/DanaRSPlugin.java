@@ -788,10 +788,10 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
             ret += "Extended: " + activeExtendedBolus.toString() + "\n";
         }
         if (!veryShort) {
-            ret += "TDD: " + DecimalFormatter.to0Decimal(pump.dailyTotalUnits) + " / " + pump.maxDailyTotalUnits + " U\n";
+            ret += "TDD: " + DecimalFormatter.to0Decimal(pump.dailyTotalUnits) + " / " + pump.maxDailyTotalUnits + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
         }
-        ret += "IOB: " + pump.iob + "U\n";
-        ret += "Reserv: " + DecimalFormatter.to0Decimal(pump.reservoirRemainingUnits) + "U\n";
+        ret += "IOB: " + pump.iob + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
+        ret += "Reserv: " + DecimalFormatter.to0Decimal(pump.reservoirRemainingUnits) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "\n";
         ret += "Batt: " + pump.batteryRemaining + "\n";
         return ret;
     }

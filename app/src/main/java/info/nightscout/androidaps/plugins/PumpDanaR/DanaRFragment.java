@@ -222,13 +222,13 @@ public class DanaRFragment extends SubscriberFragment {
                         Long agoMsec = System.currentTimeMillis() - pump.lastBolusTime;
                         double agoHours = agoMsec / 60d / 60d / 1000d;
                         if (agoHours < 6) // max 6h back
-                            lastBolusView.setText(DateUtil.timeString(pump.lastBolusTime) + " " + DateUtil.sinceString(pump.lastBolusTime) + " " + DecimalFormatter.to2Decimal(DanaRPump.getInstance().lastBolusAmount) + " U");
+                            lastBolusView.setText(DateUtil.timeString(pump.lastBolusTime) + " " + DateUtil.sinceString(pump.lastBolusTime) + " " + DecimalFormatter.to2Decimal(DanaRPump.getInstance().lastBolusAmount) + " " + MainApp.gs(R.string.insulin_unit_shortname));
                         else lastBolusView.setText("");
                     }
 
-                    dailyUnitsView.setText(DecimalFormatter.to0Decimal(pump.dailyTotalUnits) + " / " + pump.maxDailyTotalUnits + " U");
+                    dailyUnitsView.setText(DecimalFormatter.to0Decimal(pump.dailyTotalUnits) + " / " + pump.maxDailyTotalUnits + " " + MainApp.gs(R.string.insulin_unit_shortname));
                     SetWarnColor.setColor(dailyUnitsView, pump.dailyTotalUnits, pump.maxDailyTotalUnits * 0.75d, pump.maxDailyTotalUnits * 0.9d);
-                    basaBasalRateView.setText("( " + (pump.activeProfile + 1) + " )  " + DecimalFormatter.to2Decimal(ConfigBuilderPlugin.getPlugin().getActivePump().getBaseBasalRate()) + " U/h");
+                    basaBasalRateView.setText("( " + (pump.activeProfile + 1) + " )  " + DecimalFormatter.to2Decimal(ConfigBuilderPlugin.getPlugin().getActivePump().getBaseBasalRate()) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h");
                     // DanaRPlugin, DanaRKoreanPlugin
                     if (ConfigBuilderPlugin.getPlugin().getActivePump().isFakingTempsByExtendedBoluses()) {
                         if (TreatmentsPlugin.getPlugin().isInHistoryRealTempBasalInProgress()) {
@@ -251,11 +251,11 @@ public class DanaRFragment extends SubscriberFragment {
                     } else {
                         extendedBolusView.setText("");
                     }
-                    reservoirView.setText(DecimalFormatter.to0Decimal(pump.reservoirRemainingUnits) + " / 300 U");
+                    reservoirView.setText(DecimalFormatter.to0Decimal(pump.reservoirRemainingUnits) + " / 300 " + MainApp.gs(R.string.insulin_unit_shortname));
                     SetWarnColor.setColorInverse(reservoirView, pump.reservoirRemainingUnits, 50d, 20d);
                     batteryView.setText("{fa-battery-" + (pump.batteryRemaining / 25) + "}");
                     SetWarnColor.setColorInverse(batteryView, pump.batteryRemaining, 51d, 26d);
-                    iobView.setText(pump.iob + " U");
+                    iobView.setText(pump.iob + " " + MainApp.gs(R.string.insulin_unit_shortname));
                     if (pump.model != 0 || pump.protocol != 0 || pump.productCode != 0) {
                         firmwareView.setText(String.format(MainApp.gs(R.string.danar_model), pump.model, pump.protocol, pump.productCode));
                     } else {

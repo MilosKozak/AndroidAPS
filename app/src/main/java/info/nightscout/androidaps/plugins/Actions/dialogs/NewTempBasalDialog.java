@@ -134,7 +134,7 @@ public class NewTempBasalDialog extends DialogFragment implements View.OnClickLi
                     } else {
                         Double basalAbsoluteInput = SafeParse.stringToDouble(basalAbsolute.getText());
                         absolute = MainApp.getConstraintChecker().applyBasalConstraints(new Constraint<>(basalAbsoluteInput), profile).value();
-                        confirmMessage += "\n" + absolute + " U/h ";
+                        confirmMessage += "\n" + absolute + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h ";
                         confirmMessage += "\n" + MainApp.gs(R.string.duration) + " " + durationInMinutes + "min ?";
                         if (Math.abs(absolute - basalAbsoluteInput) > 0.01d)
                             confirmMessage += "\n" + MainApp.gs(R.string.constraintapllied);
