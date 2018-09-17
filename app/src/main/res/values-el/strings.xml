@@ -239,4 +239,15 @@
   <string name="danar_disableeasymode">Απενεργοποιήστε την λειτουργία EasyUI στην αντλία</string>
   <string name="danar_enableextendedbolus">Ενεργοποιήστε εκτεταμμένο bolus στην αντλία</string>
   <string name="danar_switchtouhmode">Αλλάξτε την επιλογή από U/d σε U/h στην αντλία</string>
+  <string name="basalvaluebelowminimum">Τιμή βασικού κάτω από το ελάχιστο. Δεν έχει ρυθμιστεί το προφίλ!</string>
+  <string name="sms_actualbg">BG:</string>
+  <string name="sms_lastbg">Τελευταία BG:</string>
+  <string name="ongoingnotificaction">Συνεχής Ειδοποίηση</string>
+  <string name="old_data">Παλιά Δεδομένα</string>
+  <string name="localprofile">Τοπικό Προφίλ</string>
+  <string name="short_avgdelta">Βραχυπρόθεσμος Μέσος Όρος</string>
+  <string name="openapsma_autosensdata_label">Δεδομένα Autosens</string>
+  <string name="always_use_shortavg_summary">Χρήσιμο όταν δεδομένα από μη φιλτραρισμένες πηγές όπως το xDrip αποκτούν θόρυβο.</string>
+  <string name="advancedsettings_title">Ρυθμίσεις για Προχωρημένους</string>
+  <string name="profile">Προφίλ</string>
 </resources>
