@@ -475,6 +475,15 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="configbuilder_insulin">Insuline</string>
   <string name="iob">IA</string>
   <string name="cob">GA</string>
+  <string name="pump_lastconnection_label">Dernière connexion</string>
+  <string name="danar_bluetooth_status">État Bluetooth</string>
+  <string name="smscommunicator_missingsmspermission">Autorisation SMS manquante</string>
+  <string name="xdripstatus">Barre d\'état pour xDrip (Montre)</string>
+  <string name="ns_noupload_summary">Toutes les données envoyées à NS sont abandonnées. AAPS est connecté à NS mais aucun changement n’est fait dans NS</string>
+  <string name="basal_step">Incrément Basal</string>
+  <string name="bolus_step">Incrément Bolus</string>
+  <string name="extendedbolus">Bolus étendu</string>
+  <string name="overview_extendedbolus_cancel_button">Annuler Bolus étendu</string>
   <string name="ns_alarmoptions">Options d\'alarme</string>
   <string name="openaps">OpenAPS</string>
   <string name="sensitivityaaps">Sensibilité AAPS </string>
