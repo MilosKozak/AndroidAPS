@@ -451,6 +451,7 @@
   <string name="value_unavailable_short">n/a</string>
   <string name="virtualpump_type">Pompa wirtualna</string>
   <string name="virtualpump_definition">Definicja Pompy</string>
+  <string name="virtualpump_pump_def">Bolus: Krok =%1$s\nBolus Przedłużony: [krok =%2$s, czas trwania =%3$smin -%4$sh] \nBasal: krok =%5$s\nTBR: %6$s (przez %7$s), czas trwania =%8$smin -%9$sh\n%10$s</string>
   <string name="danar_beep">Dźwięk po przyciśnięciu przycisku</string>
   <string name="danar_pumpalarm">Alarm</string>
   <string name="danar_pumpalarm_sound">Dźwięk</string>
