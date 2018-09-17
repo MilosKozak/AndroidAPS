@@ -50,7 +50,7 @@
   <string name="description_source_xdrip">Recevoir les glycémies depuis xDrip.</string>
   <string name="description_treatments">Enregistre tous les traitements qui ont été effectués</string>
   <string name="description_wear">Surveillez et contrôlez AndroidAPS en utilisant votre montre WearOS.</string>
-  <string name="description_xdrip_status_line">Afficher les informations de votre Boucle sur votre xDrip+ watchface.</string>
+  <string name="description_xdrip_status_line">Afficher les informations de votre Boucle sur votre écran de montre xDrip+.</string>
   <string name="description_sms_communicator">Commander à distance AndroidAPS en utilisant les commandes SMS.</string>
   <string name="objectives_button_start">Démarrer</string>
   <string name="objectives_button_verify">Vérifier</string>
