@@ -933,6 +933,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_pumpalarm_sound">Son</string>
   <string name="danar_pumpalarm_vibrate">Vibration</string>
   <string name="danar_pumpalarm_both">Les deux</string>
+  <string name="danar_screentimeout">Durée allumage écran [s]</string>
   <string name="danar_backlight">Durée rétroéclairage [s]</string>
   <string name="danar_glucoseunits">Unités glycémie</string>
   <string name="danar_shutdown">Arrêt (heures)</string>
@@ -956,6 +957,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="combo_invalid_setup">Paramétrage de la pompe invalide. Vérifiez la documentation et le menu QUICK INFO en utilisant le logiciel de configuration 360.</string>
   <string name="custom">Personnalisé</string>
   <string name="largetimedifftitle">Différence horaire importante</string>
+  <string name="largetimediff">La différence horaire importante:\nTime avec la pompe de plus d\'1,5 heure.\nMerci d\'ajuster manuellement l\'heure de la pompe et assurez-vous que la lecture de l\'historique de la pompe ne cause pas de dysfonctionnements.\nSi possible, effacez l\'historique de la pompe avant de modifier l\'heure ou désactivez la Boucle Fermée pour une DIA après la dernière entrée erronée de l\'historique et en tout état de cause au minimum une DIA à partir de maintenant.</string>
   <string name="careportal_removestartedevents">AndroidAPS reinitialisé</string>
   <string name="storedsettingsfound">Paramètres sauvegardés trouvés</string>
   <string name="allow_hardware_pump_text">ATTENTION : Si vous activez et connectez à une vraie pompe, AndroidAPS copiera les paramètres Basals du profil vers la pompe, écrasant le taux basal existant stocké sur la pompe. Assurez-vous d\'avoir correctement saisi et réglé les paramètres Basal dans AndroidAPS. Si vous ne savez pas ou si ne voulez pas écraser les paramètres Basal sur votre pompe, appuyez sur Annuler et reporter le passage à la pompe à une date ultérieure.</string>
