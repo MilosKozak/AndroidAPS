@@ -383,6 +383,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danarkoreanpump">DanaR Coréenne</string>
   <string name="profile_set_ok">Profil Basal mise à jour dans la pompe</string>
   <string name="danar_enableextendedbolus">Activer les bolus étendus dans la pompe</string>
+  <string name="basalvaluebelowminimum">Le débit Basal est inférieur au minimum autorisé. Profil non accepté !</string>
   <string name="sms_actualbg">G:</string>
   <string name="sms_lastbg">Dernière G:</string>
   <string name="mdi">MIQ (Multiples Injections Quotidiennes)</string>
@@ -549,10 +550,14 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="careportal_canulaage_label">Age Cathéter</string>
   <string name="careportal_insulinage_label">Age Insuline</string>
   <string name="hours">heures</string>
+  <string name="overview_newtempbasal_basaltype_label">Type du Basal</string>
+  <string name="invalidprofile">Profil incorrect !!!</string>
   <string name="profileswitch">Changement de Profil</string>
   <string name="careportal_pbage_label">Age batterie pompe</string>
   <string name="careportal_pumpbatterychange">Changement Batterie Pompe</string>
   <string name="ns_alarmoptions">Options d\'alarme</string>
+  <string name="nsalarm_staledata">Données obsolètes</string>
+  <string name="nsalarm_urgentstaledata">Urgent données obsolètes</string>
   <string name="nsalarm_staledatavalue_label">Seuil des données obsolètes [min] </string>
   <string name="nsalarm_urgent_staledatavalue_label">Seuil d\'urgence pour les données obsolètes [min]</string>
   <string name="openapsama_autosens_period">Plage pour Autosens [h]</string>
@@ -665,12 +670,14 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="info">INFO</string>
   <string name="bluetooth">Bluetooth</string>
   <string name="btwatchdog_title">BT Watchdog</string>
+  <string name="btwatchdog_summary">Ceci va arrêter le Bluetooth du téléphone pour une seconde si la connexion pompe n’est pas possible. Cela peut assister certains téléphones dont la connexion Bluetooth se bloque.</string>
   <string name="DexcomG5">App Dexcom G5 (adaptée)</string>
   <string name="dexcomg5_nsupload_title">Remonter les données glycémiques vers NS</string>
   <string name="dexcomg5_upload">Paramètres de téléchargement du G5</string>
   <string name="poctech_upload">Paramètres de téléchargement Poctech</string>
   <string name="wear_detailed_delta_title">Afficher le delta détaillé</string>
   <string name="wear_detailed_delta_summary">Afficher delta avec une décimale supplémentaire</string>
+  <string name="smbmaxminutes_summary">Max. minutes de basal pour limiter le SMB</string>
   <string name="unsupportedfirmware">Firmware pompe incompatible </string>
   <string name="dexcomg5_xdripupload_title">Transmettre les données G vers xDrip+</string>
   <string name="dexcomg5_xdripupload_summary">Dans xDrip+ veuillez séléctionner 640g/Eversense comme source de données</string>
@@ -705,6 +712,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="combo_pump_state_suspended_due_to_error">Arrêté pour cause d\'erreur</string>
   <string name="combo_pump_state_suspended_by_user">Arrêté par l\'utilisateur</string>
   <string name="combo_pump_state_running">En cours d\'exécution</string>
+  <string name="combo_pump_action_cancelling_tbr">Annulation en cours du TBR</string>
+  <string name="combo_pump_action_setting_tbr">Paramétrer TBR (%1$d%% / %2$d min) </string>
   <string name="combo_pump_action_bolusing">Injection du bolus en cours (%.1f U)</string>
   <string name="combo_pump_action_refreshing">Actualisation en cours</string>
   <string name="combo_pump_unsupported_operation">L\'opération demandée n\'est pas prise en charge par la pompe</string>
@@ -738,6 +747,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="status_updated">L\'état du programme mis à jour</string>
   <string name="ago">passé(e)s</string>
   <string name="with">avec</string>
+  <string name="insight_active_tbr">TBR actif</string>
   <string name="insight_min_left">il vous reste min</string>
   <string name="log_book">Carnet</string>
   <string name="insight_last_completed_action">Dernière action terminée</string>
