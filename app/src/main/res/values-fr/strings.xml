@@ -385,6 +385,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_enableextendedbolus">Activer les bolus étendus dans la pompe</string>
   <string name="sms_actualbg">G:</string>
   <string name="sms_lastbg">Dernière G:</string>
+  <string name="mdi">MIQ (Multiples Injections Quotidiennes)</string>
   <string name="MM640g">Medtronic 640g</string>
   <string name="ongoingnotificaction">Notification en cours</string>
   <string name="old_data">DONNÉES ANCIENNES</string>
@@ -964,7 +965,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="largetimediff">La différence horaire importante:\nTime avec la pompe de plus d\'1,5 heure.\nMerci d\'ajuster manuellement l\'heure de la pompe et assurez-vous que la lecture de l\'historique de la pompe ne cause pas de dysfonctionnements.\nSi possible, effacez l\'historique de la pompe avant de modifier l\'heure ou désactivez la Boucle Fermée pour une DIA après la dernière entrée erronée de l\'historique et en tout état de cause au minimum une DIA à partir de maintenant.</string>
   <string name="careportal_removestartedevents">AndroidAPS reinitialisé</string>
   <string name="storedsettingsfound">Paramètres sauvegardés trouvés</string>
-  <string name="allow_hardware_pump_text">ATTENTION : Si vous activez et connectez à une vraie pompe, AndroidAPS copiera les paramètres Basals du profil vers la pompe, écrasant le taux basal existant stocké sur la pompe. Assurez-vous d\'avoir correctement saisi et réglé les paramètres Basal dans AndroidAPS. Si vous ne savez pas ou si ne voulez pas écraser les paramètres Basal sur votre pompe, appuyez sur Annuler et reporter le passage à la pompe à une date ultérieure.</string>
   <string name="error_adding_treatment_title">Données de traitement incomplètes</string>
   <string name="maintenance_settings">Paramètres de maintenance</string>
   <string name="maintenance_email">E-mail</string>
