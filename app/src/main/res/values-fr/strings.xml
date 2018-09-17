@@ -13,6 +13,7 @@
   <string name="danar_bt_name_title">Dispositif Bluetooth DanaR</string>
   <string name="ns_sync_use_absolute_title">Utiliser toujours les valeurs absolues du basal</string>
   <string name="description_actions">Quelques boutons pour accéder rapidement aux fonctions communes</string>
+  <string name="description_careportal">Entrer les données du journal de gestion du diabète.</string>
   <string name="description_config_builder">Utilisé pour configurer les plugins actifs</string>
   <string name="description_objectives">Programme d’apprentissage</string>
   <string name="description_food">Affiche les aliments définis par défaut dans Nightscout</string>
@@ -27,7 +28,10 @@
   <string name="description_wear">Surveillez et contrôlez AndroidAPS en utilisant votre montre WearOS.</string>
   <string name="objectives_button_verify">Vérifier</string>
   <string name="nsprofileview_units_label">Unités</string>
+  <string name="nsprofileview_dia_label">DAI</string>
+  <string name="nsprofileview_ic_label">I:G (Ratio Insuline/Glucides)</string>
   <string name="nsprofileview_target_label">Cible</string>
+  <string name="noprofileset">PAS DE PROFIL PRÉDÉFINI</string>
   <string name="treatments_insulin_label_string">Insuline:</string>
   <string name="treatments_carbs_label_string">Glucides :</string>
   <string name="treatments_activity_string">Activité :</string>
@@ -50,11 +54,13 @@
   <string name="configbuilder_aps_description">Quel algorithme APS doit faire les ajustements de thérapie?</string>
   <string name="configbuilder_general">Général</string>
   <string name="days">jours</string>
+  <string name="constraints">Restrictions</string>
   <string name="loop">Boucle</string>
   <string name="configbuilder_loop">Boucle</string>
   <string name="loop_aps_label">APS</string>
   <string name="openapsma_lastenact_label">Dernière activation</string>
   <string name="cancel">Annuler</string>
+  <string name="noapsselected">Pas d\'APS séléctionné ou pas de résultat fourni</string>
   <string name="safety">Sécurité</string>
   <string name="openapsma_disabled">Plugin désactivé</string>
   <string name="overview_calculator_label">Calculateur de Bolus</string>
