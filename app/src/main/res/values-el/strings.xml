@@ -290,4 +290,18 @@
   <string name="restartingapp">Έξοδος από το application για την εφαρμογή των ρυθμίσεων</string>
   <string name="configbuilder_insulin">Ινσουλίνη</string>
   <string name="fastactinginsulin">Γρήγορη Ινσουλίνη</string>
+  <string name="enablesuperbolus">Ενεργοποίηση superbolus στον σύντομο οδηγό</string>
+  <string name="enablesuperbolus_summary">Ενεργοποιήστε την λειτουργία superbolus στον σύντομο οδηγό. Μην το κάνετε μέχρι να μάθετε τι ακριβώς κάνει. ΜΠΟΡΕΙ ΝΑ ΕΓΧΥΣΕΙ ΠΑΡΑΠΑΝΩ ΔΟΣΕΙΣ ΙΝΣΟΥΛΙΝΗΣ ΑΝ ΧΡΗΣΙΜΟΠΟΙΗΘΕΙ ΛΑΝΘΑΣΜΕΝΑ!</string>
+  <string name="pump_lastconnection_label">Τελευταία σύνδεση</string>
+  <string name="danar_bluetooth_status">Κατάσταση Bluetooth</string>
+  <string name="nav_about">Σχετικά με</string>
+  <string name="smscommunicator_missingsmspermission">Απουσία δικαιωμάτων SMS</string>
+  <string name="xdripstatus_settings">Κατάσταση xDrip (ρολόι)</string>
+  <string name="xdripstatus">Γραμμή Κατάστασης xDrip (ρολόι)</string>
+  <string name="wear_showbgi_title">Δείξε BGI</string>
+  <string name="wear_showbgi_summary">Πρόσθεσε BGI στην γραμμή κατάστασης</string>
+  <string name="ns_noupload">Μη φόρτωση στο NS</string>
+  <string name="ns_noupload_summary">Όλα τα δεδομένα που αποστέλλονται στην NS έχουν καταργηθεί. Το AAPS συνδέεται με NS, αλλά δεν γίνεται καμία αλλαγή στα NS</string>
+  <string name="basal_step">Βήμα Βασικού</string>
+  <string name="bolus_step">Βήμα Bolus</string>
 </resources>
