@@ -201,6 +201,7 @@
   <string name="waitingforpumpresult">Attente de résultat</string>
   <string name="smscommunicator_allowednumbers">Numéros de tél autorisés</string>
   <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
+  <string name="smscommunicator_bolusfailed">Échec du Bolus</string>
   <string name="bolusdelivered" formatted="false">Bolus %.2fU administré avec succès</string>
   <string name="smscommunicator_remotecommandsallowed">Autoriser les commandes à distance par SMS</string>
   <string name="smscommunicator_remotebolusnotallowed">Bolus à distance non autorisé</string>
@@ -210,9 +211,27 @@
   <string name="careportal_temporarytarget">Cible Temporaire</string>
   <string name="careportal_temporarytargetcancel">Annulation Cible Temporaire</string>
   <string name="danarprofile">Paramètres du profil DanaR</string>
+  <string name="danarprofile_dia">Durée d\'Action [h] </string>
+  <string name="failedupdatebasalprofile">La mise à jour du profil basal a échouée</string>
+  <string name="danar_historyreload">Actualiser</string>
+  <string name="uploading">Téléchargement en cours</string>
+  <string name="danar_error">Erreur</string>
+  <string name="danar_refill">Remplir</string>
+  <string name="danar_basalhour">Heure basal</string>
+  <string name="danar_glucose">glycémie</string>
+  <string name="danar_totaluploaded">Total %1$d enregistrements téléchargés</string>
+  <string name="danar_history_alarm">Alarmes</string>
+  <string name="danar_history_basalhours">Heures Basal</string>
+  <string name="danar_history_bolus">Bolus</string>
+  <string name="danar_history_carbohydrates">Glucides</string>
   <string name="objectives_1_gate">Utiliser le système Boucle Ouverte pour quelques jours, et activer manuellement de nombreux débits de basal temporaires. Définir et utiliser des objectifs temporaires (ex : activités ou utilisation de glucides pour traiter des hypos)</string>
   <string name="objectives_4_objective">Ajustez votre système Boucle Fermée, augmentez la fonction « max IOB » au delà de 0 et diminuez progressivement vos cibles glycémiques</string>
   <string name="objectives_4_gate">Utiliser pendant quelques jours, et au moins une nuit sans les alarmes d’hypoglycémie, avant la baisse de G</string>
+  <string name="smscommunicator_loopisdisabled">La Boucle est désactivée</string>
+  <string name="smscommunicator_loopisenabled">La Boucle est activée</string>
+  <string name="valuelimitedto">%1$.2f limité à %2$.2f</string>
+  <string name="smscommunicator_remotebasalnotallowed">Le réglage du basal à distance n\'est pas autorisé</string>
+  <string name="smscommunicator_remotecommandnotallowed">La commande à distance n\'est pas autorisée</string>
   <string name="sms_actualbg">G:</string>
   <string name="sms_lastbg">Dernière G:</string>
   <string name="oaps_shortname">OAPS</string>
