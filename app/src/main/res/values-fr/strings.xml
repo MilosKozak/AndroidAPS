@@ -182,7 +182,25 @@
   <string name="openapsma_maxbasal_title">U/hr Max avec laquelle le débit temp pourra être programmé </string>
   <string name="openapsma_maxbasal_summary">Cette valeur est appelée basal maximum dans le contexte OpenAPS</string>
   <string name="end_user_license_agreement">Contrat de Licence pour Utilisateur Final</string>
+  <string name="end_user_license_agreement_i_understand">JE COMPRENDS ET J\'ACCEPTE LES CONDITIONS DU CONTRAT</string>
+  <string name="save">Sauvegarder</string>
+  <string name="nobtadapter">L\'adaptateur bluetooth est introuvable</string>
+  <string name="devicenotfound">L\'appareil sélectionné est introuvable</string>
+  <string name="connectionerror">Erreur connection pompe</string>
+  <string name="danar_dailyunits">Unités Journalières</string>
+  <string name="pump_lastbolus_label">Dernier bolus</string>
+  <string name="danar_invalidinput">Données saisies invalides</string>
+  <string name="reloadprofile">Actualiser le profil</string>
+  <string name="danar_viewprofile">Consulter le profil</string>
   <string name="enacted">Activé</string>
+  <string name="comment">Commentaire</string>
+  <string name="success">Succès</string>
+  <string name="percent">Pour cent</string>
+  <string name="absolute">Absolu</string>
+  <string name="smscommunicator">Communicateur SMS</string>
+  <string name="waitingforpumpresult">Attente de résultat</string>
+  <string name="smscommunicator_allowednumbers">Numéros de tél autorisés</string>
+  <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
   <string name="bolusdelivered" formatted="false">Bolus %.2fU administré avec succès</string>
   <string name="smscommunicator_remotecommandsallowed">Autoriser les commandes à distance par SMS</string>
   <string name="smscommunicator_remotebolusnotallowed">Bolus à distance non autorisé</string>
