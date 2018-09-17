@@ -22,9 +22,13 @@
   <string name="description_ns_client">Synchronise vos données avec Nightscout</string>
   <string name="description_ama">État de l’algorithme en 2017</string>
   <string name="description_smb">Algorithme plus récent pour les utilisateurs avancés</string>
+  <string name="description_profile_nightscout">Fournit le profil que vous avez défini dans Nightscout</string>
   <string name="description_profile_simple">Définir un profil avec un seul bloc de temps.</string>
+  <string name="description_pump_combo">Intégration des pompes Accu-Chek Combo il faut avoir Ruffy installé</string>
   <string name="description_pump_dana_r">Intégration pour les pompes Diabecare DANA R</string>
+  <string name="description_pump_dana_r_v2">Intégration pour les pompes de DANA Diabecare R avec firmware mis à jour</string>
   <string name="description_pump_dana_rs">Intégration pour les pompes Diabecare DANA RS</string>
+  <string name="description_pump_mdi">Intégration pompe pour les personnes qui font des injections quotidiennes multiples pour le traitement de leur diabète</string>
   <string name="description_wear">Surveillez et contrôlez AndroidAPS en utilisant votre montre WearOS.</string>
   <string name="objectives_button_verify">Vérifier</string>
   <string name="nsprofileview_units_label">Unités</string>
