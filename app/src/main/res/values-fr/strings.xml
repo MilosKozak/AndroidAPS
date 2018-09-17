@@ -364,6 +364,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="units">Unités :</string>
   <string name="mgdl">mg/dl</string>
   <string name="mmol">mmol/l</string>
+  <string name="dia">DAI :</string>
   <string name="target_range">Fourchette cible :</string>
   <string name="prefs_range_title">Fourchette de visualisation</string>
   <string name="prefs_range_summary">Les repères hauts et bas sur les graphiques pour l\'aperçu et la montre</string>
@@ -776,12 +777,14 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="overview_insulin_label">Insuline</string>
   <string name="overview_carbs_label">Glucides</string>
   <string name="overview_buttons_selection">Boutons</string>
+  <string name="show_calibration_button_summary">Envoie un étalonnage à xDrip+ ou ouvre la boîte de dialogue de calibration du G5</string>
   <string name="show_cgm_button_summary">Ouvre xDrip+, le bouton de retour renverra vers AAPS</string>
   <string name="carb_increment_button_message">Nombre de glucides à ajouter lorsque vous appuyez sur le bouton</string>
   <string name="insulin_increment_button_message">Quantité d’insuline à ajouter lorsque vous appuyez sur le bouton</string>
   <string name="error_starting_cgm">Impossible d’exécuter l’application de MCG. Assurez-vous de que celle-ci est installée.</string>
   <string name="overview_cgm">MCG</string>
   <string name="nav_historybrowser">Historique</string>
+  <string name="wear_notifysmb_summary">Afficher SMB sur la montre comme un bolus standard.</string>
   <string name="ns_create_announcements_from_errors_title">Créer des messages d’erreurs</string>
   <string name="ns_create_announcements_from_errors_summary">Créer des annonces Nightscout pour les dialogues d’erreur et alertes locales (également visible dans Careportal sous Traitements)</string>
   <string name="wear_predictions_summary">Affichez les prédictions sur l\'écran de montre.</string>
