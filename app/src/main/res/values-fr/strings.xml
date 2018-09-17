@@ -320,6 +320,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="objectives_2_objective">Comprendre votre système Boucle Ouverte, y compris ses recommandations de débit de Basal temporaire</string>
   <string name="objectives_2_gate">Partant de ce constat, décidez quel est le débit de base maximum à choisir, et entrez le dans la pompe et les préférences </string>
   <string name="objectives_3_objective">Commencez par utiliser la Boucle Fermée avec le système Arrêt Glycémie Basse</string>
+  <string name="objectives_3_gate">Utiliser la Boucle Fermée avec max IA = 0 pour quelques jours sans avoir trop d’événements AGB Arrêt Glycémie Basse (LGS Low Glucose Suspend)</string>
   <string name="objectives_4_objective">Ajustez votre système Boucle Fermée, augmentez la fonction « max IOB » au delà de 0 et diminuez progressivement vos cibles glycémiques</string>
   <string name="objectives_4_gate">Utiliser pendant quelques jours, et au moins une nuit sans les alarmes d’hypoglycémie, avant la baisse de G</string>
   <string name="objectives_5_objective">Ajustez si besoin les débits de base et les ratios, activez ensuite « Autosens »</string>
@@ -384,6 +385,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="batterydischarged">Batterie Pompe Déchargée</string>
   <string name="danarkoreanpump">DanaR Coréenne</string>
   <string name="basal_rate">Débit Basal :</string>
+  <string name="profile_set_failed">L\'enregistrement du profil Basal a échoué</string>
   <string name="profile_set_ok">Profil Basal mise à jour dans la pompe</string>
   <string name="danar_disableeasymode">Désactiver le mode FacileUI (EasyUI) de la pompe</string>
   <string name="danar_enableextendedbolus">Activer les bolus étendus dans la pompe</string>
@@ -841,6 +843,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="combo_actvity_reading_basal_profile">Lecture du profil basal</string>
   <string name="combo_bolus_rejected_due_to_pump_history_change">L\'historique de la pompe a été modifié depuis le calcul du bolus. Le bolus n\'a pas été administré. Merci de recalculer le bolus s\'il est toujours nécessaire.</string>
   <string name="combo_error_updating_treatment_record">Le bolus a été délivré mais il n\'a pas pu être ajouté à l\'historique des traitements. Ceci peut se produire lorsque deux petits bolus de la même taille sont gérés dans les deux dernières minutes. Merci de vérifier l\'historique de la pompe et les entrées de traitements puis utilisez le Careportal pour y ajouter les entrées manquantes. Assurez-vous de ne pas ajouter des entrées au cours de la même minute et pour la même quantité d\'insuline.</string>
+  <string name="combo_high_temp_rejected_due_to_pump_history_changes">Rejet cible temporaire haute parce que le calcul ne prend pas en compte les changements récents de l\'historique pompe</string>
   <string name="combo_activity_checking_pump_state">Actualisation de l\'état de la pompe</string>
   <string name="combo_warning_pump_basal_rate_changed">Le taux basal de la pompe a été modifié et sera bientôt actualisé</string>
   <string name="combo_error_failure_reading_changed_basal_rate">Le pourcentage de basal a changé dans la pompe mais sa lecture a échoué</string>
@@ -894,6 +897,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="absorption_cutoff_title">Durée maximale d’absorption pour un repas [h]</string>
   <string name="absorption_cutoff_summary">Moment où n’importe quel repas est considéré absorbé. Les glucides restants ne seront pas pris en compte.</string>
   <string name="time">Temps</string>
+  <string name="overview_show_notes_field_in_dialogs_title">Affiche les notes dans la boîte de dialogue de traitement</string>
   <string name="next_button">Suivant</string>
   <string name="previous_button">Préc</string>
   <string name="nav_setupwizard">Assistant de configuration</string>
@@ -915,6 +919,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="ns_allowroaming">Autoriser connexion pendant itinérance de données</string>
   <string name="openapsama_autosens_max">Maximum Ratio Autosens</string>
   <string name="openapsama_autosens_min">Minimum Ratio Autosens</string>
+  <string name="openapsama_max_daily_safety_multiplier">Maximum multiplicateur quotidien de sécurité</string>
   <string name="value_unavailable_short">ND</string>
   <string name="virtualpump_type">Type de pompe virtuelle</string>
   <string name="virtualpump_definition">Définition de pompe</string>
