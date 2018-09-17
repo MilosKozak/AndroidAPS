@@ -16,6 +16,7 @@
   <string name="alert_m25">Onderhoud M25: Leentijd verstreken - werking geëindigd</string>
   <string name="alert_m26">Onderhoud M26: Cartridge verwisselen niet afgerond</string>
   <string name="alert_m27">Onderhoud M27: Data download mislukt</string>
+  <string name="alert_m28">Onderhoud M28: Pauze modus timeout</string>
   <string name="alert_m29">Onderhoud M29: Batterij type niet ingesteld</string>
   <string name="alert_m30">Onderhoud M30: Cartridge type niet ingesteld</string>
   <string name="alert_e6">Fout E6: Mechanische fout</string>
