@@ -470,6 +470,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="restartingapp">Sortie de l’application pour appliquer de nouveaux paramètres.</string>
   <string name="danarv2pump">DanaRv2</string>
   <string name="configbuilder_insulin">Insuline</string>
+  <string name="iob">IA</string>
+  <string name="cob">GA</string>
   <string name="ns_alarmoptions">Options d\'alarme</string>
   <string name="openaps">OpenAPS</string>
   <string name="sensitivityaaps">Sensibilité AAPS </string>
