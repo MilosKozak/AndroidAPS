@@ -506,9 +506,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="configbuilder_insulin">Insuline</string>
   <string name="configbuilder_insulin_description">Quel type d\'insuline utilisez-vous ?</string>
   <string name="fastactinginsulin">Insuline à action rapide</string>
+  <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog, Apidra</string>
   <string name="ultrafastactinginsulincomment">Fiasp</string>
   <string name="insulin_shortname">INS</string>
   <string name="enablesuperbolus">Activer les Superbolus dans l’Assistant</string>
+  <string name="enablesuperbolus_summary">Activer la fonctionnalité SuperBolus dans l’Assistant. Ne pas l’activer avant de bien comprendre comment cela fonctionne réellement. IL PEUT PROVOQUER UNE OVERDOSE D’INSULINE SI UTILISÉ AVEUGLÉMENT !</string>
   <string name="iob">IA</string>
   <string name="cob">GA</string>
   <string name="virtualpump_firmware_label">Firmware</string>
