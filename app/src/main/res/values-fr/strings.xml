@@ -485,7 +485,12 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="extendedbolus">Bolus étendu</string>
   <string name="overview_extendedbolus_cancel_button">Annuler Bolus étendu</string>
   <string name="ns_alarmoptions">Options d\'alarme</string>
+  <string name="nsalarm_staledatavalue_label">Seuil des données obsolètes [min] </string>
+  <string name="nsalarm_urgent_staledatavalue_label">Seuil d\'urgence pour les données obsolètes [min]</string>
+  <string name="pump">Pompe</string>
   <string name="openaps">OpenAPS</string>
+  <string name="sensitivity_shortname">SENS</string>
+  <string name="sensitivityoref0">Sensibilité Oref0</string>
   <string name="sensitivityaaps">Sensibilité AAPS </string>
   <string name="absorptionsettings_title">Paramètres d’absorption</string>
   <string name="absorption_maxtime_summary">Le temps estimé en heures pour une absorbption totale des glucides d’un repas</string>
