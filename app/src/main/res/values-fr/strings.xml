@@ -281,6 +281,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_historyreload">Actualiser</string>
   <string name="uploading">Téléchargement en cours</string>
   <string name="danar_ebolus">E Bolus</string>
+  <string name="danar_dsbolus">Bolus DS</string>
+  <string name="danar_debolus">Bolus DE</string>
   <string name="danar_error">Erreur</string>
   <string name="danar_refill">Remplir</string>
   <string name="danar_basalhour">Heure basal</string>
@@ -288,6 +290,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_carbohydrate">glucides</string>
   <string name="danar_alarm">alarme</string>
   <string name="danar_totaluploaded">Total %1$d enregistrements téléchargés</string>
+  <string name="danar_sbolus">Bolus S</string>
   <string name="danar_history_alarm">Alarmes</string>
   <string name="danar_history_basalhours">Heures Basal</string>
   <string name="danar_history_bolus">Bolus</string>
@@ -379,6 +382,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="batterydischarged">Batterie Pompe Déchargée</string>
   <string name="danarkoreanpump">DanaR Coréenne</string>
   <string name="profile_set_ok">Profil Basal mise à jour dans la pompe</string>
+  <string name="danar_enableextendedbolus">Activer les bolus étendus dans la pompe</string>
   <string name="sms_actualbg">G:</string>
   <string name="sms_lastbg">Dernière G:</string>
   <string name="MM640g">Medtronic 640g</string>
