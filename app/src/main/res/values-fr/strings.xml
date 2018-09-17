@@ -643,6 +643,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="dexcomg5_xdripupload_summary">Dans xDrip+ veuillez séléctionner 640g/Eversense comme source de données</string>
   <string name="nsclientbg">Glycémie NSClient</string>
   <string name="overview_editquickwizard_usebg">Calcul de Glycémie</string>
+  <string name="overview_editquickwizard_usetrend">Calcul de tendance</string>
   <string name="yes">Oui</string>
   <string name="no">Non</string>
   <string name="overview_editquickwizard_usetemptarget">Cible temporaire</string>
@@ -779,10 +780,15 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pumplimit">Limite de la pompe</string>
   <string name="itmustbepositivevalue">la valeur doit être positive</string>
   <string name="maxbasalmultiplier">multiplicateur max basal</string>
+  <string name="maxdailybasalmultiplier">multiplicateur max basal quotidien</string>
   <string name="smb_frequency_exceeded">Un bolus a été délivré dans les 3 dernières minutes, SMB ignoré</string>
+  <string name="basal_set_correctly">Basal correctement configuré</string>
   <string name="limitingpercentrate">Limiter les taux de pourcentage maximum à %1$d%% en raison de %2$s</string>
   <string name="limitingbolus">Limiter le Bolus à %1$.1f U à cause de %2$s</string>
   <string name="limitingextendedbolus">Limiter les bolus prolongé à %1$.1f U à cause de %2$s</string>
+  <string name="limitingmaxiob">Limiter l’IA max %1$.1f U en raison de %2$s</string>
+  <string name="limitingcarbs">Limiter les glucides %1$d g à cause de %2$s</string>
+  <string name="limitingiob">Limiter l’IA %1$.1f U en raison de la %2$s</string>
   <string name="unsafeusage">utilisation dangereuse</string>
   <string name="record_pump_site_change">Enregistrer changement de site de cathéter</string>
   <string name="record_insulin_cartridge_change">Enregistrer changement de réservoir</string>
