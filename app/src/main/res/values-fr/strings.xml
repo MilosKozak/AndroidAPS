@@ -261,6 +261,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="waitingforpumpresult">Attente de résultat</string>
   <string name="smscommunicator_allowednumbers">Numéros de tél autorisés</string>
   <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
+  <string name="smscommunicator_bolusreplywithcode">Renvoyer le code %2$s pour injecter le bolus %1$.2fU</string>
   <string name="smscommunicator_calibrationreplywithcode">Renvoyer le code %2$s pour envoyer la calibration %1$.2f</string>
   <string name="smscommunicator_bolusfailed">Échec du Bolus</string>
   <string name="bolusdelivered" formatted="false">Bolus %.2fU délivré avec succès</string>
@@ -344,6 +345,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="smscommunicator_unknowncommand">Commande inconnue ou fausse réponse</string>
   <string name="quickwizard">Assistant Rapide</string>
   <string name="quickwizardsettings">Paramètres de l\'Assistant Rapide</string>
+  <string name="overview_editquickwizard_buttontext">Texte du bouton :</string>
   <string name="overview_editquickwizard_carbs">Glucides:</string>
   <string name="overview_editquickwizard_valid">Valide:</string>
   <string name="overview_editquickwizardlistactivity_add">Ajouter</string>
@@ -381,8 +383,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pumpshutdown">Arrêt de la Pompe</string>
   <string name="batterydischarged">Batterie Pompe Déchargée</string>
   <string name="danarkoreanpump">DanaR Coréenne</string>
+  <string name="basal_rate">Débit Basal :</string>
   <string name="profile_set_ok">Profil Basal mise à jour dans la pompe</string>
+  <string name="danar_disableeasymode">Désactiver le mode FacileUI (EasyUI) de la pompe</string>
   <string name="danar_enableextendedbolus">Activer les bolus étendus dans la pompe</string>
+  <string name="danar_switchtouhmode">Changer le mode de U/d en U/h sur la pompe</string>
   <string name="basalvaluebelowminimum">Le débit Basal est inférieur au minimum autorisé. Profil non accepté !</string>
   <string name="sms_actualbg">G:</string>
   <string name="sms_lastbg">Dernière G:</string>
@@ -838,10 +843,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="combo_warning_pump_basal_rate_changed">Le taux basal de la pompe a été modifié et sera bientôt actualisé</string>
   <string name="combo_error_failure_reading_changed_basal_rate">Le pourcentage de basal a changé dans la pompe mais sa lecture a échoué</string>
   <string name="combo_activity_checking_for_history_changes">Vérification des modifications de l\'historique</string>
+  <string name="combo_error_multiple_boluses_with_identical_timestamp">De multiples bolus similaires viennent d\'être importés dans la même minute. Un seul enregistrement a pu être ajouté aux traitements. Merci de vérifier la pompe et d\'ajouter manuellement un enregistrement de bolus en utilisant l\'onglet Careportal. Assurez vous de créer ce bolus avec un temps différent de tous les autres Bolus.</string>
+  <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
   <string name="combo_check_date">Le dernier bolus enregistré date d\'il y a plus de 24h ou est dans le futur. Vérifiez que la date dans la pompe est correctement définie.</string>
   <string name="combo_suspious_bolus_time">L\'heure/date sur la pompe du dernier bolus administré semble erroné. L\'IA est probablement incorrecte. Vérifiez l\'heure/date de la pompe.</string>
   <string name="profileswitch_ismissing">ProfileSwitch manquant. S’il vous plaît faire un changement de profil ou appuyez sur « Activer le profil » dans le LocalProfile.</string>
   <string name="combo_bolus_count">Nombre de bolus</string>
+  <string name="combo_tbr_count">Nombre de TBR</string>
   <string name="objectivenotstarted">Objectif %1$d non démarré</string>
   <string name="objectivenotfinished">Objectif %1$d non terminé</string>
   <string name="pumpisnottempbasalcapable">Pompe n’est pas capable de basals temporaires</string>
@@ -1002,6 +1010,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="commanderror">Erreur de commande</string>
   <string name="speederror">Erreur de vitesse</string>
   <string name="insulinlimitviolation">Violation d\'une limite d\'insuline</string>
+  <string name="loop_openmode_min_change_summary">Le fonctionnement de la Boucle demandera une confirmation uniquement si le changement est supérieur à cette valeur. Par défaut, la valeur est 20%</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d jour</item>
     <item quantity="other">%1$d jours</item>
