@@ -418,6 +418,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="smscommunicator_shortname">SMS</string>
   <string name="short_tabtitles">Raccourcir les titres des onglets</string>
   <string name="always_use_shortavg">Utilisez toujours un delta basé sur une moyenne courte au lieu d’une moyenne normale</string>
+  <string name="always_use_shortavg_summary">Utile lorsque les données provenant de sources non filtrées comme xDrip devient incohérentes.</string>
   <string name="advancedsettings_title">Paramètres Avancés</string>
   <string name="danar_model">Modèle: %1$02X Protocole: %2$02X Code: %3$02X</string>
   <string name="profile">Profil</string>
@@ -495,12 +496,19 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="restartingapp">Sortie de l’application pour appliquer de nouveaux paramètres.</string>
   <string name="danarv2pump">DanaRv2</string>
   <string name="configbuilder_insulin">Insuline</string>
+  <string name="ultrafastactinginsulincomment">Fiasp</string>
+  <string name="insulin_shortname">INS</string>
+  <string name="enablesuperbolus">Activer les Superbolus dans l’Assistant</string>
   <string name="iob">IA</string>
   <string name="cob">GA</string>
+  <string name="virtualpump_firmware_label">Firmware</string>
   <string name="pump_lastconnection_label">Dernière connexion</string>
   <string name="danar_bluetooth_status">État Bluetooth</string>
+  <string name="nav_about">À propos de</string>
   <string name="smscommunicator_missingsmspermission">Autorisation SMS manquante</string>
+  <string name="xdripstatus_settings">état Xdrip (montre)</string>
   <string name="xdripstatus">Barre d\'état pour xDrip (Montre)</string>
+  <string name="xdripstatus_shortname">xds</string>
   <string name="ns_noupload_summary">Toutes les données envoyées à NS sont abandonnées. AAPS est connecté à NS mais aucun changement n’est fait dans NS</string>
   <string name="basal_step">Incrément Basal</string>
   <string name="bolus_step">Incrément Bolus</string>
