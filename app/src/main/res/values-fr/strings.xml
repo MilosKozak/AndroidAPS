@@ -796,6 +796,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="enablesmbwithtemptarget">Activer SMB avec les cibles temporaires</string>
   <string name="enablesmbwithtemptarget_summary">Activer SMB lorsqu\'il y a une cible temporaire active (repas imminent, exercise)</string>
   <string name="enablesmbwithhightemptarget">Autoriser SMB avec des cibles élevées temporaires</string>
+  <string name="enablesmbwithhightemptarget_summary">Activer SMB lorsqu\'il y a une cible tempo active haute (exercice)</string>
   <string name="let_temp_basal_run">Laisser démarrer le Basal temporaire</string>
   <string name="mute">Coupure du son</string>
   <string name="overview_insulin_label">Insuline</string>
@@ -982,6 +983,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="largetimediff">La différence horaire importante:\nTime avec la pompe de plus d\'1,5 heure.\nMerci d\'ajuster manuellement l\'heure de la pompe et assurez-vous que la lecture de l\'historique de la pompe ne cause pas de dysfonctionnements.\nSi possible, effacez l\'historique de la pompe avant de modifier l\'heure ou désactivez la Boucle Fermée pour une DIA après la dernière entrée erronée de l\'historique et en tout état de cause au minimum une DIA à partir de maintenant.</string>
   <string name="careportal_removestartedevents">AndroidAPS reinitialisé</string>
   <string name="storedsettingsfound">Paramètres sauvegardés trouvés</string>
+  <string name="allow_hardware_pump_text">ATTENTION : Si vous activez et connectez à une vraie pompe, AndroidAPS copiera les paramètres Basals du profil vers la pompe, écrasant le taux basal existant stocké sur la pompe. Assurez-vous d\'avoir correctement saisi et réglé les paramètres Basal dans AndroidAPS. Si vous ne savez pas ou si ne voulez pas écraser les paramètres Basal sur votre pompe, appuyez sur Annuler et reporter le passage à la pompe à une date ultérieure.</string>
   <string name="error_adding_treatment_title">Données de traitement incomplètes</string>
   <string name="maintenance_settings">Paramètres de maintenance</string>
   <string name="maintenance_email">E-mail</string>
