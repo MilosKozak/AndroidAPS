@@ -549,7 +549,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="careportal_canulaage_label">Age Cathéter</string>
   <string name="careportal_insulinage_label">Age Insuline</string>
   <string name="hours">heures</string>
-  <string name="invalidprofile">Profile incorrect!!!</string>
   <string name="profileswitch">Changement de Profil</string>
   <string name="careportal_pbage_label">Age batterie pompe</string>
   <string name="careportal_pumpbatterychange">Changement Batterie Pompe</string>
