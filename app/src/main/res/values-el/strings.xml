@@ -15,4 +15,13 @@
   <string name="alert_dialog_storage_permission_text">Παρακαλώ κάντε επανεκίνηση στο τηλέφώνο ή restart στο AndroidAPS από τις Ρυθμίσεις Συστήματος, \nαλλιώς το AndroidAPS δεν θα έχει καταγραφή (επαληθεύστε ότι οι αλγόριθμοι δουλεύουν σωστά)!</string>
   <string name="description_actions">Ορισμένα πλήκτρα για γρήγορη πρόσβαση σε κοινά χαρακτηριστικά</string>
   <string name="description_careportal">Εισάγετε καταχωρήσεις ημερολογίου.</string>
+  <string name="treatments_activity_string">Δραστηριότητα:</string>
+  <string name="treatments_iobtotal_label_string">Συνολική IOB:</string>
+  <string name="treatments_iobactivitytotal_label_string">Συνολική δραστηριότητα IOB:</string>
+  <string name="tempbasals_realduration_label_string">Διάρκεια:</string>
+  <string name="tempbasals_netratio_label_string">Αναλογία:</string>
+  <string name="tempbasals_netinsulin_label_string">Ins:</string>
+  <string name="tempbasals_iob_label_string">IOB:</string>
+  <string name="tempbasals_iobtotal_label_string">Συνολική IOB:</string>
+  <string name="treatments_newtreatment_insulinamount_label">Ινσουλίνη</string>
 </resources>
