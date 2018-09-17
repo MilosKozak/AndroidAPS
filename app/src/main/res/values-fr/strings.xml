@@ -506,6 +506,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="resistantadult">Adulte résistant à l\'insuline</string>
   <string name="patientage_summary">Veuillez svp sélectionner l’âge du patient pour définir les limites de sécurité</string>
   <string name="Glimp">Glimp</string>
+  <string name="needwhitelisting">%s a besoin de la liste blanche de l’optimisation batterie pour une bonne performance</string>
   <string name="loopsuspended">La Boucle est suspendue</string>
   <string name="loopsuspendedfor">Suspendu (%1$d m)</string>
   <string name="loopsuperbolusfor">Superbolus (%1$d m)</string>
@@ -924,6 +925,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="virtualpump_type">Type de pompe virtuelle</string>
   <string name="virtualpump_definition">Définition de pompe</string>
   <string name="virtualpump_pump_def">Bolus : Étape =%1$s\nExtended Bolus : [Étape =%2$s, Durée =%3$smin -%4$sh]\nBasal : Étape =%5$s\nTBR : %6$s (par %7$s), Durée =%8$smin -%9$sh\n%10$s</string>
+  <string name="ns_autobackfill_title">Remplissage automatique G</string>
   <string name="wear_wizard_settings">Paramètres de l’Assistant</string>
   <string name="wear_wizard_settings_summary">Calculs inclus dans le résultat de l’Assistant :</string>
   <string name="wear_display_settings">Parametres d\'affichage</string>
@@ -1018,6 +1020,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="commanderror">Erreur de commande</string>
   <string name="speederror">Erreur de vitesse</string>
   <string name="insulinlimitviolation">Violation d\'une limite d\'insuline</string>
+  <string name="loop_openmode_min_change">Changement minimum possible [%]</string>
   <string name="loop_openmode_min_change_summary">Le fonctionnement de la Boucle demandera une confirmation uniquement si le changement est supérieur à cette valeur. Par défaut, la valeur est 20%</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d jour</item>
