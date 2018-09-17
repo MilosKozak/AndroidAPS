@@ -653,6 +653,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="loopenabled">Boucle activée</string>
   <string name="apsselected">APS Sélectionné</string>
   <string name="zerovalueinprofile" formatted="false">Profile incorrect: %s</string>
+  <string name="combo_refresh">Actualiser</string>
+  <string name="combo_pump_state_label">État</string>
   <string name="combo_pump_activity_label">Activité</string>
   <string name="combo_no_pump_connection">Pas de connexion depuis %1$d min</string>
   <string name="combo_tbr_remaining">%1$d%% (%2$d min restantes)</string>
@@ -737,6 +739,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="error_starting_cgm">Impossible d’exécuter l’application de MCG. Assurez-vous de que celle-ci est installée.</string>
   <string name="overview_cgm">MCG</string>
   <string name="nav_historybrowser">Historique</string>
+  <string name="ns_create_announcements_from_errors_title">Créer des messages d’erreurs</string>
   <string name="wear_predictions_summary">Affichez les prédictions sur l\'écran de montre.</string>
   <string name="wear_predictions_title">Prédictions</string>
   <string name="data_choices">Choix de données</string>
@@ -825,6 +828,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="thirdcarbsincrement">Troisième incrément de glucides</string>
   <string name="cgm">MCG</string>
   <string name="ns_wifionly">Utilisez uniquement connexion WiFi</string>
+  <string name="ns_wifi_ssids">WiFi SSID</string>
+  <string name="ns_chargingonly">Uniquement pendant la charge</string>
+  <string name="connectionsettings_title">Paramètres de connexion</string>
+  <string name="ns_wifi_allowedssids">SSIDs autorisés (séparés par point-virgule)</string>
+  <string name="ns_allowroaming">Autoriser connexion pendant itinérance de données</string>
   <string name="wear_display_settings">Parametres d\'affichage</string>
   <string name="wear_general_settings">Paramètres généraux</string>
   <string name="enable_nsclient">Activer NSClient</string>
@@ -833,12 +841,14 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="readstatus">Statut de lecture</string>
   <string name="enableobjectives">Activez les objectifs</string>
   <string name="apssetup">Configurer le plugin APS</string>
+  <string name="exit">Quitter</string>
   <string name="danar_pumpalarm">Alarme</string>
   <string name="danar_pumpalarm_sound">Son</string>
   <string name="danar_pumpalarm_vibrate">Vibration</string>
   <string name="danar_pumpalarm_both">Les deux</string>
   <string name="danar_glucoseunits">Unités glycémie</string>
   <string name="danar_lowreservoir">Réservoir bas (Unités)</string>
+  <string name="danar_saveuseroptions">Enregistrer les options sur la pompe</string>
   <string name="option_on">Activé</string>
   <string name="option_off">Désactivé</string>
   <string name="open_navigation">Ouvrir navigation</string>
@@ -857,6 +867,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="custom">Personnalisé</string>
   <string name="largetimedifftitle">Différence horaire importante</string>
   <string name="careportal_removestartedevents">AndroidAPS reinitialisé</string>
+  <string name="allow_hardware_pump_text">ATTENTION : Si vous activez et connectez à une vraie pompe, AndroidAPS copiera les paramètres Basals du profil vers la pompe, écrasant le taux basal existant stocké sur la pompe. Assurez-vous d\'avoir correctement saisi et réglé les paramètres Basal dans AndroidAPS. Si vous ne savez pas ou si ne voulez pas écraser les paramètres Basal sur votre pompe, appuyez sur Annuler et reporter le passage à la pompe à une date ultérieure.</string>
   <string name="error_adding_treatment_title">Données de traitement incomplètes</string>
   <string name="maintenance_settings">Paramètres de maintenance</string>
   <string name="maintenance_email">E-mail</string>
@@ -864,8 +875,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="maintenance_amount">Nombre de journaux (Logs) à envoyer</string>
   <string name="maintenance">Maintenance</string>
   <string name="maintenance_shortname">MAINT</string>
+  <string name="description_maintenance">Fournir différentes fonctions de maintenance (ex : envoyer, supprimer le journal).</string>
+  <string name="send_all_logs">Envoyer le journal par e-mail</string>
+  <string name="delete_logs">Supprimer le journal</string>
   <string name="error_adding_treatment_message">Le traitement (insuline : %1$.2f, glucides : %2$d, à : %3$s) n\'a pas pu être ajouté aux traitements. Vérifiez et ajoutez SVP manuellement ce traitement.</string>
   <string name="generated_ecarbs_note">eCarbs : %1$d g (%2$d h), retard : %3$d m</string>
+  <string name="openaps_noasdata">Pas de données d\'Autosens disponibles</string>
+  <string name="nav_logsettings">Paramètres journal</string>
   <string name="nsmalfunction">Dysfonctionnement du NSClient. Considérerez une réinitialisation de NS et de NSClient.</string>
   <string name="as">AS</string>
   <string name="versionavailable">Version %1$s disponible</string>
@@ -873,4 +889,18 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="treatments_wizard_total_label">Total</string>
   <string name="calculation_short">Calc</string>
   <string name="handshaking">Poignée de main</string>
+  <string name="sendlogfiles">Envoi des fichiers des journaux aux développeurs. Cas imprévu.</string>
+  <string name="maxbolusviolation">Violation de bolus Max</string>
+  <plurals name="objective_days">
+    <item quantity="one">%1$d jour</item>
+    <item quantity="other">%1$d jours</item>
+  </plurals>
+  <plurals name="objective_hours">
+    <item quantity="one">%1$d heure</item>
+    <item quantity="other">%1$d heures</item>
+  </plurals>
+  <plurals name="objective_minutes">
+    <item quantity="one">%1$d minute</item>
+    <item quantity="other">%1$d minutes</item>
+  </plurals>
 </resources>
