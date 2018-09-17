@@ -37,6 +37,7 @@
   <string name="description_pump_dana_r_v2">Intégration pour les pompes de DANA Diabecare R avec firmware mis à jour</string>
   <string name="description_pump_dana_rs">Intégration pour les pompes Diabecare DANA RS</string>
   <string name="description_pump_mdi">Intégration pompe pour les personnes qui font des injections quotidiennes multiples pour le traitement de leur diabète</string>
+  <string name="description_sensitivity_aaps">La Sensibilité est calculée de la même manière que Oref0, mais vous pouvez spécifier la periode concernée. L\'absorption minimale des glucides est calculée à partir des temps d’absorption max des glucides du menu préférences.</string>
   <string name="description_source_glimp">Recevoir les glycémies depuis Glimp.</string>
   <string name="description_source_mm640g">Recevoir les glycémies depuis le 600SeriesAndroidUploder.</string>
   <string name="description_source_ns_client">Télécharge les glycémies depuis Nightscout</string>
