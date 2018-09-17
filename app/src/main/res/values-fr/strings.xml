@@ -706,6 +706,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="closedmodeenabled">Mode boucle fermée activé</string>
   <string name="maxiobset">Maximum IA réglé correctement</string>
   <string name="hasbgdata">Glycémie disponible depuis la source sélectionnée</string>
+  <string name="basalprofilenotaligned" formatted="false">Les changements de Basal doivent être aux heures entières : %s</string>
   <string name="zerovalueinprofile" formatted="false">Profile incorrect: %s</string>
   <string name="combo_programming_bolus">Programmer la pompe pour injecter un bolus</string>
   <string name="combo_refresh">Actualiser</string>
