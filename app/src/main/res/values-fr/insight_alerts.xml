@@ -7,11 +7,13 @@
   <string name="alert_w34">Alerte W34 : Fin de garantie</string>
   <string name="alert_w36">Alerte W36 : TBR annulé</string>
   <string name="alert_w38">Alerte W38 : Bolus annulé</string>
+  <string name="alert_w39">Alerte W39 : Avertissement Loantime</string>
   <string name="alert_m20">Maintenance M20 : Cartouche pas inséré</string>
   <string name="alert_m21">Maintenance M21 : Cartouche vide</string>
   <string name="alert_m22">Maintenance M22 : Batterie vide</string>
   <string name="alert_m23">Maintenance M23 : Arrêt automatique</string>
   <string name="alert_m24">Maintenance M24 : Occlusion</string>
+  <string name="alert_m25">Maintenance M25 : Loantime terminé - fin d’opération</string>
   <string name="alert_m26">Maintenance M26 : Changement de cartouche non terminé</string>
   <string name="alert_m27">Maintenance M27 : Le téléchargement de données a échoué</string>
   <string name="alert_m28">Maintenance M28 : Pause mode timeout</string>
