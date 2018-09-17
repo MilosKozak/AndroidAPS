@@ -84,6 +84,29 @@
   <string name="safety">Ασφάλεια</string>
   <string name="openapsma_disabled">Προσθήκη απενεργοποιημένη</string>
   <string name="constraints_violation">Παραβίαση Περιορισμών</string>
+  <string name="treatmentdeliveryerror">Σφάλμα παράδοσης Bolus</string>
+  <string name="tempbasaldeliveryerror">Σφάλμα παράδοσης Προσ Ρυθμού</string>
+  <string name="overview_newtempbasal_basalpercent">Τιμή Βασικού [%]</string>
+  <string name="overview_newtempbasal_percent_label">% (100% = τρέχων)</string>
+  <string name="setbasalquestion">Αποδοχή νέου Προσ Ρυθμού:</string>
+  <string name="overview_treatment_label">Θεραπεία</string>
+  <string name="overview_calculator_label">Υπολογιστής</string>
+  <string name="constraintapllied">Εφαρμόστηκαν Περιορισμοί!</string>
+  <string name="confirmation">Επιβεβαίωση</string>
+  <string name="entertreatmentquestion">Εισάγετε νέα Θεραπεία:</string>
+  <string name="bolus">Bolus</string>
+  <string name="sms_bolus">Bolus:</string>
+  <string name="basal">Βασικός Ρυθμός</string>
+  <string name="sms_basal">Βασικός Ρυθμός:</string>
+  <string name="carbs">Υδατάνθρακες</string>
+  <string name="changeyourinput">Αλλάξτε αυτό που εισάγατε!</string>
+  <string name="setextendedbolusquestion">Θέστε νέο εκτεταμμένο bolus:</string>
+  <string name="configbuilder_bgsource">Πηγή BG</string>
+  <string name="configbuilder_bgsource_description">Από πού πρέπει το AndroidAPS να πάρει τα δεδομένα του;</string>
+  <string name="xdrip">xDrip</string>
+  <string name="apsmode_title">Λειτουργία APS</string>
+  <string name="closedloop">Κλειστό Κύκλωμα</string>
+  <string name="openloop">Ανοιχτό Κύκλωμα</string>
   <string name="disabledloop">Κύκλωμα απενεργοποιημένο</string>
   <string name="disableloop">Απενεργοποιήστε κύκλωμα</string>
   <string name="enableloop">Ενεργοποιήστε κύκλωμα</string>
@@ -134,4 +157,52 @@
   <string name="careportal_newnstreatment_glucosetype">Τύπος Γλυκόζης</string>
   <string name="noprofile">Δεν φορτώθηκε προφίλ από το NS ακόμα</string>
   <string name="overview_tempbasal_button">Προσ Ρυθμός</string>
+  <string name="overview_extendedbolus_button">Εκτεταμμένο Bolus</string>
+  <string name="configbuilder_nightscoutversion_label">Έκδοση Nightscout:</string>
+  <string name="missing">Χαμένες</string>
+  <string name="exported">Επιλογές εξήχθησαν</string>
+  <string name="export_to">Εξαγωγή ρυθμίσεων σε</string>
+  <string name="smscommunicator_bolusfailed">Αποτυχία Bolus</string>
+  <string name="bolusdelivered" formatted="false">Bolus %.2fU παραδόθηκε επιτυχώς</string>
+  <string name="bolusrequested" formatted="false">Προς έγχυση %.2fU</string>
+  <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2fU παραδόθηκε επιτυχώς</string>
+  <string name="bolusdelivering" formatted="false">Έγχυση %.2fU</string>
+  <string name="smscommunicator_remotecommandsallowed">Άδεια για απομακρυσμένες εντολές μέσω SMS</string>
+  <string name="smscommunicator_remotebolusnotallowed">Δεν επιτρέπεται απομακρυσμένο bolus</string>
+  <string name="glucosetype_finger">Δάκτυλο</string>
+  <string name="glucosetype_sensor">Αισθητήρας</string>
+  <string name="manual">Χειροκίνητα</string>
+  <string name="careportal_temporarytarget">Προσωρινός Στόχος</string>
+  <string name="careportal_temporarytargetcancel">Ακύρωση Προσωρινού Στόχου</string>
+  <string name="danarprofile">Ρυθμίσεις προφίλ DanaR</string>
+  <string name="danarprofile_dia">DIA [h]</string>
+  <string name="danarprofile_dia_summary">Διάρκεια Δράσης Ινσουλίνης</string>
+  <string name="failedupdatebasalprofile">Αποτυχία αναβάθμισης βασικού προφίλ</string>
+  <string name="danar_historyreload">Γέμισμα</string>
+  <string name="uploading">Ανέβασμα</string>
+  <string name="danar_ebolus">E bolus</string>
+  <string name="danar_dsbolus">Διφασικό άμεσο bolus</string>
+  <string name="danar_error">σφάλμα</string>
+  <string name="danar_refill">ξαναγέμισμα</string>
+  <string name="danar_basalhour">ώρα βασικού</string>
+  <string name="danar_glucose">γλυκόζη</string>
+  <string name="danar_carbohydrate">υδατάνθρακες</string>
+  <string name="danar_alarm">συναγερμός</string>
+  <string name="danar_totaluploaded">Ανέβηκαν συνολικά %1$d εγγραφές</string>
+  <string name="danar_history_alarm">Συναγερμοί</string>
+  <string name="danar_history_basalhours">Ώρες Βασικού</string>
+  <string name="danar_history_bolus">Bolus</string>
+  <string name="danar_history_carbohydrates">Υδατάνθρακες</string>
+  <string name="danar_history_dailyinsulin">Ημερήσια Ινσουλίνη</string>
+  <string name="danar_history_errors">Σφάλματα</string>
+  <string name="danar_history_glucose">Γλυκόζη</string>
+  <string name="danar_history_refill">Ξαναγέμισμα</string>
+  <string name="danar_history_syspend">Αναστολή</string>
+  <string name="danar_password_title">Κωδικός αντλίας</string>
+  <string name="wrongpumppassword">Λάθος κωδικός αντλίας!</string>
+  <string name="pumpbusy">Αντλία απασχολημένη</string>
+  <string name="overview_bolusprogress_delivered">Παραδόθηκε</string>
+  <string name="overview_bolusprogress_stoped">Σταμάτησε</string>
+  <string name="bolusstopped">Το bolus σταμάτησε</string>
+  <string name="occlusion">Έμφραξη</string>
 </resources>
