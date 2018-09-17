@@ -797,6 +797,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="limitingmaxiob">Limiter l’IA max %1$.1f U en raison de %2$s</string>
   <string name="limitingcarbs">Limiter les glucides %1$d g à cause de %2$s</string>
   <string name="limitingiob">Limiter l’IA %1$.1f U en raison de la %2$s</string>
+  <string name="maxvalueinpreferences">valeur Max dans les préférences</string>
   <string name="hardlimit">limite fixée</string>
   <string name="unsafeusage">utilisation dangereuse</string>
   <string name="readstatusfailed">La lecture du statut a échoué</string>
@@ -817,6 +818,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pump_paused">Pompe suspendue</string>
   <string name="absorption_cutoff_title">Durée maximale d’absorption pour un repas [h]</string>
   <string name="absorption_cutoff_summary">Moment où n’importe quel repas est considéré absorbé. Les glucides restants ne seront pas pris en compte.</string>
+  <string name="time">Temps</string>
   <string name="next_button">Suivant</string>
   <string name="previous_button">Préc</string>
   <string name="nav_setupwizard">Assistant de configuration</string>
