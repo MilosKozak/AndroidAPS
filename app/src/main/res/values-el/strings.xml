@@ -250,4 +250,15 @@
   <string name="always_use_shortavg_summary">Χρήσιμο όταν δεδομένα από μη φιλτραρισμένες πηγές όπως το xDrip αποκτούν θόρυβο.</string>
   <string name="advancedsettings_title">Ρυθμίσεις για Προχωρημένους</string>
   <string name="profile">Προφίλ</string>
+  <string name="openapsama_max_daily_safety_multiplier_summary">Προεπιλεγμένη τιμή: 3 Αυτό είναι ένα κλειδί ασφαλείας του OpenAPS. Αυτό περιορίζει την αύξηση του βασικού x3 (σε αυτούς τους ανθρώους) από την μεγαλύτερη τιμή του. Συνήθως δεν χρειάζεται να το αλλάξετε, αλλά πρέπει να ξέρετε τι σημαίνει “3x μέγιστο ημερήσιο; 4x τρέχων” για λόγους ασφαλείας.</string>
+  <string name="error_only_numeric_digits_allowed">Μόνο αριθμητικά ψηφία επιτρέπονται.</string>
+  <string name="error_only_numeric_digits_range_allowed">Μόνο αριθμητικά ψηφία μέσα στο εύρος %1$s - %2$s επιτρέπονται. </string>
+  <string name="error_field_must_not_be_empty">Το πεδίο αυτό δεν πρέπει να είναι κενό</string>
+  <string name="error_phone_not_valid">Μη έγκυρος αριθμός τηλεφώνου</string>
+  <string name="smscommunicator_invalidphonennumber">Μη έγκυρος αριθμός τηλεφώνου για SMS</string>
+  <string name="overview_calibration">Καλιμπράρισμα</string>
+  <string name="send_calibration" formatted="false">Να στείλω το καλιμπράρισμα %.1f στο xDrip;</string>
+  <string name="xdripnotinstalled">xDrip+ μη εγκατεστημένο</string>
+  <string name="calibrationsent">Το καλιμπράρισμα εστάλει στο xDrip</string>
+  <string name="smscommunicator_remotecalibrationnotallowed">Δεν επιτρέπεται απομακρυσμένο καλιμπράρισμα</string>
 </resources>
