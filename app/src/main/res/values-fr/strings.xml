@@ -635,8 +635,22 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="readstatus">Statut de lecture</string>
   <string name="enableobjectives">Activez les objectifs</string>
   <string name="apssetup">Configurer le plugin APS</string>
+  <string name="danar_pumpalarm">Alarme</string>
+  <string name="danar_pumpalarm_sound">Son</string>
+  <string name="danar_pumpalarm_vibrate">Vibration</string>
+  <string name="danar_pumpalarm_both">Les deux</string>
+  <string name="option_on">Activé</string>
+  <string name="option_off">Désactivé</string>
+  <string name="open_navigation">Ouvrir navigation</string>
+  <string name="close_navigation">Fermer navigation</string>
+  <string name="completed_well_done">Terminé, félicitations !</string>
+  <string name="not_completed_yet">Pas encore terminé</string>
   <string name="time_elapsed">Temps écoulé</string>
   <string name="poctech">Poctech</string>
+  <string name="description_source_poctech">Recevoir les glycémies depuis l\'app Poctech</string>
+  <string name="high_temptarget_raises_sensitivity_title">Un objectif temporaire élevé augmente la sensibilité</string>
+  <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Augmenter la sensibilité pour objectif temporaire >= 100]]></string>
+  <string name="low_temptarget_lowers_sensitivity_title">Un objectif temporaire bas abaisse la sensibilité</string>
   <string name="custom">Personnalisé</string>
   <string name="largetimedifftitle">Différence horaire importante</string>
   <string name="careportal_removestartedevents">AndroidAPS reinitialisé</string>
