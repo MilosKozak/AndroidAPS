@@ -376,6 +376,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pumpshutdown">Arrêt de la Pompe</string>
   <string name="batterydischarged">Batterie Pompe Déchargée</string>
   <string name="danarkoreanpump">DanaR Coréenne</string>
+  <string name="profile_set_ok">Profil Basal mise à jour dans la pompe</string>
   <string name="sms_actualbg">G:</string>
   <string name="sms_lastbg">Dernière G:</string>
   <string name="MM640g">Medtronic 640g</string>
@@ -428,6 +429,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="openapsama_autosens_adjusttargets">Autosens ajuste aussi les cibles</string>
   <string name="openapsama_autosens_adjusttargets_summary">Valeur par défaut : true\nCeci est utilisé pour autoriser Autosens à ajuster les cibles de glycémie en plus de SI et les basals.</string>
   <string name="openapsama_bolussnooze_dia_divisor_summary">Valeur par défaut : 2\nBolus snooze est activé apres votre bolus de repas, la boucle ne réagira pas avec des valeurs basses temporaire quand vous venez juste de manger. L’exemple ici et la valeur par défaut est 2 ; donc avec une Durée d\'Action (DIA) de 3 heures signifie que snooze bolus sera graduellement éliminé après 1,5 heures (3DIA/2).</string>
+  <string name="openapsama_link_to_preferncejson_doc_txt">Attention !\nNormalement vous n\'avez pas à changer les valeurs mentionnées ci-dessous. SVP CLIQUEZ ICI et LISEZ bien le texte. Assurez-vous de bien le COMPRENDRE avant de changer n’importe laquelle de ces valeurs.</string>
   <string name="error_only_numeric_digits_allowed">Seuls les chiffres sont autorisés.</string>
   <string name="error_only_numeric_digits_range_allowed">Seuls les chiffres qui se trouvent dans la fourchette %1$s - %2$s sont autorisés.</string>
   <string name="error_field_must_not_be_empty">Le champ ne doit pas être vide</string>
@@ -437,10 +439,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="xdripnotinstalled">xDrip+ n\'est pas installé</string>
   <string name="calibrationsent">Étalonnage envoyé à xDrip</string>
   <string name="smscommunicator_remotecalibrationnotallowed">L\'étalonnage à distance n\'est pas autorisé</string>
+  <string name="smscommunicator_calibrationsent">Étalonnage envoyé. La réception doit être activée dans xDrip.</string>
   <string name="smscommunicator_calibrationfailed">xDrip ne reçoit pas les étalonnages</string>
+  <string name="gettingpumpstatus">Obtenir l\'état de pompe</string>
   <string name="stoppingtempbasal">Arrêter basal temporaire</string>
   <string name="settingextendedbolus">Définir bolus étendu</string>
   <string name="stoppingextendedbolus">Arrêter le bolus étendu</string>
+  <string name="updatingbasalrates">Mise à jour des débits basals</string>
   <string name="disconnecting">Déconnexion en cours</string>
   <string name="executing">Exécution en cours</string>
   <string name="virtualpump_settings">Paramètres pompe virtuelle</string>
@@ -494,10 +499,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="smscommunicator_loopsuspended">Boucle suspendue</string>
   <string name="smscommunicator_loopresumed">Boucle relancée</string>
   <string name="treatments_wizard_bgtrend_label">Tendance 15 min</string>
+  <string name="treatments_wizard_cob_label">GA</string>
   <string name="superbolus">Superbolus</string>
   <string name="restartingapp">Sortie de l’application pour appliquer de nouveaux paramètres.</string>
   <string name="danarv2pump">DanaRv2</string>
   <string name="configbuilder_insulin">Insuline</string>
+  <string name="configbuilder_insulin_description">Quel type d\'insuline utilisez-vous ?</string>
+  <string name="fastactinginsulin">Insuline à action rapide</string>
   <string name="ultrafastactinginsulincomment">Fiasp</string>
   <string name="insulin_shortname">INS</string>
   <string name="enablesuperbolus">Activer les Superbolus dans l’Assistant</string>
@@ -822,6 +830,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="next_button">Suivant</string>
   <string name="previous_button">Préc</string>
   <string name="nav_setupwizard">Assistant de configuration</string>
+  <string name="setupwizard_finish">TERMINER</string>
   <string name="setupwizard_language_prompt">Sélectionnez votre langue</string>
   <string name="boluserrorcode">Demandé : %1$.2fU Injecté : %2$.2fU code d’erreur: %3$s</string>
   <string name="firstinsulinincrement">Premier incrément d\'insuline</string>
@@ -837,6 +846,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="connectionsettings_title">Paramètres de connexion</string>
   <string name="ns_wifi_allowedssids">SSIDs autorisés (séparés par point-virgule)</string>
   <string name="ns_allowroaming">Autoriser connexion pendant itinérance de données</string>
+  <string name="openapsama_autosens_max">Maximum Ratio Autosens</string>
+  <string name="openapsama_autosens_min">Minimum Ratio Autosens</string>
   <string name="virtualpump_definition">Définition de pompe</string>
   <string name="wear_wizard_settings">Paramètres de l’Assistant</string>
   <string name="wear_wizard_settings_summary">Calculs inclus dans le résultat de l’Assistant :</string>
