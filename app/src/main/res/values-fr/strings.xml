@@ -740,9 +740,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="overview_cgm">MCG</string>
   <string name="nav_historybrowser">Historique</string>
   <string name="ns_create_announcements_from_errors_title">Créer des messages d’erreurs</string>
+  <string name="ns_create_announcements_from_errors_summary">Créer des annonces Nightscout pour les dialogues d’erreur et alertes locales (également visible dans Careportal sous Traitements)</string>
   <string name="wear_predictions_summary">Affichez les prédictions sur l\'écran de montre.</string>
   <string name="wear_predictions_title">Prédictions</string>
   <string name="data_choices">Choix de données</string>
+  <string name="fabric_upload">Téléchargement Fabric</string>
   <string name="allow_automated_crash_reporting">Autoriser l\'envoi automatique des rapports d\'erreur et des données d\'utilisation aux développeurs via le service fabric.io</string>
   <string name="g5appnotdetected">Svp actualisez votre app G5 vers une version compatible</string>
   <string name="start_eating_soon_tt">Traitement Repas imminent</string>
@@ -906,6 +908,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="generated_ecarbs_note">eCarbs : %1$d g (%2$d h), retard : %3$d m</string>
   <string name="openaps_noasdata">Pas de données d\'Autosens disponibles</string>
   <string name="nav_logsettings">Paramètres journal</string>
+  <string name="resettodefaults">Réinitialiser les valeurs par défaut</string>
   <string name="nsmalfunction">Dysfonctionnement du NSClient. Considérerez une réinitialisation de NS et de NSClient.</string>
   <string name="as">AS</string>
   <string name="versionavailable">Version %1$s disponible</string>
@@ -915,6 +918,9 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="handshaking">Poignée de main</string>
   <string name="sendlogfiles">Envoi des fichiers des journaux aux développeurs. Cas imprévu.</string>
   <string name="maxbolusviolation">Violation de bolus Max</string>
+  <string name="commanderror">Erreur de commande</string>
+  <string name="speederror">Erreur de vitesse</string>
+  <string name="insulinlimitviolation">Violation d\'une limite d\'insuline</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d jour</item>
     <item quantity="other">%1$d jours</item>
