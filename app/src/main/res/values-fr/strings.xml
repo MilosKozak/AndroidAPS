@@ -316,6 +316,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="objectives_4_objective">Ajustez votre système Boucle Fermée, augmentez la fonction « max IOB » au delà de 0 et diminuez progressivement vos cibles glycémiques</string>
   <string name="objectives_4_gate">Utiliser pendant quelques jours, et au moins une nuit sans les alarmes d’hypoglycémie, avant la baisse de G</string>
   <string name="objectives_5_objective">Ajustez si besoin les débits de base et les ratios, activez ensuite « Autosens »</string>
+  <string name="objectives_5_gate">Une semaine réussie avec des journées en Boucle Fermée, avec des entrées normales des glucides</string>
   <string name="objectives_7_gate">Vous devez lire le wiki et augmenter les max IA pour faire fonctionner SMB ! Un bon début est max IA = moyenne bolus repas + 3 fois max daily basal</string>
   <string name="youareonallowedlimit">Vous avez atteint la limite maximale</string>
   <string name="noprofileselected">Aucun profil séléctionné</string>
@@ -376,6 +377,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="sms_actualbg">G:</string>
   <string name="sms_lastbg">Dernière G:</string>
   <string name="MM640g">Medtronic 640g</string>
+  <string name="ongoingnotificaction">Notification en cours</string>
   <string name="old_data">DONNÉES ANCIENNES</string>
   <string name="minago">%1$d min passées</string>
   <string name="sms_minago">%1$dmin passées</string>
