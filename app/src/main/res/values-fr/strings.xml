@@ -417,6 +417,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="wear_shortname">WEAR</string>
   <string name="smscommunicator_shortname">SMS</string>
   <string name="short_tabtitles">Raccourcir les titres des onglets</string>
+  <string name="always_use_shortavg">Utilisez toujours un delta basé sur une moyenne courte au lieu d’une moyenne normale</string>
   <string name="advancedsettings_title">Paramètres Avancés</string>
   <string name="danar_model">Modèle: %1$02X Protocole: %2$02X Code: %3$02X</string>
   <string name="profile">Profil</string>
