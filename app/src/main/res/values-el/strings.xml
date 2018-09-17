@@ -350,4 +350,20 @@
   <string name="careportal_newnstreatment_timeshift_label">Αλλαγή της ώρας</string>
   <string name="default_temptargets">Προκαθορισμένος Στόχος-Προσ Ρυθμού</string>
   <string name="eatingsoon_duration">Διάρκεια πλησιέστερου γεύματος</string>
+  <string name="eatingsoon_target">στόχος για γεύμα</string>
+  <string name="activity_duration">διάρκεια άσκησης</string>
+  <string name="activity_target">στόχος άσκησης</string>
+  <string name="danar_history_prime">Πλήρωση</string>
+  <string name="gettingbolusstatus">Κατάσταση bolus</string>
+  <string name="gettingtempbasalstatus">Λήψη κατάστασης Προσ Ρυθμού</string>
+  <string name="gettingpumpsettings">Λήψη ρυθμίσεων αντλίας</string>
+  <string name="gettingpumptime">Λήψη ώρας αντλίας</string>
+  <string name="reuse">επαναχρησιμοποίηση</string>
+  <string name="wearcontrol_title">Έλεγχος από ρολόι</string>
+  <string name="wearcontrol_summary">Ρυθμίστε Στόχους-Προσ Ρυθμού και βάλτε Θεραπείες από το ρολόι.</string>
+  <string name="danar_history">ιστορικό αντλίας</string>
+  <plurals name="objective_days">
+    <item quantity="one">%1$d ημέρα</item>
+    <item quantity="other">%1$d ημέρες</item>
+  </plurals>
 </resources>
