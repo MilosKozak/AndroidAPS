@@ -297,14 +297,18 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_password_title">Mot de passe pompe</string>
   <string name="wrongpumppassword">Mot de passe pompe incorrect !</string>
   <string name="pumpbusy">Pompe occupée</string>
-  <string name="overview_bolusprogress_delivered">Délivré</string>
+  <string name="overview_bolusprogress_delivered">Injecté</string>
   <string name="overview_bolusprogress_stoped">Arrêté</string>
   <string name="bolusstopped">Bolus arrêté</string>
+  <string name="bolusstopping">Arrêter bolus</string>
   <string name="occlusion">Occlusion</string>
   <string name="overview_bolusprogress_stop">Arrêt</string>
   <string name="overview_bolusprogress_stoppressed">BOUTON ARRÊT ACTIVÉ</string>
   <string name="waitingforpump">Attente connection pompe</string>
+  <string name="overview_bolusprogress_goingtodeliver" formatted="false">%.2fU va être injecté</string>
   <string name="objectives_0_objective">Paramétrer la visualisation et la surveillance des données, analyser les débits de basal et les ratios</string>
+  <string name="objectives_0_gate">Vérifiez que la Glycémie est disponible sur Nightscout et que les données d’insuline ont été téléchargées de la pompe</string>
+  <string name="objectives_1_objective">Commencez par la configuration Boucle Ouverte</string>
   <string name="objectives_1_gate">Utiliser le système Boucle Ouverte pour quelques jours, et activer manuellement de nombreux débits de basal temporaires. Définir et utiliser des objectifs temporaires (ex : activités ou utilisation de glucides pour traiter des hypos)</string>
   <string name="objectives_2_objective">Comprendre votre système Boucle Ouverte, y compris ses recommandations de débit de Basal temporaire</string>
   <string name="objectives_2_gate">Partant de ce constat, décidez quel est le débit de base maximum à choisir, et entrez le dans la pompe et les préférences </string>
