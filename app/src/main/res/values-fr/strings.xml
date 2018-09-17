@@ -258,8 +258,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="waitingforpumpresult">Attente de résultat</string>
   <string name="smscommunicator_allowednumbers">Numéros de tél autorisés</string>
   <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
+  <string name="smscommunicator_bolusreplywithcode">Renvoyer le code %2$s pour administrer le bolus %1$.2fU</string>
+  <string name="smscommunicator_calibrationreplywithcode">Renvoyer le code %2$s pour envoyer la calibration %1$.2f</string>
   <string name="smscommunicator_bolusfailed">Échec du Bolus</string>
   <string name="bolusdelivered" formatted="false">Bolus %.2fU administré avec succès</string>
+  <string name="bolusrequested" formatted="false">%.2fU va être injecté</string>
+  <string name="smscommunicator_bolusdelivered" formatted="false">%.2fU de bolus injecté avec succès</string>
+  <string name="bolusdelivering" formatted="false">En train d\'injecter %.2fU</string>
   <string name="smscommunicator_remotecommandsallowed">Autoriser les commandes à distance par SMS</string>
   <string name="smscommunicator_remotebolusnotallowed">Bolus à distance non autorisé</string>
   <string name="glucosetype_finger">Doigt</string>
@@ -278,6 +283,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_refill">Remplir</string>
   <string name="danar_basalhour">Heure basal</string>
   <string name="danar_glucose">glycémie</string>
+  <string name="danar_carbohydrate">glucides</string>
   <string name="danar_alarm">alarme</string>
   <string name="danar_totaluploaded">Total %1$d enregistrements téléchargés</string>
   <string name="danar_history_alarm">Alarmes</string>
@@ -287,7 +293,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_history_errors">Erreurs</string>
   <string name="danar_history_glucose">Glycémie</string>
   <string name="danar_history_refill">Remplir</string>
+  <string name="danar_history_connectingfor">Connexion à %1$d s en cours</string>
+  <string name="danar_password_title">Mot de passe pompe</string>
+  <string name="wrongpumppassword">Mot de passe pompe incorrect !</string>
   <string name="pumpbusy">Pompe occupée</string>
+  <string name="overview_bolusprogress_delivered">Délivré</string>
   <string name="overview_bolusprogress_stoped">Arrêté</string>
   <string name="bolusstopped">Bolus arrêté</string>
   <string name="occlusion">Occlusion</string>
