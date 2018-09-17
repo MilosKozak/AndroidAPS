@@ -142,6 +142,8 @@
   <string name="safety">Sécurité</string>
   <string name="openapsma_disabled">Plugin désactivé</string>
   <string name="constraints_violation">Violation des restrictions</string>
+  <string name="treatmentdeliveryerror">Erreur injection bolus</string>
+  <string name="tempbasaldeliveryerror">Erreur injection basal temporaire</string>
   <string name="overview_newtempbasal_basalpercent">Valeur Basal [%]</string>
   <string name="overview_newtempbasal_percent_label">% (100% = actuel)</string>
   <string name="setbasalquestion">Accepter nouveau basal temporaire :</string>
@@ -259,10 +261,9 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="waitingforpumpresult">Attente de résultat</string>
   <string name="smscommunicator_allowednumbers">Numéros de tél autorisés</string>
   <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
-  <string name="smscommunicator_bolusreplywithcode">Renvoyer le code %2$s pour injecter le bolus %1$.2fU</string>
   <string name="smscommunicator_calibrationreplywithcode">Renvoyer le code %2$s pour envoyer la calibration %1$.2f</string>
   <string name="smscommunicator_bolusfailed">Échec du Bolus</string>
-  <string name="bolusdelivered" formatted="false">Bolus %.2fU injecté avec succès</string>
+  <string name="bolusdelivered" formatted="false">Bolus %.2fU délivré avec succès</string>
   <string name="bolusrequested" formatted="false">%.2fU va être injecté</string>
   <string name="smscommunicator_bolusdelivered" formatted="false">%.2fU de bolus injecté avec succès</string>
   <string name="bolusdelivering" formatted="false">En train d\'injecter %.2fU</string>
@@ -661,15 +662,21 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="dexcomg5_upload">Paramètres de téléchargement du G5</string>
   <string name="poctech_upload">Paramètres de téléchargement Poctech</string>
   <string name="wear_detailed_delta_title">Afficher le delta détaillé</string>
+  <string name="unsupportedfirmware">Firmware pompe incompatible </string>
   <string name="dexcomg5_xdripupload_summary">Dans xDrip+ veuillez séléctionner 640g/Eversense comme source de données</string>
   <string name="nsclientbg">Glycémie NSClient</string>
+  <string name="minimalbasalvaluereplaced">Valeur de basal remplacée par la valeur minimale autorisée : %s</string>
+  <string name="maximumbasalvaluereplaced">Valeur de basal remplacée par la valeur maximale autorisée : %s</string>
   <string name="overview_editquickwizard_usebg">Calcul de Glycémie</string>
+  <string name="overview_editquickwizard_usebolusiob">Calcul IA du Bolus</string>
+  <string name="overview_editquickwizard_usebasaliob">Calcul IA du Basal</string>
   <string name="overview_editquickwizard_usetrend">Calcul de tendance</string>
   <string name="overview_editquickwizard_usesuperbolus">Calcul SuperBolus</string>
   <string name="yes">Oui</string>
   <string name="no">Non</string>
   <string name="positiveonly">Seulement positif</string>
   <string name="negativeonly">Seulement négatif</string>
+  <string name="overview_editquickwizard_usecob">Calcul GA</string>
   <string name="overview_editquickwizard_usetemptarget">Cible temporaire</string>
   <string name="loopenabled">Boucle activée</string>
   <string name="apsselected">APS Sélectionné</string>
@@ -688,6 +695,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="combo_pump_state_suspended_due_to_error">Arrêté pour cause d\'erreur</string>
   <string name="combo_pump_state_suspended_by_user">Arrêté par l\'utilisateur</string>
   <string name="combo_pump_state_running">En cours d\'exécution</string>
+  <string name="combo_pump_action_bolusing">Injection du bolus en cours (%.1f U)</string>
   <string name="combo_pump_action_refreshing">Actualisation en cours</string>
   <string name="combo_pump_unsupported_operation">L\'opération demandée n\'est pas prise en charge par la pompe</string>
   <string name="combo_low_suspend_forced_notification">Utilisation dangereuse : les bolus étendus ou carrés sont actifs. Le mode Boucle a été programmé pour des suspensions seulement pour 6 heures. Uniquement les bolus normaux sont pris en charge par le mode Boucle</string>
@@ -736,6 +744,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="insight_needs">besoins</string>
   <string name="insight_not_connected_to_companion_app">Non connectée à l\'application compagnon</string>
   <string name="insight_companion_app_not_installed">L\'application compagnon ne semble pas être installée</string>
+  <string name="insight_incompatible_compantion_app_we_need_version">Application compagnon incompatible, besoin d\'une autre version</string>
   <string name="insight_unknown">Inconnue</string>
   <string name="insight_waiting_for_code">Attente du code de confirmation</string>
   <string name="insight_code_rejected">Code rejeté</string>
@@ -760,6 +769,9 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="enablesmbwithcob">Activer SMB avec les glucides</string>
   <string name="enablesmbwithcob_summary">Activer SMB tant que des Glucides sont actifs.</string>
   <string name="enablesmbwithtemptarget">Activer SMB avec les cibles temporaires</string>
+  <string name="enablesmbwithtemptarget_summary">Activer SMB lorsqu\'il y a une cible temporaire active (repas imminent, exercise)</string>
+  <string name="enablesmbwithhightemptarget">Autoriser SMB avec des cibles élevées temporaires</string>
+  <string name="let_temp_basal_run">Laisser démarrer le Basal temporaire</string>
   <string name="mute">Coupure du son</string>
   <string name="overview_insulin_label">Insuline</string>
   <string name="overview_carbs_label">Glucides</string>
@@ -799,7 +811,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pump_basebasalrate">%.2f U/h</string>
   <string name="combo_actvity_reading_basal_profile">Lecture du profil basal</string>
   <string name="combo_bolus_rejected_due_to_pump_history_change">L\'historique de la pompe a été modifié depuis le calcul du bolus. Le bolus n\'a pas été administré. Merci de recalculer le bolus s\'il est toujours nécessaire.</string>
-  <string name="combo_error_updating_treatment_record">Le bolus a été injecté mais il n\'a pas pu être ajouté à l\'historique des traitements. Ceci peut se produire lorsque deux petits bolus de la même taille sont gérés dans les deux dernières minutes. Merci de vérifier l\'historique de la pompe et les entrées de traitements puis utilisez le Careportal pour y ajouter les entrées manquantes. Assurez-vous de ne pas ajouter des entrées au cours de la même minute et pour la même quantité d\'insuline.</string>
+  <string name="combo_error_updating_treatment_record">Le bolus a été délivré mais il n\'a pas pu être ajouté à l\'historique des traitements. Ceci peut se produire lorsque deux petits bolus de la même taille sont gérés dans les deux dernières minutes. Merci de vérifier l\'historique de la pompe et les entrées de traitements puis utilisez le Careportal pour y ajouter les entrées manquantes. Assurez-vous de ne pas ajouter des entrées au cours de la même minute et pour la même quantité d\'insuline.</string>
   <string name="combo_activity_checking_pump_state">Actualisation de l\'état de la pompe</string>
   <string name="combo_warning_pump_basal_rate_changed">Le taux basal de la pompe a été modifié et sera bientôt actualisé</string>
   <string name="combo_error_failure_reading_changed_basal_rate">Le pourcentage de basal a changé dans la pompe mais sa lecture a échoué</string>
@@ -881,10 +893,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pumpsetup">Configuration pompe</string>
   <string name="readstatus">Statut de lecture</string>
   <string name="adjustprofileinns">Des modifications doivent être effectuées dans NS</string>
+  <string name="exitwizard">Passer l\'Assistant de configuration</string>
   <string name="setupwizard_loop_description">Appuyez sur le bouton ci-dessous pour autoriser AndroidAPS à suggérer/faire des changements de basal</string>
   <string name="setupwizard_objectives_description">Appuyez sur le bouton ci-dessous pour activer les Objectifs. Vérifiez le menu Objectifs une fois que vous arriverez à la fin de cet assistant de configuration de façon à ce qu\'AndroidAPS soit totalement opérationnel.\n</string>
   <string name="enableobjectives">Activez les objectifs</string>
   <string name="apssetup">Configurer le plugin APS</string>
+  <string name="sensitivitysetup">Configurer le plugin de Sensibilité</string>
+  <string name="setupwizard_sensitivity_description">Le plugin de Sensibilité est utilisé pour la détection de la Sensibilité et de calcul de glucides actifs. Pour plus d’informations visitez :</string>
   <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
   <string name="nsclientinfotext">Le NSClient gère la connexion avec Nightscout. Vous pouvez sauter cette étape maintenant mais vous ne pourrez pas terminer les objectifs sans cette configuration.</string>
   <string name="diawarning">Rappel : les nouveaux profils d\'insuline requièrent une DIA d\'au moins 5h. Une DIA 5-6h dans les nouveaux profils d\'insuline équivaut à une DIA 3h dans les anciens profils d\'insuline.</string>
@@ -902,6 +917,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_useroptions">Options utilisateur</string>
   <string name="danar_timedisplay">Format de l\'affichage de l\'heure</string>
   <string name="danar_buttonscroll">Bouton défiler</string>
+  <string name="danar_beep">Bip lors de l\'appui bouton</string>
   <string name="danar_pumpalarm">Alarme</string>
   <string name="danar_pumpalarm_sound">Son</string>
   <string name="danar_pumpalarm_vibrate">Vibration</string>
@@ -919,6 +935,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="completed_well_done">Terminé, félicitations !</string>
   <string name="not_completed_yet">Pas encore terminé</string>
   <string name="time_elapsed">Temps écoulé</string>
+  <string name="nth_objective">%1$d. Objectif</string>
   <string name="poctech">Poctech</string>
   <string name="description_source_poctech">Recevoir les glycémies depuis l\'app Poctech</string>
   <string name="high_temptarget_raises_sensitivity_title">Un objectif temporaire élevé augmente la sensibilité</string>
