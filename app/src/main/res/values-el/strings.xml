@@ -121,12 +121,20 @@
   <string name="configbuilder_treatments">Θεραπείες</string>
   <string name="configbuilder_treatments_description">Ποια προσθήκη πρέπει να χρησιμοποιηθεί για το χειρισμό της θεραπείας;</string>
   <string name="configbuilder_profile">Προφίλ</string>
+  <string name="configbuilder_profile_description">Ποιο προφίλ πρέπει να χρησιμοποιήσει το AndroidAPS;</string>
+  <string name="configbuilder_aps">APS</string>
+  <string name="configbuilder_aps_description">Ποιος APS αλγόριθμος πρέπει να κάνει θεραπείες;</string>
   <string name="configbuilder_general">Γενικά</string>
+  <string name="configbuilder_general_description">Αυτά είναι μερικά πρόσθετα που μπορεί να βρείτε χρήσιμα.</string>
+  <string name="configbuilder_constraints_description">Ποιοι περιορισμοί έχουν εφαρμοστεί;</string>
   <string name="days">ημέρες</string>
   <string name="constraints">Περιορισμοί</string>
   <string name="loop">Κύκλωμα</string>
   <string name="configbuilder_loop">Κύκλωμα</string>
+  <string name="configbuilder_loop_description">Χρησιμοποιήστε αυτό για να ενεργοποιήσετε την ενσωμάτωση του κυκλώματος AndroidAPS.</string>
+  <string name="loop_aps_label">APS</string>
   <string name="loop_constraintsprocessed_label">Μετά από επεξεργασία περιορισμών</string>
+  <string name="loop_tbrsetbypump_label">Προσωρινός Ρυθμός ορίστηκε από την αντλία</string>
   <string name="openapsma_lastenact_label">Τελευταία εφαρμογή</string>
   <string name="ok">ΟΚ</string>
   <string name="cancel">Ακύρωση</string>
@@ -212,6 +220,12 @@
   <string name="missing">Χαμένες</string>
   <string name="exported">Επιλογές εξήχθησαν</string>
   <string name="export_to">Εξαγωγή ρυθμίσεων σε</string>
+  <string name="import_from">Εισαγωγή ρυθμίσεων από</string>
+  <string name="setting_imported">Ρυθμίσεις εισήχθησαν</string>
+  <string name="filenotfound">Μη εύρεση φακέλου</string>
+  <string name="nav_export">Εξαγωγή ρυθμίσεων</string>
+  <string name="nav_import">Εισαγωγή ρυθμίσεων</string>
+  <string name="openapsma_maxbasal_title">Μέγιστο U/hr Προσωρινού Ρυθμού μπορεί να είναι</string>
   <string name="smscommunicator_bolusfailed">Αποτυχία Bolus</string>
   <string name="bolusdelivered" formatted="false">Bolus %.2fU παραδόθηκε επιτυχώς</string>
   <string name="bolusrequested" formatted="false">Προς έγχυση %.2fU</string>
