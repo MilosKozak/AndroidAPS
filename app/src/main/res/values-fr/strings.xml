@@ -296,6 +296,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="danar_history_basalhours">Heures Basal</string>
   <string name="danar_history_bolus">Bolus</string>
   <string name="danar_history_carbohydrates">Glucides</string>
+  <string name="danar_history_dailyinsulin">Insuline quotidienne</string>
   <string name="danar_history_errors">Erreurs</string>
   <string name="danar_history_glucose">Glycémie</string>
   <string name="danar_history_refill">Remplir</string>
@@ -431,12 +432,15 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="actions_shortname">ACT</string>
   <string name="configbuilder_shortname">CONF</string>
   <string name="loop_shortname">BOUCLE</string>
+  <string name="simpleprofile_shortname">SP</string>
   <string name="oaps_shortname">OAPS</string>
+  <string name="localprofile_shortname">LP</string>
   <string name="danarpump_shortname">DANA</string>
   <string name="overview_shortname">ACCUEIL</string>
   <string name="virtualpump_shortname">POMPEV</string>
   <string name="profileviewer_shortname">PROFIL NS</string>
   <string name="treatments_shortname">TRAITER</string>
+  <string name="careportal_shortname">CP</string>
   <string name="objectives_shortname">OBJ</string>
   <string name="wear_shortname">WEAR</string>
   <string name="smscommunicator_shortname">SMS</string>
@@ -487,6 +491,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="nsclientinternal_secret_title">NS API Secret</string>
   <string name="nsclientinternal_secret_dialogtitle">NS API Secret</string>
   <string name="nsclientinternal_secret_dialogmessage">Entrez NS API secret (12 carac. min)</string>
+  <string name="deliver_now">Transmettre maintenant</string>
   <string name="clear_queue">Vider la file d\'attente</string>
   <string name="show_queue">Afficher la file d\'attente</string>
   <string name="queue">File d\'attente :</string>
