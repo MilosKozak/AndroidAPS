@@ -626,8 +626,14 @@
   <string name="overview_newtempbasal_basalabsolute">Τιμή Βασικού ρυθμού [U/h] </string>
   <string name="careportal_newnstreatment_duration_min_label">Διάρκεια [min]</string>
   <string name="openapssmb">OpenAPS SMB</string>
+  <string name="smb_shortname">SMB</string>
+  <string name="enableuam">Ενεργοποίηση UAM</string>
+  <string name="enablesmb">Ενεργοποίηση SMB</string>
+  <string name="enablesmb_summary">Χρησιμοποιήστε Super Micro Boluses αντί προσωρινού ρυθμού για ταχύτερα αποτελέσματα</string>
+  <string name="enableuam_summary">Ανίχνευση απαρατήρητων γευμάτων</string>
   <string name="insulin_oref_peak">Μέγιστη τιμή καμπύλης IOB</string>
   <string name="insulin_peak_time">Μέγιστο καμπύλης [λεπτά]</string>
+  <string name="free_peak_oref">Προαιρετικά-αιχμή Oref</string>
   <string name="rapid_acting_oref">Γρήγορη δράση - Oref</string>
   <string name="ultrarapid_oref">Έξτρα Γρήγορη δράση - Oref</string>
   <string name="dia_too_short">DIA για %1$f πολύ μικρή - χρησιμοποιήστε %2$f! </string>
@@ -635,6 +641,8 @@
   <string name="date">Ημερομηνία</string>
   <string name="invalid">ΜΗ ΕΓΚΥΡΟ</string>
   <string name="waitingforpairing">Περιμένετε για σύζευξη με αντλία</string>
+  <string name="pairingok">Σύζευξη ΟΚ</string>
+  <string name="pairingtimedout">Τέλος χρόνου σύζευξης</string>
   <string name="pairing">ΣΥΖΕΥΞΗ</string>
   <string name="danars_nodeviceavailable">Δεν βρέθηκε συσκευή ακόμα</string>
   <string name="emptyreservoir">Άδεια αμπούλα</string>
@@ -646,6 +654,7 @@
   <string name="pairpump">Σύζευξη νέας αντλίας</string>
   <string name="bolusspeed">Ταχύτητα Bolus</string>
   <string name="danar_setbasalstep001">Ρυθμίστε το βήμα βασικού στο 0.01 U/h</string>
+  <string name="serialnumber">Serial number</string>
   <string name="careportal_newnstreatment_percentage_label">Ποσοστό</string>
   <string name="careportal_newnstreatment_timeshift_label">Αλλαγή της ώρας</string>
   <string name="default_temptargets">Προκαθορισμένος Στόχος-Προσ Ρυθμού</string>
@@ -653,6 +662,8 @@
   <string name="eatingsoon_target">στόχος για γεύμα</string>
   <string name="activity_duration">διάρκεια άσκησης</string>
   <string name="activity_target">στόχος άσκησης</string>
+  <string name="hypo_duration">διάρκεια υπογλυκαιμίας</string>
+  <string name="hypo_target">στόχος υπογλυκαιμίας</string>
   <string name="danar_history_prime">Πλήρωση</string>
   <string name="gettingbolusstatus">Κατάσταση bolus</string>
   <string name="gettingtempbasalstatus">Λήψη κατάστασης Προσ Ρυθμού</string>
@@ -905,6 +916,26 @@
   <string name="nav_plugin_preferences">Επιλογές προσθήκης</string>
   <string name="completed_well_done">Ολοκληρώθηκε, συγχαρητήρια!</string>
   <string name="not_completed_yet">Δεν ολοκληρώθηκε ακόμη</string>
+  <string name="time_elapsed">Ο χρόνος που πέρασε</string>
+  <string name="nth_objective">%1$d. Στόχος</string>
+  <string name="poctech">Poctech</string>
+  <string name="description_source_poctech">Λάβετε τις τιμές BG από την εφαρμογή Poctech</string>
+  <string name="high_temptarget_raises_sensitivity_title">Ο υψηλός προσωρινός στόχος ανεβάζει την ευαισθησία</string>
+  <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Αύξηση ευαισθησίας για προσωρινό στόχο > = 100]]></string>
+  <string name="low_temptarget_lowers_sensitivity_title">Ο χαμηλός προσωρινός στόχος μειώνει την ευαισθησία</string>
+  <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Χαμηλότερη ευαισθησία για προσωρινό στόχο < 100]]></string>
+  <string name="combo_invalid_setup">Εσφαλμένη ρύθμιση αντλίας. Ελέγξτε τα κείμενα και βεβαιωθείτε ότι η Quick Info ονομάζεται QUICK INFO χρησιμοποιώντας το λογισμικό διαμόρφωσης 360.</string>
+  <string name="custom">Προσαρμογή</string>
+  <string name="largetimedifftitle">Μεγάλη χρονική διαφορά</string>
+  <string name="largetimediff">Μεγάλη χρονική διαφορά:\nΗ ώρα στην αντλία διαφέρει περισσότερο από 1,5 ώρες. \nΠαρακαλώ ρυθμίστε την ώρα χειροκίνητα στην αντλία και βεβαιωθείτε ότι η ανάγνωση του ιστορικού από την αντλία δεν προκαλεί απροσδόκητη συμπεριφορά. \nΑν είναι δυνατόν, αφαιρέστε το ιστορικό από την αντλία πριν την αλλαγή της ώρας ή κλείστε το κλειστό κύκλωμα για μία DIA μετά την τελευταία λάθος καταχώρηση ιστορικού αλλά κατ΄ελάχιστο μία DIA από τώρα.</string>
+  <string name="careportal_removestartedevents">Ξεκίνησε το AndroidAPS καθαρό</string>
+  <string name="storedsettingsfound">Βρέθηκαν αποθηκευμένες ρυθμίσεις</string>
+  <string name="allow_hardware_pump_text">Προσοχή: Εάν ενεργοποιήσετε και συνδεθείτε με μια αντλία, το AndroidAPS θα αντιγράψει τις ρυθμίσεις βασικού από το προφίλ στην αντλία, αντικαθιστώντας τον υπάρχων βασικό ρυθμό της αντλίας. Βεβαιωθείτε ότι έχετε τον σωστό βασικό ρυθμό στο AndroidAPS. Εάν δεν είστε βέβαιοι ή δεν θέλετε να αντικαταστήσετε τον βασικό ρυθμό στην αντλία σας, πατήστε Άκυρο και επαναλάβετε εναλλαγή προς την αντλία σε μεταγενέστερο χρόνο.</string>
+  <string name="error_adding_treatment_title">Ελλιπή δεδομένα θεραπείας</string>
+  <string name="maintenance_settings">Ρυθμίσεις συντήρησης</string>
+  <string name="maintenance_email">E-mail</string>
+  <string name="invalid_email_message">Μη έγκυρο Email</string>
+  <string name="maintenance_amount">Αριθμός αρχείων καταγραφής για αποστολή</string>
   <string name="maintenance">Συντήρηση</string>
   <string name="maintenance_shortname">ΣΥΝΤΗΡ</string>
   <string name="description_maintenance">Παρέχει λειτουργίες συντήρησης (π. χ. αποστολή, καθαρισμό καταγραφής).</string>
