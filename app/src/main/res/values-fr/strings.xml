@@ -326,6 +326,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="objectives_4_gate">Utiliser pendant quelques jours, et au moins une nuit sans les alarmes d’hypoglycémie, avant la baisse de G</string>
   <string name="objectives_5_objective">Ajustez si besoin les débits de base et les ratios, activez ensuite « Autosens »</string>
   <string name="objectives_5_gate">Une semaine réussie avec des journées en Boucle Fermée, avec des entrées normales des glucides</string>
+  <string name="objectives_6_objective">Activer d’autres fonctionnalités pour l’utilisation dans la journée, tel que Assistance Repas Avancée (AMA Advanced Meal Assist)</string>
+  <string name="objectives_7_objective">Activer des fonctionnalités supplémentaires pour l\'utilisation dans la journée, telles que la fonction SMB</string>
   <string name="objectives_7_gate">Vous devez lire le wiki et augmenter les max IA pour faire fonctionner SMB ! Un bon début est max IA = moyenne bolus repas + 3 fois max daily basal</string>
   <string name="youareonallowedlimit">Vous avez atteint la limite maximale</string>
   <string name="noprofileselected">Aucun profil séléctionné</string>
