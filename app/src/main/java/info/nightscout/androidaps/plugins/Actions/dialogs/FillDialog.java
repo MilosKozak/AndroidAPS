@@ -103,7 +103,7 @@ public class FillDialog extends DialogFragment implements OnClickListener {
         insulinCartridgeChangeCheckbox = view.findViewById(R.id.fill_cartridge_change);
 
         Double maxInsulin = MainApp.getConstraintChecker().getMaxBolusAllowed().value();
-        double bolusstep = ConfigBuilderPlugin.getActivePump().getPumpDescription().bolusStep;
+        double bolusstep = ConfigBuilderPlugin.getPlugin().getActivePump().getPumpDescription().bolusStep;
         editInsulin = view.findViewById(R.id.fill_insulinamount);
         editInsulin.setParams(0d, 0d, maxInsulin, bolusstep, DecimalFormatter.pumpSupportedBolusFormat(), false, textWatcher);
 
@@ -223,7 +223,7 @@ public class FillDialog extends DialogFragment implements OnClickListener {
                             detailedBolusInfo.source = Source.USER;
                             detailedBolusInfo.isValid = false; // do not count it in IOB (for pump history)
                             detailedBolusInfo.notes = notes;
-                            ConfigBuilderPlugin.getCommandQueue().bolus(detailedBolusInfo, new Callback() {
+                            ConfigBuilderPlugin.getPlugin().getCommandQueue().bolus(detailedBolusInfo, new Callback() {
                                 @Override
                                 public void run() {
                                     if (!result.success) {
