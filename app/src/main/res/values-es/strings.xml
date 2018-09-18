@@ -1030,6 +1030,7 @@
   <string name="send_all_logs">Enviar registros por email</string>
   <string name="delete_logs">Borrar registros</string>
   <string name="error_adding_treatment_message">Un tratamiento (insulina: %1$.2f, carbs: %2$d, at: %3$s) no ha podido ser añadido a tratamientos. Por favor compruebe y añada manualmente el registro apropiadamente.</string>
+  <string name="generated_ecarbs_note">eCarbs: %1$d g (%2$d h), retraso: %3$d m</string>
   <string name="openaps_noasdata">Sin datos autosens disponibles</string>
   <string name="nav_logsettings">Ajustes del registro</string>
   <string name="resettodefaults">Restablecer valores predeterminados</string>
@@ -1037,6 +1038,7 @@
   <string name="as">AS</string>
   <string name="versionavailable">Versión %1$s disponible</string>
   <string name="time_offset">Retardo</string>
+  <string name="setupwizard_preferred_aps_mode">Modo preferido de APS</string>
   <string name="treatments_wizard_total_label">Total</string>
   <string name="loop_openmode_min_change_summary">El lazo mostrará una petición de cambio sólo si éste es mayor que este valor. El valor predeterminado es 20%</string>
   <plurals name="objective_days">
