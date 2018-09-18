@@ -952,6 +952,7 @@
   <string name="virtualpump_type">Typ av virtuell pump</string>
   <string name="virtualpump_definition">Pumpdefinition</string>
   <string name="virtualpump_pump_def">Bolus: Steg =%1$s\nFörlängd bolus: [Steg=%2$s, duration =%3$smin -%4$sh] \nBasal: Steg=%5$s\nTempbasal: %6$s (av %7$s), duration =%8$smin -%9$sh\n%10$s</string>
+  <string name="virtualpump_pump_def_extended_note">* Inga spann stöds som granularitet för basal/bolus i den virtuella pumpen. Endast enkla värden.</string>
   <string name="ns_autobackfill_title">Auto Backfill BG</string>
   <string name="wear_wizard_settings">Kalkylatorinställningar</string>
   <string name="wear_wizard_settings_summary">Kalkyler inkluderade i resultatet</string>
