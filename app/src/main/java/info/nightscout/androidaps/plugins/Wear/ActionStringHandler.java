@@ -581,8 +581,6 @@ public class ActionStringHandler {
         } else if (result.rate == 0 && result.duration == 0) {
             ret += MainApp.gs(R.string.canceltemp) + "\n";
         } else {
-            ret += MainApp.gs(R.string.rate) + ": " + DecimalFormatter.to2Decimal(result.rate) + " U/h " +
-                    "(" + DecimalFormatter.to2Decimal(result.rate / ConfigBuilderPlugin.getPlugin().getActivePump().getBaseBasalRate() * 100) + "%)\n" +
             ret += MainApp.gs(R.string.rate) + ": " + DecimalFormatter.to2Decimal(result.rate) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h " +
                     "(" + DecimalFormatter.to2Decimal(result.rate / ConfigBuilderPlugin.getPlugin().getActivePump().getBaseBasalRate() * 100) + "%)\n" +
                     MainApp.gs(R.string.duration) + ": " + DecimalFormatter.to0Decimal(result.duration) + " min\n";
