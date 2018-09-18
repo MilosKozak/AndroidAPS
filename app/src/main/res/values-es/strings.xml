@@ -115,7 +115,7 @@
   <string name="tempbasal">Basal temporal</string>
   <string name="treatments">Tratamientos</string>
   <string name="virtualpump">Bomba virtual</string>
-  <string name="careportal">Portal Tratamientos</string>
+  <string name="careportal">Portal de Tratamientos</string>
   <string name="configbuilder_pump">Bomba</string>
   <string name="configbuilder_pump_description">¿Qué bomba quieres utilizar con AndroidAPS?</string>
   <string name="configbuilder_treatments">Tratamientos</string>
@@ -133,7 +133,7 @@
   <string name="configbuilder_loop">Lazo</string>
   <string name="configbuilder_loop_description">Utiliza esto para activar la integración del lazo de AndroidAPS.</string>
   <string name="loop_aps_label">APS</string>
-  <string name="loop_constraintsprocessed_label">Tras procesar restricciones</string>
+  <string name="loop_constraintsprocessed_label">Tras procesar las restricciones</string>
   <string name="loop_tbrsetbypump_label">Basal temporal en la bomba</string>
   <string name="openapsma_lastenact_label">Última aceptada</string>
   <string name="ok">Ok</string>
@@ -1036,6 +1036,8 @@
   <string name="as">AS</string>
   <string name="versionavailable">Versión %1$s disponible</string>
   <string name="time_offset">Retardo</string>
+  <string name="treatments_wizard_total_label">Total</string>
+  <string name="loop_openmode_min_change_summary">El lazo mostrará una petición de cambio sólo si éste es mayor que este valor. El valor predeterminado es 20%</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d día</item>
     <item quantity="other">%1$d días</item>
