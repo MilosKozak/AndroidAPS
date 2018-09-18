@@ -13,7 +13,7 @@
   <string name="alert_m22">Mantenimiento M22: Batería vacía</string>
   <string name="alert_m23">Mantenimiento M23: Apagado automático</string>
   <string name="alert_m24">Mantenimiento M24: oclusión</string>
-  <string name="alert_m25">Mantenimiento M25: Loantime finalizado - final de la operación</string>
+  <string name="alert_m25">Mantenimiento M25: Tiempo préstamo finalizado - final de la operación</string>
   <string name="alert_m26">Mantenimiento M26: Cambio de cartucho no completado</string>
   <string name="alert_m27">Mantenimiento M27: Error de descarga de datos</string>
   <string name="alert_m28">Mantenimiento M28: Tiempo de espera vencido</string>
