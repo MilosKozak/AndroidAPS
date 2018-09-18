@@ -867,6 +867,15 @@
   <string name="pump_basebasalrate">%.2f U/h</string>
   <string name="combo_actvity_reading_basal_profile">Ανάγνωση βασικού προφίλ</string>
   <string name="combo_bolus_rejected_due_to_pump_history_change">Το ιστορικό της αντλίας έχει αλλάξει μετά την εκτέλεση του υπολογισμού του bolus. Το bolus δεν εκτελέστηκε. Παρακαλούμε να υπολογίσετε ξανά αν είναι ακόμα απαραίτητο.</string>
+  <string name="combo_error_updating_treatment_record">Το bolus εκτελέστηκε με επιτυχία, αλλά η καταχώριση στην θεραπεία απέτυχε. Αυτό μπορεί να συμβεί εάν χορηγηθούν δύο bolus ίδιου μεγέθους μέσα σε 2 λεπτά. Ελέγξτε το ιστορικό της αντλίας και το ιστορικό στο μενού Θεραπείες και χρησιμοποιείστε το Careportal για να εισαγάγετε τα στοιχεία που λείπουν. Βεβαιωθείτε ότι δεν εισάγετε το ίδιο μέγεθος στον ακριβώς ίδιο χρόνο.</string>
+  <string name="combo_high_temp_rejected_due_to_pump_history_changes">Η υψηλή προσωρινή βασική απορρίφθηκε επειδή οι υπολογισμοί δεν αντικατοπτρίζουν τις τελευταίες αλλαγές στο ιστορικό της αντλίας</string>
+  <string name="combo_activity_checking_pump_state">Επαναφορά της κατάστασης της αντλίας</string>
+  <string name="combo_warning_pump_basal_rate_changed">Ο βασικός ρυθμός της αντλίας έχει αλλάξει και θα ενημερωθεί σύντομα</string>
+  <string name="combo_error_failure_reading_changed_basal_rate">Ο βασικός ρυθμός της αντλίας έχει αλλάξει αλλά η ανάγνωση έχει αποτύχει</string>
+  <string name="combo_activity_checking_for_history_changes">Έλεγχος για αλλαγές στο ιστορικό</string>
+  <string name="combo_error_multiple_boluses_with_identical_timestamp">Πολλαπλά bolus της ίδιας ποσότητας φορτώθηκαν μέσα σε ένα λεπτό. Μόνο μία εγγραφή μπορεί να προστεθεί στη θεραπεία. Ελέγξτε την αντλία και προσθέστε χειροκίνητα το bolus χρησιμοποιώντας το Careportal. Σιγουρευτείτε ότι δημιουργήσατε ένα bolus σε χρόνο που να μη γίνεται άλλο bolus.</string>
+  <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
+  <string name="combo_check_date">Το τελευταίο bolus είναι παλαιότερο από 24 ώρες ή είναι προγραμματισμένο στο μέλλον. Ελέγξτε αν είναι σωστή η ώρα στην αντλία.</string>
   <string name="waitingfortimesynchronization">Αναμονή για συγχρονισμό ώρας (%1$d δευτ)</string>
   <string name="loopdisconnectedfor">Αποσυνδέθηκε (%1$d m)</string>
   <string name="automatic_careportal_events">Αυτόματα συμβάντα careportal</string>
