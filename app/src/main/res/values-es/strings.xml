@@ -951,6 +951,7 @@
   <string name="value_unavailable_short">n/a</string>
   <string name="virtualpump_type">Bomba virtual</string>
   <string name="virtualpump_definition">Definición de la bomba</string>
+  <string name="virtualpump_pump_def">Bolo: Paso =%1$s\nBolo Extendido: [paso =%2$s, duración =%3$smin -%4$sh] \nBasal: paso =%5$s\nTBR: %6$s ( %7$s), duración =%8$smin -%9$sh\n%10$s</string>
   <string name="ns_autobackfill_title">Auto Rellenar mediciones perdidas</string>
   <string name="wear_wizard_settings">Configuración del Asistente</string>
   <string name="wear_wizard_settings_summary">Cálculos incluidos en el resultado del asistente:</string>
