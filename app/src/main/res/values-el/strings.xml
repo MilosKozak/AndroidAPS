@@ -843,6 +843,7 @@
   <string name="wear_predictions_summary">Προβολή πρόβλεψης στο ρολόι.</string>
   <string name="wear_predictions_title">Προβλέψεις</string>
   <string name="data_choices">Επιλογές δεδομένων</string>
+  <string name="fabric_upload">Αποστολή δεδομένων στο εργοστάσιο</string>
   <string name="allow_automated_crash_reporting">Να επιτρέπεται η αυτόματη αποστολή αναφορών σφάλματος και χαρακτηριστικά χρήσης δεδομένων στους προγραμματιστές μέσω του fabric.io. service.</string>
   <string name="g5appnotdetected">Ενημερώστε την εφαρμογή G5 στην υποστηριζόμενη έκδοση</string>
   <string name="start_activity_tt">Εκκίνηση δραστηριότητας TT</string>
@@ -904,6 +905,12 @@
   <string name="hardlimit">σταθερό όριο</string>
   <string name="unsafeusage">μη ασφαλής χρήση</string>
   <string name="readstatusfailed">Η ανάγνωση κατάστασης απέτυχε</string>
+  <string name="record_pump_site_change">Καταγράψτε την αλλαγή της τοποθεσίας αντλίας</string>
+  <string name="record_insulin_cartridge_change">Καταγράψτε την αλλαγή της τοποθεσίας καθετήρα</string>
+  <string name="smbalwaysdisabled">Το SMB πάντα και μετά το γεύμα απενεργοποιείται επειδή η ενεργή πηγή BG δεν υποστηρίζει προηγμένο φιλτράρισμα</string>
+  <string name="smbnotallowedinopenloopmode">To SMB δεν επιτρέπεται σε λειτουργία ανοιχτού κυκλώματος</string>
+  <string name="food_short">Φαγητό</string>
+  <string name="reset">επαναφορά</string>
   <string name="waitingfortimesynchronization">Αναμονή για συγχρονισμό ώρας (%1$d δευτ)</string>
   <string name="loopdisconnectedfor">Αποσυνδέθηκε (%1$d m)</string>
   <string name="automatic_careportal_events">Αυτόματα συμβάντα careportal</string>
