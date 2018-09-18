@@ -3,4 +3,14 @@
 <resources>
   <string name="alert_m20">Mantenimiento M20: Cartucho no insertado</string>
   <string name="alert_m21">Mantenimiento M21: Cartucho vacío</string>
+  <string name="alert_m22">Mantenimiento M22: Batería vacía</string>
+  <string name="alert_m23">Mantenimiento M23: Apagado automático</string>
+  <string name="alert_m24">Mantenimiento M24: oclusión</string>
+  <string name="alert_m25">Mantenimiento M25: Loantime finalizado - final de la operación</string>
+  <string name="alert_m26">Mantenimiento M26: Cambio de cartucho no completado</string>
+  <string name="alert_m27">Mantenimiento M27: Error de descarga de datos</string>
+  <string name="alert_m28">Mantenimiento M28: Tiempo de espera vencido</string>
+  <string name="alert_m29">Mantenimiento M29: Tipo de batería no establecido</string>
+  <string name="alert_m30">Mantenimiento M30: Tipo cartucho no establecido</string>
+  <string name="alert_e6">Error E6: Error mecánico</string>
 </resources>
