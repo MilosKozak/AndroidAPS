@@ -1042,7 +1042,7 @@
   <string name="setupwizard_preferred_aps_mode">Föredraget APS-läge</string>
   <string name="treatments_wizard_total_label">Total</string>
   <string name="calculation_short">Kalkyl</string>
-  <string name="handshaking">Verifierar anslutningen</string>
+  <string name="handshaking">Anslutningen verifieras</string>
   <string name="sendlogfiles">Skicka dagens loggfiler till utvecklarna tillsammans med denna datumstämpel. Oväntad situation.</string>
   <string name="maxbolusviolation">Max bolus nådd</string>
   <string name="commanderror">Kommandofel</string>
