@@ -226,6 +226,29 @@
   <string name="nav_export">Εξαγωγή ρυθμίσεων</string>
   <string name="nav_import">Εισαγωγή ρυθμίσεων</string>
   <string name="openapsma_maxbasal_title">Μέγιστο U/hr Προσωρινού Ρυθμού μπορεί να είναι</string>
+  <string name="openapsma_maxbasal_summary">Αυτή η τιμή ονομάζεται μέγιστο βασικού ρυθμού στο περιεχόμενο του OpenAPS</string>
+  <string name="openapsma_maxiob_title">Μέγιστο βασικής IOB που το OpenAPS μπορεί να δώσει [U]</string>
+  <string name="openapsma_maxiob_summary">Αυτή η τιμή ονομάζεται μέγιστο IOB στο OpenAPS \nΑυτή είναι η μέγιστη ινσουλίνη [U] που το APS μπορεί να δώσει με την μία.</string>
+  <string name="dismiss">ΑΠΟΡΡΙΨΗ</string>
+  <string name="danarpump">DanaR</string>
+  <string name="connecting">Συνδέεται</string>
+  <string name="connected">Συνδέθηκε</string>
+  <string name="disconnected">Αποσυνδέθηκε</string>
+  <string name="danar_pump_settings">Ρυθμίσεις αντλίας DanaR</string>
+  <string name="end_user_license_agreement">Άδεια χρήσης τελικού χρήστη</string>
+  <string name="end_user_license_agreement_text">ΔΕΝ ΠΡΕΠΕΙ ΝΑ ΧΡΗΣΙΜΟΠΟΙΗΘΕΙ ΓΙΑ ΝΑ ΚΑΝΕΤΕ ΙΑΤΡΙΚΗ ΑΠΟΦΑΣΗ. ΔΕΝ ΥΠΑΡΧΕΙ ΕΓΓΥΗΣΗ ΓΙΑ ΤΟ ΠΡΟΓΡΑΜΜΑ, ΣΤΟ ΒΑΘΜΟ ΠΟΥ ΕΠΙΤΡΕΠΕΤΑΙ ΑΠΟ ΤΟ ΕΦΑΡΜΟΣΤΕΟ ΔΙΚΑΙΟ. ΕΚΤΟΣ ΟΠΟΙΑΣΔΗΠΟΤΕ ΔΙΑΒΑΘΜΙΣΜΕΝΗ ΚΑΤΑ ΤΗΝ ΕΓΓΡΑΦΗ ΤΩΝ ΚΑΤΟΧΟΙ ΠΝΕΥΜΑΤΙΚΩΝ ΔΙΚΑΙΩΜΑΤΩΝ ΚΑΙ/Ή ΑΛΛΑ ΜΕΡΗ ΠΑΡΕΧΟΝΤΑΙ ΤΟ ΠΡΟΓΡΑΜΜΑ \"ΩΣ ΕΧΕΙ\" ΧΩΡΙΣ ΕΓΓΥΗΣΗ ΟΠΟΙΟΥΔΗΠΟΤΕ ΕΙΔΟΥΣ, ΕΞΑΙΡΟΥΜΕΝΕΣ Ή ΣΙΩΠΗΡΕΣ, ΣΥΜΠΕΡΙΛΑΜΒΑΝΟΜΕΝΩΝ, ΕΝΔΕΙΚΤΙΚΑ, ΤΩΝ ΣΙΩΠΗΡΩΝ ΕΓΓΥΗΣΕΩΝ ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ΚΑΙ ΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Ο ΟΛΟΚΛΗΡΩΜΕΝΟΣ ΚΙΝΔΥΝΟΣ ΟΣΟΝ ΑΦΟΡΑ ΤΗΝ ΠΟΙΟΤΗΤΑ ΚΑΙ ΤΗΝ ΑΠΟΔΟΣΗ ΤΟΥ ΠΡΟΓΡΑΜΜΑΤΟΣ ΕΙΝΑΙ ΔΙΚΟ ΣΑΣ. ΕΑΝ ΤΟ ΠΡΟΓΡΑΜΜΑ ΔΕΝ ΕΙΝΑΙ ΕΛΑΤΤΩΜΑΤΙΚΟ, ΠΡΕΠΕΙ ΝΑ ΕΞΕΤΑΣΤΕ ΤΟ ΚΟΣΤΟΣ ΟΛΩΝ ΤΩΝ ΑΠΑΡΑΙΤΗΤΩΝ ΣΥΝΤΗΡΗΣΕΩΝ, ΕΠΙΣΚΕΥΩΝ Ή ΔΙΟΡΘΩΣΕΩΝ.</string>
+  <string name="end_user_license_agreement_i_understand">ΚΑΤΑΛΑΒΑ ΚΑΙ ΣΥΜΦΩΝΩ</string>
+  <string name="save">Αποθήκευση</string>
+  <string name="nobtadapter">Δεν βρέθηκε προσαρμογέας Bluetooth</string>
+  <string name="devicenotfound">Δεν βρέθηκε η επιλεγμένη συσκευή</string>
+  <string name="connectionerror">Λάθος σύνδεσης αντλίας</string>
+  <string name="danar_iob_label">IOB αντλίας</string>
+  <string name="danar_dailyunits">Μονάδες ανά ημέρα </string>
+  <string name="pump_lastbolus_label">Τελευταίο Bolus:</string>
+  <string name="hoursago">πριν από %.1fh</string>
+  <string name="danar_invalidinput">Μη έγκυρα δεδομένα</string>
+  <string name="danar_valuenotsetproperly">Η τιμή δεν μπήκε σωστά</string>
+  <string name="reloadprofile">Ξαναφορτώστε το προφίλ</string>
   <string name="smscommunicator_bolusfailed">Αποτυχία Bolus</string>
   <string name="bolusdelivered" formatted="false">Bolus %.2fU παραδόθηκε επιτυχώς</string>
   <string name="bolusrequested" formatted="false">Προς έγχυση %.2fU</string>
