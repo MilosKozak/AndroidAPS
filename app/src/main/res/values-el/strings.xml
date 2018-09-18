@@ -271,6 +271,41 @@
   <string name="objectives_2_gate">Βάση της εμπειρίας σας, αποφασίστε ποιο είναι το μέγιστο βασικής δόσης και αποθηκεύστε το στην αντλία και στις Επιλογές</string>
   <string name="objectives_3_objective">Ξεκινήστε να κλείσετε το κύκλωμα με Σταμάτημα Χαμηλής Γλυκόζης (Low Glucose Suspend) </string>
   <string name="objectives_3_gate">Εκτελέστε σε κλειστό κύκλωμα με μέγιστο IOB = 0 για μερικές ημέρες χωρίς πολλά LGS - υπογλυκαιμίες</string>
+  <string name="objectives_4_objective">Ρυθμίζοντας το κλειστό κύκλωμα, αυξήστε το μέγιστο IOB πάνω από 0 και σταδιακά μειώστε τους στόχους BG</string>
+  <string name="objectives_4_gate">Τρέξτε το για λίγες ημέρες, και τουλάχιστον μία νύχτα χωρίς χαμηλό συναγερμό BG, πριν χαμηλώσετε τα όρια</string>
+  <string name="objectives_5_objective">Ρυθμίστε τον βασικό ρυθμό και τις αναλογίες αν χρειάζεται, και μετά ενεργοποιήστε το auto-sens</string>
+  <string name="objectives_5_gate">1 επιτυχής εβδομάδα ημερήσιου κυκλώματος με κανονική εισαγωγή υδατανθράκων</string>
+  <string name="objectives_6_objective">Ενεργοποιώντας επιπρόσθετα χαρακτηριστικά για χρήση κατά την ημέρα, όπως τον Προχωρημένο Βοηθό Γεύματος</string>
+  <string name="objectives_7_objective">Ενεργοποιήστε άλλες λειτουργίες για χρήση κατά την ημέρα, όπως SMB</string>
+  <string name="objectives_7_gate">Πρέπει να διαβάσετε τον οδηγό wiki και να αυξήσετε το ανώτατο όριο του IOB για να μπορέσει να λειτουργήσει σωστά η SMB! Μια καλή αρχή είναι μέγιστο IOB= μέσο bolus γεύματος + 3 x το μέγιστο ημερήσιο βασικού ρυθμού</string>
+  <string name="youareonallowedlimit">Φτάσατε το επιτρεπτό όριο</string>
+  <string name="noprofileselected">Δεν επηλέχθηκε προφίλ</string>
+  <string name="smscommunicator_loophasbeendisabled">Το κύκλωμα απενεργοποιήθηκε</string>
+  <string name="smscommunicator_loophasbeenenabled">Το κύκλωμα ενεργοποιήθηκε</string>
+  <string name="smscommunicator_loopisdisabled">Κύκλωμα απενεργοποιημένο</string>
+  <string name="smscommunicator_loopisenabled">Κύκλωμα ενεργοποιημένο</string>
+  <string name="valuelimitedto">Το %1$.2f περιορίζεται σε %2$.2f</string>
+  <string name="valueoutofrange" formatted="false">Η τιμή %s είναι έξω από τα όρια</string>
+  <string name="smscommunicator_remotebasalnotallowed">Δεν επιτρέπεται η απομακρυσμένη ρύθμιση βασικού ρυθμού </string>
+  <string name="smscommunicator_remotecommandnotallowed">Δεν επιτρέπεται απομακρυσμένη εντολή</string>
+  <string name="smscommunicator_basalreplywithcode">Για έναρξη βασικού %1$.2fU/h στείλτε με κωδικό %2$s</string>
+  <string name="smscommunicator_suspendreplywithcode">Για αναστολή κυκλκώματος για %1$d λεπτών στείλτε με κωδικό %2$s</string>
+  <string name="smscommunicator_tempbasalset">Προσωρινός Ρυθμός %1$.2fU/h για %2$d λεπτά ξεκίνησε επιτυχώς</string>
+  <string name="smscommunicator_tempbasalfailed">Εκκίνηση Προσωρινού Ρυθμού απέτυχε</string>
+  <string name="smscommunicator_basalstopreplywithcode" formatted="false">Για να σταματήσετε Προσωρινό Ρυθμό στείλτε με κωδικό %s</string>
+  <string name="smscommunicator_tempbasalcanceled">Ο Προσωρινός Ρυθμός ακυρώθηκε</string>
+  <string name="smscommunicator_tempbasalcancelfailed">Ακύρωση Προσωρινού Ρυθμού απέτυχε</string>
+  <string name="smscommunicator_unknowncommand">Άγνωστη εντολή ή λάθος απάντηση</string>
+  <string name="quickwizard">Γρήγορος Οδηγός</string>
+  <string name="quickwizardsettings">Ρυθμίσεις Γρήγορου Οδηγού</string>
+  <string name="overview_editquickwizard_buttontext">Κείμενο στο πλήκτρο:</string>
+  <string name="overview_editquickwizard_carbs">Υδατάνθρακες:</string>
+  <string name="overview_editquickwizard_valid">Ισχύς:</string>
+  <string name="overview_editquickwizardlistactivity_add">Προσθήκη</string>
+  <string name="overview_quickwizard_item_edit_button">Διαμόρφωση</string>
+  <string name="overview_quickwizard_item_remove_button">Μετακίνηση</string>
+  <string name="mealbolus">Γεύμα</string>
+  <string name="correctionbous">Διορθ</string>
   <string name="androidaps_start">AndroidAPS ξεκίνησε</string>
   <string name="ns_upload_only">NS φορτώνεται μόνο (απενεργοποίηση συγχρ)</string>
   <string name="ns_upload_only_summary">NS φορτώνεται μόνο. Δεν είναι αποτελεσματικό στο SGV εκτός εάν έχει επιλεγεί μία τοπική πηγή όπως το xDrip. Δεν είναι αποτελεσματικό στα Προφίλ ενώ χρησιμοποιείται το NS-Profiles.</string>
