@@ -266,6 +266,11 @@
   <string name="objectives_0_objective">Δημιουργία παρακολούθησης και ανάλυση βασικού ρυθμού και αναλογιών</string>
   <string name="objectives_0_gate">Επιβεβαιώστε ότι η BG φαίνεται στο Nightscout και τα δεδομένα της αντλίας φορτώθηκαν</string>
   <string name="objectives_1_objective">Ξεκινήστε σε ανοιχτό κύκλωμα</string>
+  <string name="objectives_1_gate">Εκτελέστε σε ανοιχτό κύκλωμα για μερικές ημέρες και χειροκίνητα κάντε πολλές παρεμβάσεις με προσωρινό ρυθμό. Ρυθμίστε και χρησιμοποιήστε προσωρινούς στόχους (π.χ. για αθλήματα ή υπογλυκαιμία)</string>
+  <string name="objectives_2_objective">Κατανοήστε το ανοιχτό κύκλωμα, περιλαμβάνοντας τις προτάσεις για Προσωρινό ρυθμό</string>
+  <string name="objectives_2_gate">Βάση της εμπειρίας σας, αποφασίστε ποιο είναι το μέγιστο βασικής δόσης και αποθηκεύστε το στην αντλία και στις Επιλογές</string>
+  <string name="objectives_3_objective">Ξεκινήστε να κλείσετε το κύκλωμα με Σταμάτημα Χαμηλής Γλυκόζης (Low Glucose Suspend) </string>
+  <string name="objectives_3_gate">Εκτελέστε σε κλειστό κύκλωμα με μέγιστο IOB = 0 για μερικές ημέρες χωρίς πολλά LGS - υπογλυκαιμίες</string>
   <string name="androidaps_start">AndroidAPS ξεκίνησε</string>
   <string name="ns_upload_only">NS φορτώνεται μόνο (απενεργοποίηση συγχρ)</string>
   <string name="ns_upload_only_summary">NS φορτώνεται μόνο. Δεν είναι αποτελεσματικό στο SGV εκτός εάν έχει επιλεγεί μία τοπική πηγή όπως το xDrip. Δεν είναι αποτελεσματικό στα Προφίλ ενώ χρησιμοποιείται το NS-Profiles.</string>
