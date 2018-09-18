@@ -13,4 +13,7 @@
   <string name="alert_m29">Mantenimiento M29: Tipo de batería no establecido</string>
   <string name="alert_m30">Mantenimiento M30: Tipo cartucho no establecido</string>
   <string name="alert_e6">Error E6: Error mecánico</string>
+  <string name="alert_e7">Error E7: Error electrónico</string>
+  <string name="alert_e10">Error E10: Error de rebobinado</string>
+  <string name="alert_e13">Error E13: Error de lenguaje</string>
 </resources>
