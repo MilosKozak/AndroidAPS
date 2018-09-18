@@ -7,6 +7,7 @@
   <string name="alert_w34">ADVERTENCIA W34: Fin de la garantía</string>
   <string name="alert_w36">ADVERTENCIA W36: TBR cancelada</string>
   <string name="alert_w38">ADVERTENCIA W38: Bolo cancelado</string>
+  <string name="alert_w39">W39 Advertencia: Advertencia de tiempo préstamo</string>
   <string name="alert_m20">Mantenimiento M20: Cartucho no insertado</string>
   <string name="alert_m21">Mantenimiento M21: Cartucho vacío</string>
   <string name="alert_m22">Mantenimiento M22: Batería vacía</string>
