@@ -847,7 +847,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="fabric_upload">Téléchargement Fabric</string>
   <string name="allow_automated_crash_reporting">Autoriser l\'envoi automatique des rapports d\'erreur et des données d\'utilisation aux développeurs via le service fabric.io</string>
   <string name="g5appnotdetected">Svp actualisez votre app G5 vers une version compatible</string>
-  <string name="start_eating_soon_tt">Traitement Repas imminent</string>
+  <string name="start_activity_tt">Début Activités</string>
+  <string name="start_eating_soon_tt">Début Repas imminent</string>
   <string name="temptargetshort">Traitement</string>
   <string name="do_not_bolus_record_only">Ne pas administrer de bolus, enregistrer uniquement</string>
   <string name="category">Catégorie</string>
