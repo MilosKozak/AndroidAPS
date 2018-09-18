@@ -21,7 +21,7 @@
   <string name="description_insulin_rapid">Ajustes de insulina preestablecidos para Humalog y NovoRapid /NovoLog</string>
   <string name="description_insulin_ultra_rapid">Ajuste preestablecido para insulina Fiasp</string>
   <string name="description_insulin_free_peak">Permite definir el pico de la actividad de la insulina. Debe ser utilizado únicamente por usuarios avanzados</string>
-  <string name="description_loop">Activar o desactivar la posibilidad para activar el lazo.</string>
+  <string name="description_loop">Permitir o denegar la activación del lazo.</string>
   <string name="description_ns_client">Sincroniza tus datos con Nightscout</string>
   <string name="description_ma">Condición del algoritmo en 2016</string>
   <string name="description_ama">Condición del algoritmo en 2017</string>
@@ -42,14 +42,14 @@
   <string name="description_sensitivity_aaps">Sensibilidad calculada de la misma manera que Oref0, pero puede especificarse el rango de tiempo. Absorción de carbohidratos mínima se calcula con el máximo tiempo de absorción de carbohidratos en preferencias.</string>
   <string name="description_sensitivity_oref0">La sensibilidad se calcula con las últimas 24 h y los carbohidratos (si no son absorbidos) se anulan después del tiempo indicado en preferencias.</string>
   <string name="description_sensitivity_oref1">La sensibilidad se calcula con las últimas 8 h y los carbohidratos (si no son absorbidos) se anulan después del tiempo indicado en preferencias. El complemento también calcula UAM.</string>
-  <string name="description_sensitivity_weighted_average">La sensibilidad se calcula como un promedio ampliado de las desviaciones. Desviaciones más recientes tienen mayor impacto. Absorción de carbohidratos mínima se calcula desde el tiempo de absorción de carbohidratos máximo en preferencias. Este algoritmo es el más rápido en los siguientes cambios de sensibilidad.</string>
+  <string name="description_sensitivity_weighted_average">La sensibilidad se calcula como un promedio ampliado de las desviaciones. Desviaciones más recientes tienen mayor impacto. Absorción de carbohidratos mínima se calcula desde el tiempo de absorción de carbohidratos máximo en preferencias. Este algoritmo es el más rápido siguiendo los cambios de sensibilidad.</string>
   <string name="description_source_dexcom_g5">Recibir valores de glucosa de la app parcheada de Dexcom G5.</string>
   <string name="description_source_glimp">Recibir valores de glucosa de Glimp.</string>
   <string name="description_source_mm640g">Recibir valores de glucosa del 600SeriesAndroidUploader.</string>
-  <string name="description_source_ns_client">Descarga datos de glucosa de Nightscout</string>
-  <string name="description_source_xdrip">Recibir valores de glucosa de xDrip.</string>
+  <string name="description_source_ns_client">Descarga los datos de glucosa de Nightscout</string>
+  <string name="description_source_xdrip">Recibir los valores de glucosa de xDrip.</string>
   <string name="description_treatments">Guarda todos los tratamientos que se realizaron</string>
-  <string name="description_wear">Observar y controlar AndroidAPS usando tu reloj WearOs.</string>
+  <string name="description_wear">Usar tu reloj WearOS para observar y controlar AndroidAPS.</string>
   <string name="description_xdrip_status_line">Mostrar información sobre tu lazo en tu esfera xDrip+.</string>
   <string name="description_sms_communicator">Control remoto de AndroidAPS mediante comandos SMS.</string>
   <string name="objectives_button_start">Inicio</string>
@@ -458,6 +458,7 @@
   <string name="openapsama_autosens_adjusttargets">Autosens también ajusta los objetivos</string>
   <string name="openapsama_autosens_adjusttargets_summary">Ajuste por defecto: true\nEsto se usa para permitir a autosens el ajuste de objetivos BG además de ISF y bases.</string>
   <string name="openapsama_bolussnooze_dia_divisor_summary">Ajuste por defecto: 2 \nEl retardo del bolo se realiza después de suministrar un bolo de comida, por lo que el lazo no se contrarrestará con bajas temporales cuando acaba de comer. Con el valor predeterminado de 2 y siendo DIA de 3 horas, el retardo del del bolo se realizará gradualmente durante 1,5 horas (3 DIA / 2).</string>
+  <string name="openapsama_min_5m_carbimpact_summary">Valor por defecto: 3.0 (AMA) o 8.0 (SMB). Este es un escenario de impacto de absorción de carbohidratos por defecto por 5 minutos. El valor predeterminado es un esperado 3mg/dl / 5min. Esto afecta la rapidez con la que los COB decaen, y cuánta absorción de carbohidratos se supone en el cálculo de futuras BG, cuando BG está cayendo más que esperado, o no aumento tanto como esperaba.</string>
   <string name="openapsama_link_to_preferncejson_doc_txt">Atención!\nNormalmente no tienes que editar los valores a continuación. Por favor PINCHA AQUI y LEE el texto y asegúrate que lo has ENTENDIDO antes de cambiar alguno de estos valores.</string>
   <string name="error_only_numeric_digits_allowed">Sólo se permiten caracteres numéricos.</string>
   <string name="error_only_numeric_digits_range_allowed">Sólo se permiten dígitos en el rango %1$s - %2$s</string>
@@ -640,6 +641,8 @@
   <string name="date">Fecha</string>
   <string name="invalid">INVALIDO</string>
   <string name="waitingforpairing">Esperando para conectar con bomba</string>
+  <string name="pairingok">Conexión OK</string>
+  <string name="pairingtimedout">Tiempo de Vinculación agotado</string>
   <string name="pairing">CONECTANDO</string>
   <string name="danars_nodeviceavailable">Aparato no encontrado</string>
   <string name="emptyreservoir">Deposito vacío</string>
@@ -894,6 +897,7 @@
   <string name="basal_set_correctly">Basal establecida correctamente</string>
   <string name="limitingpercentrate">Limitando porcentaje máximo de dosis a %1$d%% debido a %2$s</string>
   <string name="limitingbolus">Limitando el bolo a %1$.1f U debido a %2$s</string>
+  <string name="limitingextendedbolus">Limitando el bolo extendido a %1$.1f U debido a %2$s</string>
   <string name="limitingmaxiob">Limitando max IOB a %1$.1f U debido a %2$s</string>
   <string name="limitingcarbs">Limitando carbohidratos a %1$d g debido a %2$s</string>
   <string name="limitingiob">Limitando IOB a %1$.1f U debido a %2$s</string>
