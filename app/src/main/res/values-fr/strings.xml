@@ -953,6 +953,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="virtualpump_type">Type de pompe virtuelle</string>
   <string name="virtualpump_definition">Définition de pompe</string>
   <string name="virtualpump_pump_def">Bolus : Étape =%1$s\nExtended Bolus : [Étape =%2$s, Durée =%3$smin -%4$sh]\nBasal : Étape =%5$s\nTBR : %6$s (par %7$s), Durée =%8$smin -%9$sh\n%10$s</string>
+  <string name="virtualpump_pump_def_extended_note">* Uniquement les valeurs discrètes sont acceptées. Les plages ou fourchettes basal-bolus ne sont pas pris en charge par les pompes virtuelles (granularité).</string>
   <string name="ns_autobackfill_title">Remplissage automatique G</string>
   <string name="wear_wizard_settings">Paramètres de l’Assistant</string>
   <string name="wear_wizard_settings_summary">Calculs inclus dans le résultat de l’Assistant :</string>
