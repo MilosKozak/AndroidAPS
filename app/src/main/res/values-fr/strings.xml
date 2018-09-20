@@ -96,7 +96,7 @@
   <string name="openapsma_iobdata_label">Données IA</string>
   <string name="openapsma_profile_label">Profil</string>
   <string name="openapsma_mealdata_label">Données repas</string>
-  <string name="result">Résultat</string>
+  <string name="result">Résultats</string>
   <string name="openapsma_noglucosedata">Pas de données glycémiques disponibles</string>
   <string name="nochangerequested">Pas de changement demandé</string>
   <string name="openapsma_request_label">Requête</string>
@@ -243,7 +243,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="nobtadapter">L\'adaptateur bluetooth est introuvable</string>
   <string name="devicenotfound">L\'appareil sélectionné est introuvable</string>
   <string name="connectionerror">Erreur connection pompe</string>
-  <string name="danar_iob_label">IA calculée par la pompe</string>
+  <string name="danar_iob_label">Insuline Active pompe</string>
   <string name="danar_dailyunits">Unités journalières</string>
   <string name="pump_lastbolus_label">Dernier bolus</string>
   <string name="hoursago">%.1fh passées</string>
