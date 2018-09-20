@@ -1010,7 +1010,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="nth_objective">%1$d. Objectif</string>
   <string name="poctech">Poctech</string>
   <string name="description_source_poctech">Recevoir les glycémies depuis l\'app Poctech</string>
-  <string name="high_temptarget_raises_sensitivity_title">Un objectif temporaire élevé augmente la sensibilité</string>
+  <string name="high_temptarget_raises_sensitivity_title">Cible temp. haute élève la sensibilité</string>
   <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Augmenter la sensibilité pour objectif temporaire >= 100]]></string>
   <string name="low_temptarget_lowers_sensitivity_title">Un objectif temporaire bas abaisse la sensibilité</string>
   <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Sensibilité plus faible pour un objectif temporaire < 100]]></string>
