@@ -592,7 +592,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pump">Pompe</string>
   <string name="openaps">OpenAPS</string>
   <string name="uploader">Logiciel pour télécharger vers Internet</string>
-  <string name="configbuilder_sensitivity">Estimation de la Sensibilité</string>
+  <string name="configbuilder_sensitivity">Estimation de Sensibilité</string>
   <string name="configbuilder_sensitivity_description">Quel algorithme de Sensibilité doit être utilisé ?</string>
   <string name="sensitivity_shortname">SENS</string>
   <string name="sensitivityoref0">Sensibilité Oref0</string>
@@ -628,7 +628,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="careportal_newnstreatment_duration_min_label">Durée [min]</string>
   <string name="openapssmb">OpenAPS SMB</string>
   <string name="smb_shortname">SMB</string>
-  <string name="enableuam">Activer RNS (UAM)</string>
+  <string name="enableuam">Activer RNS</string>
   <string name="enablesmb">Activer SMB</string>
   <string name="enablesmb_summary">Utiliser les Super Micro Bolus au lieu des débits de base temporaires pour une action rapide</string>
   <string name="enableuam_summary">Détection des Repas Non Signalés</string>
