@@ -377,8 +377,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="target_range">Fourchette cible :</string>
   <string name="prefs_range_title">Fourchette de visualisation</string>
   <string name="prefs_range_summary">Les repères hauts et bas sur les graphiques pour l\'aperçu et la montre</string>
-  <string name="low_mark">Repère BAS</string>
-  <string name="high_mark">Repère HAUT</string>
+  <string name="low_mark">Ligne BASSE</string>
+  <string name="high_mark">Ligne HAUTE</string>
   <string name="wear">Wear</string>
   <string name="resend_all_data">Renvoyer toutes les données</string>
   <string name="open_settings_on_wear">Afficher les Paramètres sur la Montre</string>
@@ -585,7 +585,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="nsalarm_urgentlow">Basse urgent</string>
   <string name="nsalarm_staledata">Données obsolètes</string>
   <string name="nsalarm_urgentstaledata">Urgent données obsolètes</string>
-  <string name="nsalarm_staledatavalue_label">Seuil des données obsolètes [min] </string>
+  <string name="nsalarm_staledatavalue_label">Seuil sans nouvelle donnée Glyc. [min]</string>
   <string name="nsalarm_urgent_staledatavalue_label">Seuil d\'urgence pour les données obsolètes [min]</string>
   <string name="openapsama_autosens_period">Plage pour Autosens [h]</string>
   <string name="openapsama_autosens_period_summary">Le nombre d’heures écoulées pour l\'estimation de Sensibilité (le temps d’absorption des glucides est exclu)</string>
@@ -694,7 +694,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="missed_bg_readings">Valeurs de glycémie manquantes</string>
   <string name="raise_notifications_as_android_notifications">Utiliser le système de notification pour les alertes et les notifications</string>
   <string name="localalertsettings_title">Alertes locales</string>
-  <string name="enable_missed_bg_readings_alert">Alerte si aucune donnée glycémique n’est reçue</string>
+  <string name="enable_missed_bg_readings_alert">Alerte pas nouvelle donnée glycémique</string>
   <string name="enable_pump_unreachable_alert">Alerte si la pompe est hors de portée</string>
   <string name="pump_unreachable_threshold">Seuil de \"hors portée\" pour la pompe</string>
   <string name="urgent_alarm">Alarme d\'urgence</string>
