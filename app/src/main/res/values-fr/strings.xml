@@ -75,8 +75,8 @@
   <string name="tempbasals_iobtotal_label_string">IA Totale :</string>
   <string name="treatments_newtreatment_insulinamount_label">Insuline</string>
   <string name="treatments_newtreatment_carbsamount_label">Glucides</string>
-  <string name="treatments_wizard_bg_label">G</string>
-  <string name="treatments_wizard_tt_label">CT</string>
+  <string name="treatments_wizard_bg_label">Gly</string>
+  <string name="treatments_wizard_tt_label">TT</string>
   <string name="treatments_wizard_carbs_label">Glucides</string>
   <string name="treatments_wizard_correction_label">Corr</string>
   <string name="insulin_unit_shortname">U</string>
@@ -217,7 +217,7 @@
   <string name="overview_tempbasal_button">Basal Temporaire</string>
   <string name="overview_extendedbolus_button">Bolus étendu</string>
   <string name="configbuilder_nightscoutversion_label">Version Nightscout :</string>
-  <string name="missing">Manquants</string>
+  <string name="missing">Manque</string>
   <string name="exported">Préférences exportées</string>
   <string name="export_to">Exporter les paramètres au</string>
   <string name="import_from">Importer les paramètres depuis</string>
@@ -575,7 +575,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="hours">heures</string>
   <string name="overview_newtempbasal_basaltype_label">Type du Basal</string>
   <string name="invalidprofile">Profil incorrect !!!</string>
-  <string name="profileswitch">Changement de Profil</string>
+  <string name="profileswitch">Changement Profil</string>
   <string name="careportal_pbage_label">Age batterie pompe</string>
   <string name="careportal_pumpbatterychange">Changement Batterie Pompe</string>
   <string name="ns_alarmoptions">Options d\'alarme</string>
