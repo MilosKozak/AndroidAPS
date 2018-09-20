@@ -447,8 +447,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="wear_shortname">WEAR</string>
   <string name="smscommunicator_shortname">SMS</string>
   <string name="short_tabtitles">Raccourcir les titres des onglets</string>
-  <string name="always_use_shortavg">Utilisez toujours un delta basé sur une moyenne courte au lieu d’une moyenne normale</string>
-  <string name="always_use_shortavg_summary">Utile lorsque les données provenant de sources non filtrées comme xDrip devient incohérentes.</string>
+  <string name="always_use_shortavg">Utiliser un delta basé sur une moyenne plus courte</string>
+  <string name="always_use_shortavg_summary">Utiliser toujours un delta basé sur une moyenne courte au lieu d’une moyenne normale. Utile lorsque les données provenant de sources non filtrées comme xDrip devient incohérentes.</string>
   <string name="advancedsettings_title">Paramètres Avancés</string>
   <string name="danar_model">Modèle: %1$02X Protocole: %2$02X Code: %3$02X</string>
   <string name="profile">Profil</string>
@@ -1011,9 +1011,9 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="poctech">Poctech</string>
   <string name="description_source_poctech">Recevoir les glycémies depuis l\'app Poctech</string>
   <string name="high_temptarget_raises_sensitivity_title">Cible temp. haute élève la sensibilité</string>
-  <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Augmenter la sensibilité pour objectif temporaire >= 100]]></string>
-  <string name="low_temptarget_lowers_sensitivity_title">Un objectif temporaire bas abaisse la sensibilité</string>
-  <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Sensibilité plus faible pour un objectif temporaire < 100]]></string>
+  <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Augmente la Sensibilité pour les cibles temporaires >= 100]]></string>
+  <string name="low_temptarget_lowers_sensitivity_title">Cible temp. basse abaisse la sensibilité</string>
+  <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Diminue la Sensibilité pour les cibles temporaires < 100]]></string>
   <string name="combo_invalid_setup">Paramétrage de la pompe invalide. Vérifiez la documentation et le menu QUICK INFO en utilisant le logiciel de configuration 360.</string>
   <string name="custom">Personnalisé</string>
   <string name="largetimedifftitle">Différence horaire importante</string>
