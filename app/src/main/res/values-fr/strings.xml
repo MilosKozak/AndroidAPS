@@ -208,7 +208,7 @@
   <string name="careportal_newnstreatment_duration_label">Durée</string>
   <string name="careportal_newnstreatment_percent_label">Pour cent</string>
   <string name="careportal_newnstreatment_absolute_label">Absolu</string>
-  <string name="careportal_newnstreatment_notes_label">Remarques</string>
+  <string name="careportal_newnstreatment_notes_label">Notes</string>
   <string name="careportal_newnstreatment_eventtime_label">Heure de l\'événement</string>
   <string name="careportal_newnstreatment_profile_label">Profil</string>
   <string name="careportal_newnstreatment_enteredby_title">Entré par</string>
@@ -848,7 +848,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="allow_automated_crash_reporting">Autoriser l\'envoi automatique des rapports d\'erreur et des données d\'utilisation aux développeurs via le service fabric.io</string>
   <string name="g5appnotdetected">Svp actualisez votre app G5 vers une version compatible</string>
   <string name="start_activity_tt">Début Activités</string>
-  <string name="start_eating_soon_tt">Début Repas imminent</string>
+  <string name="start_eating_soon_tt">Début Repas Imminent</string>
   <string name="temptargetshort">Traitement</string>
   <string name="do_not_bolus_record_only">Ne pas administrer de bolus, enregistrer uniquement</string>
   <string name="category">Catégorie</string>
@@ -862,7 +862,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="overview_show_iob">Insuline Active</string>
   <string name="overview_show_basals">Basals</string>
   <string name="no_action_selected">Aucune action sélectionnée, rien ne se passera</string>
-  <string name="start_hypo_tt">Début traitement hypo</string>
+  <string name="start_hypo_tt">Début Traitement Hypo</string>
   <string name="closed_loop_disabled_on_dev_branch">Version Dev. La Boucle Fermée est désactivée.</string>
   <string name="engineering_mode_enabled">Mode ingénierie actif</string>
   <string name="not_eng_mode_or_release">Le mode Ingénierie n\'est pas activé et n\'existe pas sur cette version</string>
