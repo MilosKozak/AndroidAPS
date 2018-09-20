@@ -112,7 +112,7 @@
   <string name="overview">Aperçu</string>
   <string name="nsprofile">Profil NS</string>
   <string name="simpleprofile">Profil simple</string>
-  <string name="tempbasal">Basal Temporaire</string>
+  <string name="tempbasal">Basal temporaire</string>
   <string name="treatments">Traitements</string>
   <string name="virtualpump">Pompe virtuelle</string>
   <string name="careportal">Careportal</string>
@@ -188,7 +188,7 @@
   <string name="careportal_cgmsensorinsert">Insertion Capteur MCG</string>
   <string name="careportal_cgmsensorstart">Début Capteur MCG</string>
   <string name="careportal_insulincartridgechange">Changement du Réservoir</string>
-  <string name="careportal_profileswitch">Changement de Profil</string>
+  <string name="careportal_profileswitch">Changement de profil</string>
   <string name="careportal_snackbolus">Bolus Goûter</string>
   <string name="careportal_mealbolus">Bolus Repas</string>
   <string name="careportal_correctionbolus">Bolus de correction</string>
@@ -273,7 +273,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="glucosetype_finger">Doigt</string>
   <string name="glucosetype_sensor">Capteur</string>
   <string name="manual">Manuel</string>
-  <string name="careportal_temporarytarget">Cible Temporaire</string>
+  <string name="careportal_temporarytarget">Cible temporaire</string>
   <string name="careportal_temporarytargetcancel">Annulation Cible Temporaire</string>
   <string name="danarprofile">Paramètres du profil DanaR</string>
   <string name="danarprofile_dia">Durée d\'Action [h] </string>
@@ -441,7 +441,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="overview_shortname">ACCUEIL</string>
   <string name="virtualpump_shortname">POMPEV</string>
   <string name="profileviewer_shortname">PROFIL NS</string>
-  <string name="treatments_shortname">TRAITER</string>
+  <string name="treatments_shortname">TRAIT</string>
   <string name="careportal_shortname">CP</string>
   <string name="objectives_shortname">OBJ</string>
   <string name="wear_shortname">WEAR</string>
@@ -823,7 +823,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="enablesmbwithcob_summary">Activer SMB tant que des Glucides sont actifs.</string>
   <string name="enablesmbwithtemptarget">Activer SMB avec les cibles temporaires</string>
   <string name="enablesmbwithtemptarget_summary">Activer SMB lorsqu\'il y a une cible temporaire active (repas imminent, exercise)</string>
-  <string name="enablesmbwithhightemptarget">Autoriser SMB avec des cibles élevées temporaires</string>
+  <string name="enablesmbwithhightemptarget">Autoriser SMB avec cible temp. haute</string>
   <string name="enablesmbwithhightemptarget_summary">Activer SMB lorsqu\'il y a une cible tempo active haute (exercice)</string>
   <string name="let_temp_basal_run">Laisser démarrer le Basal temporaire</string>
   <string name="mute">Coupure du son</string>
@@ -916,7 +916,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="loopdisconnectedfor">Déconnecté (%1$d m)</string>
   <string name="automatic_careportal_events">Événements automatiques de Careportal</string>
   <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Télécharger automatiquement les changements d\'’insuline, de cathéter et de batterie ainsi que les alarmes pompe sur Nightscout</string>
-  <string name="openapssmb_maxiob_title">IA totale maximale que OpenAPS ne peut pas dépasser [U]</string>
+  <string name="openapssmb_maxiob_title">Limite IA totale maximale pour OpenAPS [U]</string>
   <string name="openapssmb_maxiob_summary">Cette valeur est appelée Max IA (IOB) dans OpenAPS context\nOpenAPS n’ajoutera pas plus d’insuline si l\'IA (IOB) actuelle est supérieure à cette valeur</string>
   <string name="pump_stopped">Pompe arrêtée</string>
   <string name="pump_started">Pompe démarrée</string>
@@ -1018,7 +1018,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="custom">Personnalisé</string>
   <string name="largetimedifftitle">Différence horaire importante</string>
   <string name="largetimediff">La différence horaire importante:\nTime avec la pompe de plus d\'1,5 heure.\nMerci d\'ajuster manuellement l\'heure de la pompe et assurez-vous que la lecture de l\'historique de la pompe ne cause pas de dysfonctionnements.\nSi possible, effacez l\'historique de la pompe avant de modifier l\'heure ou désactivez la Boucle Fermée pour une DIA après la dernière entrée erronée de l\'historique et en tout état de cause au minimum une DIA à partir de maintenant.</string>
-  <string name="careportal_removestartedevents">AndroidAPS reinitialisé</string>
+  <string name="careportal_removestartedevents">Réinitialiser AndroidAPS</string>
   <string name="storedsettingsfound">Paramètres sauvegardés trouvés</string>
   <string name="allow_hardware_pump_text">ATTENTION : Si vous activez et connectez à une vraie pompe, AndroidAPS copiera les paramètres Basals du profil vers la pompe, écrasant le taux basal existant stocké sur la pompe. Assurez-vous d\'avoir correctement saisi et réglé les paramètres Basal dans AndroidAPS. Si vous ne savez pas ou si ne voulez pas écraser les paramètres Basal sur votre pompe, appuyez sur Annuler et reporter le passage à la pompe à une date ultérieure.</string>
   <string name="error_adding_treatment_title">Données de traitement incomplètes</string>
