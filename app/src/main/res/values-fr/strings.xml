@@ -179,7 +179,7 @@
   <string name="treatments_wizard_basaliob_label">Basal IA</string>
   <string name="bolusconstraintapplied">Restriction du Bolus appliquée</string>
   <string name="carbsconstraintapplied">Restriction des Glucides appliquée</string>
-  <string name="careportal_bgcheck">Contrôle de Glycémie</string>
+  <string name="careportal_bgcheck">Contrôle Glycémie</string>
   <string name="careportal_announcement">Notification</string>
   <string name="careportal_note">Remarque</string>
   <string name="careportal_question">Question</string>
@@ -577,7 +577,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="invalidprofile">Profil incorrect !!!</string>
   <string name="profileswitch">Changement Profil</string>
   <string name="careportal_pbage_label">Age batterie pompe</string>
-  <string name="careportal_pumpbatterychange">Changement Batterie Pompe</string>
+  <string name="careportal_pumpbatterychange">Nouvelle Batterie Pompe</string>
   <string name="ns_alarmoptions">Options d\'alarme</string>
   <string name="nsalarm_urgenthigh">Haute urgent</string>
   <string name="nsalarm_high">Haute</string>
