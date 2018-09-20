@@ -659,11 +659,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="careportal_newnstreatment_percentage_label">Pourcentage</string>
   <string name="careportal_newnstreatment_timeshift_label">Décalage horaire</string>
   <string name="default_temptargets">Cibles Temporaires par défaut</string>
-  <string name="eatingsoon_duration">Durée pour le prochain repas (min)</string>
+  <string name="eatingsoon_duration">Durée pour le prochain repas [min]</string>
   <string name="eatingsoon_target">Cible Glyc. pour le prochain repas</string>
   <string name="activity_duration">Durée d\'activité</string>
   <string name="activity_target">Cible Glycémie pour l\'activité</string>
-  <string name="hypo_duration">Durée de période hypo (min)</string>
+  <string name="hypo_duration">Durée de période hypo [min]</string>
   <string name="hypo_target">Cible Glycémie pendant l’hypo</string>
   <string name="danar_history_prime">Amorcer</string>
   <string name="gettingextendedbolusstatus">Obtenir l\'état du bolus étendu</string>
@@ -696,7 +696,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="localalertsettings_title">Alertes locales</string>
   <string name="enable_missed_bg_readings_alert">Alerte pas nouvelle donnée glycémique</string>
   <string name="enable_pump_unreachable_alert">Alerte si la pompe est hors de portée</string>
-  <string name="pump_unreachable_threshold">Seuil de \"hors portée\" pour la pompe</string>
+  <string name="pump_unreachable_threshold">Seuil alerte pompe hors de portée [min]</string>
   <string name="urgent_alarm">Alarme d\'urgence</string>
   <string name="info">INFO</string>
   <string name="bluetooth">Bluetooth</string>
