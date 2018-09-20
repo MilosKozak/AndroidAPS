@@ -225,7 +225,7 @@
   <string name="filenotfound">Fichier introuvable</string>
   <string name="nav_export">Exporter les paramètres</string>
   <string name="nav_import">Importer les paramètres</string>
-  <string name="openapsma_maxbasal_title">U/hr Max avec laquelle le débit temp pourra être programmé </string>
+  <string name="openapsma_maxbasal_title">Max. U/hr pour le débit temp Basal</string>
   <string name="openapsma_maxbasal_summary">Cette valeur est appelée basal maximum dans le contexte OpenAPS</string>
   <string name="openapsma_maxiob_title">Le Basal IA maximum que l\'OpenAPS pourra délivrer [U]</string>
   <string name="openapsma_maxiob_summary">Cette valeur est appelée Max IA dans le contexte OpenAPS\nC\'estlle maximum d\'insuline en [U] que APS peut délivrer en une seule fois.</string>
@@ -922,7 +922,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pump_started">Pompe démarrée</string>
   <string name="pump_paused">Pompe suspendue</string>
   <string name="absorption_cutoff_title">Durée maximale d’absorption pour un repas [h]</string>
-  <string name="absorption_cutoff_summary">Moment où n’importe quel repas est considéré absorbé. Les glucides restants ne seront pas pris en compte.</string>
+  <string name="absorption_cutoff_summary">Durée où n’importe quel repas est considéré absorbé. Les glucides restants ne seront pas pris en compte.</string>
   <string name="time">Temps</string>
   <string name="overview_show_notes_field_in_dialogs_title">Affiche les notes dans la boîte de dialogue de traitement</string>
   <string name="next_button">Suivant</string>
