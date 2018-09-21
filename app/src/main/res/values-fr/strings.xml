@@ -366,7 +366,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="primefill">Amorcer/Remplir</string>
   <string name="fillwarning">Veuillez à ce que la quantité corresponde aux caractéristiques de votre cathéter !</string>
   <string name="othersettings_title">Autres</string>
-  <string name="fillbolus_title">Remplir/Amorcer des quantités standard d’insuline</string>
+  <string name="fillbolus_title">Valeurs prédéfinies pour remplir&amp;amorcer</string>
   <string name="button1">Bouton 1</string>
   <string name="button2">Bouton 2</string>
   <string name="button3">Bouton 3</string>
@@ -692,7 +692,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="pumpdrivercorrected">Pilote pompe corrigé</string>
   <string name="pump_unreachable">Pompe hors de portée</string>
   <string name="missed_bg_readings">Valeurs de glycémie manquantes</string>
-  <string name="raise_notifications_as_android_notifications">Utiliser le système de notification pour les alertes et les notifications</string>
+  <string name="raise_notifications_as_android_notifications">Utiliser le système des notifications</string>
   <string name="localalertsettings_title">Alertes locales</string>
   <string name="enable_missed_bg_readings_alert">Alerte pas nouvelle donnée glycémique</string>
   <string name="enable_pump_unreachable_alert">Alerte si la pompe est hors de portée</string>
