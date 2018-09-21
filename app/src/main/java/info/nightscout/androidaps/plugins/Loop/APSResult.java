@@ -124,13 +124,11 @@ public class APSResult {
             else if (rate == -1)
                 ret = MainApp.gs(R.string.let_temp_basal_run) + "<br>";
             else if (usePercent)
-                ret = "<b>" + MainApp.gs(R.string.rate) + "</b>: " + DecimalFormatter.to2Decimal(percent) + "% " +
-                        "(" + DecimalFormatter.to2Decimal(percent * pump.getBaseBasalRate() / 100d) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h)<br>" +
-                        "<b>" + MainApp.gs(R.string.duration) + "</b>: " + DecimalFormatter.to2Decimal(duration) + " min<br>";
+                ret = MainApp.gs(R.string.format_rate_percent, percent, percent * pump.getBaseBasalRate() / 100d) + "<br>" +
+                      MainApp.gs(R.string.format_duration, duration) + "<br>";
             else
-                ret = "<b>" + MainApp.gs(R.string.rate) + "</b>: " + DecimalFormatter.to2Decimal(rate) + " " + MainApp.gs(R.string.insulin_unit_shortname) + "/h " +
-                        "(" + DecimalFormatter.to2Decimal(rate / pump.getBaseBasalRate() * 100d) + "%) <br>" +
-                        "<b>" + MainApp.gs(R.string.duration) + "</b>: " + DecimalFormatter.to2Decimal(duration) + " min<br>";
+                ret = MainApp.gs(R.string.format_rate_units, rate, rate / pump.getBaseBasalRate() * 100d) + "<br>" +
+                      MainApp.gs(R.string.format_duration, duration) + "<br>";
 
             // smb
             if (smb != 0)
@@ -138,6 +136,7 @@ public class APSResult {
 
             // reason
             ret += "<b>" + MainApp.gs(R.string.reason) + "</b>: " + reason.replace("<", "&lt;").replace(">", "&gt;");
+            log.debug("quizzi: " + ret);
             return Html.fromHtml(ret);
         } else
             return Html.fromHtml(MainApp.gs(R.string.nochangerequested));

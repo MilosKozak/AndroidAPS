@@ -1218,4 +1218,7 @@
         <item quantity="one">%1$d minute</item>
         <item quantity="other">%1$d minutes</item>
     </plurals>
+    <string name="format_rate_percent"><![CDATA[<b>Rate</b>: %1d%% (%2$.2f U/h)]]></string>
+    <string name="format_rate_units"><![CDATA[<b>Rate</b>: %1$.2f U/h (%2$i%%)]]></string>
+    <string name="format_duration"><![CDATA[<b>Duration</b>: %1$d min]]></string>
 </resources>

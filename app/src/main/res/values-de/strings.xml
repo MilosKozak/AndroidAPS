@@ -1064,4 +1064,7 @@ Unerwartetes Verhalten.</string>
     <item quantity="one">%1$d Minute</item>
     <item quantity="other">%1$d Minuten</item>
   </plurals>
+  <string name="format_rate_percent"><![CDATA[<b>Rate</b>: %1d%% (%2$.2f IE/h)]]></string>
+  <string name="format_rate_units"><![CDATA[<b>Rate</b>: %1$.2f IE/h (%2$i%%)]]></string>
+  <string name="format_duration"><![CDATA[<b>Dauer</b>: %1$d min]]></string>
 </resources>
