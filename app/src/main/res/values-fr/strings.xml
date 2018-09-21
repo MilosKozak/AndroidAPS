@@ -523,7 +523,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
   <string name="loopsuspended">La Boucle est suspendue</string>
   <string name="loopsuspendedfor">Suspendu (%1$d m)</string>
   <string name="loopsuperbolusfor">Superbolus (%1$d m)</string>
-  <string name="suspendloopfor1h">Suspendre Loop pour 1h</string>
+  <string name="suspendloopfor1h">Suspendre la Boucle pour 1h</string>
   <string name="suspendloopfor2h">Suspendre la Boucle pour 2h</string>
   <string name="suspendloopfor3h">Suspendre la Boucle pour 3h</string>
   <string name="suspendloopfor10h">Suspendre la Boucle pour 10h</string>
