@@ -470,7 +470,7 @@
   <string name="xdripnotinstalled">xDrip+ inte installerat</string>
   <string name="calibrationsent">Kalibrering skickad till xDrip</string>
   <string name="smscommunicator_remotecalibrationnotallowed">Kalibrering från andra källor inte tillåtna</string>
-  <string name="smscommunicator_calibrationsent">Kalibrering skickad. xDrip måste tillåta att ta emot kalibrering i inställningarna.</string>
+  <string name="smscommunicator_calibrationsent">Kalibrering skickad. Observera att xDrip måste vara inställd att ta emot kalibreringar.</string>
   <string name="smscommunicator_calibrationfailed">xDrip tar inte emot kalibreringar</string>
   <string name="pumpsuspended">Pump pausad</string>
   <string name="gettingpumpstatus">Hämtar pumpstatus</string>
