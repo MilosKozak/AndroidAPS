@@ -50,7 +50,7 @@
   <string name="description_source_xdrip">Ta emot BG-data från xDrip</string>
   <string name="description_treatments">Spara alla behandlingar som gjorts</string>
   <string name="description_wear">Följ och kontrollera din AndroidAPS med din WearOS-klocka</string>
-  <string name="description_xdrip_status_line">Visa information om din loop på din urtavla från xDrip</string>
+  <string name="description_xdrip_status_line">Visa AAPS-information på din xDrip-urtavla</string>
   <string name="description_sms_communicator">Fjärrstyr AndroidAPS med SMS-kommandon.</string>
   <string name="objectives_button_start">Starta</string>
   <string name="objectives_button_verify">Godkänn</string>
