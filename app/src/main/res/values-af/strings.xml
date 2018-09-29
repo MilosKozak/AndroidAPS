@@ -21,6 +21,9 @@
   <string name="description_sensitivity_oref0">Sensitiwiteit word bereken vanaf 24h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure afgesny.</string>
   <string name="description_sensitivity_oref1">Sensitiwiteit word bereken uit 8h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure gesny. Plugin bereken ook UAM.</string>
   <string name="description_sensitivity_weighted_average">Sensitiwiteit word bereken as \'n geweegde gemiddelde van dwalinge. Nuwer dwalinge het hoër gewig. Minimale karb absorpsie is bereken uit max karb absorpsie tyd vanaf voorkeure. Hierdie algoritme is die vinnigste om sensitiwiteit veranderinge te volg.</string>
+  <string name="description_source_mm640g">Onvang BG waardes vanaf die 600SeriesAndroidUploader.</string>
+  <string name="description_wear">Monitor en beheer AndroidAPS met jou WearOS horlosie.</string>
+  <string name="description_xdrip_status_line">Wys informasie van jou loop op jou xDrip+ horlosie-gesig.</string>
   <string name="objectives_button_start">Begin</string>
   <string name="nsprofileview_units_label">Eenhede</string>
   <string name="nsprofileview_dia_label">DIA</string>
@@ -41,6 +44,8 @@
   <string name="delta">Delta</string>
   <string name="configbuilder_pump">Pomp</string>
   <string name="configbuilder_aps">APS</string>
+  <string name="configbuilder_aps_description">Watter APS algoritme moet terapie aanpassings maak?</string>
+  <string name="configbuilder_general_description">Hier is \'n paar algemene invoegtoepassings wat jy dalk nuttig sal vind.</string>
   <string name="days">dae</string>
   <string name="configbuilder_loop">Lus</string>
   <string name="loop_aps_label">APS</string>
@@ -73,8 +78,11 @@
   <string name="objectives_5_objective">Pas basale en verhoudings aan as nodig, en dan aktiveer auto-sens</string>
   <string name="objectives_5_gate">1 week suksesvolle dagtyd lus met gereelde karb toevoegings</string>
   <string name="objectives_6_objective">Skakel bykomende nutsfunskies aan vir bedagse gebruik, soos bv advanced meal assist</string>
+  <string name="objectives_7_objective">Skakel bykomende nutsfunskies aan vir bedags gebruik, soos bv. SMB</string>
   <string name="objectives_7_gate">Jy moet asb die wiki lees en verhoog maksIAB om SMBs te laat werk! \'n Goeie begin is maksIAB = gemiddelde ete bolus + 3 x maks daaglikse basale</string>
   <string name="valuelimitedto">%1$.2f beperk tot %2$.2f</string>
+  <string name="smscommunicator_suspendreplywithcode">Om lus op te skort vir %1$d minute antwoord met kode %2$s</string>
+  <string name="smscommunicator_tempbasalset">Temp basale %1$.2fU/h vir %2$d min suksesvol geaktiveerd</string>
   <string name="overview_editquickwizardlistactivity_add">Voeg by</string>
   <string name="overview_quickwizard_item_edit_button">Wysig</string>
   <string name="mealbolus">Maaltyd</string>
@@ -82,6 +90,7 @@
   <string name="ns_upload_only_summary">NS oplaai net. Nie effektief op SGV tensy \'n plaaslike bron soos xDrip gekies is. Nie effektief op profiele terwyl NS-profiele gebruik word.</string>
   <string name="fillwarning">Maak asseblief seker dat die hoeveelheid ooreenstem met die spesifikasies van jou infusie stel!</string>
   <string name="dia">DIA:</string>
+  <string name="prefs_range_summary">Hoë en lae merke vir die diagramme in Overview en Smartwatch</string>
   <string name="wear">Wear</string>
   <string name="sms_actualbg">BG:</string>
   <string name="mdi">MDI</string>
@@ -92,12 +101,14 @@
   <string name="danar_stats_tdd">TDD</string>
   <string name="danar_stats_date">Datum</string>
   <string name="danar_stats_amount_days"># Dae</string>
+  <string name="danar_stats_warning_Message">Moontlik onakkuraat as boluse gebruik word vir optop/vulling gebruik!</string>
   <string name="actions_shortname">ACT</string>
   <string name="simpleprofile_shortname">SP</string>
   <string name="localprofile_shortname">LP</string>
   <string name="careportal_shortname">CP</string>
   <string name="objectives_shortname">OBJ</string>
   <string name="smscommunicator_shortname">SMS</string>
+  <string name="always_use_shortavg">Gebruik altyd kort gemiddelde delta in plaas van eenvoudige delta</string>
   <string name="always_use_shortavg_summary">Nuttig wanneer data van ongefiltreerde bronne soos xDrip baie raas.</string>
   <string name="openapsama_max_daily_safety_multiplier_summary">Verstek waarde: 3 dit is \'n sleutel OpenAPS veiligheidsdrumpels. Wat dit doen is om jou basale te berk tot 3 x (in hierdie mense) jou grootste basale koers. Jy sal waarskynlik nooit dit hoef te verander, maar jy moet bewus wees wat bespreek is oor \"3 x max daaglikse; 4 x huidige\"vir veiligheidsdrumpels.</string>
   <string name="openapsama_current_basal_safety_multiplier_summary">Verstek waarde: 4 dit is die helfte van die sleutel OpenAPS veiligheid limiete, en die ander helfte van \"3 x maks daaglikse; 4 x huidige\"van die veiligheid limiet. Dit beteken jou basale, ongeag max basale stel op jou pomp, kan enige hoër wees as hierdie nommer tye die huidige vlak van jou basale. Dit is om te verhoed dat mense in gevaarlike gebied deur instelling buitensporig hoë max basals voor om te verstaan hoe die algoritme werk. Weer, die verstek is 4 x; die meeste mense sal nooit moet dit aanpas en is eerder meer geneig om te moet aanpas ander instellings as hulle voel hulle \"loop in\" hierdie veiligheid limiet.</string>
@@ -108,6 +119,8 @@
   <string name="openapsama_min_5m_carbimpact_summary">Verstek waarde: 3.0 (AMA) of 8.0 (SMB). Dit is \'n instelling vir verstek karb absorpsie impak per 5 minute. Die verstek is \'n verwagte 3mg/dl / 5min. Dit beïnvloed hoe vinnig KOB opgeneem word, en hoeveel karb absorpsie word aanvaar sodat in die berekening van toekomstige BG, voorspel wanneer BG val meer as verwagte, of nie soveel styg as verwag.</string>
   <string name="openapsama_link_to_preferncejson_doc_txt">Aandag! \nNormaalweg hoef jy nie die waardes hieronder te verander nie. KLIEK HIER Asseblief en LEES die teks en maak seker jy verstaan dit voor enige verandering aan hierdie waardes.</string>
   <string name="error_only_numeric_digits_range_allowed">Slegs numeriese syfers binne die reeks %1$s - %2$s word toegelaat.</string>
+  <string name="smscommunicator_calibrationsent">Kalibrasie gestuur. Ontvang moet geaktiveer word in xDrip.</string>
+  <string name="wear_detailedIOB_summary">Breek af IAB in bolus en basale IAB op die watchface</string>
   <string name="needwhitelisting">%s benodig battery optimisering whitelisting vir behoorlike prestasie</string>
   <string name="treatments_wizard_bgtrend_label">15min tendens</string>
   <string name="treatments_wizard_cob_label">KOB</string>
@@ -133,6 +146,7 @@
   <string name="activate_profile">Aktiveer profiel</string>
   <string name="activity_duration">aktiwiteits tydsduur</string>
   <string name="activity_target">aktiwiteit doelwit</string>
+  <string name="wearcontrol_summary">Stel tydeleike doelwitte en behandelings vanaf horlosie.</string>
   <string name="shortgramm">g</string>
   <string name="shortminute">m</string>
   <string name="shorthour">h</string>
@@ -142,6 +156,7 @@
   <string name="shortprotein">Pr</string>
   <string name="shortfat">Vet</string>
   <string name="active"><![CDATA[<Active>]]></string>
+  <string name="raise_notifications_as_android_notifications">Gebruik stelsel kennisgewings vir waarskuwings en kennisgewings</string>
   <string name="btwatchdog_summary">Skakel asb die foon se bluetooth af vir een sekonde Indien geen verbinding met die pomp moontlik is nie. Dit mag help vir sommige selfone waar die bluetooth stapel vries.</string>
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
@@ -175,6 +190,7 @@
   <string name="ns_create_announcements_from_errors_summary">Skep Nightscout aankondiging vir foutdialoë en plaaslike waarskuwings (ook vertoonbaar in Careportal onder behandelings)</string>
   <string name="allow_automated_crash_reporting">Laat outomatiese Foutverslagdoening en kenmerk data stuur na die ontwikkelaars via die fabric.io diens.</string>
   <string name="temptargetshort">TT</string>
+  <string name="not_eng_mode_or_release">Ingenieurswese modus ontsper nie en nie op publike vrylating tak</string>
   <string name="pump_basebasalrate">%.2f U/h</string>
   <string name="combo_bolus_rejected_due_to_pump_history_change">Die pomp geskiedenis het verander nadat die bolus berekening uitgevoer was. Die bolus was nie afgelewer nie. Herbereken asseblief of \'n bolus steeds nodig is.</string>
   <string name="combo_error_updating_treatment_record">Bolus suksesvol afgelewer, maar die behandeling inskrywing het gefaal. Dit kan gebeur as twee klein boluses van dieselfde grootte binne die laaste twee minute toegedien word. Kontroleer die pomp geskiedenis en behandeling inskrywings en gebruik die Careportal om vermiste inskrywings te voeg. Maak seker om nie enige inskrywings vir dieselfde minuut en dieselfde bedrag by te voeg.</string>
@@ -185,6 +201,7 @@
   <string name="combo_check_date">Die laaste bolus is ouer as 24 uur of is in die toekoms. Kontroleer asseblief of die datum op die pomp reg ingestel is.</string>
   <string name="combo_suspious_bolus_time">Tyd/datum van die gelewerde bolus op pomp lyk verkeerd, IAB is waarskynlik verkeerd. Kontroleer asseblief pomp tyd/datum.</string>
   <string name="profileswitch_ismissing">ProfileSwitch ontbreek. Doen \'n profiel skakelaar of druk \"Aktiveer profiel\" in die LokaleProfiel.</string>
+  <string name="limitingbasalratio">Max basale koers beperk tot %1$.2f U/h as gevolg van %2$s</string>
   <string name="smb_frequency_exceeded">\'n Bolus was binne die laaste 3 minute afgelewer, SMB is oorgespring</string>
   <string name="smbalwaysdisabled">SMB is altyd na koolhidrate versper omdat aktiewe BG bron nie gevorderde filter ondersteun nie</string>
   <string name="food_short">Kos</string>
@@ -218,6 +235,7 @@
   <string name="allow_hardware_pump_text">Aandag: As jy aktiveer en koppel aan \'n hardeware pomp, AndroidAPS sal die basale instellings uit die profiel aan die pomp kopieer, die bestaande basale koers gestoor op die pomp sal oorskryf word. Maak seker jy het die korrekte basale instelling in AndroidAPS. As jy nie seker is of nie die basale instellings wil oorskryf op jou pomp, druk Kanselleer en herhaal oorskakel na die pomp op \'n later tyd.</string>
   <string name="description_maintenance">Bied verskeie funksies vir onderhoud (bv. log stuur, log skrapping).</string>
   <string name="error_adding_treatment_message">\'n Behandeling (insulien: %1$.2f, koolhidrate: %2$d, by: %3$s) kon nie bygevoeg word by behandelings. Kontroleer asseblief en voeg per hand \'n rekord soos vanpas.</string>
+  <string name="nsmalfunction">NSClient onklaar. Oorweeg om NS en NSClient te herlaai.</string>
   <string name="as">AS</string>
   <string name="calculation_short">Bereken</string>
   <string name="sendlogfiles">Stuur vandag se loglêers aan ontwikkelaars saam met hierdie tyd. Onverwagte situasie.</string>
