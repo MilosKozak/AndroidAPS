@@ -13,6 +13,7 @@
   <string name="description_overview">Wys die huidige staat van jou lus en knoppies vir mees algemene optrede</string>
   <string name="description_persistent_notification">Toon \'n voortgesette kennisgewing met \'n kort oorsig van wat jou lus besig is om te doen</string>
   <string name="description_pump_combo">Pomp Integrasie met Accu-Chek Combo pompe, vereis dat ruffy geïnstalleer is</string>
+  <string name="description_pump_dana_r_v2">Pomp integrasie vir DANA Diabecare R pompe met opgegradeerde firmware</string>
   <string name="description_pump_insight">Pomp integrasie vir Accu-Chek Insight pompe, vereis dat SightRemote geïnstalleer is</string>
   <string name="description_pump_mdi">Pomp integrasie vir mense wat veelvoudige daaglikse inspuitings doen vir hul diabetes terapie/regime</string>
   <string name="description_pump_virtual">Pomp integrasie vir pompe wat nog nie enige drywer het nie (oop lus)</string>
@@ -69,6 +70,7 @@
   <string name="objectives_3_gate">Loop in geslote lus met max IAB = 0 vir \'n paar dae sonder te veel LGS gebeure</string>
   <string name="objectives_4_objective">Verstel die geslote lus, verhoog maks IAB bo 0 en geleidelik verlaag BG doelwitte</string>
   <string name="objectives_4_gate">Lus vir \'n paar dae, en ten minste een nag met geen lae BG alarms, voor BG val</string>
+  <string name="objectives_5_objective">Pas basale en verhoudings aan as nodig, en dan aktiveer auto-sens</string>
   <string name="objectives_5_gate">1 week suksesvolle dagtyd lus met gereelde karb toevoegings</string>
   <string name="objectives_6_objective">Skakel bykomende nutsfunskies aan vir bedagse gebruik, soos bv advanced meal assist</string>
   <string name="objectives_7_gate">Jy moet asb die wiki lees en verhoog maksIAB om SMBs te laat werk! \'n Goeie begin is maksIAB = gemiddelde ete bolus + 3 x maks daaglikse basale</string>
@@ -96,6 +98,7 @@
   <string name="careportal_shortname">CP</string>
   <string name="objectives_shortname">OBJ</string>
   <string name="smscommunicator_shortname">SMS</string>
+  <string name="always_use_shortavg_summary">Nuttig wanneer data van ongefiltreerde bronne soos xDrip baie raas.</string>
   <string name="openapsama_max_daily_safety_multiplier_summary">Verstek waarde: 3 dit is \'n sleutel OpenAPS veiligheidsdrumpels. Wat dit doen is om jou basale te berk tot 3 x (in hierdie mense) jou grootste basale koers. Jy sal waarskynlik nooit dit hoef te verander, maar jy moet bewus wees wat bespreek is oor \"3 x max daaglikse; 4 x huidige\"vir veiligheidsdrumpels.</string>
   <string name="openapsama_current_basal_safety_multiplier_summary">Verstek waarde: 4 dit is die helfte van die sleutel OpenAPS veiligheid limiete, en die ander helfte van \"3 x maks daaglikse; 4 x huidige\"van die veiligheid limiet. Dit beteken jou basale, ongeag max basale stel op jou pomp, kan enige hoër wees as hierdie nommer tye die huidige vlak van jou basale. Dit is om te verhoed dat mense in gevaarlike gebied deur instelling buitensporig hoë max basals voor om te verstaan hoe die algoritme werk. Weer, die verstek is 4 x; die meeste mense sal nooit moet dit aanpas en is eerder meer geneig om te moet aanpas ander instellings as hulle voel hulle \"loop in\" hierdie veiligheid limiet.</string>
   <string name="openapsama_autosens_max_summary">Verstek waarde: 1.2\nThis is \'n vermenigvuldiger cap vir autosens (en gou autotune) stel \'n 20% max limiet op hoe hoog die autosens verhouding kan wees, wat op sy beurt bepaal hoe hoog autosens basale kan aanpas, hoe laag dit ISF kan aanpas, en hoe laag dit die BG teiken kan stel.</string>
@@ -104,6 +107,7 @@
   <string name="openapsama_bolussnooze_dia_divisor_summary">Verstek waarde: 2\nBolus sluimer is verorden nadat jy \'n maaltyd bolus gedoen het, so die lus sal nie werk met lae tydelike wanneer jy nou net geëet het nie. Die voorbeeld hier se verstek is 2; so \'n 3 uur DIA beteken dat bolus sluimer sal geleidelik uitgefaseer sal word oor 1.5 uur (3DIA/2).</string>
   <string name="openapsama_min_5m_carbimpact_summary">Verstek waarde: 3.0 (AMA) of 8.0 (SMB). Dit is \'n instelling vir verstek karb absorpsie impak per 5 minute. Die verstek is \'n verwagte 3mg/dl / 5min. Dit beïnvloed hoe vinnig KOB opgeneem word, en hoeveel karb absorpsie word aanvaar sodat in die berekening van toekomstige BG, voorspel wanneer BG val meer as verwagte, of nie soveel styg as verwag.</string>
   <string name="openapsama_link_to_preferncejson_doc_txt">Aandag! \nNormaalweg hoef jy nie die waardes hieronder te verander nie. KLIEK HIER Asseblief en LEES die teks en maak seker jy verstaan dit voor enige verandering aan hierdie waardes.</string>
+  <string name="error_only_numeric_digits_range_allowed">Slegs numeriese syfers binne die reeks %1$s - %2$s word toegelaat.</string>
   <string name="needwhitelisting">%s benodig battery optimisering whitelisting vir behoorlike prestasie</string>
   <string name="treatments_wizard_bgtrend_label">15min tendens</string>
   <string name="treatments_wizard_cob_label">KOB</string>
@@ -125,6 +129,7 @@
   <string name="sensitivity_warning">Deur Autosense aan te skakel onthou om alle koolhidrate in te voer Andersins sal koolhidrate dwalinge verkeerdelik geïdentifiseer word as sensitiwiteit veranderinge!!</string>
   <string name="mdtp_ok">OK</string>
   <string name="smb_shortname">SMB</string>
+  <string name="enablesmb_summary">Gebruik Super Mikro Boluses in plaas van of tydelike basale vir vinniger resultate</string>
   <string name="activate_profile">Aktiveer profiel</string>
   <string name="activity_duration">aktiwiteits tydsduur</string>
   <string name="activity_target">aktiwiteit doelwit</string>
@@ -161,7 +166,11 @@
   <string name="automatically_connect_when">Koppel outomaties wanneer AndroidAPS skerms oopgemaak word, voordat enige pomp bevel versoek word, om verbindings-traagheid te verminder</string>
   <string name="enablesmbalways_summary">Aktiveer SMB altyd onafhanklik van boluse. Slegs moonlik met BG source met goeie filter van data soos G5</string>
   <string name="enablesmbaftercarbs_summary">Akitveer SMB vir 6h na karbohidrate, selfs met 0 KOB. Slegs moontlik met BG bron met goeiei filters van data soos G5</string>
+  <string name="enablesmbwithtemptarget_summary">Aktiveer SMB wanneer daar tydelike doelwitte aktief is (eetgou, oefen)</string>
+  <string name="enablesmbwithhightemptarget_summary">Aktiveer SMB as daar hoë tydelike doelwitte aktief is (oefening)</string>
   <string name="mute">Demp</string>
+  <string name="show_calibration_button_summary">Stuur \'n kalibrasie na xDrip+ of open G5 kalibrasie dialoog</string>
+  <string name="error_starting_cgm">Kon nie CGM toepassing laat hardloop nie.  Maak seker dat dit geïnstalleer is.</string>
   <string name="overview_cgm">CGM</string>
   <string name="ns_create_announcements_from_errors_summary">Skep Nightscout aankondiging vir foutdialoë en plaaslike waarskuwings (ook vertoonbaar in Careportal onder behandelings)</string>
   <string name="allow_automated_crash_reporting">Laat outomatiese Foutverslagdoening en kenmerk data stuur na die ontwikkelaars via die fabric.io diens.</string>
@@ -170,6 +179,7 @@
   <string name="combo_bolus_rejected_due_to_pump_history_change">Die pomp geskiedenis het verander nadat die bolus berekening uitgevoer was. Die bolus was nie afgelewer nie. Herbereken asseblief of \'n bolus steeds nodig is.</string>
   <string name="combo_error_updating_treatment_record">Bolus suksesvol afgelewer, maar die behandeling inskrywing het gefaal. Dit kan gebeur as twee klein boluses van dieselfde grootte binne die laaste twee minute toegedien word. Kontroleer die pomp geskiedenis en behandeling inskrywings en gebruik die Careportal om vermiste inskrywings te voeg. Maak seker om nie enige inskrywings vir dieselfde minuut en dieselfde bedrag by te voeg.</string>
   <string name="combo_high_temp_rejected_due_to_pump_history_changes">Hoë tydelike verwerp aangesien berekening nie onlangse veranderings in pomp geskiedenis oorweeg het nie</string>
+  <string name="combo_warning_pump_basal_rate_changed">Die basale tempo op die pomp het verander en sal binnekort opgedateer word</string>
   <string name="combo_error_multiple_boluses_with_identical_timestamp">Veelvuldige boluses met dieselfde hoeveelheid binne die dieselfde minuut was nounet ingevoer. Slegs een rekord kon bygevoeg word in behandelings. Kontroleer asseblief die pomp en voeg per hand \'n bolus rekord met behulp van die Careportal oortjie maak seker om \'n bolus te skep met \'n tyd deur geen ander bolus gebruik.</string>
   <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
   <string name="combo_check_date">Die laaste bolus is ouer as 24 uur of is in die toekoms. Kontroleer asseblief of die datum op die pomp reg ingestel is.</string>
@@ -197,6 +207,7 @@
   <string name="diawarning">Onthou asseblief: dat nuwe insulien profiele vereis DIA van minstens 5h. DIA 5 – 6h op nuwe profiel is gelyk aan DIA 3h op ou insulien profiele.</string>
   <string name="setupwizard_profile_description">Kies asseblief bron van profiel. As Pasiënt \'n kind is gebruik NS profiel. As niemand jou volg op Nightscout sal jy waarskynlik plaaslike profiel kies. Onthou asseblief dat jy net die bron kies van profiel. Om dit te gebruik moet jy dit aktiveer deur uitvoering \"Profiel skakelaar\"</string>
   <string name="setupwizard_aps_description">Kies een van beskikbare algoritmes. Hulle is gesorteer vanaf oudste tot jongste. Nuwer algoritmes is gewoonlik kragtiger en meer aggressief. Dus as jy nuut is met jou lus, sal jy waarskynlik begin met AMA en nie met jongste een. Moenie vergeet om die OpenAPS dokumentasie te lees en te konfigureer voor gebruik.</string>
+  <string name="needstoragepermission">Toepassing benodig stoor toestemming om log leers te skryf</string>
   <string name="exit">Uitgang</string>
   <string name="danar_pumpalarm_both">Beide</string>
   <string name="option_on">Aan</string>
