@@ -10,6 +10,10 @@
   <string name="alert_dialog_storage_permission_text">Herlaai jou foon of herlaai AndroidAPS met die stelsel instellings \nander sal AndroidAPS nie geskiedenis het nie! (Belangrik om te spoor en te verifieer dat die algoritmes korrek werk)!</string>
   <string name="description_insulin_free_peak">Laat jou toe om die piek van die insulien aktiwiteit definieer en behoort slegs gebruik te word deur gevorderde gebruikers</string>
   <string name="description_loop">Aktiveer of deaktiveer die implementering die lus wakker maak.</string>
+  <string name="description_overview">Wys die huidige staat van jou lus en knoppies vir mees algemene optrede</string>
+  <string name="description_persistent_notification">Toon \'n voortgesette kennisgewing met \'n kort oorsig van wat jou lus besig is om te doen</string>
+  <string name="description_pump_combo">Pomp Integrasie met Accu-Chek Combo pompe, vereis dat ruffy geïnstalleer is</string>
+  <string name="description_pump_insight">Pomp integrasie vir Accu-Chek Insight pompe, vereis dat SightRemote geïnstalleer is</string>
   <string name="description_pump_mdi">Pomp integrasie vir mense wat veelvoudige daaglikse inspuitings doen vir hul diabetes terapie/regime</string>
   <string name="description_sensitivity_aaps">Sensitiwiteit word bereken op dieselfde manier as Oref0, maar jy kan die tydsraamwerk spesifiseer in die verlede. Minimale karb absorpsie is bereken uit maks karb absorpsie tyd vanaf voorkeure.</string>
   <string name="description_sensitivity_oref0">Sensitiwiteit word bereken vanaf 24h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure afgesny.</string>
@@ -56,10 +60,15 @@
   <string name="save">Stoor</string>
   <string name="hoursago">%.1fh gelede</string>
   <string name="absolute">Absolute</string>
+  <string name="objectives_0_objective">Opstel van visualisering en monitering, en ontleed basale en verhoudings</string>
+  <string name="objectives_0_gate">Verifieer dat BG beskikbaar is in Nightscout, en dat pomp insulien data opgelaai word</string>
   <string name="objectives_1_gate">Loop in oop lus modus vir \'n paar dae en boots met hand met baie tydelike basale. Stel tydelike gebruik en verstek tydelike teikens (bv. vir aktiwiteit of hipo behandeling koolhidrate)</string>
   <string name="objectives_2_gate">Gebaseer op daardie ervaring, besluit watter maks basale moet gebruik word, en stel dit op die pomp en voorkeure</string>
+  <string name="objectives_3_gate">Loop in geslote lus met max IAB = 0 vir \'n paar dae sonder te veel LGS gebeure</string>
+  <string name="objectives_4_objective">Verstel die geslote lus, verhoog maks IAB bo 0 en geleidelik verlaag BG doelwitte</string>
   <string name="objectives_4_gate">Lus vir \'n paar dae, en ten minste een nag met geen lae BG alarms, voor BG val</string>
   <string name="objectives_5_gate">1 week suksesvolle dagtyd lus met gereelde karb toevoegings</string>
+  <string name="objectives_6_objective">Skakel bykomende nutsfunskies aan vir bedagse gebruik, soos bv advanced meal assist</string>
   <string name="objectives_7_gate">Jy moet asb die wiki lees en verhoog maksIAB om SMBs te laat werk! \'n Goeie begin is maksIAB = gemiddelde ete bolus + 3 x maks daaglikse basale</string>
   <string name="valuelimitedto">%1$.2f beperk tot %2$.2f</string>
   <string name="overview_editquickwizardlistactivity_add">Voeg by</string>
@@ -67,6 +76,7 @@
   <string name="mealbolus">Maaltyd</string>
   <string name="actions">Aksies</string>
   <string name="ns_upload_only_summary">NS oplaai net. Nie effektief op SGV tensy \'n plaaslike bron soos xDrip gekies is. Nie effektief op profiele terwyl NS-profiele gebruik word.</string>
+  <string name="fillwarning">Maak asseblief seker dat die hoeveelheid ooreenstem met die spesifikasies van jou infusie stel!</string>
   <string name="dia">DIA:</string>
   <string name="wear">Wear</string>
   <string name="sms_actualbg">BG:</string>
@@ -167,6 +177,7 @@
   <string name="food_short">Kos</string>
   <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Laai insulien, cannula en battery veranderings en pomp alarms na Nightscout op</string>
   <string name="openapssmb_maxiob_summary">Hierdie waarde is Maks IAB genoem in OpenAPS kontekst\nOpenAPS sal nie meer insulien byvoeg as huidige IAB is groter as hierdie waarde</string>
+  <string name="absorption_cutoff_summary">Tyd waarteen enige maaltyd as geabsorbeer beskou word. Oorblywende koolhidrate sal afgesny word.</string>
   <string name="time">Tyd</string>
   <string name="next_button">Volgende</string>
   <string name="previous_button">Vorige</string>
@@ -174,8 +185,10 @@
   <string name="value_unavailable_short">nvt</string>
   <string name="virtualpump_pump_def">Bolus: Stap =%1$s\nVerlengde Bolus: [stap%2$s, duur = =%3$smin -%4$sh]\nBasal: stap =%5$s\nTBR: %6$s (deur %7$s), duur =%8$smin -%9$sh\n%10$s</string>
   <string name="virtualpump_pump_def_extended_note">* Slegs diskrete waardes geen reekse word ondersteun as granulariteit vir basale/bolus in virtuele pomp.</string>
+  <string name="setupwizard_loop_description">Druk die knoppie hieronder om AndroidAPS te aktiveer om voorstelle/of veranderings te maak aan basale</string>
   <string name="setupwizard_objectives_description">Druk die knoppie hieronder ten einde doelwitte te stel. Kyk in die doelstellings-oortjie, nadat jy klaar is met hierdie Ghoeroe, om AndroidAPS heeltemal funksionele te maak. \n</string>
   <string name="setupwizard_sensitivity_description">Sensitiwiteit plugin vir sensitiwiteit opsporing en KAB berekening. Vir meer inligting besoek:</string>
+  <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
   <string name="nsclientinfotext">NSClient hanteer verbindings na Nightscout. Jy kan hierdie deel oorslaan nou maar jy sal nie doelwitte kan stel totdat jy dit opgestel het nie.</string>
   <string name="diawarning">Onthou asseblief: dat nuwe insulien profiele vereis DIA van minstens 5h. DIA 5 – 6h op nuwe profiel is gelyk aan DIA 3h op ou insulien profiele.</string>
   <string name="setupwizard_profile_description">Kies asseblief bron van profiel. As Pasiënt \'n kind is gebruik NS profiel. As niemand jou volg op Nightscout sal jy waarskynlik plaaslike profiel kies. Onthou asseblief dat jy net die bron kies van profiel. Om dit te gebruik moet jy dit aktiveer deur uitvoering \"Profiel skakelaar\"</string>
@@ -188,9 +201,11 @@
   <string name="combo_invalid_setup">Ongeldige pomp opstelling kontroleer die hulpdokumente en verifieer dat die vinnige inligting kieslys wel QUICK INFO benaam is met behulp van die 360 konfigurasie sagteware.</string>
   <string name="largetimediff">Groot tydverskil: \nTyd in pomp is uit met meer as 1,5 uur. \nVerstel asb die tyd per hand op die pomp en maak seker dat lees die geskiedenis van die pomp nie onverwagte gedrag veroorsaak. \nAs moontlik, verwyder die geskiedenis vanaf die pomp voor die verandering van die tyd of versper die geslote lus vir een DIA na die laaste verkeerde geskiedenis inskrywing maar minimum een DIA van nou.</string>
   <string name="allow_hardware_pump_text">Aandag: As jy aktiveer en koppel aan \'n hardeware pomp, AndroidAPS sal die basale instellings uit die profiel aan die pomp kopieer, die bestaande basale koers gestoor op die pomp sal oorskryf word. Maak seker jy het die korrekte basale instelling in AndroidAPS. As jy nie seker is of nie die basale instellings wil oorskryf op jou pomp, druk Kanselleer en herhaal oorskakel na die pomp op \'n later tyd.</string>
+  <string name="description_maintenance">Bied verskeie funksies vir onderhoud (bv. log stuur, log skrapping).</string>
   <string name="error_adding_treatment_message">\'n Behandeling (insulien: %1$.2f, koolhidrate: %2$d, by: %3$s) kon nie bygevoeg word by behandelings. Kontroleer asseblief en voeg per hand \'n rekord soos vanpas.</string>
   <string name="as">AS</string>
   <string name="calculation_short">Bereken</string>
+  <string name="sendlogfiles">Stuur vandag se loglêers aan ontwikkelaars saam met hierdie tyd. Onverwagte situasie.</string>
   <string name="loop_openmode_min_change_summary">Lus sal opspring en nuwe verandering versoek slegs as verandering is groter as hierdie waarde. Verstek waarde is 20%</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dae</item>
