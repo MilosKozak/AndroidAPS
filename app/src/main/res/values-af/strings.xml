@@ -8,7 +8,9 @@
   <string name="reset_db_confirm">Wil jy regtig die databasis herstel?</string>
   <string name="nav_exit">Gaan uit</string>
   <string name="alert_dialog_storage_permission_text">Herlaai jou foon of herlaai AndroidAPS met die stelsel instellings \nander sal AndroidAPS nie geskiedenis het nie! (Belangrik om te spoor en te verifieer dat die algoritmes korrek werk)!</string>
+  <string name="description_insulin_free_peak">Laat jou toe om die piek van die insulien aktiwiteit definieer en behoort slegs gebruik te word deur gevorderde gebruikers</string>
   <string name="description_loop">Aktiveer of deaktiveer die implementering die lus wakker maak.</string>
+  <string name="description_pump_mdi">Pomp integrasie vir mense wat veelvoudige daaglikse inspuitings doen vir hul diabetes terapie/regime</string>
   <string name="description_sensitivity_aaps">Sensitiwiteit word bereken op dieselfde manier as Oref0, maar jy kan die tydsraamwerk spesifiseer in die verlede. Minimale karb absorpsie is bereken uit maks karb absorpsie tyd vanaf voorkeure.</string>
   <string name="description_sensitivity_oref0">Sensitiwiteit word bereken vanaf 24h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure afgesny.</string>
   <string name="description_sensitivity_oref1">Sensitiwiteit word bereken uit 8h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure gesny. Plugin bereken ook UAM.</string>
@@ -49,11 +51,14 @@
   <string name="careportal_newnstreatment_split_label">Verdeel</string>
   <string name="careportal_newnstreatment_absolute_label">Absolute</string>
   <string name="careportal_newnstreatment_notes_label">Notas</string>
+  <string name="openapsma_maxiob_summary">Hierdie waarde word Maks IAB genoem in OpenAPS konteks\nDit is die maksimum insulien in [U] wat APS op een slag kan lewer.</string>
   <string name="end_user_license_agreement_text">MOET NIE GEBRUIK WORD OM MEDIESE BESLUITE TE MAAK NIE. DAAR IS GEEN WAARBORG DAT DIE PROGRAM, ONDERWORPE AAN TOEPASSELIKE WETTE EN WETGEWING. TENSY ANDERS GEMELD IN TEKS VOORSIEN DIE KOPIEREG-HOUERS EN / OF ANDER PARTYE DIE PROGRAM \"AS IS\" SONDER ËNIGE WAARBORG VAN ENIGE ORDE, UITDRUKKELIK OF IMPLISIET, INKLUSIEF, MAAR NIE BEPERK TOT DIE IMPLISIETE WAARBORG VAN TOEPAASBAARHEID OF NUT VIR EEN SPESIFIEKE DOEL. DIE TOTALE EN ALLE RISIKOVIR DIE KWALITEIT EN PRESTASIE VAN DIE PROGRAM RUS MET JOUSELF. VIR ENIGE PROGRAM DEFEKTIEWE OF FALINGS MOET JY PERSOONLIK DIE KOSTE EN REGSAANSPREEKLIKHEID DRA VAN ALLE NODIGE AKSIES, DIENS, REPARASIES OF KORREKSIES VIR USELF OF ENIGE DERDE PARTYE EN/OF AKSIES, DIENS, REPARASIES OF KORREKSIES WAT DEUR DIE PROGRAM GEDOEN WAS.</string>
   <string name="save">Stoor</string>
   <string name="hoursago">%.1fh gelede</string>
   <string name="absolute">Absolute</string>
   <string name="objectives_1_gate">Loop in oop lus modus vir \'n paar dae en boots met hand met baie tydelike basale. Stel tydelike gebruik en verstek tydelike teikens (bv. vir aktiwiteit of hipo behandeling koolhidrate)</string>
+  <string name="objectives_2_gate">Gebaseer op daardie ervaring, besluit watter maks basale moet gebruik word, en stel dit op die pomp en voorkeure</string>
+  <string name="objectives_4_gate">Lus vir \'n paar dae, en ten minste een nag met geen lae BG alarms, voor BG val</string>
   <string name="objectives_5_gate">1 week suksesvolle dagtyd lus met gereelde karb toevoegings</string>
   <string name="objectives_7_gate">Jy moet asb die wiki lees en verhoog maksIAB om SMBs te laat werk! \'n Goeie begin is maksIAB = gemiddelde ete bolus + 3 x maks daaglikse basale</string>
   <string name="valuelimitedto">%1$.2f beperk tot %2$.2f</string>
@@ -83,6 +88,7 @@
   <string name="openapsama_current_basal_safety_multiplier_summary">Verstek waarde: 4 dit is die helfte van die sleutel OpenAPS veiligheid limiete, en die ander helfte van \"3 x maks daaglikse; 4 x huidige\"van die veiligheid limiet. Dit beteken jou basale, ongeag max basale stel op jou pomp, kan enige hoër wees as hierdie nommer tye die huidige vlak van jou basale. Dit is om te verhoed dat mense in gevaarlike gebied deur instelling buitensporig hoë max basals voor om te verstaan hoe die algoritme werk. Weer, die verstek is 4 x; die meeste mense sal nooit moet dit aanpas en is eerder meer geneig om te moet aanpas ander instellings as hulle voel hulle \"loop in\" hierdie veiligheid limiet.</string>
   <string name="openapsama_autosens_max_summary">Verstek waarde: 1.2\nThis is \'n vermenigvuldiger cap vir autosens (en gou autotune) stel \'n 20% max limiet op hoe hoog die autosens verhouding kan wees, wat op sy beurt bepaal hoe hoog autosens basale kan aanpas, hoe laag dit ISF kan aanpas, en hoe laag dit die BG teiken kan stel.</string>
   <string name="openapsama_autosens_min_summary">Verstek waarde: 0.7\nDie ander kant van die autosens veiligheidsperke, sit \'n limiet op hoe laag autosens basals kan aanpas, en hoe hoog dit ISF en BG teikens kan verstel.</string>
+  <string name="openapsama_autosens_adjusttargets_summary">Verstek waarde: waar\nDit word gebruik om autosens toe te laat om BG teikens aan te pas, benewens ISF en basale.</string>
   <string name="openapsama_bolussnooze_dia_divisor_summary">Verstek waarde: 2\nBolus sluimer is verorden nadat jy \'n maaltyd bolus gedoen het, so die lus sal nie werk met lae tydelike wanneer jy nou net geëet het nie. Die voorbeeld hier se verstek is 2; so \'n 3 uur DIA beteken dat bolus sluimer sal geleidelik uitgefaseer sal word oor 1.5 uur (3DIA/2).</string>
   <string name="openapsama_min_5m_carbimpact_summary">Verstek waarde: 3.0 (AMA) of 8.0 (SMB). Dit is \'n instelling vir verstek karb absorpsie impak per 5 minute. Die verstek is \'n verwagte 3mg/dl / 5min. Dit beïnvloed hoe vinnig KOB opgeneem word, en hoeveel karb absorpsie word aanvaar sodat in die berekening van toekomstige BG, voorspel wanneer BG val meer as verwagte, of nie soveel styg as verwag.</string>
   <string name="openapsama_link_to_preferncejson_doc_txt">Aandag! \nNormaalweg hoef jy nie die waardes hieronder te verander nie. KLIEK HIER Asseblief en LEES die teks en maak seker jy verstaan dit voor enige verandering aan hierdie waardes.</string>
@@ -96,10 +102,13 @@
   <string name="nav_about">Omtrent</string>
   <string name="xdripstatus_shortname">xds</string>
   <string name="wear_showbgi_summary">Voeg BGI by status lyn</string>
+  <string name="ns_noupload_summary">Alle data na NS gestuur word laat val is gedaal. AAPS is gekoppel aan NS maar geen verandering in NS is gedoen</string>
   <string name="nsalarm_low">Laag</string>
+  <string name="openapsama_autosens_period_summary">Hoeveelheid ure in die verlede vir sensitiwiteit opsporing (karbohidrate opname tyd is uitgesluit)</string>
   <string name="absorptionsettings_title">Absorpsie instellings</string>
   <string name="basal_short">BAS</string>
   <string name="virtualpump_extendedbolus_label_short">EXT</string>
+  <string name="keep_screen_on_summary">Verhoed dat Android skerm afskakel. Dit sal baie meer energie vereis wanneer nie in krag prop is nie.</string>
   <string name="sensitivity_warning">Deur Autosense aan te skakel onthou om alle koolhidrate in te voer Andersins sal koolhidrate dwalinge verkeerdelik geïdentifiseer word as sensitiwiteit veranderinge!!</string>
   <string name="mdtp_ok">OK</string>
   <string name="smb_shortname">SMB</string>
@@ -137,16 +146,26 @@
   <string name="time_plural">s</string>
   <string name="insight_keepalive_format_string">%1$ds staak %2$s</string>
   <string name="automatically_connect_when">Koppel outomaties wanneer AndroidAPS skerms oopgemaak word, voordat enige pomp bevel versoek word, om verbindings-traagheid te verminder</string>
+  <string name="enablesmbalways_summary">Aktiveer SMB altyd onafhanklik van boluse. Slegs moonlik met BG source met goeie filter van data soos G5</string>
+  <string name="enablesmbaftercarbs_summary">Akitveer SMB vir 6h na karbohidrate, selfs met 0 KOB. Slegs moontlik met BG bron met goeiei filters van data soos G5</string>
   <string name="mute">Demp</string>
   <string name="overview_cgm">CGM</string>
+  <string name="ns_create_announcements_from_errors_summary">Skep Nightscout aankondiging vir foutdialoë en plaaslike waarskuwings (ook vertoonbaar in Careportal onder behandelings)</string>
+  <string name="allow_automated_crash_reporting">Laat outomatiese Foutverslagdoening en kenmerk data stuur na die ontwikkelaars via die fabric.io diens.</string>
   <string name="temptargetshort">TT</string>
   <string name="pump_basebasalrate">%.2f U/h</string>
   <string name="combo_bolus_rejected_due_to_pump_history_change">Die pomp geskiedenis het verander nadat die bolus berekening uitgevoer was. Die bolus was nie afgelewer nie. Herbereken asseblief of \'n bolus steeds nodig is.</string>
   <string name="combo_error_updating_treatment_record">Bolus suksesvol afgelewer, maar die behandeling inskrywing het gefaal. Dit kan gebeur as twee klein boluses van dieselfde grootte binne die laaste twee minute toegedien word. Kontroleer die pomp geskiedenis en behandeling inskrywings en gebruik die Careportal om vermiste inskrywings te voeg. Maak seker om nie enige inskrywings vir dieselfde minuut en dieselfde bedrag by te voeg.</string>
+  <string name="combo_high_temp_rejected_due_to_pump_history_changes">Hoë tydelike verwerp aangesien berekening nie onlangse veranderings in pomp geskiedenis oorweeg het nie</string>
   <string name="combo_error_multiple_boluses_with_identical_timestamp">Veelvuldige boluses met dieselfde hoeveelheid binne die dieselfde minuut was nounet ingevoer. Slegs een rekord kon bygevoeg word in behandelings. Kontroleer asseblief die pomp en voeg per hand \'n bolus rekord met behulp van die Careportal oortjie maak seker om \'n bolus te skep met \'n tyd deur geen ander bolus gebruik.</string>
   <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
+  <string name="combo_check_date">Die laaste bolus is ouer as 24 uur of is in die toekoms. Kontroleer asseblief of die datum op die pomp reg ingestel is.</string>
+  <string name="combo_suspious_bolus_time">Tyd/datum van die gelewerde bolus op pomp lyk verkeerd, IAB is waarskynlik verkeerd. Kontroleer asseblief pomp tyd/datum.</string>
+  <string name="profileswitch_ismissing">ProfileSwitch ontbreek. Doen \'n profiel skakelaar of druk \"Aktiveer profiel\" in die LokaleProfiel.</string>
   <string name="smb_frequency_exceeded">\'n Bolus was binne die laaste 3 minute afgelewer, SMB is oorgespring</string>
+  <string name="smbalwaysdisabled">SMB is altyd na koolhidrate versper omdat aktiewe BG bron nie gevorderde filter ondersteun nie</string>
   <string name="food_short">Kos</string>
+  <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Laai insulien, cannula en battery veranderings en pomp alarms na Nightscout op</string>
   <string name="openapssmb_maxiob_summary">Hierdie waarde is Maks IAB genoem in OpenAPS kontekst\nOpenAPS sal nie meer insulien byvoeg as huidige IAB is groter as hierdie waarde</string>
   <string name="time">Tyd</string>
   <string name="next_button">Volgende</string>
@@ -156,6 +175,7 @@
   <string name="virtualpump_pump_def">Bolus: Stap =%1$s\nVerlengde Bolus: [stap%2$s, duur = =%3$smin -%4$sh]\nBasal: stap =%5$s\nTBR: %6$s (deur %7$s), duur =%8$smin -%9$sh\n%10$s</string>
   <string name="virtualpump_pump_def_extended_note">* Slegs diskrete waardes geen reekse word ondersteun as granulariteit vir basale/bolus in virtuele pomp.</string>
   <string name="setupwizard_objectives_description">Druk die knoppie hieronder ten einde doelwitte te stel. Kyk in die doelstellings-oortjie, nadat jy klaar is met hierdie Ghoeroe, om AndroidAPS heeltemal funksionele te maak. \n</string>
+  <string name="setupwizard_sensitivity_description">Sensitiwiteit plugin vir sensitiwiteit opsporing en KAB berekening. Vir meer inligting besoek:</string>
   <string name="nsclientinfotext">NSClient hanteer verbindings na Nightscout. Jy kan hierdie deel oorslaan nou maar jy sal nie doelwitte kan stel totdat jy dit opgestel het nie.</string>
   <string name="diawarning">Onthou asseblief: dat nuwe insulien profiele vereis DIA van minstens 5h. DIA 5 – 6h op nuwe profiel is gelyk aan DIA 3h op ou insulien profiele.</string>
   <string name="setupwizard_profile_description">Kies asseblief bron van profiel. As Pasiënt \'n kind is gebruik NS profiel. As niemand jou volg op Nightscout sal jy waarskynlik plaaslike profiel kies. Onthou asseblief dat jy net die bron kies van profiel. Om dit te gebruik moet jy dit aktiveer deur uitvoering \"Profiel skakelaar\"</string>
@@ -171,6 +191,7 @@
   <string name="error_adding_treatment_message">\'n Behandeling (insulien: %1$.2f, koolhidrate: %2$d, by: %3$s) kon nie bygevoeg word by behandelings. Kontroleer asseblief en voeg per hand \'n rekord soos vanpas.</string>
   <string name="as">AS</string>
   <string name="calculation_short">Bereken</string>
+  <string name="loop_openmode_min_change_summary">Lus sal opspring en nuwe verandering versoek slegs as verandering is groter as hierdie waarde. Verstek waarde is 20%</string>
   <plurals name="objective_days">
     <item quantity="one">%1$d dae</item>
     <item quantity="other">%1$d dae</item>
