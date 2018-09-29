@@ -15,6 +15,7 @@
   <string name="description_pump_combo">Pomp Integrasie met Accu-Chek Combo pompe, vereis dat ruffy geïnstalleer is</string>
   <string name="description_pump_insight">Pomp integrasie vir Accu-Chek Insight pompe, vereis dat SightRemote geïnstalleer is</string>
   <string name="description_pump_mdi">Pomp integrasie vir mense wat veelvoudige daaglikse inspuitings doen vir hul diabetes terapie/regime</string>
+  <string name="description_pump_virtual">Pomp integrasie vir pompe wat nog nie enige drywer het nie (oop lus)</string>
   <string name="description_sensitivity_aaps">Sensitiwiteit word bereken op dieselfde manier as Oref0, maar jy kan die tydsraamwerk spesifiseer in die verlede. Minimale karb absorpsie is bereken uit maks karb absorpsie tyd vanaf voorkeure.</string>
   <string name="description_sensitivity_oref0">Sensitiwiteit word bereken vanaf 24h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure afgesny.</string>
   <string name="description_sensitivity_oref1">Sensitiwiteit word bereken uit 8h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure gesny. Plugin bereken ook UAM.</string>
@@ -63,6 +64,7 @@
   <string name="objectives_0_objective">Opstel van visualisering en monitering, en ontleed basale en verhoudings</string>
   <string name="objectives_0_gate">Verifieer dat BG beskikbaar is in Nightscout, en dat pomp insulien data opgelaai word</string>
   <string name="objectives_1_gate">Loop in oop lus modus vir \'n paar dae en boots met hand met baie tydelike basale. Stel tydelike gebruik en verstek tydelike teikens (bv. vir aktiwiteit of hipo behandeling koolhidrate)</string>
+  <string name="objectives_2_objective">Verstaan jou oop lus, insluitend sy tydelike basale aanbevelings</string>
   <string name="objectives_2_gate">Gebaseer op daardie ervaring, besluit watter maks basale moet gebruik word, en stel dit op die pomp en voorkeure</string>
   <string name="objectives_3_gate">Loop in geslote lus met max IAB = 0 vir \'n paar dae sonder te veel LGS gebeure</string>
   <string name="objectives_4_objective">Verstel die geslote lus, verhoog maks IAB bo 0 en geleidelik verlaag BG doelwitte</string>
@@ -116,6 +118,7 @@
   <string name="nsalarm_low">Laag</string>
   <string name="openapsama_autosens_period_summary">Hoeveelheid ure in die verlede vir sensitiwiteit opsporing (karbohidrate opname tyd is uitgesluit)</string>
   <string name="absorptionsettings_title">Absorpsie instellings</string>
+  <string name="absorption_maxtime_summary">Tyd in ure waarna verwag word dat alle koolhidrate uit maaltyd geabsorbeer sal wees</string>
   <string name="basal_short">BAS</string>
   <string name="virtualpump_extendedbolus_label_short">EXT</string>
   <string name="keep_screen_on_summary">Verhoed dat Android skerm afskakel. Dit sal baie meer energie vereis wanneer nie in krag prop is nie.</string>
@@ -185,6 +188,7 @@
   <string name="value_unavailable_short">nvt</string>
   <string name="virtualpump_pump_def">Bolus: Stap =%1$s\nVerlengde Bolus: [stap%2$s, duur = =%3$smin -%4$sh]\nBasal: stap =%5$s\nTBR: %6$s (deur %7$s), duur =%8$smin -%9$sh\n%10$s</string>
   <string name="virtualpump_pump_def_extended_note">* Slegs diskrete waardes geen reekse word ondersteun as granulariteit vir basale/bolus in virtuele pomp.</string>
+  <string name="welcometosetupwizard">Welkom by opstelling-Ghoeroe. Dit sal jou lei deur die opstelling proses\n</string>
   <string name="setupwizard_loop_description">Druk die knoppie hieronder om AndroidAPS te aktiveer om voorstelle/of veranderings te maak aan basale</string>
   <string name="setupwizard_objectives_description">Druk die knoppie hieronder ten einde doelwitte te stel. Kyk in die doelstellings-oortjie, nadat jy klaar is met hierdie Ghoeroe, om AndroidAPS heeltemal funksionele te maak. \n</string>
   <string name="setupwizard_sensitivity_description">Sensitiwiteit plugin vir sensitiwiteit opsporing en KAB berekening. Vir meer inligting besoek:</string>
