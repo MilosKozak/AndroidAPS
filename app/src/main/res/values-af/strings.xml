@@ -8,11 +8,14 @@
   <string name="reset_db_confirm">Wil jy regtig die databasis herstel?</string>
   <string name="nav_exit">Gaan uit</string>
   <string name="alert_dialog_storage_permission_text">Herlaai jou foon of herlaai AndroidAPS met die stelsel instellings \nander sal AndroidAPS nie geskiedenis het nie! (Belangrik om te spoor en te verifieer dat die algoritmes korrek werk)!</string>
+  <string name="description_insulin_rapid">Insulien voorkeure vir Humalog en NovoRapid / NovoLog</string>
   <string name="description_insulin_free_peak">Laat jou toe om die piek van die insulien aktiwiteit definieer en behoort slegs gebruik te word deur gevorderde gebruikers</string>
   <string name="description_loop">Aktiveer of deaktiveer die implementering die lus wakker maak.</string>
   <string name="description_overview">Wys die huidige staat van jou lus en knoppies vir mees algemene optrede</string>
   <string name="description_persistent_notification">Toon \'n voortgesette kennisgewing met \'n kort oorsig van wat jou lus besig is om te doen</string>
+  <string name="description_profile_nightscout">Bied die profiel wat jy het beskryf het in Nightscout</string>
   <string name="description_pump_combo">Pomp Integrasie met Accu-Chek Combo pompe, vereis dat ruffy geïnstalleer is</string>
+  <string name="description_pump_dana_r_korean">Pomp integrasie vir Koreanse DANA Diabecare R pompe</string>
   <string name="description_pump_dana_r_v2">Pomp integrasie vir DANA Diabecare R pompe met opgegradeerde firmware</string>
   <string name="description_pump_insight">Pomp integrasie vir Accu-Chek Insight pompe, vereis dat SightRemote geïnstalleer is</string>
   <string name="description_pump_mdi">Pomp integrasie vir mense wat veelvoudige daaglikse inspuitings doen vir hul diabetes terapie/regime</string>
@@ -43,11 +46,13 @@
   <string name="virtualpump_resultok">OK</string>
   <string name="delta">Delta</string>
   <string name="configbuilder_pump">Pomp</string>
+  <string name="configbuilder_treatments_description">Watter plugin moet gebruik word vir behandeling hantering?</string>
   <string name="configbuilder_aps">APS</string>
   <string name="configbuilder_aps_description">Watter APS algoritme moet terapie aanpassings maak?</string>
   <string name="configbuilder_general_description">Hier is \'n paar algemene invoegtoepassings wat jy dalk nuttig sal vind.</string>
   <string name="days">dae</string>
   <string name="configbuilder_loop">Lus</string>
+  <string name="configbuilder_loop_description">Gebruik die om AndroidAPS se lus integrasie te aktiveer.</string>
   <string name="loop_aps_label">APS</string>
   <string name="ok">OK</string>
   <string name="overview_newtempbasal_percent_label">% (100% =huidig)</string>
@@ -72,6 +77,7 @@
   <string name="objectives_1_gate">Loop in oop lus modus vir \'n paar dae en boots met hand met baie tydelike basale. Stel tydelike gebruik en verstek tydelike teikens (bv. vir aktiwiteit of hipo behandeling koolhidrate)</string>
   <string name="objectives_2_objective">Verstaan jou oop lus, insluitend sy tydelike basale aanbevelings</string>
   <string name="objectives_2_gate">Gebaseer op daardie ervaring, besluit watter maks basale moet gebruik word, en stel dit op die pomp en voorkeure</string>
+  <string name="objectives_3_objective">Begin toe die lus met lae glukose opgeskort</string>
   <string name="objectives_3_gate">Loop in geslote lus met max IAB = 0 vir \'n paar dae sonder te veel LGS gebeure</string>
   <string name="objectives_4_objective">Verstel die geslote lus, verhoog maks IAB bo 0 en geleidelik verlaag BG doelwitte</string>
   <string name="objectives_4_gate">Lus vir \'n paar dae, en ten minste een nag met geen lae BG alarms, voor BG val</string>
@@ -120,6 +126,7 @@
   <string name="openapsama_link_to_preferncejson_doc_txt">Aandag! \nNormaalweg hoef jy nie die waardes hieronder te verander nie. KLIEK HIER Asseblief en LEES die teks en maak seker jy verstaan dit voor enige verandering aan hierdie waardes.</string>
   <string name="error_only_numeric_digits_range_allowed">Slegs numeriese syfers binne die reeks %1$s - %2$s word toegelaat.</string>
   <string name="smscommunicator_calibrationsent">Kalibrasie gestuur. Ontvang moet geaktiveer word in xDrip.</string>
+  <string name="nowritepermission">NSCLIENT het geen skryfregte. Dalk verkeerde API secret?</string>
   <string name="wear_detailedIOB_summary">Breek af IAB in bolus en basale IAB op die watchface</string>
   <string name="needwhitelisting">%s benodig battery optimisering whitelisting vir behoorlike prestasie</string>
   <string name="treatments_wizard_bgtrend_label">15min tendens</string>
@@ -158,6 +165,8 @@
   <string name="active"><![CDATA[<Active>]]></string>
   <string name="raise_notifications_as_android_notifications">Gebruik stelsel kennisgewings vir waarskuwings en kennisgewings</string>
   <string name="btwatchdog_summary">Skakel asb die foon se bluetooth af vir een sekonde Indien geen verbinding met die pomp moontlik is nie. Dit mag help vir sommige selfone waar die bluetooth stapel vries.</string>
+  <string name="minimalbasalvaluereplaced">Basale waarde vervang deur minimum ondersteunde waarde: %s</string>
+  <string name="maximumbasalvaluereplaced">Basale waarde vervang deur maksimum ondersteunde waarde: %s</string>
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
   <string name="combo_tbr_remaining">%1$d%% (%2$d min oorblywend)</string>
@@ -196,6 +205,7 @@
   <string name="combo_error_updating_treatment_record">Bolus suksesvol afgelewer, maar die behandeling inskrywing het gefaal. Dit kan gebeur as twee klein boluses van dieselfde grootte binne die laaste twee minute toegedien word. Kontroleer die pomp geskiedenis en behandeling inskrywings en gebruik die Careportal om vermiste inskrywings te voeg. Maak seker om nie enige inskrywings vir dieselfde minuut en dieselfde bedrag by te voeg.</string>
   <string name="combo_high_temp_rejected_due_to_pump_history_changes">Hoë tydelike verwerp aangesien berekening nie onlangse veranderings in pomp geskiedenis oorweeg het nie</string>
   <string name="combo_warning_pump_basal_rate_changed">Die basale tempo op die pomp het verander en sal binnekort opgedateer word</string>
+  <string name="combo_error_failure_reading_changed_basal_rate">Basale koers is verander op pomp, maar kon nie dit teruglees nie</string>
   <string name="combo_error_multiple_boluses_with_identical_timestamp">Veelvuldige boluses met dieselfde hoeveelheid binne die dieselfde minuut was nounet ingevoer. Slegs een rekord kon bygevoeg word in behandelings. Kontroleer asseblief die pomp en voeg per hand \'n bolus rekord met behulp van die Careportal oortjie maak seker om \'n bolus te skep met \'n tyd deur geen ander bolus gebruik.</string>
   <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
   <string name="combo_check_date">Die laaste bolus is ouer as 24 uur of is in die toekoms. Kontroleer asseblief of die datum op die pomp reg ingestel is.</string>
@@ -203,6 +213,8 @@
   <string name="profileswitch_ismissing">ProfileSwitch ontbreek. Doen \'n profiel skakelaar of druk \"Aktiveer profiel\" in die LokaleProfiel.</string>
   <string name="limitingbasalratio">Max basale koers beperk tot %1$.2f U/h as gevolg van %2$s</string>
   <string name="smb_frequency_exceeded">\'n Bolus was binne die laaste 3 minute afgelewer, SMB is oorgespring</string>
+  <string name="limitingpercentrate">Beperk maks persentasie koers tot %1$d%% agv %2$s</string>
+  <string name="limitingextendedbolus">Verlengde bolus is beperk tot %1$.1f U as gevolg van %2$s</string>
   <string name="smbalwaysdisabled">SMB is altyd na koolhidrate versper omdat aktiewe BG bron nie gevorderde filter ondersteun nie</string>
   <string name="food_short">Kos</string>
   <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Laai insulien, cannula en battery veranderings en pomp alarms na Nightscout op</string>
