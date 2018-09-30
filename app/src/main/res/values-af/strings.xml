@@ -8,6 +8,7 @@
   <string name="reset_db_confirm">Wil jy regtig die databasis herstel?</string>
   <string name="nav_exit">Gaan uit</string>
   <string name="alert_dialog_storage_permission_text">Herlaai jou foon of herlaai AndroidAPS met die stelsel instellings \nander sal AndroidAPS nie geskiedenis het nie! (Belangrik om te spoor en te verifieer dat die algoritmes korrek werk)!</string>
+  <string name="description_food">Vertoon kos-voorafinstellings soos omskryf in Nightscout</string>
   <string name="description_insulin_rapid">Insulien voorkeure vir Humalog en NovoRapid / NovoLog</string>
   <string name="description_insulin_free_peak">Laat jou toe om die piek van die insulien aktiwiteit definieer en behoort slegs gebruik te word deur gevorderde gebruikers</string>
   <string name="description_loop">Aktiveer of deaktiveer die implementering die lus wakker maak.</string>
@@ -24,6 +25,7 @@
   <string name="description_sensitivity_oref0">Sensitiwiteit word bereken vanaf 24h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure afgesny.</string>
   <string name="description_sensitivity_oref1">Sensitiwiteit word bereken uit 8h data in die verlede en koolhidrate (indien nie geabsorbeer) is na die tyd vermeld in voorkeure gesny. Plugin bereken ook UAM.</string>
   <string name="description_sensitivity_weighted_average">Sensitiwiteit word bereken as \'n geweegde gemiddelde van dwalinge. Nuwer dwalinge het hoër gewig. Minimale karb absorpsie is bereken uit max karb absorpsie tyd vanaf voorkeure. Hierdie algoritme is die vinnigste om sensitiwiteit veranderinge te volg.</string>
+  <string name="description_source_dexcom_g5">Ontvang BG waardes vanaf die gelapte Dexcom G5 app.</string>
   <string name="description_source_mm640g">Onvang BG waardes vanaf die 600SeriesAndroidUploader.</string>
   <string name="description_wear">Monitor en beheer AndroidAPS met jou WearOS horlosie.</string>
   <string name="description_xdrip_status_line">Wys informasie van jou loop op jou xDrip+ horlosie-gesig.</string>
@@ -46,6 +48,7 @@
   <string name="virtualpump_resultok">OK</string>
   <string name="delta">Delta</string>
   <string name="configbuilder_pump">Pomp</string>
+  <string name="configbuilder_pump_description">Watter pomp wil jy gebruik met AndroidAPS?</string>
   <string name="configbuilder_treatments_description">Watter plugin moet gebruik word vir behandeling hantering?</string>
   <string name="configbuilder_aps">APS</string>
   <string name="configbuilder_aps_description">Watter APS algoritme moet terapie aanpassings maak?</string>
@@ -67,11 +70,13 @@
   <string name="careportal_newnstreatment_split_label">Verdeel</string>
   <string name="careportal_newnstreatment_absolute_label">Absolute</string>
   <string name="careportal_newnstreatment_notes_label">Notas</string>
+  <string name="openapsma_maxbasal_summary">Die waarde word \"maks basal\" genoem in OpenAPS konteks</string>
   <string name="openapsma_maxiob_summary">Hierdie waarde word Maks IAB genoem in OpenAPS konteks\nDit is die maksimum insulien in [U] wat APS op een slag kan lewer.</string>
   <string name="end_user_license_agreement_text">MOET NIE GEBRUIK WORD OM MEDIESE BESLUITE TE MAAK NIE. DAAR IS GEEN WAARBORG DAT DIE PROGRAM, ONDERWORPE AAN TOEPASSELIKE WETTE EN WETGEWING. TENSY ANDERS GEMELD IN TEKS VOORSIEN DIE KOPIEREG-HOUERS EN / OF ANDER PARTYE DIE PROGRAM \"AS IS\" SONDER ËNIGE WAARBORG VAN ENIGE ORDE, UITDRUKKELIK OF IMPLISIET, INKLUSIEF, MAAR NIE BEPERK TOT DIE IMPLISIETE WAARBORG VAN TOEPAASBAARHEID OF NUT VIR EEN SPESIFIEKE DOEL. DIE TOTALE EN ALLE RISIKOVIR DIE KWALITEIT EN PRESTASIE VAN DIE PROGRAM RUS MET JOUSELF. VIR ENIGE PROGRAM DEFEKTIEWE OF FALINGS MOET JY PERSOONLIK DIE KOSTE EN REGSAANSPREEKLIKHEID DRA VAN ALLE NODIGE AKSIES, DIENS, REPARASIES OF KORREKSIES VIR USELF OF ENIGE DERDE PARTYE EN/OF AKSIES, DIENS, REPARASIES OF KORREKSIES WAT DEUR DIE PROGRAM GEDOEN WAS.</string>
   <string name="save">Stoor</string>
   <string name="hoursago">%.1fh gelede</string>
   <string name="absolute">Absolute</string>
+  <string name="smscommunicator_calibrationreplywithcode">Om kalibrasie %1$.2f te stuur antwoord met kode %2$s</string>
   <string name="objectives_0_objective">Opstel van visualisering en monitering, en ontleed basale en verhoudings</string>
   <string name="objectives_0_gate">Verifieer dat BG beskikbaar is in Nightscout, en dat pomp insulien data opgelaai word</string>
   <string name="objectives_1_gate">Loop in oop lus modus vir \'n paar dae en boots met hand met baie tydelike basale. Stel tydelike gebruik en verstek tydelike teikens (bv. vir aktiwiteit of hipo behandeling koolhidrate)</string>
@@ -128,6 +133,7 @@
   <string name="smscommunicator_calibrationsent">Kalibrasie gestuur. Ontvang moet geaktiveer word in xDrip.</string>
   <string name="nowritepermission">NSCLIENT het geen skryfregte. Dalk verkeerde API secret?</string>
   <string name="wear_detailedIOB_summary">Breek af IAB in bolus en basale IAB op die watchface</string>
+  <string name="patientage_summary">Kies asseblief pasiënt ouderdom om veiligheids limiete te stel</string>
   <string name="needwhitelisting">%s benodig battery optimisering whitelisting vir behoorlike prestasie</string>
   <string name="treatments_wizard_bgtrend_label">15min tendens</string>
   <string name="treatments_wizard_cob_label">KOB</string>
@@ -175,6 +181,7 @@
   <string name="bolus_frequency_exceeded">\'n Bolus met dieselfde hoeveelheid was versoek binne die laaste twee minute. Om te waak teen toevallige dubbele boluses en om te waak teen goggas is dit nie toegelaat nie.</string>
   <string name="combo_pump_connected_now">Nou</string>
   <string name="combo_reservoir_low">Laag</string>
+  <string name="combo_error_no_connection_no_bolus_delivered">Die pomp kon nie bereik word nie. Geen bolus is gegee nie</string>
   <string name="combo_error_no_bolus_delivered">Bolus aflewering het misluk. Dit blyk dat geen bolus gelewer was. Om seker te maak, gaan die pomp asseblief na om \'n dubbele bolus te vermy en dan bolus weer indien veilig. Om te waak teen goggas, word boluse nie outomaties weer probeer nie.</string>
   <string name="combo_error_partial_bolus_delivered">Slegs %1$.2f U van die aangevraagde bolus van %2$.2f U was gelewer as gevolg van \'n probleem. Kontroleer asseblief die pomp om dit te verifieer en neem dan gepaste aksie.</string>
   <string name="combo_error_bolus_verification_failed">Lewering van die bolus en verifiëring van die pomp se geskiedenis het misluk, Kontroleer asseblief die pomp. As \'n bolus afgelewer is, sal dit bygevoeg word om behandelings gedurende die volgende verbinding met die pomp.</string>
@@ -194,6 +201,7 @@
   <string name="enablesmbwithhightemptarget_summary">Aktiveer SMB as daar hoë tydelike doelwitte aktief is (oefening)</string>
   <string name="mute">Demp</string>
   <string name="show_calibration_button_summary">Stuur \'n kalibrasie na xDrip+ of open G5 kalibrasie dialoog</string>
+  <string name="insulin_increment_button_message">Hoeveelheid Insulien om by te voeg op druk van knoppie</string>
   <string name="error_starting_cgm">Kon nie CGM toepassing laat hardloop nie.  Maak seker dat dit geïnstalleer is.</string>
   <string name="overview_cgm">CGM</string>
   <string name="ns_create_announcements_from_errors_summary">Skep Nightscout aankondiging vir foutdialoë en plaaslike waarskuwings (ook vertoonbaar in Careportal onder behandelings)</string>
@@ -223,6 +231,7 @@
   <string name="time">Tyd</string>
   <string name="next_button">Volgende</string>
   <string name="previous_button">Vorige</string>
+  <string name="boluserrorcode">Versoek: %1$.2fU Gelewer: %2$.2fU Fout kode: %3$s</string>
   <string name="cgm">CGM</string>
   <string name="value_unavailable_short">nvt</string>
   <string name="virtualpump_pump_def">Bolus: Stap =%1$s\nVerlengde Bolus: [stap%2$s, duur = =%3$smin -%4$sh]\nBasal: stap =%5$s\nTBR: %6$s (deur %7$s), duur =%8$smin -%9$sh\n%10$s</string>
@@ -236,6 +245,7 @@
   <string name="diawarning">Onthou asseblief: dat nuwe insulien profiele vereis DIA van minstens 5h. DIA 5 – 6h op nuwe profiel is gelyk aan DIA 3h op ou insulien profiele.</string>
   <string name="setupwizard_profile_description">Kies asseblief bron van profiel. As Pasiënt \'n kind is gebruik NS profiel. As niemand jou volg op Nightscout sal jy waarskynlik plaaslike profiel kies. Onthou asseblief dat jy net die bron kies van profiel. Om dit te gebruik moet jy dit aktiveer deur uitvoering \"Profiel skakelaar\"</string>
   <string name="setupwizard_aps_description">Kies een van beskikbare algoritmes. Hulle is gesorteer vanaf oudste tot jongste. Nuwer algoritmes is gewoonlik kragtiger en meer aggressief. Dus as jy nuut is met jou lus, sal jy waarskynlik begin met AMA en nie met jongste een. Moenie vergeet om die OpenAPS dokumentasie te lees en te konfigureer voor gebruik.</string>
+  <string name="needlocationpermission">Applikasie benodig ligging toestemming vir BT skandering</string>
   <string name="needstoragepermission">Toepassing benodig stoor toestemming om log leers te skryf</string>
   <string name="exit">Uitgang</string>
   <string name="danar_pumpalarm_both">Beide</string>
