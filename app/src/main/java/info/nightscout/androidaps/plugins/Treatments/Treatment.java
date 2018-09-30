@@ -63,6 +63,9 @@ public class Treatment implements DataPointWithLabelInterface {
     @DatabaseField
     public String boluscalc;
 
+    @DatabaseField
+    public String notest;
+
     public Treatment() {
     }
 
@@ -77,6 +80,7 @@ public class Treatment implements DataPointWithLabelInterface {
         treatment.pumpId = JsonHelper.safeGetLong(json, "pumpId");
         treatment._id = json.getString("_id");
         treatment.isSMB = JsonHelper.safeGetBoolean(json,"isSMB");
+        
         if (json.has("eventType")) {
             treatment.mealBolus = !json.get("eventType").equals("Correction Bolus");
             double carbs = treatment.carbs;
