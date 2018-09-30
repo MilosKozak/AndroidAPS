@@ -13,11 +13,10 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
-import info.nightscout.androidaps.activities.PreferencesActivity;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.activities.PreferencesActivity;
 import info.nightscout.androidaps.events.EventConfigBuilderChange;
 import info.nightscout.androidaps.events.EventPumpStatusChanged;
 import info.nightscout.androidaps.interfaces.PluginBase;
@@ -31,6 +30,7 @@ import info.nightscout.androidaps.plugins.ConfigBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.ConstraintsObjectives.ObjectivesFragment;
 import info.nightscout.androidaps.plugins.ConstraintsObjectives.ObjectivesPlugin;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
+import info.nightscout.androidaps.plugins.Maintenance.ImportExportPrefs;
 import info.nightscout.androidaps.plugins.NSClientInternal.NSClientPlugin;
 import info.nightscout.androidaps.plugins.NSClientInternal.events.EventNSClientStatus;
 import info.nightscout.androidaps.plugins.ProfileLocal.LocalProfileFragment;
@@ -41,17 +41,16 @@ import info.nightscout.androidaps.plugins.ProfileSimple.SimpleProfileFragment;
 import info.nightscout.androidaps.plugins.ProfileSimple.SimpleProfilePlugin;
 import info.nightscout.androidaps.setupwizard.elements.SWBreak;
 import info.nightscout.androidaps.setupwizard.elements.SWButton;
+import info.nightscout.androidaps.setupwizard.elements.SWEditString;
+import info.nightscout.androidaps.setupwizard.elements.SWEditUrl;
 import info.nightscout.androidaps.setupwizard.elements.SWFragment;
 import info.nightscout.androidaps.setupwizard.elements.SWHtmlLink;
 import info.nightscout.androidaps.setupwizard.elements.SWInfotext;
 import info.nightscout.androidaps.setupwizard.elements.SWPlugin;
 import info.nightscout.androidaps.setupwizard.elements.SWRadioButton;
-import info.nightscout.androidaps.setupwizard.elements.SWEditString;
-import info.nightscout.androidaps.setupwizard.elements.SWEditUrl;
 import info.nightscout.androidaps.setupwizard.events.EventSWLabel;
 import info.nightscout.androidaps.setupwizard.events.EventSWUpdate;
 import info.nightscout.utils.AndroidPermission;
-import info.nightscout.utils.ImportExportPrefs;
 import info.nightscout.utils.LocaleHelper;
 import info.nightscout.utils.PasswordProtection;
 import info.nightscout.utils.SP;
@@ -59,14 +58,11 @@ import info.nightscout.utils.SP;
 public class SWDefinition {
     private static Logger log = LoggerFactory.getLogger(SWDefinition.class);
 
-    private String packageName;
-
     private AppCompatActivity activity;
     private List<SWScreen> screens = new ArrayList<>();
 
     public void setActivity(AppCompatActivity activity) {
         this.activity = activity;
-        packageName = activity.getPackageName();
     }
 
     public AppCompatActivity getActivity() {
@@ -83,9 +79,9 @@ public class SWDefinition {
     }
 
     SWDefinition() {
-        if (BuildConfig.FLAVOR.equals("full") || BuildConfig.FLAVOR.equals("pumpcontrol"))
+        if (Config.APS || Config.PUMPCONTROL)
             SWDefinitionFull();
-        else if (BuildConfig.FLAVOR.equals("nsclient"))
+        else if (Config.NSCLIENT)
             SWDefinitionNSClient();
     }
 
@@ -185,11 +181,13 @@ public class SWDefinition {
                         .visibility(() -> !NSClientPlugin.getPlugin().isEnabled(PluginType.GENERAL)))
                 .add(new SWEditUrl()
                         .preferenceId(R.string.key_nsclientinternal_url)
+                        .updateDelay(5)
                         .label(R.string.nsclientinternal_url_title)
                         .comment(R.string.nsclientinternal_url_dialogmessage))
                 .add(new SWEditString()
                         .validator(text -> text.length() >= 12)
                         .preferenceId(R.string.key_nsclientinternal_api_secret)
+                        .updateDelay(5)
                         .label(R.string.nsclientinternal_secret_dialogtitle)
                         .comment(R.string.nsclientinternal_secret_dialogmessage))
                 .add(new SWBreak())
@@ -232,15 +230,15 @@ public class SWDefinition {
                 .add(new SWButton()
                         .text(R.string.insulinsourcesetup)
                         .action(() -> {
-                            final PluginBase plugin = (PluginBase) MainApp.getConfigBuilder().getActiveInsulin();
+                            final PluginBase plugin = (PluginBase) ConfigBuilderPlugin.getPlugin().getActiveInsulin();
                             PasswordProtection.QueryPassword(activity, R.string.settings_password, "settings_password", () -> {
                                 Intent i = new Intent(activity, PreferencesActivity.class);
                                 i.putExtra("id", plugin.getPreferencesId());
                                 activity.startActivity(i);
                             }, null);
                         })
-                        .visibility(() -> MainApp.getConfigBuilder().getActiveInsulin()!= null  && ((PluginBase) MainApp.getConfigBuilder().getActiveInsulin()).getPreferencesId() > 0))
-                .validator(() -> MainApp.getConfigBuilder().getActiveInsulin() != null)
+                        .visibility(() -> ConfigBuilderPlugin.getPlugin().getActiveInsulin()!= null  && ((PluginBase) ConfigBuilderPlugin.getPlugin().getActiveInsulin()).getPreferencesId() > 0))
+                .validator(() -> ConfigBuilderPlugin.getPlugin().getActiveInsulin() != null)
         )
         .add(new SWScreen(R.string.configbuilder_bgsource)
                 .skippable(false)
@@ -251,15 +249,15 @@ public class SWDefinition {
                 .add(new SWButton()
                         .text(R.string.bgsourcesetup)
                         .action(() -> {
-                            final PluginBase plugin = (PluginBase) MainApp.getConfigBuilder().getActiveBgSource();
+                            final PluginBase plugin = (PluginBase) ConfigBuilderPlugin.getPlugin().getActiveBgSource();
                             PasswordProtection.QueryPassword(activity, R.string.settings_password, "settings_password", () -> {
                                 Intent i = new Intent(activity, PreferencesActivity.class);
                                 i.putExtra("id", plugin.getPreferencesId());
                                 activity.startActivity(i);
                             }, null);
                         })
-                        .visibility(() -> MainApp.getConfigBuilder().getActiveBgSource()!= null  && ((PluginBase) MainApp.getConfigBuilder().getActiveBgSource()).getPreferencesId() > 0))
-                .validator(() -> MainApp.getConfigBuilder().getActiveBgSource() != null)
+                        .visibility(() -> ConfigBuilderPlugin.getPlugin().getActiveBgSource()!= null  && ((PluginBase) ConfigBuilderPlugin.getPlugin().getActiveBgSource()).getPreferencesId() > 0))
+                .validator(() -> ConfigBuilderPlugin.getPlugin().getActiveBgSource() != null)
         )
         .add(new SWScreen(R.string.configbuilder_profile)
                         .skippable(false)
@@ -269,7 +267,7 @@ public class SWDefinition {
                         .add(new SWPlugin()
                                 .option(PluginType.PROFILE, R.string.configbuilder_profile_description)
                                 .label(R.string.configbuilder_profile))
-                        .validator(() -> MainApp.getConfigBuilder().getActiveProfileInterface() != null)
+                        .validator(() -> ConfigBuilderPlugin.getPlugin().getActiveProfileInterface() != null)
                 )
         .add(new SWScreen(R.string.nsprofile)
                         .skippable(false)
@@ -319,18 +317,18 @@ public class SWDefinition {
                 .add(new SWButton()
                         .text(R.string.pumpsetup)
                         .action(() -> {
-                            final PluginBase plugin = (PluginBase) MainApp.getConfigBuilder().getActivePump();
+                            final PluginBase plugin = (PluginBase) ConfigBuilderPlugin.getPlugin().getActivePump();
                             PasswordProtection.QueryPassword(activity, R.string.settings_password, "settings_password", () -> {
                                 Intent i = new Intent(activity, PreferencesActivity.class);
                                 i.putExtra("id", plugin.getPreferencesId());
                                 activity.startActivity(i);
                             }, null);
                         })
-                        .visibility(() -> ((PluginBase) MainApp.getConfigBuilder().getActivePump()).getPreferencesId() > 0))
+                        .visibility(() -> ((PluginBase) ConfigBuilderPlugin.getPlugin().getActivePump()).getPreferencesId() > 0))
                 .add(new SWButton()
                         .text(R.string.readstatus)
-                        .action(() -> ConfigBuilderPlugin.getCommandQueue().readStatus("Clicked connect to pump", null))
-                        .visibility(() -> MainApp.getConfigBuilder().getActivePump() != null))
+                        .action(() -> ConfigBuilderPlugin.getPlugin().getCommandQueue().readStatus("Clicked connect to pump", null))
+                        .visibility(() -> ConfigBuilderPlugin.getPlugin().getActivePump() != null))
                 .add(new SWEventListener(this)
                         .listener(new Object() {
                             @Subscribe
@@ -339,7 +337,7 @@ public class SWDefinition {
                             }
                         })
                 )
-                .validator(() -> MainApp.getConfigBuilder().getActivePump() != null && MainApp.getConfigBuilder().getActivePump().isInitialized())
+                .validator(() -> ConfigBuilderPlugin.getPlugin().getActivePump() != null && ConfigBuilderPlugin.getPlugin().getActivePump().isInitialized())
         )
         .add(new SWScreen(R.string.configbuilder_aps)
                 .skippable(false)
@@ -355,16 +353,24 @@ public class SWDefinition {
                 .add(new SWButton()
                         .text(R.string.apssetup)
                         .action(() -> {
-                            final PluginBase plugin = (PluginBase) MainApp.getConfigBuilder().getActiveAPS();
+                            final PluginBase plugin = (PluginBase) ConfigBuilderPlugin.getPlugin().getActiveAPS();
                             PasswordProtection.QueryPassword(activity, R.string.settings_password, "settings_password", () -> {
                                 Intent i = new Intent(activity, PreferencesActivity.class);
                                 i.putExtra("id", plugin.getPreferencesId());
                                 activity.startActivity(i);
                             }, null);
                         })
-                        .visibility(() -> MainApp.getConfigBuilder().getActiveAPS() != null && ((PluginBase) MainApp.getConfigBuilder().getActiveAPS()).getPreferencesId() > 0))
-                .validator(() -> MainApp.getConfigBuilder().getActiveAPS() != null)
+                        .visibility(() -> ConfigBuilderPlugin.getPlugin().getActiveAPS() != null && ((PluginBase) ConfigBuilderPlugin.getPlugin().getActiveAPS()).getPreferencesId() > 0))
+                .validator(() -> ConfigBuilderPlugin.getPlugin().getActiveAPS() != null)
                 .visibility(() -> Config.APS)
+        )
+        .add(new SWScreen(R.string.apsmode_title)
+                .skippable(false)
+                .add(new SWRadioButton()
+                        .option(R.array.aps_modeArray, R.array.aps_modeValues)
+                        .preferenceId(R.string.key_aps_mode).label(R.string.apsmode_title)
+                        .comment(R.string.setupwizard_preferred_aps_mode))
+                .validator(() -> SP.contains(R.string.key_aps_mode))
         )
         .add(new SWScreen(R.string.configbuilder_loop)
                 .skippable(false)
@@ -399,15 +405,15 @@ public class SWDefinition {
                 .add(new SWButton()
                         .text(R.string.sensitivitysetup)
                         .action(() -> {
-                            final PluginBase plugin = (PluginBase) MainApp.getConfigBuilder().getActiveSensitivity();
+                            final PluginBase plugin = (PluginBase) ConfigBuilderPlugin.getPlugin().getActiveSensitivity();
                             PasswordProtection.QueryPassword(activity, R.string.settings_password, "settings_password", () -> {
                                 Intent i = new Intent(activity, PreferencesActivity.class);
                                 i.putExtra("id", plugin.getPreferencesId());
                                 activity.startActivity(i);
                             }, null);
                         })
-                        .visibility(() -> MainApp.getConfigBuilder().getActiveSensitivity() != null && ((PluginBase) MainApp.getConfigBuilder().getActiveSensitivity()).getPreferencesId() > 0))
-                .validator(() -> MainApp.getConfigBuilder().getActiveSensitivity() != null)
+                        .visibility(() -> ConfigBuilderPlugin.getPlugin().getActiveSensitivity() != null && ((PluginBase) ConfigBuilderPlugin.getPlugin().getActiveSensitivity()).getPreferencesId() > 0))
+                .validator(() -> ConfigBuilderPlugin.getPlugin().getActiveSensitivity() != null)
         )
         .add(new SWScreen(R.string.objectives)
                 .skippable(false)
@@ -524,10 +530,12 @@ public class SWDefinition {
                         .visibility(() -> !NSClientPlugin.getPlugin().isEnabled(PluginType.GENERAL)))
                 .add(new SWEditUrl()
                         .preferenceId(R.string.key_nsclientinternal_url)
+                        .updateDelay(5)
                         .label(R.string.nsclientinternal_url_title)
                         .comment(R.string.nsclientinternal_url_dialogmessage))
                 .add(new SWEditString()
                         .validator(text -> text.length() >= 12)
+                        .updateDelay(5)
                         .preferenceId(R.string.key_nsclientinternal_api_secret)
                         .label(R.string.nsclientinternal_secret_dialogtitle)
                         .comment(R.string.nsclientinternal_secret_dialogmessage))
@@ -545,6 +553,25 @@ public class SWDefinition {
                 .add(new SWBreak())
                 .validator(() -> NSClientPlugin.getPlugin().nsClientService != null && NSClientPlugin.getPlugin().nsClientService.isConnected && NSClientPlugin.getPlugin().nsClientService.hasWriteAuth)
                 .visibility(() -> !(NSClientPlugin.getPlugin().nsClientService != null && NSClientPlugin.getPlugin().nsClientService.isConnected && NSClientPlugin.getPlugin().nsClientService.hasWriteAuth))
+        )
+        .add(new SWScreen(R.string.configbuilder_bgsource)
+                .skippable(false)
+                .add(new SWPlugin()
+                        .option(PluginType.BGSOURCE, R.string.configbuilder_bgsource_description)
+                        .label(R.string.configbuilder_bgsource))
+                .add(new SWBreak())
+                .add(new SWButton()
+                        .text(R.string.bgsourcesetup)
+                        .action(() -> {
+                            final PluginBase plugin = (PluginBase) ConfigBuilderPlugin.getPlugin().getActiveBgSource();
+                            PasswordProtection.QueryPassword(activity, R.string.settings_password, "settings_password", () -> {
+                                Intent i = new Intent(activity, PreferencesActivity.class);
+                                i.putExtra("id", plugin.getPreferencesId());
+                                activity.startActivity(i);
+                            }, null);
+                        })
+                        .visibility(() -> ConfigBuilderPlugin.getPlugin().getActiveBgSource()!= null  && ((PluginBase) ConfigBuilderPlugin.getPlugin().getActiveBgSource()).getPreferencesId() > 0))
+                .validator(() -> ConfigBuilderPlugin.getPlugin().getActiveBgSource() != null)
         )
         .add(new SWScreen(R.string.patientage)
                 .skippable(false)
@@ -571,15 +598,15 @@ public class SWDefinition {
                 .add(new SWButton()
                         .text(R.string.insulinsourcesetup)
                         .action(() -> {
-                            final PluginBase plugin = (PluginBase) MainApp.getConfigBuilder().getActiveInsulin();
+                            final PluginBase plugin = (PluginBase) ConfigBuilderPlugin.getPlugin().getActiveInsulin();
                             PasswordProtection.QueryPassword(activity, R.string.settings_password, "settings_password", () -> {
                                 Intent i = new Intent(activity, PreferencesActivity.class);
                                 i.putExtra("id", plugin.getPreferencesId());
                                 activity.startActivity(i);
                             }, null);
                         })
-                        .visibility(() -> MainApp.getConfigBuilder().getActiveInsulin()!= null  && ((PluginBase) MainApp.getConfigBuilder().getActiveInsulin()).getPreferencesId() > 0))
-                .validator(() -> MainApp.getConfigBuilder().getActiveInsulin() != null)
+                        .visibility(() -> ConfigBuilderPlugin.getPlugin().getActiveInsulin()!= null  && ((PluginBase) ConfigBuilderPlugin.getPlugin().getActiveInsulin()).getPreferencesId() > 0))
+                .validator(() -> ConfigBuilderPlugin.getPlugin().getActiveInsulin() != null)
         )
         .add(new SWScreen(R.string.configbuilder_sensitivity)
                 .skippable(false)
@@ -595,15 +622,15 @@ public class SWDefinition {
                 .add(new SWButton()
                         .text(R.string.sensitivitysetup)
                         .action(() -> {
-                            final PluginBase plugin = (PluginBase) MainApp.getConfigBuilder().getActiveSensitivity();
+                            final PluginBase plugin = (PluginBase) ConfigBuilderPlugin.getPlugin().getActiveSensitivity();
                             PasswordProtection.QueryPassword(activity, R.string.settings_password, "settings_password", () -> {
                                 Intent i = new Intent(activity, PreferencesActivity.class);
                                 i.putExtra("id", plugin.getPreferencesId());
                                 activity.startActivity(i);
                             }, null);
                         })
-                        .visibility(() -> MainApp.getConfigBuilder().getActiveSensitivity() != null && ((PluginBase) MainApp.getConfigBuilder().getActiveSensitivity()).getPreferencesId() > 0))
-                .validator(() -> MainApp.getConfigBuilder().getActiveSensitivity() != null)
+                        .visibility(() -> ConfigBuilderPlugin.getPlugin().getActiveSensitivity() != null && ((PluginBase) ConfigBuilderPlugin.getPlugin().getActiveSensitivity()).getPreferencesId() > 0))
+                .validator(() -> ConfigBuilderPlugin.getPlugin().getActiveSensitivity() != null)
         )
         ;
     }

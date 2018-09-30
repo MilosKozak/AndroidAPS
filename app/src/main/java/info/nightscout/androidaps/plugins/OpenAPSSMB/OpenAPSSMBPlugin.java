@@ -55,7 +55,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
 
     // last values
     DetermineBasalAdapterSMBJS lastDetermineBasalAdapterSMBJS = null;
-    Date lastAPSRun = null;
+    long lastAPSRun = 0;
     DetermineBasalResultSMB lastAPSResult = null;
     AutosensResult lastAutosensResult = null;
 
@@ -72,13 +72,13 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
 
     @Override
     public boolean specialEnableCondition() {
-        PumpInterface pump = ConfigBuilderPlugin.getActivePump();
+        PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
         return pump == null || pump.getPumpDescription().isTempBasalCapable;
     }
 
     @Override
     public boolean specialShowInListCondition() {
-        PumpInterface pump = ConfigBuilderPlugin.getActivePump();
+        PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
         return pump == null || pump.getPumpDescription().isTempBasalCapable;
     }
 
@@ -88,7 +88,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
     }
 
     @Override
-    public Date getLastAPSRun() {
+    public long getLastAPSRun() {
         return lastAPSRun;
     }
 
@@ -102,7 +102,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
 
         GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
         Profile profile = ProfileFunctions.getInstance().getProfile();
-        PumpInterface pump = ConfigBuilderPlugin.getActivePump();
+        PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
 
         if (profile == null) {
             MainApp.bus().post(new EventOpenAPSUpdateResultGui(MainApp.gs(R.string.noprofileselected)));
@@ -139,13 +139,13 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
         minBg = Round.roundTo(minBg, 0.1d);
         maxBg = Round.roundTo(maxBg, 0.1d);
 
-        Date start = new Date();
-        Date startPart = new Date();
+        long start = System.currentTimeMillis();
+        long startPart = System.currentTimeMillis();
         IobTotal[] iobArray = IobCobCalculatorPlugin.getPlugin().calculateIobArrayForSMB(profile);
         if (L.isEnabled(L.APS))
             Profiler.log(log, "calculateIobArrayInDia()", startPart);
 
-        startPart = new Date();
+        startPart = System.currentTimeMillis();
         MealData mealData = TreatmentsPlugin.getPlugin().getMealData();
         if (L.isEnabled(L.APS))
             Profiler.log(log, "getMealData()", startPart);
@@ -177,7 +177,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
         if (!checkOnlyHardLimits(pump.getBaseBasalRate(), "current_basal", 0.01, HardLimits.maxBasal()))
             return;
 
-        startPart = new Date();
+        startPart = System.currentTimeMillis();
         if (MainApp.getConstraintChecker().isAutosensModeEnabled().value()) {
             AutosensData autosensData = IobCobCalculatorPlugin.getPlugin().getLastAutosensDataSynchronized("OpenAPSPlugin");
             if (autosensData == null) {
@@ -203,9 +203,9 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
         if (L.isEnabled(L.APS))
             Profiler.log(log, "SMB data gathering", start);
 
-        start = new Date();
+        start = System.currentTimeMillis();
         try {
-            determineBasalAdapterSMBJS.setData(profile, maxIob, maxBasal, minBg, maxBg, targetBg, ConfigBuilderPlugin.getActivePump().getBaseBasalRate(), iobArray, glucoseStatus, mealData,
+            determineBasalAdapterSMBJS.setData(profile, maxIob, maxBasal, minBg, maxBg, targetBg, ConfigBuilderPlugin.getPlugin().getActivePump().getBaseBasalRate(), iobArray, glucoseStatus, mealData,
                     lastAutosensResult.ratio, //autosensDataRatio
                     isTempTarget,
                     smbAllowed.value(),
@@ -225,16 +225,6 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
         // Fix bug determine basal
         if (determineBasalResultSMB.rate == 0d && determineBasalResultSMB.duration == 0 && !TreatmentsPlugin.getPlugin().isTempBasalInProgress())
             determineBasalResultSMB.tempBasalRequested = false;
-        // limit requests on openloop mode
-        if (!MainApp.getConstraintChecker().isClosedLoopAllowed().value()) {
-            TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(now);
-            if (activeTemp != null && determineBasalResultSMB.rate == 0 && determineBasalResultSMB.duration == 0) {
-                // going to cancel
-            } else if (activeTemp != null && Math.abs(determineBasalResultSMB.rate - activeTemp.tempBasalConvertedToAbsolute(now, profile)) < 0.1) {
-                determineBasalResultSMB.tempBasalRequested = false;
-            } else if (activeTemp == null && Math.abs(determineBasalResultSMB.rate - ConfigBuilderPlugin.getActivePump().getBaseBasalRate()) < 0.1)
-                determineBasalResultSMB.tempBasalRequested = false;
-        }
 
         determineBasalResultSMB.iob = iobArray[0];
 
@@ -248,7 +238,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface {
 
         lastDetermineBasalAdapterSMBJS = determineBasalAdapterSMBJS;
         lastAPSResult = determineBasalResultSMB;
-        lastAPSRun = new Date(now);
+        lastAPSRun = now;
         MainApp.bus().post(new EventOpenAPSUpdateGui());
 
         //deviceStatus.suggested = determineBasalResultAMA.json;

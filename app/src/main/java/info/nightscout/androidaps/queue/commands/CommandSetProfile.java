@@ -33,7 +33,7 @@ public class CommandSetProfile extends Command {
 
     @Override
     public void execute() {
-        if (ConfigBuilderPlugin.getCommandQueue().isThisProfileSet(profile)) {
+        if (ConfigBuilderPlugin.getPlugin().getCommandQueue().isThisProfileSet(profile)) {
             if (L.isEnabled(L.PUMPQUEUE))
                 log.debug("Correct profile already set. profile: " + profile.toString());
             if (callback != null)
@@ -41,7 +41,7 @@ public class CommandSetProfile extends Command {
             return;
         }
 
-        PumpEnactResult r = ConfigBuilderPlugin.getActivePump().setNewBasalProfile(profile);
+        PumpEnactResult r = ConfigBuilderPlugin.getPlugin().getActivePump().setNewBasalProfile(profile);
         if (L.isEnabled(L.PUMPQUEUE))
             log.debug("Result success: " + r.success + " enacted: " + r.enacted + " profile: " + profile.toString());
         if (callback != null)
@@ -49,7 +49,7 @@ public class CommandSetProfile extends Command {
 
         // Send SMS notification if ProfileSwitch is comming from NS
         ProfileSwitch profileSwitch = TreatmentsPlugin.getPlugin().getProfileSwitchFromHistory(System.currentTimeMillis());
-        if (r.enacted && profileSwitch.source == Source.NIGHTSCOUT) {
+        if (profileSwitch != null && r.enacted && profileSwitch.source == Source.NIGHTSCOUT) {
             SmsCommunicatorPlugin smsCommunicatorPlugin = MainApp.getSpecificPlugin(SmsCommunicatorPlugin.class);
             if (smsCommunicatorPlugin != null && smsCommunicatorPlugin.isEnabled(PluginType.GENERAL)) {
                 smsCommunicatorPlugin.sendNotificationToAllNumbers(MainApp.gs(R.string.profile_set_ok));

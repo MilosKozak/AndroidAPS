@@ -48,7 +48,6 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
 
     protected AbstractDanaRExecutionService sExecutionService;
 
-    protected DanaRPump pump = DanaRPump.getInstance();
     protected boolean useExtendedBoluses = false;
 
     public PumpDescription pumpDescription = new PumpDescription();
@@ -67,7 +66,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
     @Override
     public void onStateChange(PluginType type, State oldState, State newState) {
         // if pump profile was enabled need to switch to another too
-        if (type == PluginType.PUMP && newState == State.ENABLED && newState == State.DISABLED && isProfileInterfaceEnabled) {
+        if (type == PluginType.PUMP && newState == State.DISABLED && isProfileInterfaceEnabled) {
             setPluginEnabled(PluginType.PROFILE, false);
             NSProfilePlugin.getPlugin().setPluginEnabled(PluginType.PROFILE, true);
             NSProfilePlugin.getPlugin().setFragmentVisible(PluginType.PROFILE, true);
@@ -76,7 +75,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
 
     @Override
     public boolean isSuspended() {
-        return pump.pumpSuspended;
+        return DanaRPump.getInstance().pumpSuspended;
     }
 
     @Override
@@ -125,6 +124,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
     public boolean isThisProfileSet(Profile profile) {
         if (!isInitialized())
             return true; // TODO: not sure what's better. so far TRUE to prevent too many SMS
+        DanaRPump pump = DanaRPump.getInstance();
         if (pump.pumpProfiles == null)
             return true; // TODO: not sure what's better. so far TRUE to prevent too many SMS
         int basalValues = pump.basal48Enable ? 48 : 24;
@@ -143,13 +143,13 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
     }
 
     @Override
-    public Date lastDataTime() {
-        return new Date(pump.lastConnection);
+    public long lastDataTime() {
+        return DanaRPump.getInstance().lastConnection;
     }
 
     @Override
     public double getBaseBasalRate() {
-        return pump.currentBasal;
+        return DanaRPump.getInstance().currentBasal;
     }
 
     @Override
@@ -163,6 +163,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
 
     @Override
     public PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, Profile profile, boolean enforceNew) {
+        DanaRPump pump = DanaRPump.getInstance();
         PumpEnactResult result = new PumpEnactResult();
         percent = MainApp.getConstraintChecker().applyBasalPercentConstraints(new Constraint<>(percent), profile).value();
         if (percent < 0) {
@@ -212,7 +213,8 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
 
     @Override
     public PumpEnactResult setExtendedBolus(Double insulin, Integer durationInMinutes) {
-        insulin = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(insulin)).value();
+        DanaRPump pump = DanaRPump.getInstance();
+        insulin = MainApp.getConstraintChecker().applyExtendedBolusConstraints(new Constraint<>(insulin)).value();
         // needs to be rounded
         int durationInHalfHours = Math.max(durationInMinutes / 30, 1);
         insulin = Round.roundTo(insulin, getPumpDescription().extendedBolusStep);
@@ -262,7 +264,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
             result.enacted = true;
             result.isTempCancel = true;
         }
-        if (!pump.isExtendedInProgress) {
+        if (!DanaRPump.getInstance().isExtendedInProgress) {
             result.success = true;
             result.comment = MainApp.gs(R.string.virtualpump_resultok);
             if (L.isEnabled(L.PUMP))
@@ -280,8 +282,8 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
     public void connect(String from) {
         if (sExecutionService != null) {
             sExecutionService.connect();
-            pumpDescription.basalStep = pump.basalStep;
-            pumpDescription.bolusStep = pump.bolusStep;
+            pumpDescription.basalStep = DanaRPump.getInstance().basalStep;
+            pumpDescription.bolusStep = DanaRPump.getInstance().bolusStep;
         }
     }
 
@@ -309,13 +311,14 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
     public void getPumpStatus() {
         if (sExecutionService != null) {
             sExecutionService.getPumpStatus();
-            pumpDescription.basalStep = pump.basalStep;
-            pumpDescription.bolusStep = pump.bolusStep;
+            pumpDescription.basalStep = DanaRPump.getInstance().basalStep;
+            pumpDescription.bolusStep = DanaRPump.getInstance().bolusStep;
         }
     }
 
     @Override
     public JSONObject getJSONStatus(Profile profile, String profilename) {
+        DanaRPump pump = DanaRPump.getInstance();
         long now = System.currentTimeMillis();
         if (pump.lastConnection + 5 * 60 * 1000L < System.currentTimeMillis()) {
             return null;
@@ -330,8 +333,8 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
             status.put("timestamp", DateUtil.toISOString(pump.lastConnection));
             extended.put("Version", BuildConfig.VERSION_NAME + "-" + BuildConfig.BUILDVERSION);
             extended.put("PumpIOB", pump.iob);
-            if (pump.lastBolusTime.getTime() != 0) {
-                extended.put("LastBolus", pump.lastBolusTime.toLocaleString());
+            if (pump.lastBolusTime != 0) {
+                extended.put("LastBolus", DateUtil.dateAndTimeFullString(pump.lastBolusTime));
                 extended.put("LastBolusAmount", pump.lastBolusAmount);
             }
             TemporaryBasal tb = TreatmentsPlugin.getPlugin().getRealTempBasalFromHistory(now);
@@ -365,7 +368,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
 
     @Override
     public String deviceID() {
-        return pump.serialNumber;
+        return DanaRPump.getInstance().serialNumber;
     }
 
     @Override
@@ -388,8 +391,7 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
 
     @Override
     public Constraint<Double> applyBasalConstraints(Constraint<Double> absoluteRate, Profile profile) {
-        if (pump != null)
-            absoluteRate.setIfSmaller(pump.maxBasal, String.format(MainApp.gs(R.string.limitingbasalratio), pump.maxBasal, MainApp.gs(R.string.pumplimit)), this);
+        absoluteRate.setIfSmaller(DanaRPump.getInstance().maxBasal, String.format(MainApp.gs(R.string.limitingbasalratio), DanaRPump.getInstance().maxBasal, MainApp.gs(R.string.pumplimit)), this);
         return absoluteRate;
     }
 
@@ -403,27 +405,31 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
 
     @Override
     public Constraint<Double> applyBolusConstraints(Constraint<Double> insulin) {
-        if (pump != null)
-            insulin.setIfSmaller(pump.maxBolus, String.format(MainApp.gs(R.string.limitingbolus), pump.maxBolus, MainApp.gs(R.string.pumplimit)), this);
+        insulin.setIfSmaller(DanaRPump.getInstance().maxBolus, String.format(MainApp.gs(R.string.limitingbolus), DanaRPump.getInstance().maxBolus, MainApp.gs(R.string.pumplimit)), this);
         return insulin;
+    }
+
+    @Override
+    public Constraint<Double> applyExtendedBolusConstraints(Constraint<Double> insulin) {
+        return applyBolusConstraints(insulin);
     }
 
     @Nullable
     @Override
     public ProfileStore getProfile() {
-        if (pump.lastSettingsRead == 0)
+        if (DanaRPump.getInstance().lastSettingsRead == 0)
             return null; // no info now
-        return pump.createConvertedProfile();
+        return DanaRPump.getInstance().createConvertedProfile();
     }
 
     @Override
     public String getUnits() {
-        return pump.getUnits();
+        return DanaRPump.getInstance().getUnits();
     }
 
     @Override
     public String getProfileName() {
-        return pump.createConvertedProfileName();
+        return DanaRPump.getInstance().createConvertedProfileName();
     }
 
     @Override
@@ -433,13 +439,14 @@ public abstract class AbstractDanaRPlugin extends PluginBase implements PumpInte
 
     // Reply for sms communicator
     public String shortStatus(boolean veryShort) {
+        DanaRPump pump = DanaRPump.getInstance();
         String ret = "";
         if (pump.lastConnection != 0) {
             Long agoMsec = System.currentTimeMillis() - pump.lastConnection;
             int agoMin = (int) (agoMsec / 60d / 1000d);
             ret += "LastConn: " + agoMin + " minago\n";
         }
-        if (pump.lastBolusTime.getTime() != 0) {
+        if (pump.lastBolusTime != 0) {
             ret += "LastBolus: " + DecimalFormatter.to2Decimal(pump.lastBolusAmount) + "U @" + android.text.format.DateFormat.format("HH:mm", pump.lastBolusTime) + "\n";
         }
         TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getRealTempBasalFromHistory(System.currentTimeMillis());

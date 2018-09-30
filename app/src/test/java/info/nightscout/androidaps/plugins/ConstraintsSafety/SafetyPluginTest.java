@@ -47,8 +47,8 @@ public class SafetyPluginTest {
     }
 
     @Test
-    public void disabledEngineeringModeShouldLimitClosedLoop() throws Exception {
-        when(SP.getString("aps_mode", "open")).thenReturn("closed");
+    public void disabledEngineeringModeShouldLimitClosedLoop() {
+        when(SP.getString(R.string.key_aps_mode, "open")).thenReturn("closed");
         when(MainApp.isEngineeringModeOrRelease()).thenReturn(false);
 
         Constraint<Boolean> c = new Constraint<>(true);
@@ -58,8 +58,8 @@ public class SafetyPluginTest {
     }
 
     @Test
-    public void setOpenLoopInPreferencesShouldLimitClosedLoop() throws Exception {
-        when(SP.getString("aps_mode", "open")).thenReturn("open");
+    public void setOpenLoopInPreferencesShouldLimitClosedLoop() {
+        when(SP.getString(R.string.key_aps_mode, "open")).thenReturn("open");
 
         Constraint<Boolean> c = new Constraint<>(true);
         c = safetyPlugin.isClosedLoopAllowed(c);
@@ -91,7 +91,7 @@ public class SafetyPluginTest {
 
     @Test
     public void bgsourceShouldPreventSMBAlways() throws Exception {
-        when(MainApp.getConfigBuilder().getActiveBgSource()).thenReturn(SourceGlimpPlugin.getPlugin());
+        when(ConfigBuilderPlugin.getPlugin().getActiveBgSource()).thenReturn(SourceGlimpPlugin.getPlugin());
 
         Constraint<Boolean> c = new Constraint<>(true);
         c = safetyPlugin.isAdvancedFilteringEnabled(c);
@@ -231,7 +231,7 @@ public class SafetyPluginTest {
         AAPSMocker.mockBus();
 
 
-        when(MainApp.getConfigBuilder().getActivePump()).thenReturn(pump);
+        when(ConfigBuilderPlugin.getPlugin().getActivePump()).thenReturn(pump);
 
         safetyPlugin = SafetyPlugin.getPlugin();
     }

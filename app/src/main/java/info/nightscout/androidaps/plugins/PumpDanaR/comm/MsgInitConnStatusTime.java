@@ -16,6 +16,7 @@ import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
 import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
 import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
+import info.nightscout.utils.DateUtil;
 
 public class MsgInitConnStatusTime extends MessageBase {
     private static Logger log = LoggerFactory.getLogger(L.PUMPCOMM);
@@ -46,17 +47,20 @@ public class MsgInitConnStatusTime extends MessageBase {
                 (MainApp.getSpecificPlugin(DanaRKoreanPlugin.class)).setPluginEnabled(PluginType.PROFILE, true);
             }
 
-            MainApp.getConfigBuilder().storeSettings("ChangingDanaDriver");
+            ConfigBuilderPlugin.getPlugin().storeSettings("ChangingDanaDriver");
             MainApp.bus().post(new EventRefreshGui());
-            ConfigBuilderPlugin.getCommandQueue().readStatus("PumpDriverChange", null); // force new connection
+            ConfigBuilderPlugin.getPlugin().getCommandQueue().readStatus("PumpDriverChange", null); // force new connection
+            failed = false;
             return;
+        } else {
+            failed = true;
         }
 
-        Date time = dateTimeSecFromBuff(bytes, 0);
+        long time = dateTimeSecFromBuff(bytes, 0);
         int versionCode = intFromBuff(bytes, 6, 1);
 
         if (L.isEnabled(L.PUMPCOMM)) {
-            log.debug("Pump time: " + time);
+            log.debug("Pump time: " + DateUtil.dateAndTimeFullString(time));
             log.debug("Version code: " + versionCode);
         }
     }

@@ -89,7 +89,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                 pref.setSummary("******");
             } else if (pref.getKey().equals(MainApp.gs(R.string.key_danars_name))) {
                 pref.setSummary(SP.getString(R.string.key_danars_name, ""));
-            } else if (editTextPref.getText() != null ) {
+            } else if (editTextPref.getText() != null) {
                 ((EditTextPreference) pref).setDialogMessage(editTextPref.getDialogMessage());
                 pref.setSummary(editTextPref.getText());
             } else if (pref.getKey().contains("smscommunicator_allowednumbers") && TextUtils.isEmpty(editTextPref.getText().trim())) {
@@ -135,7 +135,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                 addPreferencesFromResource(id);
             } else {
 
-                if (!Config.NSCLIENT && !Config.G5UPLOADER) {
+                if (!Config.NSCLIENT) {
                     addPreferencesFromResource(R.xml.pref_password);
                 }
                 addPreferencesFromResource(R.xml.pref_age);
@@ -158,7 +158,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                 addPreferencesFromResourceIfEnabled(SensitivityOref0Plugin.getPlugin(), PluginType.SENSITIVITY);
                 addPreferencesFromResourceIfEnabled(SensitivityOref1Plugin.getPlugin(), PluginType.SENSITIVITY);
 
-                if (Config.HWPUMPS) {
+                if (Config.PUMPDRIVERS) {
                     addPreferencesFromResourceIfEnabled(DanaRPlugin.getPlugin(), PluginType.PUMP);
                     addPreferencesFromResourceIfEnabled(DanaRKoreanPlugin.getPlugin(), PluginType.PUMP);
                     addPreferencesFromResourceIfEnabled(DanaRv2Plugin.getPlugin(), PluginType.PUMP);
@@ -174,7 +174,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                     }
                 }
 
-                if (!Config.NSCLIENT && !Config.G5UPLOADER) {
+                if (!Config.NSCLIENT) {
                     addPreferencesFromResourceIfEnabled(VirtualPumpPlugin.getPlugin(), PluginType.PUMP);
                 }
 
@@ -183,9 +183,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                 addPreferencesFromResourceIfEnabled(NSClientPlugin.getPlugin(), PluginType.GENERAL);
                 addPreferencesFromResourceIfEnabled(SmsCommunicatorPlugin.getPlugin(), PluginType.GENERAL);
 
-                if (!Config.NSCLIENT && !Config.G5UPLOADER) {
-                    addPreferencesFromResource(R.xml.pref_others);
-                }
+                addPreferencesFromResource(R.xml.pref_others);
                 addPreferencesFromResource(R.xml.pref_datachoices);
 
                 addPreferencesFromResourceIfEnabled(WearPlugin.getPlugin(), PluginType.GENERAL);

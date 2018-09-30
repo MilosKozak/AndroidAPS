@@ -2,7 +2,6 @@ package info.nightscout.androidaps.plugins.PumpDanaRKorean;
 
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
@@ -22,10 +21,11 @@ import info.nightscout.androidaps.events.EventAppExit;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.PluginType;
-import info.nightscout.androidaps.interfaces.PumpDescription;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderFragment;
+import info.nightscout.androidaps.plugins.PumpCommon.defs.PumpType;
 import info.nightscout.androidaps.plugins.PumpDanaR.AbstractDanaRPlugin;
+import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
 import info.nightscout.androidaps.plugins.PumpDanaR.comm.MsgBolusStart;
 import info.nightscout.androidaps.plugins.PumpDanaRKorean.services.DanaRKoreanExecutionService;
 import info.nightscout.androidaps.plugins.Treatments.Treatment;
@@ -49,36 +49,8 @@ public class DanaRKoreanPlugin extends AbstractDanaRPlugin {
     public DanaRKoreanPlugin() {
         pluginDescription.description(R.string.description_pump_dana_r_korean);
 
-        useExtendedBoluses = SP.getBoolean("danar_useextended", false);
-
-        pumpDescription.isBolusCapable = true;
-        pumpDescription.bolusStep = 0.1d;
-
-        pumpDescription.isExtendedBolusCapable = true;
-        pumpDescription.extendedBolusStep = 0.05d;
-        pumpDescription.extendedBolusDurationStep = 30;
-        pumpDescription.extendedBolusMaxDuration = 8 * 60;
-
-        pumpDescription.isTempBasalCapable = true;
-        pumpDescription.tempBasalStyle = PumpDescription.PERCENT;
-
-        pumpDescription.maxTempPercent = 200;
-        pumpDescription.tempPercentStep = 10;
-
-        pumpDescription.tempDurationStep = 60;
-        pumpDescription.tempMaxDuration = 24 * 60;
-
-
-        pumpDescription.isSetBasalProfileCapable = true;
-        pumpDescription.basalStep = 0.01d;
-        pumpDescription.basalMinimumRate = 0.1d;
-
-        pumpDescription.isRefillingCapable = true;
-
-        pumpDescription.storesCarbInfo = false;
-
-        pumpDescription.supportsTDDs = true;
-        pumpDescription.needsManualTDDLoad = true;
+        useExtendedBoluses = SP.getBoolean(R.string.key_danar_useextended, false);
+        pumpDescription.setPumpDescription(PumpType.DanaRKorean);
     }
 
     @Override
@@ -89,20 +61,16 @@ public class DanaRKoreanPlugin extends AbstractDanaRPlugin {
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage(R.string.allow_hardware_pump_text)
-                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            pluginSwitcher.invoke();
-                            SP.putBoolean("allow_hardware_pump", true);
-                            if (L.isEnabled(L.PUMP))
-                                log.debug("First time HW pump allowed!");
-                        }
+                    .setPositiveButton(R.string.yes, (dialog, id) -> {
+                        pluginSwitcher.invoke();
+                        SP.putBoolean("allow_hardware_pump", true);
+                        if (L.isEnabled(L.PUMP))
+                            log.debug("First time HW pump allowed!");
                     })
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            pluginSwitcher.cancel();
-                            if (L.isEnabled(L.PUMP))
-                                log.debug("User does not allow switching to HW pump!");
-                        }
+                    .setNegativeButton(R.string.cancel, (dialog, id) -> {
+                        pluginSwitcher.cancel();
+                        if (L.isEnabled(L.PUMP))
+                            log.debug("User does not allow switching to HW pump!");
                     });
             builder.create().show();
         }
@@ -152,7 +120,7 @@ public class DanaRKoreanPlugin extends AbstractDanaRPlugin {
     public void onStatusEvent(final EventPreferenceChange s) {
         if (isEnabled(PluginType.PUMP)) {
             boolean previousValue = useExtendedBoluses;
-            useExtendedBoluses = SP.getBoolean("danar_useextended", false);
+            useExtendedBoluses = SP.getBoolean(R.string.key_danar_useextended, false);
 
             if (useExtendedBoluses != previousValue && TreatmentsPlugin.getPlugin().isInHistoryExtendedBoluslInProgress()) {
                 sExecutionService.extendedBolusStop();
@@ -179,7 +147,18 @@ public class DanaRKoreanPlugin extends AbstractDanaRPlugin {
 
     @Override
     public boolean isInitialized() {
-        return pump.lastConnection > 0 && pump.maxBasal > 0 && !pump.isConfigUD && !pump.isEasyModeEnabled && pump.isExtendedBolusEnabled;
+        DanaRPump pump = DanaRPump.getInstance();
+        return pump.lastConnection > 0 && pump.maxBasal > 0 && !pump.isConfigUD && !pump.isEasyModeEnabled && pump.isExtendedBolusEnabled && pump.isPasswordOK();
+    }
+
+    @Override
+    public boolean isHandshakeInProgress() {
+        return sExecutionService != null && sExecutionService.isHandshakeInProgress();
+    }
+
+    @Override
+    public void finishHandshaking() {
+        sExecutionService.finishHandshaking();
     }
 
     @Override
@@ -224,6 +203,7 @@ public class DanaRKoreanPlugin extends AbstractDanaRPlugin {
         //if (pump.lastConnection.getTime() + 30 * 60 * 1000L < System.currentTimeMillis()) {
         //    connect("setTempBasalAbsolute old data");
         //}
+        DanaRPump pump = DanaRPump.getInstance();
 
         PumpEnactResult result = new PumpEnactResult();
 
@@ -384,7 +364,7 @@ public class DanaRKoreanPlugin extends AbstractDanaRPlugin {
         return result;
     }
 
-    public PumpEnactResult cancelRealTempBasal() {
+    private PumpEnactResult cancelRealTempBasal() {
         PumpEnactResult result = new PumpEnactResult();
         TemporaryBasal runningTB = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(System.currentTimeMillis());
         if (runningTB != null) {
@@ -392,7 +372,7 @@ public class DanaRKoreanPlugin extends AbstractDanaRPlugin {
             result.enacted = true;
             result.isTempCancel = true;
         }
-        if (!pump.isTempBasalInProgress) {
+        if (!DanaRPump.getInstance().isTempBasalInProgress) {
             result.success = true;
             result.isTempCancel = true;
             result.comment = MainApp.gs(R.string.virtualpump_resultok);

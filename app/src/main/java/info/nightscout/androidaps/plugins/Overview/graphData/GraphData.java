@@ -276,7 +276,7 @@ public class GraphData {
         targetsScale.setMultiplier(1);
 
         List<DataPoint> targetsSeriesArray = new ArrayList<>();
-        double lastTarget = 0;
+        double lastTarget = -1;
 
         if (LoopPlugin.lastRun != null && LoopPlugin.lastRun.constraintsProcessed != null) {
             APSResult apsResult = LoopPlugin.lastRun.constraintsProcessed;
@@ -286,22 +286,22 @@ public class GraphData {
             }
         }
 
-        for (long time = fromTime; time < toTime; time += 60 * 1000L) {
+        for (long time = fromTime; time < toTime; time += 5 * 60 * 1000L) {
             TempTarget tt = TreatmentsPlugin.getPlugin().getTempTargetFromHistory(time);
             double value;
             if (tt == null) {
                 value = (profile.getTargetLow(time) + profile.getTargetHigh(time)) / 2;
             } else {
-                value = tt.target();
-                value = Profile.fromMgdlToUnits(value, profile.getUnits());
+                value = Profile.fromMgdlToUnits(tt.target(), profile.getUnits());
             }
-            if (lastTarget > 0 && lastTarget != value) {
-                targetsSeriesArray.add(new DataPoint(time, lastTarget));
+            if (lastTarget != value) {
+                if (lastTarget != -1)
+                    targetsSeriesArray.add(new DataPoint(time, lastTarget));
+                targetsSeriesArray.add(new DataPoint(time, value));
             }
             lastTarget = value;
-
-            targetsSeriesArray.add(new DataPoint(time, value));
         }
+        targetsSeriesArray.add(new DataPoint(toTime, lastTarget));
 
         DataPoint[] targets = new DataPoint[targetsSeriesArray.size()];
         targets = targetsSeriesArray.toArray(targets);
@@ -336,7 +336,7 @@ public class GraphData {
         }
 
         // Extended bolus
-        if (!ConfigBuilderPlugin.getActivePump().isFakingTempsByExtendedBoluses()) {
+        if (!ConfigBuilderPlugin.getPlugin().getActivePump().isFakingTempsByExtendedBoluses()) {
             List<ExtendedBolus> extendedBoluses = TreatmentsPlugin.getPlugin().getExtendedBolusesFromHistory().getList();
 
             for (int tx = 0; tx < extendedBoluses.size(); tx++) {
@@ -372,6 +372,8 @@ public class GraphData {
     }
 
     private double getNearestBg(long date) {
+        if (bgReadingsArray == null)
+            return Profile.fromMgdlToUnits(100, units);
         for (int r = 0; r < bgReadingsArray.size(); r++) {
             BgReading reading = bgReadingsArray.get(r);
             if (reading.date > date) continue;

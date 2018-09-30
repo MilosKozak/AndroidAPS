@@ -25,6 +25,7 @@ import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.BolusProgressDialog;
 import info.nightscout.androidaps.plugins.Overview.Dialogs.BolusProgressHelperActivity;
+import info.nightscout.androidaps.plugins.Overview.events.EventDismissBolusprogressIfRunning;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
@@ -166,7 +167,9 @@ public class CommandQueue {
         }
     }
 
-    public static void independentConnect(String reason, Callback callback) {
+    public void independentConnect(String reason, Callback callback) {
+        if (L.isEnabled(L.PUMPQUEUE))
+            log.debug("Starting new queue");
         CommandQueue tempCommandQueue = new CommandQueue();
         tempCommandQueue.readStatus(reason, callback);
     }
@@ -237,9 +240,12 @@ public class CommandQueue {
     }
 
     public synchronized void cancelAllBoluses() {
+        if (!isRunning(Command.CommandType.BOLUS)) {
+            MainApp.bus().post(new EventDismissBolusprogressIfRunning(new PumpEnactResult().success(true).enacted(false)));
+        }
         removeAll(Command.CommandType.BOLUS);
         removeAll(Command.CommandType.SMB_BOLUS);
-        ConfigBuilderPlugin.getActivePump().stopBolusDelivering();
+        ConfigBuilderPlugin.getPlugin().getActivePump().stopBolusDelivering();
     }
 
     // returns true if command is queued
@@ -292,7 +298,7 @@ public class CommandQueue {
             return false;
         }
 
-        Double rateAfterConstraints = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(insulin)).value();
+        Double rateAfterConstraints = MainApp.getConstraintChecker().applyExtendedBolusConstraints(new Constraint<>(insulin)).value();
 
         // remove all unfinished
         removeAll(Command.CommandType.EXTENDEDBOLUS);
@@ -363,7 +369,7 @@ public class CommandQueue {
 
         // Compare with pump limits
         Profile.BasalValue[] basalValues = profile.getBasalValues();
-        PumpInterface pump = ConfigBuilderPlugin.getActivePump();
+        PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
 
         for (Profile.BasalValue basalValue : basalValues) {
             if (basalValue.value < pump.getPumpDescription().basalMinimumRate) {
@@ -502,7 +508,7 @@ public class CommandQueue {
     }
 
     public boolean isThisProfileSet(Profile profile) {
-        PumpInterface activePump = ConfigBuilderPlugin.getActivePump();
+        PumpInterface activePump = ConfigBuilderPlugin.getPlugin().getActivePump();
         Profile current = ProfileFunctions.getInstance().getProfile();
         if (activePump != null && current != null) {
             boolean result = activePump.isThisProfileSet(profile);

@@ -49,17 +49,12 @@ import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshGui;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.logging.L;
-import info.nightscout.androidaps.logging.LogSettingActivity;
 import info.nightscout.androidaps.plugins.ConfigBuilder.ProfileFunctions;
-import info.nightscout.androidaps.plugins.Food.FoodPlugin;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.NSSettingsStatus;
-import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.setupwizard.SetupWizardActivity;
 import info.nightscout.androidaps.tabs.TabPageAdapter;
 import info.nightscout.utils.AndroidPermission;
-import info.nightscout.utils.ImportExportPrefs;
 import info.nightscout.utils.LocaleHelper;
-import info.nightscout.utils.LogDialog;
 import info.nightscout.utils.OKDialog;
 import info.nightscout.utils.PasswordProtection;
 import info.nightscout.utils.SP;
@@ -151,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         AndroidPermission.notifyForStoragePermission(this);
         AndroidPermission.notifyForBatteryOptimizationPermission(this);
-        if (BuildConfig.APS || BuildConfig.PUMPCONTROL) {
+        if (Config.PUMPDRIVERS) {
             AndroidPermission.notifyForLocationPermissions(this);
             AndroidPermission.notifyForSMSPermissions(this);
         }
@@ -201,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            boolean keepScreenOn = BuildConfig.NSCLIENTOLNY && SP.getBoolean(R.string.key_keep_screen_on, false);
+            boolean keepScreenOn = Config.NSCLIENT && SP.getBoolean(R.string.key_keep_screen_on, false);
             if (keepScreenOn)
                 getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             else
@@ -379,39 +374,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_setupwizard:
                 startActivity(new Intent(this, SetupWizardActivity.class));
                 return true;
-            case R.id.nav_resetdb:
-                new AlertDialog.Builder(this)
-                        .setTitle(R.string.nav_resetdb)
-                        .setMessage(R.string.reset_db_confirm)
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                            MainApp.getDbHelper().resetDatabases();
-                            // should be handled by Plugin-Interface and
-                            // additional service interface and plugin registry
-                            FoodPlugin.getPlugin().getService().resetFood();
-                            TreatmentsPlugin.getPlugin().getService().resetTreatments();
-                        })
-                        .create()
-                        .show();
-                return true;
-            case R.id.nav_export:
-                ImportExportPrefs.verifyStoragePermissions(this);
-                ImportExportPrefs.exportSharedPreferences(this);
-                return true;
-            case R.id.nav_import:
-                ImportExportPrefs.verifyStoragePermissions(this);
-                ImportExportPrefs.importSharedPreferences(this);
-                return true;
-            case R.id.nav_show_logcat:
-                LogDialog.showLogcat(this);
-                return true;
-            case R.id.nav_logsettings:
-                startActivity(new Intent(this, LogSettingActivity.class));
-                return true;
             case R.id.nav_about:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(MainApp.gs(R.string.app_name) + " " + BuildConfig.VERSION);
-                if (Config.NSCLIENT || Config.G5UPLOADER)
+                if (Config.NSCLIENT)
                     builder.setIcon(R.mipmap.yellowowl);
                 else
                     builder.setIcon(R.mipmap.blueowl);

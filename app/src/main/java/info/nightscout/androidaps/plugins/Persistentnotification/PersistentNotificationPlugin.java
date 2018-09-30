@@ -109,7 +109,7 @@ public class PersistentNotificationPlugin extends PluginBase {
 
         String line1 = "";
 
-        if (MainApp.getConfigBuilder().getActiveProfileInterface() == null || !ProfileFunctions.getInstance().isProfileValid("Notificiation"))
+        if (ConfigBuilderPlugin.getPlugin().getActiveProfileInterface() == null || !ProfileFunctions.getInstance().isProfileValid("Notificiation"))
             return null;
         String units = ProfileFunctions.getInstance().getProfileUnits();
 
@@ -145,7 +145,7 @@ public class PersistentNotificationPlugin extends PluginBase {
 
         String line2 = MainApp.gs(R.string.treatments_iob_label_string) + " " +  DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob) + "U " + MainApp.gs(R.string.cob)+": " + IobCobCalculatorPlugin.getPlugin().getCobInfo(false, "PersistentNotificationPlugin").generateCOBString();;
         
-        String line3 = DecimalFormatter.to2Decimal(ConfigBuilderPlugin.getActivePump().getBaseBasalRate()) + " U/h";
+        String line3 = DecimalFormatter.to2Decimal(ConfigBuilderPlugin.getPlugin().getActivePump().getBaseBasalRate()) + " U/h";
 
 
         line3 += " - " + ProfileFunctions.getInstance().getProfileName();
@@ -155,7 +155,7 @@ public class PersistentNotificationPlugin extends PluginBase {
         builder.setOngoing(true);
         builder.setOnlyAlertOnce(true);
         builder.setCategory(NotificationCompat.CATEGORY_STATUS);
-        if (Config.NSCLIENT || Config.G5UPLOADER){
+        if (Config.NSCLIENT){
             builder.setSmallIcon(R.drawable.nsclient_smallicon);
             Bitmap largeIcon = BitmapFactory.decodeResource(ctx.getResources(), R.mipmap.yellowowl);
             builder.setLargeIcon(largeIcon);

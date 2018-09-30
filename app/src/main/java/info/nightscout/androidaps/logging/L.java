@@ -8,9 +8,9 @@ import info.nightscout.utils.SP;
 public class L {
 
     public static class LogElement {
-        String name;
+        public String name;
         boolean defaultValue;
-        boolean enabled;
+        public boolean enabled;
         boolean requiresRestart = false;
 
         LogElement(String name, boolean defaultValue) {
@@ -86,7 +86,7 @@ public class L {
     public static final String DATAFOOD = "DATAFOOD";
     public static final String DATATREATMENTS = "DATATREATMENTS";
     public static final String NSCLIENT = "NSCLIENT";
-    public static final String OBJECTIVES = "OBJECTIVES";
+    public static final String CONSTRAINTS = "CONSTRAINTS";
     public static final String PUMP = "PUMP";
     public static final String PUMPQUEUE = "PUMPQUEUE";
     public static final String PUMPCOMM = "PUMPCOMM";
@@ -94,13 +94,15 @@ public class L {
     public static final String APS = "APS";
     public static final String PROFILE = "PROFILE";
     public static final String CONFIGBUILDER = "CONFIGBUILDER";
+    public static final String UI = "UI";
 
     private static void initialize() {
         logElements = new ArrayList<>();
         logElements.add(new LogElement(APS, true));
-        logElements.add(new LogElement(AUTOSENS, false));
+        logElements.add(new LogElement(AUTOSENS, true));
         logElements.add(new LogElement(BGSOURCE, true));
         logElements.add(new LogElement(CONFIGBUILDER, true));
+        logElements.add(new LogElement(CONSTRAINTS, true));
         logElements.add(new LogElement(CORE, true));
         logElements.add(new LogElement(DATABASE, true));
         logElements.add(new LogElement(DATAFOOD, true));
@@ -109,13 +111,13 @@ public class L {
         logElements.add(new LogElement(EVENTS, false, true));
         logElements.add(new LogElement(NOTIFICATION, true));
         logElements.add(new LogElement(NSCLIENT, true));
-        logElements.add(new LogElement(OBJECTIVES, false));
         logElements.add(new LogElement(OVERVIEW, true));
         logElements.add(new LogElement(PROFILE, true));
         logElements.add(new LogElement(PUMP, true));
         logElements.add(new LogElement(PUMPBTCOMM, false));
         logElements.add(new LogElement(PUMPCOMM, true));
         logElements.add(new LogElement(PUMPQUEUE, true));
+        logElements.add(new LogElement(UI, true));
     }
 
 }

@@ -44,8 +44,6 @@ public class SourceNSClientPlugin extends PluginBase implements BgSourceInterfac
                 .mainType(PluginType.BGSOURCE)
                 .fragmentClass(BGSourceFragment.class.getName())
                 .pluginName(R.string.nsclientbg)
-                .showInList(!Config.NSCLIENT)
-                .alwaysEnabled(Config.NSCLIENT)
                 .description(R.string.description_source_ns_client)
         );
     }
@@ -88,20 +86,20 @@ public class SourceNSClientPlugin extends PluginBase implements BgSourceInterfac
         }
 
         // Objectives 0
-        ObjectivesPlugin.bgIsAvailableInNS = true;
-        ObjectivesPlugin.saveProgress();
+        ObjectivesPlugin.getPlugin().bgIsAvailableInNS = true;
+        ObjectivesPlugin.getPlugin().saveProgress();
     }
 
     private void storeSgv(JSONObject sgvJson) {
         NSSgv nsSgv = new NSSgv(sgvJson);
         BgReading bgReading = new BgReading(nsSgv);
         MainApp.getDbHelper().createIfNotExists(bgReading, "NS");
-        SourceNSClientPlugin.getPlugin().detectSource(JsonHelper.safeGetString(sgvJson, "device"), JsonHelper.safeGetLong(sgvJson, "mills"));
+        SourceNSClientPlugin.getPlugin().detectSource(JsonHelper.safeGetString(sgvJson, "device", "none"), JsonHelper.safeGetLong(sgvJson, "mills"));
     }
 
     public void detectSource(String source, long timeStamp) {
         if (timeStamp > lastBGTimeStamp) {
-            if (source.contains("G5 Native") || source.contains("AndroidAPS-DexcomG5"))
+            if (source.contains("G5 Native") || source.contains("G6 Native") || source.contains("AndroidAPS-DexcomG5"))
                 isAdvancedFilteringEnabled = true;
             else
                 isAdvancedFilteringEnabled = false;
