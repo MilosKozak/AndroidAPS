@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import info.nightscout.androidaps.data.ConstraintChecker;
@@ -216,6 +217,11 @@ public class MainApp extends Application {
             pluginsList.add(FoodPlugin.getPlugin());
 
             pluginsList.add(WearPlugin.initPlugin(this));
+            try {
+                pluginsList.add(TuneProfilePlugin.getPlugin());
+            } catch (IOException e){
+                log.debug("Error initializing TuneProfilePlugin - IOException");
+            }
             pluginsList.add(StatuslinePlugin.initPlugin(this));
             pluginsList.add(PersistentNotificationPlugin.getPlugin());
             pluginsList.add(NSClientPlugin.getPlugin());
