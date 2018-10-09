@@ -100,6 +100,8 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
             holder.calculation.setTag(t);
             holder.calculation.setVisibility(t.getBoluscalc() == null ? View.INVISIBLE : View.VISIBLE);
 
+            boolean showNotes = SP.getBoolean(R.string.key_show_notes_entry_dialogs, false) && t.notes != null && !t.notes.isEmpty();
+            holder.notesLayout.setVisibility(showNotes ? View.VISIBLE : View.GONE);
             holder.notes.setText(t.notes);
         }
 
@@ -125,6 +127,7 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
             TextView ph;
             TextView ns;
             TextView invalid;
+            LinearLayout notesLayout;
             TextView notes;
 
             TreatmentsViewHolder(View itemView) {
@@ -145,9 +148,8 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
                 remove.setOnClickListener(this);
                 remove.setPaintFlags(remove.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-                LinearLayout notesLayout = itemView.findViewById(R.id.treatments_notes_layout);
-                notesLayout.setVisibility(SP.getBoolean(R.string.key_show_notes_entry_dialogs, false) ? View.VISIBLE : View.GONE);
-                notes = (TextView)itemView.findViewById(R.id.treatments_notes);
+                 notesLayout = itemView.findViewById(R.id.treatments_notes_layout);
+                 notes = (TextView)itemView.findViewById(R.id.treatments_notes);
             }
 
             @Override
