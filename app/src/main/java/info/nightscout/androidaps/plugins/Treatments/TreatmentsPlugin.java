@@ -502,6 +502,7 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
         treatment.insulin = detailedBolusInfo.insulin;
         treatment.isValid = detailedBolusInfo.isValid;
         treatment.isSMB = detailedBolusInfo.isSMB;
+        treatment.notes = detailedBolusInfo.notes;
         if (detailedBolusInfo.carbTime == 0)
             treatment.carbs = detailedBolusInfo.carbs;
         treatment.source = detailedBolusInfo.source;

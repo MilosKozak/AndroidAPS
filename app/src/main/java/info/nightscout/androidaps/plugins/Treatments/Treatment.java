@@ -64,7 +64,7 @@ public class Treatment implements DataPointWithLabelInterface {
     public String boluscalc;
 
     @DatabaseField
-    public String notest;
+    public String notes;
 
     public Treatment() {
     }
@@ -80,7 +80,8 @@ public class Treatment implements DataPointWithLabelInterface {
         treatment.pumpId = JsonHelper.safeGetLong(json, "pumpId");
         treatment._id = json.getString("_id");
         treatment.isSMB = JsonHelper.safeGetBoolean(json,"isSMB");
-        
+        treatment.notes = JsonHelper.safeGetString(json, "notes");
+
         if (json.has("eventType")) {
             treatment.mealBolus = !json.get("eventType").equals("Correction Bolus");
             double carbs = treatment.carbs;
@@ -108,6 +109,7 @@ public class Treatment implements DataPointWithLabelInterface {
                 ", insulin= " + insulin +
                 ", carbs= " + carbs +
                 ", mealBolus= " + mealBolus +
+                ",notes= " + notes +
                 "}";
     }
 
@@ -135,6 +137,8 @@ public class Treatment implements DataPointWithLabelInterface {
         if (isSMB != other.isSMB)
             return false;
         if (!Objects.equals(_id, other._id))
+            return false;
+        if(!Objects.equals(notes, other.notes))
             return false;
         return true;
     }
@@ -174,6 +178,7 @@ public class Treatment implements DataPointWithLabelInterface {
         mealBolus = t.mealBolus;
         pumpId = t.pumpId;
         isSMB = t.isSMB;
+        notes = t.notes;
     }
 
     public void copyBasics(Treatment t) {
@@ -182,6 +187,7 @@ public class Treatment implements DataPointWithLabelInterface {
         carbs = t.carbs;
         pumpId = t.pumpId;
         source = t.source;
+        notes = t.notes;
     }
 
     //  ----------------- DataPointInterface --------------------

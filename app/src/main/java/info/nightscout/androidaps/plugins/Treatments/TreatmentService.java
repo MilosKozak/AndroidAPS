@@ -129,6 +129,13 @@ public class TreatmentService extends OrmLiteBaseService<DatabaseHelper> {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        } else if (oldVersion <= 9 && newVersion == 10) {
+            log.debug("Upgrading database from v9 to v10");
+            try {
+                getDao().executeRaw("ALTER TABLE `" + Treatment.TABLE_TREATMENTS + "` ADD COLUMN notes STRING;");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         } else {
             if (L.isEnabled(L.DATATREATMENTS))
                 log.info("onUpgrade");
@@ -143,7 +150,14 @@ public class TreatmentService extends OrmLiteBaseService<DatabaseHelper> {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        } else if (oldVersion == 10 && newVersion <= 10) {
+            try {
+                getDao().executeRaw("ALTER TABLE `" + Treatment.TABLE_TREATMENTS + "` DROP COLUMN notes STRING;");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     public void resetTreatments() {

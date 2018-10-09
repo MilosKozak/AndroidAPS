@@ -167,6 +167,31 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/treatments_notes_layout">
+
+            <TextView
+                android:id="@+id/treatments_notes_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/treatments_notes_label_string" />
+
+            <TextView
+                android:id="@+id/treatments_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="2dip"

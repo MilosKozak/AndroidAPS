@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.crashlytics.android.answers.CustomEvent;
@@ -98,6 +99,8 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
             holder.remove.setTag(t);
             holder.calculation.setTag(t);
             holder.calculation.setVisibility(t.getBoluscalc() == null ? View.INVISIBLE : View.VISIBLE);
+
+            holder.notes.setText(t.notes);
         }
 
         @Override
@@ -122,6 +125,7 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
             TextView ph;
             TextView ns;
             TextView invalid;
+            TextView notes;
 
             TreatmentsViewHolder(View itemView) {
                 super(itemView);
@@ -140,6 +144,10 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
                 remove = (TextView) itemView.findViewById(R.id.treatments_remove);
                 remove.setOnClickListener(this);
                 remove.setPaintFlags(remove.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+                LinearLayout notesLayout = itemView.findViewById(R.id.treatments_notes_layout);
+                notesLayout.setVisibility(SP.getBoolean(R.string.key_show_notes_entry_dialogs, false) ? View.VISIBLE : View.GONE);
+                notes = (TextView)itemView.findViewById(R.id.treatments_notes);
             }
 
             @Override
