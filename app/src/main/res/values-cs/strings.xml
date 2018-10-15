@@ -51,7 +51,7 @@
   <string name="description_treatments">Ukládá všechny ošetření do databáze</string>
   <string name="description_wear">Zobrazování stavu a řízení AndroidAPS z hodinek s WearOS</string>
   <string name="description_xdrip_status_line">Zobrazování informací o smyčce na xDrip+ watchface.</string>
-  <string name="description_sms_communicator">Vzdálené řizení pomocí SMS příkazů</string>
+  <string name="description_sms_communicator">Vzdálené řízení pomocí SMS příkazů</string>
   <string name="objectives_button_start">Začátek</string>
   <string name="objectives_button_verify">Kontrola</string>
   <string name="nsprofileview_units_label">Jednotky</string>
