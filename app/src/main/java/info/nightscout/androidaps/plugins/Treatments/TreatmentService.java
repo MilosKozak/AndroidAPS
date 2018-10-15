@@ -333,9 +333,10 @@ public class TreatmentService extends OrmLiteBaseService<DatabaseHelper> {
                     if (!old.isEqual(treatment)) {
                         boolean historyChange = old.isDataChanging(treatment);
                         long oldDate = old.date;
-                        getDao().delete(old); // need to delete/create because date may change too
-                        old.copyFrom(treatment);
-                        getDao().create(old);
+//                        getDao().delete(old); // need to delete/create because date may change too
+//                        old.copyFrom(treatment);
+//                        getDao().create(old);
+                        getDao().update(treatment);
                         if (L.isEnabled(L.DATATREATMENTS))
                             log.debug("Updating record by date from: " + Source.getString(treatment.source) + " " + old.toString());
                         if (historyChange) {
