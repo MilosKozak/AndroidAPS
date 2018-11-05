@@ -151,7 +151,7 @@ public class TreatmentService extends OrmLiteBaseService<DatabaseHelper> {
                 e.printStackTrace();
             }
         } else if (oldVersion == 10 && newVersion <= 10) {
-            log.warn("New Version ignores NOTES field in treatments anymore (it is older)");
+            log.warn("New Version ignores NOTES field in treatments  (it is older)");
         }
 
     }
