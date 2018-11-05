@@ -151,11 +151,7 @@ public class TreatmentService extends OrmLiteBaseService<DatabaseHelper> {
                 e.printStackTrace();
             }
         } else if (oldVersion == 10 && newVersion <= 10) {
-            try {
-                getDao().executeRaw("ALTER TABLE `" + Treatment.TABLE_TREATMENTS + "` DROP COLUMN notes STRING;");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            log.warn("Newer Version ignores NOTES field in treatments");
         }
 
     }
