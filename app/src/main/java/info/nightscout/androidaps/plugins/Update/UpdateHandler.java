@@ -8,7 +8,6 @@ import java.net.URL;
 import java.util.List;
 
 import info.nightscout.androidaps.logging.L;
-import info.nightscout.androidaps.plugins.Maintenance.Version;
 
 public class UpdateHandler {
 
