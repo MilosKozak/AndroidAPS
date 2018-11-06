@@ -27,6 +27,12 @@
 
         </EditTextPreference>
 
+        <ListPreference
+            android:title="@string/updatechannel_title"
+            android:key="@string/key_update_channel"
+            android:defaultValue="open"
+            android:entries="@array/update_channelArray"
+            android:entryValues="@array/update_channelValues"/>
 
     </PreferenceCategory>
 
