@@ -663,7 +663,7 @@ public class BLEComm {
     private void SendPumpCheck() {
         // 1st message sent to pump after connect
         String devicename = getConnectDeviceName();
-        if(devicename == null || devicename.equals("")){
+        if(devicename == null || devicename == ""){
             Notification n = new Notification(Notification.DEVICENOTPAIRED, MainApp.gs(R.string.pairfirst), Notification.URGENT);
             MainApp.bus().post(new EventNewNotification(n));
             return;
