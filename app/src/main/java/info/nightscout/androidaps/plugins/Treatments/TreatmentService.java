@@ -137,12 +137,10 @@ public class TreatmentService extends OrmLiteBaseService<DatabaseHelper> {
     }
 
     public void onDowngrade(ConnectionSource connectionSource, int oldVersion, int newVersion) {
-        if (oldVersion == 9 && newVersion == 8) {
-            try {
-                getDao().executeRaw("ALTER TABLE `" + Treatment.TABLE_TREATMENTS + "` DROP COLUMN boluscalc STRING;");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        if (oldVersion == 9 && newVersion <= 8) {
+            log.warn("New Version ignores BOLUSCALC field in treatments  (it is older)");
+        } else if (oldVersion == 10 && newVersion <= 9) {
+            log.warn("New Version ignores NOTES field in treatments  (it is older)");
         }
     }
 
