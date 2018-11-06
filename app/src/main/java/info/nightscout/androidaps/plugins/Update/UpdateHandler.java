@@ -1,4 +1,4 @@
-package info.nightscout.androidaps.plugins.Maintenance;
+package info.nightscout.androidaps.plugins.Update;
 
 import org.json.JSONArray;
 import org.slf4j.Logger;
@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.List;
 
 import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.Maintenance.Version;
 
 public class UpdateHandler {
 

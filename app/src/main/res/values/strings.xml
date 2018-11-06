@@ -1219,6 +1219,9 @@
     <string name="profile_carbs_per_unit">g/U</string>
     <string name="profile_per_unit">/U</string>
 
+    <string name="update">Update</string>
+    <string name="update_shortname">UPD</string>
+    <string name="update_settings">Update Settings</string>
     <string name="updatechannel_title">Update Channel</string>
     <string name="key_update_channel" translatable="false">key_update_channel</string>
     <string name="stable">Stable</string>
