@@ -44,6 +44,22 @@ def generateGitBuild = { ->
     return stringBuilder.toString()
 }
 
+def generateGitBranch = { ->
+    StringBuilder stringBuilder = new StringBuilder();
+    try {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'rev-parse', '--abbrev-ref', 'HEAD'
+            standardOutput = stdout
+        }
+        String branchObject = stdout.toString().trim()
+        stringBuilder.append(branchObject)
+    } catch (ignored) {
+        stringBuilder.append('NoGitSystemAvailable')
+    }
+    return stringBuilder.toString()
+}
+
 def generateDate = { ->
     StringBuilder stringBuilder = new StringBuilder();
     stringBuilder.append((new Date()).format('yyyy.MM.dd-HH:mm'))
@@ -63,10 +79,13 @@ android {
         targetSdkVersion 25
         multiDexEnabled true
         versionCode 1500
-        version "2.0"
+        version "2.1-dev"
+
         buildConfigField "String", "VERSION", '"' + version + '"'
         buildConfigField "String", "BUILDVERSION", '"' + generateGitBuild() + '-' + generateDate() + '"'
         buildConfigField "String", "HEAD", '"' + generateGitBuild() + '"'
+        buildConfigField "String", "BRANCH", '"' + generateGitBranch() + '"'
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {

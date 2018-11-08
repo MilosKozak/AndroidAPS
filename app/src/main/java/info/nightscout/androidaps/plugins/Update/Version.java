@@ -4,6 +4,12 @@ import java.util.Date;
 
 public class Version {
 
+    enum Channel {
+        stable,
+        beta,
+        dev
+    }
+
     private String channel;
     private Date date;
     private String version;
