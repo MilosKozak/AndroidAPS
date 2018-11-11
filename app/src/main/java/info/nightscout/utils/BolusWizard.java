@@ -134,8 +134,13 @@ public class BolusWizard {
         }
 
         Double minBGForBolus = SP.getDouble(R.string.key_minbgforbolus, 0d);
-        if (minBGForBolus > 0 && bg < minBGForBolus) {
+        if (minBGForBolus > 0 && bg < minBGForBolus && bg != 0) {
             calculatedTotalInsulin = 0d;
+        }
+
+        Double maxCalculatorIob = SP.getDouble(R.string.key_minbgforbolus, 0d);
+        if (maxCalculatorIob > 0) {
+            calculatedTotalInsulin = Math.min(calculatedTotalInsulin, maxCalculatorIob - bolusIob.iob - basalIob.basaliob);
         }
 
         double bolusStep = ConfigBuilderPlugin.getActivePump().getPumpDescription().bolusStep;

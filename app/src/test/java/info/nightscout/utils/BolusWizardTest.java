@@ -69,6 +69,19 @@ public class BolusWizardTest {
         Assert.assertEquals(new Double(0D), bolusForLowBg);
     }
 
+    @Test
+    public void shouldCalculateZeroBolusWhenIOBAboveThreshold() throws Exception {
+        BolusWizard bw = new BolusWizard();
+        Profile profile = setupProfile(4d, 8d, 20d, 12d);
+        SP.putString(R.string.key_maxiobfromcalculator, "2");
+
+        IobTotal iob = TreatmentsPlugin.getPlugin().getLastCalculationTreatments();
+        iob.iob = 4;
+
+        Double bolusForHighIob = bw.doCalc(profile, null, 20, 0d,7d, 0d, 100d, true, true, false, false);
+        Assert.assertEquals(new Double(0D), bolusForHighIob);
+    }
+
     private Profile setupProfile(Double targetLow, Double targetHigh, Double insulinSensitivityFactor, Double insulinToCarbRatio) {
         Profile profile = mock(Profile.class);
         when(profile.getTargetLow()).thenReturn(targetLow);
