@@ -117,8 +117,8 @@ public class BolusWizard {
 
         // Optionally limit COB insulin to -IOB
         Boolean limitCobToIob = SP.getBoolean(R.string.key_limitinsulinfromcobtoiob, false);
-        if (limitCobToIob && insulinFromCOB > -bolusIob.iob - basalIob.basaliob)
-            insulinFromCOB = -bolusIob.iob - basalIob.basaliob;
+        if (limitCobToIob && insulinFromCOB > bolusIob.iob + basalIob.basaliob)
+            insulinFromCOB = bolusIob.iob + basalIob.basaliob;
 
         // Insulin from correction
         insulinFromCorrection = correction;
@@ -150,7 +150,7 @@ public class BolusWizard {
             calculatedTotalInsulin = 0d;
         }
 
-        Double maxCalculatorIob = SP.getDouble(R.string.key_minbgforbolus, 0d);
+        Double maxCalculatorIob = SP.getDouble(R.string.key_maxiobfromcalculator, 0d);
         if (maxCalculatorIob > 0) {
             calculatedTotalInsulin = Math.min(calculatedTotalInsulin, maxCalculatorIob - bolusIob.iob - basalIob.basaliob);
         }
