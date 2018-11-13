@@ -738,7 +738,7 @@
   <string name="combo_pump_state_label">Stato</string>
   <string name="combo_pump_activity_label">Attivita\'</string>
   <string name="combo_no_pump_connection">Nessuna connessione per %1$d min</string>
-  <string name="combo_tbr_remaining"><div class="notranslate"> 0%</div> (%2$d min restanti)</string>
+  <string name="combo_tbr_remaining">%1$d%% (%2$d min restanti)</string>
   <string name="combo_pump_state_initializing">Inizializzazione in corso</string>
   <string name="combo_pump_state_suspended_due_to_error">Sospesa a causa di errore</string>
   <string name="combo_pump_state_suspended_by_user">Sospeso dall\'utente</string>
