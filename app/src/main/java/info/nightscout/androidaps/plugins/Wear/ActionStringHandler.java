@@ -258,9 +258,9 @@ public class ActionStringHandler {
                 rMessage += "\nFrom" + formatInt.format(cobInfo.displayCob) + "g COB : " + format.format(bolusWizard.insulinFromCOB) + "U";
             if (useBG) rMessage += "\nFrom BG: " + format.format(bolusWizard.insulinFromBG) + "U";
             if (useBolusIOB)
-                rMessage += "\nBolus IOB: " + format.format(bolusWizard.insulingFromBolusIOB) + "U";
+                rMessage += "\nBolus IOB: " + format.format(bolusWizard.insulinFromBolusIOB) + "U";
             if (useBasalIOB)
-                rMessage += "\nBasal IOB: " + format.format(bolusWizard.insulingFromBasalsIOB) + "U";
+                rMessage += "\nBasal IOB: " + format.format(bolusWizard.insulinFromBasalsIOB) + "U";
             if (useTrend)
                 rMessage += "\nFrom 15' trend: " + format.format(bolusWizard.insulinFromTrend) + "U";
             if (percentage != 100) {

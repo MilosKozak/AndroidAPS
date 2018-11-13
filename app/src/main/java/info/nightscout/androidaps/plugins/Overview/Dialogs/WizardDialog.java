@@ -523,8 +523,8 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
         carbs.setText(DecimalFormatter.to0Decimal(c_carbs) + "g IC: " + DecimalFormatter.to1Decimal(wizard.ic));
         carbsInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromCarbs) + "U");
 
-        bolusIobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulingFromBolusIOB) + "U");
-        basalIobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulingFromBasalsIOB) + "U");
+        bolusIobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromBolusIOB) + "U");
+        basalIobInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromBasalsIOB) + "U");
 
         correctionInsulin.setText(DecimalFormatter.to2Decimal(wizard.insulinFromCorrection) + "U");
         calculatedTotalInsulin = wizard.calculatedTotalInsulin;
@@ -581,9 +581,9 @@ public class WizardDialog extends DialogFragment implements OnClickListener, Com
             boluscalcJSON.put("targetBGHigh", wizard.targetBGHigh);
             boluscalcJSON.put("isf", wizard.sens);
             boluscalcJSON.put("ic", wizard.ic);
-            boluscalcJSON.put("iob", -(wizard.insulingFromBolusIOB + wizard.insulingFromBasalsIOB));
-            boluscalcJSON.put("bolusiob", wizard.insulingFromBolusIOB);
-            boluscalcJSON.put("basaliob", wizard.insulingFromBasalsIOB);
+            boluscalcJSON.put("iob", -(wizard.insulinFromBolusIOB + wizard.insulinFromBasalsIOB));
+            boluscalcJSON.put("bolusiob", wizard.insulinFromBolusIOB);
+            boluscalcJSON.put("basaliob", wizard.insulinFromBasalsIOB);
             boluscalcJSON.put("bolusiobused", bolusIobCheckbox.isChecked());
             boluscalcJSON.put("basaliobused", basalIobCheckbox.isChecked());
             boluscalcJSON.put("bg", c_bg);

@@ -759,7 +759,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 boluscalcJSON.put("targetBGHigh", wizard.targetBGHigh);
                 boluscalcJSON.put("isf", wizard.sens);
                 boluscalcJSON.put("ic", wizard.ic);
-                boluscalcJSON.put("iob", -(wizard.insulingFromBolusIOB + wizard.insulingFromBasalsIOB));
+                boluscalcJSON.put("iob", -(wizard.insulinFromBolusIOB + wizard.insulinFromBasalsIOB));
                 boluscalcJSON.put("bolusiobused", true);
                 boluscalcJSON.put("basaliobused", true);
                 boluscalcJSON.put("bg", actualBg.valueToUnits(profile.getUnits()));
