@@ -41,11 +41,12 @@ import info.nightscout.utils.SP;
  * Created by mike on 05.08.2016.
  */
 public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
-    static Integer batteryPercent = 50;
-    static Integer reservoirInUnits = 50;
-    private static Logger log = LoggerFactory.getLogger(VirtualPumpPlugin.class);
+    private Logger log = LoggerFactory.getLogger(L.PUMP);
+
+    Integer batteryPercent = 50;
+    Integer reservoirInUnits = 50;
     private static VirtualPumpPlugin plugin = null;
-    private static boolean fromNSAreCommingFakedExtendedBoluses = false;
+    private boolean fromNSAreCommingFakedExtendedBoluses = false;
     private PumpType pumpType = null;
     private long lastDataTime = 0;
     private PumpDescription pumpDescription = new PumpDescription();
@@ -196,7 +197,7 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
     @Override
     public PumpEnactResult setNewBasalProfile(Profile profile) {
         lastDataTime = System.currentTimeMillis();
-        // Do nothing here. we are using MainApp.getConfigBuilder().getActiveProfile().getProfile();
+        // Do nothing here. we are using ConfigBuilderPlugin.getPlugin().getActiveProfile().getProfile();
         PumpEnactResult result = new PumpEnactResult();
         result.success = true;
         Notification notification = new Notification(Notification.PROFILE_SET_OK, MainApp.gs(R.string.profile_set_ok), Notification.INFO, 60);
@@ -287,17 +288,12 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
 
     @Override
     public PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, Profile profile, boolean enforceNew) {
-        PumpEnactResult result = new PumpEnactResult();
-        if (TreatmentsPlugin.getPlugin().isTempBasalInProgress()) {
-            result = cancelTempBasal(false);
-            if (!result.success)
-                return result;
-        }
         TemporaryBasal tempBasal = new TemporaryBasal()
                 .date(System.currentTimeMillis())
                 .percent(percent)
                 .duration(durationInMinutes)
                 .source(Source.USER);
+        PumpEnactResult result = new PumpEnactResult();
         result.success = true;
         result.enacted = true;
         result.percent = percent;
@@ -319,11 +315,11 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
         if (!result.success)
             return result;
 
-        ExtendedBolus extendedBolus = new ExtendedBolus();
-        extendedBolus.date = System.currentTimeMillis();
-        extendedBolus.insulin = insulin;
-        extendedBolus.durationInMinutes = durationInMinutes;
-        extendedBolus.source = Source.USER;
+        ExtendedBolus extendedBolus = new ExtendedBolus()
+                .date(System.currentTimeMillis())
+                .insulin(insulin)
+                .durationInMinutes(durationInMinutes)
+                .source(Source.USER);
         result.success = true;
         result.enacted = true;
         result.bolusDelivered = insulin;

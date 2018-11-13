@@ -38,7 +38,7 @@ public enum PumpType {
             new DoseSettings(0.1d, 15, 12*60, 0.1d), //
             PumpTempBasalType.Percent,
             new DoseSettings(10,  15, 12*60,0d, 500d), PumpCapability.BasalRate_Duration15and30minAllowed, //
-            0.01d, 0.1d, DoseStepSize.ComboBasal, PumpCapability.ComboCapabilities), //
+            0.01d, 0.01d, DoseStepSize.ComboBasal, PumpCapability.ComboCapabilities), //
 
     AccuChekSpirit("Accu-Chek Spirit", 0.1d, null, //
             new DoseSettings(0.1d, 15, 12*60, 0.1d), //
@@ -50,13 +50,13 @@ public enum PumpType {
             new DoseSettings(0.05d, 15, 24*60, 0.05d), //
             PumpTempBasalType.Percent,
             new DoseSettings(10,  15, 12*60,0d, 250d), PumpCapability.BasalRate_Duration15and30minAllowed, //
-            0.02d, 0.1d, null, PumpCapability.InsightCapabilities), //
+            0.02d, 0.01d, null, PumpCapability.InsightCapabilities), //
 
     // Animas
     AnimasVibe("Animas Vibe", 0.05d, null, // AnimasBolus?
             new DoseSettings(0.05d, 30, 12*60, 0.05d), //
             PumpTempBasalType.Percent, //
-            new DoseSettings(10, 30, 24*60, 0d, 200d), PumpCapability.BasalRate_Duration30minAllowed, //
+            new DoseSettings(10, 30, 24*60, 0d, 300d), PumpCapability.BasalRate_Duration30minAllowed, //
             0.025d, 5d, 0d, null, PumpCapability.VirtualPumpCapabilities), //
 
     AnimasPing("Animas Ping", AnimasVibe),
@@ -87,7 +87,7 @@ public enum PumpType {
     Insulet_Omnipod("Insulet Omnipod", 0.05d, null, //
             new DoseSettings(0.05d, 30, 8*60, 0.05d), //
             PumpTempBasalType.Absolute, //
-            new DoseSettings(0.05d, 30, 12*60, 0d, 5.0d), PumpCapability.BasalRate_Duration30minAllowed, // cannot exceed max basal rate 30u/hr
+            new DoseSettings(0.05d, 30, 12*60, 0d, 30.0d), PumpCapability.BasalRate_Duration30minAllowed, // cannot exceed max basal rate 30u/hr
             0.05d, 0.05d, null, PumpCapability.VirtualPumpCapabilities),
 
     // Medtronic

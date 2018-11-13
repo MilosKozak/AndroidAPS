@@ -91,7 +91,7 @@ public class SafetyPluginTest {
 
     @Test
     public void bgsourceShouldPreventSMBAlways() throws Exception {
-        when(MainApp.getConfigBuilder().getActiveBgSource()).thenReturn(SourceGlimpPlugin.getPlugin());
+        when(ConfigBuilderPlugin.getPlugin().getActiveBgSource()).thenReturn(SourceGlimpPlugin.getPlugin());
 
         Constraint<Boolean> c = new Constraint<>(true);
         c = safetyPlugin.isAdvancedFilteringEnabled(c);
@@ -112,8 +112,7 @@ public class SafetyPluginTest {
         Assert.assertEquals("Safety: Limiting basal rate to 1.00 U/h because of max value in preferences\n" +
                 "Safety: Limiting basal rate to 4.00 U/h because of max basal multiplier\n" +
                 "Safety: Limiting basal rate to 3.00 U/h because of max daily basal multiplier\n" +
-                "Safety: Limiting basal rate to 2.00 U/h because of hard limit\n" +
-                "Safety: Limiting basal rate to 500.00 U/h because of pump limit", c.getReasons());
+                "Safety: Limiting basal rate to 2.00 U/h because of hard limit", c.getReasons());
         Assert.assertEquals("Safety: Limiting basal rate to 1.00 U/h because of max value in preferences", c.getMostLimitedReasons());
 
     }
@@ -145,7 +144,6 @@ public class SafetyPluginTest {
                 "Safety: Limiting basal rate to 4.00 U/h because of max basal multiplier\n" +
                 "Safety: Limiting basal rate to 3.00 U/h because of max daily basal multiplier\n" +
                 "Safety: Limiting basal rate to 2.00 U/h because of hard limit\n" +
-                "Safety: Limiting basal rate to 500.00 U/h because of pump limit\n" +
                 "Safety: Limiting percent rate to 100% because of pump limit", i.getReasons());
         Assert.assertEquals("Safety: Limiting percent rate to 100% because of pump limit", i.getMostLimitedReasons());
     }
@@ -233,7 +231,7 @@ public class SafetyPluginTest {
         AAPSMocker.mockBus();
 
 
-        when(MainApp.getConfigBuilder().getActivePump()).thenReturn(pump);
+        when(ConfigBuilderPlugin.getPlugin().getActivePump()).thenReturn(pump);
 
         safetyPlugin = SafetyPlugin.getPlugin();
     }
