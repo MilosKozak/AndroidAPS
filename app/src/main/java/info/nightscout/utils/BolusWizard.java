@@ -132,7 +132,7 @@ public class BolusWizard {
         }
 
         // Total
-        calculatedTotalInsulin = insulinFromBG + insulinFromTrend + insulinFromCarbs + insulinFromBolusIOB + insulinFromBasalsIOB + insulinFromCorrection + insulinFromSuperBolus + insulinFromCOB;
+        calculatedTotalInsulin = insulinFromBG + insulinFromTrend + insulinFromCarbs + insulinFromBolusIOB + insulinFromBasalsIOB + insulinFromSuperBolus + insulinFromCOB;
 
         // Percentage adjustment
         totalBeforePercentageAdjustment = calculatedTotalInsulin;
@@ -154,6 +154,8 @@ public class BolusWizard {
         if (maxCalculatorIob > 0) {
             calculatedTotalInsulin = Math.min(calculatedTotalInsulin, maxCalculatorIob - bolusIob.iob - basalIob.basaliob);
         }
+
+        calculatedTotalInsulin += insulinFromCorrection;
 
         double bolusStep = ConfigBuilderPlugin.getPlugin().getActivePump().getPumpDescription().bolusStep;
         calculatedTotalInsulin = Round.roundTo(calculatedTotalInsulin, bolusStep);
