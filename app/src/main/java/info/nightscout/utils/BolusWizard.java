@@ -44,8 +44,8 @@ public class BolusWizard {
 
     public double insulinFromBG = 0d;
     public double insulinFromCarbs = 0d;
-    public double insulingFromBolusIOB = 0d;
-    public double insulingFromBasalsIOB = 0d;
+    public double insulinFromBolusIOB = 0d;
+    public double insulinFromBasalsIOB = 0d;
     public double insulinFromCorrection = 0d;
     public double insulinFromSuperBolus = 0d;
     public double insulinFromCOB = 0d;
@@ -112,8 +112,8 @@ public class BolusWizard {
         treatments.updateTotalIOBTempBasals();
         IobTotal basalIob = treatments.getLastCalculationTempBasals().round();
 
-        insulingFromBolusIOB = includeBolusIOB ? -bolusIob.iob : 0d;
-        insulingFromBasalsIOB = includeBasalIOB ? -basalIob.basaliob : 0d;
+        insulinFromBolusIOB = includeBolusIOB ? -bolusIob.iob : 0d;
+        insulinFromBasalsIOB = includeBasalIOB ? -basalIob.basaliob : 0d;
 
         // Optionally limit COB insulin to -IOB
         Boolean limitCobToIob = SP.getBoolean(R.string.key_limitinsulinfromcobtoiob, false);
@@ -132,7 +132,7 @@ public class BolusWizard {
         }
 
         // Total
-        calculatedTotalInsulin = insulinFromBG + insulinFromTrend + insulinFromCarbs + insulingFromBolusIOB + insulingFromBasalsIOB + insulinFromCorrection + insulinFromSuperBolus + insulinFromCOB;
+        calculatedTotalInsulin = insulinFromBG + insulinFromTrend + insulinFromCarbs + insulinFromBolusIOB + insulinFromBasalsIOB + insulinFromCorrection + insulinFromSuperBolus + insulinFromCOB;
 
         // Percentage adjustment
         totalBeforePercentageAdjustment = calculatedTotalInsulin;
@@ -184,8 +184,8 @@ public class BolusWizard {
         sb.append("bgDiff=").append(bgDiff).append("; ");
         sb.append("insulinFromBG=").append(insulinFromBG).append("; ");
         sb.append("insulinFromCarbs=").append(insulinFromCarbs).append("; ");
-        sb.append("insulingFromBolusIOB=").append(insulingFromBolusIOB).append("; ");
-        sb.append("insulingFromBasalsIOB=").append(insulingFromBasalsIOB).append("; ");
+        sb.append("insulinFromBolusIOB=").append(insulinFromBolusIOB).append("; ");
+        sb.append("insulinFromBasalsIOB=").append(insulinFromBasalsIOB).append("; ");
         sb.append("insulinFromCorrection=").append(insulinFromCorrection).append("; ");
         sb.append("insulinFromSuperBolus=").append(insulinFromSuperBolus).append("; ");
         sb.append("insulinFromCOB=").append(insulinFromCOB).append("; ");
