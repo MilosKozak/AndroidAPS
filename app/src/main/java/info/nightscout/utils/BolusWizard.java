@@ -108,6 +108,11 @@ public class BolusWizard {
         insulingFromBolusIOB = includeBolusIOB ? -bolusIob.iob : 0d;
         insulingFromBasalsIOB = includeBasalIOB ? -basalIob.basaliob : 0d;
 
+        // Optionally limit COB insulin to -IOB
+        Boolean limitCobToIob = SP.getBoolean(R.string.key_limitinsulinfromcobtoiob, false);
+        if (limitCobToIob && insulinFromCOB > -bolusIob.iob - basalIob.basaliob)
+            insulinFromCOB = -bolusIob.iob - basalIob.basaliob;
+
         // Insulin from correction
         insulinFromCorrection = correction;
 

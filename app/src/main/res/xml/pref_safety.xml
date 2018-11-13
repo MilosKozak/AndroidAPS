@@ -31,6 +31,11 @@
             validate:floatminNumber="0.0"
             validate:testType="floatNumericRange" />
 
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_limitinsulinfromcobtoiob"
+            android:title="@string/limit_insulin_from_cob_to_iob_title" />
+
         <com.andreabaccega.widget.ValidatingEditTextPreference
             android:defaultValue="0.0"
             android:dialogMessage="@string/max_iob_from_calculator_message"

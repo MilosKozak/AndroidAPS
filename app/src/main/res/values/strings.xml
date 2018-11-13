@@ -604,6 +604,8 @@
     <string name="key_maxinsulinfromcarbs" translatable="false">key_maxinsulinfromcarbs</string>
     <string name="max_insulin_from_carbs_message">Maximum bolus that will be suggested by calculator for new carbs. Leave at 0 to not apply any limit.</string>
     <string name="maxinsulinfromcarbs">Max. bolus for carbs</string>
+    <string name="key_limitinsulinfromcobtoiob" translatable="false">key_limitinsulinfromcobtoiob</string>
+    <string name="limit_insulin_from_cob_to_iob_title">Limit bolus calc. for COB to current IOB</string>
     <string name="key_maxiobfromcalculator" translatable="false">key_maxiobfromcalculator</string>
     <string name="max_iob_from_calculator_message">Maximum IOB that will be produced by calculator. Leave at 0 to not apply any limit.</string>
     <string name="maxiobfromcalculator">Max. IOB from bolus calculator</string>
