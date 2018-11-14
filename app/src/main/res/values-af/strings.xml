@@ -556,6 +556,7 @@
     <string name="danar_bluetooth_status">Bluetooth status</string>
     <string name="nav_about">Omtrent</string>
     <string name="smscommunicator_missingsmspermission">Vermiste SMS toestemming</string>
+    <string name="smscommunicator_missingphonestatepermission">Toestemming vir foon status nog nie gegee nie</string>
     <string name="xdripstatus_settings">xDrip Status (horlosie)</string>
     <string name="xdripstatus">xDrip Statusline (horlosie)</string>
     <string name="xdripstatus_shortname">xds</string>
