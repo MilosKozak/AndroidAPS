@@ -888,6 +888,8 @@
     <string name="closedmodedisabledinpreferences">Modul buclă închisă dezactivat în preferințe</string>
     <string name="autosensdisabledinpreferences">Autosens dezactivat în preferințe</string>
     <string name="smbdisabledinpreferences">SMB dezactivat în preferințe</string>
+    <string name="uamdisabledinpreferences">UAM dezactivat din setări</string>
+    <string name="uamdisabledoref1notselected">UAM dezactivat deoarece este bazat pe plugin-ul Oref1 pentru sensibilitate</string>
     <string name="limitingbasalratio">Se limitează maximul ratei bazale la %1$.2f U/o datorită %2$s</string>
     <string name="pumplimit">limită pompă</string>
     <string name="itmustbepositivevalue">trebuie să fie o valoare pozitivă</string>
@@ -1050,6 +1052,7 @@
     <string name="insulinlimitviolation">Încălcare a limitării cantităţii de insulină</string>
     <string name="loop_openmode_min_change">Cerere de schimbare minimală [%]</string>
     <string name="loop_openmode_min_change_summary">Bucla va afişa o nouă cerere de schimbare doar dacă schimbarea are o valoare decât aceasta. Valoarea implicită este 20%</string>
+    <string name="pairfirst">Vă rog să conectați pompa cu telefonul!</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d zi</item>
         <item quantity="few">%1$d zi</item>
