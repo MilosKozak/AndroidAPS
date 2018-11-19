@@ -557,6 +557,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="danar_bluetooth_status">État Bluetooth</string>
     <string name="nav_about">À propos de</string>
     <string name="smscommunicator_missingsmspermission">Autorisation SMS manquante</string>
+    <string name="smscommunicator_missingphonestatepermission">Autorisation du téléphone manquante</string>
     <string name="xdripstatus_settings">état Xdrip (montre)</string>
     <string name="xdripstatus">Barre d\'état pour xDrip (Montre)</string>
     <string name="xdripstatus_shortname">xds</string>
