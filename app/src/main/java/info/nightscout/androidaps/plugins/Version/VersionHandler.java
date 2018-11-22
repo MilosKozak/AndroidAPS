@@ -1,4 +1,4 @@
-package info.nightscout.androidaps.plugins.Update;
+package info.nightscout.androidaps.plugins.Version;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -27,9 +27,11 @@ import info.nightscout.utils.JsonHelper;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
 
-public class UpdateHandler {
+public class VersionHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(L.CORE);
+
+    public VersionHandler() {}
 
     public Version currentVerssion() {
         String buildVersion = BuildConfig.VERSION_NAME;
@@ -53,8 +55,29 @@ public class UpdateHandler {
         return currentVersion;
     }
 
+    public int compare(Version currentVersion, Version latestVersion) {
+        return new VersionComparator().compare(currentVersion, latestVersion);
+    }
 
-    @Nullable
+    public Version findLatestVersion(String channel,  List<Version> versions) {
+        Version latestVersion = null;
+
+        if (Version.Channel.stable.equals(channel)) {
+            latestVersion = getVersionByChannel(channel, versions);
+        } else if (Version.Channel.beta.equals(channel)) {
+            Version stable = getVersionByChannel(Version.Channel.stable.name(), versions);
+            Version beta = getVersionByChannel(Version.Channel.beta.name(), versions);
+
+            latestVersion = compare(stable, beta) > 0 ? stable : beta;
+        } else if (Version.Channel.dev.equals(channel)) {
+            latestVersion = getVersionByChannel(Version.Channel.stable.name(), versions);
+        }
+
+        return latestVersion;
+    }
+
+
+            @Nullable
     public Version getVersionByChannel(String channel, List<Version> versions) {
         for (int i = 0; i < versions.size(); i++) {
             Version v = versions.get(i);
@@ -81,7 +104,7 @@ public class UpdateHandler {
                     version.setChannel(JsonHelper.safeGetString(ver, "channel"));
                     version.setDate(JsonHelper.safeGetDate(ver, "date"));
                     version.setLink(JsonHelper.safeGetString(ver, "link"));;
-                    version.setBranchTag(JsonHelper.safeGetString(ver, "branchTag"));
+                    version.setBranchTag(JsonHelper.safeGetString(ver, "branch_tag"));
                     version.setVersion(JsonHelper.safeGetString(ver, "version"));
 
                     versions.add(version);
@@ -137,9 +160,8 @@ public class UpdateHandler {
         return sb.toString();
     }
 
-
     // check network connection
-    public static boolean isConnected() {
+    public boolean isConnected() {
         ConnectivityManager connMgr = (ConnectivityManager) MainApp.instance().getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isConnected();

@@ -1226,6 +1226,10 @@
     <string name="key_update_channel" translatable="false">key_update_channel</string>
     <string name="stable">Stable</string>
     <string name="beta">Beta</string>
+    <string name="ver_chkversion">Check for latest version</string>
+    <string name="ver_url_title">Version URL</string>
+    <string name="ver_url_dialogmessage">Enter the Version URL (version.json)</string>
+    <string name="key_ver_url" translatable="false">ver_url</string>
 
     <plurals name="objective_days">
         <item quantity="one">%1$d day</item>

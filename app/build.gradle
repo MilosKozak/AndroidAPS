@@ -7,12 +7,21 @@ buildscript {
     dependencies {
         classpath 'io.fabric.tools:gradle:1.+'
         classpath 'com.dicedmelon.gradle:jacoco-android:0.1.2'
+        classpath 'com.novoda:gradle-build-properties-plugin:0.4.1'
     }
 }
+
 apply plugin: "com.android.application"
 apply plugin: "io.fabric"
 apply plugin: "jacoco-android"
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.novoda.build-properties'
+
+buildProperties {
+    version {
+        using rootProject.file('version.properties')
+    }
+}
 
 ext {
     supportLibraryVersion = "27.1.0"
@@ -21,7 +30,6 @@ ext {
     dexmakerVersion = "1.2"
     butterknifeVersion = "8.8.1"
 }
-
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -79,9 +87,9 @@ android {
         targetSdkVersion 25
         multiDexEnabled true
         versionCode 1500
-        version "2.1-dev"
+        version buildProperties.version['version']
 
-        buildConfigField "String", "VERSION", '"' + version + '"'
+        buildConfigString 'VERSION', version
         buildConfigField "String", "BUILDVERSION", '"' + generateGitBuild() + '-' + generateDate() + '"'
         buildConfigField "String", "HEAD", '"' + generateGitBuild() + '"'
         buildConfigField "String", "BRANCH", '"' + generateGitBranch() + '"'
@@ -114,21 +122,23 @@ android {
     }
     productFlavors {
         flavorDimensions "standard"
+
         full {
             applicationId "info.nightscout.androidaps"
             dimension "standard"
             resValue "string", "app_name", "AndroidAPS"
-            versionName version
+            versionName version.toString()
             manifestPlaceholders = [
                     appIcon: "@mipmap/ic_launcher",
                     appIconRound: "@mipmap/ic_launcher_round"
             ]
         }
+
         pumpcontrol {
             applicationId "info.nightscout.androidaps"
             dimension "standard"
             resValue "string", "app_name", "AndroidAPS"
-            versionName version
+            versionName version.toString()
             manifestPlaceholders = [
                     appIcon: "@mipmap/blueowl",
                     appIconRound: "@null"
@@ -138,7 +148,7 @@ android {
             applicationId "info.nightscout.nsclient"
             dimension "standard"
             resValue "string", "app_name", "NSClient"
-            versionName version + "-nsclient"
+            versionName version.toString() + "-nsclient"
             manifestPlaceholders = [
                     appIcon: "@mipmap/yellowowl",
                     appIconRound: "@null"
@@ -148,7 +158,7 @@ android {
             applicationId "info.nightscout.nsclient2"
             dimension "standard"
             resValue "string", "app_name", "NSClient2"
-            versionName version + "-nsclient"
+            versionName version.toString() + "-nsclient"
             manifestPlaceholders = [
                     appIcon: "@mipmap/yellowowl",
                     appIconRound: "@null"

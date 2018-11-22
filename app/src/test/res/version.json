@@ -1,0 +1,25 @@
+{
+  "versions": [
+    {
+      "channel": "stable",
+      "date": "2018-11-01" ,
+      "version": "2.0",
+      "branch_tag": "master",
+      "link": "https://github.com/MilosKozak/AndroidAPS"
+    },
+    {
+      "channel": "beta",
+      "date": "2018-11-01" ,
+      "version": "2.1-RC1",
+      "branch_tag": "2.1_rc1",
+      "link": "https://github.com/MilosKozak/AndroidAPS/tree/2.1_rc1"
+    },
+    {
+      "channel": "stable",
+      "date": "2018-11-02" ,
+      "version": "2.2",
+      "branch_tag": "master_22",
+      "link": "https://github.com/MilosKozak/AndroidAPS"
+    }
+  ]
+}

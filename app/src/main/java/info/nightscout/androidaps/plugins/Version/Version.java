@@ -1,10 +1,10 @@
-package info.nightscout.androidaps.plugins.Update;
+package info.nightscout.androidaps.plugins.Version;
 
 import java.util.Date;
 
 public class Version {
 
-    enum Channel {
+    public enum Channel {
         stable,
         beta,
         dev

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:validate="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="version"
+        android:title="@string/version_settings">
+
+        <com.andreabaccega.widget.ValidatingEditTextPreference
+            android:defaultValue="https://raw.githubusercontent.com/MilosKozak/AndroidAPS/master/version.json"
+            android:dialogMessage="@string/ver_url_dialogmessage"
+            android:inputType="textUri"
+            android:key="@string/key_ver_url"
+            android:selectAllOnFocus="true"
+            android:title="@string/ver_url_title"
+            validate:testType="webUrl" />
+
+        <ListPreference
+            android:title="@string/versionchannel_title"
+            android:key="@string/key_version_channel"
+            android:defaultValue="open"
+            android:entries="@array/version_channelArray"
+            android:entryValues="@array/version_channelValues"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
