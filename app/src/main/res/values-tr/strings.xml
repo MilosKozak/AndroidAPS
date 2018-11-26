@@ -184,10 +184,10 @@
     <string name="careportal_note">Not</string>
     <string name="careportal_question">Soru</string>
     <string name="careportal_exercise">Egzersiz</string>
-    <string name="careportal_pumpsitechange">Pompa Kanül değiştimi</string>
-    <string name="careportal_cgmsensorinsert">CGM sensörü Ekle</string>
+    <string name="careportal_pumpsitechange">Pompa Kanül Değişimi</string>
+    <string name="careportal_cgmsensorinsert">CGM Sensör Yerleştir</string>
     <string name="careportal_cgmsensorstart">CGM sensörü Başlat</string>
-    <string name="careportal_insulincartridgechange">İnsülin kartuşunu Değiştir</string>
+    <string name="careportal_insulincartridgechange">İnsülin Kartuş Değişimi</string>
     <string name="careportal_profileswitch">Profil değiştir</string>
     <string name="careportal_snackbolus">Aperatif Bolusu</string>
     <string name="careportal_mealbolus">Öğün Bolus</string>
