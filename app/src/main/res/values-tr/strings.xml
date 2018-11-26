@@ -194,7 +194,7 @@
     <string name="careportal_correctionbolus">Düzeltme Bolus</string>
     <string name="careportal_combobolus">Kombo Bolus</string>
     <string name="careportal_tempbasalstart">Geçici Basal başlat</string>
-    <string name="careportal_tempbasalend">Geçici bazal bitişi</string>
+    <string name="careportal_tempbasalend">Geçici Bazal Bitimi</string>
     <string name="careportal_carbscorrection">Karbonhidrat düzeltme</string>
     <string name="careportal_openapsoffline">OpenAPS etkisiz</string>
     <string name="careportal_newnstreatment_eventtype">Etkinlik Türü</string>
@@ -579,7 +579,7 @@ Bu COB\'un ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden daha fazla d
     <string name="overview_newtempbasal_basaltype_label">Bazal tipi</string>
     <string name="invalidprofile">Geçersiz profil!!!</string>
     <string name="profileswitch">Profil değiştir</string>
-    <string name="careportal_pbage_label">Pompa aküsü yaşı</string>
+    <string name="careportal_pbage_label">Pompa pil yaşı</string>
     <string name="careportal_pumpbatterychange">Pompa Akü Değişimi</string>
     <string name="ns_alarmoptions">Alarm türleri</string>
     <string name="nsalarm_urgenthigh">Aşırı yüksek</string>
