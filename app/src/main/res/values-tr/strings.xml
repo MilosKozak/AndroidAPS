@@ -321,7 +321,7 @@
     <string name="objectives_2_gate">Bu deneyime dayanarak, max bazalın ne olması gerektiğine karar vermeli ve bunu pompa ve tercihlere koymalısınız</string>
     <string name="objectives_3_objective">Kapalı Döngü düşük Kş değerlerinde kapat modunda başlatıyor</string>
     <string name="objectives_3_gate">Çok sayıda LGS (düşük KŞ) olmadan birkaç gün boyunca maksimum IOB = 0 (Aktif insülin) Kapalı Döngü\'de deneyin</string>
-    <string name="objectives_4_objective">Kapalı Döngü ayarlama, maksimum IOB\'u 0\'ın üzerinde yükseltme ve yavaş yavaş BG hedeflerini azaltma</string>
+    <string name="objectives_4_objective">Kapalı Döngü\'de ince ayarlar, maksimum (IOB) Aktif İnsülinin 0\'ın üzerine yükseltme ve yavaş yavaş KŞ hedeflerini aşağıya çekme</string>
     <string name="objectives_4_gate">KŞ düşürmeden önce, bir kaç gün çalıştırın ve en az bir geçe düşük KŞ alarmı olmadan</string>
     <string name="objectives_5_objective">Gerekirse, bazal ve oranları ayarlayın ve sonra auto-sens\'i etkinleştirin</string>
     <string name="objectives_5_gate">Bir hafta boyunca düzenli Karbonhidrad girdileri yaparak günboyunca Döngü\'leyin</string>
@@ -731,7 +731,7 @@ Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden d
     <string name="loopenabled">Döngü etkin</string>
     <string name="apsselected">Seçili APS</string>
     <string name="nsclienthaswritepermission">NSClient\'in yazma izni var</string>
-    <string name="closedmodeenabled">Kapalı mod etkin</string>
+    <string name="closedmodeenabled">Kapalı Döngü etkinleştirildi</string>
     <string name="maxiobset">Maksimal IOB doğru şekilde ayarlandı</string>
     <string name="hasbgdata">Seçili kaynaktan KŞ kullanılabilir</string>
     <string name="basalprofilenotaligned" formatted="false">Bazal değerler saatlerle uyumlu değil: %s</string>
