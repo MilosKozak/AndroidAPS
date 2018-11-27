@@ -324,7 +324,7 @@
     <string name="objectives_4_objective">Kapalı Döngü\'de ince ayarlar, maksimum (IOB) Aktif İnsülinin 0\'ın üzerine yükseltme ve yavaş yavaş KŞ hedeflerini aşağıya çekme</string>
     <string name="objectives_4_gate">KŞ hedefini azaltmadan önce birkaç gün ve en az bir gece düşük KŞ (Hipo) alarmı olmadan deneyin</string>
     <string name="objectives_5_objective">Gerekirse, bazal ve oranları ayarlayın ve sonra auto-sens\'i etkinleştirin</string>
-    <string name="objectives_5_gate">Bir hafta boyunca düzenli Karbonhidrad girdileri yaparak günboyunca Döngü\'leyin</string>
+    <string name="objectives_5_gate">Bir hafta boyunca düzenli Karbonhidrad girdileri yaparak gün boyunca Kapalı Döngüyü çalıştırın</string>
     <string name="objectives_6_objective">Gelişmiş yemek asistanı gibi gündüz kullanımı için ek özelliklerin etkinleştirilmesi</string>
     <string name="objectives_7_objective">SMB (Super Micro Bolus) gibi gündüz kullanımı için ek özelliklerin etkinleştirilmesi</string>
     <string name="objectives_7_gate">(Super Micro Bolus) SMB\'lerın iyi çalışabilmesi için wiki\'yi okumalısınız ve maxIOB\'u yükseltmelisiniz! İyi bir başlangıç için maxIOB = ortalama yemek bolusu + 3 x max günlük bazaldır</string>
@@ -395,7 +395,7 @@
     <string name="basalvaluebelowminimum">Minimum değerin altında bazal değeri. Profil ayarlanmadı!</string>
     <string name="sms_actualbg">KŞ:</string>
     <string name="sms_lastbg">Son KŞ:</string>
-    <string name="mdi">MDI (ÇDIE) Çoklu dozlu İnsulin Enjeksiyonu</string>
+    <string name="mdi">MDI Çoklu dozlu İnsulin Enjeksiyonu</string>
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Sürekli bildirim</string>
     <string name="old_data">ESKİ VERİ</string>
