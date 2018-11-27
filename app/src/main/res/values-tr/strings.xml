@@ -1033,7 +1033,7 @@ Bu COB\'un ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden daha fazla d
     <string name="maintenance_amount">Gönderilecek loglar Yok</string>
     <string name="maintenance">Bakım</string>
     <string name="maintenance_shortname">BAKIM</string>
-    <string name="description_maintenance">Bakım için çeşitli işlevler sağlar (örn. log gönderme, log silme).</string>
+    <string name="description_maintenance">Bakım için çeşitli işlevler sağlar (örn. günlük gönder, günlük sil).</string>
     <string name="send_all_logs">E-posta ile Logları Gönder</string>
     <string name="delete_logs">Log Kayıtları Sil</string>
     <string name="error_adding_treatment_message">Tedaviyi (insülin:%1$.2f, karbonhidrat: %2$d, da: %3$s) tedavilere eklenemedi. Lütfen kontrol edin ve uygun şekilde manuel şekilde kayıt edin.</string>
