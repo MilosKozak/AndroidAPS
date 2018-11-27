@@ -315,8 +315,8 @@
     <string name="overview_bolusprogress_goingtodeliver" formatted="false">%.2fU Gönderilecek</string>
     <string name="objectives_0_objective">Nightscout üzerinden izlemeyi ve görselleştirmeyi yapılandırın ve bazal oranlarını ve faktörleri düzenleyin</string>
     <string name="objectives_0_gate">Nightscout\'ta KŞ\'nin bulunduğunu ve insülin verilerinin yüklenmekte olduğunu doğrulayın</string>
-    <string name="objectives_1_objective">Açık Döngü modülü başlatılıyor</string>
-    <string name="objectives_1_gate">Birkaç gün boyunca Açık Döngü modunda çalıştırın ve birçok geçici bazalı el ile girin. Geçici ve varsayılan geçici hedefleri kurun ve kullanın (örneğin, aktivite veya hipo-tedavi amaçlı karbonhidratlar için)</string>
+    <string name="objectives_1_objective">Açık Döngü modu başlatılıyor</string>
+    <string name="objectives_1_gate">Birkaç gün boyunca Açık Döngü modunda çalıştırın ve birçok geçici bazalı el yordamı ile girin. Geçici ve varsayılan geçici hedefleri düzenleyin ve kullanın (örn. egzersiz ve hipo-tedaviyi desteklemek için)</string>
     <string name="objectives_2_objective">Geçici bazal tavsiyeleri de dahil olmak üzere Açık Döngü anlamak</string>
     <string name="objectives_2_gate">Bu deneyime dayanarak, max bazalın ne olması gerektiğine karar vermeli ve bunu pompa ve tercihlere koymalısınız</string>
     <string name="objectives_3_objective">Kapalı Döngü düşük Kş değerlerinde kapat modunda başlatıyor</string>
@@ -458,8 +458,8 @@
     <string name="openapsama_autosens_adjusttargets">Autosens hedefleri de ayarlar</string>
     <string name="openapsama_autosens_adjusttargets_summary">Varsayılan değer: true\nBu autosens in İnsülin Duyarlılık Faktörü ve bazallara ek olarak KŞ hedeflerinin ayarlanmasında kullanılır.</string>
     <string name="openapsama_bolussnooze_dia_divisor_summary">Varsayılan değer: 2\nEğer sadece öğününüzü yerseniz, öğün bolusu alındıktan sonra bolus ertelemesi devreye girer, bu şekilde Döngü karşı bir tetbir olarak geçici bazal oranını azaltmasın diye. Buaradaki örnekte olduğu gibi varsayılan 2; 3 saat DIA olacak şekilde bolus ertelemesi kademeli olarak 1,5 saat üzeri (3DIA/2=1,5).</string>
-    <string name="openapsama_min_5m_carbimpact_summary">Varsayılan değer: 3.0 (AMA) Advanced meal assist veya 8.0 (SMB) Super Micro Bolus. Bu, 5 dakika başına varsayılan karbonhidrat emilimi için bir ayardır. Standart değer AMA için 3mg / dl / 5dk aynı şekilde SMB 8mg / dl / 5dk dir.
-Bu COB\'un ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden daha fazla düştüğü veya beklenildiği kadar yükselmediği zaman, gelecekte tahmin edilen KŞ\'nin hesaplanmasında ne kadar karbon emilimi varsayımını etkiler.</string>
+    <string name="openapsama_min_5m_carbimpact_summary">Varsayılan değer: 3.0 (AMA) Gelişmiş Yemek Asistanı veya 8.0 (SMB) Super Micro Bolus. Bu 5 dakika başına varsayılan karbonhidrat emilimi için bir ayardır. Standart değer AMA için 3mg/dl/5dk aynı şekilde SMB 8mg/dl/5dk dir.
+Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden daha fazla düştüğü veya beklenildiği kadar yükselmediği zamanlarda gelecekte yapılacak tahminlerde KŞ\'nin hesaplanmasında ne kadar karbonhidrat emilimi gerçekleşeceğini öngörür.</string>
     <string name="openapsama_link_to_preferncejson_doc_txt">Dikkat!\nNormalde aşağıdaki bu değerleri değiştirmek zorunda değilsiniz. Lütfen burayı TIKLAYIN ve metni OKUYUN ve bu değerlerden herhangi birini değiştirmeden önce ANLADIĞINIZDAN emin olun.</string>
     <string name="error_only_numeric_digits_allowed">Yalnızca sayısal rakam girebilirsiniz.</string>
     <string name="error_only_numeric_digits_range_allowed">%1$s - %2$s aralığında yalnızca sayısal rakamlar kullanılabilir.</string>
