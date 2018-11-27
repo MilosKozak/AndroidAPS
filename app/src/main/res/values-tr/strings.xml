@@ -313,8 +313,7 @@
     <string name="overview_bolusprogress_stoppressed">DURDUR\'A BASTIĞINIZ</string>
     <string name="waitingforpump">Pompa bekleniyor</string>
     <string name="overview_bolusprogress_goingtodeliver" formatted="false">%.2fU Gönderilecek</string>
-    <string name="objectives_0_objective">Görselleştirme ayarlama ve izleme ve analiz bazalar ve oranları
-Görselleştirmeyi ve izlemeyi kurmak, bazalları ve oranları analiz etmek</string>
+    <string name="objectives_0_objective">Nightscout üzerinden izlemeyi ve görselleştirmeyi yapılandırın ve bazal oranlarını ve faktörleri düzenleyin</string>
     <string name="objectives_0_gate">Nightscout\'ta KŞ\'nin bulunduğunu ve insülin verilerinin yüklenmekte olduğunu doğrulayın</string>
     <string name="objectives_1_objective">Açık Döngü modülü başlatılıyor</string>
     <string name="objectives_1_gate">Birkaç gün boyunca Açık Döngü modunda çalıştırın ve birçok geçici bazalı el ile girin. Geçici ve varsayılan geçici hedefleri kurun ve kullanın (örneğin, aktivite veya hipo-tedavi amaçlı karbonhidratlar için)</string>
@@ -370,7 +369,7 @@ Görselleştirmeyi ve izlemeyi kurmak, bazalları ve oranları analiz etmek</str
     <string name="button1">Düğme 1</string>
     <string name="button2">Düğme 2</string>
     <string name="button3">Düğme 3</string>
-    <string name="units">Ünite:</string>
+    <string name="units">Birim:</string>
     <string name="mgdl">mg/dl</string>
     <string name="mmol">mmol/l</string>
     <string name="dia">DIA:</string>
