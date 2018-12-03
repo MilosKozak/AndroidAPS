@@ -18,7 +18,7 @@
         <ListPreference
             android:title="@string/versionchannel_title"
             android:key="@string/key_version_channel"
-            android:defaultValue="open"
+            android:defaultValue="stable"
             android:entries="@array/version_channelArray"
             android:entryValues="@array/version_channelValues"/>
 

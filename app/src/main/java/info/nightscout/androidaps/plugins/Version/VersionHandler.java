@@ -56,7 +56,15 @@ public class VersionHandler {
     }
 
     public int compare(Version currentVersion, Version latestVersion) {
-        return new VersionComparator().compare(currentVersion, latestVersion);
+        if (latestVersion == null) {
+            return 1;
+        }
+
+        if  (currentVersion == null) {
+           return -1;
+        }
+
+        return new VersionComparator().compare(currentVersion.getVersion(), latestVersion.getVersion());
     }
 
     public Version findLatestVersion(String channel,  List<Version> versions) {
@@ -128,9 +136,9 @@ public class VersionHandler {
                 InputStream in = new BufferedInputStream(conn.getInputStream());
                 response = convertStreamToString(in);
             } catch (IOException e) {
-                LOG.error("Exceptoin", e);;
+                LOG.error("Exception", e);;
             } catch (Exception e) {
-                LOG.error("Exceptoin", e);
+                LOG.error("Exception", e);
             }
         } else {
             LOG.debug("Github master version no checked. No connectivity");
