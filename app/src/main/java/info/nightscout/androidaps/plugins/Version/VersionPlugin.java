@@ -18,6 +18,7 @@ import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
 import info.nightscout.utils.SP;
+import info.nightscout.utils.ToastUtils;
 
 public class VersionPlugin extends PluginBase {
 
@@ -76,9 +77,7 @@ public class VersionPlugin extends PluginBase {
 
         if (versionString == null) {
             // there seems to be a network issue, we should let the user hadnle this one...
-            Notification notification = new Notification(Notification.VERSION_NOTIFICATION, MainApp.gs(R.string.ver_cannot_retrieve_info), Notification.INFO);
-            this.getBus().post(new EventNewNotification(notification));
-
+            ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.ver_cannot_retrieve_info), R.raw.error);
             return;
         }
 
