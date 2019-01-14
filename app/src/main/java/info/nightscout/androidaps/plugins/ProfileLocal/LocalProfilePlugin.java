@@ -180,8 +180,6 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
     }
 
     public synchronized boolean isValidEditState() {
-        if(isNSProfileActive())
-            createProfileStoreFromNS();
         return createProfileStore().getDefaultProfile().isValid(MainApp.gs(R.string.localprofile), false);
     }
 
