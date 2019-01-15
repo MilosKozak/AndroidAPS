@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.androidaps.events.EventProfileStoreChanged;
 import info.nightscout.androidaps.interfaces.PluginBase;
@@ -181,8 +180,6 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
     }
 
     public synchronized boolean isValidEditState() {
-        if(isNSProfileActive())
-            createProfileStoreFromNS();
         return createProfileStore().getDefaultProfile().isValid(MainApp.gs(R.string.localprofile), false);
     }
 
@@ -228,74 +225,6 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
     @Override
     public String getProfileName() {
         return DecimalFormatter.to2Decimal(convertedProfile.getDefaultProfile().percentageBasalSum()) + "U ";
-    }
-
-    public boolean isNSProfileActive() {
-        if (!convertedProfile.getDefaultProfile().isValid(MainApp.gs(R.string.nsprofile))) {
-            log.debug("Detected active NSProfile!");
-            return true;
-        }
-        log.debug("No NS profile");
-        return false;
-    }
-
-    @NonNull
-    public ProfileStore createProfileStoreFromNS() {
-        JSONObject json = new JSONObject();
-        JSONObject store = new JSONObject();
-        JSONObject profile = new JSONObject();
-        mgdl = SP.getBoolean(LOCAL_PROFILE + "mgdl", false);
-        mmol = SP.getBoolean(LOCAL_PROFILE + "mmol", true);
-        dia = SP.getDouble(LOCAL_PROFILE + "dia", Constants.defaultDIA);
-        // Getting NS profile from SharedPreferences
-        String profileString = SP.getString("profile", null);
-        log.debug("Profile string is: "+profileString);
-        ProfileStore nsProfile = null;
-        if (profileString != null) {
-            try {
-                nsProfile = new ProfileStore(new JSONObject(profileString));
-                json = nsProfile.getData();
-                store = json.getJSONObject("store");
-                profile = store.getJSONObject("Default");
-            } catch (JSONException e) {
-                log.error("Unhandled exception", e);
-                profile = null;
-            }
-        }
-
-        try {
-            log.debug("Profile data: "+profile.toString());
-            json.put("defaultProfile", LOCAL_PROFILE);
-            json.put("store", store);
-            dia = profile.getDouble("dia");
-            ic = profile.getJSONArray("carbratio");
-            isf = profile.getJSONArray("sens");
-            log.debug("ISF list:"+isf.toString());
-            basal = profile.getJSONArray("basal");
-            targetLow = profile.getJSONArray("target_low");
-            targetHigh = profile.getJSONArray("target_high");
-            if(profile.getString("units") == "mmol") {
-                mmol = true;
-                mgdl = false;
-            } else {
-                mmol = false;
-                mgdl = true;
-            }
-            SP.putBoolean(LOCAL_PROFILE + "mgdl", mgdl);
-            profile.put("dia", profile.getDouble("dia"));
-            profile.put("carbratio", profile.getString("carbratio"));
-            profile.put("sens", profile.getString("sens"));
-            profile.put("basal", profile.getString("basal"));
-            profile.put("target_low", profile.getString("target_low"));
-            profile.put("target_high", profile.getString("target_high"));
-            profile.put("units", mgdl ? Constants.MGDL : Constants.MMOL);
-            store.put(LOCAL_PROFILE, profile);
-        } catch (JSONException e) {
-            log.error("Unhandled exception", e);
-        }
-        log.debug("Created profile is: "+json.toString());
-        this.storeSettings();
-        return new ProfileStore(json);
     }
 
 }
