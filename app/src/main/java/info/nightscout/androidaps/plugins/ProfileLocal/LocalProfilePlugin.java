@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.androidaps.events.EventProfileStoreChanged;
 import info.nightscout.androidaps.interfaces.PluginBase;
@@ -255,7 +256,7 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
                 nsProfile = new ProfileStore(new JSONObject(profileString));
                 json = nsProfile.getData();
                 store = json.getJSONObject("store");
-                profile = store.getJSONObject(json.getString("defaultProfile"));
+                profile = store.getJSONObject("Default");
             } catch (JSONException e) {
                 log.error("Unhandled exception", e);
                 profile = null;

@@ -47,7 +47,6 @@ public class LocalProfileFragment extends SubscriberFragment {
     Button profileswitchButton;
     Button resetButton;
     Button saveButton;
-    Button getFromNS;
 
     TextView invalidProfile;
 
@@ -93,7 +92,6 @@ public class LocalProfileFragment extends SubscriberFragment {
         profileswitchButton = (Button) layout.findViewById(R.id.localprofile_profileswitch);
         resetButton = (Button) layout.findViewById(R.id.localprofile_reset);
         saveButton = (Button) layout.findViewById(R.id.localprofile_save);
-        getFromNS = (Button) layout.findViewById(R.id.localprofile_getFromNS);
 
 
         invalidProfile = (TextView) layout.findViewById(R.id.invalidprofile);
@@ -146,18 +144,6 @@ public class LocalProfileFragment extends SubscriberFragment {
             updateGUI();
         });
 
-        getFromNS.setOnClickListener(view -> {
-            LocalProfilePlugin.getPlugin().createProfileStoreFromNS();
-            mgdlView.setChecked(LocalProfilePlugin.getPlugin().mgdl);
-            mmolView.setChecked(LocalProfilePlugin.getPlugin().mmol);
-            diaView.setParams(LocalProfilePlugin.getPlugin().dia, 5d, 12d, 0.1d, new DecimalFormat("0.0"), false, textWatch);
-            icView = new TimeListEdit(getContext(), layout, R.id.localprofile_ic, MainApp.gs(R.string.nsprofileview_ic_label) + ":", LocalProfilePlugin.getPlugin().ic, null, 0.5, 50d, 0.1d, new DecimalFormat("0.0"), save);
-            isfView = new TimeListEdit(getContext(), layout, R.id.localprofile_isf, MainApp.gs(R.string.nsprofileview_isf_label) + ":", LocalProfilePlugin.getPlugin().isf, null, 0.5, 500d, 0.1d, new DecimalFormat("0.0"), save);
-            basalView = new TimeListEdit(getContext(), layout, R.id.localprofile_basal, MainApp.gs(R.string.nsprofileview_basal_label) + ": " + getSumLabel(), LocalProfilePlugin.getPlugin().basal, null, pumpDescription.basalMinimumRate, 10, 0.01d, new DecimalFormat("0.00"), save);
-            targetView = new TimeListEdit(getContext(), layout, R.id.localprofile_target, MainApp.gs(R.string.nsprofileview_target_label) + ":", LocalProfilePlugin.getPlugin().targetLow, LocalProfilePlugin.getPlugin().targetHigh, 3d, 200, 0.1d, new DecimalFormat("0.0"), save);
-            updateGUI();
-        });
-
         return layout;
     }
 
@@ -189,11 +175,6 @@ public class LocalProfileFragment extends SubscriberFragment {
                 public void run() {
                     boolean isValid = LocalProfilePlugin.getPlugin().isValidEditState();
                     boolean isEdited = LocalProfilePlugin.getPlugin().isEdited();
-//                    if (LocalProfilePlugin.getPlugin().isNSProfileActive())
-                        getFromNS.setVisibility(View.VISIBLE);
-//                    else
-//                        getFromNS.setVisibility(View.GONE);
-
                     if (isValid) {
                         invalidProfile.setVisibility(View.GONE); //show invalid profile
 
