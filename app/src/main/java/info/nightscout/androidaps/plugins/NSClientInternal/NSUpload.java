@@ -603,6 +603,13 @@ public class NSUpload {
         try {
             Context context = MainApp.instance().getApplicationContext();
             Bundle bundle = new Bundle();
+
+            try {
+                data.put("startDate", DateUtil.toISOString(System.currentTimeMillis()));
+            } catch (JSONException e) {
+                log.error("Unhandled exception", e);
+            }
+
             bundle.putString("action", "dbAdd");
             bundle.putString("collection", "profile");
             bundle.putString("data", data.toString());

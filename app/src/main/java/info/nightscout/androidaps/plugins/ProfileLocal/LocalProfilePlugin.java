@@ -8,6 +8,8 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.TimeZone;
+
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
@@ -200,6 +202,9 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
             profile.put("target_low", targetLow);
             profile.put("target_high", targetHigh);
             profile.put("units", mgdl ? Constants.MGDL : Constants.MMOL);
+            // Adding Timezone
+            if(!profile.has("timezone"))
+                profile.put("timezone", TimeZone.getDefault().getID());
             store.put(LOCAL_PROFILE, profile);
         } catch (JSONException e) {
             log.error("Unhandled exception", e);
