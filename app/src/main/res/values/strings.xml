@@ -1219,6 +1219,7 @@
     <string name="profile_carbs_per_unit">g/U</string>
     <string name="profile_per_unit">/U</string>
     <string name="localprofile_get_from_ns">Get from NS</string>
+    <string name="localprofile_upload_to_ns">Upload to NS</string>
 
     <plurals name="objective_days">
         <item quantity="one">%1$d day</item>

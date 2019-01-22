@@ -18,6 +18,7 @@ import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
 import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.NSClientInternal.NSUpload;
 import info.nightscout.utils.DecimalFormatter;
 import info.nightscout.utils.SP;
 
@@ -254,6 +255,10 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
                 json = nsProfile.getData();
                 store = json.getJSONObject("store");
                 profile = store.getJSONObject(json.getString("defaultProfile"));
+                if(profile.getString("units")=="mmol"){
+                    mgdl = false;
+                    mmol = true;
+                }
             } catch (JSONException e) {
                 log.error("Unhandled exception", e);
                 profile = null;
@@ -271,7 +276,7 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
             basal = profile.getJSONArray("basal");
             targetLow = profile.getJSONArray("target_low");
             targetHigh = profile.getJSONArray("target_high");
-            if(profile.getString("units") == "mmol") {
+            if(profile.getString("units").equals(Constants.MMOL)) {
                 mmol = true;
                 mgdl = false;
             } else {
@@ -279,6 +284,7 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
                 mgdl = true;
             }
             SP.putBoolean(LOCAL_PROFILE + "mgdl", mgdl);
+            SP.putBoolean(LOCAL_PROFILE + "mmol", !mgdl);
             profile.put("dia", profile.getDouble("dia"));
             profile.put("carbratio", profile.getString("carbratio"));
             profile.put("sens", profile.getString("sens"));
@@ -290,9 +296,15 @@ public class LocalProfilePlugin extends PluginBase implements ProfileInterface {
         } catch (JSONException e) {
             log.error("Unhandled exception", e);
         }
-        log.debug("Created profile is: "+json.toString());
         this.storeSettings();
         return new ProfileStore(json);
+    }
+
+    public void uploadToNS(){
+        if(convertedProfile != null) {
+            NSUpload.uploadProfileToNS(new ProfileStore(convertedProfile.getData()).getData());
+        } else
+            log.debug("No converted profile to upload!");
     }
 
 }
