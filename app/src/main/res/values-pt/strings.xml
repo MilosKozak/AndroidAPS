@@ -557,6 +557,7 @@
     <string name="danar_bluetooth_status">Estado Bluetooth</string>
     <string name="nav_about">Acerca</string>
     <string name="smscommunicator_missingsmspermission">Falta de permissão SMS</string>
+    <string name="smscommunicator_missingphonestatepermission">Falta permissão do estado do telefone</string>
     <string name="xdripstatus_settings">Estado xDrip (relógio)</string>
     <string name="xdripstatus">Linha estado xDrip (relógio)</string>
     <string name="xdripstatus_shortname">xds</string>
