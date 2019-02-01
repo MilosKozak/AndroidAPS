@@ -21,5 +21,5 @@
     <string name="alert_m30_description">Ampullentyp einstellen.</string>
     <string name="alert_e6_description">Batterie und Ampulle wechseln.</string>
     <string name="alert_e10_description">Ampulle wechseln.</string>
-    <string name="alert_e13_description">Sprache wechseln.</string>
+    <string name="alert_e13_description">Andere Sprache wählen.</string>
 </resources>
