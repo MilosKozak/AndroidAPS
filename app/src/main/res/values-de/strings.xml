@@ -1108,16 +1108,16 @@ Unerwartetes Verhalten.</string>
     <string name="extended_bolus">Verzögerter Bolus</string>
     <string name="multiwave_bolus">Multiwave-Bolus</string>
     <string name="eb_formatter">%1$.2f / %2$.2f U für %3$d min</string>
-    <string name="enable_tbr_over_notification">Benachrichtigung für hohe TBR aktivieren</string>
-    <string name="disable_tbr_over_notification">Benachrichtigung für hohe TBR deaktivieren</string>
+    <string name="enable_tbr_over_notification">TBR-Vorrüber-Benachrichtigung aktivieren</string>
+    <string name="disable_tbr_over_notification">TBR-Vorrüber-Benachrichtigung deaktivieren</string>
     <string name="refresh">Aktualisieren</string>
-    <string name="description_pump_insight_local">Integration für Accu-Chek Insight Pumpen</string>
+    <string name="description_pump_insight_local">Pumpen-Integration für Accu-Chek Insight Pumpen</string>
     <string name="not_inserted">Nicht eingesetzt</string>
     <string name="short_status_last_connected">Letzte Verb.: vor %1$d min</string>
     <string name="short_status_tbr">TBR: %1$d%% für %2$d / %3$d min</string>
-    <string name="short_status_extended">Erweitert: %1$.2f / %2$.2f IE für %3$d min</string>
-    <string name="short_status_multiwave">Erweitert: %1$.2f / %2$.2f IE für %3$d min</string>
-    <string name="short_status_tdd">TDD: %1$.2f</string>
+    <string name="short_status_extended">Verzögert: %1$.2f / %2$.2f U für %3$d min</string>
+    <string name="short_status_multiwave">Verzögert: %1$.2f / %2$.2f U für %3$d min</string>
+    <string name="short_status_tdd">TGS: %1$.2f</string>
     <string name="short_status_reservoir">Reser.: %1$.2fU</string>
     <string name="short_status_battery">Batt.: %1$d%%</string>
     <string name="profile_total">== ∑  %1$s IE</string>
