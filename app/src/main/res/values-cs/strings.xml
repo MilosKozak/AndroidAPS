@@ -1104,6 +1104,20 @@
     <string name="stopped">Zastaveno</string>
     <string name="tbr_formatter">%1$d%% pro %2$d / %3$d min</string>
     <string name="extended_bolus">Prodloužený bolus</string>
+    <string name="multiwave_bolus">Duální bolus</string>
+    <string name="eb_formatter">%1$.2f / %2$.2f U %3$d min</string>
+    <string name="enable_tbr_over_notification">Povolit doč. bazál přes oznámení</string>
+    <string name="disable_tbr_over_notification">Zakázat doč. bazál přes oznámení</string>
+    <string name="refresh">Obnovit</string>
+    <string name="description_pump_insight_local">Integrace pro pumpu Accu-Chek Insight</string>
+    <string name="not_inserted">Není vloženo</string>
+    <string name="short_status_last_connected">Poslední spoj: před %1$d min</string>
+    <string name="short_status_tbr">Doč. bazál: %1$d%% na %2$d / %3$d min</string>
+    <string name="short_status_extended">Prodl. bolus: %1$.2f / %2$.2f U na %3$d min</string>
+    <string name="short_status_multiwave">Duální bolus: %1$.2f / %2$.2f U na %3$d min</string>
+    <string name="short_status_tdd">CDD: %1$.2f</string>
+    <string name="short_status_reservoir">Zásobník: %1$.2fU</string>
+    <string name="short_status_battery">Bat.: %1$d%%</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
