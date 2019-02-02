@@ -1055,6 +1055,26 @@
     <string name="loop_openmode_min_change">Pedido de mudança mínima [%]</string>
     <string name="loop_openmode_min_change_summary">A app mostrará um pedido de alteração apenas se a mudança for superior a este valor. O valor padrão é 20%</string>
     <string name="pairfirst">Emparelhe a sua bomba com o seu telefone!</string>
+    <string name="searching_for_devices">A pesquisar dispositivos…</string>
+    <string name="please_wait">Por favor aguarde…</string>
+    <string name="pairing_completed">Emparelhamento concluído</string>
+    <string name="insight_pairing">Emparelhamento Insight</string>
+    <string name="insight_local">Accu-Chek Insight</string>
+    <string name="insight_delivered">%1$.2fU / %2$.2fU entregue</string>
+    <string name="insight_alert_formatter">%1$s: %2$s</string>
+    <string name="pump_time_updated">Hora da bomba actualizada</string>
+    <string name="confirm">Confirmar</string>
+    <string name="mute_alert">Silêncio</string>
+    <string name="serial_number">Número de série</string>
+    <string name="manufacturing_date">Data de fabrico</string>
+    <string name="delete_pairing">Eliminar emparelhamento</string>
+    <string name="start_pump">Iniciar Bomba</string>
+    <string name="stop_pump">Parar Bomba</string>
+    <string name="insight_status">Estado</string>
+    <string name="started">Iniciado</string>
+    <string name="stopped">Parado</string>
+    <string name="extended_bolus">Bólus estendido</string>
+    <string name="multiwave_bolus">Bólus Multi-Onda</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
