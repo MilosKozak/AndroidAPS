@@ -125,9 +125,16 @@ public class TreatmentService extends OrmLiteBaseService<DatabaseHelper> {
         } else if (oldVersion == 8 && newVersion == 9) {
             log.debug("Upgrading database from v8 to v9");
             try {
-                getDao().executeRaw("ALTER TABLE `" + Treatment.TABLE_TREATMENTS + "` ADD COLUMN boluscalc STRING;");
+                List<Treatment> treatmentsCache = getTreatmentData();
+                TableUtils.dropTable(connectionSource, Treatment.class, true);
+                TableUtils.createTableIfNotExists(connectionSource, Treatment.class);
+
+                for (Treatment treatment : treatmentsCache) {
+                    getDao().create(treatment);
+                }
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.error("Can't update database", e);
+                throw new RuntimeException(e);
             }
         } else {
             if (L.isEnabled(L.DATATREATMENTS))
