@@ -1088,6 +1088,12 @@ Context | Edit Context</string>
     <string name="recovery_duration">Продолжительность восстановления [s]</string>
     <string name="serial_number">Серийный номер</string>
     <string name="release_software_version">Версия ПО</string>
+    <string name="ui_processor_software_version">Версия процессора UI</string>
+    <string name="pc_processor_software_version">Версия процессора ПК</string>
+    <string name="md_tel_processor_software_version">Версия ПО процессора MD тел</string>
+    <string name="safety_processor_software_version">Версия ПО процессора безопасности</string>
+    <string name="bt_info_page_version">Версия страницы информация BT</string>
+    <string name="bluetooth_address">Адрес Bluetooth</string>
     <string name="profile_total">== ∑  %1$s ед</string>
     <string name="profile_ins_units_per_hout">Ед/ч</string>
     <string name="profile_carbs_per_unit">г/ед</string>
