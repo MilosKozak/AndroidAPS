@@ -1070,7 +1070,6 @@
     <string name="log_alerts">Zaznamenat výstrahy</string>
     <string name="enable_tbr_emulation">Povolit emulaci dočasných bazálů</string>
     <string name="enable_tbr_emulation_summary">Používat prodloužené bolusy na obejití limitu dočasných bázalů 250%</string>
-    <string name="recovery_duration">Doba čekání na obnovení spojení [s]</string>
     <string name="disconnect_delay">Limit pro odpojení [s]</string>
     <string name="serial_number">Sériové číslo</string>
     <string name="release_software_version">Verze softwaru</string>
