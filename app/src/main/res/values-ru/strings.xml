@@ -1073,6 +1073,7 @@ Context | Edit Context</string>
     <string name="insight_pairing">Сопряжение с Insight</string>
     <string name="insight_local">Accu-Chek Insight</string>
     <string name="insight_delivered">Подано %1$.2fед./ %2$.2fед</string>
+    <string name="insight_alert_formatter">%1$s: %2$s</string>
     <string name="tube_changed">Трубка заменена</string>
     <string name="pump_time_updated">Время на помпе обновлено</string>
     <string name="confirm">Подтверждаю</string>
@@ -1085,6 +1086,7 @@ Context | Edit Context</string>
     <string name="log_alerts">Журнал оповещений</string>
     <string name="enable_tbr_emulation">Включить эмуляцию TBR</string>
     <string name="enable_tbr_emulation_summary">Использовать пролонгированные болюсы вместо временных базалов TBR чтобы обойти лимит в 250%</string>
+    <string name="disconnect_delay">Задержка разъединения [s]</string>
     <string name="serial_number">Серийный номер</string>
     <string name="release_software_version">Версия ПО</string>
     <string name="ui_processor_software_version">Версия процессора UI</string>
@@ -1110,8 +1112,10 @@ Context | Edit Context</string>
     <string name="last_connected">Прошлое соединение</string>
     <string name="started">Начало запуска</string>
     <string name="stopped">Остановлено</string>
+    <string name="tbr_formatter">%1$d%% за %2$d / %3$d мин</string>
     <string name="extended_bolus">Пролонгированный болюс</string>
     <string name="multiwave_bolus">Мульти-болюс</string>
+    <string name="eb_formatter">%1$.2f / %2$.2f U за %3$d мин</string>
     <string name="enable_tbr_over_notification">Включить уведомление об окончании временной скорости базала TBR\n(настройка помпы)</string>
     <string name="disable_tbr_over_notification">Отключить уведомление об окончании временной скорости базала TBR\n(настройка помпы)</string>
     <string name="refresh">Обновить</string>
@@ -1119,6 +1123,9 @@ Context | Edit Context</string>
     <string name="not_inserted">Не вставлено</string>
     <string name="short_status_last_connected">Недавнее соединение: %1$d мин. назад</string>
     <string name="short_status_tbr">Суммарная скорость базала: %1$d%% за %2$d / %3$d мин</string>
+    <string name="short_status_extended">Пролонгированный: %1$.2f / %2$.2f U за %3$d мин</string>
+    <string name="short_status_multiwave">Пролонгированный: %1$.2f / %2$.2f U за %3$d мин</string>
+    <string name="short_status_tdd">Суммарный инсулин TDD: %1$.2f</string>
     <string name="short_status_reservoir">Резервуар: %1$.2fед</string>
     <string name="short_status_battery">Батарея: %1$d%%</string>
     <string name="max_recovery_duration">Макс продолжительность восстановления [s]</string>
@@ -1128,6 +1135,7 @@ Context | Edit Context</string>
     <string name="profile_ins_units_per_hout">Ед/ч</string>
     <string name="profile_carbs_per_unit">г/ед</string>
     <string name="profile_per_unit">/ед</string>
+    <string name="key_dexcom_lognssensorchange">dexcom_lognssensorchange</string>
     <string name="dexcom_lognssensorchange_title">Внести замену сенсора в лог NS</string>
     <string name="dexcom_lognssensorchange_summary">Автоматически создать событие \"Замена сенсора\" в NS при запуске сенсора</string>
 </resources>
