@@ -1110,6 +1110,13 @@ Context | Edit Context</string>
     <string name="started">Начало запуска</string>
     <string name="stopped">Остановлено</string>
     <string name="extended_bolus">Пролонгированный болюс</string>
+    <string name="multiwave_bolus">Мульти-болюс</string>
+    <string name="enable_tbr_over_notification">Включить уведомление об окончании временной скорости базала TBR\n(настройка помпы)</string>
+    <string name="disable_tbr_over_notification">Отключить уведомление об окончании временной скорости базала TBR\n(настройка помпы)</string>
+    <string name="refresh">Обновить</string>
+    <string name="description_pump_insight_local">Интеграция с помпой Accu-Chek Insight</string>
+    <string name="not_inserted">Не вставлено</string>
+    <string name="short_status_last_connected">Недавнее соединение: %1$d мин. назад</string>
     <string name="profile_total">== ∑  %1$s ед</string>
     <string name="profile_ins_units_per_hout">Ед/ч</string>
     <string name="profile_carbs_per_unit">г/ед</string>
