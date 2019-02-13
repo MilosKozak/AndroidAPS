@@ -1083,7 +1083,6 @@
     <string name="log_alerts">记录报警</string>
     <string name="enable_tbr_emulation">启用 TBR (临时基础率) 模拟</string>
     <string name="enable_tbr_emulation_summary">使用扩展大剂量而不是TBRs(临时基础率) 绕过250%的限制</string>
-    <string name="recovery_duration">恢复持续时间 [s]</string>
     <string name="disconnect_delay">断开连接延迟 [s]</string>
     <string name="serial_number">序列号</string>
     <string name="release_software_version">发行软件版本</string>
