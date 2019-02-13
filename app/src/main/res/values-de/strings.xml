@@ -1072,7 +1072,7 @@ Unerwartetes Verhalten.</string>
     <string name="code_compare">Stimmen die Codes auf diesem Gerät und auf deiner Pumpe überein?</string>
     <string name="insight_pairing">Insight Kopplung</string>
     <string name="insight_local">Accu-Chek Insight</string>
-    <string name="insight_delivered">%1$.2fIE / %2$.2fIE abgegeben</string>
+    <string name="insight_delivered">%1$.2fU / %2$.2fU abgegeben</string>
     <string name="insight_alert_formatter">%1$s: %2$s</string>
     <string name="tube_changed">Schlauch gewechselt</string>
     <string name="pump_time_updated">Pumpenzeit aktualisiert</string>
@@ -1086,7 +1086,6 @@ Unerwartetes Verhalten.</string>
     <string name="log_alerts">Alarme protokollieren</string>
     <string name="enable_tbr_emulation">TBR-Emulation aktivieren</string>
     <string name="enable_tbr_emulation_summary">Erweiterte Boli an Stelle von TBRs verwenden, um die Beschränkung auf 250% zu umgehen</string>
-    <string name="recovery_duration">Erholungsdauer [s]</string>
     <string name="disconnect_delay">Verbindungsabbau-Verzögerung [s]</string>
     <string name="serial_number">Seriennummer</string>
     <string name="release_software_version">Release-Softwareversion</string>
