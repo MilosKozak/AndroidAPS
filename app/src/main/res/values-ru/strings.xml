@@ -1093,6 +1093,7 @@ Context | Edit Context</string>
     <string name="safety_processor_software_version">Версия ПО процессора безопасности</string>
     <string name="bt_info_page_version">Версия страницы информация BT</string>
     <string name="bluetooth_address">Адрес Bluetooth</string>
+    <string name="system_id_appendix">Аппендикс ID системы</string>
     <string name="manufacturing_date">Дата изготовления</string>
     <string name="delete_pairing">Удалить сопряжение</string>
     <string name="pairing_information">Информация о сопряжении</string>
@@ -1117,8 +1118,16 @@ Context | Edit Context</string>
     <string name="description_pump_insight_local">Интеграция с помпой Accu-Chek Insight</string>
     <string name="not_inserted">Не вставлено</string>
     <string name="short_status_last_connected">Недавнее соединение: %1$d мин. назад</string>
+    <string name="short_status_tbr">Суммарная скорость базала: %1$d%% за %2$d / %3$d мин</string>
+    <string name="short_status_reservoir">Резервуар: %1$.2fед</string>
+    <string name="short_status_battery">Батарея: %1$d%%</string>
+    <string name="max_recovery_duration">Макс продолжительность восстановления [s]</string>
+    <string name="min_recovery_duration">Мин. продолжительность восстановления [s]</string>
+    <string name="recovery_duration">Продолжительность восстановления</string>
     <string name="profile_total">== ∑  %1$s ед</string>
     <string name="profile_ins_units_per_hout">Ед/ч</string>
     <string name="profile_carbs_per_unit">г/ед</string>
     <string name="profile_per_unit">/ед</string>
+    <string name="dexcom_lognssensorchange_title">Внести замену сенсора в лог NS</string>
+    <string name="dexcom_lognssensorchange_summary">Автоматически создать событие \"Замена сенсора\" в NS при запуске сенсора</string>
 </resources>
