@@ -3,4 +3,17 @@
 <resources>
     <string name="alert_r1_title">Дать болюс</string>
     <string name="alert_r2_title">Недоставленный болюс</string>
+    <string name="alert_r4_title">Замените инфузионный набор</string>
+    <string name="alert_r7_title">TBR завершен</string>
+    <string name="alert_w31_title">Низкий уровень инсулина в картридже</string>
+    <string name="alert_w32_title">Низкий заряд батареи</string>
+    <string name="alert_w33_title">Неверное время/дата</string>
+    <string name="alert_w34_title">Конец гарантии</string>
+    <string name="alert_w36_title">TBR отменен</string>
+    <string name="alert_w38_title">Болюс отменен</string>
+    <string name="alert_m20_title">Картридж не вставлен</string>
+    <string name="alert_m21_title">Картридж пуст</string>
+    <string name="alert_m22_title">Батарея разряжена</string>
+    <string name="alert_m23_title">Автоматическое выключение - помпа остановлена</string>
+    <string name="alert_m24_title">Закупорка</string>
 </resources>
