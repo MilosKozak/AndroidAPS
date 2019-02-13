@@ -1085,7 +1085,6 @@ Context | Edit Context</string>
     <string name="log_alerts">Журнал оповещений</string>
     <string name="enable_tbr_emulation">Включить эмуляцию TBR</string>
     <string name="enable_tbr_emulation_summary">Использовать пролонгированные болюсы вместо временных базалов TBR чтобы обойти лимит в 250%</string>
-    <string name="recovery_duration">Продолжительность восстановления [s]</string>
     <string name="serial_number">Серийный номер</string>
     <string name="release_software_version">Версия ПО</string>
     <string name="ui_processor_software_version">Версия процессора UI</string>
