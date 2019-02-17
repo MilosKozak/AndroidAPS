@@ -1133,7 +1133,6 @@
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
     <string name="profile_per_unit">/U</string>
-    <string name="key_dexcom_lognssensorchange">dexcom_lognssensorchange</string>
     <string name="dexcom_lognssensorchange_title">Ulož výmenu senzora do NS</string>
     <string name="dexcom_lognssensorchange_summary">Vytvoriť udalosť \"Výmena senzora\" v NS automaticky pri spustení senzora</string>
     <plurals name="objective_days">
