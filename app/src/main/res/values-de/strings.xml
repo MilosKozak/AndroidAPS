@@ -1136,7 +1136,6 @@ Unerwartetes Verhalten.</string>
     <string name="profile_ins_units_per_hout">IE/h</string>
     <string name="profile_carbs_per_unit">g/IE</string>
     <string name="profile_per_unit">/IE</string>
-    <string name="key_dexcom_lognssensorchange">dexcom_lognssensorchange</string>
     <string name="dexcom_lognssensorchange_title">Speichere Sensor Wechsel in Nightscout</string>
     <string name="dexcom_lognssensorchange_summary">Ereignis \"Sensorwechsel\" bei Sensorstart automatisch in NS erstellen</string>
     <plurals name="objective_days">
