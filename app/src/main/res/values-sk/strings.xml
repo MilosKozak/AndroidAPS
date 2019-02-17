@@ -1129,6 +1129,7 @@
     <string name="max_recovery_duration">Max. doba trvania obnovenia [s]</string>
     <string name="min_recovery_duration">Min. doba trvania obnovenia [s]</string>
     <string name="recovery_duration">Trvanie obnovenia</string>
+    <string name="timeout_during_handshake">Vypršal čas na pripojenie - reštartuj Bluetooth</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
