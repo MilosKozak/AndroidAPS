@@ -1131,6 +1131,7 @@ Unerwartetes Verhalten.</string>
     <string name="max_recovery_duration">Max. Erholungsdauer [s]</string>
     <string name="min_recovery_duration">Min. Erholungsdauer [s]</string>
     <string name="recovery_duration">Erholungsdauer</string>
+    <string name="timeout_during_handshake">Zeitüberschreitung während des Handshakes - Bluetooth zurücksetzen</string>
     <string name="profile_total">== ∑  %1$s IE</string>
     <string name="profile_ins_units_per_hout">IE/h</string>
     <string name="profile_carbs_per_unit">g/IE</string>
