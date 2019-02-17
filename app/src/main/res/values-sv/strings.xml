@@ -44,6 +44,9 @@
     <string name="description_sensitivity_oref1">Känsligheten beräknas från 8 timmars data från historiken och kolhydrater som ännu inte tagits upp ignoreras efter tiden som ställts in i inställningarna. Insticksprogrammet beräknar också icke inmatade måltider, UAM.</string>
     <string name="description_sensitivity_weighted_average">Känsligheten beräknas som ett viktat medelvärde av avvikelserna. Senare avvikelser får en högre vikt. Minimal upptagning av kolhydrater beräknas utifrån maximal upptagstid för kolhydrater som angetts i inställningarna. Den här algoritmen är den snabbaste att justera förändringar i känsligheten.</string>
     <string name="description_source_dexcom_g5">Ta emot BG-data från den modifierade Dexcom G5-appen</string>
+    <string name="description_source_dexcom_g6">Ta emot BG-data från den modifierade Dexcom G6-appen.</string>
+    <string name="description_source_eversense">Ta emot BG-data från den modifierade
+Eversense-appen.</string>
     <string name="description_source_glimp">Ta emot BG-data från Glimp</string>
     <string name="description_source_mm640g">Ta emot BG-data från 600SeriesAndroidUploader</string>
     <string name="description_source_ns_client">Ladda ner BG-data från Nightscout</string>
@@ -408,6 +411,7 @@
     <string name="array_of_elements">En serie med %1$d tal.\nVärde:</string>
     <string name="openapsma_autosensdata_label">Autosensdata</string>
     <string name="openapsma_scriptdebugdata_label">Debug</string>
+    <string name="openapsama_useautosens">Använd autosens</string>
     <string name="refresheventsfromnightscout">Uppdatera från Nightscout</string>
     <string name="deletefuturetreatments">Ta bort behandlingar från framtiden</string>
     <string name="eatingsoon">Äta snart</string>
@@ -549,6 +553,9 @@
     <string name="insulin_shortname">INS</string>
     <string name="enablesuperbolus">Aktivera superbolus i kalkylatorn</string>
     <string name="enablesuperbolus_summary">Aktiverar superbolusfunktionen i kalkylatorn. Aktivera inte innan du förstått hur den fungerar. DEN KAN ORSAKA ÖVERDOSERING AV INSULIN OM INSIKT SAKNAS OM FUNKTIONEN!</string>
+    <string name="show_statuslights">Visa statusindikationer på hemskärmen</string>
+    <string name="show_statuslights_summary">Aktivera statusindikationerna för cage, iage, sage, reservoar och batterinivå på hemskärmen.</string>
+    <string name="statuslights_res_warning">Varningsnivå för reservoar [U]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Firmwareversion</string>
