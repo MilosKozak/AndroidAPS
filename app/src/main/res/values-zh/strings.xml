@@ -1129,7 +1129,6 @@
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">克/U</string>
     <string name="profile_per_unit">/U</string>
-    <string name="key_dexcom_lognssensorchange">dexcom_lognssensorchange</string>
     <string name="dexcom_lognssensorchange_title">记录传感器更换至NS服务器</string>
     <string name="dexcom_lognssensorchange_summary">在传感器启动时在 NS服务器 自动创建事件 \"传感器更改\"</string>
     <plurals name="objective_days">
