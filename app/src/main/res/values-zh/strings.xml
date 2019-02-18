@@ -1125,6 +1125,10 @@
     <string name="short_status_tdd">TDD(日输注总量): %1$.2f</string>
     <string name="short_status_reservoir">Reser.: %1$.2fU</string>
     <string name="short_status_battery">电池: %1$d%%</string>
+    <string name="max_recovery_duration">最大恢复时间 [s]</string>
+    <string name="min_recovery_duration">最小恢复持续时间 [s]</string>
+    <string name="recovery_duration">恢复持续时间</string>
+    <string name="timeout_during_handshake">握手时超时-重启蓝牙</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">克/U</string>
