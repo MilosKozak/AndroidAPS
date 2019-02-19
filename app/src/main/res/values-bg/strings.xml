@@ -565,6 +565,7 @@
     <string name="danar_bluetooth_status">Bluetooh статус</string>
     <string name="nav_about">За приложението</string>
     <string name="smscommunicator_missingsmspermission">SMS команда забранена</string>
+    <string name="smscommunicator_missingphonestatepermission">Липсва разрешение до данни от телефона</string>
     <string name="xdripstatus_settings">xDrip статус (часовник)</string>
     <string name="xdripstatus">xDrip статус (часовник)</string>
     <string name="xdripstatus_shortname">xds</string>
