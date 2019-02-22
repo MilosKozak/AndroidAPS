@@ -6,4 +6,10 @@
     <string name="alert_w32_description">Vyměňte baterii.</string>
     <string name="alert_w33_description">Nastavte čas/datum.</string>
     <string name="alert_w34_description">Obraťte se na podporu Accu-Chek.</string>
+    <string name="alert_w36_description"><![CDATA[Množství: <b>%1$d%%</b><br/>Trvání: <b>%2$s h</b>]]></string>
+    <string name="alert_w38_description"><![CDATA[Nastaveno: <b>%1$s</b><br/>Aplikováno: <b>%2$s</b>]]></string>
+    <string name="alert_m22_description">Vyměňte baterii.</string>
+    <string name="alert_m25_description">Obraťte se na podporu Accu-Chek.</string>
+    <string name="alert_m26_description">Vyměnit cartridge.</string>
+    <string name="alert_m28_description">Kontrola stavu pumpy.</string>
 </resources>
