@@ -258,7 +258,7 @@
     <string name="percent">Procent</string>
     <string name="absolute">Absoluut</string>
     <string name="canceltemp">Annuleer tijdelijk basaal</string>
-    <string name="smscommunicator">SMS Communicator</string>
+    <string name="smscommunicator">SMS Commando\'s</string>
     <string name="waitingforpumpresult">Wacht op het resultaat</string>
     <string name="smscommunicator_allowednumbers">Geautoriseerde telefoon nummers</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
@@ -269,7 +269,7 @@
     <string name="bolusrequested" formatted="false">Klaar om %.2fE toe te dienen</string>
     <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2fU succesvol toegediend</string>
     <string name="bolusdelivering" formatted="false">Toedienen %.2fU</string>
-    <string name="smscommunicator_remotecommandsallowed">Sta SMS bevelen toe</string>
+    <string name="smscommunicator_remotecommandsallowed">Sta SMS commando\'s toe</string>
     <string name="smscommunicator_remotebolusnotallowed">Bolus via sms niet toegestaan</string>
     <string name="glucosetype_finger">Vingerprik</string>
     <string name="glucosetype_sensor">Sensor</string>
