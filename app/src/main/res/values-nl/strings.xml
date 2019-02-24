@@ -1124,6 +1124,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="short_status_last_connected">Laatste conn: %1$d min geleden</string>
     <string name="short_status_tbr">TBR: %1$d%% gedurende %2$d / %3$d min</string>
     <string name="short_status_extended">Vertraagd: %1$.2f / %2$.2f U gedurende %3$d min</string>
+    <string name="short_status_multiwave">Multiwave: %1$.2f / %2$.2f E gedurende %3$d min</string>
     <string name="short_status_tdd">TDD: %1$.2f</string>
     <string name="short_status_reservoir">Reservoir: %1$.2fE</string>
     <string name="short_status_battery">Batt.: %1$d%%</string>
