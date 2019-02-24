@@ -1124,6 +1124,7 @@
     <string name="short_status_last_connected">Połączenie: %1$d min temu</string>
     <string name="short_status_tbr">TBR: %1$d%% na %2$d / %3$d min</string>
     <string name="short_status_extended">Przedłużony: %1$.2f / %2$.2f U na %3$d min</string>
+    <string name="short_status_multiwave">Multiwave (zwykły + przedłużony): %1$.2f / %2$.2f U for %3$d min</string>
     <string name="short_status_tdd">TDD: %1$.2f</string>
     <string name="short_status_reservoir">Zbiornik: %1$.2fU</string>
     <string name="short_status_battery">Bat.: %1$d%%</string>
