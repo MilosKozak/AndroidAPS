@@ -1125,6 +1125,7 @@ Unerwartetes Verhalten.</string>
     <string name="short_status_last_connected">Letzte Verb.: vor %1$d min</string>
     <string name="short_status_tbr">TBR: %1$d%% für %2$d / %3$d min</string>
     <string name="short_status_extended">Verzögert: %1$.2f / %2$.2f U für %3$d min</string>
+    <string name="short_status_multiwave">Multiwave: %1$.2f / %2$.2f IE für %3$d min.</string>
     <string name="short_status_tdd">TDD: %1$.2f</string>
     <string name="short_status_reservoir">Reser.: %1$.2fIE</string>
     <string name="short_status_battery">Batt.: %1$d%%</string>
