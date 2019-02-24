@@ -1125,7 +1125,6 @@ Context | Edit Context</string>
     <string name="short_status_last_connected">Недавнее соединение: %1$d мин. назад</string>
     <string name="short_status_tbr">Суммарная скорость базала: %1$d%% за %2$d / %3$d мин</string>
     <string name="short_status_extended">Пролонгированный: %1$.2f / %2$.2f U за %3$d мин</string>
-    <string name="short_status_multiwave">Пролонгированный: %1$.2f / %2$.2f U за %3$d мин</string>
     <string name="short_status_tdd">Суммарный инсулин TDD: %1$.2f</string>
     <string name="short_status_reservoir">Резервуар: %1$.2fед</string>
     <string name="short_status_battery">Батарея: %1$d%%</string>
