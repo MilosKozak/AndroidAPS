@@ -565,6 +565,7 @@
     <string name="danar_bluetooth_status">Estado de bluetooth</string>
     <string name="nav_about">Acerca de</string>
     <string name="smscommunicator_missingsmspermission">Falta permiso SMS</string>
+    <string name="smscommunicator_missingphonestatepermission">Falta permiso de estado del teléfono</string>
     <string name="xdripstatus_settings">xDrip Status (reloj)</string>
     <string name="xdripstatus">Linea de estado xDrip (reloj)</string>
     <string name="xdripstatus_shortname">xds</string>
@@ -1084,8 +1085,12 @@
     <string name="log_alerts">Registro de alarmas</string>
     <string name="enable_tbr_emulation">Activar emulación de dosis basal temporal</string>
     <string name="enable_tbr_emulation_summary">Usar bolos extendidos en lugar de tasas basales temporales para eludir el limite de 250%</string>
+    <string name="disconnect_delay">Desconectar el retraso [s]</string>
     <string name="serial_number">Número de serie</string>
     <string name="release_software_version">Versión de software</string>
+    <string name="ui_processor_software_version">Versión de software de procesador de interfaz de usuario</string>
+    <string name="pc_processor_software_version">Versión del software del procesador de PC</string>
+    <string name="safety_processor_software_version">Versión del software del procesador de seguridad</string>
     <string name="bt_info_page_version">Versión de la página de BT</string>
     <string name="bluetooth_address">Dirección Bluetooth</string>
     <string name="system_id_appendix">Apéndice ID del sistema</string>
