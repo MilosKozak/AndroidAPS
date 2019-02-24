@@ -1121,7 +1121,6 @@
     <string name="short_status_last_connected">最后一次连接: %1$d 分钟前</string>
     <string name="short_status_tbr">临时基础率: %1$d%% for %2$d / %3$d 分钟</string>
     <string name="short_status_extended">扩展: %1$.2f / %2$.2f U 为 %3$d 分钟</string>
-    <string name="short_status_multiwave">扩展: %1$.2f / %2$.2f U 为 %3$d 分钟</string>
     <string name="short_status_tdd">TDD(日输注总量): %1$.2f</string>
     <string name="short_status_reservoir">Reser.: %1$.2fU</string>
     <string name="short_status_battery">电池: %1$d%%</string>
