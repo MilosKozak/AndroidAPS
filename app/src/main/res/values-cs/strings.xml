@@ -1123,7 +1123,6 @@
     <string name="short_status_last_connected">Poslední spoj: před %1$d min</string>
     <string name="short_status_tbr">Doč. bazál: %1$d%% na %2$d / %3$d min</string>
     <string name="short_status_extended">Prodl. bolus: %1$.2f / %2$.2f U na %3$d min</string>
-    <string name="short_status_multiwave">Duální bolus: %1$.2f / %2$.2f U na %3$d min</string>
     <string name="short_status_tdd">CDD: %1$.2f</string>
     <string name="short_status_reservoir">Zásobník: %1$.2fU</string>
     <string name="short_status_battery">Bat.: %1$d%%</string>
