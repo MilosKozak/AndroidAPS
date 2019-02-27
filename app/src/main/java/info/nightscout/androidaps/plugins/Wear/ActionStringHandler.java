@@ -40,22 +40,22 @@ import info.nightscout.androidaps.plugins.IobCobCalculator.IobCobCalculatorPlugi
 import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.Overview.events.EventDismissNotification;
-import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPump;
-import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaRS.DanaRSPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaRv2.DanaRv2Plugin;
-import info.nightscout.androidaps.plugins.PumpInsight.InsightPlugin;
+import info.nightscout.androidaps.plugins.pump.danaR.DanaRPlugin;
+import info.nightscout.androidaps.plugins.pump.danaR.DanaRPump;
+import info.nightscout.androidaps.plugins.pump.danaRKorean.DanaRKoreanPlugin;
+import info.nightscout.androidaps.plugins.pump.danaRS.DanaRSPlugin;
+import info.nightscout.androidaps.plugins.pump.danaRv2.DanaRv2Plugin;
+import info.nightscout.androidaps.plugins.pump.insight.LocalInsightPlugin;
 import info.nightscout.androidaps.plugins.Treatments.CarbsGenerator;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.Callback;
-import info.nightscout.utils.BolusWizard;
-import info.nightscout.utils.DateUtil;
-import info.nightscout.utils.DecimalFormatter;
-import info.nightscout.utils.HardLimits;
-import info.nightscout.utils.SP;
-import info.nightscout.utils.SafeParse;
-import info.nightscout.utils.ToastUtils;
+import info.nightscout.androidaps.utils.BolusWizard;
+import info.nightscout.androidaps.utils.DateUtil;
+import info.nightscout.androidaps.utils.DecimalFormatter;
+import info.nightscout.androidaps.utils.HardLimits;
+import info.nightscout.androidaps.utils.SP;
+import info.nightscout.androidaps.utils.SafeParse;
+import info.nightscout.androidaps.utils.ToastUtils;
 
 /**
  * Created by adrian on 09/02/17.
@@ -232,8 +232,8 @@ public class ActionStringHandler {
                     0d, percentage, useBolusIOB, useBasalIOB, false, useTrend);
 
             Double insulinAfterConstraints = MainApp.getConstraintChecker().applyBolusConstraints(new Constraint<>(bolusWizard.calculatedTotalInsulin)).value();
-            if (insulinAfterConstraints - bolusWizard.calculatedTotalInsulin != 0) {
-                sendError("Insulin contraint violation!" +
+            if (Math.abs(insulinAfterConstraints - bolusWizard.calculatedTotalInsulin) >= 0.01) {
+                sendError("Insulin constraint violation!" +
                         "\nCannot deliver " + format.format(bolusWizard.calculatedTotalInsulin) + "!");
                 return;
             }
@@ -452,7 +452,7 @@ public class ActionStringHandler {
         PumpInterface danaRS = MainApp.getSpecificPlugin(DanaRSPlugin.class);
         PumpInterface danaV2 = MainApp.getSpecificPlugin(DanaRv2Plugin.class);
         PumpInterface danaKorean = MainApp.getSpecificPlugin(DanaRKoreanPlugin.class);
-        PumpInterface insight = MainApp.getSpecificPlugin(InsightPlugin.class);
+        PumpInterface insight = MainApp.getSpecificPlugin(LocalInsightPlugin.class);
 
         boolean startsYesterday = activePump == dana || activePump == danaRS || activePump == danaV2 || activePump == danaKorean || activePump == insight;
 

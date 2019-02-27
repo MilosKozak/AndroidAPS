@@ -40,9 +40,9 @@ import info.nightscout.androidaps.plugins.Loop.APSResult;
 import info.nightscout.androidaps.plugins.Loop.DeviceStatus;
 import info.nightscout.androidaps.plugins.Loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.NSClientInternal.data.DbLogger;
-import info.nightscout.utils.BatteryLevel;
-import info.nightscout.utils.DateUtil;
-import info.nightscout.utils.SP;
+import info.nightscout.androidaps.utils.BatteryLevel;
+import info.nightscout.androidaps.utils.DateUtil;
+import info.nightscout.androidaps.utils.SP;
 
 /**
  * Created by mike on 26.05.2017.
@@ -470,14 +470,14 @@ public class NSUpload {
         DbLogger.dbAdd(intent, data.toString());
     }
 
-    public static void uploadBg(BgReading reading) {
+    public static void uploadBg(BgReading reading, String source) {
         Context context = MainApp.instance().getApplicationContext();
         Bundle bundle = new Bundle();
         bundle.putString("action", "dbAdd");
         bundle.putString("collection", "entries");
         JSONObject data = new JSONObject();
         try {
-            data.put("device", "AndroidAPS-DexcomG5");
+            data.put("device", source);
             data.put("date", reading.date);
             data.put("dateString", DateUtil.toISOString(reading.date));
             data.put("sgv", reading.value);
