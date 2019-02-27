@@ -9,6 +9,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 
 import info.nightscout.androidaps.Config;
@@ -26,13 +27,13 @@ import info.nightscout.androidaps.plugins.NSClientInternal.NSClientPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSAMA.OpenAPSAMAPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSMA.OpenAPSMAPlugin;
 import info.nightscout.androidaps.plugins.OpenAPSSMB.OpenAPSSMBPlugin;
-import info.nightscout.androidaps.plugins.PumpCombo.ComboPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaRS.DanaRSPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaRv2.DanaRv2Plugin;
-import info.nightscout.androidaps.plugins.PumpInsight.InsightPlugin;
-import info.nightscout.androidaps.plugins.PumpVirtual.VirtualPumpPlugin;
+import info.nightscout.androidaps.plugins.pump.combo.ComboPlugin;
+import info.nightscout.androidaps.plugins.pump.danaR.DanaRPlugin;
+import info.nightscout.androidaps.plugins.pump.danaRKorean.DanaRKoreanPlugin;
+import info.nightscout.androidaps.plugins.pump.danaRS.DanaRSPlugin;
+import info.nightscout.androidaps.plugins.pump.danaRv2.DanaRv2Plugin;
+import info.nightscout.androidaps.plugins.pump.insight.LocalInsightPlugin;
+import info.nightscout.androidaps.plugins.pump.virtual.VirtualPumpPlugin;
 import info.nightscout.androidaps.plugins.Sensitivity.SensitivityAAPSPlugin;
 import info.nightscout.androidaps.plugins.Sensitivity.SensitivityOref0Plugin;
 import info.nightscout.androidaps.plugins.Sensitivity.SensitivityOref1Plugin;
@@ -41,9 +42,9 @@ import info.nightscout.androidaps.plugins.SmsCommunicator.SmsCommunicatorPlugin;
 import info.nightscout.androidaps.plugins.Source.SourceDexcomG5Plugin;
 import info.nightscout.androidaps.plugins.Wear.WearPlugin;
 import info.nightscout.androidaps.plugins.XDripStatusline.StatuslinePlugin;
-import info.nightscout.utils.LocaleHelper;
-import info.nightscout.utils.OKDialog;
-import info.nightscout.utils.SP;
+import info.nightscout.androidaps.utils.LocaleHelper;
+import info.nightscout.androidaps.utils.OKDialog;
+import info.nightscout.androidaps.utils.SP;
 
 public class PreferencesActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     MyPreferenceFragment myPreferenceFragment;
@@ -163,7 +164,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
                     addPreferencesFromResourceIfEnabled(DanaRKoreanPlugin.getPlugin(), PluginType.PUMP);
                     addPreferencesFromResourceIfEnabled(DanaRv2Plugin.getPlugin(), PluginType.PUMP);
                     addPreferencesFromResourceIfEnabled(DanaRSPlugin.getPlugin(), PluginType.PUMP);
-                    addPreferencesFromResourceIfEnabled(InsightPlugin.getPlugin(), PluginType.PUMP);
+                    addPreferencesFromResourceIfEnabled(LocalInsightPlugin.getPlugin(), PluginType.PUMP);
                     addPreferencesFromResourceIfEnabled(ComboPlugin.getPlugin(), PluginType.PUMP);
 
                     if (DanaRPlugin.getPlugin().isEnabled(PluginType.PROFILE)
@@ -188,6 +189,17 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
 
                 addPreferencesFromResourceIfEnabled(WearPlugin.getPlugin(), PluginType.GENERAL);
                 addPreferencesFromResourceIfEnabled(StatuslinePlugin.getPlugin(), PluginType.GENERAL);
+            }
+
+            if (Config.NSCLIENT) {
+                PreferenceScreen scrnAdvancedSettings = (PreferenceScreen)findPreference(getString(R.string.key_advancedsettings));
+                if (scrnAdvancedSettings != null) {
+                    scrnAdvancedSettings.removePreference(getPreference(getString(R.string.key_statuslights_res_warning)));
+                    scrnAdvancedSettings.removePreference(getPreference(getString(R.string.key_statuslights_res_critical)));
+                    scrnAdvancedSettings.removePreference(getPreference(getString(R.string.key_statuslights_bat_warning)));
+                    scrnAdvancedSettings.removePreference(getPreference(getString(R.string.key_statuslights_bat_critical)));
+                    scrnAdvancedSettings.removePreference(getPreference(getString(R.string.key_show_statuslights)));
+                }
             }
 
             initSummary(getPreferenceScreen());

@@ -53,24 +53,27 @@ import info.nightscout.androidaps.plugins.Persistentnotification.PersistentNotif
 import info.nightscout.androidaps.plugins.ProfileLocal.LocalProfilePlugin;
 import info.nightscout.androidaps.plugins.ProfileNS.NSProfilePlugin;
 import info.nightscout.androidaps.plugins.ProfileSimple.SimpleProfilePlugin;
-import info.nightscout.androidaps.plugins.PumpCombo.ComboPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaR.DanaRPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaRKorean.DanaRKoreanPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaRS.DanaRSPlugin;
-import info.nightscout.androidaps.plugins.PumpDanaRv2.DanaRv2Plugin;
-import info.nightscout.androidaps.plugins.PumpInsight.InsightPlugin;
-import info.nightscout.androidaps.plugins.PumpMDI.MDIPlugin;
-import info.nightscout.androidaps.plugins.PumpVirtual.VirtualPumpPlugin;
+import info.nightscout.androidaps.plugins.pump.combo.ComboPlugin;
+import info.nightscout.androidaps.plugins.pump.danaR.DanaRPlugin;
+import info.nightscout.androidaps.plugins.pump.danaRKorean.DanaRKoreanPlugin;
+import info.nightscout.androidaps.plugins.pump.danaRS.DanaRSPlugin;
+import info.nightscout.androidaps.plugins.pump.danaRv2.DanaRv2Plugin;
+import info.nightscout.androidaps.plugins.pump.insight.LocalInsightPlugin;
+import info.nightscout.androidaps.plugins.pump.mdi.MDIPlugin;
+import info.nightscout.androidaps.plugins.pump.virtual.VirtualPumpPlugin;
 import info.nightscout.androidaps.plugins.Sensitivity.SensitivityAAPSPlugin;
 import info.nightscout.androidaps.plugins.Sensitivity.SensitivityOref0Plugin;
 import info.nightscout.androidaps.plugins.Sensitivity.SensitivityOref1Plugin;
 import info.nightscout.androidaps.plugins.Sensitivity.SensitivityWeightedAveragePlugin;
 import info.nightscout.androidaps.plugins.SmsCommunicator.SmsCommunicatorPlugin;
 import info.nightscout.androidaps.plugins.Source.SourceDexcomG5Plugin;
+import info.nightscout.androidaps.plugins.Source.SourceDexcomG6Plugin;
+import info.nightscout.androidaps.plugins.Source.SourceEversensePlugin;
 import info.nightscout.androidaps.plugins.Source.SourceGlimpPlugin;
 import info.nightscout.androidaps.plugins.Source.SourceMM640gPlugin;
 import info.nightscout.androidaps.plugins.Source.SourceNSClientPlugin;
 import info.nightscout.androidaps.plugins.Source.SourcePoctechPlugin;
+import info.nightscout.androidaps.plugins.Source.SourceTomatoPlugin;
 import info.nightscout.androidaps.plugins.Source.SourceXdripPlugin;
 import info.nightscout.androidaps.plugins.Treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.plugins.Wear.WearPlugin;
@@ -79,7 +82,7 @@ import info.nightscout.androidaps.receivers.DataReceiver;
 import info.nightscout.androidaps.receivers.KeepAliveReceiver;
 import info.nightscout.androidaps.receivers.NSAlarmReceiver;
 import info.nightscout.androidaps.services.Intents;
-import info.nightscout.utils.FabricPrivacy;
+import info.nightscout.androidaps.utils.FabricPrivacy;
 import info.nightscout.androidaps.plugins.Maintenance.LoggerUtils;
 import io.fabric.sdk.android.Fabric;
 
@@ -157,9 +160,8 @@ public class MainApp extends Application {
             if (Config.PUMPDRIVERS) pluginsList.add(DanaRKoreanPlugin.getPlugin());
             if (Config.PUMPDRIVERS) pluginsList.add(DanaRv2Plugin.getPlugin());
             if (Config.PUMPDRIVERS) pluginsList.add(DanaRSPlugin.getPlugin());
+            if (Config.PUMPDRIVERS && engineeringMode) pluginsList.add(LocalInsightPlugin.getPlugin());
             pluginsList.add(CareportalPlugin.getPlugin());
-            if (Config.PUMPDRIVERS && engineeringMode)
-                pluginsList.add(InsightPlugin.getPlugin()); // <-- Enable Insight plugin here
             if (Config.PUMPDRIVERS) pluginsList.add(ComboPlugin.getPlugin());
             if (Config.MDI) pluginsList.add(MDIPlugin.getPlugin());
             pluginsList.add(VirtualPumpPlugin.getPlugin());
@@ -178,7 +180,10 @@ public class MainApp extends Application {
             pluginsList.add(SourceMM640gPlugin.getPlugin());
             pluginsList.add(SourceGlimpPlugin.getPlugin());
             pluginsList.add(SourceDexcomG5Plugin.getPlugin());
+            pluginsList.add(SourceDexcomG6Plugin.getPlugin());
             pluginsList.add(SourcePoctechPlugin.getPlugin());
+            pluginsList.add(SourceTomatoPlugin.getPlugin());
+            pluginsList.add(SourceEversensePlugin.getPlugin());
             if (Config.SMSCOMMUNICATORENABLED) pluginsList.add(SmsCommunicatorPlugin.getPlugin());
             pluginsList.add(FoodPlugin.getPlugin());
 
