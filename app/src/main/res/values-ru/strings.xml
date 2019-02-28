@@ -382,7 +382,7 @@
     <string name="high_mark">Отметка ВЫСОКИЙ</string>
     <string name="wear">Смарт-часы Wear</string>
     <string name="resend_all_data">повторить отправку всех данных</string>
-    <string name="open_settings_on_wear">открыть настройки для Wear</string>
+    <string name="open_settings_on_wear">Открыть настройки на Wear</string>
     <string name="pumperror">ошибка помпы</string>
     <string name="lowbattery">низкий заряд батареи</string>
     <string name="pumpshutdown">Выключение помпы</string>
