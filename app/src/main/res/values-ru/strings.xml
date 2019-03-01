@@ -117,7 +117,7 @@
     <string name="tempbasal">ВремБазал</string>
     <string name="treatments">назначения</string>
     <string name="virtualpump">виртуальная помпа</string>
-    <string name="careportal">портал назначений</string>
+    <string name="careportal">Портал лечения / назначений</string>
     <string name="configbuilder_pump">помпа</string>
     <string name="configbuilder_pump_description">Какой помпой вы хотели бы пользоваться с AndroidAPS?</string>
     <string name="configbuilder_treatments">назначения</string>
@@ -443,7 +443,7 @@
     <string name="virtualpump_shortname">ВиртПомпа</string>
     <string name="profileviewer_shortname">профильNS</string>
     <string name="treatments_shortname">НАЗНАЧ</string>
-    <string name="careportal_shortname">ПОРТНаз</string>
+    <string name="careportal_shortname">ПОРТЛЕЧ</string>
     <string name="objectives_shortname">ЦЕЛИ</string>
     <string name="wear_shortname">WEAR</string>
     <string name="smscommunicator_shortname">SMS</string>
