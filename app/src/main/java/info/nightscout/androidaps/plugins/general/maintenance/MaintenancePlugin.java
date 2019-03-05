@@ -136,10 +136,6 @@ public class MaintenancePlugin extends PluginBase {
      * parameter.
      *
      * The log files are sorted by the name descending.
-     *
-     * @param directory
-     * @param amount
-     * @return
      */
     public List<File> getLogfiles(String directory, int amount) {
         LOG.debug("getting {} logs from directory {}", amount, directory);
@@ -179,8 +175,6 @@ public class MaintenancePlugin extends PluginBase {
      *
      * The name is constructed using the following scheme:
      * AndroidAPS_LOG_ + Long Time + .log.zip
-     *
-     * @return
      */
     public String constructName() {
         return "AndroidAPS_LOG_" + String.valueOf(new Date().getTime()) + LoggerUtils.SUFFIX;
@@ -242,13 +236,6 @@ public class MaintenancePlugin extends PluginBase {
      * the returned intent should be used to really send the mail using
      *
      * startActivity(Intent.createChooser(emailIntent , "Send email..."));
-     *
-     * @param attachementUri
-     * @param recipient
-     * @param subject
-     * @param body
-     *
-     * @return
      */
     public static Intent sendMail(Uri attachementUri, String recipient, String subject, String body) {
         LOG.debug("sending email to {} with subject {}", recipient, subject);
