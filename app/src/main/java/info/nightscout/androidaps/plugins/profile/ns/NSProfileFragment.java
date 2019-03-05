@@ -15,16 +15,14 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileStore;
-import info.nightscout.androidaps.plugins.general.careportal.Dialogs.NewNSTreatmentDialog;
 import info.nightscout.androidaps.plugins.common.SubscriberFragment;
-import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
+import info.nightscout.androidaps.plugins.general.careportal.Dialogs.NewNSTreatmentDialog;
 import info.nightscout.androidaps.plugins.profile.ns.events.EventNSProfileUpdateGUI;
 import info.nightscout.androidaps.plugins.treatments.fragments.ProfileGraph;
 import info.nightscout.androidaps.utils.DecimalFormatter;
@@ -58,6 +56,8 @@ public class NSProfileFragment extends SubscriberFragment {
     TextView target;
     @BindView(R.id.basal_graph)
     ProfileGraph basalGraph;
+    @BindView(R.id.profile_copy)
+    Button profileCopyButton;
     @BindView(R.id.nsprofile_profileswitch)
     Button activateButton;
 
@@ -125,12 +125,15 @@ public class NSProfileFragment extends SubscriberFragment {
             if (profile.isValid("NSProfileFragment")) {
                 invalidProfile.setVisibility(View.GONE);
                 activateButton.setVisibility(View.VISIBLE);
+                activateButton.setVisibility(View.VISIBLE);
             } else {
                 invalidProfile.setVisibility(View.VISIBLE);
                 activateButton.setVisibility(View.GONE);
+                profileCopyButton.setVisibility(View.GONE);
             }
         } else {
             activateButton.setVisibility(View.GONE);
+            profileCopyButton.setVisibility(View.GONE);
         }
     }
 
@@ -158,6 +161,20 @@ public class NSProfileFragment extends SubscriberFragment {
             if (profile != null) {
                 OKDialog.showConfirmation(getActivity(), MainApp.gs(R.string.activate_profile) + ": " + name + " ?", () ->
                         NewNSTreatmentDialog.doProfileSwitch(store, name, 0, 100, 0)
+                );
+            }
+        }
+    }
+
+    @OnClick(R.id.profile_copy)
+    public void onClickCopyToLocalProfile() {
+        String name = profileSpinner.getSelectedItem() != null ? profileSpinner.getSelectedItem().toString() : "";
+        ProfileStore store = NSProfilePlugin.getPlugin().getProfile();
+        if (store != null) {
+            Profile profile = store.getSpecificProfile(name);
+            if (profile != null) {
+                OKDialog.showConfirmation(getActivity(), MainApp.gs(R.string.copy_profile_confirm) + ": " + name + " ?", () ->
+                        NSProfilePlugin.getPlugin().copyToLocalProfile(profile)
                 );
             }
         }

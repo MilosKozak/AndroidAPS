@@ -13,7 +13,9 @@ import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.ProfileLocal.LocalProfilePlugin;
 import info.nightscout.androidaps.services.Intents;
 import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.androidaps.events.EventProfileStoreChanged;
@@ -111,6 +113,20 @@ public class NSProfilePlugin extends PluginBase implements ProfileInterface {
             Intent restartNSClient = new Intent(Intents.ACTION_RESTART);
             MainApp.instance().getApplicationContext().sendBroadcast(restartNSClient);
         }
+    }
+
+    /**
+     * Copy the given profile to the local profile storeage.
+     */
+    public void copyToLocalProfile(Profile profile) {
+        SP.putBoolean(LocalProfilePlugin.LOCAL_PROFILE + "mmol", Constants.MMOL.equals(profile.getUnits()));
+        SP.putBoolean(LocalProfilePlugin.LOCAL_PROFILE + "mgdl", Constants.MGDL.equals(profile.getUnits()));
+        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "dia", String.valueOf(profile.getDia()));
+        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "ic", profile.getRawIc().toString());
+        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "isf", profile.getRawIsf().toString());
+        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "basal", profile.getRawBasal().toString());
+        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "targetlow", profile.getRawTargetLow().toString());
+        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "targethigh", profile.getRawTargetHigh().toString());
     }
 
     @Nullable

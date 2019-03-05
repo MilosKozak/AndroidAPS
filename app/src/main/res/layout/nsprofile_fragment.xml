@@ -10,14 +10,31 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="5dp" />
 
-    <Button
-        android:id="@+id/nsprofile_profileswitch"
-        style="?android:attr/buttonStyle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/danar_historybuttons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/activate_profile"
-        android:textColor="@color/colorProfileSwitchButton" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/nsprofile_profileswitch"
+            style="?android:attr/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/activate_profile"
+            android:textColor="@color/colorProfileSwitchButton" />
+
+        <Button
+            android:id="@+id/profile_copy"
+            style="?android:attr/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/profile_copy"
+            android:textColor="@color/colorProfileSwitchButton" />
+
+    </LinearLayout>
 
     <include
         layout="@layout/profileviewer_fragment"

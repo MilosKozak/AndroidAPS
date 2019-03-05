@@ -212,20 +212,6 @@ public class MaintenancePlugin extends PluginBase {
         out.close();
     }
 
-    public static void copyActiveNSProfileToLocalProfile() {
-        ProfileStore profileStore = NSProfilePlugin.getPlugin().getProfile();
-        Profile defaultNsProfile =  profileStore.getDefaultProfile();
-
-        SP.putBoolean(LocalProfilePlugin.LOCAL_PROFILE + "mmol", Constants.MMOL.equals(defaultNsProfile.getUnits()));
-        SP.putBoolean(LocalProfilePlugin.LOCAL_PROFILE + "mgdl", Constants.MGDL.equals(defaultNsProfile.getUnits()));
-        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "dia", String.valueOf(defaultNsProfile.getDia()));
-        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "ic", defaultNsProfile.getRawIc().toString());
-        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "isf", defaultNsProfile.getRawIsf().toString());
-        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "basal", defaultNsProfile.getRawBasal().toString());
-        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "targetlow", defaultNsProfile.getRawTargetLow().toString());
-        SP.putString(LocalProfilePlugin.LOCAL_PROFILE + "targethigh", defaultNsProfile.getRawTargetHigh().toString());
-    }
-
     public static Intent sendMail(Uri attachementUri, String recipient, String subject)  {
         StringBuilder builder =new StringBuilder();
         
