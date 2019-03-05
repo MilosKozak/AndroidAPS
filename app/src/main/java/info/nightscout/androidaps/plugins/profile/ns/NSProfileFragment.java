@@ -15,6 +15,7 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import info.nightscout.androidaps.MainApp;
@@ -22,6 +23,7 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.androidaps.plugins.common.SubscriberFragment;
+import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.general.careportal.Dialogs.NewNSTreatmentDialog;
 import info.nightscout.androidaps.plugins.profile.ns.events.EventNSProfileUpdateGUI;
 import info.nightscout.androidaps.plugins.treatments.fragments.ProfileGraph;
