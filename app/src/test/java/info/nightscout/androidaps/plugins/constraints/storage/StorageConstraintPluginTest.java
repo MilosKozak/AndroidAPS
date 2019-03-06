@@ -1,29 +1,35 @@
 package info.nightscout.androidaps.plugins.constraints.storage;
+import android.os.Environment;
+import android.os.StatFs;
+
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+
+import java.io.File;
 
 import info.AAPSMocker;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.Constraint;
-import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
-import info.nightscout.androidaps.utils.SP;
 
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mock;
+
 /**
  * Created by Rumen on 06.03.2019.
  */
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({MainApp.class, StorageConstraintPlugin.class})
+@PrepareForTest({MainApp.class, StorageConstraintPlugin.class, Environment.class, StatFs.class})
 public class StorageConstraintPluginTest extends StorageConstraintPlugin{
-
+    private StatFs stat;
     StorageConstraintPlugin storageConstraintPlugin;
 
     @Test
@@ -43,11 +49,13 @@ public class StorageConstraintPluginTest extends StorageConstraintPlugin{
         Assert.assertEquals(Boolean.TRUE, c2.value());
     }
 
+
     @Before
     public void prepareMock() {
         AAPSMocker.mockMainApp();
         AAPSMocker.mockStrings();
-
+        PowerMockito.mockStatic(Environment.class);
+        stat = mock(StatFs.class);
         storageConstraintPlugin = StorageConstraintPlugin.getPlugin();
     }
 }

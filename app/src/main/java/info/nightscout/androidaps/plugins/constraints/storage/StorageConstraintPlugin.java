@@ -59,9 +59,9 @@ public class StorageConstraintPlugin extends PluginBase implements ConstraintsIn
         File path = Environment.getDataDirectory();
         StatFs stat = new StatFs(path.getPath());
         long blockSize = stat.getBlockSizeLong();
-        long blocksAvailable = stat.getAvailableBlocksLong();
+        long availableBlocks = stat.getAvailableBlocksLong();
         int size = 1048576; // blocksize of 1 Mb
-        return ((blocksAvailable * blockSize) / size);
+        return ((availableBlocks * blockSize) / size);
     }
 
 }
