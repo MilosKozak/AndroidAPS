@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.DecimalFormat;
-import java.util.Calendar;
 import java.util.TimeZone;
 
 import info.nightscout.androidaps.Constants;
@@ -17,13 +16,13 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.interfaces.PumpDescription;
 import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.plugins.ConfigBuilder.ConfigBuilderPlugin;
-import info.nightscout.androidaps.plugins.Overview.events.EventNewNotification;
-import info.nightscout.androidaps.plugins.Overview.notifications.Notification;
-import info.nightscout.utils.DateUtil;
-import info.nightscout.utils.DecimalFormatter;
-import info.nightscout.utils.FabricPrivacy;
-import info.nightscout.utils.MidnightTime;
+import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.general.overview.events.EventNewNotification;
+import info.nightscout.androidaps.plugins.general.overview.notifications.Notification;
+import info.nightscout.androidaps.utils.DateUtil;
+import info.nightscout.androidaps.utils.DecimalFormatter;
+import info.nightscout.androidaps.utils.FabricPrivacy;
+import info.nightscout.androidaps.utils.MidnightTime;
 
 public class Profile {
     private static Logger log = LoggerFactory.getLogger(Profile.class);
@@ -398,7 +397,7 @@ public class Profile {
     public String getIsfList() {
         if (isf_v == null)
             isf_v = convertToSparseArray(isf);
-        return getValuesList(isf_v, null, new DecimalFormat("0.0"), getUnits() + "/U");
+        return getValuesList(isf_v, null, new DecimalFormat("0.0"), getUnits() + MainApp.gs(R.string.profile_per_unit));
     }
 
     public double getIc() {
@@ -418,7 +417,7 @@ public class Profile {
     public String getIcList() {
         if (ic_v == null)
             ic_v = convertToSparseArray(ic);
-        return getValuesList(ic_v, null, new DecimalFormat("0.0"), "g/U");
+        return getValuesList(ic_v, null, new DecimalFormat("0.0"), MainApp.gs(R.string.profile_carbs_per_unit));
     }
 
     public double getBasal() {
@@ -439,7 +438,7 @@ public class Profile {
     public String getBasalList() {
         if (basal_v == null)
             basal_v = convertToSparseArray(basal);
-        return getValuesList(basal_v, null, new DecimalFormat("0.00"), "U/h");
+        return getValuesList(basal_v, null, new DecimalFormat("0.00"), MainApp.gs(R.string.profile_ins_units_per_hout));
     }
 
     public class BasalValue {
