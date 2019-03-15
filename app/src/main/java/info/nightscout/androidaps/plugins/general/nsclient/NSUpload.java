@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
@@ -24,6 +25,7 @@ import java.util.Locale;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
 import info.nightscout.androidaps.services.Intents;
@@ -50,6 +52,8 @@ import info.nightscout.androidaps.utils.SP;
 
 public class NSUpload {
     private static Logger log = LoggerFactory.getLogger(L.NSCLIENT);
+
+    private static final String AAPS_PROFILE = "AAPSProfile";
 
     public static void uploadTempBasalStartAbsolute(TemporaryBasal temporaryBasal, Double originalExtendedAmount) {
         try {
@@ -207,6 +211,13 @@ public class NSUpload {
         try {
             Context context = MainApp.instance().getApplicationContext();
             Bundle bundle = new Bundle();
+
+            try {
+                data.put("startDate", DateUtil.toISOString(System.currentTimeMillis()));
+            } catch (JSONException e) {
+                log.error("Unhandled exception", e);
+            }
+
             bundle.putString("action", "dbAdd");
             bundle.putString("collection", "profile");
             bundle.putString("data", data.toString());

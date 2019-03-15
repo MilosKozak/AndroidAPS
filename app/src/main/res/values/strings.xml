@@ -1319,6 +1319,8 @@
     <string name="storage">internal storage constraint</string>
     <string name="diskfull">Free at least %1$d MB from internal storage! Loop disabled!</string>
 
+    <string name="localprofile_upload_to_ns">Upload to NS</string>
+
     <plurals name="objective_days">
         <item quantity="one">%1$d day</item>
         <item quantity="other">%1$d days</item>

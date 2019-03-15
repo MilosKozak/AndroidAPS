@@ -29,6 +29,7 @@ import info.nightscout.androidaps.plugins.common.SubscriberFragment;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.utils.DecimalFormatter;
 import info.nightscout.androidaps.utils.NumberPicker;
+import info.nightscout.androidaps.utils.OKDialog;
 import info.nightscout.androidaps.utils.SafeParse;
 import info.nightscout.androidaps.utils.TimeListEdit;
 
@@ -43,6 +44,7 @@ public class LocalProfileFragment extends SubscriberFragment {
     Button profileswitchButton;
     Button resetButton;
     Button saveButton;
+    Button uploadButton;
 
     TextView invalidProfile;
 
@@ -88,7 +90,7 @@ public class LocalProfileFragment extends SubscriberFragment {
         profileswitchButton = (Button) layout.findViewById(R.id.localprofile_profileswitch);
         resetButton = (Button) layout.findViewById(R.id.localprofile_reset);
         saveButton = (Button) layout.findViewById(R.id.localprofile_save);
-
+        uploadButton = layout.findViewById(R.id.localprofile_uploadToNS);
 
         invalidProfile = (TextView) layout.findViewById(R.id.invalidprofile);
 
@@ -138,6 +140,34 @@ public class LocalProfileFragment extends SubscriberFragment {
             }
             LocalProfilePlugin.getPlugin().storeSettings();
             updateGUI();
+        });
+
+        uploadButton.setOnClickListener(view -> {
+            OKDialog.showConfirmation(getActivity(), MainApp.gs(R.string.localprofile_upload_to_ns) + " "  + " ?", () -> {
+                        mgdlView.setChecked(LocalProfilePlugin.getPlugin().mgdl);
+                        LocalProfilePlugin.getPlugin().uploadToNS();
+                        mmolView.setChecked(LocalProfilePlugin.getPlugin().mmol);
+                        mgdlView.setChecked(LocalProfilePlugin.getPlugin().mgdl);
+                        diaView.setParams(LocalProfilePlugin.getPlugin().dia, 5d, 12d, 0.1d, new DecimalFormat("0.0"), false, textWatch);	                    mmolView.setChecked(LocalProfilePlugin.getPlugin().mmol);
+                        icView = new TimeListEdit(getContext(), layout, R.id.localprofile_ic, MainApp.gs(R.string.nsprofileview_ic_label) + ":",
+                                LocalProfilePlugin.getPlugin().ic, null, 0.5, 50d, 0.1d, new DecimalFormat("0.0"), save);
+                        diaView.setParams(LocalProfilePlugin.getPlugin().dia, 5d, 12d, 0.1d, new DecimalFormat("0.0"), false, textWatch);
+                        isfView = new TimeListEdit(getContext(), layout, R.id.localprofile_isf, MainApp.gs(R.string.nsprofileview_isf_label) + ":",
+                                LocalProfilePlugin.getPlugin().isf, null, 0.5, 500d, 0.1d, new DecimalFormat("0.0"), save);
+                        icView = new TimeListEdit(getContext(), layout, R.id.localprofile_ic, MainApp.gs(R.string.nsprofileview_ic_label) + ":",
+                                LocalProfilePlugin.getPlugin().ic, null, 0.5, 50d, 0.1d, new DecimalFormat("0.0"), save);
+                        basalView = new TimeListEdit(getContext(), layout, R.id.localprofile_basal, MainApp.gs(R.string.nsprofileview_basal_label) + ": "
+                                + getSumLabel(), LocalProfilePlugin.getPlugin().basal, null, pumpDescription.basalMinimumRate, 10, 0.01d, new DecimalFormat("0.00"), save);	                    isfView = new TimeListEdit(getContext(), layout, R.id.localprofile_isf, MainApp.gs(R.string.nsprofileview_isf_label) + ":", LocalProfilePlugin.getPlugin().isf, null, 0.5, 500d, 0.1d, new DecimalFormat("0.0"), save);
+                        targetView = new TimeListEdit(getContext(), layout, R.id.localprofile_target, MainApp.gs(R.string.nsprofileview_target_label) + ":",
+                                LocalProfilePlugin.getPlugin().targetLow, LocalProfilePlugin.getPlugin().targetHigh, 3d, 200, 0.1d, new DecimalFormat("0.0"), save);	                    basalView = new TimeListEdit(getContext(), layout, R.id.localprofile_basal, MainApp.gs(R.string.nsprofileview_basal_label) + ": " + getSumLabel(), LocalProfilePlugin.getPlugin().basal,
+                        null, pumpDescription.basalMinimumRate, 10, 0.01d, new DecimalFormat("0.00"), save);
+                        updateGUI();
+                        targetView = new TimeListEdit(getContext(), layout, R.id.localprofile_target,
+                        MainApp.gs(R.string.nsprofileview_target_label) + ":", LocalProfilePlugin.getPlugin().targetLow, LocalProfilePlugin.getPlugin().targetHigh,
+                        3d, 200, 0.1d, new DecimalFormat("0.0"), save);
+                        updateGUI();
+                    }
+            );
         });
 
         return layout;
