@@ -1,7 +1,5 @@
 package info.nightscout.androidaps.db;
 
-import android.support.annotation.NonNull;
-
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -76,10 +74,8 @@ public class BgReading implements DataPointWithLabelInterface {
 
     public String directionToSymbol() {
         String symbol = "";
-        log.debug("Direction is:"+direction);
-        direction = calculateSlope();
         if (direction == null) {
-            direction = calculateSlope();
+            direction = calculateDirection();
             this.directionToSymbol(); // possible endless loop ?!?
         } else if (direction.compareTo("DoubleDown") == 0) {
             symbol = "\u21ca";
@@ -253,8 +249,8 @@ public class BgReading implements DataPointWithLabelInterface {
     }
 
 
-    // Coppied from xDrip+
-    public String calculateSlope(){
+    // Copied from xDrip+
+    public String calculateDirection(){
         GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
         if (glucoseStatus == null)
             return "??";
