@@ -28,6 +28,7 @@ public class GlucoseStatus {
     public double short_avgdelta = 0d;
     public double long_avgdelta = 0d;
     public long date = 0L;
+    public long previous_date = 0L;
 
 
     @Override
@@ -142,6 +143,7 @@ public class GlucoseStatus {
 
         status.long_avgdelta = average(long_deltas);
         status.avgdelta = status.short_avgdelta; // for OpenAPS MA
+        status.previous_date = data.get(1).date; // setting the previous value date for slope calculation
 
         return status.round();
     }

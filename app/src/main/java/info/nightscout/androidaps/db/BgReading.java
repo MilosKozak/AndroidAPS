@@ -14,6 +14,7 @@ import java.util.Objects;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.data.GlucoseStatus;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.general.nsclient.data.NSSgv;
@@ -75,8 +76,11 @@ public class BgReading implements DataPointWithLabelInterface {
 
     public String directionToSymbol() {
         String symbol = "";
+        log.debug("Direction is:"+direction);
+        direction = calculateSlope();
         if (direction == null) {
-            symbol = "??";
+            direction = calculateSlope();
+            this.directionToSymbol(); // possible endless loop ?!?
         } else if (direction.compareTo("DoubleDown") == 0) {
             symbol = "\u21ca";
         } else if (direction.compareTo("SingleDown") == 0) {
@@ -250,35 +254,34 @@ public class BgReading implements DataPointWithLabelInterface {
 
 
     // Coppied from xDrip+
-//    public double find_slope() {
-//        double calculated_value_slope;
-//        //Get last 2 BG readings
-////        List<BgReading> last_2 = BgReading.latest(2);
-//
-//        List<BgReading> last_2 = new List<BgReading>();
-//        // FYI: By default, assertions are disabled at runtime. Add "-ea" to commandline to enable.
-//        // https://docs.oracle.com/javase/7/docs/technotes/guides/language/assert.html
-////        assert last_2.get(0).uuid.equals(this.uuid)
-////                log.debug("Last 2 bgReadings are the same");
-//
-//        if ((last_2 != null) && (last_2.size() == 2)) {
-//            calculated_value_slope = calculateSlope(this, last_2.get(1));
-//            return calculated_value_slope;
-//        } else if ((last_2 != null) && (last_2.size() == 1)) {
-//            calculated_value_slope = 0;
-//            return calculated_value_slope;
-//        }
-//        return 0d;
-//    }
+    public String calculateSlope(){
+        GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
+        if (glucoseStatus == null)
+            return "??";
 
-    // If the last 2 dates and values are equal return 0
-    // Otherwise return delta / time difference
-    public static double calculateSlope(BgReading current, BgReading last) {
-        if (current.date == last.date || current.value == last.value) {
-            return 0;
-        } else {
-            return (last.value - current.value) / (last.date - current.date);
+        double slope = glucoseStatus.delta / (glucoseStatus.previous_date - glucoseStatus.date);
+        log.debug("Slope is :"+slope+" delta "+glucoseStatus.delta+" date difference "+(glucoseStatus.date - glucoseStatus.previous_date));
+        double slope_by_minute = slope * 60000;
+        String arrow = "NONE";
+
+        if (slope_by_minute <= (-3.5)) {
+            arrow = "DoubleDown";
+        } else if (slope_by_minute <= (-2)) {
+            arrow = "SingleDown";
+        } else if (slope_by_minute <= (-1)) {
+            arrow = "FortyFiveDown";
+        } else if (slope_by_minute <= (1)) {
+            arrow = "Flat";
+        } else if (slope_by_minute <= (2)) {
+            arrow = "FortyFiveUp";
+        } else if (slope_by_minute <= (3.5)) {
+            arrow = "SingleUp";
+        } else if (slope_by_minute <= (40)) {
+            arrow = "DoubleUp";
         }
+        log.debug("Direction set to: "+arrow);
+        return arrow;
+
     }
 
 }
