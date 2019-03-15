@@ -203,6 +203,24 @@ public class NSUpload {
         }
     }
 
+    public static void uploadProfileToNS(JSONObject data) {
+        try {
+            Context context = MainApp.instance().getApplicationContext();
+            Bundle bundle = new Bundle();
+            bundle.putString("action", "dbAdd");
+            bundle.putString("collection", "profile");
+            bundle.putString("data", data.toString());
+            Intent intent = new Intent(Intents.ACTION_DATABASE);
+            intent.putExtras(bundle);
+            intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+            DbLogger.dbAdd(intent, data.toString());
+        } catch (Exception e) {
+            log.error("Unhandled exception", e);
+        }
+
+    }
+
     public static void uploadDeviceStatus() {
         Profile profile = ProfileFunctions.getInstance().getProfile();
         String profileName = ProfileFunctions.getInstance().getProfileName();
