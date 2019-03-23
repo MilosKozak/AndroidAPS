@@ -375,7 +375,7 @@
     <string name="smscommunicator_basalstopreplywithcode" formatted="false">To stop temp basal reply with code %s</string>
     <string name="smscommunicator_tempbasalcanceled">Temp basal canceled</string>
     <string name="smscommunicator_tempbasalcancelfailed">Canceling temp basal failed</string>
-    <string name="smscommunicator_unknowncommand">Uknown command or wrong reply</string>
+    <string name="smscommunicator_unknowncommand">Unknown command or wrong reply</string>
 
     <string name="quickwizard">QuickWizard</string>
     <string name="quickwizardsettings">QuickWizard settings</string>
