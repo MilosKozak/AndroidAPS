@@ -266,6 +266,10 @@
     <string name="smscommunicator_bolusreplywithcode">Чтобы подать болюс %1$.2fU ответьте кодом %2$s</string>
     <string name="smscommunicator_calibrationreplywithcode">чтобы отправить калибровку %1$.2f ответьте кодом %2$s</string>
     <string name="smscommunicator_bolusfailed">Подача болюса не состоялась</string>
+    <string name="bolusdelivered">Болюс %1$.2fед. подан успешно</string>
+    <string name="bolusrequested">Начинается подача болюса %1$.2fед.</string>
+    <string name="smscommunicator_bolusdelivered">Болюс %1$.2fед. подан успешно</string>
+    <string name="bolusdelivering">Подается болюс %1$.2fед.</string>
     <string name="smscommunicator_remotecommandsallowed">разрешить команды через смс</string>
     <string name="glucosetype_finger">палец</string>
     <string name="glucosetype_sensor">сенсор</string>
@@ -335,6 +339,7 @@
     <string name="valuelimitedto">%1$.2f ограничено до %2$.2f</string>
     <string name="valueoutofrange" formatted="false">величина %s недопустима</string>
     <string name="smscommunicator_remotecommandnotallowed">удаленная команда не разрешена</string>
+    <string name="smscommunicator_remotebolusnotallowed">Удаленный болюс недоступен, повторите попытку позже.</string>
     <string name="smscommunicator_suspendreplywithcode">для приостановки цикла на %1$d мин ответьте кодом %2$s</string>
     <string name="smscommunicator_tempbasalset">врем базал %1$.2fU/h на %2$d мин начат успешно</string>
     <string name="smscommunicator_tempbasalfailed">неуспех старта врем базала</string>
