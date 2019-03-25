@@ -265,12 +265,7 @@
     <string name="smscommunicator_bolusreplywithcode">Om %1$.2fU bolus te lewer antwoord met kode %2$s</string>
     <string name="smscommunicator_calibrationreplywithcode">Om kalibrasie %1$.2f te stuur antwoord met kode %2$s</string>
     <string name="smscommunicator_bolusfailed">Bolus het misluk</string>
-    <string name="bolusdelivered" formatted="false">Bolus %.2fU suksesvol afgelewer</string>
-    <string name="bolusrequested" formatted="false">Gaan %.2fU lewer</string>
-    <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2fU suksesvol afgelewer</string>
-    <string name="bolusdelivering" formatted="false">Lewering van %.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Laat afstandbeheerde bevele toe via SMS</string>
-    <string name="smscommunicator_remotebolusnotallowed">Afstandbeheerde bolus nie toegelaat nie</string>
     <string name="glucosetype_finger">Vinger</string>
     <string name="glucosetype_sensor">Sensor</string>
     <string name="manual">Per hand</string>
@@ -338,16 +333,12 @@
     <string name="smscommunicator_loopisenabled">Lus geaktiveer</string>
     <string name="valuelimitedto">%1$.2f beperk tot %2$.2f</string>
     <string name="valueoutofrange" formatted="false">Waarde %s is uit harde perke</string>
-    <string name="smscommunicator_remotebasalnotallowed">Afstanbheerde basale instelling word nie toegelaat nie</string>
     <string name="smscommunicator_remotecommandnotallowed">Afstandbeheerde bevel word nie toegelaat nie</string>
-    <string name="smscommunicator_basalreplywithcode">Om %1$.2fU basale te aktiveer antwoord met kode %2$s</string>
     <string name="smscommunicator_suspendreplywithcode">Om lus op te skort vir %1$d minute antwoord met kode %2$s</string>
     <string name="smscommunicator_tempbasalset">Temp basale %1$.2fU/h vir %2$d min suksesvol geaktiveerd</string>
     <string name="smscommunicator_tempbasalfailed">Tydelike basale aktivering het gefaal</string>
-    <string name="smscommunicator_basalstopreplywithcode" formatted="false">Stop tydelike basale antwoord met kode %s</string>
     <string name="smscommunicator_tempbasalcanceled">Tydelike basale gekanselleer</string>
     <string name="smscommunicator_tempbasalcancelfailed">Kansellassie van tydelike basale het gefaal</string>
-    <string name="smscommunicator_unknowncommand">Onbekende opdrag of verkeerd antwoord</string>
     <string name="quickwizard">SlimNutsman</string>
     <string name="quickwizardsettings">SlimNutsman instellings</string>
     <string name="overview_editquickwizard_buttontext">Knoppie teks:</string>
@@ -471,7 +462,6 @@
     <string name="send_calibration" formatted="false">Stuur kalibrasie %.1f to xDrip?</string>
     <string name="xdripnotinstalled">xDrip + nie geïnstalleerd nie</string>
     <string name="calibrationsent">Kalibrasie gestuur na xDrip</string>
-    <string name="smscommunicator_remotecalibrationnotallowed">Afstandbeheerde bevel word nie toegelaat nie</string>
     <string name="smscommunicator_calibrationsent">Kalibrasie gestuur. Ontvang moet geaktiveer word in xDrip.</string>
     <string name="smscommunicator_calibrationfailed">xDrip ontvang nie kalibrasies</string>
     <string name="pumpsuspended">Pomp opgeskort</string>
