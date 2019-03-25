@@ -266,12 +266,7 @@
     <string name="smscommunicator_bolusreplywithcode">Чтобы подать болюс %1$.2fU ответьте кодом %2$s</string>
     <string name="smscommunicator_calibrationreplywithcode">чтобы отправить калибровку %1$.2f ответьте кодом %2$s</string>
     <string name="smscommunicator_bolusfailed">Подача болюса не состоялась</string>
-    <string name="bolusdelivered" formatted="false">Болюс %.2fU подан успешно</string>
-    <string name="bolusrequested" formatted="false">Начинается подача болюса %.2fU</string>
-    <string name="smscommunicator_bolusdelivered" formatted="false">Болюс %.2fU дан успешно</string>
-    <string name="bolusdelivering" formatted="false">Подается болюс %.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">разрешить команды через смс</string>
-    <string name="smscommunicator_remotebolusnotallowed">Команда на удаленный болюс не разрешена</string>
     <string name="glucosetype_finger">палец</string>
     <string name="glucosetype_sensor">сенсор</string>
     <string name="manual">вручную</string>
@@ -339,16 +334,12 @@
     <string name="smscommunicator_loopisenabled">зцикл работает</string>
     <string name="valuelimitedto">%1$.2f ограничено до %2$.2f</string>
     <string name="valueoutofrange" formatted="false">величина %s недопустима</string>
-    <string name="smscommunicator_remotebasalnotallowed">удаленная настройка базала не разрешена</string>
     <string name="smscommunicator_remotecommandnotallowed">удаленная команда не разрешена</string>
-    <string name="smscommunicator_basalreplywithcode">чтобы начать базал %1$.2fU/h ответьте кодом %2$s</string>
     <string name="smscommunicator_suspendreplywithcode">для приостановки цикла на %1$d мин ответьте кодом %2$s</string>
     <string name="smscommunicator_tempbasalset">врем базал %1$.2fU/h на %2$d мин начат успешно</string>
     <string name="smscommunicator_tempbasalfailed">неуспех старта врем базала</string>
-    <string name="smscommunicator_basalstopreplywithcode" formatted="false">чтобы прекратить врем базал ответьте кодом %s</string>
     <string name="smscommunicator_tempbasalcanceled">врем базал отменен</string>
     <string name="smscommunicator_tempbasalcancelfailed">отмена врем базала не состоялась</string>
-    <string name="smscommunicator_unknowncommand">неизвестная команда или неверный ответ</string>
     <string name="quickwizard">БыстрыйБолюс</string>
     <string name="quickwizardsettings">БыстрыйБолюс настройки</string>
     <string name="overview_editquickwizard_buttontext">текст на кнопке</string>
@@ -472,7 +463,6 @@
     <string name="send_calibration" formatted="false">отправить калибровку %.1f на xdrip?</string>
     <string name="xdripnotinstalled">xdrip+ не установлен</string>
     <string name="calibrationsent">калибровка передается на xdrip</string>
-    <string name="smscommunicator_remotecalibrationnotallowed">удаленная калибровка не разрешена</string>
     <string name="smscommunicator_calibrationsent">калибровка отправлена. в xdrip должен быть активирован прием</string>
     <string name="smscommunicator_calibrationfailed">xdrip не получает калибровок</string>
     <string name="pumpsuspended">Работа помпы остановлена</string>
