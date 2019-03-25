@@ -267,12 +267,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="smscommunicator_bolusreplywithcode">Renvoyer le code %2$s pour injecter le bolus %1$.2fU</string>
     <string name="smscommunicator_calibrationreplywithcode">Renvoyer le code %2$s pour envoyer la calibration %1$.2f</string>
     <string name="smscommunicator_bolusfailed">Échec du Bolus</string>
-    <string name="bolusdelivered" formatted="false">Bolus %.2fU délivré avec succès</string>
-    <string name="bolusrequested" formatted="false">%.2fU va être injecté</string>
-    <string name="smscommunicator_bolusdelivered" formatted="false">%.2fU de bolus injecté avec succès</string>
-    <string name="bolusdelivering" formatted="false">En train d\'injecter %.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Autoriser les commandes à distance par SMS</string>
-    <string name="smscommunicator_remotebolusnotallowed">Bolus à distance non autorisé</string>
     <string name="glucosetype_finger">Doigt</string>
     <string name="glucosetype_sensor">Capteur</string>
     <string name="manual">Manuel</string>
@@ -340,16 +335,12 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="smscommunicator_loopisenabled">La Boucle est activée</string>
     <string name="valuelimitedto">%1$.2f limité à %2$.2f</string>
     <string name="valueoutofrange" formatted="false">La valeur %s est hors des limites strictes</string>
-    <string name="smscommunicator_remotebasalnotallowed">Le réglage du basal à distance n\'est pas autorisé</string>
     <string name="smscommunicator_remotecommandnotallowed">La commande à distance n\'est pas autorisée</string>
-    <string name="smscommunicator_basalreplywithcode">Envoyer le code %2$s pour initier le basal %1$.2fU/h</string>
     <string name="smscommunicator_suspendreplywithcode">Envoyer le code %2$s pour suspendre la Boucle pour %1$d minutes</string>
     <string name="smscommunicator_tempbasalset">Démarrage réussi pour %1$.2fU/h de basal temporaire pour %2$d min</string>
     <string name="smscommunicator_tempbasalfailed">Le démarrage du basal temporaire a échoué</string>
-    <string name="smscommunicator_basalstopreplywithcode" formatted="false">Envoyer le code %s pour arrêter le basal temporaire</string>
     <string name="smscommunicator_tempbasalcanceled">Basal temporaire annulé</string>
     <string name="smscommunicator_tempbasalcancelfailed">Echec de l\'annulation du basal temporaire</string>
-    <string name="smscommunicator_unknowncommand">Commande inconnue ou fausse réponse</string>
     <string name="quickwizard">Assistant Rapide</string>
     <string name="quickwizardsettings">Paramètres de l\'Assistant Rapide</string>
     <string name="overview_editquickwizard_buttontext">Texte du bouton :</string>
@@ -473,7 +464,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="send_calibration" formatted="false">Transmettre l\'étalonnage %.1f à xDrip ?</string>
     <string name="xdripnotinstalled">xDrip+ n\'est pas installé</string>
     <string name="calibrationsent">Étalonnage envoyé à xDrip</string>
-    <string name="smscommunicator_remotecalibrationnotallowed">L\'étalonnage à distance n\'est pas autorisé</string>
     <string name="smscommunicator_calibrationsent">Étalonnage envoyé. La réception doit être activée dans xDrip.</string>
     <string name="smscommunicator_calibrationfailed">xDrip ne reçoit pas les étalonnages</string>
     <string name="pumpsuspended">Pompe arrêtée</string>
