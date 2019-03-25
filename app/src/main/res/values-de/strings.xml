@@ -266,12 +266,7 @@
     <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
     <string name="smscommunicator_calibrationreplywithcode">Um die Kalibrierung %1$.2f zu senden, antworte mit dem Code %2$s.</string>
     <string name="smscommunicator_bolusfailed">Bolus fehlgeschlagen</string>
-    <string name="bolusdelivered" formatted="false">%.2f IE Bolus erfolgreich abgegeben</string>
-    <string name="bolusrequested" formatted="false">Werde %.2f IE abgeben</string>
-    <string name="smscommunicator_bolusdelivered" formatted="false">Bolus %.2f IE erfolgreich abgegeben</string>
-    <string name="bolusdelivering" formatted="false">Abgabe %1$.2f IE</string>
     <string name="smscommunicator_remotecommandsallowed">Erlaube externe Befehle per SMS</string>
-    <string name="smscommunicator_remotebolusnotallowed">Ferngesteuerter Bolus ist nicht erlaubt</string>
     <string name="glucosetype_finger">Finger</string>
     <string name="glucosetype_sensor">Sensor</string>
     <string name="manual">Manuell</string>
@@ -340,16 +335,12 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
     <string name="smscommunicator_loopisenabled">Loop ist aktiviert.</string>
     <string name="valuelimitedto">%1$.2f limitiert auf %2$.2f</string>
     <string name="valueoutofrange" formatted="false">Wert %1$s ist außerhalb des festen Limits.</string>
-    <string name="smscommunicator_remotebasalnotallowed">Ferngesteuerte Basal-Einstellungen sind nicht erlaubt.</string>
     <string name="smscommunicator_remotecommandnotallowed">Ferngesteuerte Befehle sind nicht erlaubt.</string>
-    <string name="smscommunicator_basalreplywithcode">Um eine BR mit %1$.2f IE/h zu starten, antworte mit dem Code %2$s.</string>
     <string name="smscommunicator_suspendreplywithcode">Um das Loopen für %1$d Minuten zu pausieren, antworte mit dem Code %2$s.</string>
     <string name="smscommunicator_tempbasalset">TBR mit %1$.2f IE/h für %2$d min wurde erfolgreich gestartet.</string>
     <string name="smscommunicator_tempbasalfailed">Das Starten der TBR ist fehlgeschlagen.</string>
-    <string name="smscommunicator_basalstopreplywithcode" formatted="false">Um die TBR abzubrechen, antworte mit dem Code %s.</string>
     <string name="smscommunicator_tempbasalcanceled">TBR abgebrochen</string>
     <string name="smscommunicator_tempbasalcancelfailed">Das Abbrechen der TBR ist fehlgeschlagen.</string>
-    <string name="smscommunicator_unknowncommand">Unbekannter Befehl oder falsche Antwort</string>
     <string name="quickwizard">QuickWizard</string>
     <string name="quickwizardsettings">QuickWizard-Einstellungen</string>
     <string name="overview_editquickwizard_buttontext">Schaltflächen-Text:</string>
@@ -473,7 +464,6 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
     <string name="send_calibration" formatted="false">Kalibrierung %1$.1f an xDrip+ senden?</string>
     <string name="xdripnotinstalled">xDrip+ nicht installiert</string>
     <string name="calibrationsent">Kalibrierung an xDrip+ gesendet</string>
-    <string name="smscommunicator_remotecalibrationnotallowed">Fern-Kalibrierung ist nicht erlaubt.</string>
     <string name="smscommunicator_calibrationsent">Kalibrierung gesendet. Das Empfangen von Kalbrierungen muss in xDrip+ aktiviert sein.</string>
     <string name="smscommunicator_calibrationfailed">xDrip+ hat die Kalbrierung nicht erhalten</string>
     <string name="pumpsuspended">Pumpe pausiert</string>
