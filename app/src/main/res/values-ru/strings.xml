@@ -343,11 +343,20 @@
     <string name="smscommunicator_basalreplywithcode">Чтобы подать базал %1$.2fед./ч в течение %2$d мин. ответьте кодом %3$s</string>
     <string name="smscommunicator_profilereplywithcode">Для переключения профиля на %1$s %2$d%% ответьте кодом %3$s</string>
     <string name="smscommunicator_extendedreplywithcode">Для начала подачи пролонгированного болюса %1$.2fед. за %2$d мин. ответьте кодом %3$s</string>
+    <string name="smscommunicator_basalpctreplywithcode">Для начала подачи базала %1$d%% на %2$d мин. ответьте кодом %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">для приостановки цикла на %1$d мин ответьте кодом %2$s</string>
     <string name="smscommunicator_tempbasalset">врем базал %1$.2fU/h на %2$d мин начат успешно</string>
+    <string name="smscommunicator_extendedset">Пролонгированный болюс %1$.2fед. на %2$d мин. начат успешно</string>
+    <string name="smscommunicator_tempbasalset_percent">Врем. базал %1$d%% на %2$d мин. начат успешно</string>
     <string name="smscommunicator_tempbasalfailed">неуспех старта врем базала</string>
+    <string name="smscommunicator_extendedfailed">Не удалось начать подачу пролонгированного болюса</string>
+    <string name="smscommunicator_basalstopreplywithcode">Для прекращения подачи врем. базала ответьте кодом %1$s</string>
+    <string name="smscommunicator_extendedstopreplywithcode">Для прекращения подачи пролонгированного болюса ответьте кодом %1$s</string>
     <string name="smscommunicator_tempbasalcanceled">врем базал отменен</string>
+    <string name="smscommunicator_extendedcanceled">Пролонгированный болюс отменен</string>
     <string name="smscommunicator_tempbasalcancelfailed">отмена врем базала не состоялась</string>
+    <string name="smscommunicator_extendedcancelfailed">Сбой отмены пролонгированного болюса</string>
+    <string name="smscommunicator_unknowncommand">Неизвестная команда или неверный ответ</string>
     <string name="quickwizard">БыстрыйБолюс</string>
     <string name="quickwizardsettings">БыстрыйБолюс настройки</string>
     <string name="overview_editquickwizard_buttontext">текст на кнопке</string>
@@ -1144,4 +1153,8 @@ Context | Edit Context</string>
     <string name="dst_loop_disabled_warning">Переход на летнее/зимнее время менее чем через 3 часа - замкнутый цикл отключен</string>
     <string name="storage">ограничение по объему карты памяти</string>
     <string name="diskfull">Освободите по крайней мере %1$d MB из внутренней памяти! Цикл остановлен!</string>
+    <string name="wrongformat">Неверный формат</string>
+    <string name="sms_wrongcode">Неверный код. Команда отменена.</string>
+    <string name="notconfigured">Не сконфигурировано</string>
+    <string name="profileswitchcreated">Переключатель профиля создан</string>
 </resources>
