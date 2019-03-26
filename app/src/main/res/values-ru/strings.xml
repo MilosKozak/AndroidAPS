@@ -413,7 +413,7 @@
     <string name="minago">%1$d мин. назад</string>
     <string name="sms_minago">%1$d мин. назад</string>
     <string name="localprofile">локальный профиль</string>
-    <string name="openapsama">Помощник болюса OpenAPS MA</string>
+    <string name="openapsama">Помощник болюса OpenAPS AMA</string>
     <string name="short_avgdelta">краткосрочная средняя дельта</string>
     <string name="long_avgdelta">Долгосрочная средняя дельта</string>
     <string name="array_of_elements">Массив %1$d элементов. \nActual актуальная величина:</string>
