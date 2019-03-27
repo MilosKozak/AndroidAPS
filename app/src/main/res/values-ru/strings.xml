@@ -648,7 +648,7 @@
     <string name="enableuam">Включить непредвиденный прием пищи UAM</string>
     <string name="enablesmb">Включить супер микро болюс SMB</string>
     <string name="enablesmb_summary">Для ускорения действия используйте супер микро болюсы SMB вместо временного базала</string>
-    <string name="enableuam_summary">Поиск непредвиденного приема пищи</string>
+    <string name="enableuam_summary">Поиск незапланированного приема пищи</string>
     <string name="insulin_oref_peak">Время пика действующего инс IOB</string>
     <string name="insulin_peak_time">время пика (в мин.)</string>
     <string name="free_peak_oref">Свободный от пиков Oref</string>
