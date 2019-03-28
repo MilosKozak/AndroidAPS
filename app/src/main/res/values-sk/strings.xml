@@ -54,6 +54,7 @@
     <string name="description_wear">Zobrazovanie stavu a riadenie AndroidAPS z hodiniek s WearOS.</string>
     <string name="description_xdrip_status_line">Zobraz informácie o uzavretom okruhu na xDrip+ watchface.</string>
     <string name="description_sms_communicator">Ovládaj na diaľku AndroidAPS použitím SMS príkazov.</string>
+    <string name="objectives_button_back">Naspäť</string>
     <string name="objectives_button_start">Začiatok</string>
     <string name="objectives_button_verify">Overenie</string>
     <string name="nsprofileview_units_label">Jednotky</string>
@@ -265,6 +266,9 @@
     <string name="smscommunicator_bolusreplywithcode">Pre podanie bolusu %1$.2fU odpovedz SMS kódom %2$s</string>
     <string name="smscommunicator_calibrationreplywithcode">Pre odoslanie kalibrácie %1$.2f odpovedz SMS kódom %2$s</string>
     <string name="smscommunicator_bolusfailed">Chyba pri aplikovaní bolusu</string>
+    <string name="bolusdelivered">Bolus %1$.2fU podaný úspešne</string>
+    <string name="smscommunicator_bolusdelivered">Bolus %1$.2fU podaný úspešne</string>
+    <string name="bolusdelivering">Podávanie %1$.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Povoliť príkazy na diaľku cez SMS</string>
     <string name="glucosetype_finger">Prst</string>
     <string name="glucosetype_sensor">Senzor</string>
