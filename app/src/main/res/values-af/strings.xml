@@ -334,6 +334,7 @@
     <string name="valuelimitedto">%1$.2f beperk tot %2$.2f</string>
     <string name="valueoutofrange" formatted="false">Waarde %s is uit harde perke</string>
     <string name="smscommunicator_remotecommandnotallowed">Afstandbeheerde bevel word nie toegelaat nie</string>
+    <string name="smscommunicator_remotebolusnotallowed">Afstandbeheerde bolus nie beskikbaar nie. Probeer later weer.</string>
     <string name="smscommunicator_suspendreplywithcode">Om lus op te skort vir %1$d minute antwoord met kode %2$s</string>
     <string name="smscommunicator_tempbasalset">Temp basale %1$.2fU/h vir %2$d min suksesvol geaktiveerd</string>
     <string name="smscommunicator_tempbasalfailed">Tydelike basale aktivering het gefaal</string>
