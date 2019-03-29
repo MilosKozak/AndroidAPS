@@ -162,7 +162,7 @@ public class NSProfileFragment extends SubscriberFragment {
             Profile profile = store.getSpecificProfile(name);
             if (profile != null) {
                 OKDialog.showConfirmation(getActivity(), MainApp.gs(R.string.activate_profile) + ": " + name + " ?", () ->
-                        NewNSTreatmentDialog.doProfileSwitch(store, name, 0, 100, 0)
+                        ProfileFunctions.doProfileSwitch(store, name, 0, 100, 0)
                 );
             }
         }
