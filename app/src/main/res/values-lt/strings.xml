@@ -68,6 +68,12 @@
     <string name="careportal_newnstreatment_duration_min_label">Trukmė [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
     <string name="smb_shortname">SMB</string>
+    <string name="date">Data</string>
+    <string name="danarspump_shortname">Dana</string>
+    <string name="selectedpump">Pasirinkta pompa</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="yes">Taip</string>
+    <string name="no">Ne</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
     <string name="storage">vidinės saugyklos apribojimas</string>
