@@ -1087,6 +1087,7 @@
     <string name="mute_alert">Stlmiť</string>
     <string name="pump_alert">Výstraha pumpy</string>
     <string name="log_site_changes">Zaznamenať výmenu kanyly</string>
+    <string name="log_reservoir_changes">Zaznamenať výmenu zásobníka</string>
     <string name="log_tube_changes">Zaznamenať výmenu hadičky</string>
     <string name="log_battery_changes">Zaznamenať výmenu batérie</string>
     <string name="log_operating_mode_changes">Zaznamenať zmenu režimu prevádzky</string>
