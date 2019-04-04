@@ -5,12 +5,17 @@
     <string name="treatmentssafety_maxbolus_title">Maksimalus leistinas bolusas [U]</string>
     <string name="treatmentssafety_maxcarbs_title">Maks. leistini angliavandeniai [g]</string>
     <string name="nav_preferences">Nustatymai</string>
+    <string name="nav_refreshtreatments">Atnaujinti terapiją iš NS</string>
     <string name="nav_resetdb">Iš naujo nustatyti duomenų bazę</string>
     <string name="reset_db_confirm">Ar tikrai norite iš naujo nustatyti duomenų bazę?</string>
     <string name="nav_exit">Išeiti</string>
     <string name="danar_useextended_title">Naudoti ištęstinį bolusą &gt;200%</string>
     <string name="danar_bt_name_title">DanaR Bluetooth įrenginys</string>
     <string name="ns_sync_use_absolute_title">Visada naudoti bazės absoliučias vertes</string>
+    <string name="description_objectives">Mokymosi programa</string>
+    <string name="description_insulin_rapid">Nustatymai Humalog ir NovoRapid / NovoLog insulinams</string>
+    <string name="description_insulin_ultra_rapid">Nustatymai Fiasp insulinui</string>
+    <string name="description_ns_client">Sinchronizuoja duomenis su Nightscout</string>
     <string name="objectives_button_back">Atgal</string>
     <string name="objectives_button_start">Pradėti</string>
     <string name="objectives_button_verify">Patikrinti</string>
