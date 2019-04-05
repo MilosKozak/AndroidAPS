@@ -361,6 +361,8 @@
     <string name="mealbolus">Maistas</string>
     <string name="correctionbous">Korekcija</string>
     <string name="actions">Veiksmai</string>
+    <string name="androidaps_start">AndroidAPS paleista</string>
+    <string name="ns_upload_only">Tik įkelti duomenis į NS (ne sinchronizuoti)</string>
     <string name="othersettings_title">Kita</string>
     <string name="fillbolus_title">Standartiniai insulino kiekiai kateterio/kaniulės užpildymui.</string>
     <string name="button1">Mygtukas 1</string>
@@ -383,11 +385,17 @@
     <string name="sms_minago">prieš %1$dmin</string>
     <string name="localprofile">Vietinis profilis</string>
     <string name="openapsama">OpenAPS AMA</string>
+    <string name="hypo">Hipo</string>
     <string name="activity">Aktyvumas</string>
     <string name="removerecord">Ištrinti įrašą:</string>
     <string name="danar_stats">DanaR statistika</string>
+    <string name="danar_stats_cumulative_tdd">BPD viso</string>
+    <string name="danar_stats_expweight">Eksponentiškai svertinė BPD</string>
+    <string name="danar_stats_basalrate">Valandinė bazė</string>
     <string name="danar_stats_bolus">Bolusas</string>
+    <string name="danar_stats_tdd">BPD bendroji paros dozė</string>
     <string name="danar_stats_date">Data</string>
+    <string name="danar_stats_amount_days"># dienų</string>
     <string name="danar_stats_weight">Svoris</string>
     <string name="danar_stats_warning_Message">Duomenys netikslūs, jei bolusai naudojami sistemos ar adatų užpildymui!</string>
     <string name="danar_stats_olddata_Message">Duomenys seni, spauskite \"ATNAUJINTI\"</string>
