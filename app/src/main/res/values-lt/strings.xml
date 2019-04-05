@@ -60,7 +60,7 @@
     <string name="nsprofileview_units_label">Vienetai</string>
     <string name="nsprofileview_dia_label">IVT (Insulino Veikimo Trukmė)</string>
     <string name="nsprofileview_ic_label">IA (insulino/angliavandenių santykis)</string>
-    <string name="nsprofileview_isf_label">JI (Jautrumas Insulinui)</string>
+    <string name="nsprofileview_isf_label">JIF (jautrumo insulinui faktorius)</string>
     <string name="nsprofileview_basal_label">Valandinė bazė</string>
     <string name="nsprofileview_target_label">Tikslinė gliukozės vertė</string>
     <string name="noprofileset">Nenustatytas profilis</string>
@@ -256,6 +256,8 @@
     <string name="waitingforpumpresult">Laukiama rezultato</string>
     <string name="smscommunicator_allowednumbers">Leidžiami telefono numeriai</string>
     <string name="smscommunicator_allowednumbers_summary">+370XXXXXXXX; +370YYYYYYYY</string>
+    <string name="danarprofile">DanaR profilio nustatymai</string>
+    <string name="uploading">Siunčiama</string>
     <string name="danar_error">klaida</string>
     <string name="danar_glucose">gliukozė</string>
     <string name="danar_carbohydrate">angliavandeniai</string>
