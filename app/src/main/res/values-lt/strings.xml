@@ -582,6 +582,15 @@
     <string name="pairingok">Sujungta</string>
     <string name="danarspump_shortname">Dana</string>
     <string name="selectedpump">Pasirinkta pompa</string>
+    <string name="hypo_duration">\"Hipo\" trukmė</string>
+    <string name="hypo_target">\"Hipo\" tikslas</string>
+    <string name="gettingextendedbolusstatus">Gaunamas ištęstinio boluso statusas</string>
+    <string name="gettingbolusstatus">Gaunamas boluso statusas</string>
+    <string name="gettingtempbasalstatus">Gaunamas laikinos bazės statusas</string>
+    <string name="gettingpumpsettings">Gaunami pompos nustatymai</string>
+    <string name="gettingpumptime">Gaunamas pompos laikas</string>
+    <string name="reuse">naudoti pakartotinai</string>
+    <string name="wearcontrol_title">Laikrodžio valdikliai</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="overview_editquickwizard_usebg">KG apskaičiavimas</string>
     <string name="overview_editquickwizard_usebolusiob">Bolusų AI apskaičiavimas</string>
