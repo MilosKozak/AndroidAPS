@@ -253,6 +253,7 @@
     <string name="danar_valuenotsetproperly">Vertė nėra tinkamai nustatyta</string>
     <string name="reloadprofile">Atnaujinti profilį</string>
     <string name="danar_viewprofile">Peržiūrėti profilį</string>
+    <string name="enacted">Vykdoma</string>
     <string name="comment">Komentaras</string>
     <string name="success">Atlikta</string>
     <string name="percent">Procentai</string>
@@ -321,6 +322,7 @@
     <string name="objectives_2_objective">Perpraskite atvirojo ciklo veikimą bei laikinos bazės rekomendacijas</string>
     <string name="objectives_2_gate">Remdamiesi šia patirtimi, nuspręskite, koks turėtų būti maksimalus bazės dydis bei įveskite jį pompoje ir programos Nustatymuose</string>
     <string name="objectives_3_objective">Pradėkite uždaro ciklo (Closed Loop) režimą su pompos stabdymu esant žemai gliukozei</string>
+    <string name="objectives_3_gate">Keletą dienų praleiskite uždaro ciklo režime su kuo mažiau hipoglikemijų, kai IK = 0</string>
     <string name="objectives_4_objective">Koreguokite savo uždarąjį ciklą po truputį didindami maks IK ir mažindami tikslinę gliukozės vertę</string>
     <string name="objectives_4_gate">Praleiskite keletą dienų ir bent vieną naktį be hipoglikemijos aliarmų</string>
     <string name="objectives_5_objective">Jei reikia, paderinkite valandines bazės vertes bei pagrindinius parametrus ir įgalinkite Autosens funkciją.</string>
@@ -368,6 +370,11 @@
     <string name="actions">Veiksmai</string>
     <string name="androidaps_start">AndroidAPS paleista</string>
     <string name="ns_upload_only">Tik įkelti duomenis į NS (ne sinchronizuoti)</string>
+    <string name="ns_upload_only_summary">Duomenys tik perkeliami į Nightscout. Gliukozės duomenys perkeliami tik tada, kai naudojama lokali programa, pvz.: xDrip. Naudojant NS-profilį, kiti profiliai neaktyvūs.</string>
+    <string name="pumpNotInitialized">Pompa neprijungta!</string>
+    <string name="pumpNotInitializedProfileNotSet">Pompa neprijungta, profilis nepasirinktas!</string>
+    <string name="primefill">Užpildyti kateterį/adatą</string>
+    <string name="fillwarning">Įsitikinkite, kad nurodytas kiekis atitinka Jūsų infuzijos rinkinio specifikaciją!</string>
     <string name="othersettings_title">Kita</string>
     <string name="fillbolus_title">Standartiniai insulino kiekiai kateterio/kaniulės užpildymui.</string>
     <string name="button1">Mygtukas 1</string>
@@ -379,12 +386,28 @@
     <string name="dia">IVT:</string>
     <string name="target_range">Tikslinis diapazonas:</string>
     <string name="prefs_range_title">Vizualizacijos diapazonas</string>
+    <string name="prefs_range_summary">Aukštoji ir žemoji riba Apžvalgos grafikuose bei išmaniuosiuose laikrodžiuose</string>
+    <string name="low_mark">Žemoji riba</string>
+    <string name="high_mark">Aukštoji riba</string>
+    <string name="wear">Išmanieji laikrodžiai</string>
+    <string name="resend_all_data">Pakartotinai siųsti visus duomenis</string>
+    <string name="open_settings_on_wear">Atidaryti išmaniojo laikrodžio nustatymus</string>
     <string name="pumperror">Pompos klaida</string>
     <string name="lowbattery">Senka akumuliatorius</string>
     <string name="pumpshutdown">Pompa išsijungė</string>
     <string name="batterydischarged">Pompos baterija išsikrovusi</string>
     <string name="danarkoreanpump">DanaR Korean</string>
+    <string name="basal_rate">Valandinė bazė:</string>
+    <string name="profile_set_failed">Nepavyko nustatyti bazės profilio</string>
+    <string name="profile_set_ok">Bazės profilis pompoje atnaujintas</string>
+    <string name="danar_disableeasymode">Išjungti pompos EasyUI režimą</string>
+    <string name="danar_enableextendedbolus">Aktyvuoti ištęstinius bolusus pompoje</string>
+    <string name="danar_switchtouhmode">Pakeisti pompoje vv/d režimą į vv/val</string>
+    <string name="basalvaluebelowminimum">Valandinės bazės vertė mažesnė už minimalią. Profilis nenustatytas!</string>
+    <string name="sms_actualbg">KG:</string>
+    <string name="sms_lastbg">Paskutinė KG:</string>
     <string name="MM640g">MM640g</string>
+    <string name="ongoingnotificaction">Nuolatinis pranešimas</string>
     <string name="old_data">SENI DUOMENYS</string>
     <string name="minago">Prieš %1$d min</string>
     <string name="sms_minago">prieš %1$dmin</string>
@@ -423,6 +446,7 @@
     <string name="smscommunicator_shortname">SMS</string>
     <string name="short_tabtitles">Naudoti sutrumpintus skirtukų pavadinimus</string>
     <string name="profile">Profilis</string>
+    <string name="openapsama_max_daily_safety_multiplier_summary">Numatytoji reikšmė: 3 tai pagrindinis OpenAPS saugiklis. Jis apriboja Jūsų valandinę bazę iki trigubos maksimalios valandinės bazės (standartiniu atveju). Jums greičiausiai neprireiks šios reikšmės keisti, tačiau turėtumėte žinoti, kad ji naudojama kaip saugiklis apskaičiuojant \"3x maksimali dienos bazė; 4x dabartinė valandinė bazė\".</string>
     <string name="error_only_numeric_digits_allowed">Galimi tik skaičiai.</string>
     <string name="error_only_numeric_digits_range_allowed">Galimi tik skaičiai intervale %1$s - %2$s.</string>
     <string name="error_field_must_not_be_empty">Laukas negali būti tuščias</string>
@@ -491,11 +515,14 @@
     <string name="careportal_canulaage_label_short">KAMŽ</string>
     <string name="careportal_pbage_label_short">PBAMŽ</string>
     <string name="openaps_short">OAPS</string>
+    <string name="uploader_short">Siunt</string>
+    <string name="virtualpump_extendedbolus_label_short">IštBol</string>
     <string name="careportal_pump_label">POMPA</string>
     <string name="careportal_newnstreatment_duration_min_label">Trukmė [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
     <string name="smb_shortname">SMB</string>
     <string name="date">Data</string>
+    <string name="pairingok">Sujungta</string>
     <string name="danarspump_shortname">Dana</string>
     <string name="selectedpump">Pasirinkta pompa</string>
     <string name="bluetooth">Bluetooth</string>
@@ -503,7 +530,16 @@
     <string name="overview_editquickwizard_usebolusiob">Bolusų AI apskaičiavimas</string>
     <string name="yes">Taip</string>
     <string name="no">Ne</string>
+    <string name="apsselected">DKS pasirinkta</string>
+    <string name="combo_pump_activity_label">Aktyvumas</string>
+    <string name="data_choices">Duomenų pasirinkimas</string>
+    <string name="temptargetshort">LT</string>
+    <string name="ns_autobackfill_summary">Automatiškai atstatyti trūkstamus KG duomenis iš NS</string>
+    <string name="overview_show_cob">Aktyvūs angliavandeniai</string>
+    <string name="openapsama_current_basal_safety_multiplier">Dabartinės bazės saugos daugiklis</string>
+    <string name="virtualpump_pump_def">Bolusas: Žingsnis=%1$s\nIštęstinis bolusas: [Žingsnis=%2$s, Trukmė=%3$smin-%4$sh]\nBazė: Žingsnis=%5$s\nLDB: %6$s (iš %7$s), Trukmė=%8$smin -%9$sh\n%10$s</string>
     <string name="maintenance_shortname">Serv</string>
+    <string name="as">AS</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
     <string name="storage">vidinės saugyklos apribojimas</string>
