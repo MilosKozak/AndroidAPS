@@ -318,7 +318,9 @@
     <string name="objectives_0_gate">Įsitikinkite, kad gliukozės duomenys rodomi Nightscout, o pompos insulino duomenys yra įkelti</string>
     <string name="objectives_1_objective">Aktyvuojamas atviras ciklas</string>
     <string name="objectives_1_gate">Keletą dienų praleiskite atvirojo ciklo (Open Loop) režime, rankiniu būdu tvirtindami kuo daugiau siūlomų bazės pakeitimų. Nustatykite ir naudokite laikinus bei numatytuosiuos tikslus (pvz.: fiziniam aktyvumui ir hipo korekcijai angliavandeniais)</string>
+    <string name="objectives_2_objective">Perpraskite atvirojo ciklo veikimą bei laikinos bazės rekomendacijas</string>
     <string name="objectives_2_gate">Remdamiesi šia patirtimi, nuspręskite, koks turėtų būti maksimalus bazės dydis bei įveskite jį pompoje ir programos Nustatymuose</string>
+    <string name="objectives_3_objective">Pradėkite uždaro ciklo (Closed Loop) režimą su pompos stabdymu esant žemai gliukozei</string>
     <string name="objectives_4_objective">Koreguokite savo uždarąjį ciklą po truputį didindami maks IK ir mažindami tikslinę gliukozės vertę</string>
     <string name="objectives_4_gate">Praleiskite keletą dienų ir bent vieną naktį be hipoglikemijos aliarmų</string>
     <string name="objectives_5_objective">Jei reikia, paderinkite valandines bazės vertes bei pagrindinius parametrus ir įgalinkite Autosens funkciją.</string>
@@ -337,6 +339,8 @@
     <string name="smscommunicator_remotecommandnotallowed">Nuotolinis valdymas negalimas</string>
     <string name="smscommunicator_remotebolusnotallowed">Nuotolinis bolusas negalimas. Bandykite vėliau.</string>
     <string name="smscommunicator_basalreplywithcode">Norėdami aktyvuoti %1$.2fvv/val bazę, kurios trukmė %2$d min, atsakykite kodu %3$s</string>
+    <string name="smscommunicator_profilereplywithcode">Norėdami perjungti profilį %1$s %2$d%%, atsakykite kodu %3$s</string>
+    <string name="smscommunicator_extendedreplywithcode">Norint pradėti ištęstinį bolusą %1$.2fvv %2$d min., atsakykite kodu %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">Norėdami aktyvuoti %1$d%% bazę %2$d min., atsakykite kodu %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">Norėdami sustabdyti Ciklą %1$d min., atsakykite kodu %2$s</string>
     <string name="smscommunicator_tempbasalset">%1$.2f vv/val laikina bazė, kurios trukmė %2$d min., aktyvuota sėkmingai</string>
