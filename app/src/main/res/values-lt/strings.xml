@@ -780,6 +780,12 @@
     <string name="insight_min">min.</string>
     <string name="insight_remaining_over">liko virš</string>
     <string name="insight_total_with">iš viso</string>
+    <string name="insight_unknown">Nežinoma</string>
+    <string name="insight_waiting_for_code">Laukiama kodo patvirtinimo</string>
+    <string name="insight_code_rejected">Kodas atmestas</string>
+    <string name="insight_app_binding">Sujungiama su programa</string>
+    <string name="insight_not_authorized">Neautorizuota</string>
+    <string name="insight_incompatible">Nesuderinama</string>
     <string name="hour">val.</string>
     <string name="day">diena</string>
     <string name="week">savaitė</string>
@@ -834,10 +840,14 @@
     <string name="combo_high_temp_rejected_due_to_pump_history_changes">Laikinas tikslo padidinimas atšauktas, nes skaičiavimuose neatsižvelgta į neseniai pakeistą pompos istoriją</string>
     <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
     <string name="combo_check_date">Paskutinis bolusas įrašytas anksčiau nei prieš 24 val. arba yra ateityje. Prašome patikrinti, ar data pompoje nustatyta teisingai.</string>
+    <string name="unsafeusage">Nesaugus naudojimas</string>
+    <string name="readstatusfailed">Būsenos nuskaityti nepavyko</string>
     <string name="food_short">Maistas</string>
     <string name="reset">atstatyti</string>
     <string name="waitingfortimesynchronization">Laukiama laiko sinchronizavimo (%1$d sek.)</string>
     <string name="loopdisconnectedfor">Nesujungta (%1$d min.)</string>
+    <string name="pump_stopped">Pompa sustabdyta</string>
+    <string name="pump_started">Pompa paleista</string>
     <string name="time">Laikas</string>
     <string name="overview_show_notes_field_in_dialogs_title">Rodyti pastabų laukelį terapijos dialoguose</string>
     <string name="next_button">Kitas</string>
@@ -859,6 +869,14 @@
     <string name="wear_display_settings">Ekrano nustatymai</string>
     <string name="wear_general_settings">Bendrieji nustatymai</string>
     <string name="welcometosetupwizard">Sveiki atvykę į sąrankos vedlį. Jis lydės jus per visą nustatymų procesą\n</string>
+    <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+    <string name="bgsourcesetup">Sukonfigūruoti KG šaltinį</string>
+    <string name="permission">Leidimas</string>
+    <string name="askforpermission">Prašyti leidimo</string>
+    <string name="needlocationpermission">Aplikacijai reikia vietos nustatymo leidimo BT skenavimui atlikti</string>
+    <string name="request">Užklausa</string>
+    <string name="insulinsourcesetup">Konfigūruoti insulino įskiepį</string>
+    <string name="exit">Išeiti</string>
     <string name="danar_timedisplay">Rodyti laiko formatą</string>
     <string name="danar_buttonscroll">Mygtukų slinkties funkcija</string>
     <string name="danar_beep">Pypsėjimas spaudžiant mygtukus</string>
@@ -920,6 +938,14 @@
     <string name="recovering">Atstatoma</string>
     <string name="not_paired">Nesusieta</string>
     <string name="last_connected">Paskutinis prisijungimas</string>
+    <string name="refresh">Atnaujinti</string>
+    <string name="short_status_tbr">LBD: %1$d%% - %2$d / %3$d min</string>
+    <string name="short_status_reservoir">Rez.: %1$.2fvv</string>
+    <string name="profile_total">== ∑  %1$s vv</string>
+    <string name="profile_ins_units_per_hout">vv/val</string>
+    <string name="profile_carbs_per_unit">g/vv</string>
+    <string name="profile_per_unit">/vv</string>
+    <string name="dexcom_lognssensorchange_title">Registruoti sensoriaus keitimą NS</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
     <string name="dst_loop_disabled_warning">Laikas persuktas prieš mažiau nei 3 val - Uždaras ciklas deaktyvuotas</string>
