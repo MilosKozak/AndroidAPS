@@ -406,6 +406,7 @@
     <string name="basalvaluebelowminimum">Valandinės bazės vertė mažesnė už minimalią. Profilis nenustatytas!</string>
     <string name="sms_actualbg">KG:</string>
     <string name="sms_lastbg">Paskutinė KG:</string>
+    <string name="mdi">Daugkartinės injekcijos</string>
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Nuolatinis pranešimas</string>
     <string name="old_data">SENI DUOMENYS</string>
@@ -430,6 +431,7 @@
     <string name="danar_stats_bolus">Bolusas</string>
     <string name="danar_stats_tdd">BPD bendroji paros dozė</string>
     <string name="danar_stats_date">Data</string>
+    <string name="danar_stats_ratio">Koeficientas</string>
     <string name="danar_stats_amount_days"># dienų</string>
     <string name="danar_stats_weight">Svoris</string>
     <string name="danar_stats_warning_Message">Duomenys netikslūs, jei bolusai naudojami sistemos ar adatų užpildymui!</string>
@@ -591,6 +593,15 @@
     <string name="gettingpumptime">Gaunamas pompos laikas</string>
     <string name="reuse">naudoti pakartotinai</string>
     <string name="wearcontrol_title">Laikrodžio valdikliai</string>
+    <string name="connectiontimedout">Prijungimo laikas baigėsi</string>
+    <string name="food">Maistas</string>
+    <string name="shortgramm">g</string>
+    <string name="shortminute">min</string>
+    <string name="shorthour">val</string>
+    <string name="none"><![CDATA[<none>]]></string>
+    <string name="shortkilojoul">kJ</string>
+    <string name="shortenergy">Energ. vertė</string>
+    <string name="shortprotein">Balt.</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="overview_editquickwizard_usebg">KG apskaičiavimas</string>
     <string name="overview_editquickwizard_usebolusiob">Bolusų AI apskaičiavimas</string>
