@@ -964,6 +964,11 @@
     <string name="enable_tbr_emulation">Aktyvuoti LBD emuliaciją</string>
     <string name="serial_number">Serijos numeris</string>
     <string name="release_software_version">Išleistos programinės įrangos versija</string>
+    <string name="delete_pairing">Panaikinti sąsają</string>
+    <string name="pairing_information">Sąsajos informacija</string>
+    <string name="refreh_status">Atnaujinti būseną</string>
+    <string name="start_pump">Paleisti pompą</string>
+    <string name="stop_pump">Sustabdyti pompą</string>
     <string name="operating_mode">Darbinis režimas</string>
     <string name="insight_status">Būsena</string>
     <string name="tdd_total">BPD viso</string>
