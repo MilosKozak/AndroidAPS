@@ -709,6 +709,9 @@
     <string name="unsupportedfirmware">Pompos programinės įrangos versija nepalaikoma</string>
     <string name="dexcomg5_xdripupload_title">Siųsti KG duomenis į xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Xdrip+ pasirinkite 640g/Eversense duomenų šaltinį</string>
+    <string name="nsclientbg">NSClient KG</string>
+    <string name="minimalbasalvaluereplaced">Valandinė bazė pakeista mažiausia palaikoma verte: %s</string>
+    <string name="maximumbasalvaluereplaced">Valandinė bazė pakeista didžiausia palaikoma verte: %s</string>
     <string name="overview_editquickwizard_usebg">KG apskaičiavimas</string>
     <string name="overview_editquickwizard_usebolusiob">Bolusų AIO apskaičiavimas</string>
     <string name="overview_editquickwizard_usebasaliob">Bazės AIO apskaičiavimas</string>
@@ -780,6 +783,10 @@
     <string name="insight_min">min.</string>
     <string name="insight_remaining_over">liko virš</string>
     <string name="insight_total_with">iš viso</string>
+    <string name="insight_stay_always_connected">Likti prisijungus visada</string>
+    <string name="insight_history_syncing">SINCHRONIZAVIMAS</string>
+    <string name="insight_history_busy">UŽIMTA</string>
+    <string name="insight_history_synced">SINCHRONIZUOTA</string>
     <string name="insight_unknown">Nežinoma</string>
     <string name="insight_waiting_for_code">Laukiama kodo patvirtinimo</string>
     <string name="insight_code_rejected">Kodas atmestas</string>
@@ -795,6 +802,7 @@
     <string name="statistics">Statistika</string>
     <string name="not_recommended_due_to_battery_drain">Nerekomenduojama dėl greito akumuliatoriaus iškrovimo</string>
     <string name="enablesmbalways">Leisti SMB visada</string>
+    <string name="enablesmbaftercarbs">Leisti SMB po angliavandenių įvedimo</string>
     <string name="enablesmbwithcob">Leisti SMB su AAO</string>
     <string name="mute">Nutildyti</string>
     <string name="overview_insulin_label">Insulinas</string>
@@ -838,8 +846,12 @@
     <string name="combo_bolus_rejected_due_to_pump_history_change">Skaičiuojant bolusą pasikeitė pompos istorija. Bolusas nesuleistas. Prašome perskaičiuoti, jei boluso vis dar reikia.</string>
     <string name="combo_error_updating_treatment_record">Bolusas sėkmingai suleistas, tačiau įrašas žurnale neįvestas. Taip gali nutikti, jei du vienodi nedideli bolusai suleisti per pastarąsias 2 min. Patikrinkite pompos istoriją ir įrašų žurnalą bei naudodamiesi Careportal įveskite trūkstamus įrašus. Patikrinkite, ar įvedamas įrašas neturi tokios pat laiko žymos ir insulino kiekio, kaip jau egzistuojantis.</string>
     <string name="combo_high_temp_rejected_due_to_pump_history_changes">Laikinas tikslo padidinimas atšauktas, nes skaičiavimuose neatsižvelgta į neseniai pakeistą pompos istoriją</string>
+    <string name="combo_warning_pump_basal_rate_changed">Valandinė bazė pompoje pasikeitė ir netrukus bus atnaujinta</string>
+    <string name="combo_error_failure_reading_changed_basal_rate">Valandinė bazė pompoje pasikeitė, bet nuskaityti nepavyko</string>
+    <string name="combo_activity_checking_for_history_changes">Tikrinami istorijos pokyčiai</string>
     <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
     <string name="combo_check_date">Paskutinis bolusas įrašytas anksčiau nei prieš 24 val. arba yra ateityje. Prašome patikrinti, ar data pompoje nustatyta teisingai.</string>
+    <string name="combo_bolus_count">Bolusų skaičius</string>
     <string name="unsafeusage">Nesaugus naudojimas</string>
     <string name="readstatusfailed">Būsenos nuskaityti nepavyko</string>
     <string name="food_short">Maistas</string>
