@@ -804,6 +804,7 @@
     <string name="enablesmbalways">Leisti SMB visada</string>
     <string name="enablesmbaftercarbs">Leisti SMB po angliavandenių įvedimo</string>
     <string name="enablesmbwithcob">Leisti SMB su AAO</string>
+    <string name="let_temp_basal_run">Paleisti laikinąją bazę</string>
     <string name="mute">Nutildyti</string>
     <string name="overview_insulin_label">Insulinas</string>
     <string name="overview_carbs_label">Angliavandeniai</string>
@@ -846,11 +847,13 @@
     <string name="combo_bolus_rejected_due_to_pump_history_change">Skaičiuojant bolusą pasikeitė pompos istorija. Bolusas nesuleistas. Prašome perskaičiuoti, jei boluso vis dar reikia.</string>
     <string name="combo_error_updating_treatment_record">Bolusas sėkmingai suleistas, tačiau įrašas žurnale neįvestas. Taip gali nutikti, jei du vienodi nedideli bolusai suleisti per pastarąsias 2 min. Patikrinkite pompos istoriją ir įrašų žurnalą bei naudodamiesi Careportal įveskite trūkstamus įrašus. Patikrinkite, ar įvedamas įrašas neturi tokios pat laiko žymos ir insulino kiekio, kaip jau egzistuojantis.</string>
     <string name="combo_high_temp_rejected_due_to_pump_history_changes">Laikinas tikslo padidinimas atšauktas, nes skaičiavimuose neatsižvelgta į neseniai pakeistą pompos istoriją</string>
+    <string name="combo_activity_checking_pump_state">Atnaujinama pompos būklė</string>
     <string name="combo_warning_pump_basal_rate_changed">Valandinė bazė pompoje pasikeitė ir netrukus bus atnaujinta</string>
     <string name="combo_error_failure_reading_changed_basal_rate">Valandinė bazė pompoje pasikeitė, bet nuskaityti nepavyko</string>
     <string name="combo_activity_checking_for_history_changes">Tikrinami istorijos pokyčiai</string>
     <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
     <string name="combo_check_date">Paskutinis bolusas įrašytas anksčiau nei prieš 24 val. arba yra ateityje. Prašome patikrinti, ar data pompoje nustatyta teisingai.</string>
+    <string name="profileswitch_ismissing">Neatliktas profilio keitimas. Prašome atlikti profilio keitimą arba paspausti \"Aktyvuoti profilį\" Vietinio profilio (VP) skiltyje.</string>
     <string name="combo_bolus_count">Bolusų skaičius</string>
     <string name="objectivenotstarted">%1$d tikslas nepradėtas</string>
     <string name="objectivenotfinished">%1$d tikslas nepasiektas</string>
@@ -858,6 +861,7 @@
     <string name="pumplimit">pompos limitas</string>
     <string name="itmustbepositivevalue">reikšmė turi būti teigiama</string>
     <string name="maxbasalmultiplier">maksimalus bazės daugiklis</string>
+    <string name="smb_frequency_exceeded">Bolusas buvo suleistas per paskutines 3 minutes, praleidžiant SMB</string>
     <string name="basal_set_correctly">Bazė nustatyta teisingai</string>
     <string name="limitingpercentrate">Ribojamas maks procentų kiekis %1$d%%, nes %2$s</string>
     <string name="limitingbolus">Bolusas ribojamas iki %1$.1f vv dėl %2$s</string>
@@ -868,6 +872,8 @@
     <string name="maxvalueinpreferences">Maksimali reikšmė nustatymuose</string>
     <string name="unsafeusage">Nesaugus naudojimas</string>
     <string name="readstatusfailed">Būsenos nuskaityti nepavyko</string>
+    <string name="record_pump_site_change">Įrašas apie infuzijos rinkinio keitimą</string>
+    <string name="record_insulin_cartridge_change">Įrašas apie rezervuaro keitimą</string>
     <string name="food_short">Maistas</string>
     <string name="reset">atstatyti</string>
     <string name="waitingfortimesynchronization">Laukiama laiko sinchronizavimo (%1$d sek.)</string>
@@ -897,10 +903,13 @@
     <string name="openapsama_current_basal_safety_multiplier">Dabartinės bazės saugos daugiklis</string>
     <string name="virtualpump_type">Virtualios pompos tipas</string>
     <string name="virtualpump_pump_def">Bolusas: Žingsnis=%1$s\nIštęstinis bolusas: [Žingsnis=%2$s, Trukmė=%3$smin-%4$sh]\nBazė: Žingsnis=%5$s\nLDB: %6$s (iš %7$s), Trukmė=%8$smin -%9$sh\n%10$s</string>
+    <string name="virtualpump_pump_def_extended_note">* Virtualioje pompoje palaikomos tik atskiros vertės, o ne diapazonas detalumui užtikrinti.</string>
     <string name="ns_autobackfill_title">Automatiškai užpildyti trūkstamus KG duomenis</string>
     <string name="wear_display_settings">Ekrano nustatymai</string>
     <string name="wear_general_settings">Bendrieji nustatymai</string>
+    <string name="enable_nsclient">Įjungti NSClient</string>
     <string name="welcometosetupwizard">Sveiki atvykę į sąrankos vedlį. Jis lydės jus per visą nustatymų procesą\n</string>
+    <string name="exitwizard">Praleisti sąrankos vedlį</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
     <string name="bgsourcesetup">Sukonfigūruoti KG šaltinį</string>
     <string name="permission">Leidimas</string>
