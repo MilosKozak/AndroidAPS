@@ -910,8 +910,13 @@
     <string name="enable_nsclient">Įjungti NSClient</string>
     <string name="welcometosetupwizard">Sveiki atvykę į sąrankos vedlį. Jis lydės jus per visą nustatymų procesą\n</string>
     <string name="exitwizard">Praleisti sąrankos vedlį</string>
+    <string name="enableobjectives">Aktyvuoti Tikslus</string>
+    <string name="apssetup">Konfigūruoti DKS įskiepį</string>
+    <string name="sensitivitysetup">Konfigūruoti Jautrumo nustatymo įskiepį</string>
+    <string name="setupwizard_sensitivity_description">Jautrumo įskiepis yra naudojamas jautrumo aptikimui ir AAO skaičiavimams. Daugiau informacijos:</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
     <string name="bgsourcesetup">Sukonfigūruoti KG šaltinį</string>
+    <string name="startobjective">Pradėti jūsų pirmąjį tikslą</string>
     <string name="permission">Leidimas</string>
     <string name="askforpermission">Prašyti leidimo</string>
     <string name="needlocationpermission">Aplikacijai reikia vietos nustatymo leidimo BT skenavimui atlikti</string>
@@ -927,9 +932,12 @@
     <string name="danar_pumpalarm_both">Abu</string>
     <string name="danar_screentimeout">Ekrano aktyvumo laikas [s]</string>
     <string name="danar_backlight">Ekrano apšvietimo laikas [s]</string>
+    <string name="danar_glucoseunits">KG vienetai</string>
     <string name="danar_saveuseroptions">Išsaugoti nustatymus pompoje</string>
     <string name="option_on">Įjungti</string>
     <string name="option_off">Išjungti</string>
+    <string name="custom">Pasirinktinis</string>
+    <string name="largetimedifftitle">Didelis laiko neatitikimas</string>
     <string name="maintenance_email">El. paštas</string>
     <string name="invalid_email_message">Neteisingas el. pašto adresas</string>
     <string name="maintenance_amount">Siunčiamų įrašų skaičius</string>
@@ -986,6 +994,7 @@
     <string name="last_connected">Paskutinis prisijungimas</string>
     <string name="refresh">Atnaujinti</string>
     <string name="short_status_tbr">LBD: %1$d%% - %2$d / %3$d min</string>
+    <string name="short_status_tdd">BPD: %1$.2f</string>
     <string name="short_status_reservoir">Rez.: %1$.2fvv</string>
     <string name="profile_total">== ∑  %1$s vv</string>
     <string name="profile_ins_units_per_hout">vv/val</string>
