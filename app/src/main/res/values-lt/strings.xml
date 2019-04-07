@@ -936,16 +936,25 @@
     <string name="danar_saveuseroptions">Išsaugoti nustatymus pompoje</string>
     <string name="option_on">Įjungti</string>
     <string name="option_off">Išjungti</string>
+    <string name="time_elapsed">Praėjo laiko</string>
+    <string name="nth_objective">%1$d. tikslas </string>
+    <string name="poctech">Poctech</string>
+    <string name="description_source_poctech">Gauti KG vertes iš Poctech programėlės</string>
+    <string name="description_source_tomato">Gauti KG vertes iš Tomato programėlės (MiaoMiao)</string>
     <string name="custom">Pasirinktinis</string>
     <string name="largetimedifftitle">Didelis laiko neatitikimas</string>
+    <string name="storedsettingsfound">Rasti išsaugoti nustatymai</string>
     <string name="maintenance_email">El. paštas</string>
     <string name="invalid_email_message">Neteisingas el. pašto adresas</string>
     <string name="maintenance_amount">Siunčiamų įrašų skaičius</string>
     <string name="maintenance_shortname">Serv</string>
     <string name="send_all_logs">Siųsti įrašus el. paštu</string>
     <string name="delete_logs">Ištrinti įrašus</string>
+    <string name="generated_ecarbs_note">eAngl.: %1$d g (%2$d h), atidėjimas: %3$d m</string>
+    <string name="openaps_noasdata">Nėra autosens duomenų</string>
     <string name="nav_logsettings">Įrašų nustatymai</string>
     <string name="resettodefaults">Atkurti numatytuosius</string>
+    <string name="nsmalfunction">NSClient sutrikimas. Reikėtų paleisti iš naujo NS ir NSClient.</string>
     <string name="as">AS</string>
     <string name="time_offset">Laiko poslinkis</string>
     <string name="setupwizard_preferred_aps_mode">Pageidaujamas DKS režimas</string>
@@ -988,6 +997,8 @@
     <string name="stop_pump">Sustabdyti pompą</string>
     <string name="operating_mode">Darbinis režimas</string>
     <string name="insight_status">Būsena</string>
+    <string name="tdd_bolus">BPD bolusai</string>
+    <string name="tdd_basal">BPD bazė</string>
     <string name="tdd_total">BPD viso</string>
     <string name="recovering">Atstatoma</string>
     <string name="not_paired">Nesusieta</string>
@@ -996,6 +1007,7 @@
     <string name="short_status_tbr">LBD: %1$d%% - %2$d / %3$d min</string>
     <string name="short_status_tdd">BPD: %1$.2f</string>
     <string name="short_status_reservoir">Rez.: %1$.2fvv</string>
+    <string name="short_status_battery">Bat.: %1$d% %</string>
     <string name="profile_total">== ∑  %1$s vv</string>
     <string name="profile_ins_units_per_hout">vv/val</string>
     <string name="profile_carbs_per_unit">g/vv</string>
