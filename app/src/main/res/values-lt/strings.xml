@@ -852,6 +852,20 @@
     <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
     <string name="combo_check_date">Paskutinis bolusas įrašytas anksčiau nei prieš 24 val. arba yra ateityje. Prašome patikrinti, ar data pompoje nustatyta teisingai.</string>
     <string name="combo_bolus_count">Bolusų skaičius</string>
+    <string name="objectivenotstarted">%1$d tikslas nepradėtas</string>
+    <string name="objectivenotfinished">%1$d tikslas nepasiektas</string>
+    <string name="pumpisnottempbasalcapable">Pompa negali nustatyti laikinos bazės</string>
+    <string name="pumplimit">pompos limitas</string>
+    <string name="itmustbepositivevalue">reikšmė turi būti teigiama</string>
+    <string name="maxbasalmultiplier">maksimalus bazės daugiklis</string>
+    <string name="basal_set_correctly">Bazė nustatyta teisingai</string>
+    <string name="limitingpercentrate">Ribojamas maks procentų kiekis %1$d%%, nes %2$s</string>
+    <string name="limitingbolus">Bolusas ribojamas iki %1$.1f vv dėl %2$s</string>
+    <string name="limitingextendedbolus">Ištęstinis bolusas ribojamas iki %1$.1f vv dėl %2$s</string>
+    <string name="limitingmaxiob">Ribojamas maks AIO iki %1$.1f vv dėl %2$s</string>
+    <string name="limitingcarbs">Ribojami angliavandeniai iki %1$d g dėl %2$s</string>
+    <string name="limitingiob">Ribojamas AIO iki %1$.1f V dėl %2$s</string>
+    <string name="maxvalueinpreferences">Maksimali reikšmė nustatymuose</string>
     <string name="unsafeusage">Nesaugus naudojimas</string>
     <string name="readstatusfailed">Būsenos nuskaityti nepavyko</string>
     <string name="food_short">Maistas</string>
@@ -860,6 +874,9 @@
     <string name="loopdisconnectedfor">Nesujungta (%1$d min.)</string>
     <string name="pump_stopped">Pompa sustabdyta</string>
     <string name="pump_started">Pompa paleista</string>
+    <string name="pump_paused">Pompa pristabdyta</string>
+    <string name="absorption_cutoff_title">Maksimalus maisto įsisavinimo laikas [h]</string>
+    <string name="absorption_cutoff_summary">Laikas, per kurį bet koks maistas laikomas įsisavintu. Likę angliavandeniai bus atmesti.</string>
     <string name="time">Laikas</string>
     <string name="overview_show_notes_field_in_dialogs_title">Rodyti pastabų laukelį terapijos dialoguose</string>
     <string name="next_button">Kitas</string>
@@ -867,6 +884,7 @@
     <string name="nav_setupwizard">Sąrankos vedlys</string>
     <string name="setupwizard_finish">UŽBAIGTI</string>
     <string name="setupwizard_language_prompt">Pasirinkite kalbą</string>
+    <string name="boluserrorcode">Įvesta: %1$.2fvv Suleista: %2$.2fvv Klaidos kodas: %3$s</string>
     <string name="cgm">CGM</string>
     <string name="ns_wifionly">Naudoti tik WiFi</string>
     <string name="ns_wifi_ssids">WiFi pavadinimas</string>
@@ -874,6 +892,8 @@
     <string name="connectionsettings_title">Ryšio nustatymai</string>
     <string name="ns_wifi_allowedssids">Leidžiami tinklai (atskirti kabliataškiais)</string>
     <string name="ns_allowroaming">Leisti sujungimą tarptinkliniu ryšiu</string>
+    <string name="openapsama_autosens_max">Maksimali Autosens reikšmė</string>
+    <string name="openapsama_autosens_min">Minimali Autosens reikšmė</string>
     <string name="openapsama_current_basal_safety_multiplier">Dabartinės bazės saugos daugiklis</string>
     <string name="virtualpump_type">Virtualios pompos tipas</string>
     <string name="virtualpump_pump_def">Bolusas: Žingsnis=%1$s\nIštęstinis bolusas: [Žingsnis=%2$s, Trukmė=%3$smin-%4$sh]\nBazė: Žingsnis=%5$s\nLDB: %6$s (iš %7$s), Trukmė=%8$smin -%9$sh\n%10$s</string>
