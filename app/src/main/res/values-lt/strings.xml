@@ -1135,7 +1135,7 @@
     <string name="short_status_multiwave">Daugiabangis: %1$.2f / %2$.2f vv %3$d min</string>
     <string name="short_status_tdd">BPD: %1$.2f</string>
     <string name="short_status_reservoir">Rez.: %1$.2fvv</string>
-    <string name="short_status_battery">Bat.: %1$d% %</string>
+    <string name="short_status_battery">Bat.: %1$d%%</string>
     <string name="max_recovery_duration">Didž. atkūrimo trukmė [s]</string>
     <string name="min_recovery_duration">Min. atkūrimo trukmė [s]</string>
     <string name="recovery_duration">Atkūrimo trukmė</string>
