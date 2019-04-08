@@ -61,4 +61,5 @@ public class SMBDefaults {
     // insulinPeakTime:75 // number of minutes after a bolus activity peaks.  defaults to 55m for Fiasp if useCustomPeakTime: false
     public final static int carbsReqThreshold = 1; // grams of carbsReq to trigger a pushover
     // offline_hotspot:false // enabled an offline-only local wifi hotspot if no Internet available
+    public final static int maxUAMSMBBasalMinutes = 30; // maximum minutes of basal that can be delivered as a single SMB with uncovered COB
 }

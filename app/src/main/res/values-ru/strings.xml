@@ -1158,4 +1158,5 @@ Context | Edit Context</string>
     <string name="sms_wrongcode">Неверный код. Команда отменена.</string>
     <string name="notconfigured">Не сконфигурировано</string>
     <string name="profileswitchcreated">Переключатель профиля создан</string>
+    <string name="smbUAMmaxminutes_summary">Верхний лимит минут базала на UAM SMB</string>
 </resources>

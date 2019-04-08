@@ -75,10 +75,25 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/smbmaxminutes_summary"
-            validate:maxNumber="120"
+            validate:maxNumber="440"
             validate:minNumber="15"
             validate:testType="numericRange" />
 
+        <com.andreabaccega.widget.ValidatingEditTextPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="30"
+            android:dialogMessage="@string/key_smbUAMmaxminutes"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:key="@string/smbUAMmaxminutes"
+            android:maxLines="20"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/smbUAMmaxminutes_summary"
+            validate:maxNumber="140"
+            validate:minNumber="15"
+            validate:testType="numericRange" />
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/key_use_uam"
