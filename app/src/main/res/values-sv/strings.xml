@@ -637,7 +637,7 @@ Eversense-appen.</string>
     <string name="free_peak_oref">Free-Peak Oref</string>
     <string name="rapid_acting_oref">Rapid-Acting Oref</string>
     <string name="ultrarapid_oref">Ultra-Rapid Oref</string>
-    <string name="dia_too_short">%1$s tim DIA är för kort. Använder %2$s istället!</string>
+    <string name="dia_too_short">%1$f tim DIA är för kort. Använder %2$f istället!</string>
     <string name="activate_profile">Aktivera profil</string>
     <string name="date">Datum</string>
     <string name="invalid">OGILTIG</string>
