@@ -1156,6 +1156,10 @@
     <string name="sms_wrongcode">Nesprávný kód. Príkaz zrušený.</string>
     <string name="notconfigured">Nie je nakonfigurované</string>
     <string name="profileswitchcreated">Prepnutie profilu vytvorené</string>
+    <string name="versionChecker">Kontrola verzie</string>
+    <string name="old_version">stará verzia</string>
+    <string name="very_old_version">veľmi stará verzia</string>
+    <string name="new_version_warning">Nová verzia dostupná najmenej %1$d dní! Návrat k liečbe inzulínovou pumpou s podporou senzora po 60 dňoch, okruh bude deaktivovaný po 90 dňoch.</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d deň</item>
         <item quantity="few">%1$d dní</item>
