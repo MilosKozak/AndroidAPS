@@ -1,7 +1,5 @@
 package info.nightscout.androidaps.interaction.actions;
 
-
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.wearable.view.DotsPageIndicator;
 import android.support.wearable.view.GridPagerAdapter;
@@ -21,34 +19,37 @@ import info.nightscout.androidaps.interaction.utils.SafeParse;
 /**
  * Created by adrian on 04/08/18.
  */
-
-
 public class ECarbActivity extends ViewSelectorActivity {
-
     PlusMinusEditText editCarbs;
     PlusMinusEditText editStartTime;
     PlusMinusEditText editDuration;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grid_layout);
-        final Resources res = getResources();
         final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
 
         pager.setAdapter(new MyGridViewPagerAdapter());
         DotsPageIndicator dotsPageIndicator = (DotsPageIndicator) findViewById(R.id.page_indicator);
         dotsPageIndicator.setPager(pager);
-    }
 
+        pager.setOnPageChangeListener(new GridViewPager.OnPageChangeListener() {
+            @Override public void onPageSelected(int row, int column) {
+                if (column == 0 && editCarbs != null) editCarbs.requestFocus();
+                else if (column == 1 && editStartTime != null) editStartTime.requestFocus();
+                else if (column == 2 && editDuration != null) editDuration.requestFocus();
+            }
+            @Override public void onPageScrollStateChanged(int state) {}
+            @Override public void onPageScrolled(int row, int column, float rowOffset, float columnOffset, int rowOffsetPixels, int columnOffsetPixels) {}
+        });
+    }
 
     @Override
     protected void onPause() {
         super.onPause();
         finish();
     }
-
 
     private class MyGridViewPagerAdapter extends GridPagerAdapter {
         @Override
@@ -128,7 +129,6 @@ public class ECarbActivity extends ViewSelectorActivity {
         public boolean isViewFromObject(View view, Object object) {
             return view==object;
         }
-
 
     }
 }

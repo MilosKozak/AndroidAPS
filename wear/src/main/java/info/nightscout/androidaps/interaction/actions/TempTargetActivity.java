@@ -1,9 +1,7 @@
 package info.nightscout.androidaps.interaction.actions;
 
 
-import android.app.Activity;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.wearable.view.DotsPageIndicator;
@@ -22,15 +20,10 @@ import info.nightscout.androidaps.data.ListenerService;
 import info.nightscout.androidaps.interaction.utils.PlusMinusEditText;
 import info.nightscout.androidaps.interaction.utils.SafeParse;
 
-import static android.preference.PreferenceManager.getDefaultSharedPreferences;
-
 /**
  * Created by adrian on 09/02/17.
  */
-
-
 public class TempTargetActivity extends ViewSelectorActivity {
-
     PlusMinusEditText lowRange;
     PlusMinusEditText highRange;
     PlusMinusEditText time;
@@ -41,7 +34,6 @@ public class TempTargetActivity extends ViewSelectorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grid_layout);
-        final Resources res = getResources();
         final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
 
         pager.setAdapter(new MyGridViewPagerAdapter());
@@ -51,15 +43,24 @@ public class TempTargetActivity extends ViewSelectorActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         isMGDL = sp.getBoolean("units_mgdl", true);
         isSingleTarget =  sp.getBoolean("singletarget", true);
-    }
 
+        pager.setOnPageChangeListener(new GridViewPager.OnPageChangeListener() {
+            @Override public void onPageSelected(int row, int column) {
+                System.out.println("ops: " + column);
+                if (column == 0 && time != null) time.requestFocus();
+                else if (column == 1 && lowRange != null) lowRange.requestFocus();
+                else if (column == 2 && highRange != null) highRange.requestFocus();
+            }
+            @Override public void onPageScrollStateChanged(int state) {}
+            @Override public void onPageScrolled(int row, int column, float rowOffset, float columnOffset, int rowOffsetPixels, int columnOffsetPixels) {}
+        });
+    }
 
     @Override
     protected void onPause() {
         super.onPause();
         finish();
     }
-
 
     private class MyGridViewPagerAdapter extends GridPagerAdapter {
         @Override

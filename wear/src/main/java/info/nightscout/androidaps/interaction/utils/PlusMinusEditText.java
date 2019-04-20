@@ -217,4 +217,7 @@ public class PlusMinusEditText implements View.OnKeyListener,
         return false;
     }
 
+    public void requestFocus() {
+        editText.requestFocus();
+    }
 }

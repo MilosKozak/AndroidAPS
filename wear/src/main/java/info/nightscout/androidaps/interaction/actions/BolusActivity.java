@@ -26,22 +26,28 @@ import info.nightscout.androidaps.interaction.utils.SafeParse;
 
 
 public class BolusActivity extends ViewSelectorActivity {
-
-    PlusMinusEditText editCarbs;
     PlusMinusEditText editInsulin;
+    PlusMinusEditText editCarbs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grid_layout);
-        final Resources res = getResources();
         final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
 
         pager.setAdapter(new MyGridViewPagerAdapter());
         DotsPageIndicator dotsPageIndicator = (DotsPageIndicator) findViewById(R.id.page_indicator);
         dotsPageIndicator.setPager(pager);
-    }
 
+        pager.setOnPageChangeListener(new GridViewPager.OnPageChangeListener() {
+            @Override public void onPageSelected(int row, int column) {
+                if (column == 0 && editInsulin != null) editInsulin.requestFocus();
+                else if (column == 1 && editCarbs != null) editCarbs.requestFocus();
+            }
+            @Override public void onPageScrollStateChanged(int state) {}
+            @Override public void onPageScrolled(int row, int column, float rowOffset, float columnOffset, int rowOffsetPixels, int columnOffsetPixels) {}
+        });
+    }
 
     @Override
     protected void onPause() {

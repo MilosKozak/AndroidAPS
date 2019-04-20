@@ -1,7 +1,5 @@
 package info.nightscout.androidaps.interaction.actions;
 
-
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -13,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
@@ -47,6 +44,15 @@ public class WizardActivity extends ViewSelectorActivity {
         dotsPageIndicator.setPager(pager);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         hasPercentage =  sp.getBoolean("wizardpercentage", false);
+
+        pager.setOnPageChangeListener(new GridViewPager.OnPageChangeListener() {
+            @Override public void onPageSelected(int row, int column) {
+                if (column == 0 && editCarbs != null) editCarbs.requestFocus();
+                else if (column == 1 && editPercentage != null) editPercentage.requestFocus();
+            }
+            @Override public void onPageScrollStateChanged(int state) {}
+            @Override public void onPageScrolled(int row, int column, float rowOffset, float columnOffset, int rowOffsetPixels, int columnOffsetPixels) {}
+        });
     }
 
 
