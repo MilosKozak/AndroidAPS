@@ -2,6 +2,7 @@ package info.nightscout.androidaps.interaction.utils;
 
 import android.os.Handler;
 import android.os.Message;
+import android.support.wearable.input.RotaryEncoder;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -96,6 +97,16 @@ public class PlusMinusEditText implements View.OnKeyListener,
                 super.handleMessage(msg);
             }
         };
+
+        editText.setOnGenericMotionListener((ignored, ev) -> {
+            if (ev.getAction() == MotionEvent.ACTION_SCROLL && RotaryEncoder.isFromRotaryEncoder(ev)) {
+                float delta = -RotaryEncoder.getRotaryAxisValue(ev);
+                if (delta > 0) inc(1);
+                else dec(1);
+                return true;
+            }
+            return false;
+        });
 
         minusImage.setOnTouchListener(this);
         minusImage.setOnKeyListener(this);
