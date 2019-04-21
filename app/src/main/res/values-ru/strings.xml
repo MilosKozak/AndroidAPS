@@ -1159,4 +1159,6 @@ Context | Edit Context</string>
     <string name="notconfigured">Не сконфигурировано</string>
     <string name="profileswitchcreated">Переключатель профиля создан</string>
     <string name="versionChecker">Проверка версии</string>
+    <string name="old_version">старая версия</string>
+    <string name="very_old_version">очень старая версия</string>
 </resources>
