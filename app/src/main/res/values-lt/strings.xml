@@ -147,8 +147,6 @@
     <string name="constraints_violation">Apribojimų pažeidimas</string>
     <string name="treatmentdeliveryerror">Boluso suleidimo klaida</string>
     <string name="tempbasaldeliveryerror">Laikinos bazės suleidimo klaida</string>
-    <string name="overview_newtempbasal_basalpercent">Valandinė bazė [%]</string>
-    <string name="overview_newtempbasal_percent_label">% (100 % = dabartinis)</string>
     <string name="setbasalquestion">Patvirtinti naują laikiną bazę:</string>
     <string name="overview_treatment_label">Terapija</string>
     <string name="overview_calculator_label">Skaičiuotuvas</string>
@@ -248,7 +246,6 @@
     <string name="danar_iob_label">Pompos AIO</string>
     <string name="danar_dailyunits">Paros insulinas</string>
     <string name="pump_lastbolus_label">Paskutinis bolusas</string>
-    <string name="hoursago">prieš %.1fval</string>
     <string name="danar_invalidinput">Neteisingai įvesti duomenys</string>
     <string name="danar_valuenotsetproperly">Vertė nėra tinkamai nustatyta</string>
     <string name="reloadprofile">Atnaujinti profilį</string>
@@ -528,7 +525,6 @@
     <string name="resistantadult">Insulinui rezistentiškas suaugęs</string>
     <string name="patientage_summary">Pasirinkite paciento amžių saugumo riboms nustatyti</string>
     <string name="Glimp">Glimp</string>
-    <string name="needwhitelisting">%s įtraukite baterijos optimizavimą į baltąjį sąrašą, tinkamam veikimui užtikrinti</string>
     <string name="loopsuspended">Ciklas sustabdytas</string>
     <string name="loopsuspendedfor">Sustabdyta (%1$d m)</string>
     <string name="loopsuperbolusfor">Superbolusas (%1$d m)</string>
@@ -564,8 +560,6 @@
     <string name="show_statuslights_summary">Pradžios ekrane rodyti spalvotus indikatorius adatos, insulino, sensoriaus naudojimo trukmei bei baterijos įkrovimo lygiui.</string>
     <string name="statuslights_res_warning">Įspėjimo apie žemą rezervuaro lygį riba [U]</string>
     <string name="statuslights_res_critical">Įspėjimo apie kritiškai žemą rezervuaro lygį riba [U]</string>
-    <string name="statuslights_bat_warning">Įspėjimo apie žemą baterijos įkrovimo lygį riba [%]</string>
-    <string name="statuslights_bat_critical">Įspėjimo apie kritiškai žemą baterijos įkrovimo lygį riba [%]</string>
     <string name="iob">AIO</string>
     <string name="cob">AAO</string>
     <string name="virtualpump_firmware_label">Programinė įranga</string>
@@ -764,7 +758,6 @@
     <string name="combo_pump_state_running">Vykdoma</string>
     <string name="combo_pump_action_cancelling_tbr">Laikina bazė atšaukiama</string>
     <string name="combo_pump_action_setting_tbr">Nustatyti laikiną bazę (%1$d%% / %2$d min)</string>
-    <string name="combo_pump_action_bolusing">Bolusas (%.1f vv)</string>
     <string name="combo_pump_action_refreshing">Atnaujinama</string>
     <string name="combo_pump_unsupported_operation">Pompa negali įvykdyti prašomos operacijos</string>
     <string name="combo_low_suspend_forced_notification">Nesaugu: aktyvus ištęstinis arba dvibangis bolusas. Ciklas nustatytas stabdymui prie žemo tik 6 valandoms. Aktyvūs tik paprasti bolusai.</string>
