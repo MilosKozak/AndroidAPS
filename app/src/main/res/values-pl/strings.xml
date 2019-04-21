@@ -146,8 +146,6 @@
     <string name="constraints_violation">Naruszenie ograniczeń</string>
     <string name="treatmentdeliveryerror">Błąd podania bolusa</string>
     <string name="tempbasaldeliveryerror">Błąd podania bazy tymczasowej</string>
-    <string name="overview_newtempbasal_basalpercent">Wartość bazy [%]</string>
-    <string name="overview_newtempbasal_percent_label">% (100% = aktualny)</string>
     <string name="setbasalquestion">Akceptuj nową bazę tymczasową:</string>
     <string name="overview_treatment_label">Leczenie</string>
     <string name="overview_calculator_label">Kalkulator</string>
@@ -247,7 +245,6 @@
     <string name="danar_iob_label">IOB w pompie</string>
     <string name="danar_dailyunits">Jednostki dzienne</string>
     <string name="pump_lastbolus_label">Ostatni bolus</string>
-    <string name="hoursago">%.1fh temu</string>
     <string name="danar_invalidinput">Błędne dane wejściowe</string>
     <string name="danar_valuenotsetproperly">Wartość ustawiona nieprawidłowo</string>
     <string name="reloadprofile">Załaduj profil ponownie</string>
@@ -510,7 +507,6 @@
     <string name="resistantadult">Osoba dorosła insulino odporna</string>
     <string name="patientage_summary">Proszę wybierz wiek pacjenta w celu ustawienia wartości limitów bezpieczeństwa</string>
     <string name="Glimp">Glimp</string>
-    <string name="needwhitelisting">%s Potrzebuję wpisu na białą listę optymalizacji baterii, w celu zapewnienia poprawnego działania</string>
     <string name="loopsuspended">Pętla wstrzymana</string>
     <string name="loopsuspendedfor">Wstrzymana (%1$d m)</string>
     <string name="loopsuperbolusfor">Superbolus (%1$d m)</string>
@@ -546,8 +542,6 @@
     <string name="show_statuslights_summary">Włącz diody stanu dla cage, iage, sage, rezerwuar i poziom baterii na ekranie głównym.</string>
     <string name="statuslights_res_warning">Próg ostrzeżenia o poziomie zbiornika [U]</string>
     <string name="statuslights_res_critical">Próg ostrzeżenia o krytycznym poziomie zbiornika [U]</string>
-    <string name="statuslights_bat_warning">Próg ostrzeżenia o poziomie baterii [%]</string>
-    <string name="statuslights_bat_critical">Próg ostrzeżenia o krytycznym poziomie baterii [%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Firmware</string>
@@ -742,7 +736,6 @@
     <string name="combo_pump_state_running">W działaniu</string>
     <string name="combo_pump_action_cancelling_tbr">Anulowanie TBR</string>
     <string name="combo_pump_action_setting_tbr">Ustawianie TBR (%1$d%% / %2$d min)</string>
-    <string name="combo_pump_action_bolusing">Podawanie bolusa (%.1f U)</string>
     <string name="combo_pump_action_refreshing">Odświeżanie</string>
     <string name="combo_pump_unsupported_operation">Żądana operacja nie jest obsługiwana przez pompę</string>
     <string name="combo_low_suspend_forced_notification">Niebezpieczne użycie: aktywne są bolusy przedłużone lub wielofalowe. Tryb pętli został ustawiony tylko na 6 godzinne zawieszenie z uwagi na niski poziom (BG). W trybie pętli obsługiwane są tylko normalne bolusy</string>
