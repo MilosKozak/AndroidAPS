@@ -248,7 +248,7 @@
     <string name="danar_iob_label">Pumpen-IOB</string>
     <string name="danar_dailyunits">Tägliche Einheiten</string>
     <string name="pump_lastbolus_label">Letzter Bolus:</string>
-    <string name="hoursago">vor %1$.1fh</string>
+    <string name="hoursago">vor %1$.1f Stunde</string>
     <string name="danar_invalidinput">Ungültige Eingabedaten</string>
     <string name="danar_valuenotsetproperly">Wert nicht korrekt gesetzt</string>
     <string name="reloadprofile">Profil neuladen</string>
