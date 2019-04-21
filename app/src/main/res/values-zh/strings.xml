@@ -145,8 +145,6 @@
     <string name="constraints_violation">违反约束条件</string>
     <string name="treatmentdeliveryerror">大剂量输注错误</string>
     <string name="tempbasaldeliveryerror">临时基础输注错误</string>
-    <string name="overview_newtempbasal_basalpercent">基础率数值 [%]</string>
-    <string name="overview_newtempbasal_percent_label">% (100% = 当前)</string>
     <string name="setbasalquestion">接受新的临时基础率</string>
     <string name="overview_treatment_label">治疗</string>
     <string name="overview_calculator_label">计算器</string>
@@ -246,7 +244,6 @@
     <string name="danar_iob_label">泵 IOB</string>
     <string name="danar_dailyunits">每日单位数</string>
     <string name="pump_lastbolus_label">上次大剂量</string>
-    <string name="hoursago">%.1fh 前</string>
     <string name="danar_invalidinput">无效的输入数据</string>
     <string name="danar_valuenotsetproperly">数值设定的不正确</string>
     <string name="reloadprofile">重新加载配置文件</string>
@@ -505,7 +502,6 @@
     <string name="resistantadult">胰岛素抵抗成人</string>
     <string name="patientage_summary">请选择患者年龄以设置安全限制</string>
     <string name="Glimp">Glimp</string>
-    <string name="needwhitelisting">%s 需要加入电池优化白名单才能正常运行</string>
     <string name="loopsuspended">闭环暂停了</string>
     <string name="loopsuspendedfor">暂停了 (%1$d m)</string>
     <string name="loopsuperbolusfor">超级大剂量 (%1$d m)</string>
@@ -541,8 +537,6 @@
     <string name="show_statuslights_summary">在主屏幕上启用cage(碳水时间)、iage(胰岛素时间)、sage(探头使用时间)、储药器和电池电量的状态指示灯。</string>
     <string name="statuslights_res_warning">储药器药量低于阈值[U] 警告</string>
     <string name="statuslights_res_critical">储药器药量低于阈值[U] 严重警告</string>
-    <string name="statuslights_bat_warning">电池电量低于阈值[%] 警告</string>
-    <string name="statuslights_bat_critical">电池电量低于阈值[%] 严重警告</string>
     <string name="iob">IOB活性胰岛素</string>
     <string name="cob">COB活性碳水</string>
     <string name="virtualpump_firmware_label">固件</string>
@@ -735,7 +729,6 @@
     <string name="combo_pump_state_running">正在运行</string>
     <string name="combo_pump_action_cancelling_tbr">正在取消临时基础率</string>
     <string name="combo_pump_action_setting_tbr">正在设置临时基础率 (%1$d%% / %2$d 分钟)</string>
-    <string name="combo_pump_action_bolusing">正在输注大剂量 (%.1f U)</string>
     <string name="combo_pump_action_refreshing">正在刷新</string>
     <string name="combo_pump_unsupported_operation">泵不支持请求的操作</string>
     <string name="combo_low_suspend_forced_notification">不安全的用法: 扩展大剂量(方波) 或者双波被启用了，闭环只支持常规大剂量， 闭环已经被设置为6个小时的低血糖暂停模式(low-suspend only 6 hours).</string>
