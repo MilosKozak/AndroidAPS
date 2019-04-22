@@ -53,6 +53,7 @@
     <string name="description_wear">使用您的 WearOS 手表监视和控制 AndroidAPS。</string>
     <string name="description_xdrip_status_line">在 xDrip + 表盘上显示有关闭环的信息。</string>
     <string name="description_sms_communicator">远程控制 AndroidAPS 使用 SMS 短信命令。</string>
+    <string name="objectives_button_back">返回</string>
     <string name="objectives_button_start">开始</string>
     <string name="objectives_button_verify">校验</string>
     <string name="nsprofileview_units_label">单位</string>
@@ -261,6 +262,10 @@
     <string name="smscommunicator_bolusreplywithcode">要输注大剂量胰岛素%1$.2fU 回复如下代码 %2$s</string>
     <string name="smscommunicator_calibrationreplywithcode">要发送校准值 %1$.2f 回复如下代码 %2$s</string>
     <string name="smscommunicator_bolusfailed">大剂量输注失败</string>
+    <string name="bolusdelivered">已经成功输注大剂量%1$.2fU</string>
+    <string name="bolusrequested">将要输注 %1$.2fU</string>
+    <string name="smscommunicator_bolusdelivered">已经成功输注大剂量%1$.2fU</string>
+    <string name="bolusdelivering">正在输注 %1$.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">通过SMS短信允许远程命令</string>
     <string name="glucosetype_finger">手指</string>
     <string name="glucosetype_sensor">传感器</string>
@@ -328,15 +333,23 @@
     <string name="smscommunicator_loopisenabled">闭环被启用</string>
     <string name="valuelimitedto">%1$.2f 超过 %2$.2f的限制</string>
     <string name="smscommunicator_remotecommandnotallowed">远程命令没有被允许</string>
+    <string name="smscommunicator_remotebolusnotallowed">远程大剂量不可用。请稍后再试。</string>
     <string name="smscommunicator_basalreplywithcode">要开始基础率 %1$.2fU/h 持续时间%2$d 分钟，请回复如下代码 %3$s</string>
+    <string name="smscommunicator_profilereplywithcode">要切换配置文件到 %1$s %2$d%% 请回复代码 %3$s</string>
     <string name="smscommunicator_extendedreplywithcode">要开始扩展大剂量 %1$.2fU/h 持续时间%2$d 分钟，请回复如下代码 %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">要开始基础率 %1$d%% 持续时间%2$d 分钟，请回复如下代码 %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">要暂停闭环 %1$d 分钟请回复如下代码 %2$s</string>
     <string name="smscommunicator_tempbasalset">临时基础率 %1$.2fU/h 持续 %2$d 分钟启用成功了</string>
     <string name="smscommunicator_tempbasalset_percent">临时基础率 %1$d%% 持续时间 %2$d 分钟 启用成功了</string>
     <string name="smscommunicator_tempbasalfailed">开始临时基础率失败了</string>
+    <string name="smscommunicator_extendedfailed">开始扩展大剂量失败了</string>
+    <string name="smscommunicator_basalstopreplywithcode">要停止临时基础率，请回复如下代码 %1$s</string>
+    <string name="smscommunicator_extendedstopreplywithcode">要停止扩展大剂量，请回复如下代码 %1$s</string>
     <string name="smscommunicator_tempbasalcanceled">临时基础率取消了</string>
+    <string name="smscommunicator_extendedcanceled">扩展大剂量已经取消了</string>
     <string name="smscommunicator_tempbasalcancelfailed">取消临时基础率失败</string>
+    <string name="smscommunicator_extendedcancelfailed">取消扩展大剂量失败</string>
+    <string name="smscommunicator_unknowncommand">未知的命令或者错误的回复</string>
     <string name="quickwizard">快速向导</string>
     <string name="quickwizardsettings">快速向导设置</string>
     <string name="overview_editquickwizard_buttontext">按钮文本:</string>
@@ -548,6 +561,7 @@
     <string name="danar_bluetooth_status">蓝牙状态</string>
     <string name="nav_about">关于</string>
     <string name="smscommunicator_missingsmspermission">缺少 SMS 短信权限</string>
+    <string name="smscommunicator_missingphonestatepermission">缺少手机状态权限</string>
     <string name="xdripstatus_settings">xDrip 状态 (手表)</string>
     <string name="xdripstatus">xDrip 状态线 (手表)</string>
     <string name="xdripstatus_shortname">xdrip</string>
@@ -1055,6 +1069,7 @@
     <string name="mute_alert">静音</string>
     <string name="pump_alert">泵警报</string>
     <string name="log_site_changes">记录位置更换</string>
+    <string name="log_reservoir_changes">记录储药器更换</string>
     <string name="log_tube_changes">记录管路更换</string>
     <string name="log_battery_changes">记录电池更换</string>
     <string name="log_operating_mode_changes">记录操作模式更改</string>
@@ -1111,6 +1126,13 @@
     <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">记录传感器更换至NS服务器</string>
     <string name="dexcom_lognssensorchange_summary">在传感器启动时在 NS服务器 自动创建事件 \"传感器更改\"</string>
+    <string name="tomato">番茄（喵喵）</string>
+    <string name="storage">内部储存空间不足</string>
+    <string name="diskfull">至少 剩余%1$d MB 内部存储！闭环已禁用！</string>
+    <string name="wrongformat">格式错误</string>
+    <string name="sms_wrongcode">错误的代码。命令取消</string>
+    <string name="notconfigured">未配置</string>
+    <string name="profileswitchcreated">配置文件已创建</string>
     <plurals name="objective_days">
         <item quantity="other">%1$d　天</item>
     </plurals>
