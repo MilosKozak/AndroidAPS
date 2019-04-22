@@ -330,6 +330,7 @@
     <string name="smscommunicator_remotecommandnotallowed">远程命令没有被允许</string>
     <string name="smscommunicator_basalreplywithcode">要开始基础率 %1$.2fU/h 持续时间%2$d 分钟，请回复如下代码 %3$s</string>
     <string name="smscommunicator_extendedreplywithcode">要开始扩展大剂量 %1$.2fU/h 持续时间%2$d 分钟，请回复如下代码 %3$s</string>
+    <string name="smscommunicator_basalpctreplywithcode">要开始基础率 %1$d%% 持续时间%2$d 分钟，请回复如下代码 %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">要暂停闭环 %1$d 分钟请回复如下代码 %2$s</string>
     <string name="smscommunicator_tempbasalset">临时基础率 %1$.2fU/h 持续 %2$d 分钟启用成功了</string>
     <string name="smscommunicator_tempbasalfailed">开始临时基础率失败了</string>
