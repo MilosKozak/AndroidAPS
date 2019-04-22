@@ -29,6 +29,8 @@ public class GlucoseStatus {
     public double long_avgdelta = 0d;
     public long date = 0L;
     public long previous_date = 0L;
+    public double prev_glucose = 0d;
+
 
 
     @Override
@@ -62,7 +64,8 @@ public class GlucoseStatus {
         // load 45min
         //long fromtime = DateUtil.now() - 60 * 1000L * 45;
         //List<BgReading> data = MainApp.getDbHelper().getBgreadingsDataFromTime(fromtime, false);
-
+        long prevDate = 0;
+        double prevValue = 0;
         List<BgReading> data = IobCobCalculatorPlugin.getPlugin().getBgReadings();
 
         if (data == null)
@@ -109,6 +112,11 @@ public class GlucoseStatus {
                 // multiply by 5 to get the same units as delta, i.e. mg/dL/5m
                 change = now.value - then.value;
                 avgdelta = change / minutesago * 5;
+                // save the value of date if it was 5 min ago or less than 10 min
+                if( minutesago >= 5 && minutesago < 10 ) {
+                    prevDate = then_date;
+                    prevValue = then.value;
+                }
 
                 // use the average of all data points in the last 2.5m for all further "now" calculations
                 if (0 < minutesago && minutesago < 2.5) {
@@ -143,7 +151,8 @@ public class GlucoseStatus {
 
         status.long_avgdelta = average(long_deltas);
         status.avgdelta = status.short_avgdelta; // for OpenAPS MA
-        status.previous_date = data.get(1).date; // setting the previous value date for slope calculation
+        status.previous_date = prevDate; // setting the previous value date for slope calculation
+        status.prev_glucose = prevValue;
 
         return status.round();
     }

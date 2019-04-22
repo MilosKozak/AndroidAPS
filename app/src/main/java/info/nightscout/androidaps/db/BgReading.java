@@ -255,7 +255,8 @@ public class BgReading implements DataPointWithLabelInterface {
         if (glucoseStatus == null)
             return "??";
 
-        double slope = glucoseStatus.delta / (glucoseStatus.previous_date - glucoseStatus.date);
+//        double slope = glucoseStatus.delta / (glucoseStatus.previous_date - glucoseStatus.date);
+        double slope = (glucoseStatus.glucose - glucoseStatus.prev_glucose) / (glucoseStatus.previous_date - glucoseStatus.date);
         log.debug("Slope is :"+slope+" delta "+glucoseStatus.delta+" date difference "+(glucoseStatus.date - glucoseStatus.previous_date));
         double slope_by_minute = slope * 60000;
         String arrow = "NONE";
