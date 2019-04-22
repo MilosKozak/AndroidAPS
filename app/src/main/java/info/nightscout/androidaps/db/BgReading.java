@@ -252,7 +252,7 @@ public class BgReading implements DataPointWithLabelInterface {
     // Copied from xDrip+
     public String calculateDirection(){
         GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
-        if (glucoseStatus == null)
+        if (glucoseStatus == null || glucoseStatus.prev_glucose != 0)
             return "??";
 
 //        double slope = glucoseStatus.delta / (glucoseStatus.previous_date - glucoseStatus.date);
