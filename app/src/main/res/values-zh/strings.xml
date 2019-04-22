@@ -1114,6 +1114,7 @@
     <string name="short_status_last_connected">最后一次连接: %1$d 分钟前</string>
     <string name="short_status_tbr">临时基础率: %1$d%% for %2$d / %3$d 分钟</string>
     <string name="short_status_extended">扩展: %1$.2f / %2$.2f U 为 %3$d 分钟</string>
+    <string name="short_status_multiwave">多波: %1$.2f / %2$.2f U 持续时间 %3$d 分钟</string>
     <string name="short_status_tdd">TDD(日输注总量): %1$.2f</string>
     <string name="short_status_reservoir">Reser.: %1$.2fU</string>
     <string name="short_status_battery">电池: %1$d%%</string>
@@ -1128,6 +1129,8 @@
     <string name="dexcom_lognssensorchange_title">记录传感器更换至NS服务器</string>
     <string name="dexcom_lognssensorchange_summary">在传感器启动时在 NS服务器 自动创建事件 \"传感器更改\"</string>
     <string name="tomato">番茄（喵喵）</string>
+    <string name="tomato_short">番茄</string>
+    <string name="dst_in_24h_warning">在24小时内或更少时间内更夏令时时间</string>
     <string name="dst_loop_disabled_warning">不到3小时前夏令时时间变化了-已禁用闭环</string>
     <string name="storage">内部储存空间不足</string>
     <string name="diskfull">至少 剩余%1$d MB 内部存储！闭环已禁用！</string>
