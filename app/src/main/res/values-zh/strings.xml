@@ -340,6 +340,7 @@
     <string name="smscommunicator_basalpctreplywithcode">要开始基础率 %1$d%% 持续时间%2$d 分钟，请回复如下代码 %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">要暂停闭环 %1$d 分钟请回复如下代码 %2$s</string>
     <string name="smscommunicator_tempbasalset">临时基础率 %1$.2fU/h 持续 %2$d 分钟启用成功了</string>
+    <string name="smscommunicator_extendedset">扩展大剂量 %1$.2fU/h 持续时间 %2$d 分钟已经启用成功了</string>
     <string name="smscommunicator_tempbasalset_percent">临时基础率 %1$d%% 持续时间 %2$d 分钟 启用成功了</string>
     <string name="smscommunicator_tempbasalfailed">开始临时基础率失败了</string>
     <string name="smscommunicator_extendedfailed">开始扩展大剂量失败了</string>
@@ -1127,12 +1128,13 @@
     <string name="dexcom_lognssensorchange_title">记录传感器更换至NS服务器</string>
     <string name="dexcom_lognssensorchange_summary">在传感器启动时在 NS服务器 自动创建事件 \"传感器更改\"</string>
     <string name="tomato">番茄（喵喵）</string>
+    <string name="dst_loop_disabled_warning">不到3小时前夏令时时间变化了-已禁用闭环</string>
     <string name="storage">内部储存空间不足</string>
     <string name="diskfull">至少 剩余%1$d MB 内部存储！闭环已禁用！</string>
     <string name="wrongformat">格式错误</string>
     <string name="sms_wrongcode">错误的代码。命令取消</string>
     <string name="notconfigured">未配置</string>
-    <string name="profileswitchcreated">配置文件已创建</string>
+    <string name="profileswitchcreated">配置文件切换已创建</string>
     <plurals name="objective_days">
         <item quantity="other">%1$d　天</item>
     </plurals>
