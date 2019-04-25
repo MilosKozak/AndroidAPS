@@ -8,13 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import java.text.DecimalFormat;
-
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.ListenerService;
 import info.nightscout.androidaps.interaction.utils.PlusMinusEditText;
 import info.nightscout.androidaps.interaction.utils.SafeParse;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by adrian on 04/08/18.
@@ -35,13 +34,20 @@ public class ECarbActivity extends ViewSelectorActivity {
         dotsPageIndicator.setPager(pager);
 
         pager.setOnPageChangeListener(new GridViewPager.OnPageChangeListener() {
-            @Override public void onPageSelected(int row, int column) {
+            @Override
+            public void onPageSelected(int row, int column) {
                 if (column == 0 && editCarbs != null) editCarbs.requestFocus();
                 else if (column == 1 && editStartTime != null) editStartTime.requestFocus();
                 else if (column == 2 && editDuration != null) editDuration.requestFocus();
             }
-            @Override public void onPageScrollStateChanged(int state) {}
-            @Override public void onPageScrolled(int row, int column, float rowOffset, float columnOffset, int rowOffsetPixels, int columnOffsetPixels) {}
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+
+            @Override
+            public void onPageScrolled(int row, int column, float rowOffset, float columnOffset, int rowOffsetPixels, int columnOffsetPixels) {
+            }
         });
     }
 

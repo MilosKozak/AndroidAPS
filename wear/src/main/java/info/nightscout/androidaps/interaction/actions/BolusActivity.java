@@ -1,8 +1,6 @@
 package info.nightscout.androidaps.interaction.actions;
 
 
-import android.app.Activity;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.wearable.view.DotsPageIndicator;
 import android.support.wearable.view.GridPagerAdapter;
@@ -11,14 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.text.DecimalFormat;
-
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.ListenerService;
 import info.nightscout.androidaps.interaction.utils.PlusMinusEditText;
 import info.nightscout.androidaps.interaction.utils.SafeParse;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by adrian on 09/02/17.
@@ -40,12 +36,19 @@ public class BolusActivity extends ViewSelectorActivity {
         dotsPageIndicator.setPager(pager);
 
         pager.setOnPageChangeListener(new GridViewPager.OnPageChangeListener() {
-            @Override public void onPageSelected(int row, int column) {
+            @Override
+            public void onPageSelected(int row, int column) {
                 if (column == 0 && editInsulin != null) editInsulin.requestFocus();
                 else if (column == 1 && editCarbs != null) editCarbs.requestFocus();
             }
-            @Override public void onPageScrollStateChanged(int state) {}
-            @Override public void onPageScrolled(int row, int column, float rowOffset, float columnOffset, int rowOffsetPixels, int columnOffsetPixels) {}
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+
+            @Override
+            public void onPageScrolled(int row, int column, float rowOffset, float columnOffset, int rowOffsetPixels, int columnOffsetPixels) {
+            }
         });
     }
 
