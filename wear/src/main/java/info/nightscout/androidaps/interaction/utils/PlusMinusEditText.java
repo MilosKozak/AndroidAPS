@@ -98,15 +98,7 @@ public class PlusMinusEditText implements View.OnKeyListener,
             }
         };
 
-        editText.setOnGenericMotionListener((ignored, ev) -> {
-            if (ev.getAction() == MotionEvent.ACTION_SCROLL && RotaryEncoder.isFromRotaryEncoder(ev)) {
-                float delta = -RotaryEncoder.getRotaryAxisValue(ev);
-                if (delta > 0) inc(1);
-                else dec(1);
-                return true;
-            }
-            return false;
-        });
+        editText.setOnGenericMotionListener(new RotaryInputHandler());
 
         minusImage.setOnTouchListener(this);
         minusImage.setOnKeyListener(this);
@@ -219,5 +211,43 @@ public class PlusMinusEditText implements View.OnKeyListener,
 
     public void requestFocus() {
         editText.requestFocus();
+    }
+
+    private class RotaryInputHandler implements View.OnGenericMotionListener {
+            private long lastRotaryActionTimestamp = 0;
+            private float fastRotarySpeedThreshold = 3f;
+            private float mediumRotatrySpeedThreshold = 0.2f;
+
+            @Override
+            public boolean onGenericMotion(View ignored, MotionEvent ev) {
+                if (ev.getAction() == MotionEvent.ACTION_SCROLL && RotaryEncoder.isFromRotaryEncoder(ev)) {
+                    float delta = -RotaryEncoder.getRotaryAxisValue(ev);
+//                    System.out.println("Delta: " + delta);
+                    long now = System.currentTimeMillis();
+                    float speed = Math.abs(delta) * 1000 / (now - lastRotaryActionTimestamp);
+//                    System.out.println("Speed: " + speed);
+                    if (speed >= fastRotarySpeedThreshold) {
+                        // rapid rotation, double steps
+                        System.out.println("Fast   " + speed);
+                        if (delta > 0) PlusMinusEditText.this.inc(2);
+                        else PlusMinusEditText.this.dec(2);
+                    } else if (speed >= mediumRotatrySpeedThreshold || lastRotaryActionTimestamp == 0) {
+                        // medium speed, single step
+                        System.out.println("Medium " + speed);
+                        if (delta > 0) PlusMinusEditText.this.inc(1);
+                        else PlusMinusEditText.this.dec(1);
+                    } else {
+                        // slow rotation, ignore
+                        System.out.println("Slow   " + speed);
+                        // with a pause between inputs, the next input will land here, detected as slow, but since
+                        // the timestamp is updated, the next input will be dectecd as faster; thus the first
+                        // input after a pause is ignored which might work nicely to prevent accidental changes via
+                        // the back of the wearing hand or by moving the finger off the crown
+                    }
+                    lastRotaryActionTimestamp = now;
+                    return true;
+                }
+                return false;
+            }
     }
 }
