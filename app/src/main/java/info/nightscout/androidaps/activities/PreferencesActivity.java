@@ -45,6 +45,7 @@ import info.nightscout.androidaps.plugins.general.xdripStatusline.StatuslinePlug
 import info.nightscout.androidaps.utils.LocaleHelper;
 import info.nightscout.androidaps.utils.OKDialog;
 import info.nightscout.androidaps.utils.SP;
+import org.apache.commons.lang3.StringUtils;
 
 public class PreferencesActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     MyPreferenceFragment myPreferenceFragment;
@@ -93,7 +94,7 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
             } else if (editTextPref.getText() != null) {
                 ((EditTextPreference) pref).setDialogMessage(editTextPref.getDialogMessage());
                 pref.setSummary(editTextPref.getText());
-            } else if (pref.getKey().contains("smscommunicator_allowednumbers") && TextUtils.isEmpty(editTextPref.getText().trim())) {
+            } else if (pref.getKey().contains("smscommunicator_allowednumbers") && StringUtils.isBlank(editTextPref.getText())) {
                 pref.setSummary(MainApp.gs(R.string.smscommunicator_allowednumbers_summary));
             }
         }
