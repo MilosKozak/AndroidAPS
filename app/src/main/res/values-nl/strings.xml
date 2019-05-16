@@ -565,7 +565,8 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="show_statuslights_summary">Statusindicatoren inschakelen voor cage, iage, sage, reservoir en batterijniveau op het beginscherm.</string>
     <string name="statuslights_res_warning">Drempel waarschuwing reservoir niveau [E]</string>
     <string name="statuslights_res_critical">Drempel alarm reservoir niveau [E]</string>
-    <string name="statuslights_bat_warning">Waarschuwingsdrempel batterij niveau [%%]</string>
+    <string name="statuslights_bat_warning">Drempel waarschuwing batterij niveau [%%]</string>
+    <string name="statuslights_bat_critical">Drempel alarm voor batterij niveau [%%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Firmware</string>
@@ -618,6 +619,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="absorptionsettings_title">Opname instellingen</string>
     <string name="absorption_maxtime_title">Max absorptietijd maaltijd [uur]</string>
     <string name="absorption_maxtime_summary">Verwachte tijd in uren totdat alle koolhydraten opgenomen zijn</string>
+    <string name="danar_visualizeextendedaspercentage_title">Geef vertraagde bolus weer in %%</string>
     <string name="careportal_sensorage_label_short">SAGE</string>
     <string name="careportal_insulinage_label_short">IAGE</string>
     <string name="careportal_canulaage_label_short">CAGE</string>
@@ -730,6 +732,8 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="dexcomg5_xdripupload_title">Stuur BG data naar xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">In xDrip+ kies 640g/Eversense data bron</string>
     <string name="nsclientbg">NSClient BG</string>
+    <string name="minimalbasalvaluereplaced">Basale waarde vervangen door minimaal ondersteunde waarde; %1$s</string>
+    <string name="maximumbasalvaluereplaced">Basale waarde vervangen door maximale ondersteunde waarde: %1$s</string>
     <string name="overview_editquickwizard_usebg">BG berekening</string>
     <string name="overview_editquickwizard_usebolusiob">Bolus IOB berekening</string>
     <string name="overview_editquickwizard_usebasaliob">Basaal IOB berekening</string>
@@ -747,6 +751,8 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="closedmodeenabled">Closed modus actief</string>
     <string name="maxiobset">Maximum IOB juist ingesteld</string>
     <string name="hasbgdata">BG beschikbaar op gekozen bron</string>
+    <string name="basalprofilenotaligned">Basaalstanden niet ingesteld in hele uren: %1$s</string>
+    <string name="zerovalueinprofile">Ongeldig profiel: %1$s</string>
     <string name="combo_programming_bolus">Bolus in pomp programmeren </string>
     <string name="combo_refresh">Vernieuw</string>
     <string name="combo_pump_state_label">Status</string>
@@ -759,6 +765,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="combo_pump_state_running">Actief</string>
     <string name="combo_pump_action_cancelling_tbr">Annuleren van TB</string>
     <string name="combo_pump_action_setting_tbr">Instellen TBR (%1$d%% / %2$d min)</string>
+    <string name="combo_pump_action_bolusing">Toedienen bolus (%1$.1f E)</string>
     <string name="combo_pump_action_refreshing">Vernieuwen</string>
     <string name="combo_pump_unsupported_operation">Gevraagde is niet mogelijk met de pomp</string>
     <string name="combo_low_suspend_forced_notification">Opgelet: verlengde en multi wave bolussen zijn actief. Loop is overgeschakeld naar low-suspend modus gedurende 6 uur. Alleen gewone bolussen worden ondersteund in loop modus</string>
@@ -1081,11 +1088,13 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="mute_alert">Geluid dempen</string>
     <string name="pump_alert">Pomp alarm</string>
     <string name="log_site_changes">Infuuswissel noteren</string>
+    <string name="log_reservoir_changes">Reservoirwissel noteren</string>
     <string name="log_tube_changes">Slangwissel noteren</string>
     <string name="log_battery_changes">Batterijwissel noteren</string>
     <string name="log_operating_mode_changes">Werkingsmodus-wissel noteren</string>
-    <string name="log_alerts">Alarm noteren</string>
+    <string name="log_alerts">Alarmen noteren</string>
     <string name="enable_tbr_emulation">TBR-emulatie inschakelen</string>
+    <string name="enable_tbr_emulation_summary">Gebruik vertraagde bolus ipv TBRs om de limiet van 250%% te omzeilen</string>
     <string name="disconnect_delay">Verbindingsvertraging [s]</string>
     <string name="serial_number">Serienummer</string>
     <string name="release_software_version">Release softwareversie</string>
@@ -1141,8 +1150,16 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
     <string name="dst_in_24h_warning">Zomer/wintertijd omschakeling binnen 24 uur</string>
+    <string name="dst_loop_disabled_warning">Omschakeling zomer/wintertijd minder dan 3 uur geleden - Closed Loop modus gedeactiveerd</string>
     <string name="storage">interne opslag bijna vol</string>
     <string name="diskfull">Maak minstens %1$d MB vrij in interne opslag! Loop is uitgeschakeld!</string>
+    <string name="wrongformat">Verkeerde invoer</string>
+    <string name="sms_wrongcode">Verkeerde code. Opdracht geannuleerd.</string>
+    <string name="notconfigured">Niet ingesteld</string>
+    <string name="profileswitchcreated">Profiel wissel aangemaakt</string>
+    <string name="versionChecker">Versie Checker</string>
+    <string name="old_version">oude versie</string>
+    <string name="very_old_version">zeer oude versie</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dag</item>
         <item quantity="other">%1$d dag</item>
