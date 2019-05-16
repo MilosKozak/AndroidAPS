@@ -9,6 +9,7 @@
     <string name="nav_resetdb">Reset database</string>
     <string name="reset_db_confirm">Wil je echt de database wissen?</string>
     <string name="nav_exit">Afsluiten</string>
+    <string name="danar_useextended_title">Gebruik vertraagde bolussen voor &gt;200%%</string>
     <string name="danar_bt_name_title">DanaR Bluetooth apparaat</string>
     <string name="ns_sync_use_absolute_title">Gebruik altijd absolute basale waarden</string>
     <string name="alert_dialog_storage_permission_text">Herstart je telefoon of herstart AndroidAPS vanuit de systeem instellingen a. u. b. \nanders zal AndroidAPS geen logboek hebben (Belangrijk om te controleren of de algoritmes correct werken)!</string>
@@ -53,6 +54,7 @@
     <string name="description_wear">AndroidAPS controleren en bedienen met behulp van uw WearOS-horloge.</string>
     <string name="description_xdrip_status_line">Toon informatie over de Loop op jouw xDrip+ wijzerplaat.</string>
     <string name="description_sms_communicator">Bedien AndroidAPS op afstand met SMS commando\'s.</string>
+    <string name="objectives_button_back">Terug</string>
     <string name="objectives_button_start">Start</string>
     <string name="objectives_button_verify">Controleer</string>
     <string name="nsprofileview_units_label">Eénheden</string>
@@ -145,6 +147,8 @@
     <string name="constraints_violation">In strijd met beperkingen</string>
     <string name="treatmentdeliveryerror">Bolus toedien storing</string>
     <string name="tempbasaldeliveryerror">Tijdelijk basaal toedien storing</string>
+    <string name="overview_newtempbasal_basalpercent">Basaal waarde [%%]</string>
+    <string name="overview_newtempbasal_percent_label">%% (100%% = huidig)</string>
     <string name="setbasalquestion">Accepteer nieuw tijdelijk basaal:</string>
     <string name="overview_treatment_label">Bolus</string>
     <string name="overview_calculator_label">Bolus wizard</string>
@@ -244,6 +248,7 @@
     <string name="danar_iob_label">Pomp IOB</string>
     <string name="danar_dailyunits">Dag totaal</string>
     <string name="pump_lastbolus_label">Laatste bolus</string>
+    <string name="hoursago">%1$.1fu geleden</string>
     <string name="danar_invalidinput">Verkeerde ingave</string>
     <string name="danar_valuenotsetproperly">Waarde niet correct ingesteld</string>
     <string name="reloadprofile">Herlaad profiel</string>
@@ -261,6 +266,10 @@
     <string name="smscommunicator_bolusreplywithcode">Om de bolus %1$.2fU toe te dienen antwoord met de code %2$s</string>
     <string name="smscommunicator_calibrationreplywithcode">Om calibratie %1$.2f te verzenden antwoord met de code %2$s</string>
     <string name="smscommunicator_bolusfailed">Bolus mislukt</string>
+    <string name="bolusdelivered">Bolus van %1$.2fE succesvol toegediend</string>
+    <string name="bolusrequested">Er worden %1$.2fE toegediend</string>
+    <string name="smscommunicator_bolusdelivered">Bolus van %1$.2fE succesvol toegediend</string>
+    <string name="bolusdelivering">Toedienen van %1$.2fE</string>
     <string name="smscommunicator_remotecommandsallowed">Sta SMS commando\'s toe</string>
     <string name="glucosetype_finger">Vingerprik</string>
     <string name="glucosetype_sensor">Sensor</string>
@@ -305,6 +314,7 @@
     <string name="overview_bolusprogress_stop">Stop</string>
     <string name="overview_bolusprogress_stoppressed">STOP INGEDRUKT</string>
     <string name="waitingforpump">Wacht op pomp</string>
+    <string name="overview_bolusprogress_goingtodeliver">Er worden %1$.2fE toegediend</string>
     <string name="objectives_0_objective">Opzetten van visualisatie en monitoring en analyzeren van basaal en ratio\'s</string>
     <string name="objectives_0_gate">Controleren van beschikbaarheid BG en insuline pomp data op Nightscout</string>
     <string name="objectives_1_objective">Starten met de Open Loop modus</string>
@@ -328,7 +338,12 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="smscommunicator_loopisdisabled">Loop is uitgeschakeld</string>
     <string name="smscommunicator_loopisenabled">Loop is ingeschakeld</string>
     <string name="valuelimitedto">%1$.2f gelimiteerd tot %2$.2f</string>
+    <string name="valueoutofrange">Waarde %1$s valt buiten de toegestane harde limieten</string>
     <string name="smscommunicator_remotecommandnotallowed">Commando\'s op afstand zijn niet toegestaan</string>
+    <string name="smscommunicator_remotebolusnotallowed">Bolus op afstand niet beschikbaar. Probeer het later opnieuw.</string>
+    <string name="smscommunicator_basalreplywithcode">Om te starten met basaal %1$.2fE/u voor %2$d min antwoord met code %3$s</string>
+    <string name="smscommunicator_profilereplywithcode">Om naar profiel %1$s %2$d%% te wisselen antwoord met code %3$s</string>
+    <string name="smscommunicator_extendedreplywithcode">Om een vertraagde bolus van %1$.2fE voor %2$d min te starten antwoord met code %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">Om de loop te onderbreken voor %1$d minuten antwoord met de code %2$s</string>
     <string name="smscommunicator_tempbasalset">Tijdelijk basaal %1$.2fE/u voor %2$d minuten succesvol gestart</string>
     <string name="smscommunicator_tempbasalfailed">Start tijdelijk basaal mislukt</string>
