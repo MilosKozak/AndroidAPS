@@ -38,6 +38,7 @@ public class OverviewPlugin extends PluginBase {
 
     public static double bgTargetLow = 80d;
     public static double bgTargetHigh = 180d;
+    public static double bgTargetVeryHigh = 260d;
 
     public QuickWizard quickWizard = new QuickWizard();
 
@@ -87,6 +88,13 @@ public class OverviewPlugin extends PluginBase {
 
     public double determineHighLine(String units) {
         double highLineSetting = SP.getDouble("high_mark", Profile.fromMgdlToUnits(OverviewPlugin.bgTargetHigh, units));
+        if (highLineSetting < 1)
+            highLineSetting = Profile.fromMgdlToUnits(180d, units);
+        return highLineSetting;
+    }
+
+    public double determineVeryHighLine(String units) {
+        double highLineSetting = SP.getDouble("veryhigh_mark", Profile.fromMgdlToUnits(OverviewPlugin.bgTargetVeryHigh, units));
         if (highLineSetting < 1)
             highLineSetting = Profile.fromMgdlToUnits(180d, units);
         return highLineSetting;
