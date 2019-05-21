@@ -307,6 +307,7 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
 
         Double lowLine = SafeParse.stringToDouble(mPrefs.getString("low_mark", "0"));
         Double highLine = SafeParse.stringToDouble(mPrefs.getString("high_mark", "0"));
+        Double veryhighLine = SafeParse.stringToDouble(mPrefs.getString("veryhigh_mark", "0"));
 
         // convert to mg/dl
         if (!units.equals(Constants.MGDL)) {
@@ -321,6 +322,10 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
 
         if (highLine < 1) {
             highLine = OverviewPlugin.bgTargetHigh;
+        }
+
+        if (veryhighLine < 1) {
+            veryhighLine = OverviewPlugin.bgTargetVeryHigh;
         }
 
         long sgvLevel = 0l;
@@ -345,6 +350,7 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
         }
         dataMap.putLong("sgvLevel", sgvLevel);
         dataMap.putDouble("sgvDouble", lastBG.value);
+        dataMap.putDouble("veryhigh", veryhighLine);
         dataMap.putDouble("high", highLine);
         dataMap.putDouble("low", lowLine);
         return dataMap;

@@ -1087,6 +1087,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
         final String units = profile.getUnits();
         final double lowLine = OverviewPlugin.getPlugin().determineLowLine(units);
         final double highLine = OverviewPlugin.getPlugin().determineHighLine(units);
+        final double veryhighLine = OverviewPlugin.getPlugin().determineVeryHighLine(units);
 
         //Start with updating the BG as it is unaffected by loop.
         // **** BG value ****
@@ -1096,6 +1097,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                 color = MainApp.gc(R.color.low);
             else if (lastBG.valueToUnits(units) > highLine)
                 color = MainApp.gc(R.color.high);
+            else if (lastBG.valueToUnits(units) > veryhighLine)
+                color = MainApp.gc(R.color.veryhigh);
             bgView.setText(lastBG.valueToUnitsToString(units));
             arrowView.setText(lastBG.directionToSymbol());
             bgView.setTextColor(color);

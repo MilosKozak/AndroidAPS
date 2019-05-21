@@ -418,6 +418,7 @@
     <string name="prefs_range_title">Range for Visualization</string>
     <string name="prefs_range_summary">High and low mark for the charts in Overview and Smartwatch</string>
     <string name="low_mark">LOW mark</string>
+    <string name="veryhigh_mark">VERY HIGH mark</string>
     <string name="high_mark">HIGH mark</string>
     <string name="wear">Wear</string>
     <string name="resend_all_data">Resend All Data</string>
