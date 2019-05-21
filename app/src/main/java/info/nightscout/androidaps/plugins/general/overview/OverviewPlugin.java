@@ -96,7 +96,7 @@ public class OverviewPlugin extends PluginBase {
     public double determineVeryHighLine(String units) {
         double highLineSetting = SP.getDouble("veryhigh_mark", Profile.fromMgdlToUnits(OverviewPlugin.bgTargetVeryHigh, units));
         if (highLineSetting < 1)
-            highLineSetting = Profile.fromMgdlToUnits(180d, units);
+            highLineSetting = Profile.fromMgdlToUnits(260d, units);
         return highLineSetting;
     }
 
