@@ -335,6 +335,11 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
             sgvLevel = -1;
         }
 
+        long sgvLevel2 = sgvLevel;
+        if (lastBG.value > veryhighLine) {
+            sgvLevel2 = 2;
+        }
+
         DataMap dataMap = new DataMap();
         dataMap.putString("sgvString", lastBG.valueToUnitsToString(units));
         dataMap.putString("glucoseUnits", units);
@@ -349,6 +354,7 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
             dataMap.putString("avgDelta", deltastring(glucoseStatus.avgdelta, glucoseStatus.avgdelta * Constants.MGDL_TO_MMOLL, units));
         }
         dataMap.putLong("sgvLevel", sgvLevel);
+        dataMap.putLong("sgvLevel2", sgvLevel2);
         dataMap.putDouble("sgvDouble", lastBG.value);
         dataMap.putDouble("veryhigh", veryhighLine);
         dataMap.putDouble("high", highLine);

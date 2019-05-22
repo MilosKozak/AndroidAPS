@@ -268,6 +268,8 @@ public class CircleWatchface extends WatchFace implements SharedPreferences.OnSh
             case 1:
                 color = getHighColor();
                 break;
+            case 2:
+                color = getVeryHighColor();
         }
 
 
@@ -361,6 +363,14 @@ public class CircleWatchface extends WatchFace implements SharedPreferences.OnSh
             return Color.argb(255, 255, 200, 0);
         }
 
+    }
+
+    public int getVeryHighColor() {
+        if (sharedPrefs.getBoolean("dark", true)) {
+            return Color.argb(255, 255, 120, 120);
+        } else {
+            return Color.argb(255, 255, 80, 80);
+        }
     }
 
     public int getBackgroundColor() {
@@ -524,7 +534,7 @@ public class CircleWatchface extends WatchFace implements SharedPreferences.OnSh
             Bundle bundle = intent.getBundleExtra("data");
             if (bundle != null) {
                 DataMap dataMap = DataMap.fromBundle(bundle);
-                setSgvLevel((int) dataMap.getLong("sgvLevel"));
+                setSgvLevel((int) dataMap.getLong("sgvLevel2"));
                 Log.d("CircleWatchface", "sgv level : " + getSgvLevel());
                 setSgvString(dataMap.getString("sgvString"));
                 Log.d("CircleWatchface", "sgv string : " + getSgvString());
