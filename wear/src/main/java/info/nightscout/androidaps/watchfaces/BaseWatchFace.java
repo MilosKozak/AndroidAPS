@@ -601,14 +601,16 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
             bgDataList = new ArrayList<BgWatchData>();
             for (DataMap entry : entries) {
                 double sgv = entry.getDouble("sgvDouble");
+                double veryhigh = entry.getDouble("veryhigh");
                 double high = entry.getDouble("high");
                 double low = entry.getDouble("low");
                 long timestamp = entry.getLong("timestamp");
                 int color = entry.getInt("color", 0);
-                bgDataList.add(new BgWatchData(sgv, high, low, timestamp, color));
+                bgDataList.add(new BgWatchData(sgv, veryhigh, high, low, timestamp, color));
             }
         } else {
             double sgv = dataMap.getDouble("sgvDouble");
+            double veryhigh = dataMap.getDouble("veryhigh");
             double high = dataMap.getDouble("high");
             double low = dataMap.getDouble("low");
             long timestamp = dataMap.getLong("timestamp");
@@ -620,7 +622,7 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
                     return; // Ignore duplicates.
             }
 
-            bgDataList.add(new BgWatchData(sgv, high, low, timestamp, color));
+            bgDataList.add(new BgWatchData(sgv, veryhigh, high, low, timestamp, color));
         }
 
         for (int i = 0; i < bgDataList.size(); i++) {

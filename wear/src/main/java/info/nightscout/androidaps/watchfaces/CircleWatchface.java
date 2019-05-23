@@ -401,6 +401,7 @@ public class CircleWatchface extends WatchFace implements SharedPreferences.OnSh
                 addIndicator(canvas, 100, Color.LTGRAY);
                 addIndicator(canvas, (float) bgDataList.iterator().next().low, getLowColor());
                 addIndicator(canvas, (float) bgDataList.iterator().next().high, getHighColor());
+                addIndicator(canvas, (float) bgDataList.iterator().next().veryhigh, getVeryHighColor());
 
 
                 if (sharedPrefs.getBoolean("softRingHistory", true)) {
@@ -580,22 +581,24 @@ public class CircleWatchface extends WatchFace implements SharedPreferences.OnSh
         ArrayList<DataMap> entries = dataMap.getDataMapArrayList("entries");
         if (entries == null) {
             double sgv = dataMap.getDouble("sgvDouble");
+            double veryhigh = dataMap.getDouble("veryhigh");
             double high = dataMap.getDouble("high");
             double low = dataMap.getDouble("low");
             long timestamp = dataMap.getLong("timestamp");
             int color = dataMap.getInt("color", 0);
-            bgDataList.add(new BgWatchData(sgv, high, low, timestamp, color));
+            bgDataList.add(new BgWatchData(sgv, veryhigh, high, low, timestamp, color));
         } else if (!sharedPrefs.getBoolean("animation", false)) {
             // don't load history at once if animations are set (less resource consumption)
             Log.d("addToWatchSet", "entries.size(): " + entries.size());
 
             for (DataMap entry : entries) {
                 double sgv = entry.getDouble("sgvDouble");
+                double veryhigh = dataMap.getDouble("veryhigh");
                 double high = entry.getDouble("high");
                 double low = entry.getDouble("low");
                 long timestamp = entry.getLong("timestamp");
                 int color = entry.getInt("color", 0);
-                bgDataList.add(new BgWatchData(sgv, high, low, timestamp, color));
+                bgDataList.add(new BgWatchData(sgv, veryhigh, high, low, timestamp, color));
             }
         } else
 

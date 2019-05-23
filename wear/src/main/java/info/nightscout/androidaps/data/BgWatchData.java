@@ -7,13 +7,15 @@ import java.util.Objects;
  */
 public class BgWatchData implements Comparable<BgWatchData>{
     public double sgv;
+    public double veryhigh;
     public double high;
     public double low;
     public long timestamp;
     public int color;
 
-    public BgWatchData(double aSgv, double aHigh, double aLow, long aTimestamp, int aColor) {
+    public BgWatchData(double aSgv, double aVeryHigh, double aHigh, double aLow, long aTimestamp, int aColor) {
         this.sgv = aSgv;
+        this.veryhigh = aVeryHigh;
         this.high = aHigh;
         this.low = aLow;
         this.timestamp = aTimestamp;
