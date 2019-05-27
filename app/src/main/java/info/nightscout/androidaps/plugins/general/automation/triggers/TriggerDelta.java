@@ -86,13 +86,6 @@ public class TriggerDelta extends Trigger {
         else
             delta = glucoseStatus.delta;
 
-        if (L.isEnabled(L.AUTOMATION)) {
-            log.debug("delta is " + glucoseStatus.delta);
-            log.debug("shortdelta is " + glucoseStatus.short_avgdelta);
-            log.debug("longdelta is " + glucoseStatus.long_avgdelta);
-            log.debug("Required " + this.typeToString(deltaType) + " is " + comparator.getValue().toString()+ " than " + Profile.toMgdl(value.getValue(), this.units)+"(" +delta+")");
-        }
-
         if (lastRun > DateUtil.now() - T.mins(5).msecs())
             return false;
 

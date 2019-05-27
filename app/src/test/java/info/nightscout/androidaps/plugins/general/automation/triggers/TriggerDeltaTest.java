@@ -86,7 +86,7 @@ public class TriggerDeltaTest {
         Assert.assertEquals(1l, t.getLastRun());
     }
 
-    String deltaJson = "{\"data\":{\"comparator\":\"IS_EQUAL\",\"lastRun\":0,\"units\":\"mmol\",\"type\":1,\"value\":4.1},\"type\":\"info.nightscout.androidaps.plugins.general.automation.triggers.TriggerDelta\"}";
+    String deltaJson = "{\"data\":{\"comparator\":\"IS_EQUAL\",\"lastRun\":0,\"units\":\"mmol\",\"type\":0,\"value\":4.1},\"type\":\"info.nightscout.androidaps.plugins.general.automation.triggers.TriggerDelta\"}";
 
     @Test
     public void toJSONTest() {
@@ -102,6 +102,7 @@ public class TriggerDeltaTest {
         Assert.assertEquals(Comparator.Compare.IS_EQUAL, t2.getComparator().getValue());
         Assert.assertEquals(4.1d, t2.getValue(), 0.01d);
         Assert.assertEquals(Constants.MMOL, t2.getUnits());
+        Assert.assertEquals(0d, t2.getType(), 0.01d);
     }
 
     @Test
