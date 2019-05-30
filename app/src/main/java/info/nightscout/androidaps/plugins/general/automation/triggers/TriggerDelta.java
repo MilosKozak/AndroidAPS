@@ -198,7 +198,7 @@ public class TriggerDelta extends Trigger {
     public void generateDialog(LinearLayout root, FragmentManager fragmentManager) {
 
         new LayoutBuilder()
-                .add(new StaticLabel(R.string.treatments_wizard_bg_label))
+                .add(new StaticLabel(R.string.deltalabel))
                 .add(comparator)
                 .add(new LabelWithElement(MainApp.gs(R.string.deltalabel) + ": ", "", value))
                 .build(root);

@@ -3,6 +3,7 @@ package info.nightscout.androidaps.plugins.general.automation.elements;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -69,9 +70,6 @@ public class InputDelta extends Element {
 
     @Override
     public void addToLayout(LinearLayout root) {
-        numberPicker = new NumberPicker(root.getContext(), null);
-        numberPicker.setParams(value, minValue, maxValue, step, decimalFormat, true, textWatcher);
-        numberPicker.setOnValueChangedListener(value -> this.value = value);
         Spinner spinner = new Spinner(root.getContext());
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(root.getContext(), android.R.layout.simple_spinner_item, InputDelta.labels());
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -93,8 +91,17 @@ public class InputDelta extends Element {
             }
         });
         spinner.setSelection(this.deltaType);
-        root.addView(spinner);
-        root.addView(numberPicker);
+//        root.addView(spinner);
+        numberPicker = new NumberPicker(root.getContext(), null);
+        numberPicker.setParams(value, minValue, maxValue, step, decimalFormat, true, textWatcher);
+        numberPicker.setOnValueChangedListener(value -> this.value = value);
+        LinearLayout l = new LinearLayout(root.getContext());
+        l.setOrientation(LinearLayout.VERTICAL);
+        l.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        l.addView(spinner);
+        l.addView(numberPicker);
+        root.addView(l);
 
     }
 
