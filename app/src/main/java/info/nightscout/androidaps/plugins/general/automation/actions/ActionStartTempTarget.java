@@ -98,7 +98,10 @@ public class ActionStartTempTarget extends Action {
             JSONObject d = new JSONObject(data);
             reason = JsonHelper.safeGetString(d, "reason");
             value.setUnits(JsonHelper.safeGetString(d, "units"));
-            value.setValue(JsonHelper.safeGetInt(d, "value"));
+            if (value.getUnits() == Constants.MMOL)
+                value.setValue(JsonHelper.safeGetDouble(d, "value"));
+            else
+                value.setValue(JsonHelper.safeGetInt(d, "value"));
             duration.setMinutes(JsonHelper.safeGetInt(d, "durationInMinutes"));
         } catch (JSONException e) {
             e.printStackTrace();
