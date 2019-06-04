@@ -98,7 +98,7 @@ public class ActionStartTempTarget extends Action {
             JSONObject d = new JSONObject(data);
             reason = JsonHelper.safeGetString(d, "reason");
             value.setUnits(JsonHelper.safeGetString(d, "units"));
-            if (value.getUnits() == Constants.MMOL)
+            if (value.getUnits().equals(Constants.MMOL))
                 value.setValue(JsonHelper.safeGetDouble(d, "value"));
             else
                 value.setValue(JsonHelper.safeGetInt(d, "value"));
