@@ -1,10 +1,12 @@
 package info.nightscout.androidaps.services;
 
-import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Telephony;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.JobIntentService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,22 +35,25 @@ import info.nightscout.androidaps.plugins.source.SourceNSClientPlugin;
 import info.nightscout.androidaps.plugins.source.SourcePoctechPlugin;
 import info.nightscout.androidaps.plugins.source.SourceTomatoPlugin;
 import info.nightscout.androidaps.plugins.source.SourceXdripPlugin;
-import info.nightscout.androidaps.receivers.DataReceiver;
 import info.nightscout.androidaps.logging.BundleLogger;
 import info.nightscout.androidaps.utils.JsonHelper;
 import info.nightscout.androidaps.utils.SP;
 
 
-public class DataService extends IntentService {
+public class DataService extends JobIntentService {
     private Logger log = LoggerFactory.getLogger(L.DATASERVICE);
 
     public DataService() {
-        super("DataService");
+        super();
         registerBus();
     }
 
+    public static void enqueueWork(Context context, Intent intent) {
+        enqueueWork(context, DataService.class, DataService.class.hashCode(), intent);
+    }
+
     @Override
-    protected void onHandleIntent(final Intent intent) {
+    protected void onHandleWork(@NonNull Intent intent) {
         if (L.isEnabled(L.DATASERVICE)) {
             log.debug("onHandleIntent " + intent);
             log.debug("onHandleIntent " + BundleLogger.log(intent.getExtras()));
@@ -108,7 +113,6 @@ public class DataService extends IntentService {
 
         if (L.isEnabled(L.DATASERVICE))
             log.debug("onHandleIntent exit " + intent);
-        DataReceiver.completeWakefulIntent(intent);
     }
 
     @Override
