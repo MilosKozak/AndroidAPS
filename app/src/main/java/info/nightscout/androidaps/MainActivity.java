@@ -72,12 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
     private MenuItem pluginPreferencesMenuItem;
 
-    private static Context context;
-    public static MainActivity the;
-    public static Context getAppContext() {
-        return MainActivity.context;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Check here if loop plugin is disabled. Else check via constraints
-//        if (!LoopPlugin.getPlugin().isEnabled(PluginType.LOOP))
-//            VersionCheckerUtilsKt.triggerCheckVersion();
+        if (!LoopPlugin.getPlugin().isEnabled(PluginType.LOOP))
+            VersionCheckerUtilsKt.triggerCheckVersion();
 
         FabricPrivacy.setUserStats();
     }
