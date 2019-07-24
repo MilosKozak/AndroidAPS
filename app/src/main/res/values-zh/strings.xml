@@ -865,6 +865,7 @@
     <string name="fabric_upload">通过Fabric上传</string>
     <string name="allow_automated_crash_reporting">允许通过fabric.io服务将自动崩溃报告和功能使用数据发送给开发人员。</string>
     <string name="g5appnotdetected">请将您的 dexcom app 更新为支持的版本</string>
+    <string name="dexcom_app_not_installed">未安装德康app。</string>
     <string name="start_activity_tt">开始运动临时目标</string>
     <string name="start_eating_soon_tt">开始很快吃饭TT(临时目标)</string>
     <string name="temptargetshort">TT(临时目标)</string>
@@ -874,6 +875,7 @@
     <string name="bolusrecordedonly">大剂量将仅被记录</string>
     <string name="ns_autobackfill_summary">Autobackfill 现在无法从NS获取血糖</string>
     <string name="loop_smbsetbypump_label">通过泵设置SMB微型大剂量</string>
+    <string name="overview_show_activity">活动</string>
     <string name="overview_show_sensitivity">灵敏度</string>
     <string name="overview_show_deviations">偏差</string>
     <string name="overview_show_cob">活性碳水化合物</string>
@@ -1148,6 +1150,16 @@
     <string name="dexcom_lognssensorchange_summary">在传感器启动时在 NS服务器 自动创建事件 \"传感器更改\"</string>
     <string name="tomato">番茄（喵喵）</string>
     <string name="tomato_short">番茄</string>
+    <string name="unit_second">秒</string>
+    <string name="unit_minute">分钟</string>
+    <string name="unit_hour">小时</string>
+    <string name="unit_day">天</string>
+    <string name="unit_week">周</string>
+    <string name="unit_seconds">秒</string>
+    <string name="unit_minutes">分钟</string>
+    <string name="unit_hours">小时</string>
+    <string name="unit_days">天</string>
+    <string name="unit_weeks">周</string>
     <string name="dst_in_24h_warning">在24小时内或更少时间内更夏令时时间</string>
     <string name="dst_loop_disabled_warning">不到3小时前夏令时时间变化了-已禁用闭环</string>
     <string name="storage">内部储存空间不足</string>
