@@ -1160,6 +1160,21 @@
     <string name="unit_hours">小时</string>
     <string name="unit_days">天</string>
     <string name="unit_weeks">周</string>
+    <string name="summary_tidepool_username">你的Tidepool登录用户名，通常是你的邮件地址</string>
+    <string name="title_tidepool_username">登录用户名</string>
+    <string name="summary_tidepool_password">登录密码</string>
+    <string name="title_tidepool_password">登录密码</string>
+    <string name="title_tidepool_test_login">测试Tidepool登录</string>
+    <string name="summary_tidepool_dev_servers">如果启用，则上载将转到https://intapp.tidepool.org，而不是常规https://app.tidepool.org/。</string>
+    <string name="title_tidepool_dev_servers">使用集成（测试）服务器</string>
+    <string name="tidepool">Tidepool</string>
+    <string name="tidepool_shortname">TDP</string>
+    <string name="description_tidepool">数据上传到Tidepool</string>
+    <string name="tidepool_upload_cgm">上传CGM数据</string>
+    <string name="tidepool_upload_bolus">上传治疗方案（胰岛素，碳水化合物）</string>
+    <string name="tidepool_upload_tbr">上传临时基础率</string>
+    <string name="tidepool_upload_profile">上传配置文件切换，临时目标</string>
+    <string name="tidepool_upload_bg">上传血糖值</string>
     <string name="dst_in_24h_warning">在24小时内或更少时间内更夏令时时间</string>
     <string name="dst_loop_disabled_warning">不到3小时前夏令时时间变化了-已禁用闭环</string>
     <string name="storage">内部储存空间不足</string>
@@ -1172,6 +1187,12 @@
     <string name="old_version">旧版本</string>
     <string name="very_old_version">非常旧版本</string>
     <string name="new_version_warning">至少可用 %1$d 天的新版本！60 天后返回 LGS，90 天后循环将被禁用</string>
+    <string name="scale_insulin_activity">图表显示活性胰岛素（U/分钟）</string>
+    <string name="twohours">2小时</string>
+    <string name="formatinsulinunits">%1$.2fU</string>
+    <string name="dexcom_app_patched">德康app（补丁版）</string>
+    <string name="dexcom_short">DXCM</string>
+    <string name="description_source_dexcom">从补丁版的德康APP收到血糖值</string>
     <plurals name="objective_days">
         <item quantity="other">%1$d　天</item>
     </plurals>
