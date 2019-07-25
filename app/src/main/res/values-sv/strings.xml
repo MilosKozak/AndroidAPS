@@ -1208,7 +1208,29 @@ Eversense-appen.</string>
     <string name="medtronic_pump_max_basal">Max basal på pumpen (U/h)</string>
     <string name="medtronic_pump_encoding">Medtronickodning</string>
     <string name="medtronic_pump_frequency_us_ca">USA &amp; Kanada (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Resten av världen (868 MHz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">4b6b Mjukvarukodning</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink">4b6b Hårdvarukodning</string>
+    <string name="rileylink_mac_address">Riley Link MAC-adress</string>
+    <string name="medtronic_custom_action_wake_and_tune">Väck och finjustera frekvens</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Ta bort bolusblockering</string>
+    <string name="medtronic_custom_action_reset_rileylink">Återställ Riley Link-konfiguration</string>
+    <string name="medtronic_pump_battery_select">Batterityp</string>
+    <string name="medtronic_pump_battery_no">Ej vald</string>
+    <string name="medtronic_pump_battery_alkaline">Alkaliskt</string>
+    <string name="medtronic_pump_battery_lithium">Litium</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SÖK</string>
+    <string name="rileylink_scanner_scan_stop">AVBRYT</string>
+    <string name="rileylink_scanner_selected_device">Vald</string>
+    <string name="rileylink_scanner_scan">Sök</string>
+    <string name="rileylink_scanner_title">Riley Link-sökning</string>
+    <string name="rileylink_scanner_scan_menu">Sök efter Riley Link</string>
+    <string name="rileylink_scanner_ble_not_supported">Enheten stöder inte BLE.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth avstängt.</string>
+    <string name="location_not_found_title">Platsdata är inte aktiverat</string>
+    <string name="location_not_found_message">För att Bluetooth ska fungera med nyare enheter, måste platsdata vara aktiverat. AAPS sparar inte din plats och det kan stängas av efter att enheten har parkopplats.</string>
+    <string name="location_yes">Aktivera</string>
     <!-- RL Status Page -->
     <!-- RL State -->
     <!-- RL Errors -->
