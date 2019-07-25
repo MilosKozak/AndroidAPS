@@ -1242,9 +1242,17 @@
     <string name="medtronic_pump_history">Histórico da Bomba Medtronic</string>
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_desc_get_history_base">Obter Histórico - Página %1$d</string>
+    <string name="medtronic_cmd_desc_get_time">Obter Hora da Bomba</string>
+    <string name="medtronic_cmd_desc_get_settings">Obter Definições</string>
+    <string name="medtronic_cmd_desc_get_model">Obter Modelo de Bomba</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Obter Perfil Basal</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Definir Perfil Basal</string>
     <string name="medtronic_cmd_desc_get_tbr">Obter Basal Temporária</string>
     <string name="medtronic_cmd_desc_set_tbr">Definir Basal Temporária</string>
     <string name="medtronic_cmd_desc_set_bolus">Definir Bólus</string>
+    <string name="pump_no_connection_h">Sem ligação por %1$d hora(s) %2$d min</string>
+    <string name="pump_no_connection_d">Sem ligação por %1$d dia(s) %2$d horas</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dia</item>
         <item quantity="other">%1$d dias</item>
