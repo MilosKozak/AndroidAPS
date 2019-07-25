@@ -1239,6 +1239,19 @@ Eversense-appen.</string>
     <!-- MDT History -->
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_cant_cancel_tbr">Kunde inte avbryta temp basal.</string>
+    <string name="medtronic_cmd_basal_profile_could_not_be_set">Kunde inte byta basalprofil.</string>
+    <string name="medtronic_cmd_basal_profile_not_set_is_same">Basalprofilen är samma som nuvarande. Ingen ändring gjord.</string>
+    <string name="medtronic_cmd_desc_get_history">Hämta historik - Sida %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Hämta historik - Sida %1$d</string>
+    <string name="medtronic_cmd_desc_get_history_base">Hämta historik - Sida %1$d</string>
+    <string name="medtronic_cmd_desc_get_time">Hämta tid och datum från pumpen</string>
+    <string name="medtronic_cmd_desc_get_settings">Hämta inställningar</string>
+    <string name="medtronic_cmd_desc_get_model">Hämta pumpmodell</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Hämta basalprofil</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Sätt basalprofil</string>
+    <string name="medtronic_cmd_desc_get_tbr">Hämta temp basal</string>
+    <string name="medtronic_cmd_desc_set_tbr">Sätt temp basal</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dag</item>
         <item quantity="other">%1$d dagar</item>
