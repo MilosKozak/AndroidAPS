@@ -1187,10 +1187,10 @@
     <string name="old_version">versione datata</string>
     <string name="very_old_version">versione molto datata</string>
     <string name="new_version_warning">Nuova versione per almeno %1$d giorni disponibile! Torna ai LGS dopo 60 giorni, il ciclo sarà disattivato dopo 90 giorni</string>
-    <string name="scale_insulin_activity">Attività su scala grafica [U/min]</string>
+    <string name="scale_insulin_activity">Azione insulinica su scala grafica [U/min]</string>
     <string name="twohours">2 ore</string>
     <string name="formatinsulinunits">%1$.2fU</string>
-    <string name="dexcom_app_patched">Dexcom App (con correzione)</string>
+    <string name="dexcom_app_patched">Dexcom App (modificata)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Ricevi valori Glicemia dall\'app Dexcom modificata.</string>
     <!-- Pump Abstract -->
