@@ -9,7 +9,7 @@
     <string name="nav_resetdb">Återställ databaserna</string>
     <string name="reset_db_confirm">Vill du verkligen återställa databaserna?</string>
     <string name="nav_exit">Avsluta</string>
-    <string name="danar_useextended_title">Använd förlängd bolus för att ange &gt;200% basal</string>
+    <string name="danar_useextended_title">Använd förlängd bolus för att ange &gt;200%% basal</string>
     <string name="danar_bt_name_title">Dana R Bluetooth Pump</string>
     <string name="ns_sync_use_absolute_title">Använd alltid absoluta värden i basal</string>
     <string name="alert_dialog_storage_permission_text">Starta om telefonen eller AndroidAPS från systeminställningar,\nannars kommer AndroidAPS inte kunna logga fel (viktigt att kunna spåra och verifiera att algoritmerna fungerar korrekt)!</string>
@@ -887,6 +887,7 @@ Eversense-appen.</string>
     <string name="closed_loop_disabled_on_dev_branch">Du kör nu dev-versionen. Closed Loop inte tillåtet.</string>
     <string name="engineering_mode_enabled">Engineering Mode aktiverat</string>
     <string name="not_eng_mode_or_release">Engineering Mode inte aktiverat och appen körs inte som release</string>
+    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Läser basalprofil</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Pumphistoriken ändrad efter att boluskalkylen gjordes. Bolusen har inte levererats. Vänligen gör en ny kalkyl vid behov.</string>
     <string name="combo_error_updating_treatment_record">Bolusen levererad, men det gick inte att lägga till den i loggen. Detta kan hända om två små bolusar ges inom två minuter. Vänligen kontrollera pumpens historik och Careportal och lägg till om det saknas. Se till att inte lägga till två bolusar med samma mängd och samma tid.</string>
@@ -1194,8 +1195,19 @@ Eversense-appen.</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Ta emot BG-data från den modifierade Dexcom-appen.</string>
     <!-- Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Operation stöds inte av pumpen/pumpdrivrutinen.</string>
+    <string name="pump_operation_not_yet_supported_by_pump">Operationen stöds inte av pumpen ännu.</string>
     <!-- Medtronic (MDT) - Base -->
+    <string name="description_pump_medtronic">Pumpintegration för Medtronic. Kräver Riley Link-enhet och fungerar bara mot vissa pumpmodeller</string>
     <!-- MDT Configuration -->
+    <string name="medtronic_serial_number">Serienummer på pumpen</string>
+    <string name="medtronic_pump_type">Pumptyp</string>
+    <string name="medtronic_pump_frequency">Pumpfrekvens</string>
+    <string name="medtronic_pump_bolus_delay">Fördröjning innan bolus startas (s)</string>
+    <string name="medtronic_pump_max_bolus">Max bolus enligt pumpen (U)</string>
+    <string name="medtronic_pump_max_basal">Max basal på pumpen (U/h)</string>
+    <string name="medtronic_pump_encoding">Medtronickodning</string>
+    <string name="medtronic_pump_frequency_us_ca">USA &amp; Kanada (916 MHz)</string>
     <!-- RL BLE Scanning -->
     <!-- RL Status Page -->
     <!-- RL State -->
