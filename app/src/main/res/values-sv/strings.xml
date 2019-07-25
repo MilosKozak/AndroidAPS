@@ -887,7 +887,6 @@ Eversense-appen.</string>
     <string name="closed_loop_disabled_on_dev_branch">Du kör nu dev-versionen. Closed Loop inte tillåtet.</string>
     <string name="engineering_mode_enabled">Engineering Mode aktiverat</string>
     <string name="not_eng_mode_or_release">Engineering Mode inte aktiverat och appen körs inte som release</string>
-    <string name="pump_basebasalrate">%.2f E/h</string>
     <string name="combo_actvity_reading_basal_profile">Läser basalprofil</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Pumphistoriken ändrad efter att boluskalkylen gjordes. Bolusen har inte levererats. Vänligen gör en ny kalkyl vid behov.</string>
     <string name="combo_error_updating_treatment_record">Bolusen levererad, men det gick inte att lägga till den i loggen. Detta kan hända om två små bolusar ges inom två minuter. Vänligen kontrollera pumpens historik och Careportal och lägg till om det saknas. Se till att inte lägga till två bolusar med samma mängd och samma tid.</string>
