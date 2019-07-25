@@ -1134,7 +1134,7 @@
     <string name="short_status_last_connected">Ultima conn: %1$d minuti fa</string>
     <string name="short_status_tbr">TBR: %1$d% per %2$d/%3$d min</string>
     <string name="short_status_extended">Esteso: %1$.2f / %2$.2f U per %3$d min</string>
-    <string name="short_status_multiwave">Esteso: %1$.2f/ %2$.2f U per %3$d min</string>
+    <string name="short_status_multiwave">Multiwave: %1$.2f / %2$.2f U per %3$d min</string>
     <string name="short_status_tdd">TDD: %1$.2f</string>
     <string name="short_status_reservoir">Reser.: %1$.2fU</string>
     <string name="short_status_battery">Batt: %1$d%%</string>
@@ -1186,7 +1186,7 @@
     <string name="versionChecker">Controllo Versione</string>
     <string name="old_version">versione datata</string>
     <string name="very_old_version">versione molto datata</string>
-    <string name="new_version_warning">Nuova versione per almeno %1$d giorni disponibile! Torna ai LGS dopo 60 giorni, il ciclo sarà disattivato dopo 90 giorni</string>
+    <string name="new_version_warning">Nuova versione disponibile da %1$d giorni! Ritorno a LGS trascorsi 60 giorni, disattivazione del loop dopo 90 giorni</string>
     <string name="scale_insulin_activity">Azione insulinica su scala grafica [U/min]</string>
     <string name="twohours">2 ore</string>
     <string name="formatinsulinunits">%1$.2fU</string>
