@@ -884,7 +884,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Se folosește versiunea dev. Bucla închisă este dezactivată.</string>
     <string name="engineering_mode_enabled">Mod inginer activat</string>
     <string name="not_eng_mode_or_release">Modul inginer nu este activat și nu este în versiunea lansată</string>
-    <string name="pump_basebasalrate">%.2f U/o</string>
     <string name="combo_actvity_reading_basal_profile">Se citește profilul bazal</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Istoricul pompei s-a schimbat după calcularea bolusului. Bolusul nu a fost livrat. Recalculați dacă mai este necesar un bolus.</string>
     <string name="combo_error_updating_treatment_record">Bolus livrat, dar nu s-a reușit înregistrarea evenimentului. Aceasta se poate întâmpla când două bolusuri mici de aceeași valoare sunt livrate în mai puțin de două minute. Verificați istoricul pompei și înregistrările tratamentelor și folosiți Careportal pentru adăugarea intrărilor lipsă. Asigurați-vă că nu adăugați intrări duble.</string>
