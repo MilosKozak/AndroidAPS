@@ -1230,6 +1230,14 @@ Eversense-appen.</string>
     <string name="every">Varje</string>
     <string name="never">Aldrig</string>
     <string name="mins">%1$d min</string>
+    <string name="condition">Villkor:</string>
+    <string name="action">Åtgärd:</string>
+    <string name="iob_u">IOB [U]:</string>
+    <string name="glucose_u">BG [%1$s]:</string>
+    <string name="delete_short">RADERA</string>
+    <string name="add_short">LÄGG TILL</string>
+    <string name="copy_short">KOPIERA</string>
+    <string name="addnew">Lägg till</string>
     <string name="versionChecker">Versionskontroll</string>
     <string name="old_version">gammal version</string>
     <string name="very_old_version">väldigt gammal version</string>
@@ -1240,8 +1248,41 @@ Eversense-appen.</string>
     <string name="dexcom_app_patched">Dexcoms app (modifierad)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Ta emot BG-data från den modifierade Dexcom-appen.</string>
+    <string name="notification">Avisering</string>
+    <string name="notification_message">Avisering: %1$s</string>
+    <string name="message_short">Medd:</string>
+    <string name="profilepercentage">Procent av profil</string>
+    <string name="percent_u">Procent [%]:</string>
+    <string name="startprofile">Byt till profil %1$d% i %2$d min</string>
+    <string name="startprofileforever">Byt till profil %1$d%%</string>
+    <string name="exists">finns</string>
+    <string name="notexists">finns inte</string>
+    <string name="temptargetcompared">Temp mål %1$s</string>
+    <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
+    <string name="autosenscompared">Autosens %1$s %2$s %%</string>
+    <string name="autosenslabel">Autosens %</string>
+    <string name="deltacompared">%3$s %1$s %2$s</string>
+    <string name="deltalabel">Skillnad</string>
+    <string name="currentlocation">Nuvarande plats</string>
+    <string name="location">Plats</string>
+    <string name="latitude_short">Lat:</string>
+    <string name="longitude_short">Lon:</string>
+    <string name="distance_short">Dist [m]:</string>
+    <string name="name_short">Namn:</string>
+    <string name="locationis">Platsen är %1$s</string>
+    <string name="lastboluslabel">Senaste bolus</string>
+    <string name="lastboluscompared">Senaste bolus %1$s %2$s min sedan</string>
+    <string name="triggercoblabel">COB</string>
+    <string name="cobcompared">COB %1$s %2$.0f</string>
+    <string name="taskname">Åtgärdsnamn</string>
+    <string name="eventname">Händelsenamn</string>
+    <string name="edit_short">ÄNDRA</string>
+    <string name="please_choose_an_action_type">Vänligen välj åtgärdstyp:</string>
     <string name="please_choose_a_trigger_type">Vänligen välj typ av utlösare:</string>
+    <string name="if_label">Om:</string>
+    <string name="then_label">Gör:</string>
     <string name="triggers">Utlösare:</string>
+    <string name="remove_label">TA BORT</string>
     <string name="preconditions">Förutsättningar:</string>
     <!-- Pump Abstract -->
     <string name="pump_operation_not_supported_by_pump_driver">Operation stöds inte av pumpen/pumpdrivrutinen.</string>
@@ -1334,14 +1375,39 @@ Eversense-appen.</string>
     <string name="medtronic_error_pump_frequency_not_set">Pumpfrekvens ej vald.</string>
     <string name="medtronic_error_pump_frequency_invalid">Pumpfrekvens stöds inte.</string>
     <string name="medtronic_error_rileylink_address_invalid">Riley Link adress felaktig.</string>
+    <string name="medtronic_error_pump_type_set_differs_from_detected">Pumptypen verkar inte vara samma som den inställda.</string>
     <string name="medtronic_error_pump_basal_profiles_not_enabled">Basalprofiler inte aktiverat på pumpen.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Fel basalprofiltyp inställt på pumpen (måste vara STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Fel typ av temp basal på pumpen (måste vara satt till Absolut).</string>
+    <string name="medtronic_error_pump_wrong_max_bolus_set">Fel max bolus i pumpen (måste vara %1$.2f).</string>
+    <string name="medtronic_error_pump_wrong_max_basal_set">Fel max basal i pumpen (måste vara %1$.2f).</string>
     <string name="medtronic_error_operation_not_possible_no_configuration">Operationen inte möjlig. \n\n Du måste konfigurera Medtronicpump innan du kan använda denna funktion.</string>
+    <string name="medtronic_error_pump_24h_time_change_requested">Mer än 24 timmars tidsändring efterfrågades.</string>
     <!-- MDT History -->
+    <string name="medtronic_history_group_basal">Basaldoser</string>
+    <string name="medtronic_history_group_configuration">Konfigurationer</string>
+    <string name="medtronic_history_group_notification">Notiser</string>
+    <string name="medtronic_history_group_statistic">Statistik</string>
+    <string name="medtronic_history_group_unknown">Okända</string>
     <string name="medtronic_history_group_all">Alla</string>
+    <string name="medtronic_pump_history">Pumphistorik</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_never_contacted">Aldrig ansluten</string>
+    <string name="medtronic_pump_status_waking_up">Väcker</string>
+    <string name="medtronic_pump_status_error_comm">Kommunikationsfel</string>
+    <string name="medtronic_pump_status_timeout_comm">Kommunikationstimeout</string>
+    <string name="medtronic_pump_status_problem_contacting">Problem att ansluta till pumpen</string>
+    <string name="medtronic_pump_status_pump_unreachable">Pumpen kan inte nås</string>
+    <string name="medtronic_pump_status_invalid_config">Felaktig konfigureration</string>
+    <string name="medtronic_pump_status_active">Aktiv</string>
+    <string name="medtronic_pump_status_sleeping">Sover</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_cancel_bolus_not_supported">Du avbröt bolusen efter att kommandot skickats till pumpen. Detta stöds inte av Medtronicpumpar, så därför måste du avbryta på själva pumpen. Det kan man göra genom att pausa insulintillförseln tillfälligt och sedan starta den igen. Appen kommer att uppdatera bolusmängd vid nästa anslutning (inom 5 min).</string>
+    <string name="medtronic_cmd_cant_read_tbr">Kunde inte hämta nuvarande temp basal.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Kunde inte avbryta nuvarande temp basal. Avbryter kommandot.</string>
+    <string name="medtronic_cmd_set_profile_pattern_overflow">Misslyckades med att sätta basalprofilen. Följande timmar har för högt värde angivet: %1$s</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered">Bolus misslyckades.</string>
+    <string name="medtronic_cmd_tbr_could_not_be_delivered">Temp basal kunde inte anges.</string>
     <string name="medtronic_cmd_cant_cancel_tbr">Kunde inte avbryta temp basal.</string>
     <string name="medtronic_cmd_basal_profile_could_not_be_set">Kunde inte byta basalprofil.</string>
     <string name="medtronic_cmd_basal_profile_not_set_is_same">Basalprofilen är samma som nuvarande. Ingen ändring gjord.</string>
@@ -1358,6 +1424,8 @@ Eversense-appen.</string>
     <string name="medtronic_cmd_desc_set_bolus">Leverera bolus</string>
     <string name="pump_no_connection_h">Ingen anslutning på %1$d tim %2$d min</string>
     <string name="pump_no_connection_d">Ingen anslutning på %1$d d %2$d tim</string>
+    <string name="insulinFromCob"><![CDATA[COB insulin: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
+    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolusbegränsning: %2$.2fU till %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>Varning! Långsam KH-absorption upptäckt %2$d%% av tiden. Dubbelkolla din beräkning. COB kan vara väldigt missvisande!</font>]]></string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dag</item>
