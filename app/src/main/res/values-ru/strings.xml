@@ -532,10 +532,12 @@
     <string name="loopsuspended">ЗЦ остановлен</string>
     <string name="loopsuspendedfor">Остановлен на(%1$d m)</string>
     <string name="loopsuperbolusfor">Суперболюс(%1$d m)</string>
+    <string name="suspendloop">Приостановить цикл</string>
     <string name="suspendloopfor1h">приостановить цикл на 1 час</string>
     <string name="suspendloopfor2h">приостановить цикл на 2 часа</string>
     <string name="suspendloopfor3h">приостановить цикл на 3 часа</string>
     <string name="suspendloopfor10h">приостановить цикл на 10 часов</string>
+    <string name="suspendloopforXmin">Приостановить цикл на %1$d мин</string>
     <string name="disconnectpumpfor15m">отсоединить помпу на 15 мин</string>
     <string name="disconnectpumpfor30m">отсоединить помпу на 30 мин</string>
     <string name="disconnectpumpfor1h">отсоединить помпу на 1 час</string>
@@ -886,6 +888,7 @@
     <string name="closed_loop_disabled_on_dev_branch">Работает версия разработчика. Замкнутый цикл отключен.</string>
     <string name="engineering_mode_enabled">Режим отладки включен</string>
     <string name="not_eng_mode_or_release">Режим отладки не задействован и отсутствует на ветке релиза</string>
+    <string name="pump_basebasalrate">%1$.2f ед/час</string>
     <string name="combo_actvity_reading_basal_profile">Чтение базального профиля</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">История событий помпы изменилась с момента вычисления болюса. Болюс не подан. Пожалуйста пересчитайте потребность в болюсе.</string>
     <string name="combo_error_updating_treatment_record">Болюс подан успешно, но запись о назначении не сделана. Это может быть вызвано тем, что за последние две минуты назначено два болюса одного объема. Пожалуйста проверьте историю событий помпы и записи о назначениях и добавьте пропущенные записи из Портала назначений. Не добавляйте записи с одним и тем же временем и одинаковым объемом.</string>
@@ -1143,6 +1146,22 @@ Context | Edit Context</string>
     <string name="min_recovery_duration">Мин. продолжительность восстановления [s]</string>
     <string name="recovery_duration">Продолжительность восстановления</string>
     <string name="timeout_during_handshake">Тайм-аут сопряжения - сбросьте bluetooth</string>
+    <string name="weekday_sunday_short">Вс</string>
+    <string name="weekday_saturday_short">Сб</string>
+    <string name="weekday_friday_short">Пт</string>
+    <string name="weekday_thursday_short">Чт</string>
+    <string name="weekday_wednesday_short">Ср</string>
+    <string name="weekday_tuesday_short">Вт</string>
+    <string name="weekday_monday_short">Пн</string>
+    <string name="automation_description">Заданные пользователем задачи автоматизации</string>
+    <string name="automation_missing_task_name">Введите название задачи.</string>
+    <string name="automation_missing_trigger">Укажите хотя бы один триггер.</string>
+    <string name="automation_missing_action">Укажите хотя бы одно действие.</string>
+    <string name="alreadyenabled">Уже включен</string>
+    <string name="alreadydisabled">Уже отключен</string>
+    <string name="alreadysuspended">Уже приостановлен</string>
+    <string name="resumeloop">Возобновить цикл</string>
+    <string name="notsuspended">Не приостановлен</string>
     <string name="profile_total">== ∑  %1$s ед</string>
     <string name="profile_ins_units_per_hout">Ед/ч</string>
     <string name="profile_carbs_per_unit">г/ед</string>
