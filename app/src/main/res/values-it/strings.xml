@@ -1180,6 +1180,10 @@
     <string name="atspecifiedtime">A %1$s</string>
     <string name="use_network_location">Usa posizione di rete</string>
     <string name="use_gps_location">Usa posizione GPS</string>
+    <string name="use_passive_location">Usa posizione passiva</string>
+    <string name="locationservice">Servizio di localizzazione</string>
+    <string name="automation_short">Auto</string>
+    <string name="automation">Automazione</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
@@ -1221,7 +1225,18 @@
     <string name="sms_wrongcode">Codice errato. Comando annullato.</string>
     <string name="notconfigured">Non configurato</string>
     <string name="profileswitchcreated">Cambio profilo creato</string>
+    <string name="recurringTime">Tempo ricorrente</string>
+    <string name="every">Ogni</string>
+    <string name="never">Mai</string>
+    <string name="mins">%1$dminuti</string>
+    <string name="condition">Condizione:</string>
+    <string name="action">Azione:</string>
+    <string name="iob_u">IOB [U]:</string>
+    <string name="glucose_u">Glicemia [%1$s]:</string>
+    <string name="delete_short">CANC</string>
+    <string name="add_short">AGG</string>
     <string name="copy_short">COPIA</string>
+    <string name="addnew">Aggiungi nuovo</string>
     <string name="versionChecker">Controllo Versione</string>
     <string name="old_version">versione datata</string>
     <string name="very_old_version">versione molto datata</string>
@@ -1232,11 +1247,85 @@
     <string name="dexcom_app_patched">Dexcom App (modificata)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Ricevi valori Glicemia dall\'app Dexcom modificata.</string>
+    <string name="notification">Notifica</string>
+    <string name="notification_message">Notifica: %1$s</string>
+    <string name="message_short">Msg:</string>
+    <string name="profilepercentage">Percentuale del profilo</string>
+    <string name="percent_u">Percentuale [%]:</string>
+    <string name="startprofile">Avvia profilo %1$d%% for %2$d min</string>
+    <string name="startprofileforever">Avvia profilo %1$d%%</string>
+    <string name="exists">esiste</string>
+    <string name="notexists">non esiste</string>
+    <string name="temptargetcompared">Temp target %1$s</string>
+    <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
+    <string name="autosenscompared">Autosens %1$s %2$s %%</string>
+    <string name="autosenslabel">Autosens %</string>
+    <string name="deltacompared">%3$s %1$s %2$s</string>
+    <string name="deltalabel">Differenza Glicemia</string>
+    <string name="currentlocation">Posizione corrente</string>
+    <string name="location">Posizione</string>
+    <string name="latitude_short">Lat:</string>
+    <string name="longitude_short">Lon:</string>
+    <string name="distance_short">Dist [m]:</string>
+    <string name="name_short">Nome:</string>
+    <string name="locationis">La posizione è %1$s</string>
+    <string name="lastboluslabel">Ultimo Bolo</string>
+    <string name="lastboluscompared">Ora ultimo bolo %1$s %2$s min fa</string>
+    <string name="triggercoblabel">COB</string>
+    <string name="cobcompared">COB %1$s %2$.0f</string>
+    <string name="taskname">Nome Task</string>
+    <string name="eventname">Nome Evento</string>
+    <string name="edit_short">MODIFICA</string>
+    <string name="please_choose_an_action_type">Scegli un tipo di azione:</string>
+    <string name="please_choose_a_trigger_type">Scegli un tipo di trigger:</string>
+    <string name="if_label">If:</string>
+    <string name="then_label">Then:</string>
+    <string name="triggers">Trigger:</string>
+    <string name="remove_label">RIMUOVI</string>
+    <string name="preconditions">Presupposti:</string>
     <!-- Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Operazione non supportata dal microinfusore e/o dal driver.</string>
+    <string name="pump_operation_not_yet_supported_by_pump">Operazione NON ANCORA supportata dal microinfusore.</string>
     <!-- Medtronic (MDT) - Base -->
+    <string name="description_pump_medtronic">Integrazione del microinfusore Medtronic, richiede un dispositivo RileyLink e uno specifico modello di microinfusore</string>
     <!-- MDT Configuration -->
+    <string name="medtronic_serial_number">Numero Seriale microinfusore</string>
+    <string name="medtronic_pump_type">Tipo microinfusore</string>
+    <string name="medtronic_pump_frequency">Frequenza microinfusore</string>
+    <string name="medtronic_pump_bolus_delay">Ritardo prima che il Bolo sia avviato (s)</string>
+    <string name="medtronic_pump_max_bolus">Max Bolo su Microinfusore (U)</string>
+    <string name="medtronic_pump_max_basal">Max Basale su Microinfusore (U/h)</string>
+    <string name="medtronic_pump_encoding">Codifica Medtronic</string>
+    <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Globale (868 Mhz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">Codifica Software 4b6b</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink">Codifica Hardware 4b6b</string>
+    <string name="rileylink_mac_address">RileyLink MAC Address</string>
+    <string name="medtronic_custom_action_wake_and_tune">Risveglio e Sintonizzazione</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Cancella Blocco Bolo</string>
+    <string name="medtronic_custom_action_reset_rileylink">Reimposta Configurazione RileyLink</string>
+    <string name="medtronic_pump_battery_select">Tipo di batteria (Power View)</string>
+    <string name="medtronic_pump_battery_no">Non selezionato (Simple view)</string>
+    <string name="medtronic_pump_battery_alkaline">Alkaline (Extended view)</string>
+    <string name="medtronic_pump_battery_lithium">Lithium (Extended view)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SCAN</string>
+    <string name="rileylink_scanner_scan_stop">STOP</string>
+    <string name="rileylink_scanner_selected_device">Selezionato</string>
+    <string name="rileylink_scanner_scan">Scansiona</string>
+    <string name="rileylink_scanner_title">Scansione RileyLink</string>
+    <string name="rileylink_scanner_scan_menu">Ricerca di RileyLink</string>
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy non supportato.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth disabilitato.</string>
+    <string name="location_not_found_title">La posizione non è abilitata</string>
+    <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni coi nuovi dispositivi, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'accoppiamento. AAPS non tiene traccia della tua posizione.</string>
+    <string name="location_yes">Abilita</string>
+    <string name="location_no">No</string>
+    <string name="rileylink_scanner_scanning">Scansione in corso</string>
+    <string name="rileylink_scanner_scanning_finished">Scansione terminata</string>
+    <string name="rileylink_scanner_scanning_error">Errore scansione: %1$d</string>
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Impostazioni</string>
     <!-- RL State -->
     <!-- RL Errors -->
     <!-- RL Target Device -->
