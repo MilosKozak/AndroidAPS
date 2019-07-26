@@ -532,10 +532,12 @@
     <string name="loopsuspended">Loop изключен</string>
     <string name="loopsuspendedfor">Изключен (%1$d мин)</string>
     <string name="loopsuperbolusfor">Суперболус (%1$d мин)</string>
+    <string name="suspendloop">Изключи APS</string>
     <string name="suspendloopfor1h">Изключи APS за 1ч</string>
     <string name="suspendloopfor2h">Изключи APS за 2ч</string>
     <string name="suspendloopfor3h">Изключи APS за 3ч</string>
     <string name="suspendloopfor10h">Изключи APS за 10 ч</string>
+    <string name="suspendloopforXmin">Изключи APS за %1$d мин</string>
     <string name="disconnectpumpfor15m">Изключи помпата за 15 мин.</string>
     <string name="disconnectpumpfor30m">Изключи помпата за 30 мин.</string>
     <string name="disconnectpumpfor1h">Изключи помпата за 1 ч</string>
@@ -1142,6 +1144,19 @@
     <string name="min_recovery_duration">Мин време за възстановяване [сек]</string>
     <string name="recovery_duration">Възстановяване продължителност</string>
     <string name="timeout_during_handshake">Таймаут при сдвояването - рестартирайте bluetooth</string>
+    <string name="weekday_sunday_short">Нед</string>
+    <string name="weekday_saturday_short">Съб</string>
+    <string name="weekday_friday_short">Пет</string>
+    <string name="weekday_thursday_short">Чет</string>
+    <string name="weekday_wednesday_short">Ср</string>
+    <string name="weekday_tuesday_short">Вт</string>
+    <string name="weekday_monday_short">Пон</string>
+    <string name="automation_description">Рецепти за автомация написани от вас</string>
+    <string name="automation_missing_task_name">Въведете име</string>
+    <string name="automation_missing_trigger">Въведете поне едно условие.</string>
+    <string name="automation_missing_action">Въведете поне едно действие.</string>
+    <string name="alreadyenabled">Вече е активно</string>
+    <string name="alreadydisabled">Вече е изключено</string>
     <string name="profile_total">Общо  %1$s Е</string>
     <string name="profile_ins_units_per_hout">Е/ч</string>
     <string name="profile_carbs_per_unit">гр/Е</string>
@@ -1193,9 +1208,23 @@
     <string name="dexcom_app_patched">Dexcom приложение (модифицирано)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Да получава данни за КЗ от модифицираното приложение на Dexcom.</string>
+    <string name="if_label">Ако:</string>
+    <string name="then_label">Тогава:</string>
+    <string name="remove_label">ИЗТРИИ</string>
+    <string name="preconditions">Предварителни:</string>
     <!-- Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Неподдържана операция.</string>
+    <string name="pump_operation_not_yet_supported_by_pump">Операцията не се поддържа от помпата (ВСЕ ОЩЕ).</string>
     <!-- Medtronic (MDT) - Base -->
+    <string name="description_pump_medtronic">Поддръжка на помпи Медтроник (специфични модели), изисква RileyLink устройство</string>
     <!-- MDT Configuration -->
+    <string name="medtronic_serial_number">Сериен номер на помпа</string>
+    <string name="medtronic_pump_type">Тип помпа</string>
+    <string name="medtronic_pump_frequency">Честота на помпата</string>
+    <string name="medtronic_pump_bolus_delay">Изчакване преди старт на болус (сек)</string>
+    <string name="medtronic_pump_max_bolus">Макс болус в помпата (Е)</string>
+    <string name="medtronic_pump_max_basal">Максимален базал в помпата (Е/ч)</string>
+    <string name="medtronic_pump_encoding">Медтроник коодиране</string>
     <!-- RL BLE Scanning -->
     <!-- RL Status Page -->
     <!-- RL State -->
