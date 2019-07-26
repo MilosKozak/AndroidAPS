@@ -1197,6 +1197,7 @@ Context | Edit Context</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
+    <string name="medtronic_pump_battery_select">Тип батареи (по мощности)</string>
     <!-- RL BLE Scanning -->
     <!-- RL Status Page -->
     <!-- RL State -->
