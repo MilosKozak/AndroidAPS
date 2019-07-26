@@ -1162,6 +1162,15 @@ Context | Edit Context</string>
     <string name="alreadysuspended">Уже приостановлен</string>
     <string name="resumeloop">Возобновить цикл</string>
     <string name="notsuspended">Не приостановлен</string>
+    <string name="starttemptarget">Начать врем цель</string>
+    <string name="stoptemptarget">Остановить врем цель</string>
+    <string name="islesser">меньше чем</string>
+    <string name="isequalorlesser">равно или меньше чем</string>
+    <string name="isequal">равно</string>
+    <string name="isequalorgreater">равно или больше чем</string>
+    <string name="isgreater">больше чем</string>
+    <string name="isnotavailable">недоступно</string>
+    <string name="unknown">неизвестно</string>
     <string name="profile_total">== ∑  %1$s ед</string>
     <string name="profile_ins_units_per_hout">Ед/ч</string>
     <string name="profile_carbs_per_unit">г/ед</string>
@@ -1219,13 +1228,56 @@ Context | Edit Context</string>
     <string name="medtronic_pump_battery_select">Тип батареи (по мощности)</string>
     <!-- RL BLE Scanning -->
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Настройки</string>
+    <string name="rileylink_settings_tab2">История</string>
+    <string name="rileylink_settings_tab3">Устройство</string>
+    <string name="rileylink_status">Статус RileyLink</string>
+    <string name="medtronic_pump_status">Статус помпы</string>
+    <string name="rileylink_settings_title">Настройки RileyLink</string>
+    <string name="title_activity_rileylink_settings">Настройки RileyLink</string>
+    <string name="rileylink_title">RileyLink</string>
+    <string name="rileylink_configured_address">Настроенный адрес</string>
+    <string name="rileylink_connected_device">Подключенное устройство</string>
+    <string name="rileylink_connection_status">Статус подключения</string>
+    <string name="rileylink_connection_error">Ошибка подключения</string>
+    <string name="rileylink_device">Устройство</string>
+    <string name="rileylink_device_type">Тип устройства</string>
+    <string name="rileylink_device_model">Модель устройства</string>
+    <string name="rileylink_last_used_frequency">Последняя использованная частота</string>
+    <string name="rileylink_last_device_contact">Контакт последнего устройства</string>
+    <string name="rileylink_firmware_version">Прошивка RileyLink</string>
     <!-- RL State -->
+    <string name="rileylink_state_bt_init">Инициализация Bluetooth…</string>
+    <string name="rileylink_state_bt_error">Ошибка Bluetooth</string>
+    <string name="rileylink_state_bt_ready">Bluetooth готов</string>
+    <string name="rileylink_state_not_started">Не запущено</string>
     <!-- RL Errors -->
     <!-- RL Target Device -->
     <!-- MDT Errors -->
     <!-- MDT History -->
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_set_profile_pattern_overflow">Не удалось установить профиль потому что следующие шаблоны имеют слишком большой базал %1$s</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered">Болюс не подан.</string>
+    <string name="medtronic_cmd_tbr_could_not_be_delivered">Врем базал TBR не задан.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr">Не удалось отменить текущий врем базал TBR.</string>
+    <string name="medtronic_cmd_basal_profile_could_not_be_set">Профиль базала не установлен.</string>
+    <string name="medtronic_cmd_basal_profile_not_set_is_same">Базовый профиль идентичен, он не будет задан повторно.</string>
+    <string name="medtronic_cmd_desc_get_history">Получить историю - страница %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Получить историю - страница %1$d</string>
+    <string name="medtronic_cmd_desc_get_history_base">Получить историю - страница %1$d</string>
+    <string name="medtronic_cmd_desc_get_time">Получить время с помпы</string>
+    <string name="medtronic_cmd_desc_get_settings">Получить настройки</string>
+    <string name="medtronic_cmd_desc_get_model">Получить модель помпы</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Получить профиль базала</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Установить профиль базала</string>
+    <string name="medtronic_cmd_desc_get_tbr">Получить временный базал</string>
+    <string name="medtronic_cmd_desc_set_tbr">Установить временный базал</string>
+    <string name="medtronic_cmd_desc_set_bolus">Настроить болюс</string>
+    <string name="pump_no_connection_h">Нет соединения %1$d часа(ов) %2$d мин</string>
+    <string name="pump_no_connection_d">Нет соединения %1$d дней %2$d часов</string>
+    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Применено ограничение на болюс: %2$.2fед до %3$.2fед</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Обнаружено медленное всасывание углеводов: %2$d%% времени. Еще раз проверьте свои расчеты. Возможно акт углеводы COB вне диапазона !!!!!</font>]]></string>
     <plurals name="objective_days">
         <item quantity="one">%1$d день</item>
         <item quantity="few">%1$d дня</item>
