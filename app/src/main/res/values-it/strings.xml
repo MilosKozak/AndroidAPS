@@ -1221,6 +1221,7 @@
     <string name="sms_wrongcode">Codice errato. Comando annullato.</string>
     <string name="notconfigured">Non configurato</string>
     <string name="profileswitchcreated">Cambio profilo creato</string>
+    <string name="copy_short">COPIA</string>
     <string name="versionChecker">Controllo Versione</string>
     <string name="old_version">versione datata</string>
     <string name="very_old_version">versione molto datata</string>
