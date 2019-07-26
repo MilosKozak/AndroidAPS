@@ -875,6 +875,7 @@
     <string name="bolusrecordedonly">Болусът ще бъде само записан</string>
     <string name="ns_autobackfill_summary">Допълни липсващи данни за КЗ от Nightscout</string>
     <string name="loop_smbsetbypump_label">SMB в помпата</string>
+    <string name="overview_show_activity">Активност</string>
     <string name="overview_show_sensitivity">Чувствителност</string>
     <string name="overview_show_deviations">Отклонения</string>
     <string name="overview_show_cob">Активни въглехидрати</string>
@@ -885,6 +886,7 @@
     <string name="closed_loop_disabled_on_dev_branch">Използвате dev версия. Затворения кръг е недостъпен за Вас.</string>
     <string name="engineering_mode_enabled">Режим за раработчици (Engineering mode) включен</string>
     <string name="not_eng_mode_or_release">Режим за раработчици (Engineering mode) не е активиран и не е release версия</string>
+    <string name="pump_basebasalrate">%1$.2f Е/ч</string>
     <string name="combo_actvity_reading_basal_profile">Прочита базалният профил</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Историята на помпата се промени след извършване на изчислението за болус. Болусът не беше доставен. Моля, преизчислете дали все още е необходим болус.</string>
     <string name="combo_error_updating_treatment_record">Болус успешно инжектиран, но добавянето на лечение в базата данни е неуспешно. Това може да се случи, ако два малки болуса със същия размер са направени в рамките на последните две минути. Проверете записите в историята на помпата и използвайте Careportal, за да добавите липсващи записи. Уверете се,че не добавяте еднакви записи за точно една и съща минута и същото количество инсулин.</string>
@@ -1151,9 +1153,12 @@
     <string name="unit_second">секунда</string>
     <string name="unit_minute">минута</string>
     <string name="unit_hour">час</string>
+    <string name="unit_day">ден</string>
+    <string name="unit_week">седмица</string>
     <string name="unit_seconds">секунди</string>
     <string name="unit_minutes">минути</string>
     <string name="unit_hours">часове</string>
+    <string name="unit_days">дни</string>
     <string name="unit_weeks">седмици</string>
     <string name="summary_tidepool_username">Потребителското Ви име за Tidepool, обикновено е Вашия имейл</string>
     <string name="title_tidepool_username">Потребителско име</string>
@@ -1182,6 +1187,7 @@
     <string name="old_version">стара версия</string>
     <string name="very_old_version">много стара версия</string>
     <string name="new_version_warning">Има нова версия от най-малко %1$d дни! Връщане към LGS след 60 дни, цикълът ще бъде изключен след 90 дни</string>
+    <string name="scale_insulin_activity">Графика на инсулиновата активност [Е/мин]</string>
     <string name="twohours">2ч</string>
     <string name="formatinsulinunits">%1$.2fЕ</string>
     <string name="dexcom_app_patched">Dexcom приложение (модифицирано)</string>
