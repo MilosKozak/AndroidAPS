@@ -1271,11 +1271,60 @@ Context | Edit Context</string>
     <string name="distance_short">Расст [м]:</string>
     <string name="name_short">Имя:</string>
     <string name="locationis">Местоположение: %1$s</string>
+    <string name="lastboluslabel">Предыдущий болюс</string>
+    <string name="lastboluscompared">Время болюса %1$s %2$s мин назад</string>
+    <string name="triggercoblabel">Активн углеводы</string>
+    <string name="cobcompared">Активн углеводы %1$s %2$.0f</string>
+    <string name="taskname">Название задачи</string>
+    <string name="eventname">Название события</string>
+    <string name="edit_short">РЕДАКТ</string>
+    <string name="please_choose_an_action_type">Выберите тип действия:</string>
+    <string name="please_choose_a_trigger_type">Выберите тип триггера:</string>
+    <string name="if_label">Если:</string>
+    <string name="then_label">Тогда:</string>
+    <string name="triggers">Триггеры:</string>
+    <string name="remove_label">УДАЛИТЬ</string>
+    <string name="preconditions">Предусловия:</string>
     <!-- Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Операция не поддерживается помпой и/или драйвером.</string>
+    <string name="pump_operation_not_yet_supported_by_pump">Операция ЕЩЕ не поддерживается помпой.</string>
     <!-- Medtronic (MDT) - Base -->
+    <string name="description_pump_medtronic">Интеграция с помпой Medtronic требует устройства RileyLink и специфическую модель помпы</string>
     <!-- MDT Configuration -->
+    <string name="medtronic_serial_number">Серийный номер помы</string>
+    <string name="medtronic_pump_type">Тип помпы</string>
+    <string name="medtronic_pump_frequency">Частота помпы</string>
+    <string name="medtronic_pump_bolus_delay">Задержка перед подачей болюса (с) начата</string>
+    <string name="medtronic_pump_max_bolus">Макс. болюс на помпе (ед)</string>
+    <string name="medtronic_pump_max_basal">Макс. базал на помпе (ед/ч)</string>
+    <string name="medtronic_pump_encoding">Кодировка Medtronic</string>
+    <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Глобальн (868 Мгц)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">Программное 4b6b кодирование</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink">Аппаратное кодирование 4b6b</string>
+    <string name="rileylink_mac_address">MAC адрес RileyLink</string>
+    <string name="medtronic_custom_action_wake_and_tune">Пробудить и настроить</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Очистить блок болюса</string>
+    <string name="medtronic_custom_action_reset_rileylink">Сбросить конфигурацию RileyLink</string>
     <string name="medtronic_pump_battery_select">Тип батареи (по мощности)</string>
+    <string name="medtronic_pump_battery_no">Не выбрано (Простой вид)</string>
+    <string name="medtronic_pump_battery_alkaline">Щелочная (Подробный вид)</string>
+    <string name="medtronic_pump_battery_lithium">Литиевая (Подробный вид)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">СКАН</string>
+    <string name="rileylink_scanner_scan_stop">СТОП</string>
+    <string name="rileylink_scanner_selected_device">Выбрано</string>
+    <string name="rileylink_scanner_scan">Сканирование</string>
+    <string name="rileylink_scanner_title">Сканирование RileyLink</string>
+    <string name="rileylink_scanner_scan_menu">Искать RileyLink</string>
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy не поддерживается.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth не включен.</string>
+    <string name="location_not_found_title">Геолокация не включена</string>
+    <string name="location_not_found_message">Для обнаружения Bluetooth на новых устройствах необходимо включить геолокацию. AAPS не отслеживает ваше местоположение и может быть отключен после успешного подключения.</string>
+    <string name="location_yes">Включить</string>
+    <string name="location_no">Нет</string>
+    <string name="rileylink_scanner_scanning">Сканирование</string>
+    <string name="rileylink_scanner_scanning_finished">Сканирование завершено</string>
     <string name="rileylink_scanner_scanning_error">Ошибка сканирования: %1$d</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Настройки</string>
@@ -1376,6 +1425,7 @@ Context | Edit Context</string>
     <string name="medtronic_cmd_desc_set_bolus">Настроить болюс</string>
     <string name="pump_no_connection_h">Нет соединения %1$d часа(ов) %2$d мин</string>
     <string name="pump_no_connection_d">Нет соединения %1$d дней %2$d часов</string>
+    <string name="insulinFromCob"><![CDATA[COB инсулин: <font color=\'%1$s\'>%2$.1fг %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Применено ограничение на болюс: %2$.2fед до %3$.2fед</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Обнаружено медленное всасывание углеводов: %2$d%% времени. Еще раз проверьте свои расчеты. Возможно акт углеводы COB вне диапазона !!!!!</font>]]></string>
     <plurals name="objective_days">
