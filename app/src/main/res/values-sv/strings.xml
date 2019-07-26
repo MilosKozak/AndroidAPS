@@ -533,10 +533,12 @@ Eversense-appen.</string>
     <string name="loopsuspended">Loop pausad</string>
     <string name="loopsuspendedfor">Pausad (%1$d min)</string>
     <string name="loopsuperbolusfor">Superbolus (%1$d min)</string>
+    <string name="suspendloop">Pausa loop</string>
     <string name="suspendloopfor1h">Pausa loop i 1 timme</string>
     <string name="suspendloopfor2h">Pausa loop i 2 timmar</string>
     <string name="suspendloopfor3h">Pausa loop i 3 timmar</string>
     <string name="suspendloopfor10h">Pausa loop i 10 timmar</string>
+    <string name="suspendloopforXmin">Pausa loop i %1$d min</string>
     <string name="disconnectpumpfor15m">Koppla loss pump i 15 min</string>
     <string name="disconnectpumpfor30m">Koppla loss pump i 30 min</string>
     <string name="disconnectpumpfor1h">Koppla loss pump i 1 timme</string>
@@ -1143,6 +1145,46 @@ Eversense-appen.</string>
     <string name="min_recovery_duration">Min paus mellan återanslutningsförsök [s]</string>
     <string name="recovery_duration">Återanslutningsförsök</string>
     <string name="timeout_during_handshake">En timeout inträffade under parningsprocessen. Starta om bluetooth och försök igen</string>
+    <string name="weekday_sunday_short">Sön</string>
+    <string name="weekday_saturday_short">Lör</string>
+    <string name="weekday_friday_short">Fre</string>
+    <string name="weekday_thursday_short">Tor</string>
+    <string name="weekday_wednesday_short">Ons</string>
+    <string name="weekday_tuesday_short">Tis</string>
+    <string name="weekday_monday_short">Mån</string>
+    <string name="automation_description">Användardefinierade automationer</string>
+    <string name="automation_missing_task_name">Ange ett namn för uppgiften.</string>
+    <string name="automation_missing_trigger">Specificera åtminstone en utlösare.</string>
+    <string name="automation_missing_action">Specificera åtminstone en åtgärd.</string>
+    <string name="alreadyenabled">Redan aktiverad</string>
+    <string name="alreadydisabled">Redan avaktiverad</string>
+    <string name="alreadysuspended">Redan pausad</string>
+    <string name="resumeloop">Återuppta loop</string>
+    <string name="notsuspended">Inte pausad</string>
+    <string name="starttemptarget">Starta temp mål</string>
+    <string name="stoptemptarget">Avbryt temp mål</string>
+    <string name="islesser">är mindre än</string>
+    <string name="isequalorlesser">är samma eller mindre än</string>
+    <string name="isequal">är samma som</string>
+    <string name="isequalorgreater">är samma eller större än</string>
+    <string name="isgreater">är större än</string>
+    <string name="isnotavailable">är inte tillgänglig</string>
+    <string name="unknown">okänd</string>
+    <string name="glucoseisnotavailable">BG-data är inte tillgängligt</string>
+    <string name="glucosecomparedmgdl">BG %1$s %2$.0f %3$s</string>
+    <string name="glucosecomparedmmol">BG %1$s %2$.1f %3$s</string>
+    <string name="percentagecompared">Profil pct %1$s %2$d</string>
+    <string name="iobcompared">IOB %1$s %2$.1f</string>
+    <string name="and">och</string>
+    <string name="or">eller</string>
+    <string name="xor">exklusivt eller</string>
+    <string name="atspecifiedtime">kl %1$s</string>
+    <string name="use_network_location">Använd nätverkets plats</string>
+    <string name="use_gps_location">Använd GPS-plats</string>
+    <string name="use_passive_location">Används passiv plats</string>
+    <string name="locationservice">Platstjänster</string>
+    <string name="automation_short">Auto</string>
+    <string name="automation">Automation</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
@@ -1184,6 +1226,10 @@ Eversense-appen.</string>
     <string name="sms_wrongcode">Fel kod. Kommandot avbrutet.</string>
     <string name="notconfigured">Inte konfigurerad</string>
     <string name="profileswitchcreated">Skapade ett profilbyte</string>
+    <string name="recurringTime">Återkommande tid</string>
+    <string name="every">Varje</string>
+    <string name="never">Aldrig</string>
+    <string name="mins">%1$d min</string>
     <string name="versionChecker">Versionskontroll</string>
     <string name="old_version">gammal version</string>
     <string name="very_old_version">väldigt gammal version</string>
@@ -1194,6 +1240,9 @@ Eversense-appen.</string>
     <string name="dexcom_app_patched">Dexcoms app (modifierad)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Ta emot BG-data från den modifierade Dexcom-appen.</string>
+    <string name="please_choose_a_trigger_type">Vänligen välj typ av utlösare:</string>
+    <string name="triggers">Utlösare:</string>
+    <string name="preconditions">Förutsättningar:</string>
     <!-- Pump Abstract -->
     <string name="pump_operation_not_supported_by_pump_driver">Operation stöds inte av pumpen/pumpdrivrutinen.</string>
     <string name="pump_operation_not_yet_supported_by_pump">Operationen stöds inte av pumpen ännu.</string>
@@ -1290,6 +1339,7 @@ Eversense-appen.</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Fel typ av temp basal på pumpen (måste vara satt till Absolut).</string>
     <string name="medtronic_error_operation_not_possible_no_configuration">Operationen inte möjlig. \n\n Du måste konfigurera Medtronicpump innan du kan använda denna funktion.</string>
     <!-- MDT History -->
+    <string name="medtronic_history_group_all">Alla</string>
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
     <string name="medtronic_cmd_cant_cancel_tbr">Kunde inte avbryta temp basal.</string>
@@ -1308,6 +1358,7 @@ Eversense-appen.</string>
     <string name="medtronic_cmd_desc_set_bolus">Leverera bolus</string>
     <string name="pump_no_connection_h">Ingen anslutning på %1$d tim %2$d min</string>
     <string name="pump_no_connection_d">Ingen anslutning på %1$d d %2$d tim</string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>Varning! Långsam KH-absorption upptäckt %2$d%% av tiden. Dubbelkolla din beräkning. COB kan vara väldigt missvisande!</font>]]></string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dag</item>
         <item quantity="other">%1$d dagar</item>
