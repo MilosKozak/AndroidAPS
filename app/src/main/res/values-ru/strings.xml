@@ -1171,6 +1171,21 @@ Context | Edit Context</string>
     <string name="isgreater">больше чем</string>
     <string name="isnotavailable">недоступно</string>
     <string name="unknown">неизвестно</string>
+    <string name="glucoseisnotavailable">ГК недоступна</string>
+    <string name="glucosecomparedmgdl">Гк %1$s %2$.0f %3$s</string>
+    <string name="glucosecomparedmmol">Гк %1$s %2$.1f %3$s</string>
+    <string name="percentagecompared">Профиль %1$s%2$d</string>
+    <string name="iobcompared">Акт инс IOB %1$s %2$.1f</string>
+    <string name="and">И</string>
+    <string name="or">Или</string>
+    <string name="xor">Исключая или</string>
+    <string name="atspecifiedtime">В %1$s</string>
+    <string name="use_network_location">Использовать сетевую геолокацию</string>
+    <string name="use_gps_location">Использовать геолокацию GPS</string>
+    <string name="use_passive_location">Использовать пассивную геолокацию</string>
+    <string name="locationservice">Службы геолокации</string>
+    <string name="automation_short">Авто</string>
+    <string name="automation">Автоматизация</string>
     <string name="profile_total">== ∑  %1$s ед</string>
     <string name="profile_ins_units_per_hout">Ед/ч</string>
     <string name="profile_carbs_per_unit">г/ед</string>
@@ -1212,6 +1227,18 @@ Context | Edit Context</string>
     <string name="sms_wrongcode">Неверный код. Команда отменена.</string>
     <string name="notconfigured">Не сконфигурировано</string>
     <string name="profileswitchcreated">Переключатель профиля создан</string>
+    <string name="recurringTime">Время повторения</string>
+    <string name="every">Раз в</string>
+    <string name="never">Никогда</string>
+    <string name="mins">%1$d мин</string>
+    <string name="condition">Условие:</string>
+    <string name="action">Действие:</string>
+    <string name="iob_u">Акт инс IOB [U]:</string>
+    <string name="glucose_u">Гк %1$s]:</string>
+    <string name="delete_short">Удалить</string>
+    <string name="add_short">ДОБАВИТЬ</string>
+    <string name="copy_short">КОПИРОВАТЬ</string>
+    <string name="addnew">Добавить еще</string>
     <string name="versionChecker">Проверка версии</string>
     <string name="old_version">старая версия</string>
     <string name="very_old_version">очень старая версия</string>
@@ -1222,11 +1249,34 @@ Context | Edit Context</string>
     <string name="dexcom_app_patched">Приложение Dexcom (модифицированное)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Получать данные ГК от модифицированного приложения Dexcom.</string>
+    <string name="notification">Уведомление</string>
+    <string name="notification_message">Уведомление: %1$s</string>
+    <string name="message_short">Сообщение:</string>
+    <string name="profilepercentage">Процент профиля</string>
+    <string name="percent_u">Процент [%]:</string>
+    <string name="startprofile">Начать профиль %1$d%% на %2$d мин</string>
+    <string name="startprofileforever">Начать профиль %1$d%%</string>
+    <string name="exists">существует</string>
+    <string name="notexists">не существует</string>
+    <string name="temptargetcompared">Врем цель %1$s</string>
+    <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
+    <string name="autosenscompared">Автосенс %1$s %2$s %%</string>
+    <string name="autosenslabel">Автосенс %</string>
+    <string name="deltacompared">%3$s%1$s%2$s</string>
+    <string name="deltalabel">Разница Гк</string>
+    <string name="currentlocation">Текущее местоположение</string>
+    <string name="location">Местоположение</string>
+    <string name="latitude_short">Широта:</string>
+    <string name="longitude_short">Долгота:</string>
+    <string name="distance_short">Расст [м]:</string>
+    <string name="name_short">Имя:</string>
+    <string name="locationis">Местоположение: %1$s</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
     <string name="medtronic_pump_battery_select">Тип батареи (по мощности)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scanning_error">Ошибка сканирования: %1$d</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Настройки</string>
     <string name="rileylink_settings_tab2">История</string>
