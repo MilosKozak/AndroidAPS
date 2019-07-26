@@ -1127,9 +1127,9 @@
     <string name="multiwave_bolus">Bolo Multiwave</string>
     <string name="eb_formatter">%1$.2f / %2$.2f U per %3$d minuto</string>
     <string name="enable_tbr_over_notification">Abilita notifica di fine TBR e \n(impostazione microinfusore)</string>
-    <string name="disable_tbr_over_notification">Abilita notifica di fine TBR e \n(impostazione pompa)</string>
+    <string name="disable_tbr_over_notification">Disabilita notifica di fine TBR e \n(impostazione microinfusore)</string>
     <string name="refresh">Ricarica</string>
-    <string name="description_pump_insight_local">Integrazione pompa per pompe di Accu-Chek Insight</string>
+    <string name="description_pump_insight_local">Integrazione del microinfusore Accu-Chek Insight</string>
     <string name="not_inserted">Non inserito</string>
     <string name="short_status_last_connected">Ultima conn: %1$d minuti fa</string>
     <string name="short_status_tbr">TBR: %1$d% per %2$d/%3$d min</string>
