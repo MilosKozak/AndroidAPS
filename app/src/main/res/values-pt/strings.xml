@@ -1155,10 +1155,14 @@
     <string name="weekday_wednesday_short">Qua</string>
     <string name="weekday_tuesday_short">Ter</string>
     <string name="weekday_monday_short">Seg</string>
+    <string name="alreadyenabled">Já activado</string>
+    <string name="alreadydisabled">Já desativado</string>
+    <string name="alreadysuspended">Já suspenso</string>
     <string name="resumeloop">Retomar loop</string>
     <string name="notsuspended">Não suspenso</string>
     <string name="and">E</string>
     <string name="or">Ou</string>
+    <string name="locationservice">Serviço de localização</string>
     <string name="automation_short">Auto</string>
     <string name="automation">Automatização</string>
     <string name="profile_total">== ∑  %1$s U</string>
@@ -1201,6 +1205,7 @@
     <string name="condition">Condição:</string>
     <string name="action">Acção:</string>
     <string name="iob_u">IOB [U]:</string>
+    <string name="glucose_u">Glicose [%1$s]:</string>
     <string name="delete_short">APAGAR</string>
     <string name="add_short">ADICIONAR</string>
     <string name="copy_short">COPIAR</string>
@@ -1226,16 +1231,25 @@
     <string name="startprofileforever">Iniciar perfil %1$d%%</string>
     <string name="exists">existe</string>
     <string name="notexists">não existe</string>
+    <string name="temptargetcompared">Alvo Temp %1$s</string>
     <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
     <string name="autosenscompared">Autosens %1$s %2$s %%</string>
     <string name="autosenslabel">Autosens %</string>
+    <string name="deltacompared">%3$s %1$s %2$s</string>
+    <string name="deltalabel">Diferença de Glic.</string>
+    <string name="currentlocation">Localização actual</string>
+    <string name="location">Localização</string>
     <string name="latitude_short">Lat.:</string>
     <string name="longitude_short">Long.:</string>
     <string name="distance_short">Dist [m]:</string>
     <string name="name_short">Nome:</string>
     <string name="locationis">Localização é %1$s</string>
+    <string name="lastboluslabel">Último bolus atrás</string>
+    <string name="lastboluscompared">Última vez do bolus %1$s %2$s atrás</string>
     <string name="triggercoblabel">COB</string>
     <string name="cobcompared">COB %1$s %2$.0f</string>
+    <string name="taskname">Nome da Tarefa</string>
+    <string name="eventname">Nome do Evento</string>
     <string name="edit_short">EDITAR</string>
     <string name="if_label">Se:</string>
     <string name="then_label">Então:</string>
@@ -1300,6 +1314,10 @@
     <string name="rileylink_state_rl_error">Erro no RileyLink</string>
     <string name="rileylink_state_connected">Ligado</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_no_bt_adapter">Nenhum Adaptador Bluetooth</string>
+    <string name="rileylink_error_tuneup_failed">TuneUp Falhou</string>
+    <string name="rileylink_error_pump_unreachable">Bomba inacessível</string>
+    <string name="rileylink_error_pod_unreachable">Pod inacessível</string>
     <string name="rileylink_error_address_not_set_short">Não definido</string>
     <!-- RL Target Device -->
     <string name="rileylink_target_device_medtronic">Bomba Medtronic</string>
