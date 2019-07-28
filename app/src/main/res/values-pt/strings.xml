@@ -537,10 +537,12 @@
     <string name="loopsuspended">Loop suspenso</string>
     <string name="loopsuspendedfor">Suspendido (%1$d m)</string>
     <string name="loopsuperbolusfor">Superbólus (%1$d m)</string>
+    <string name="suspendloop">Suspender loop</string>
     <string name="suspendloopfor1h">Suspender loop por 1h</string>
     <string name="suspendloopfor2h">Suspender loop por 2h</string>
     <string name="suspendloopfor3h">Suspender loop por 3h</string>
     <string name="suspendloopfor10h">Suspender loop por 10h</string>
+    <string name="suspendloopforXmin">Suspender loop por %1$d min</string>
     <string name="disconnectpumpfor15m">Desligar bomba por 15 min</string>
     <string name="disconnectpumpfor30m">Desligar bomba por 30 min</string>
     <string name="disconnectpumpfor1h">Desligar bomba por 1 h</string>
@@ -1147,6 +1149,17 @@
     <string name="min_recovery_duration">Duração mínima da recuperação [s]</string>
     <string name="recovery_duration">Duração da recuperação</string>
     <string name="timeout_during_handshake">Tempo de operação excedido - reinicar bluetooth</string>
+    <string name="weekday_sunday_short">Dom</string>
+    <string name="weekday_saturday_short">Sáb</string>
+    <string name="weekday_friday_short">Sex</string>
+    <string name="weekday_thursday_short">Qui</string>
+    <string name="weekday_wednesday_short">Qua</string>
+    <string name="weekday_tuesday_short">Ter</string>
+    <string name="weekday_monday_short">Seg</string>
+    <string name="and">E</string>
+    <string name="or">Ou</string>
+    <string name="automation_short">Auto</string>
+    <string name="automation">Automatização</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
@@ -1170,6 +1183,7 @@
     <string name="title_tidepool_test_login">Teste de Conta Tidepool</string>
     <string name="tidepool">Tidepool</string>
     <string name="tidepool_shortname">TDP</string>
+    <string name="tidepool_upload_cgm">Enviar dados CGM</string>
     <string name="tidepool_upload_bg">Enviar testes Glicemia</string>
     <string name="dst_in_24h_warning">Horário de Verão em 24h ou menos</string>
     <string name="dst_loop_disabled_warning">Horário de Verão a menos de 3 horas - Closed Loop desligado</string>
@@ -1179,6 +1193,12 @@
     <string name="sms_wrongcode">Código errado. Comando cancelado.</string>
     <string name="notconfigured">Não configurado</string>
     <string name="profileswitchcreated">Troca de perfil criada</string>
+    <string name="recurringTime">Tempo recorrente</string>
+    <string name="every">Todo</string>
+    <string name="never">Nunca</string>
+    <string name="mins">%1$dmins</string>
+    <string name="condition">Condição:</string>
+    <string name="action">Acção:</string>
     <string name="versionChecker">Verificador de Versão</string>
     <string name="signature_verifier">Verificador de assinatura</string>
     <string name="running_invalid_version">Detectamos que está  a correr uma versão inválida. Loop desactivado!</string>
@@ -1190,6 +1210,19 @@
     <string name="dexcom_app_patched">App Dexcom (com patch)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Receber valores da Glicemia da app Dexcom (com patch).</string>
+    <string name="startprofileforever">Iniciar perfil %1$d%%</string>
+    <string name="exists">existe</string>
+    <string name="notexists">não existe</string>
+    <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
+    <string name="autosenscompared">Autosens %1$s %2$s %%</string>
+    <string name="autosenslabel">Autosens %</string>
+    <string name="latitude_short">Lat.:</string>
+    <string name="longitude_short">Long.:</string>
+    <string name="distance_short">Dist [m]:</string>
+    <string name="name_short">Nome:</string>
+    <string name="locationis">Localização é %1$s</string>
+    <string name="triggercoblabel">COB</string>
+    <string name="cobcompared">COB %1$s %2$.0f</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
