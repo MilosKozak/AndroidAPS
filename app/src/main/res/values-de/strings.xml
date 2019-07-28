@@ -1079,7 +1079,6 @@ Unerwartetes Verhalten.</string>
     <string name="speederror">Geschwindigkeits-Fehler</string>
     <string name="insulinlimitviolation">Insulin-Beschränkung verletzt</string>
     <string name="loop_openmode_min_change">Minimaler Wert zur Anfrage einer Änderung [%]</string>
-    <string name="loop_openmode_min_change_summary">Der Loop fordert eine neue Änderung nur dann an, wenn die Änderung größer als dieser Wert ist. Der Standard-Wert ist 20%.</string>
     <string name="pairfirst">Bitte kopple deine Pumpe mit deinem Telefon!</string>
     <string name="searching_for_devices">Geräte werden gesucht…</string>
     <string name="please_wait">Bitte warten…</string>
