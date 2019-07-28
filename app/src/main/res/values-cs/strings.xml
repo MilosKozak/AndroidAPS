@@ -1377,9 +1377,59 @@
     <string name="medtronic_error_serial_not_set">Sériové číslo nenastaveno.</string>
     <string name="medtronic_error_serial_invalid">Sériové číslo neplatné.</string>
     <string name="medtronic_error_pump_type_not_set">Nenastaven typ pumpy.</string>
+    <string name="medtronic_error_pump_type_invalid">Nepodporovaný typ pumpy.</string>
+    <string name="medtronic_error_pump_frequency_not_set">Nenastavená frekvence pumpy.</string>
+    <string name="medtronic_error_pump_frequency_invalid">Nepodporovaná frekvence pumpy.</string>
+    <string name="medtronic_error_rileylink_address_invalid">Chybná adresa RileyLinku.</string>
+    <string name="medtronic_error_pump_type_set_differs_from_detected">Detekovaná pumpa je jiného typu než nakonfigurovaná.</string>
+    <string name="medtronic_error_pump_basal_profiles_not_enabled">Bazální profily nejsou na pumpě povolené.</string>
+    <string name="medtronic_error_pump_incorrect_basal_profile_selected">Bazální profil na pumpě je chybný (musí být STD).</string>
+    <string name="medtronic_error_pump_wrong_tbr_type_set">Chybný typ dočasného bazálu na pumpě (musí být absolutní).</string>
+    <string name="medtronic_error_pump_wrong_max_bolus_set">Chybný max. bolus na pumpě (musí být %1$.2f).</string>
+    <string name="medtronic_error_pump_wrong_max_basal_set">Chybný max. bazál na pumpě (musí být %1$.2f).</string>
+    <string name="medtronic_error_operation_not_possible_no_configuration">Operace není možná.\n\nNejdříve je nutné nakonfigurovat pumpu, než bude možné tuto funkci použít.</string>
+    <string name="medtronic_error_pump_24h_time_change_requested">Požadována změna času větší než 24h.</string>
     <!-- MDT History -->
+    <string name="medtronic_history_group_basal">Bazály</string>
+    <string name="medtronic_history_group_configuration">Konfigurace</string>
+    <string name="medtronic_history_group_notification">Oznámení</string>
+    <string name="medtronic_history_group_statistic">Statistika</string>
+    <string name="medtronic_history_group_unknown">Neznámé</string>
+    <string name="medtronic_history_group_all">Vše</string>
+    <string name="medtronic_pump_history">Historie Medtronic pumpy</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_never_contacted">Nikdy nekontaktováno</string>
+    <string name="medtronic_pump_status_waking_up">Probouzení</string>
+    <string name="medtronic_pump_status_error_comm">Chyba komunikace</string>
+    <string name="medtronic_pump_status_timeout_comm">Vypršel časový limit komunikace</string>
+    <string name="medtronic_pump_status_problem_contacting">Problém připojení k pumpě</string>
+    <string name="medtronic_pump_status_pump_unreachable">Pumpa nedostupná</string>
+    <string name="medtronic_pump_status_invalid_config">Neplatná konfigurace</string>
+    <string name="medtronic_pump_status_active">Aktivní</string>
+    <string name="medtronic_pump_status_sleeping">Spící</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_cancel_bolus_not_supported">Zrušili jste bolus potom, co byl nastaven na pumpě. Protože Medtronic nepodporuje zrušení bolusu, musíte ho zrušit ručně. Pozastavte pumpu a znovu spusťte. Aplikace detekuje změnu při příštím připojení (do 5 min).</string>
+    <string name="medtronic_cmd_cant_read_tbr">Nelze načíst současný dočasný bazál.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Nelze zastavit současný dočasný bazál. Ukončuji operaci.</string>
+    <string name="medtronic_cmd_set_profile_pattern_overflow">Nastavení profilu selhalo, protože následující vzorec má příliš velké bazály: %1$s</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered">Bolus nemohl být odeslán.</string>
+    <string name="medtronic_cmd_tbr_could_not_be_delivered">Dočasný bazál nemohl být nastaven.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr">Současný dočasný bazál nemohl být zrušen.</string>
+    <string name="medtronic_cmd_basal_profile_could_not_be_set">Bazální profil nemohl být nastaven.</string>
+    <string name="medtronic_cmd_basal_profile_not_set_is_same">Bazální profil je stejný, takže nebude znovu nastaven.</string>
+    <string name="medtronic_cmd_desc_get_history">Načítání historie - Strana %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Načítání historie - Strana %1$d</string>
+    <string name="medtronic_cmd_desc_get_history_base">Načítání historie - Strana %1$d</string>
+    <string name="medtronic_cmd_desc_get_time">Načítání času pumpy</string>
+    <string name="medtronic_cmd_desc_get_settings">Načítání nastavení</string>
+    <string name="medtronic_cmd_desc_get_model">Načítání modelu</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Načítání profilu</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Nastavování profilu</string>
+    <string name="medtronic_cmd_desc_get_tbr">Načítání dočasného bazálu</string>
+    <string name="medtronic_cmd_desc_set_tbr">Nastavování dočasného bazálu</string>
+    <string name="medtronic_cmd_desc_set_bolus">Nastavování bolusu</string>
+    <string name="pump_no_connection_h">Žádné spojení po dobu %1$d hodin %2$d minut</string>
+    <string name="pump_no_connection_d">Žádné spojení po dobu %1$d dní %2$d hodin</string>
     <string name="insulinFromCob"><![CDATA[Inzulín z COB: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Aplikováno omezení bolusu: %2$.2fU na %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Detekována pomalá absorbce sacharidů: %2$d%% času. Překontrolujte kalkulaci. COB může být o hodně jinak !!!!!</font>]]></string>
