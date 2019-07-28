@@ -1258,6 +1258,40 @@ Unerwartetes Verhalten.</string>
     <string name="description_source_dexcom">Empfange Blutzucker-Werte von der gepatchten Dexcom App.</string>
     <string name="notification">Benachrichtigung</string>
     <string name="notification_message">Benachrichtigung: %1$s</string>
+    <string name="message_short">Nachricht:</string>
+    <string name="profilepercentage">Prozentsatz des Profils</string>
+    <string name="percent_u">Prozent [%]:</string>
+    <string name="startprofile">Profil %1$d%% für %2$d Min. starten</string>
+    <string name="startprofileforever">Starte Profil %1$d%%</string>
+    <string name="exists">existiert</string>
+    <string name="notexists">existiert nicht</string>
+    <string name="temptargetcompared">Temporäres Ziel %1$s</string>
+    <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
+    <string name="autosenscompared">Autosens %1$s %2$s %%</string>
+    <string name="autosenslabel">Autosens %</string>
+    <string name="deltacompared">%3$s %1$s %2$s</string>
+    <string name="deltalabel">BZ-Unterschied</string>
+    <string name="currentlocation">Aktueller Standort</string>
+    <string name="location">Standort</string>
+    <string name="latitude_short">Breitegrad:</string>
+    <string name="longitude_short">Längengrad:</string>
+    <string name="distance_short">Distanz [m]:</string>
+    <string name="name_short">Name:</string>
+    <string name="locationis">Standort: %1$s</string>
+    <string name="lastboluslabel">Letzter Bolus</string>
+    <string name="lastboluscompared">Letzter Bolus vor %1$s %2$s Min</string>
+    <string name="triggercoblabel">COB</string>
+    <string name="cobcompared">COB %1$s %2$.0f</string>
+    <string name="taskname">Name der Aufgabe</string>
+    <string name="eventname">Name des Ereignisses</string>
+    <string name="edit_short">BEARBEITEN</string>
+    <string name="please_choose_an_action_type">Bitte wähle eine Aktion:</string>
+    <string name="please_choose_a_trigger_type">Bitte wähle einen Auslöser:</string>
+    <string name="if_label">Wenn:</string>
+    <string name="then_label">Dann:</string>
+    <string name="triggers">Auslöser:</string>
+    <string name="remove_label">ENTFERNEN</string>
+    <string name="preconditions">Vorbedingung:</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
@@ -1265,15 +1299,76 @@ Unerwartetes Verhalten.</string>
     <string name="medtronic_custom_action_reset_rileylink">RileyLink-Konfiguration zurücksetzen</string>
     <string name="medtronic_pump_battery_select">Akkutyp (Power View)</string>
     <string name="medtronic_pump_battery_no">Nicht ausgewählt (Einfache Ansicht)</string>
+    <string name="medtronic_pump_battery_alkaline">Alkaline Batterie (erweiterte Ansicht)</string>
+    <string name="medtronic_pump_battery_lithium">Lithium Batterie (erweiterte Ansicht)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SCANNEN</string>
+    <string name="rileylink_scanner_scan_stop">STOP</string>
+    <string name="rileylink_scanner_selected_device">Ausgewählt</string>
+    <string name="rileylink_scanner_scan">Scannen</string>
+    <string name="rileylink_scanner_title">RileyLink Scan</string>
+    <string name="rileylink_scanner_scan_menu">Nach RileyLink suchen</string>
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth-Low-Energy nicht unterstützt.</string>
+    <string name="location_not_found_title">Standortdienst ist nicht aktiviert</string>
+    <string name="location_not_found_message">Auf neueren Geräten muss für die Bluetooth-Erkennung der Standortdienst aktiviert sein. AAPS speichert keine Standortdaten und der Dienst kann nach erfolgreichem Pairing wieder deaktiviert werden.</string>
+    <string name="location_yes">Aktivieren</string>
+    <string name="location_no">Nein</string>
+    <string name="rileylink_scanner_scanning">Scannt</string>
+    <string name="rileylink_scanner_scanning_finished">Scannen abgeschlossen</string>
+    <string name="rileylink_scanner_scanning_error">Scanfehler: %1$d</string>
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Einstellungen</string>
+    <string name="rileylink_settings_tab2">Verlauf</string>
+    <string name="rileylink_settings_tab3">Gerät</string>
+    <string name="rileylink_status">RileyLink Status</string>
+    <string name="medtronic_pump_status">Pumpen-Status</string>
+    <string name="rileylink_settings_title">RileyLink Einstellungen</string>
+    <string name="title_activity_rileylink_settings">RileyLink Einstellungen</string>
+    <string name="rileylink_title">RileyLink</string>
+    <string name="rileylink_configured_address">Konfigurierte Adresse</string>
+    <string name="rileylink_connected_device">Verbundenes Gerät</string>
+    <string name="rileylink_connection_status">Verbindungsstatus</string>
+    <string name="rileylink_connection_error">Verbindungsfehler</string>
+    <string name="rileylink_device">Gerät</string>
+    <string name="rileylink_device_type">Geräte-Typ</string>
+    <string name="rileylink_device_model">Gerätemodell</string>
+    <string name="rileylink_last_used_frequency">Zuletzt verwendete Frequenz</string>
+    <string name="rileylink_last_device_contact">Letzter Gerätekontakt</string>
+    <string name="rileylink_firmware_version">RL Firmware</string>
     <!-- RL State -->
+    <string name="rileylink_state_bt_init">Initialisiere Bluetooth…</string>
+    <string name="rileylink_state_bt_error">Bluetooth-Fehler</string>
+    <string name="rileylink_state_bt_ready">Bluetooth bereit</string>
+    <string name="rileylink_state_not_started">Nicht gestartet</string>
+    <string name="rileylink_state_rl_init">RileyLink Initialisierung…</string>
+    <string name="rileylink_state_rl_error">RileyLink Fehler</string>
+    <string name="rileylink_state_pc_tune_up">RileyLink und Pumpe einstellen</string>
+    <string name="rileylink_state_pc_error">Problem beim Verbinden mit Pumpe</string>
+    <string name="rileylink_state_connected">Verbunden</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_not_rl">Gerät ist kein RileyLink</string>
+    <string name="rileylink_error_unreachable">RileyLink nicht erreichbar</string>
     <!-- RL Target Device -->
     <!-- MDT Errors -->
     <!-- MDT History -->
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_desc_get_history">Hole Verlauf - Seite %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Hole Verlauf - Seite %1$d</string>
+    <string name="medtronic_cmd_desc_get_history_base">Hole Verlauf - Seite %1$d</string>
+    <string name="medtronic_cmd_desc_get_time">Hole Pumpen-Zeit</string>
+    <string name="medtronic_cmd_desc_get_settings">Hole Einstellungen</string>
+    <string name="medtronic_cmd_desc_get_model">Hole Pumpenmodel</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Hole Basal-Profil</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Setzte Basal-Profil</string>
+    <string name="medtronic_cmd_desc_get_tbr">Hole Temporäre Basalraten</string>
+    <string name="medtronic_cmd_desc_set_tbr">Setze Temporäre Basalrate</string>
+    <string name="medtronic_cmd_desc_set_bolus">Setze Bolus</string>
+    <string name="pump_no_connection_h">Keine Verbindung für %1$d Stunde(n) %2$d Min</string>
+    <string name="pump_no_connection_d">Keine Verbindung für %1$d Tag(e) und %2$d Stunde(n)</string>
+    <string name="insulinFromCob"><![CDATA[COB Insulin: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
+    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus-Einschränkung angewendet: %2$.2fU zu %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!! Langsamer Kohlyenhydrate-Abbau erkannt: %2$d%% der Zeit. Überprüfe deine Berechnung. COB könnte sehr falsch sein !!!!!</font>]]></string>
     <plurals name="objective_days">
         <item quantity="one">%1$d Tag</item>
         <item quantity="other">%1$d Tage</item>
