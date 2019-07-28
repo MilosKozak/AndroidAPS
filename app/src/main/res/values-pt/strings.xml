@@ -1160,8 +1160,18 @@
     <string name="alreadysuspended">Já suspenso</string>
     <string name="resumeloop">Retomar loop</string>
     <string name="notsuspended">Não suspenso</string>
+    <string name="starttemptarget">Iniciar Alvo Temp</string>
+    <string name="stoptemptarget">Parar Alvo Temp</string>
+    <string name="unknown">desconhecido</string>
+    <string name="percentagecompared">Percentagem Perfil  %1$s %2$d</string>
+    <string name="iobcompared">IOB %1$s %2$.1f</string>
     <string name="and">E</string>
     <string name="or">Ou</string>
+    <string name="xor">Exclusivo ou</string>
+    <string name="atspecifiedtime">Às %1$s</string>
+    <string name="use_network_location">Usar localização da rede</string>
+    <string name="use_gps_location">Usar localização GPS</string>
+    <string name="use_passive_location">Usar localização passiva</string>
     <string name="locationservice">Serviço de localização</string>
     <string name="automation_short">Auto</string>
     <string name="automation">Automatização</string>
@@ -1188,7 +1198,11 @@
     <string name="title_tidepool_test_login">Teste de Conta Tidepool</string>
     <string name="tidepool">Tidepool</string>
     <string name="tidepool_shortname">TDP</string>
+    <string name="description_tidepool">Enviar dados para Tidepool</string>
     <string name="tidepool_upload_cgm">Enviar dados CGM</string>
+    <string name="tidepool_upload_bolus">Enviar tratamentos (insulina, hidratos)</string>
+    <string name="tidepool_upload_tbr">Enviar basais temporárias</string>
+    <string name="tidepool_upload_profile">Enviar trocas de perfil, alvos temporários</string>
     <string name="tidepool_upload_bg">Enviar testes Glicemia</string>
     <string name="dst_in_24h_warning">Horário de Verão em 24h ou menos</string>
     <string name="dst_loop_disabled_warning">Horário de Verão a menos de 3 horas - Closed Loop desligado</string>
@@ -1263,11 +1277,15 @@
     <string name="medtronic_pump_type">Tipo de Bomba</string>
     <string name="medtronic_pump_frequency">Frequência da Bomba</string>
     <string name="medtronic_pump_max_bolus">Max Bolus na Bomba (U)</string>
+    <string name="medtronic_pump_max_basal">Máx Basal na Bomba (U/h)</string>
+    <string name="medtronic_pump_encoding">Codificação Medtronic</string>
     <string name="medtronic_pump_frequency_us_ca">EUA &amp; Canadá (916 MHz)</string>
     <string name="medtronic_pump_frequency_worldwide">Em todo o Mundo (868 Mhz)</string>
     <string name="medtronic_pump_encoding_4b6b_local">Codificação de Software 4b6b</string>
     <string name="medtronic_pump_encoding_4b6b_rileylink">Codificação de Hardware 4b6b</string>
     <string name="rileylink_mac_address">Endereço MAC do RileyLink</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Limpar Bloco de Bólus</string>
+    <string name="medtronic_custom_action_reset_rileylink">Redefinir configuração RileyLink</string>
     <string name="medtronic_pump_battery_select">Tipo de Bateria (Visão Detalhada)</string>
     <string name="medtronic_pump_battery_no">Não seleccionado (Visão simples)</string>
     <string name="medtronic_pump_battery_alkaline">Alcalina (Visão estendida)</string>
@@ -1281,6 +1299,7 @@
     <string name="rileylink_scanner_scan_menu">Procurar por RileyLink</string>
     <string name="rileylink_scanner_ble_not_supported">Bluetooth de energia baixa (LE) não suportado.</string>
     <string name="rileylink_scanner_ble_not_enabled">Bluetooth não está activado.</string>
+    <string name="location_not_found_title">Localização Não Está Activada</string>
     <string name="location_yes">Activar</string>
     <string name="location_no">Não</string>
     <string name="rileylink_scanner_scanning">A procurar</string>
@@ -1312,8 +1331,13 @@
     <string name="rileylink_state_not_started">Não Iniciado</string>
     <string name="rileylink_state_rl_init">Inicialização do RileyLink…</string>
     <string name="rileylink_state_rl_error">Erro no RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">A configurar RileyLink e Bomba</string>
+    <string name="rileylink_state_pc_error">Problema ao ligar à Bomba</string>
     <string name="rileylink_state_connected">Ligado</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_not_rl">Dispositivo não é RileyLink</string>
+    <string name="rileylink_error_unreachable">RileyLink inacessível</string>
+    <string name="rileylink_error_bt_disabled">Bluetooth desactivado</string>
     <string name="rileylink_error_no_bt_adapter">Nenhum Adaptador Bluetooth</string>
     <string name="rileylink_error_tuneup_failed">TuneUp Falhou</string>
     <string name="rileylink_error_pump_unreachable">Bomba inacessível</string>
@@ -1331,6 +1355,7 @@
     <string name="medtronic_error_pump_frequency_not_set">Frequência de Bomba não definida.</string>
     <string name="medtronic_error_pump_frequency_invalid">Frequência da Bomba não suportada.</string>
     <string name="medtronic_error_rileylink_address_invalid">Endereço RileyLink inválido.</string>
+    <string name="medtronic_error_pump_24h_time_change_requested">Solicitada uma alteração de tempo de mais de 24h.</string>
     <!-- MDT History -->
     <string name="medtronic_history_group_basal">Basais</string>
     <string name="medtronic_history_group_configuration">Configurações</string>
@@ -1350,6 +1375,11 @@
     <string name="medtronic_pump_status_active">Activo</string>
     <string name="medtronic_pump_status_sleeping">A dormir</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_cant_read_tbr">Não foi possível ler a TBR actual.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Não foi possível cancelar a TBR atual. A parar a operação.</string>
+    <string name="medtronic_cmd_tbr_could_not_be_delivered">TBR não pode ser definida.</string>
+    <string name="medtronic_cmd_desc_get_history">Obter Histórico - Página %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Obter Histórico - Página %1$d</string>
     <string name="medtronic_cmd_desc_get_history_base">Obter Histórico - Página %1$d</string>
     <string name="medtronic_cmd_desc_get_time">Obter Hora da Bomba</string>
     <string name="medtronic_cmd_desc_get_settings">Obter Definições</string>
