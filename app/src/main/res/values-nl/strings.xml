@@ -1079,7 +1079,6 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="speederror">Snelheid fout</string>
     <string name="insulinlimitviolation">Insuline limiet overschreiding</string>
     <string name="loop_openmode_min_change">Minimale verzoek voor aanpassing [%]</string>
-    <string name="loop_openmode_min_change_summary">Loop zal popup met nieuwe veranderingsverzoek alleen geven als verandering groter is dan deze waarde. Standaardwaarde is 20%</string>
     <string name="pairfirst">Aub de pomp koppelen met je telefoon!</string>
     <string name="searching_for_devices">Bezig met zoeken naar apparaten…</string>
     <string name="please_wait">Even geduld a.u.b.…</string>
