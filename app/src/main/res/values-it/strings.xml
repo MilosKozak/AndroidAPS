@@ -322,7 +322,7 @@
     <string name="overview_bolusprogress_goingtodeliver">Sto per erogare %1$.2fU</string>
     <string name="objectives_0_objective">Configurazione della visualizzazione e del monitoraggio, analisi basali e rapporti</string>
     <string name="objectives_0_gate">Verificare che BG sia disponibile su Nightscout e che i dati sull\'insulina del micro siano in fase di caricamento</string>
-    <string name="objectives_1_objective">Partenza con Open loop</string>
+    <string name="objectives_1_objective">Partenza con Loop Aperto</string>
     <string name="objectives_1_gate">Eseguire in modalità Open Loop per alcuni giorni e impostare manualmente la basale tempor. Set up and use temporary and default temporary targets (e.g. for activity or hypo treatment carbs)</string>
     <string name="objectives_2_objective">Comprensione del tuo ciclo aperto, incluse le relative raccomandazioni basali del tempo</string>
     <string name="objectives_2_gate">Sulla base di quell\'esperienza, decidere quale basale massimo dovrebbe essere e impostarlo sulla pompa e le preferenze</string>
@@ -1080,6 +1080,7 @@
     <string name="speederror">Errore di velocità</string>
     <string name="insulinlimitviolation">Violazione del limite di insulina</string>
     <string name="loop_openmode_min_change">Cambiare richiesta minima [%]</string>
+    <string name="loop_openmode_min_change_summary">Il Loop Aperto mostrerà una nuova richiesta di modifica solo se la modifica è maggiore di questo valore in %. Il valore predefinito è 20%</string>
     <string name="pairfirst">Per favore accoppia la pompa con il tuo telefono!</string>
     <string name="searching_for_devices">Ricerca di dispositivi…</string>
     <string name="please_wait">Attendi…</string>
