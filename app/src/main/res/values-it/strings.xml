@@ -314,12 +314,12 @@
     <string name="overview_bolusprogress_delivered">Erogato</string>
     <string name="overview_bolusprogress_stoped">Stoppato</string>
     <string name="bolusstopped">Bolo stoppato</string>
-    <string name="bolusstopping">Stoppare bolo</string>
+    <string name="bolusstopping">Stop del bolo in corso</string>
     <string name="occlusion">Occlusione</string>
     <string name="overview_bolusprogress_stop">Arresta</string>
-    <string name="overview_bolusprogress_stoppressed">PREMUTO STOP</string>
+    <string name="overview_bolusprogress_stoppressed">STOP PREMUTO</string>
     <string name="waitingforpump">In attesa del micro</string>
-    <string name="overview_bolusprogress_goingtodeliver">Inviando %1$.2fU</string>
+    <string name="overview_bolusprogress_goingtodeliver">Sto per erogare %1$.2fU</string>
     <string name="objectives_0_objective">Impostazione di visualizzazione, monitoraggio e analisi basali e rapporti</string>
     <string name="objectives_0_gate">Verifica che Bg sia disponibile in Nightscout, e la data micro e\' ben allineata</string>
     <string name="objectives_1_objective">Partenza con Open loop</string>
