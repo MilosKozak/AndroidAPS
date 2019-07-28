@@ -1231,10 +1231,16 @@
     <string name="profileswitchcreated">Δημιουργήθηκε αλλαγή προφίλ</string>
     <string name="recurringTime">Χρόνος επαναλαμβανόμενων</string>
     <string name="every">Κάθε</string>
+    <string name="never">Ποτέ</string>
+    <string name="mins">%1$dλ</string>
+    <string name="condition">Κατάσταση:</string>
+    <string name="action">Ενέργεια:</string>
+    <string name="iob_u">ΙΟΒ [U]:</string>
     <string name="versionChecker">Έλεγχος Έκδοσης</string>
     <string name="old_version">παλιά έκδοση</string>
     <string name="very_old_version">πολύ παλιά έκδοση</string>
     <string name="new_version_warning">Νέα έκδοση για τουλάχιστον %1$d ημέρες διαθέσιμη! Επιστροφή σε LGS μετά από 60 ημέρες, το κύκλωμα θα απενεργοποιηθεί μετά από 90 ημέρες</string>
+    <string name="scale_insulin_activity">Γραφική κλίμακα δραστηριότητας ινσουλίνης [U/min]</string>
     <string name="twohours">2ώρες</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="dexcom_app_patched">Εφαρμογή Dexcom (τροποποιημένη)</string>
@@ -1243,8 +1249,52 @@
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
+    <string name="medtronic_pump_max_bolus">Μέγιστο Bolus στην αντλία (U)</string>
+    <string name="medtronic_pump_max_basal">Μέγιστος Βασικός στην αντλία (U/h)</string>
+    <string name="medtronic_pump_encoding">Αποκωδικοποίηση Medtronic</string>
+    <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Παγκοσμίως (868 Mhz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">Κωδικοποίηση λογισμικού 4b6b</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink">Κωδικοποίηση hardware 4b6b</string>
+    <string name="rileylink_mac_address">Διεύθυνση RileyLink MAC</string>
+    <string name="medtronic_custom_action_wake_and_tune">Wake and Tune Up</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Καθαρισμός Bolus Block</string>
+    <string name="medtronic_custom_action_reset_rileylink">Επαναφορά Ρυθμίσεων RileyLink</string>
+    <string name="medtronic_pump_battery_select">Τύπος Μπαταρίας (Power View)</string>
+    <string name="medtronic_pump_battery_no">Μη επιλεγμένη (Simple View)</string>
+    <string name="medtronic_pump_battery_alkaline">Αλκαλική (Extended view)</string>
+    <string name="medtronic_pump_battery_lithium">Λιθίου (Extended view)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SCAN</string>
+    <string name="rileylink_scanner_scan_stop">STOP</string>
+    <string name="rileylink_scanner_selected_device">Επιλεγμένο</string>
+    <string name="rileylink_scanner_scan">Scan</string>
+    <string name="rileylink_scanner_title">RileyLink Scan</string>
+    <string name="rileylink_scanner_scan_menu">Scan για RileyLink</string>
+    <string name="rileylink_scanner_ble_not_supported">Χαμηλή ενέργεια Bluetooth δεν υποστηρίζεται.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth μη ενεργοποιημένο.</string>
+    <string name="location_not_found_title">Τοποθεσία μη ενεργοποιημένη</string>
+    <string name="location_not_found_message">Για την εύρεση Bluetooth σε νεότερες συσκευές, η τοποθεσία πρέπει να είναι ενεργοποιημένη. Το AAPS δεν παρακολουθεί την τοποθεσία σας και μπορεί να απενεργοποιηθεί μετά την επιτυχή σύζευξη.</string>
+    <string name="location_yes">Ενεργοποίηση</string>
+    <string name="location_no">Όχι</string>
+    <string name="rileylink_scanner_scanning">Σάρωση</string>
+    <string name="rileylink_scanner_scanning_finished">Η σάρωση ολοκληρώθηκε</string>
+    <string name="rileylink_scanner_scanning_error">Λάθος σάρωσης: %1$d</string>
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Ρυθμίσεις</string>
+    <string name="rileylink_settings_tab2">Ιστορικό</string>
+    <string name="rileylink_settings_tab3">Συσκευή</string>
+    <string name="rileylink_status">Κατάσταση RileyLink</string>
+    <string name="medtronic_pump_status">Κατάσταση Αντλίας</string>
+    <string name="rileylink_settings_title">Ρυθμίσεις RileyLink</string>
+    <string name="title_activity_rileylink_settings">Ρυθμίσεις RileyLink</string>
+    <string name="rileylink_title">RileyLink</string>
+    <string name="rileylink_configured_address">Διαμορφωμένη Διεύθυνση</string>
+    <string name="rileylink_connected_device">Συνδεδεμένες συσκευές</string>
+    <string name="rileylink_connection_status">Κατάσταση Σύνδεσης</string>
+    <string name="rileylink_connection_error">Σφάλμα σύνδεσης</string>
+    <string name="rileylink_device">Συσκευή</string>
+    <string name="rileylink_device_type">Τύπος Συσκευής</string>
     <string name="rileylink_device_model">Μοντέλο συσκευής</string>
     <string name="rileylink_last_used_frequency">Τελευταία χρησιμοποιημένη συχνότητα</string>
     <string name="rileylink_last_device_contact">Τελευταία επαφή συσκευής</string>
@@ -1262,6 +1312,24 @@
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Αδυναμία ακύρωσης τρέχοντος TBR. Αναστολή λειτουργίας.</string>
     <string name="medtronic_cmd_set_profile_pattern_overflow">Η δημιουργία προφίλ απέτυχε, επειδή ακολουθώντας πρότυπα, έχετε υπερβολικά μεγάλο βασικό ρυθμό: %1$s</string>
     <string name="medtronic_cmd_bolus_could_not_be_delivered">Το Bolus δεν μπορεί να χορηγηθεί.</string>
+    <string name="medtronic_cmd_tbr_could_not_be_delivered">TBR δεν μπορεί να μπει.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr">Αδυναμία ακύρωσης τρέχοντος TBR.</string>
+    <string name="medtronic_cmd_basal_profile_could_not_be_set">Το Βασικό Προφίλ δεν μπορεί να τοποθετηθεί.</string>
+    <string name="medtronic_cmd_basal_profile_not_set_is_same">Το Βασικό Προφίλ είναι ίδιο, οπότε δεν θα μπει ξανά.</string>
+    <string name="medtronic_cmd_desc_get_history">Βλέπε Ιστορικό - Σελίδα %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Βλέπε Ιστορικό - Σελίδα %1$d</string>
+    <string name="medtronic_cmd_desc_get_history_base">Βλέπε Ιστορικό - Σελίδα %1$d</string>
+    <string name="medtronic_cmd_desc_get_time">Πάρτε Ώρα Αντλίας</string>
+    <string name="medtronic_cmd_desc_get_settings">Λάβετε ρυθμίσεις</string>
+    <string name="medtronic_cmd_desc_get_model">Λάβετε Μοντέλο Αντλίας</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Λάβετε Βασικό Προφίλ</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Βάλτε Βασικό Προφίλ</string>
+    <string name="medtronic_cmd_desc_get_tbr">Λάβετε Προσωρινό Ρυθμό</string>
+    <string name="medtronic_cmd_desc_set_tbr">Βάλτε Προσωρινό Ρυθμό</string>
+    <string name="medtronic_cmd_desc_set_bolus">Βάλτε Bolus</string>
+    <string name="pump_no_connection_h">Αποσυνδεδεμένο για %1$d ώρες %2$d λεπτά</string>
+    <string name="pump_no_connection_d">Αποσυνδεδεμένο για %1$d μέρες %2$d ώρες</string>
+    <string name="insulinFromCob"><![CDATA[Ινσουλίνη COB: <font color=\'%1$s\'>%2$.1fg %3$.2f</font>]]></string>
     <plurals name="objective_days">
         <item quantity="one">%1$d ημέρα</item>
         <item quantity="other">%1$d ημέρες</item>
