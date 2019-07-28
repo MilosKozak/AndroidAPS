@@ -1157,7 +1157,10 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="weekday_wednesday_short">Woe</string>
     <string name="weekday_tuesday_short">Di</string>
     <string name="weekday_monday_short">Ma</string>
+    <string name="automation_description">Gebruiker gedefinieerde automatisering</string>
+    <string name="automation_missing_task_name">Voer een taaknaam in.</string>
     <string name="automation_missing_trigger">Voer minstens één trigger in.</string>
+    <string name="automation_missing_action">Voer minstens één actie in.</string>
     <string name="alreadyenabled">Al ingeschakeld</string>
     <string name="alreadydisabled">Al uitgeschakeld</string>
     <string name="alreadysuspended">Al onderbroken</string>
@@ -1175,10 +1178,16 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="glucoseisnotavailable">Glucose is niet beschikbaar</string>
     <string name="glucosecomparedmgdl">Glucose %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Glucose %1$s %2$.1f %3$s</string>
+    <string name="percentagecompared">Profiel pct %1$s %2$d</string>
     <string name="iobcompared">IOB %1$s %2$.1f</string>
     <string name="and">En</string>
     <string name="or">Of</string>
     <string name="xor">Exclusieve of</string>
+    <string name="use_network_location">Gebruik netwerklocatie</string>
+    <string name="use_gps_location">Gebruik GPS-locatie</string>
+    <string name="use_passive_location">Gebruik passieve locatie</string>
+    <string name="locationservice">Locatieservice</string>
+    <string name="automation">Automatisering</string>
     <string name="profile_total">== ∑  %1$s E</string>
     <string name="profile_ins_units_per_hout">E/uur</string>
     <string name="profile_carbs_per_unit">g/E</string>
@@ -1220,7 +1229,17 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="sms_wrongcode">Verkeerde code. Opdracht geannuleerd.</string>
     <string name="notconfigured">Niet ingesteld</string>
     <string name="profileswitchcreated">Profiel wissel aangemaakt</string>
+    <string name="recurringTime">Herhaal tijd</string>
+    <string name="every">Elke</string>
+    <string name="never">Nooit</string>
+    <string name="mins">%1$dmin</string>
+    <string name="condition">Voorwaarde:</string>
+    <string name="action">Actie:</string>
+    <string name="iob_u">IOB [E]:</string>
+    <string name="glucose_u">Glucose [%1$s]:</string>
     <string name="versionChecker">Versie Checker</string>
+    <string name="signature_verifier">Handtekening controle</string>
+    <string name="running_invalid_version">We hebben gedetecteerd dat je een ongeldige versie gebruikt. Loop is uitgeschakeld!</string>
     <string name="old_version">oude versie</string>
     <string name="very_old_version">zeer oude versie</string>
     <string name="new_version_warning">Er is als sinds ten minste %1$d dagen een nieuwe versie beschikbaar! Na 60 dagen wordt de loop beperkt tot LGS, na 90 dagen zal de loop worden uitgeschakeld</string>
@@ -1231,6 +1250,8 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Ontvang BG waardes van de aangepaste Dexcom G app.</string>
     <!-- Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Bewerking niet ondersteund door pomp en/of driver.</string>
+    <string name="pump_operation_not_yet_supported_by_pump">Operatie NU nog niet ondersteund door pomp.</string>
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
     <!-- RL BLE Scanning -->
