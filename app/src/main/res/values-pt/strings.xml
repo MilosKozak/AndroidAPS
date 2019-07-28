@@ -1274,13 +1274,31 @@
     <string name="rileylink_target_device_omnipod">Omnipod</string>
     <!-- MDT Errors -->
     <string name="medtronic_errors">Erros</string>
+    <string name="medtronic_error_serial_not_set">Núm. Série não definido.</string>
+    <string name="medtronic_error_serial_invalid">Núm. Série inválido.</string>
+    <string name="medtronic_error_pump_type_not_set">Tipo de Bomba não definido.</string>
+    <string name="medtronic_error_pump_type_invalid">Tipo de Bomba não suportado.</string>
+    <string name="medtronic_error_pump_frequency_not_set">Frequência de Bomba não definida.</string>
+    <string name="medtronic_error_pump_frequency_invalid">Frequência da Bomba não suportada.</string>
+    <string name="medtronic_error_rileylink_address_invalid">Endereço RileyLink inválido.</string>
     <!-- MDT History -->
     <string name="medtronic_history_group_basal">Basais</string>
+    <string name="medtronic_history_group_configuration">Configurações</string>
+    <string name="medtronic_history_group_notification">Notificações</string>
     <string name="medtronic_history_group_statistic">Estatísticas</string>
     <string name="medtronic_history_group_unknown">Desconhecido</string>
     <string name="medtronic_history_group_all">Tudo</string>
     <string name="medtronic_pump_history">Histórico da Bomba Medtronic</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_never_contacted">Nunca contactado</string>
+    <string name="medtronic_pump_status_waking_up">A acordar</string>
+    <string name="medtronic_pump_status_error_comm">Erro com comunicação</string>
+    <string name="medtronic_pump_status_timeout_comm">Tempo limite para comunicação</string>
+    <string name="medtronic_pump_status_problem_contacting">Problema ao contactar a Bomba</string>
+    <string name="medtronic_pump_status_pump_unreachable">Bomba inacessível</string>
+    <string name="medtronic_pump_status_invalid_config">Configuração inválida</string>
+    <string name="medtronic_pump_status_active">Activo</string>
+    <string name="medtronic_pump_status_sleeping">A dormir</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
     <string name="medtronic_cmd_desc_get_history_base">Obter Histórico - Página %1$d</string>
     <string name="medtronic_cmd_desc_get_time">Obter Hora da Bomba</string>
