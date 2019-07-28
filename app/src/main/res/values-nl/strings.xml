@@ -1253,8 +1253,34 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="pump_operation_not_supported_by_pump_driver">Bewerking niet ondersteund door pomp en/of driver.</string>
     <string name="pump_operation_not_yet_supported_by_pump">Operatie NU nog niet ondersteund door pomp.</string>
     <!-- Medtronic (MDT) - Base -->
+    <string name="description_pump_medtronic">Pomp integratie voor Medtronic, vereist RileyLink-apparaatje en geschikte versie en model pomp</string>
     <!-- MDT Configuration -->
+    <string name="medtronic_serial_number">Serienummer van de pomp</string>
+    <string name="medtronic_pump_type">Pomp Type</string>
+    <string name="medtronic_pump_frequency">Pomp Frequentie</string>
+    <string name="medtronic_pump_bolus_delay">Vertraging voordat Bolus wordt gestart (s)</string>
+    <string name="medtronic_pump_max_bolus">Max Bolus op Pomp (E)</string>
+    <string name="medtronic_pump_max_basal">Max Basaal op Pomp (E/u)</string>
+    <string name="medtronic_pump_encoding">Medtronic Codering</string>
+    <string name="medtronic_pump_frequency_us_ca">VS &amp; Canada (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Wereldwijd (868 Mhz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">Software 4b6b Codering</string>
+    <string name="rileylink_mac_address">MAC-adres RileyLink</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Bolus Blok wissen</string>
+    <string name="medtronic_custom_action_reset_rileylink">Reset RileyLink Configuratie</string>
+    <string name="medtronic_pump_battery_no">Niet geselecteerd (Eenvoudige weergave)</string>
+    <string name="medtronic_pump_battery_alkaline">Alkaline (uitgebreide weergave)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SCAN</string>
+    <string name="rileylink_scanner_scan_stop">STOP</string>
+    <string name="rileylink_scanner_selected_device">Geselecteerd</string>
+    <string name="rileylink_scanner_scan">Scan</string>
+    <string name="rileylink_scanner_title">RileyLink Scan</string>
+    <string name="rileylink_scanner_scan_menu">Scan voor RileyLink</string>
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth Lage Energie modus niet ondersteund.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth niet ingeschakeld.</string>
+    <string name="location_not_found_title">Locatie is niet ingeschakeld</string>
+    <string name="location_not_found_message">Om Bluetooth discovery met nieuwere apparaten te laten werken moet locatie worden ingeschakeld. AAPS volgt je locatie niet en locatie kan ook weer worden uitgeschakeld nadat het koppelen is gelukt.</string>
     <!-- RL Status Page -->
     <!-- RL State -->
     <!-- RL Errors -->
@@ -1263,6 +1289,8 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <!-- MDT History -->
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="pump_no_connection_h">Geen verbinding gedurende %1$d uur %2$d min</string>
+    <string name="pump_no_connection_d">Geen verbinding gedurende %1$d dag(en) %2$d uur</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dag</item>
         <item quantity="other">%1$d dag</item>
