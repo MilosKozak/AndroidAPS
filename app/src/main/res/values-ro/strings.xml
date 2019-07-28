@@ -1075,7 +1075,6 @@
     <string name="speederror">Eroare de viteză</string>
     <string name="insulinlimitviolation">Încălcare a limitării cantităţii de insulină</string>
     <string name="loop_openmode_min_change">Cerere de schimbare minimală [%]</string>
-    <string name="loop_openmode_min_change_summary">Bucla va afişa o nouă cerere de schimbare doar dacă schimbarea are o valoare decât aceasta. Valoarea implicită este 20%</string>
     <string name="pairfirst">Vă rog să conectați pompa cu telefonul!</string>
     <string name="searching_for_devices">Căutare dispozitive…</string>
     <string name="please_wait">Așteptați…</string>
