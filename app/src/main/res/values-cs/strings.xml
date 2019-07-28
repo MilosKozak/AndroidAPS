@@ -537,10 +537,12 @@
     <string name="loopsuspended">Smyčka pozastavena</string>
     <string name="loopsuspendedfor">Pozastaveno (%1$d min)</string>
     <string name="loopsuperbolusfor">Superbolus (%1$d m)</string>
+    <string name="suspendloop">Pozastavit smyčku</string>
     <string name="suspendloopfor1h">Pozastavit smyčku na 1 h</string>
     <string name="suspendloopfor2h">Pozastavit smyčku na 2 h</string>
     <string name="suspendloopfor3h">Pozastavit smyčku na 3 h</string>
     <string name="suspendloopfor10h">Pozastavit smyčku na 10 h</string>
+    <string name="suspendloopforXmin">Pozastavit smyčku na %1$d min</string>
     <string name="disconnectpumpfor15m">Odpojit pumpu na 15 min</string>
     <string name="disconnectpumpfor30m">Odpojit pumpu na 30 min</string>
     <string name="disconnectpumpfor1h">Odpojit pumpu na 1 h</string>
@@ -1078,6 +1080,7 @@
     <string name="speederror">Chyba rychlosti</string>
     <string name="insulinlimitviolation">Překročen limit inzulínu</string>
     <string name="loop_openmode_min_change">Minimální změna pro výzvu [%]</string>
+    <string name="loop_openmode_min_change_summary">Otevřená smyčka vytvoří novou žádost o změnu pouze v případě, že změna je větší než tato hodnota. Výchozí hodnota je 20 %</string>
     <string name="pairfirst">Spárujte pumpu s telefonem!</string>
     <string name="searching_for_devices">Vyhledávání zařízení…</string>
     <string name="please_wait">Počkejte prosím…</string>
@@ -1146,7 +1149,17 @@
     <string name="min_recovery_duration">Min. doba čekání na obnovení spojení [s]</string>
     <string name="recovery_duration">Doba čekání na obnovení spojení</string>
     <string name="timeout_during_handshake">Vypršel limit spojení - resetujte Bluetooth</string>
+    <string name="weekday_sunday_short">Ne</string>
+    <string name="weekday_saturday_short">So</string>
+    <string name="weekday_friday_short">Pá</string>
+    <string name="weekday_thursday_short">Čt</string>
+    <string name="weekday_wednesday_short">St</string>
+    <string name="weekday_tuesday_short">Út</string>
+    <string name="weekday_monday_short">Po</string>
+    <string name="automation_description">Automatické úkoly definované uživatelem</string>
     <string name="automation_missing_task_name">Zadejte prosím název úlohy.</string>
+    <string name="automation_missing_trigger">Prosím zadejte alespoň jednu podmínku.</string>
+    <string name="automation_missing_action">Prosím zadejte alespoň jednu akci.</string>
     <string name="alreadyenabled">Aktuálně povoleno</string>
     <string name="alreadydisabled">Aktuálně zakázáno</string>
     <string name="alreadysuspended">Aktuálně pozastaveno</string>
@@ -1162,11 +1175,20 @@
     <string name="isnotavailable">není k dispozici</string>
     <string name="unknown">neznámý</string>
     <string name="glucoseisnotavailable">Glykémie není k dispozici</string>
+    <string name="glucosecomparedmgdl">Glykémie %1$s %2$.0f %3$s</string>
+    <string name="glucosecomparedmmol">Glykémie %1$s %2$.1f %3$s</string>
+    <string name="percentagecompared">Profil pct %1$s %2$d</string>
+    <string name="iobcompared">IOB %1$s %2$.1f</string>
     <string name="and">A</string>
     <string name="or">Nebo</string>
     <string name="xor">Exkluzivní nebo</string>
+    <string name="atspecifiedtime">Ve %1$s</string>
     <string name="use_network_location">Povolit zjištění polohy podle sítě</string>
     <string name="use_gps_location">Použití GPS pozice</string>
+    <string name="use_passive_location">Použít pasivní polohu</string>
+    <string name="locationservice">Služba určování polohy</string>
+    <string name="automation_short">Auto</string>
+    <string name="automation">Automatizace</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
@@ -1208,7 +1230,21 @@
     <string name="sms_wrongcode">Nesprávný kód. Příkaz zrušen.</string>
     <string name="notconfigured">Není nakonfigurováno</string>
     <string name="profileswitchcreated">Přepnutí profilu vytvořeno</string>
+    <string name="recurringTime">Opakující se čas</string>
+    <string name="every">Každé</string>
+    <string name="never">Nikdy</string>
+    <string name="mins">%1$dminut</string>
+    <string name="condition">Podmínka:</string>
+    <string name="action">Akce:</string>
+    <string name="iob_u">IOB [U]:</string>
+    <string name="glucose_u">Glykémie [%1$s]:</string>
+    <string name="delete_short">SMAZAT</string>
+    <string name="add_short">PŘIDAT</string>
+    <string name="copy_short">KOPIE</string>
+    <string name="addnew">Přidat nový</string>
     <string name="versionChecker">Kontrola verze</string>
+    <string name="signature_verifier">Ověření podpisu</string>
+    <string name="running_invalid_version">Zjistili jsme, že používáte neplatnou verzi, smyčka zakázána!</string>
     <string name="old_version">stará verze</string>
     <string name="very_old_version">velmi stará verze</string>
     <string name="new_version_warning">Nová verze je dostupná minimálně %1$d dní! Přepnutí na ochranu před nízkou glykémií po 60 dnech, vypnutí smyčky po 90 dnech</string>
@@ -1218,18 +1254,85 @@
     <string name="dexcom_app_patched">Aplikace Dexcom (upravená)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Příjem hodnot glykémií z upravené aplikace Dexcom.</string>
+    <string name="notification">Oznámení</string>
+    <string name="notification_message">Oznámení: %1$s</string>
+    <string name="message_short">Zpráva:</string>
+    <string name="profilepercentage">Procento profilu</string>
+    <string name="percent_u">Procent [%]:</string>
+    <string name="startprofile">Spustit profil %1$d%% na %2$d min</string>
+    <string name="startprofileforever">Spustit profil %1$d%%</string>
+    <string name="exists">existuje</string>
+    <string name="notexists">neexistuje</string>
+    <string name="temptargetcompared">Dočasný cíl %1$s</string>
+    <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
+    <string name="autosenscompared">Autosens %1$s %2$s %%</string>
+    <string name="autosenslabel">Autosens %</string>
+    <string name="deltacompared">%3$s %1$s %2$s</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy nepodporováno.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth není povolen.</string>
+    <string name="location_not_found_title">Zjišťování místa není povoleno</string>
+    <string name="location_not_found_message">Pro vyhledání Bluetooth zařízení na novějších telefonech musí být povoleno zjišťování polohy. AAPS Vás nesleduje a po provedení párování to může být opět zakázáno.</string>
+    <string name="location_yes">Povolit</string>
+    <string name="location_no">Ne</string>
+    <string name="rileylink_scanner_scanning">Vyhledávání</string>
+    <string name="rileylink_scanner_scanning_finished">Vyhledávání dokončeno</string>
+    <string name="rileylink_scanner_scanning_error">Chyba při vyhledávání: %1$d</string>
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Nastavení</string>
+    <string name="rileylink_settings_tab2">Historie</string>
+    <string name="rileylink_settings_tab3">Zařízení</string>
+    <string name="rileylink_status">Status RileyLink</string>
+    <string name="medtronic_pump_status">Stav pumpy</string>
+    <string name="rileylink_settings_title">Nastavení RileyLink</string>
+    <string name="title_activity_rileylink_settings">Nastavení RileyLink</string>
+    <string name="rileylink_title">RileyLink</string>
+    <string name="rileylink_configured_address">Nastavená adresa</string>
+    <string name="rileylink_connected_device">Připojené zařízení</string>
+    <string name="rileylink_connection_status">Stav připojení</string>
+    <string name="rileylink_connection_error">Chyba spojení</string>
+    <string name="rileylink_device">Zařízení</string>
+    <string name="rileylink_device_type">Typ zařízení</string>
+    <string name="rileylink_device_model">Model zařízení</string>
+    <string name="rileylink_last_used_frequency">Poslední použitá frekvence</string>
+    <string name="rileylink_last_device_contact">Poslední spojení se zařízením</string>
+    <string name="rileylink_firmware_version">RL Firmware</string>
     <!-- RL State -->
+    <string name="rileylink_state_bt_init">Bluetooth se incializuje…</string>
+    <string name="rileylink_state_bt_error">Chyba Bluetooth</string>
+    <string name="rileylink_state_bt_ready">Bluetooth připraven</string>
+    <string name="rileylink_state_not_started">Nezahájeno</string>
+    <string name="rileylink_state_rl_init">RileyLink inicializace…</string>
+    <string name="rileylink_state_rl_error">Chyba RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">Spojování RileyLinku a pumpy</string>
+    <string name="rileylink_state_pc_error">Problém připojení k pumpě</string>
+    <string name="rileylink_state_connected">Připojeno</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_not_rl">Zařízení není RileyLink</string>
+    <string name="rileylink_error_unreachable">RileyLink nedostupný</string>
+    <string name="rileylink_error_bt_disabled">Bluetooth je zakázáno</string>
+    <string name="rileylink_error_no_bt_adapter">Žádný Bluetooth adaptér</string>
+    <string name="rileylink_error_tuneup_failed">Spojování selhalo</string>
+    <string name="rileylink_error_pump_unreachable">Pumpa nedostupná</string>
+    <string name="rileylink_error_pod_unreachable">Pod nedostupný</string>
+    <string name="rileylink_error_address_not_set_short">Nenastaveno</string>
     <!-- RL Target Device -->
+    <string name="rileylink_target_device_medtronic">Pumpa Medtronic</string>
+    <string name="rileylink_target_device_omnipod">Omipod</string>
     <!-- MDT Errors -->
+    <string name="medtronic_errors">Chyby</string>
+    <string name="medtronic_error_serial_not_set">Sériové číslo nenastaveno.</string>
+    <string name="medtronic_error_serial_invalid">Sériové číslo neplatné.</string>
+    <string name="medtronic_error_pump_type_not_set">Nenastaven typ pumpy.</string>
     <!-- MDT History -->
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="insulinFromCob"><![CDATA[Inzulín z COB: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
+    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Aplikováno omezení bolusu: %2$.2fU na %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Detekována pomalá absorbce sacharidů: %2$d%% času. Překontrolujte kalkulaci. COB může být o hodně jinak !!!!!</font>]]></string>
     <plurals name="objective_days">
         <item quantity="one">%1$d den</item>
         <item quantity="few">%1$d dnů</item>
