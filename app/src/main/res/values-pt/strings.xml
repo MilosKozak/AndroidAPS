@@ -26,7 +26,7 @@
     <string name="description_insulin_rapid">Predefinição de Insulina Humalog e NovoRapid / NovoLog</string>
     <string name="description_insulin_ultra_rapid">Predefinição de Insulina Fiasp</string>
     <string name="description_insulin_free_peak">Permite definir o pico de atividade da insulina e deve ser usado somente por usuários avançados</string>
-    <string name="description_loop">Ativar ou desativar a aplicação que desencadeia o loop.</string>
+    <string name="description_loop">Activar ou desactivar a aplicação que desencadeia o loop.</string>
     <string name="description_ns_client">Sincroniza os seus dados com o Nightscout</string>
     <string name="description_ma">Estado do algoritmo em 2016</string>
     <string name="description_ama">Estado do algoritmo em 2017</string>
@@ -1156,7 +1156,7 @@
     <string name="weekday_tuesday_short">Ter</string>
     <string name="weekday_monday_short">Seg</string>
     <string name="automation_missing_task_name">Insira um nome da tarefa.</string>
-    <string name="automation_missing_trigger">Especifique pelo menos um disparador.</string>
+    <string name="automation_missing_trigger">Especifique pelo menos um gatilho.</string>
     <string name="automation_missing_action">Especifique pelo menos uma acção.</string>
     <string name="alreadyenabled">Já activado</string>
     <string name="alreadydisabled">Já desativado</string>
@@ -1277,17 +1277,22 @@
     <string name="taskname">Nome da Tarefa</string>
     <string name="eventname">Nome do Evento</string>
     <string name="edit_short">EDITAR</string>
+    <string name="please_choose_an_action_type">Escolha um tipo de acção:</string>
+    <string name="please_choose_a_trigger_type">Escolha um tipo de gatilho:</string>
     <string name="if_label">Se:</string>
     <string name="then_label">Então:</string>
-    <string name="triggers">Disparadores:</string>
+    <string name="triggers">Gatilhos:</string>
     <string name="remove_label">REMOVER</string>
     <string name="preconditions">Precondições:</string>
     <!-- Pump Abstract -->
+    <string name="pump_operation_not_yet_supported_by_pump">Operação não suportada ainda pela Bomba.</string>
     <!-- Medtronic (MDT) - Base -->
+    <string name="description_pump_medtronic">Integração de Bombas Medtronic, requer o dispositivo RileyLink e o Modelo de Bomba específico</string>
     <!-- MDT Configuration -->
     <string name="medtronic_serial_number">Número de série da Bomba</string>
     <string name="medtronic_pump_type">Tipo de Bomba</string>
     <string name="medtronic_pump_frequency">Frequência da Bomba</string>
+    <string name="medtronic_pump_bolus_delay">Atraso antes que o Bólus seja iniciado (s)</string>
     <string name="medtronic_pump_max_bolus">Max Bolus na Bomba (U)</string>
     <string name="medtronic_pump_max_basal">Máx Basal na Bomba (U/h)</string>
     <string name="medtronic_pump_encoding">Codificação Medtronic</string>
@@ -1296,6 +1301,7 @@
     <string name="medtronic_pump_encoding_4b6b_local">Codificação de Software 4b6b</string>
     <string name="medtronic_pump_encoding_4b6b_rileylink">Codificação de Hardware 4b6b</string>
     <string name="rileylink_mac_address">Endereço MAC do RileyLink</string>
+    <string name="medtronic_custom_action_wake_and_tune">Acordar e Configurar</string>
     <string name="medtronic_custom_action_clear_bolus_block">Limpar Bloco de Bólus</string>
     <string name="medtronic_custom_action_reset_rileylink">Redefinir configuração RileyLink</string>
     <string name="medtronic_pump_battery_select">Tipo de Bateria (Visão Detalhada)</string>
@@ -1389,7 +1395,11 @@
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
     <string name="medtronic_cmd_cant_read_tbr">Não foi possível ler a TBR actual.</string>
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Não foi possível cancelar a TBR atual. A parar a operação.</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered">O bólus não pôde ser entregue.</string>
     <string name="medtronic_cmd_tbr_could_not_be_delivered">TBR não pode ser definida.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr">Não foi possível cancelar a TBR atual.</string>
+    <string name="medtronic_cmd_basal_profile_could_not_be_set">Perfil Basal não pôde ser definido.</string>
+    <string name="medtronic_cmd_basal_profile_not_set_is_same">Perfil Basal é o mesmo, então não será definido novamente.</string>
     <string name="medtronic_cmd_desc_get_history">Obter Histórico - Página %1$d (%2$d/16)</string>
     <string name="medtronic_cmd_desc_get_history_request">Obter Histórico - Página %1$d</string>
     <string name="medtronic_cmd_desc_get_history_base">Obter Histórico - Página %1$d</string>
