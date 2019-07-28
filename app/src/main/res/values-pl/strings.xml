@@ -1081,7 +1081,6 @@
     <string name="speederror">Błąd prędkości</string>
     <string name="insulinlimitviolation">Przekroczono limit insuliny</string>
     <string name="loop_openmode_min_change">Minimalna żądana zmiana [%]</string>
-    <string name="loop_openmode_min_change_summary">Pętla wprowadzi żądanie zmiany tylko w przypadku, gdy będzie ona większa niż ta wartość. Wartość domyślna to 20%</string>
     <string name="pairfirst">Proszę sparować swoją pompę z telefonem!</string>
     <string name="searching_for_devices">Wyszukiwanie urządzeń…</string>
     <string name="please_wait">Proszę czekać…</string>
