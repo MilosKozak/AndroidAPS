@@ -105,6 +105,7 @@
     <string name="openapsma_profile_label">Profilo</string>
     <string name="openapsma_mealdata_label">Dati Pasto</string>
     <string name="result">Esito</string>
+    <string name="openapsma_noglucosedata">Dati Glicemia non disponibili</string>
     <string name="nochangerequested">Nessun cambiamento richiesto</string>
     <string name="openapsma_request_label">Richiesta</string>
     <string name="rate">Tasso</string>
@@ -1242,6 +1243,8 @@
     <string name="copy_short">COPIA</string>
     <string name="addnew">Aggiungi nuovo</string>
     <string name="versionChecker">Controllo Versione</string>
+    <string name="signature_verifier">Verificatore firma</string>
+    <string name="running_invalid_version">Abbiamo rilevato che stai eseguendo una versione non valida. Loop disabilitato!</string>
     <string name="old_version">versione datata</string>
     <string name="very_old_version">versione molto datata</string>
     <string name="new_version_warning">Nuova versione disponibile da %1$d giorni! Ritorno a LGS trascorsi 60 giorni, disattivazione del loop dopo 90 giorni</string>
@@ -1330,7 +1333,31 @@
     <string name="rileylink_scanner_scanning_error">Errore scansione: %1$d</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Impostazioni</string>
+    <string name="rileylink_settings_tab2">Storico</string>
+    <string name="rileylink_settings_tab3">Dispositivo</string>
+    <string name="rileylink_status">Stato RileyLink</string>
+    <string name="medtronic_pump_status">Stato microinfusore</string>
+    <string name="rileylink_settings_title">Impostazioni RileyLink</string>
+    <string name="title_activity_rileylink_settings">Impostazioni RileyLink</string>
+    <string name="rileylink_title">RileyLink</string>
+    <string name="rileylink_configured_address">Indirizzo configurato</string>
+    <string name="rileylink_connected_device">Dispositivo connesso</string>
+    <string name="rileylink_connection_status">Stato connessione</string>
+    <string name="rileylink_connection_error">Errore Connessione</string>
+    <string name="rileylink_device">Dispositivo</string>
+    <string name="rileylink_device_type">Tipo dispositivo</string>
+    <string name="rileylink_device_model">Modello dispositivo</string>
+    <string name="rileylink_last_used_frequency">Ultima frequenza utilizzata</string>
+    <string name="rileylink_last_device_contact">Ultimo contatto dispositivo</string>
+    <string name="rileylink_firmware_version">RL Firmware</string>
     <!-- RL State -->
+    <string name="rileylink_state_bt_init">Inizializzazione Bluetooth…</string>
+    <string name="rileylink_state_bt_error">Errore Bluetooth</string>
+    <string name="rileylink_state_bt_ready">Bluetooth pronto</string>
+    <string name="rileylink_state_not_started">Non avviato</string>
+    <string name="rileylink_state_rl_init">Inializzazione RileyLink…</string>
+    <string name="rileylink_state_rl_error">Errore RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">Sintonizzazione di RileyLink e Microinfusore</string>
     <!-- RL Errors -->
     <!-- RL Target Device -->
     <!-- MDT Errors -->
