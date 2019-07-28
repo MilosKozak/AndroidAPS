@@ -734,7 +734,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="bgsource_upload">BG upload instellingen</string>
     <string name="wear_detailed_delta_title">Toon gedetailleerde delta</string>
     <string name="wear_detailed_delta_summary">Toon delta met een extra decimaal punt</string>
-    <string name="smbmaxminutes_summary">Maximum aantal minuten basaal om de SMB te limiteren tot</string>
+    <string name="smbmaxminutes_summary">Max minuten basaal om SMB tot te limiteren</string>
     <string name="unsupportedfirmware">Niet ondersteunde pomp firmware</string>
     <string name="dexcomg5_xdripupload_title">Stuur BG data naar xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">In xDrip+ kies 640g/Eversense data bron</string>
