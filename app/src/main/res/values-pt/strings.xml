@@ -1199,17 +1199,29 @@
     <string name="mins">%1$dmins</string>
     <string name="condition">Condição:</string>
     <string name="action">Acção:</string>
+    <string name="iob_u">IOB [U]:</string>
+    <string name="delete_short">APAGAR</string>
+    <string name="add_short">ADICIONAR</string>
+    <string name="copy_short">COPIAR</string>
+    <string name="addnew">Adicionar novo</string>
     <string name="versionChecker">Verificador de Versão</string>
     <string name="signature_verifier">Verificador de assinatura</string>
     <string name="running_invalid_version">Detectamos que está  a correr uma versão inválida. Loop desactivado!</string>
     <string name="old_version">versão antiga</string>
     <string name="very_old_version">versão muito antiga</string>
     <string name="new_version_warning">Nova versão para pelo menos %1$d dias disponíveis! Voltar para o LGS após 60 dias, o loop será desativado após 90 dias</string>
+    <string name="scale_insulin_activity">Actividade de insulina em escala gráfica [U/min]</string>
     <string name="twohours">2h</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="dexcom_app_patched">App Dexcom (com patch)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Receber valores da Glicemia da app Dexcom (com patch).</string>
+    <string name="notification">Notificação</string>
+    <string name="notification_message">Notificação: %1$s</string>
+    <string name="message_short">Mnsg:</string>
+    <string name="profilepercentage">Percentagem do Perfil</string>
+    <string name="percent_u">Percentagem [%]:</string>
+    <string name="startprofile">Iniciar perfil %1$d%% para %2$d min</string>
     <string name="startprofileforever">Iniciar perfil %1$d%%</string>
     <string name="exists">existe</string>
     <string name="notexists">não existe</string>
@@ -1223,11 +1235,22 @@
     <string name="locationis">Localização é %1$s</string>
     <string name="triggercoblabel">COB</string>
     <string name="cobcompared">COB %1$s %2$.0f</string>
+    <string name="if_label">Se:</string>
+    <string name="then_label">Então:</string>
+    <string name="triggers">Disparadores:</string>
+    <string name="remove_label">REMOVER</string>
+    <string name="preconditions">Precondições:</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
     <string name="medtronic_serial_number">Número de série da Bomba</string>
     <string name="medtronic_pump_type">Tipo de Bomba</string>
+    <string name="medtronic_pump_frequency">Frequência da Bomba</string>
+    <string name="medtronic_pump_max_bolus">Max Bolus na Bomba (U)</string>
+    <string name="medtronic_pump_frequency_us_ca">EUA &amp; Canadá (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Em todo o Mundo (868 Mhz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">Codificação de Software 4b6b</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink">Codificação de Hardware 4b6b</string>
     <string name="rileylink_mac_address">Endereço MAC do RileyLink</string>
     <string name="medtronic_pump_battery_select">Tipo de Bateria (Visão Detalhada)</string>
     <string name="medtronic_pump_battery_no">Não seleccionado (Visão simples)</string>
