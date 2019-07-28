@@ -1156,6 +1156,8 @@
     <string name="weekday_wednesday_short">Qua</string>
     <string name="weekday_tuesday_short">Ter</string>
     <string name="weekday_monday_short">Seg</string>
+    <string name="resumeloop">Retomar loop</string>
+    <string name="notsuspended">Não suspenso</string>
     <string name="and">E</string>
     <string name="or">Ou</string>
     <string name="automation_short">Auto</string>
@@ -1235,6 +1237,7 @@
     <string name="locationis">Localização é %1$s</string>
     <string name="triggercoblabel">COB</string>
     <string name="cobcompared">COB %1$s %2$.0f</string>
+    <string name="edit_short">EDITAR</string>
     <string name="if_label">Se:</string>
     <string name="then_label">Então:</string>
     <string name="triggers">Disparadores:</string>
@@ -1263,10 +1266,13 @@
     <string name="rileylink_scanner_scan">Procurar</string>
     <string name="rileylink_scanner_title">Procura RileyLink</string>
     <string name="rileylink_scanner_scan_menu">Procurar por RileyLink</string>
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth de energia baixa (LE) não suportado.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth não está activado.</string>
     <string name="location_yes">Activar</string>
     <string name="location_no">Não</string>
     <string name="rileylink_scanner_scanning">A procurar</string>
     <string name="rileylink_scanner_scanning_finished">Procura terminada</string>
+    <string name="rileylink_scanner_scanning_error">Erro de Procura: %1$d</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Definições</string>
     <string name="rileylink_settings_tab2">Histórico</string>
@@ -1284,9 +1290,13 @@
     <string name="rileylink_device_type">Tipo de dispositivo</string>
     <string name="rileylink_device_model">Modelo do dispositivo</string>
     <string name="rileylink_last_used_frequency">Frequência da última utilização</string>
+    <string name="rileylink_last_device_contact">Último contacto do dispositivo</string>
     <string name="rileylink_firmware_version">Firmware RL</string>
     <!-- RL State -->
+    <string name="rileylink_state_bt_init">A iniciar o Bluetooth...</string>
     <string name="rileylink_state_bt_error">Erro de Bluetooth</string>
+    <string name="rileylink_state_bt_ready">Bluetooth Pronto</string>
+    <string name="rileylink_state_not_started">Não Iniciado</string>
     <string name="rileylink_state_rl_init">Inicialização do RileyLink…</string>
     <string name="rileylink_state_rl_error">Erro no RileyLink</string>
     <string name="rileylink_state_connected">Ligado</string>
