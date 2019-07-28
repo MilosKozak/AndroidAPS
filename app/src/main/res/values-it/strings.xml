@@ -1080,7 +1080,6 @@
     <string name="speederror">Errore di velocità</string>
     <string name="insulinlimitviolation">Violazione del limite di insulina</string>
     <string name="loop_openmode_min_change">Cambiare richiesta minima [%]</string>
-    <string name="loop_openmode_min_change_summary">Loop sarà nuova richiesta di modifica popup solo se il cambiamento è più grande di questo valore. Valore predefinito è 20%</string>
     <string name="pairfirst">Per favore accoppia la pompa con il tuo telefono!</string>
     <string name="searching_for_devices">Ricerca di dispositivi…</string>
     <string name="please_wait">Attendi…</string>
