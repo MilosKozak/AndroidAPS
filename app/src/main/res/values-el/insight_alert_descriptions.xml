@@ -14,4 +14,12 @@
     <string name="alert_m23_description">Ελέξτε κατάσταση αντλίας.</string>
     <string name="alert_m24_description">Αλλαγή σετ έγχυσης.</string>
     <string name="alert_m25_description">Επικοινωνήστε με υποστήριξη Accu-Chek.</string>
+    <string name="alert_m26_description">Αλλαγή αμπούλας.</string>
+    <string name="alert_m27_description">Επανεκκίνηση λήψης δεδομένων.</string>
+    <string name="alert_m28_description">Ελέξτε κατάσταση αντλίας.</string>
+    <string name="alert_m29_description">Ορίστε τύπο μπαταρίας.</string>
+    <string name="alert_m30_description">Ορίστε τύπο αμπούλας.</string>
+    <string name="alert_e6_description">Αλλάξτε μπαταρία και αμπούλα.</string>
+    <string name="alert_e10_description">Αλλάξτε αμπούλα.</string>
+    <string name="alert_e13_description">Αλλάξτε γλώσσα.</string>
 </resources>
