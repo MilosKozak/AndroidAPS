@@ -1077,7 +1077,6 @@
     <string name="speederror">Spoedfout</string>
     <string name="insulinlimitviolation">Insulien limiet skending</string>
     <string name="loop_openmode_min_change">Minimale versoek verandering [%]</string>
-    <string name="loop_openmode_min_change_summary">Lus sal opspring en nuwe verandering versoek slegs as verandering is groter as hierdie waarde. Verstek waarde is 20%</string>
     <string name="pairfirst">Verbind asseblief jou pomp met jou selfoon!</string>
     <string name="searching_for_devices">Soek vir toestelle…</string>
     <string name="please_wait">Wag asseblief…</string>
