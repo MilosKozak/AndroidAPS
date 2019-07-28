@@ -1029,7 +1029,6 @@ Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden d
     <string name="speederror">Hız hatası</string>
     <string name="insulinlimitviolation">İnsülin sınırı ihlali</string>
     <string name="loop_openmode_min_change">Minimum istek değişikliği [%]</string>
-    <string name="loop_openmode_min_change_summary">Döngü yeni değişiklik talebinizi, yalnızca bu değerden büyük olduğunda değiştirecek. Varsayılan değer% 20\'dir</string>
     <string name="pairfirst">Lütfen pompanızı telefonunuzla bağlayın!</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">Ü/s</string>
