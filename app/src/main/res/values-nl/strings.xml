@@ -1178,6 +1178,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="iobcompared">IOB %1$s %2$.1f</string>
     <string name="and">En</string>
     <string name="or">Of</string>
+    <string name="xor">Exclusieve of</string>
     <string name="profile_total">== ∑  %1$s E</string>
     <string name="profile_ins_units_per_hout">E/uur</string>
     <string name="profile_carbs_per_unit">g/E</string>
