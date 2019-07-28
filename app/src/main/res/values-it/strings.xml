@@ -320,8 +320,8 @@
     <string name="overview_bolusprogress_stoppressed">STOP PREMUTO</string>
     <string name="waitingforpump">In attesa del micro</string>
     <string name="overview_bolusprogress_goingtodeliver">Sto per erogare %1$.2fU</string>
-    <string name="objectives_0_objective">Impostazione di visualizzazione, monitoraggio e analisi basali e rapporti</string>
-    <string name="objectives_0_gate">Verifica che Bg sia disponibile in Nightscout, e la data micro e\' ben allineata</string>
+    <string name="objectives_0_objective">Configurazione della visualizzazione e del monitoraggio, analisi basali e rapporti</string>
+    <string name="objectives_0_gate">Verificare che BG sia disponibile su Nightscout e che i dati sull\'insulina del micro siano in fase di caricamento</string>
     <string name="objectives_1_objective">Partenza con Open loop</string>
     <string name="objectives_1_gate">Eseguire in modalità Open Loop per alcuni giorni e impostare manualmente la basale tempor. Set up and use temporary and default temporary targets (e.g. for activity or hypo treatment carbs)</string>
     <string name="objectives_2_objective">Comprensione del tuo ciclo aperto, incluse le relative raccomandazioni basali del tempo</string>
