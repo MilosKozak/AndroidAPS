@@ -1077,7 +1077,6 @@
     <string name="speederror">속도 오류</string>
     <string name="insulinlimitviolation">인슐린 제한 위반</string>
     <string name="loop_openmode_min_change">최소 요청 변화 [%]</string>
-    <string name="loop_openmode_min_change_summary">이 값보다 변화가 클때만 Loop가 새 변화 요청창을 띄울것 입니다. 기본 값은 20%입니다.</string>
     <string name="pairfirst">펌프를 폰과 동기화 하십시오</string>
     <string name="searching_for_devices">장치 검색중...</string>
     <string name="please_wait">잠시 기다려 주세요...</string>
