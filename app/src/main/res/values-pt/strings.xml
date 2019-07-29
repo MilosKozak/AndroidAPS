@@ -1205,9 +1205,13 @@
     <string name="unit_hours">horas</string>
     <string name="unit_days">dias</string>
     <string name="unit_weeks">semanas</string>
+    <string name="summary_tidepool_username">Nome de utilizador no Tidepool, normalmente seu endereço de e-mail</string>
     <string name="title_tidepool_username">Nome de Utilizador</string>
+    <string name="summary_tidepool_password">Palavra-passe da conta Tidepool</string>
     <string name="title_tidepool_password">Palavra-passe</string>
     <string name="title_tidepool_test_login">Teste de Conta Tidepool</string>
+    <string name="summary_tidepool_dev_servers">Se activado, envio será para https://int-app.tidepool.org em vez do habitual https://app.tidepool.org/</string>
+    <string name="title_tidepool_dev_servers">Usar servidores de integração (teste)</string>
     <string name="tidepool">Tidepool</string>
     <string name="tidepool_shortname">TDP</string>
     <string name="description_tidepool">Enviar dados para Tidepool</string>
@@ -1285,6 +1289,7 @@
     <string name="remove_label">REMOVER</string>
     <string name="preconditions">Precondições:</string>
     <!-- Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Operação não suportada pela Bomba e/ou Controlador.</string>
     <string name="pump_operation_not_yet_supported_by_pump">Operação não suportada ainda pela Bomba.</string>
     <!-- Medtronic (MDT) - Base -->
     <string name="description_pump_medtronic">Integração de Bombas Medtronic, requer o dispositivo RileyLink e o Modelo de Bomba específico</string>
@@ -1373,6 +1378,9 @@
     <string name="medtronic_error_pump_frequency_not_set">Frequência de Bomba não definida.</string>
     <string name="medtronic_error_pump_frequency_invalid">Frequência da Bomba não suportada.</string>
     <string name="medtronic_error_rileylink_address_invalid">Endereço RileyLink inválido.</string>
+    <string name="medtronic_error_pump_basal_profiles_not_enabled">Perfis de Basal não estão activos na Bomba.</string>
+    <string name="medtronic_error_pump_incorrect_basal_profile_selected">Perfil Basal definido na Bomba está incorrecto (deve ser STD).</string>
+    <string name="medtronic_error_pump_wrong_max_basal_set">Máx. Basal definido errado na Bomba (deve ser %1$.2f).</string>
     <string name="medtronic_error_pump_24h_time_change_requested">Solicitada uma alteração de tempo de mais de 24h.</string>
     <!-- MDT History -->
     <string name="medtronic_history_group_basal">Basais</string>
