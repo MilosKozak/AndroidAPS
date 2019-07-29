@@ -331,7 +331,7 @@
     <string name="objectives_4_objective">Regola il Loop Chiuso, aumentando max IOB al di sopra di 0 e abbassando gradualmente i target BG</string>
     <string name="objectives_4_gate">Esegui l\'applicazione per alcuni giorni e almeno una notte senza allarmi BG, prima di abbassare il target delle Glicemia</string>
     <string name="objectives_5_objective">Regola le basali e i rapporti se necessario, quindi attiva auto-sens</string>
-    <string name="objectives_5_gate">1 settimana ciclo di successo diurno con entrata regolare dei carb</string>
+    <string name="objectives_5_gate">1 settimana di looping diurno con dichiarazione regolare dei carboidrati, eseguito con successo</string>
     <string name="objectives_6_objective">Abilitazione di funzioni aggiuntive per l\'uso quotidiano, ad esempio assistenza avanzata del pasto</string>
     <string name="objectives_7_objective">Abilitazione di funzionalità aggiuntive per l\'uso diurno, come SMB</string>
     <string name="objectives_7_gate">È necessario leggere il wiki e rise maxIOB per ottenere le PMI lavorando bene! Un buon inizio è maxIOB = media mealbolus + 3 x max giorno basale</string>
