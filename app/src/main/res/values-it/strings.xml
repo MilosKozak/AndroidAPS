@@ -329,8 +329,8 @@
     <string name="objectives_3_objective">Iniziare a chiudere il Loop con Low Glucose Suspend</string>
     <string name="objectives_3_gate">Esegui l\'applicazione in Loop Chiuso con max IOB = 0 per pochi giorni senza troppi eventi LGS</string>
     <string name="objectives_4_objective">Regola il Loop Chiuso, aumentando max IOB al di sopra di 0 e abbassando gradualmente i target BG</string>
-    <string name="objectives_4_gate">Funziona per alcuni giorni e almeno una notte senza allarmi BG, prima di lasciare BG</string>
-    <string name="objectives_5_objective">Regolare i basali e i rapporti se necessario, quindi attivare l\'autocontrollo</string>
+    <string name="objectives_4_gate">Esegui l\'applicazione per alcuni giorni e almeno una notte senza allarmi BG, prima di abbassare il target delle Glicemia</string>
+    <string name="objectives_5_objective">Regola le basali e i rapporti se necessario, quindi attiva auto-sens</string>
     <string name="objectives_5_gate">1 settimana ciclo di successo diurno con entrata regolare dei carb</string>
     <string name="objectives_6_objective">Abilitazione di funzioni aggiuntive per l\'uso quotidiano, ad esempio assistenza avanzata del pasto</string>
     <string name="objectives_7_objective">Abilitazione di funzionalità aggiuntive per l\'uso diurno, come SMB</string>
