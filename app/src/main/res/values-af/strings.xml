@@ -1158,6 +1158,7 @@
     <string name="automation_missing_trigger">Gee asseblief ten minste een sneller.</string>
     <string name="alreadyenabled">Reeds aangeskakel</string>
     <string name="alreadydisabled">Reeds afgeskakel</string>
+    <string name="resumeloop">Hervat lus</string>
     <string name="islesser">is minder as</string>
     <string name="isequal">is gelyk aan</string>
     <string name="isequalorgreater">is ewe of groter as</string>
@@ -1244,9 +1245,21 @@
     <string name="dexcom_app_patched">DexcomG App (opgedateerde)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Ontvang BG waardes vanaf die opgedateerde Dexcom app.</string>
+    <string name="message_short">Msg:</string>
+    <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
+    <string name="autosenslabel">Outosens %</string>
+    <string name="latitude_short">Breedte:</string>
+    <string name="longitude_short">Lengte:</string>
+    <string name="distance_short">Afst [m]:</string>
+    <string name="name_short">Naam:</string>
+    <string name="triggercoblabel">KOB</string>
+    <string name="cobcompared">KOB %1$s %2$.0f</string>
+    <string name="triggers">Snellers:</string>
+    <string name="remove_label">VERWYDER</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
+    <string name="medtronic_serial_number">Pomp Reeks Nommer</string>
     <string name="medtronic_pump_type">Pomp Tipe</string>
     <string name="medtronic_pump_frequency">Pomp Frekwensie</string>
     <string name="medtronic_pump_bolus_delay">Wagtyd voor Bolus begin (s)</string>
@@ -1268,20 +1281,47 @@
     <string name="rileylink_scanner_title">RileyLink Skan</string>
     <string name="location_no">Nee</string>
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Instellings</string>
+    <string name="rileylink_settings_tab2">Geskiedenis</string>
     <string name="rileylink_settings_tab3">Toestel</string>
+    <string name="rileylink_status">RileyLink Status</string>
     <string name="medtronic_pump_status">Pomp Status</string>
+    <string name="rileylink_settings_title">RileyLink Instellings</string>
+    <string name="title_activity_rileylink_settings">RileyLink Instellings</string>
     <string name="rileylink_title">RileyLink</string>
+    <string name="rileylink_connected_device">Gekoppelde toestel</string>
+    <string name="rileylink_connection_status">Verbindingstatus</string>
+    <string name="rileylink_connection_error">Verbindingsfout</string>
+    <string name="rileylink_device">Toestel</string>
+    <string name="rileylink_device_type">Toestel Tipe</string>
+    <string name="rileylink_device_model">Toestel Model</string>
+    <string name="rileylink_last_used_frequency">Laaste gebruik frekwensie</string>
+    <string name="rileylink_last_device_contact">Laaste toestel verbinding</string>
+    <string name="rileylink_firmware_version">RL Firmware</string>
     <!-- RL State -->
+    <string name="rileylink_state_connected">Gekoppel</string>
     <!-- RL Errors -->
     <!-- RL Target Device -->
+    <string name="rileylink_target_device_medtronic">Medtronic Pomp</string>
+    <string name="rileylink_target_device_omnipod">Omnipod</string>
     <!-- MDT Errors -->
+    <string name="medtronic_errors">Foute</string>
+    <string name="medtronic_error_serial_not_set">Reeksno # nie gestel.</string>
+    <string name="medtronic_error_serial_invalid">Reeksno # is ongeldig.</string>
     <!-- MDT History -->
     <string name="medtronic_history_group_basal">Basale</string>
     <string name="medtronic_history_group_notification">Kennisgewings</string>
     <string name="medtronic_history_group_statistic">Statistiek</string>
     <string name="medtronic_history_group_all">Alle</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_sleeping">Slaap</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_desc_get_time">Kry Pomp Tyd</string>
+    <string name="medtronic_cmd_desc_get_settings">Verkry Instellings</string>
+    <string name="medtronic_cmd_desc_get_model">Kry Pomp Model</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Kry Basale Profiel</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Stel Basale Profiel</string>
+    <string name="medtronic_cmd_desc_get_tbr">Verkry Tydelike Basale</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dae</item>
         <item quantity="other">%1$d dae</item>
