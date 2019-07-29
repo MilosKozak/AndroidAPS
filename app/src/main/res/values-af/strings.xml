@@ -1160,6 +1160,7 @@
     <string name="alreadydisabled">Reeds afgeskakel</string>
     <string name="resumeloop">Hervat lus</string>
     <string name="islesser">is minder as</string>
+    <string name="isequalorlesser">is ewe of groter as</string>
     <string name="isequal">is gelyk aan</string>
     <string name="isequalorgreater">is ewe of groter as</string>
     <string name="isgreater">is groter as</string>
@@ -1245,15 +1246,25 @@
     <string name="dexcom_app_patched">DexcomG App (opgedateerde)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Ontvang BG waardes vanaf die opgedateerde Dexcom app.</string>
+    <string name="notification">Kennisgewing</string>
+    <string name="notification_message">Kennisgewing: %1$s</string>
     <string name="message_short">Msg:</string>
+    <string name="profilepercentage">Profiel persentasie</string>
+    <string name="percent_u">Persentasie [%]:</string>
+    <string name="startprofile">Begin profiele%1$d%% vir %2$d min</string>
+    <string name="exists">bestaan</string>
+    <string name="notexists">bestaan nie</string>
     <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
     <string name="autosenslabel">Outosens %</string>
+    <string name="deltalabel">BG verskil</string>
     <string name="latitude_short">Breedte:</string>
     <string name="longitude_short">Lengte:</string>
     <string name="distance_short">Afst [m]:</string>
     <string name="name_short">Naam:</string>
     <string name="triggercoblabel">KOB</string>
     <string name="cobcompared">KOB %1$s %2$.0f</string>
+    <string name="if_label">As:</string>
+    <string name="then_label">Dan:</string>
     <string name="triggers">Snellers:</string>
     <string name="remove_label">VERWYDER</string>
     <!-- Pump Abstract -->
@@ -1279,7 +1290,9 @@
     <string name="rileylink_scanner_selected_device">Verkose</string>
     <string name="rileylink_scanner_scan">Skan</string>
     <string name="rileylink_scanner_title">RileyLink Skan</string>
+    <string name="location_yes">Aktiveer</string>
     <string name="location_no">Nee</string>
+    <string name="rileylink_scanner_scanning">Skandeer</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Instellings</string>
     <string name="rileylink_settings_tab2">Geskiedenis</string>
@@ -1301,6 +1314,8 @@
     <!-- RL State -->
     <string name="rileylink_state_connected">Gekoppel</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_no_bt_adapter">Geen Bluetooth Toestel</string>
+    <string name="rileylink_error_address_not_set_short">Nie gestel nie</string>
     <!-- RL Target Device -->
     <string name="rileylink_target_device_medtronic">Medtronic Pomp</string>
     <string name="rileylink_target_device_omnipod">Omnipod</string>
@@ -1314,14 +1329,20 @@
     <string name="medtronic_history_group_statistic">Statistiek</string>
     <string name="medtronic_history_group_all">Alle</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_active">Aktief</string>
     <string name="medtronic_pump_status_sleeping">Slaap</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_desc_get_history">Verkry Geskiedenis - Bladsy %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Verkry Geskiedenis - Bladsy %1$d</string>
+    <string name="medtronic_cmd_desc_get_history_base">Verkry Geskiedenis - Bladsy %1$d</string>
     <string name="medtronic_cmd_desc_get_time">Kry Pomp Tyd</string>
     <string name="medtronic_cmd_desc_get_settings">Verkry Instellings</string>
     <string name="medtronic_cmd_desc_get_model">Kry Pomp Model</string>
     <string name="medtronic_cmd_desc_get_basal_profile">Kry Basale Profiel</string>
     <string name="medtronic_cmd_desc_set_basal_profile">Stel Basale Profiel</string>
     <string name="medtronic_cmd_desc_get_tbr">Verkry Tydelike Basale</string>
+    <string name="medtronic_cmd_desc_set_tbr">Stel Tydelike Basale</string>
+    <string name="medtronic_cmd_desc_set_bolus">Stel Bolus</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dae</item>
         <item quantity="other">%1$d dae</item>
