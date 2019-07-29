@@ -143,7 +143,7 @@
     <string name="loop_aps_label">APS</string>
     <string name="loop_constraintsprocessed_label">Po spracovaní obmedzení</string>
     <string name="loop_tbrsetbypump_label">Bazál nastavený pumpou</string>
-    <string name="openapsma_lastenact_label">Naposledy dodané</string>
+    <string name="openapsma_lastenact_label">Naposledy podané</string>
     <string name="ok">OK</string>
     <string name="cancel">Zrušiť</string>
     <string name="noapsselected">NEVYBRANÉ ŽIADNE APS, ALEBO NEVRÁTILO VÝSLEDOK</string>
@@ -260,7 +260,7 @@
     <string name="danar_viewprofile">Zobraziť profil</string>
     <string name="enacted">Vykonané</string>
     <string name="comment">Komentár</string>
-    <string name="success">Úspech</string>
+    <string name="success">Úspešne</string>
     <string name="percent">Percent</string>
     <string name="absolute">Absolútna</string>
     <string name="canceltemp">Zrušiť dočasný bazál</string>
@@ -286,7 +286,7 @@
     <string name="danarprofile_dia_summary">Celková doba pôsobenia inzulínu</string>
     <string name="failedupdatebasalprofile">Chyba pri aktualizovaní bazálneho profilu</string>
     <string name="danar_historyreload">Načítať</string>
-    <string name="uploading">Nahrávam</string>
+    <string name="uploading">Nahrávanie</string>
     <string name="danar_ebolus">E bolus</string>
     <string name="danar_dsbolus">DS bolus</string>
     <string name="danar_debolus">DE bolus</string>
@@ -318,7 +318,7 @@
     <string name="occlusion">Oklúzia</string>
     <string name="overview_bolusprogress_stop">Stop</string>
     <string name="overview_bolusprogress_stoppressed">STLAČENÝ STOP</string>
-    <string name="waitingforpump">Čakanie na pumpu</string>
+    <string name="waitingforpump">Čakám na pumpu</string>
     <string name="overview_bolusprogress_goingtodeliver">Podávanie %1$.2fJ inzulínu</string>
     <string name="objectives_0_objective">Nastavenie vizualizácie a monitoringu (Nightscout), analyzovať bazály a prevody</string>
     <string name="objectives_0_gate">Skontrolovať, či sú glykémie a údaje z pumpy viditeľné v Nightscoute</string>
@@ -1385,9 +1385,54 @@
     <string name="medtronic_error_pump_basal_profiles_not_enabled">Bazálne profily nie sú na pumpe aktivované.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Bazálny profil na pumpe je chybný (musí byť STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Chybný typ dočasného bazálu na pumpe (musí byť absolútny).</string>
+    <string name="medtronic_error_pump_wrong_max_bolus_set">Chybný max. bolus na pumpe (musí byť %1$.2f).</string>
+    <string name="medtronic_error_pump_wrong_max_basal_set">Chybný max. bazál na pumpe (musí byť %1$.2f).</string>
+    <string name="medtronic_error_operation_not_possible_no_configuration">Operácia nie je možná.\n\nNajskôr je nutné nakonfigurovať pumpu, než bude možné túto funkciu použiť.</string>
+    <string name="medtronic_error_pump_24h_time_change_requested">Požadovaná zmena času väčšia ako 24h.</string>
     <!-- MDT History -->
+    <string name="medtronic_history_group_basal">Bazály</string>
+    <string name="medtronic_history_group_configuration">Konfigurácie</string>
+    <string name="medtronic_history_group_notification">Notifikácie</string>
+    <string name="medtronic_history_group_statistic">Štatistiky</string>
+    <string name="medtronic_history_group_unknown">Neznáme</string>
+    <string name="medtronic_history_group_all">Všetko</string>
+    <string name="medtronic_pump_history">História Medtronic pumpy</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_never_contacted">Nikdy nepripojené</string>
+    <string name="medtronic_pump_status_waking_up">Prebúdzanie</string>
+    <string name="medtronic_pump_status_error_comm">Chyba komunikácie</string>
+    <string name="medtronic_pump_status_timeout_comm">Uplynul časový limit komunikácie</string>
+    <string name="medtronic_pump_status_problem_contacting">Problém pripojenia k pumpe</string>
+    <string name="medtronic_pump_status_pump_unreachable">Pumpa nedostupná</string>
+    <string name="medtronic_pump_status_invalid_config">Neplatná konfigurácia</string>
+    <string name="medtronic_pump_status_active">Aktívna</string>
+    <string name="medtronic_pump_status_sleeping">Spiaca</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_cancel_bolus_not_supported">Zrušili ste bolus po tom, čo bol nastavený na pumpe. Pretože Medtronic nepodporuje zrušenie bolusu, musíte ho zrušiť ručne. Pozastavte pumpu a znovu spustite (pokiaľ naďalej trváte na zrušení). Aplikácia prevezme zmeny pri ďalšom pripojení (do 5 min).</string>
+    <string name="medtronic_cmd_cant_read_tbr">Nie je možné načítať aktuálny dočasný bazál.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Nie je možné zastaviť aktuálny dočasný bazál. Ukončujem operáciu.</string>
+    <string name="medtronic_cmd_set_profile_pattern_overflow">Nastavenie profilu zlyhalo, pretože následujúce hodnoty bazálu, sú príliš vysoké: %1$s</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered">Bolus nemohol byť podaný.</string>
+    <string name="medtronic_cmd_tbr_could_not_be_delivered">Dočasný bazál nemohol byť nastavený.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr">Aktuálny dočasný bazál nemohol byť zrušený.</string>
+    <string name="medtronic_cmd_basal_profile_could_not_be_set">Bazálny profil nemohol byť nastavený.</string>
+    <string name="medtronic_cmd_basal_profile_not_set_is_same">Bazálny profil je rovnaký, takže nebude znovu nastavený.</string>
+    <string name="medtronic_cmd_desc_get_history">Načítanie histórie - Strana %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Načítanie histórie - Strana %1$d</string>
+    <string name="medtronic_cmd_desc_get_history_base">Načítanie histórie - Strana %1$d</string>
+    <string name="medtronic_cmd_desc_get_time">Načítanie času pumpy</string>
+    <string name="medtronic_cmd_desc_get_settings">Načítanie nastavení</string>
+    <string name="medtronic_cmd_desc_get_model">Načítanie modelu pumpy</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Načítanie bazálneho profilu</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Nastavovanie bazálneho profilu</string>
+    <string name="medtronic_cmd_desc_get_tbr">Načítanie dočasného bazálu</string>
+    <string name="medtronic_cmd_desc_set_tbr">Nastavovanie dočasného bazálu</string>
+    <string name="medtronic_cmd_desc_set_bolus">Nastavovanie bolusu</string>
+    <string name="pump_no_connection_h">Žiadne spojenie v trvaní %1$d hodin %2$d minut</string>
+    <string name="pump_no_connection_d">Žiadne spojenie v trvaní %1$d dní %2$d hodin</string>
+    <string name="insulinFromCob"><![CDATA[Inzulín z COB: <font color=\'%1$s\'>%2$.1fg %3$.2fJI</font>]]></string>
+    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Aplikované obmedzenie bolusu: %2$.2fJI na %3$.2fJI</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Detekovaná pomalá absorbcia sacharidov: %2$d%% času. Prekontrolujte kalkuláciu. COB môže byť úplne iné !!!!!</font>]]></string>
     <plurals name="objective_days">
         <item quantity="one">%1$d deň</item>
         <item quantity="few">%1$d dní</item>
