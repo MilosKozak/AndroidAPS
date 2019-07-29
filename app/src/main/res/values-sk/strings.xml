@@ -918,7 +918,7 @@
     <string name="smbdisabledinpreferences">SMB zakázané v nastaveniach</string>
     <string name="uamdisabledinpreferences">UAM zakázané v nastaveniach</string>
     <string name="uamdisabledoref1notselected">UAM zakázané, pretože nie je povolený plug-in Oref1</string>
-    <string name="limitingbasalratio">Max bazál obmedzený na %1$.2f U/h: %2$s</string>
+    <string name="limitingbasalratio">Max bazál obmedzený na %1$.2f JI/h: %2$s</string>
     <string name="pumplimit">limit pumpy</string>
     <string name="itmustbepositivevalue">požadovaná kladná hodnota</string>
     <string name="maxbasalmultiplier">maximálny násobok bazálu</string>
@@ -926,11 +926,11 @@
     <string name="smb_frequency_exceeded">Podaný bolus v priebehu posledných 3 minút, SMB preskočené</string>
     <string name="basal_set_correctly">Bazál nastavený správne</string>
     <string name="limitingpercentrate">Bazál obmedzený na %1$d%%: %2$s</string>
-    <string name="limitingbolus">Bolus obmedzený na %1$.1f U: %2$s</string>
-    <string name="limitingextendedbolus">Predĺžený bolus obmedzený na %1$.1f U: %2$s</string>
-    <string name="limitingmaxiob">Max IOB obmedzený na %1$.1f U: %2$s</string>
+    <string name="limitingbolus">Bolus obmedzený na %1$.1f JI: %2$s</string>
+    <string name="limitingextendedbolus">Predĺžený bolus obmedzený na %1$.1f JI: %2$s</string>
+    <string name="limitingmaxiob">Max IOB obmedzený na %1$.1f JI: %2$s</string>
     <string name="limitingcarbs">Sacharidy obmedzené na %1$d g: %2$s</string>
-    <string name="limitingiob">IOB obmedzený na %1$.1f U: %2$s</string>
+    <string name="limitingiob">IOB obmedzený na %1$.1f JI: %2$s</string>
     <string name="maxvalueinpreferences">maximálna hodnota v nastaveniach</string>
     <string name="hardlimit">pevný limit</string>
     <string name="unsafeusage">nebezpečné použitie</string>
@@ -945,7 +945,7 @@
     <string name="loopdisconnectedfor">Odpojené (%1$d m)</string>
     <string name="automatic_careportal_events">Automatické udalosti v starostlivosti</string>
     <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Automaticky vloží výmenu inzulínu, setu, batérie a alarmov pumpy do NS</string>
-    <string name="openapssmb_maxiob_title">Maximálne celkové IOB, ktoré OpenAPS nemôže prekročiť [U]</string>
+    <string name="openapssmb_maxiob_title">Maximálne celkové IOB, ktoré OpenAPS nemôže prekročiť [JI]</string>
     <string name="openapssmb_maxiob_summary">Táto hodnota je v kontexte OpenAPS nazývaná Max IOB.\nOpenAPS nikdy nepridá inzulín, pokiaľ je súčasné IOB väčšie, ako táto hodnota</string>
     <string name="pump_stopped">Pumpa zastavená</string>
     <string name="pump_started">Pumpa spustená</string>
@@ -959,7 +959,7 @@
     <string name="nav_setupwizard">Sprievodca nastavením</string>
     <string name="setupwizard_finish">Dokončiť</string>
     <string name="setupwizard_language_prompt">Vyberte jazyk</string>
-    <string name="boluserrorcode">Požadované: %1$.2fU Podané: %2$.2fU Chyba: %3$s</string>
+    <string name="boluserrorcode">Požadované: %1$.2fJI Podané: %2$.2fJI Chyba: %3$s</string>
     <string name="firstinsulinincrement">Prvý prídavok inzulínu</string>
     <string name="secondinsulinincrement">Druhý prídavok inzulínu</string>
     <string name="thirdinsulinincrement">Tretí prídavok inzulínu</string>
@@ -1080,6 +1080,7 @@
     <string name="speederror">Chyba rýchlosti</string>
     <string name="insulinlimitviolation">Prekročený limit inzulínu</string>
     <string name="loop_openmode_min_change">Minimálna požiadavka na zmenu [%]</string>
+    <string name="loop_openmode_min_change_summary">Otvorený okruh vytvorí novú žiadosť o zmenu iba v prípade, že zmena je väčšia ako táto hodnota v %. Štandardná hodnota je 20%</string>
     <string name="pairfirst">Prosím spárujte pumpu s telefónom!</string>
     <string name="searching_for_devices">Vyhľadávam zariadenia...</string>
     <string name="please_wait">Čakajte prosím...</string>
@@ -1087,7 +1088,7 @@
     <string name="code_compare">Zhodujú sa kódy zobrazené na tomto zariadení a na pumpe?</string>
     <string name="insight_pairing">Párovanie Insight</string>
     <string name="insight_local">Accu-Chek Insight</string>
-    <string name="insight_delivered">%1$.2fU / %2$.2fU podaných</string>
+    <string name="insight_delivered">%1$.2fJI / %2$.2fJI podaných</string>
     <string name="insight_alert_formatter">%1$s: %2$s</string>
     <string name="tube_changed">Hadička vymenená</string>
     <string name="pump_time_updated">Čas v pumpe bol aktualizovaný</string>
@@ -1131,7 +1132,7 @@
     <string name="tbr_formatter">%1$d%% pre %2$d / %3$d min</string>
     <string name="extended_bolus">Predĺžený bolus</string>
     <string name="multiwave_bolus">Duálny bolus</string>
-    <string name="eb_formatter">%1$.2f / %2$.2f U pre %3$d min</string>
+    <string name="eb_formatter">%1$.2f / %2$.2f JI pre %3$d min</string>
     <string name="enable_tbr_over_notification">Aktivuj notifikáciu ukončenia dočasného bazálu\n(Nastavenie pumpy)</string>
     <string name="disable_tbr_over_notification">Deaktivuj notifikáciu ukončenia dočasného bazálu\n(Nastavenie pumpy)</string>
     <string name="refresh">Aktualizovať</string>
@@ -1139,10 +1140,10 @@
     <string name="not_inserted">Nieje vložené</string>
     <string name="short_status_last_connected">Posledné spoj: pred %1$d min</string>
     <string name="short_status_tbr">Doč. bazál: %1$d%% na %2$d / %3$d min</string>
-    <string name="short_status_extended">Predl. bolus: %1$.2f / %2$.2f U na %3$d min</string>
-    <string name="short_status_multiwave">Duálny bolus: %1$.2f / %2$.2f U na %3$d min</string>
+    <string name="short_status_extended">Predl. bolus: %1$.2f / %2$.2f JI na %3$d min</string>
+    <string name="short_status_multiwave">Duálny bolus: %1$.2f / %2$.2f JI na %3$d min</string>
     <string name="short_status_tdd">CDD: %1$.2f</string>
-    <string name="short_status_reservoir">Zásobník: %1$.2fU</string>
+    <string name="short_status_reservoir">Zásobník: %1$.2fJI</string>
     <string name="short_status_battery">Bat.: %1$d%%</string>
     <string name="max_recovery_duration">Max. doba trvania obnovenia [s]</string>
     <string name="min_recovery_duration">Min. doba trvania obnovenia [s]</string>
@@ -1155,10 +1156,21 @@
     <string name="weekday_wednesday_short">Str</string>
     <string name="weekday_tuesday_short">Uto</string>
     <string name="weekday_monday_short">Pon</string>
-    <string name="profile_total">== ∑  %1$s U</string>
-    <string name="profile_ins_units_per_hout">U/h</string>
-    <string name="profile_carbs_per_unit">g/U</string>
-    <string name="profile_per_unit">/U</string>
+    <string name="automation_description">Automatické úlohy definované používateľom</string>
+    <string name="automation_missing_task_name">Zadajte prosím názov úlohy.</string>
+    <string name="automation_missing_trigger">Prosím, zadajte aspoň jednu podmienku.</string>
+    <string name="automation_missing_action">Prosím, zadajte aspoň jednu akciu.</string>
+    <string name="alreadyenabled">Už aktivované</string>
+    <string name="alreadydisabled">Už deaktivované</string>
+    <string name="alreadysuspended">Už pozastavené</string>
+    <string name="resumeloop">Pokračovať v uzavretom okruhu</string>
+    <string name="notsuspended">Nepozastavené</string>
+    <string name="starttemptarget">Začiatok dočasného cieľa</string>
+    <string name="stoptemptarget">Koniec dočasného cieľa</string>
+    <string name="profile_total">== ∑  %1$s JI</string>
+    <string name="profile_ins_units_per_hout">JI/h</string>
+    <string name="profile_carbs_per_unit">g/JI</string>
+    <string name="profile_per_unit">/JI</string>
     <string name="dexcom_lognssensorchange_title">Ulož výmenu senzora do NS</string>
     <string name="dexcom_lognssensorchange_summary">Vytvoriť udalosť \"Výmena senzora\" v NS automaticky pri spustení senzora</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
@@ -1200,9 +1212,9 @@
     <string name="old_version">stará verzia</string>
     <string name="very_old_version">veľmi stará verzia</string>
     <string name="new_version_warning">Nová verzia dostupná najmenej %1$d dní! Návrat k liečbe inzulínovou pumpou s podporou senzora po 60 dňoch, okruh bude deaktivovaný po 90 dňoch.</string>
-    <string name="scale_insulin_activity">Mierka grafu aktivity inzulínu</string>
+    <string name="scale_insulin_activity">Mierka grafu aktivity inzulinu [JI/min]</string>
     <string name="twohours">2h</string>
-    <string name="formatinsulinunits">%1$.2fU</string>
+    <string name="formatinsulinunits">%1$.2fJI</string>
     <string name="dexcom_app_patched">Dexcom aplikácia (upravená)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Prijímaj hodnoty glykémie z upravenej Dexcom aplikácie.</string>
