@@ -7,7 +7,7 @@
     <!--    <string name="ja_lang" translatable="false">Japanese</string> -->
     <!--    <string name="pt_BR_lang" translatable="false">Portuguese, Brazilian</string> -->
     <string name="treatmentssafety_title">Bezpečnosť zadania ošetrenia</string>
-    <string name="treatmentssafety_maxbolus_title">Maximálny povolený bolus [U]</string>
+    <string name="treatmentssafety_maxbolus_title">Maximálny povolený bolus [JI]</string>
     <string name="treatmentssafety_maxcarbs_title">Maximálne povolené množstvo sacharidov [g]</string>
     <string name="nav_preferences">Nastavenia</string>
     <string name="nav_refreshtreatments">Obnoviť ošetrenia z NS</string>
