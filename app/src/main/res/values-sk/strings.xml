@@ -373,7 +373,7 @@
     <string name="mealbolus">Bolus</string>
     <string name="correctionbous">Korekcia</string>
     <string name="actions">Akcie</string>
-    <string name="androidaps_start">AndroidAPS reštartovaný</string>
+    <string name="androidaps_start">AndroidAPS spustený</string>
     <string name="ns_upload_only">Iba nahrávanie do NS (synchronizácia deaktivovaná)</string>
     <string name="ns_upload_only_summary">Iba nahrávanie dát do NS. Neúčinné pri hodnotách glykémie, pokiaľ nieje vybraný lokálny zdroj dát ako xDrip. Neúčinné pri profiloch, pokiaľ sa používajú NS profily.</string>
     <string name="pumpNotInitialized">Pumpa nie je inicializovaná!</string>
@@ -413,7 +413,7 @@
     <string name="sms_lastbg">Posledná glykémia:</string>
     <string name="mdi">Perá</string>
     <string name="MM640g">MM640g</string>
-    <string name="ongoingnotificaction">Priebežné oznámenia</string>
+    <string name="ongoingnotificaction">Priebežné notifikácie</string>
     <string name="old_data">ZASTARALÉ DÁTA</string>
     <string name="minago">pred %1$d min</string>
     <string name="sms_minago">pred %1$d min</string>
@@ -488,13 +488,13 @@
     <string name="smscommunicator_calibrationsent">Kalibrácia odoslaná. Príjem kalibrácií musí byť v xDripe povolený.</string>
     <string name="smscommunicator_calibrationfailed">xDrip neprijíma kalibrácie</string>
     <string name="pumpsuspended">Pumpa pozastavená</string>
-    <string name="gettingpumpstatus">Získavam stav pumpy</string>
+    <string name="gettingpumpstatus">Načítavam stav pumpy</string>
     <string name="settingtempbasal">Nastavujem dočasný bazál</string>
     <string name="stoppingtempbasal">Zastavujem dočasný bazál</string>
     <string name="settingextendedbolus">Nastavujem predĺžený bolus</string>
     <string name="stoppingextendedbolus">Zastavujem predĺžený bolus</string>
     <string name="updatingbasalrates">Aktualizujem bazály</string>
-    <string name="disconnecting">Spojenie bude prerušené</string>
+    <string name="disconnecting">Odpájanie</string>
     <string name="executing">Vykonávam</string>
     <string name="virtualpump_settings">Nastavenie virtuálnej pumpy</string>
     <string name="virtualpump_uploadstatus_title">Nahrať stav do NS</string>
