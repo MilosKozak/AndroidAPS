@@ -339,12 +339,12 @@
     <string name="noprofileselected">Nessun profilo selezionato</string>
     <string name="smscommunicator_loophasbeendisabled">Disattivazione Loop corretta</string>
     <string name="smscommunicator_loophasbeenenabled">Lopp abilitato correttamente</string>
-    <string name="smscommunicator_loopisdisabled">Loop disabilitato</string>
-    <string name="smscommunicator_loopisenabled">Loop abilitato</string>
+    <string name="smscommunicator_loopisdisabled">Il Loop è disabilitato</string>
+    <string name="smscommunicator_loopisenabled">Il Loop è abilitato</string>
     <string name="valuelimitedto">%1$.2f limitato a %2$.2f</string>
     <string name="valueoutofrange">Il valore %1$s è fuori limite massimo</string>
-    <string name="smscommunicator_remotecommandnotallowed">il comando da remoto non e\' permesso</string>
-    <string name="smscommunicator_remotebolusnotallowed">Bolo remoto non disponibile. Riprovare più tardi.</string>
+    <string name="smscommunicator_remotecommandnotallowed">Il comando da remoto non è permesso</string>
+    <string name="smscommunicator_remotebolusnotallowed">Bolo remoto non disponibile. Riprova più tardi.</string>
     <string name="smscommunicator_basalreplywithcode">Per iniziare basale %1$.2fU/h per %2$d min risposta con il codice %3$s</string>
     <string name="smscommunicator_profilereplywithcode">Per passare al profilo %1$s %2$d%% rispondi col codice %3$s</string>
     <string name="smscommunicator_extendedreplywithcode">Per iniziare bolo esteso %1$.2fU/h per %2$d min risposta con il codice %3$s</string>
