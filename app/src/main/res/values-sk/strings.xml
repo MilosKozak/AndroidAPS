@@ -268,13 +268,13 @@
     <string name="waitingforpumpresult">Čakanie na výsledok</string>
     <string name="smscommunicator_allowednumbers">Povolené telefónne čísla</string>
     <string name="smscommunicator_allowednumbers_summary">+421XXXXXXXXX;+421YYYYYYYYY</string>
-    <string name="smscommunicator_bolusreplywithcode">Pre podanie bolusu %1$.2fU odpovedz SMS kódom %2$s</string>
+    <string name="smscommunicator_bolusreplywithcode">Pre podanie bolusu %1$.2fJI odpovedz SMS kódom %2$s</string>
     <string name="smscommunicator_calibrationreplywithcode">Pre odoslanie kalibrácie %1$.2f odpovedz SMS kódom %2$s</string>
     <string name="smscommunicator_bolusfailed">Chyba pri aplikovaní bolusu</string>
-    <string name="bolusdelivered">Bolus %1$.2fU podaný úspešne</string>
-    <string name="bolusrequested">Podávanie %1$.2fU inzulínu</string>
-    <string name="smscommunicator_bolusdelivered">Bolus %1$.2fU podaný úspešne</string>
-    <string name="bolusdelivering">Podávanie %1$.2fU</string>
+    <string name="bolusdelivered">Bolus %1$.2fJI podaný úspešne</string>
+    <string name="bolusrequested">Podávanie %1$.2fJ inzulínu</string>
+    <string name="smscommunicator_bolusdelivered">Bolus %1$.2fJI podaný úspešne</string>
+    <string name="bolusdelivering">Podávanie %1$.2fJI</string>
     <string name="smscommunicator_remotecommandsallowed">Povoliť príkazy na diaľku cez SMS</string>
     <string name="glucosetype_finger">Prst</string>
     <string name="glucosetype_sensor">Senzor</string>
@@ -319,7 +319,7 @@
     <string name="overview_bolusprogress_stop">Stop</string>
     <string name="overview_bolusprogress_stoppressed">STLAČENÝ STOP</string>
     <string name="waitingforpump">Čakanie na pumpu</string>
-    <string name="overview_bolusprogress_goingtodeliver">Podávanie %1$.2fU inzulínu</string>
+    <string name="overview_bolusprogress_goingtodeliver">Podávanie %1$.2fJ inzulínu</string>
     <string name="objectives_0_objective">Nastavenie vizualizácie a monitoringu (Nightscout), analyzovať bazály a prevody</string>
     <string name="objectives_0_gate">Skontrolovať, či sú glykémie a údaje z pumpy viditeľné v Nightscoute</string>
     <string name="objectives_1_objective">Začať s otvoreným okruhom</string>
@@ -569,8 +569,8 @@
     <string name="enablesuperbolus_summary">Povolenie superbolusu v kalkulátore. Nepovoľujte, pokiaľ se nenaučíte, čo to v skutočnosti robí. MÔŽE SPÔSOBIŤ PREDÁVKOVANIE INZULÍNOM PRI NESPRÁVNOM POUŽITÍ!</string>
     <string name="show_statuslights">Zobraziť indikátory stavu na domovskej obrazovke</string>
     <string name="show_statuslights_summary">Povoliť indikátory stavu pre CAGE, IAGE, SAGE, Reservoir a Battery Level na domovskej obrazovke.</string>
-    <string name="statuslights_res_warning">Prah upozornenia na úroveň hladiny zásobníka [U]</string>
-    <string name="statuslights_res_critical">Prah kritickej úrovne hladiny zásobníka [U]</string>
+    <string name="statuslights_res_warning">Prah upozornenia na úroveň hladiny zásobníka [JI]</string>
+    <string name="statuslights_res_critical">Prah kritickej úrovne hladiny zásobníka [JI]</string>
     <string name="statuslights_bat_warning">Prah upozornenia na úroveň batérie [%%]</string>
     <string name="statuslights_bat_critical">Prah kritickej úrovne batérie [%%]</string>
     <string name="iob">IOB</string>
@@ -648,7 +648,7 @@
     <string name="careportal_carbsandbolus_label">SACHARIDY &amp; BOLUSY</string>
     <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
     <string name="careportal_pump_label">PUMPA</string>
-    <string name="overview_newtempbasal_basalabsolute">Hodnota bazálu [U/h]</string>
+    <string name="overview_newtempbasal_basalabsolute">Hodnota bazálu [JI/h]</string>
     <string name="careportal_newnstreatment_duration_min_label">Trvanie [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
     <string name="smb_shortname">SMB</string>
@@ -678,7 +678,7 @@
     <string name="selectedpump">Vybraná pumpa</string>
     <string name="pairpump">Párovanie novej pumpy</string>
     <string name="bolusspeed">Rýchlosť bolusu</string>
-    <string name="danar_setbasalstep001">Nastavte bazálny krok 0.01U/h</string>
+    <string name="danar_setbasalstep001">Nastavte bazálny krok 0.01JI/h</string>
     <string name="serialnumber">Sériové číslo</string>
     <string name="careportal_newnstreatment_percentage_label">% zmena</string>
     <string name="careportal_newnstreatment_timeshift_label">Posun času</string>
@@ -771,7 +771,7 @@
     <string name="combo_pump_state_running">V prevádzke</string>
     <string name="combo_pump_action_cancelling_tbr">Rušenie dočasného bazálu</string>
     <string name="combo_pump_action_setting_tbr">Nastavovanie doč. bazálu (%1$d%% / %2$d min)</string>
-    <string name="combo_pump_action_bolusing">Podávanie bolusu (%1$.1f U)</string>
+    <string name="combo_pump_action_bolusing">Podávanie bolusu (%1$.1f JI)</string>
     <string name="combo_pump_action_refreshing">Aktualizuje sa stav</string>
     <string name="combo_pump_unsupported_operation">Požadovaná operácia nie je pumpou podporovaná</string>
     <string name="combo_low_suspend_forced_notification">Nebezpečné použitie: predĺžený alebo multiwave bolus je aktívny. Pumpa bola vypnutá len na 6 hodín. Povolené sú iba normálne bolusy.</string>
@@ -792,7 +792,7 @@
     <string name="combo_pump_tbr_cancelled_warrning">Upozornenie o ukončenom dočasnom bazále bolo potvrdené.</string>
     <string name="combo_error_no_connection_no_bolus_delivered">Pumpa nedostupná. Bolus nebol podaný</string>
     <string name="combo_error_no_bolus_delivered">Podávanie inzulínu zlyhalo. Zdá sa, že nebol podaný žiadny bolus. Aby ste si boli istí, skontrolujte pumpu a prípadne pošlite bolus znovu. Aby sa zabránilo nechcenému dvojitému bolusu, podanie bolusu nie je automaticky opakované.</string>
-    <string name="combo_error_partial_bolus_delivered">Iba %1$.2f U z bolusu %2$.2f bolo podaného z dôvodu chyby. Skontrolujte podaný bolus na pumpe a urobte potrebné opatrenia.</string>
+    <string name="combo_error_partial_bolus_delivered">Iba %1$.2f JI z bolusu %2$.2f bolo podaného z dôvodu chyby. Skontrolujte podaný bolus na pumpe a urobte potrebné opatrenia.</string>
     <string name="combo_error_bolus_verification_failed">Podanie bolusu a kontrola histórie pumpy zlyhala. Skontrolujte pumpu. Pokiaľ bolus prebehol, načíta se pri najbližšom pripojení automaticky.</string>
     <string name="combo_reservoir_level_insufficient_for_bolus">Nedostatok inzulínu v zásobníku pre takýto bolus</string>
     <string name="extendedbolusdeliveryerror">Chyba pri podávaní predĺženého bolusu</string>
@@ -893,7 +893,7 @@
     <string name="closed_loop_disabled_on_dev_branch">Bežiaca vývojárska verzia. Uzavretý okruh je zakázaný.</string>
     <string name="engineering_mode_enabled">Vývojársky mód povolený</string>
     <string name="not_eng_mode_or_release">Vývojársky mód nie je povolený a nebeží vydaná verzia</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
+    <string name="pump_basebasalrate">%1$.2f JI/h</string>
     <string name="combo_actvity_reading_basal_profile">Načítavam bazálny profil</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">História v pumpe sa zmenila po spočítaní bolusu. Bolus nebol podaný. Prosím spočítajte ho znovu, pokiaľ je stále potrebný.</string>
     <string name="combo_error_updating_treatment_record">Bolus úspešne podaný, ale zápis se nepodaril. To sa môže stať, pokiaľ sú podané bolusy rovnakej veľkosti v priebehu 2 minút. Skontrolujte históriu pumpy a zadajte chýbajúce položky do ošetrení. Uistite sa, že nezadávate rovnakú veľkosť v rámci 1 minúty.</string>
