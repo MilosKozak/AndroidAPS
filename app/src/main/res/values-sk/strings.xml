@@ -1167,6 +1167,28 @@
     <string name="notsuspended">Nepozastavené</string>
     <string name="starttemptarget">Začiatok dočasného cieľa</string>
     <string name="stoptemptarget">Koniec dočasného cieľa</string>
+    <string name="islesser">je menšia ako</string>
+    <string name="isequalorlesser">je rovnaká, alebo menšia ako</string>
+    <string name="isequal">je rovnaká</string>
+    <string name="isequalorgreater">je rovnaká, alebo väčšia ako</string>
+    <string name="isgreater">je väčšia ako</string>
+    <string name="isnotavailable">nedostupný</string>
+    <string name="unknown">neznámy</string>
+    <string name="glucoseisnotavailable">Glykémia nedostupná</string>
+    <string name="glucosecomparedmgdl">Glykémia %1$s %2$.0f %3$s</string>
+    <string name="glucosecomparedmmol">Glykémia %1$s %2$.1f %3$s</string>
+    <string name="percentagecompared">Percentuálny profil %1$s %2$d</string>
+    <string name="iobcompared">IOB %1$s %2$.1f</string>
+    <string name="and">A</string>
+    <string name="or">Alebo</string>
+    <string name="xor">Exkluzívny alebo</string>
+    <string name="atspecifiedtime">Za %1$s</string>
+    <string name="use_network_location">Použi polohu zo siete</string>
+    <string name="use_gps_location">Použi polohu z GPS</string>
+    <string name="use_passive_location">Použiť pasívnu polohu</string>
+    <string name="locationservice">Služba zisťovania polohy</string>
+    <string name="automation_short">Auto</string>
+    <string name="automation">Automatika</string>
     <string name="profile_total">== ∑  %1$s JI</string>
     <string name="profile_ins_units_per_hout">JI/h</string>
     <string name="profile_carbs_per_unit">g/JI</string>
@@ -1208,7 +1230,21 @@
     <string name="sms_wrongcode">Nesprávný kód. Príkaz zrušený.</string>
     <string name="notconfigured">Nie je nakonfigurované</string>
     <string name="profileswitchcreated">Prepnutie profilu vytvorené</string>
+    <string name="recurringTime">Čas zotavovania</string>
+    <string name="every">Každých</string>
+    <string name="never">Nikdy</string>
+    <string name="mins">%1$dminút</string>
+    <string name="condition">Podmienka:</string>
+    <string name="action">Akcia:</string>
+    <string name="iob_u">IOB [JI]:</string>
+    <string name="glucose_u">Glykémia [%1$s]:</string>
+    <string name="delete_short">VYMAZAŤ</string>
+    <string name="add_short">PRIDAŤ</string>
+    <string name="copy_short">KOPÍROVAŤ</string>
+    <string name="addnew">Pridať nový</string>
     <string name="versionChecker">Kontrola verzie</string>
+    <string name="signature_verifier">Overenie podpisu</string>
+    <string name="running_invalid_version">Zistili sme, že používate neplatnú verziu. Uzavretý okruh zakázaný!</string>
     <string name="old_version">stará verzia</string>
     <string name="very_old_version">veľmi stará verzia</string>
     <string name="new_version_warning">Nová verzia dostupná najmenej %1$d dní! Návrat k liečbe inzulínovou pumpou s podporou senzora po 60 dňoch, okruh bude deaktivovaný po 90 dňoch.</string>
@@ -1218,13 +1254,65 @@
     <string name="dexcom_app_patched">Dexcom aplikácia (upravená)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Prijímaj hodnoty glykémie z upravenej Dexcom aplikácie.</string>
+    <string name="notification">Notifikácia</string>
+    <string name="notification_message">Notifikácia: %1$s</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
+    <string name="medtronic_custom_action_clear_bolus_block">Odstránenie blokovania bolusu</string>
+    <string name="medtronic_custom_action_reset_rileylink">Resetovať konfiguráciu RileyLinku</string>
+    <string name="medtronic_pump_battery_select">Typ batérie (Zobrazenie napájania)</string>
+    <string name="medtronic_pump_battery_no">Nevybrané (jednoduché zobrazenie)</string>
+    <string name="medtronic_pump_battery_alkaline">Alkalické (rozšírené zobrazenie)</string>
+    <string name="medtronic_pump_battery_lithium">Líthiové (rozšírené zobrazenie)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">VYHĽADAŤ</string>
+    <string name="rileylink_scanner_scan_stop">ZASTAVIŤ</string>
+    <string name="rileylink_scanner_selected_device">Vybrané</string>
+    <string name="rileylink_scanner_scan">Vyhľadávanie</string>
+    <string name="rileylink_scanner_title">Vyhľadávanie RileyLinku</string>
+    <string name="rileylink_scanner_scan_menu">Vyhľadanie RileyLinku</string>
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy nie je podporované.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth je aktivovaný.</string>
+    <string name="location_not_found_title">Poloha nie je aktivovaná</string>
+    <string name="location_not_found_message">Pre vyhľadávanie Bluetooth na novších zariadeniach je potrebné zapnúť polohu. AAPS nezaznamenáva vašu polohu a po úspešnom spárovaní sa môže poloha vypnúť.</string>
+    <string name="location_yes">Aktivovať</string>
+    <string name="location_no">Nie</string>
+    <string name="rileylink_scanner_scanning">Vyhľadávanie</string>
+    <string name="rileylink_scanner_scanning_finished">Vyhľadávanie dokončené</string>
+    <string name="rileylink_scanner_scanning_error">Chyba vyhľadávania: %1$d</string>
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Nastavenia</string>
+    <string name="rileylink_settings_tab2">História</string>
+    <string name="rileylink_settings_tab3">Zariadenie</string>
+    <string name="rileylink_status">Stav RileyLinku</string>
+    <string name="medtronic_pump_status">Stav pumpy</string>
+    <string name="rileylink_settings_title">Nastavenie RileyLink</string>
+    <string name="title_activity_rileylink_settings">Nastavenie RileyLink</string>
+    <string name="rileylink_title">RileyLink</string>
+    <string name="rileylink_configured_address">Nastavená adresa</string>
+    <string name="rileylink_connected_device">Pripojené zariadenie</string>
+    <string name="rileylink_connection_status">Stav pripojenia</string>
+    <string name="rileylink_connection_error">Chyba pripojenia</string>
+    <string name="rileylink_device">Zariadenie</string>
+    <string name="rileylink_device_type">Typ zariadenia</string>
+    <string name="rileylink_device_model">Model zariadenia</string>
+    <string name="rileylink_last_used_frequency">Posledná použitá frekvencia</string>
+    <string name="rileylink_last_device_contact">Posledné spojenie zo zariadením</string>
+    <string name="rileylink_firmware_version">RL Firmware</string>
     <!-- RL State -->
+    <string name="rileylink_state_bt_init">Inicializácia Bluetooth...</string>
+    <string name="rileylink_state_bt_error">Chyba Bluetooth</string>
+    <string name="rileylink_state_bt_ready">Bluetooth pripravené</string>
+    <string name="rileylink_state_not_started">Nespustené</string>
+    <string name="rileylink_state_rl_init">Inicializácia RileyLink...</string>
+    <string name="rileylink_state_rl_error">Chyba RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">Ladenie RileyLinku a pumpy</string>
+    <string name="rileylink_state_pc_error">Problém s pripojením k pumpe</string>
+    <string name="rileylink_state_connected">Pripojené</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_not_rl">Zariadenie nie je RileyLink</string>
+    <string name="rileylink_error_unreachable">RileyLink nedostupný</string>
     <!-- RL Target Device -->
     <!-- MDT Errors -->
     <!-- MDT History -->
