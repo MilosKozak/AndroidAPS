@@ -339,7 +339,7 @@
     <string name="noprofileselected">Nessun profilo selezionato</string>
     <string name="smscommunicator_loophasbeendisabled">Disattivazione Loop corretta</string>
     <string name="smscommunicator_loophasbeenenabled">Lopp abilitato correttamente</string>
-    <string name="smscommunicator_loopisdisabled">Loop e\' disabilitato</string>
+    <string name="smscommunicator_loopisdisabled">Loop disabilitato</string>
     <string name="smscommunicator_loopisenabled">Loop abilitato</string>
     <string name="valuelimitedto">%1$.2f limitato a %2$.2f</string>
     <string name="valueoutofrange">Il valore %1$s è fuori limite massimo</string>
