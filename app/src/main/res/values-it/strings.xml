@@ -328,7 +328,7 @@
     <string name="objectives_2_gate">Sulla base di tale esperienza, decidi quale deve essere il valore max della basale e impostalo sul microinfusore e nelle preferenze</string>
     <string name="objectives_3_objective">Iniziare a chiudere il Loop con Low Glucose Suspend</string>
     <string name="objectives_3_gate">Esegui l\'applicazione in Loop Chiuso con max IOB = 0 per pochi giorni senza troppi eventi LGS</string>
-    <string name="objectives_4_objective">Avviare il ciclo chiuso, sollevando il massimo IOB sopra 0 e gradualmente abbassando gli obiettivi BG</string>
+    <string name="objectives_4_objective">Regola il Loop Chiuso, aumentando max IOB al di sopra di 0 e abbassando gradualmente i target BG</string>
     <string name="objectives_4_gate">Funziona per alcuni giorni e almeno una notte senza allarmi BG, prima di lasciare BG</string>
     <string name="objectives_5_objective">Regolare i basali e i rapporti se necessario, quindi attivare l\'autocontrollo</string>
     <string name="objectives_5_gate">1 settimana ciclo di successo diurno con entrata regolare dei carb</string>
