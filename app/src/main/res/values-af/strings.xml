@@ -1164,6 +1164,21 @@
     <string name="isgreater">is groter as</string>
     <string name="isnotavailable">is nie beskikbaar nie</string>
     <string name="unknown">onbekend</string>
+    <string name="glucoseisnotavailable">Glukose is nie beskikbaar nie</string>
+    <string name="glucosecomparedmgdl">Glukose %1$s %2$.0f %3$s</string>
+    <string name="glucosecomparedmmol">Glukose %1$s %2$.1f %3$s</string>
+    <string name="percentagecompared">Profiel pct %1$s %2$d</string>
+    <string name="iobcompared">IAB %1$s %2$.1f</string>
+    <string name="and">En</string>
+    <string name="or">Of</string>
+    <string name="xor">Eksklusiewe of</string>
+    <string name="atspecifiedtime">By %1$s</string>
+    <string name="use_network_location">Gebruik netwerk ligging</string>
+    <string name="use_gps_location">GPS ligging</string>
+    <string name="use_passive_location">Gebruik passiewe ligging</string>
+    <string name="locationservice">Liggingdienste</string>
+    <string name="automation_short">Outo</string>
+    <string name="automation">Outomatisasie</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
@@ -1205,7 +1220,21 @@
     <string name="sms_wrongcode">Verkeerde kode. Opdrag gekanselleer.</string>
     <string name="notconfigured">Nie gekonfigureer nie</string>
     <string name="profileswitchcreated">Profiel skakelaar geskep</string>
+    <string name="recurringTime">Herhaaltyd</string>
+    <string name="every">Elke</string>
+    <string name="never">Nooit</string>
+    <string name="mins">%1$dmins</string>
+    <string name="condition">Voorwaarde:</string>
+    <string name="action">Aksie:</string>
+    <string name="iob_u">IAB [U]:</string>
+    <string name="glucose_u">Glukose [%1$s]:</string>
+    <string name="delete_short">DEL</string>
+    <string name="add_short">ADD</string>
+    <string name="copy_short">Kopieer</string>
+    <string name="addnew">Voeg nuwe by</string>
     <string name="versionChecker">Weergawe Navolger</string>
+    <string name="signature_verifier">Handtekening verifieerder</string>
+    <string name="running_invalid_version">Die weergawe is ongeldig. Lus afgeskakel!</string>
     <string name="old_version">ou weergawe</string>
     <string name="very_old_version">baie ou weergawe</string>
     <string name="new_version_warning">Nuwe weergawe reeds beskikbaar vir %1$d! Sal na 60 dae terugval na LGS, lus sal ongeldig gemaak word na 90 dae</string>
@@ -1218,13 +1247,39 @@
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
+    <string name="medtronic_pump_type">Pomp Tipe</string>
+    <string name="medtronic_pump_frequency">Pomp Frekwensie</string>
+    <string name="medtronic_pump_bolus_delay">Wagtyd voor Bolus begin (s)</string>
+    <string name="medtronic_pump_max_bolus">Maks Bolus op Pomp (U)</string>
+    <string name="medtronic_pump_max_basal">Maks Basale op Pomp (U/h)</string>
+    <string name="medtronic_pump_encoding">Medtronic Enkodering</string>
+    <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Wêreldwyd (868 Mhz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">Sagteware 4b6b Enkodeerding</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink">Hardeware 4b6b Enkodeerding</string>
+    <string name="rileylink_mac_address">RileyLink MAC Adres</string>
+    <string name="medtronic_custom_action_reset_rileylink">Herstel RileyLink Konfig</string>
+    <string name="medtronic_pump_battery_lithium">Lithium (Uitgebreide modus)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SKAN</string>
+    <string name="rileylink_scanner_scan_stop">STOP</string>
+    <string name="rileylink_scanner_selected_device">Verkose</string>
+    <string name="rileylink_scanner_scan">Skan</string>
+    <string name="rileylink_scanner_title">RileyLink Skan</string>
+    <string name="location_no">Nee</string>
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab3">Toestel</string>
+    <string name="medtronic_pump_status">Pomp Status</string>
+    <string name="rileylink_title">RileyLink</string>
     <!-- RL State -->
     <!-- RL Errors -->
     <!-- RL Target Device -->
     <!-- MDT Errors -->
     <!-- MDT History -->
+    <string name="medtronic_history_group_basal">Basale</string>
+    <string name="medtronic_history_group_notification">Kennisgewings</string>
+    <string name="medtronic_history_group_statistic">Statistiek</string>
+    <string name="medtronic_history_group_all">Alle</string>
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
     <plurals name="objective_days">
