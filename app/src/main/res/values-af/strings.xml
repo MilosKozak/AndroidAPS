@@ -537,10 +537,12 @@
     <string name="loopsuspended">Lus opgeskort</string>
     <string name="loopsuspendedfor">Opgeskort (%1$d m)</string>
     <string name="loopsuperbolusfor">Superbolus (%1$d m)</string>
+    <string name="suspendloop">Staak lus</string>
     <string name="suspendloopfor1h">Skort lus vir 1h</string>
     <string name="suspendloopfor2h">Skort lus vir 2h</string>
     <string name="suspendloopfor3h">Skort lus vir 3h</string>
     <string name="suspendloopfor10h">Skort lus vir 10 h</string>
+    <string name="suspendloopforXmin">Skort lus vir %1$d min</string>
     <string name="disconnectpumpfor15m">Ontkoppel pomp vir 15 min</string>
     <string name="disconnectpumpfor30m">Ontkoppel pomp vir 30 min</string>
     <string name="disconnectpumpfor1h">Ontkoppel pomp vir 1 h</string>
@@ -891,6 +893,7 @@
     <string name="closed_loop_disabled_on_dev_branch">Veranderende ontwikkelende weergawe. Geslote lus is gedeaktiveerd.</string>
     <string name="engineering_mode_enabled">Ingenieurswese modus geaktiveer</string>
     <string name="not_eng_mode_or_release">Ingenieurswese modus ontsper nie en nie op publike vrylating tak</string>
+    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Lees basale profiel</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Die pomp geskiedenis het verander nadat die bolus berekening uitgevoer was. Die bolus was nie afgelewer nie. Herbereken asseblief of \'n bolus steeds nodig is.</string>
     <string name="combo_error_updating_treatment_record">Bolus suksesvol afgelewer, maar die behandeling inskrywing het gefaal. Dit kan gebeur as twee klein boluses van dieselfde grootte binne die laaste twee minute toegedien word. Kontroleer die pomp geskiedenis en behandeling inskrywings en gebruik die Careportal om vermiste inskrywings te voeg. Maak seker om nie enige inskrywings vir dieselfde minuut en dieselfde bedrag by te voeg.</string>
@@ -1145,6 +1148,22 @@
     <string name="min_recovery_duration">Min. herstel duur [s]</string>
     <string name="recovery_duration">Herstel duur</string>
     <string name="timeout_during_handshake">Afsnytyd gedurende handskud - terugstel bluetooth</string>
+    <string name="weekday_sunday_short">Son</string>
+    <string name="weekday_saturday_short">Sat</string>
+    <string name="weekday_friday_short">Vry</string>
+    <string name="weekday_thursday_short">Don</string>
+    <string name="weekday_wednesday_short">Woens</string>
+    <string name="weekday_tuesday_short">Dins</string>
+    <string name="weekday_monday_short">Maan</string>
+    <string name="automation_missing_trigger">Gee asseblief ten minste een sneller.</string>
+    <string name="alreadyenabled">Reeds aangeskakel</string>
+    <string name="alreadydisabled">Reeds afgeskakel</string>
+    <string name="islesser">is minder as</string>
+    <string name="isequal">is gelyk aan</string>
+    <string name="isequalorgreater">is ewe of groter as</string>
+    <string name="isgreater">is groter as</string>
+    <string name="isnotavailable">is nie beskikbaar nie</string>
+    <string name="unknown">onbekend</string>
     <string name="profile_total">== ∑  %1$s U</string>
     <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
