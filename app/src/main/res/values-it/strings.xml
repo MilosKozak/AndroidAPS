@@ -463,8 +463,8 @@
     <string name="smscommunicator_shortname">SMS</string>
     <string name="short_tabtitles">Titoli schede abbreviati</string>
     <string name="always_use_shortavg">Utilizzare sempre deviazione media ridotta invece della deviazione semplice</string>
-    <string name="always_use_shortavg_summary">Utile quando i dati provenienti da sorgenti non filtrate come xdrip sono rumorose</string>
-    <string name="advancedsettings_title">settaggi avanzati</string>
+    <string name="always_use_shortavg_summary">Utile quando i dati provenienti da sorgenti non filtrate come xDrip diventano \"rumorosi\" (instabili).</string>
+    <string name="advancedsettings_title">Impostazioni Avanzate</string>
     <string name="danar_model">Modello:%1$02X Protocollo:%2$02X Codice:%3$02X</string>
     <string name="profile">Profilo</string>
     <string name="openapsama_max_daily_safety_multiplier_summary">Valore predefinito: 3 Questo è una chiave di sicurezza di OpenAPS. Ciò che fa è limitare le tue basali a essere 3 volte la quantità massima. Probabilmente non avrai bisogno di cambiarlo, ma dovresti essere consapevole di ciò che viene discusso in merito a \"3x max al giorno; Corrente 4x \"per sicurezza.</string>
