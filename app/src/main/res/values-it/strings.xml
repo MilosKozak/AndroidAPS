@@ -388,8 +388,8 @@
     <string name="units">Unità:</string>
     <string name="mgdl">mg/dl</string>
     <string name="mmol">mmol/l</string>
-    <string name="dia">Durata Insulina attiva:</string>
-    <string name="target_range">Range Intervallo:</string>
+    <string name="dia">Durata Azione dell\'Insulina:</string>
+    <string name="target_range">Intervallo Target:</string>
     <string name="prefs_range_title">Intervallo di visualizzazione</string>
     <string name="prefs_range_summary">Marchio di alta e bassa per i grafici in panoramica e Smartwatch</string>
     <string name="low_mark">Segno basso</string>
