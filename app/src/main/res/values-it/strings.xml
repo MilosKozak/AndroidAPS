@@ -441,8 +441,8 @@
     <string name="danar_stats_ratio">Rapporto</string>
     <string name="danar_stats_amount_days"># Giorni</string>
     <string name="danar_stats_weight">Peso</string>
-    <string name="danar_stats_warning_Message">Probabilmente inesatto se si usano bolus per l\'innesco / riempimento!</string>
-    <string name="danar_stats_olddata_Message">Vecchi dati Si prega di premere \"RELOAD\"</string>
+    <string name="danar_stats_warning_Message">Probabilmente inaccurato se si usano i boli per il caricamento/riempimento al posto dell\'apposita funzione!</string>
+    <string name="danar_stats_olddata_Message">Dati Vecchi, premere \"RICARICA\"</string>
     <string name="danar_stats_tbb">Totale Base basale</string>
     <string name="danar_stats_tbb2">TBB * 2</string>
     <string name="initializing">Inizzializzazione</string>
