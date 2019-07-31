@@ -665,13 +665,13 @@
     <string name="activate_profile">Attiva profilo</string>
     <string name="date">Data</string>
     <string name="invalid">NON VALIDO</string>
-    <string name="waitingforpairing">In attesa di connessione micro</string>
-    <string name="pairingok">Accoppiamento OK</string>
-    <string name="pairingtimedout">L\'associazione è scaduta</string>
+    <string name="waitingforpairing">In attesa di associare il micro</string>
+    <string name="pairingok">Associazione OK</string>
+    <string name="pairingtimedout">Time Out associazione micro</string>
     <string name="pairing">ASSOCIAZIONE</string>
     <string name="danars_nodeviceavailable">Nessun dispositivo trovato finora</string>
     <string name="emptyreservoir">Serbatoio vuoto</string>
-    <string name="bloodsugarmeasurementalert">Avviso di misurazione di glicemia</string>
+    <string name="bloodsugarmeasurementalert">Avviso misurazione di glicemia</string>
     <string name="remaininsulinalert">Livello di insulina rimanente</string>
     <string name="danarspump">DanaR</string>
     <string name="danarspump_shortname">Dana</string>
