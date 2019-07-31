@@ -567,8 +567,8 @@
     <string name="insulin_shortname">INS</string>
     <string name="enablesuperbolus">Abilita Super Bolo nel calcolatore</string>
     <string name="enablesuperbolus_summary">Abilita funzionalità Super Bolo nel calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
-    <string name="show_statuslights">Mostra le luci di stato sulla schermata iniziale</string>
-    <string name="show_statuslights_summary">Abilita indicatori di stato per ago, catetere, serbatoio e batteria livello sulla schermata iniziale.</string>
+    <string name="show_statuslights">Mostra \"indicatori di stato\" sulla schermata iniziale</string>
+    <string name="show_statuslights_summary">Abilita indicatori di stato per \"età\" cannula, insulina, sensore, livello serbatoio e batteria sulla schermata iniziale.</string>
     <string name="statuslights_res_warning">Soglia di avviso serbatoio livello [U]</string>
     <string name="statuslights_res_critical">Soglia critica serbatoio livello [U]</string>
     <string name="statuslights_bat_warning">Avviso livello batteria [%%]</string>
