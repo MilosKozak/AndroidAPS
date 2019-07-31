@@ -654,8 +654,8 @@
     <string name="smb_shortname">SMB</string>
     <string name="enableuam">Abilita UAM</string>
     <string name="enablesmb">Abilita SMB</string>
-    <string name="enablesmb_summary">Utilizzare Super bolo anziché basale temp per azione più veloce</string>
-    <string name="enableuam_summary">Rilevazione dei pasti senza preavviso</string>
+    <string name="enablesmb_summary">Utilizza Super Micro Boli al posto della basale temporanea per un\'azione più veloce</string>
+    <string name="enableuam_summary">Rilevazione dei Pasti Non Dichiarati</string>
     <string name="insulin_oref_peak">Ora di punta curva IOB</string>
     <string name="insulin_peak_time">Picco tempo [min]</string>
     <string name="free_peak_oref">Free-picco Oref</string>
