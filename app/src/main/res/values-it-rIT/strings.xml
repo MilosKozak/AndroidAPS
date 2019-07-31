@@ -869,7 +869,7 @@
     <string name="wear_predictions_summary">Visualizza le predizioni sulla watchface.</string>
     <string name="wear_predictions_title">Predizioni</string>
     <string name="data_choices">Scelta dei Dati</string>
-    <string name="fabric_upload">Upload di fabbrica</string>
+    <string name="fabric_upload">Invio a fabric.io</string>
     <string name="allow_automated_crash_reporting">Consentire l\'invio degli errori a fine di ricerca agli sviluppatori tramite il servizio fabric.io.</string>
     <string name="g5appnotdetected">Si prega di aggiornare l\'app di Dexcom a versione supportata</string>
     <string name="dexcom_app_not_installed">L\'applicazione Dexcom non installata.</string>
