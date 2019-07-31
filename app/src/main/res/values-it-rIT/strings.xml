@@ -606,11 +606,11 @@
     <string name="nsalarm_urgenthigh">Molto alto</string>
     <string name="nsalarm_high">Alto</string>
     <string name="nsalarm_low">Basso</string>
-    <string name="nsalarm_urgentlow">Bassa urgente</string>
+    <string name="nsalarm_urgentlow">Molto basso</string>
     <string name="nsalarm_staledata">Dati non aggiornati</string>
-    <string name="nsalarm_urgentstaledata">Urgenti dati non aggiornati</string>
-    <string name="nsalarm_staledatavalue_label">Dati non aggiornati soglia [min]</string>
-    <string name="nsalarm_urgent_staledatavalue_label">Dati non aggiornati urgente soglia [min]</string>
+    <string name="nsalarm_urgentstaledata">Dati non aggiornati da molto tempo</string>
+    <string name="nsalarm_staledatavalue_label">Soglia Dati non aggiornati [min]</string>
+    <string name="nsalarm_urgent_staledatavalue_label">Soglia Dati non aggiornati da molto tempo [min]</string>
     <string name="openapsama_autosens_period">Intervallo per autosens [h]</string>
     <string name="openapsama_autosens_period_summary">Quantità di ore in passato per il rilevamento di sensibilità (è escluso il tempo di assorbimento di carboidrati)</string>
     <string name="pump">Pompa</string>
