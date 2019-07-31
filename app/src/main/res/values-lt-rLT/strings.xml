@@ -1176,6 +1176,11 @@
     <!-- MDT Configuration -->
     <!-- RL BLE Scanning -->
     <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Parametrai</string>
+    <string name="rileylink_settings_tab2">Istorija</string>
+    <string name="rileylink_settings_tab3">Prietaisas</string>
+    <string name="rileylink_settings_title">RileyLink parametrai</string>
+    <string name="title_activity_rileylink_settings">RileyLink parametrai</string>
     <!-- RL State -->
     <!-- RL Errors -->
     <!-- RL Target Device -->
@@ -1183,6 +1188,7 @@
     <!-- MDT History -->
     <!-- MDT Pump Status -->
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_desc_get_settings">Gauti parametrus</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d diena</item>
         <item quantity="few">%1$d diena</item>
