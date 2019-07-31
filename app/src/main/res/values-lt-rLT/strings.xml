@@ -67,7 +67,7 @@
     <string name="nsprofileview_ic_label">IA (insulino/angliavandenių santykis)</string>
     <string name="nsprofileview_isf_label">JIF (jautrumo insulinui faktorius)</string>
     <string name="nsprofileview_basal_label">Valandinė bazė</string>
-    <string name="nsprofileview_target_label">Tikslinė gliukozės vertė</string>
+    <string name="nsprofileview_target_label">Tikslas</string>
     <string name="noprofileset">Nenustatytas profilis</string>
     <string name="treatments_insulin_label_string">Insulinas:</string>
     <string name="treatments_carbs_label_string">Angliavandeniai:</string>
