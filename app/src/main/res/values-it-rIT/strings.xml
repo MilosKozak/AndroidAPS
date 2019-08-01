@@ -895,8 +895,8 @@
     <string name="not_eng_mode_or_release">Modalità di ingegneria non abilitato e non su ramo di release</string>
     <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Lettura profilo basale</string>
-    <string name="combo_bolus_rejected_due_to_pump_history_change">La storia del micro è cambiato dopo il calcolo del bolo è stato effettuato. Non è stato recapitato il bolo. Si prega di ricalcolare se un bolo è ancora necessario.</string>
-    <string name="combo_error_updating_treatment_record">Bolo consegnato con successo, ma Impossibile aggiungere la voce al trattamento. Questo può accadere se due piccoli boli delle stesse dimensioni sono erogati negli ultimi due minuti. Si prega di verificare le voci della storia ed il trattamento di pompa e utilizzare il Careportal per aggiungere voci mancanti. Assicurarsi di non aggiungere tutte le voci per il minuto esatto stesso e la stessa quantità.</string>
+    <string name="combo_bolus_rejected_due_to_pump_history_change">Lo storico del micro è cambiato dopo il calcolo del bolo. Il bolo non è stato erogato. Ricalcola il bolo se è ancora necessario.</string>
+    <string name="combo_error_updating_treatment_record">Bolo erogato con successo, ma impossibile aggiungere la voce ai Trattamenti. Questo può accadere se due piccoli boli della stessa quantità sono stati somministrati negli ultimi due minuti. Verifica lo storico del micro e le voci della sezione Trattamenti e utilizza il Careportal per aggiungere eventuali voci mancanti. Assicurati di non aggiungere voci con lo stesso orario e con la stessa quantità.</string>
     <string name="combo_high_temp_rejected_due_to_pump_history_changes">Rifiuto ad alta temperatura poiché non considera il calcolo recentemente ha cambiato la storia di pompa</string>
     <string name="combo_activity_checking_pump_state">Aggiornare stato micro</string>
     <string name="combo_warning_pump_basal_rate_changed">La velocità basale del micro è cambiata e verrà presto aggiornata</string>
