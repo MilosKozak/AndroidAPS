@@ -925,9 +925,9 @@
     <string name="maxdailybasalmultiplier">max moltiplicatore basale giornaliera</string>
     <string name="smb_frequency_exceeded">Un bolo è stato erogato negli ultimi 3 minuti, SMB ignorato</string>
     <string name="basal_set_correctly">Basale impostata correttamente</string>
-    <string name="limitingpercentrate">Limitando la frequenza massima percentuale da %1$d%% a %2$s</string>
-    <string name="limitingbolus">Limitando il bolo a %1$.1f U a causa %2$s</string>
-    <string name="limitingextendedbolus">Limitando il bolo a %1$.1f U a causa %2$s</string>
+    <string name="limitingpercentrate">Limito max percentuale a %1$d%% Causa: %2$s</string>
+    <string name="limitingbolus">Limito il bolo a %1$.1f U Causa: %2$s</string>
+    <string name="limitingextendedbolus">Limito il bolo esteso a %1$.1f U Causa: %2$s</string>
     <string name="limitingmaxiob">Limitando il bolo a %1$.1f U a causa %2$s</string>
     <string name="limitingcarbs">Limitare i carboidrati a %1$d g a causa %2$s</string>
     <string name="limitingiob">Limitando IOB a %1$.1f U a causa %2$s</string>
