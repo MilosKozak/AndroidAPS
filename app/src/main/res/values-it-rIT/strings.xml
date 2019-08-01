@@ -934,8 +934,8 @@
     <string name="maxvalueinpreferences">valore max nelle preferenze</string>
     <string name="hardlimit">limite fisso</string>
     <string name="unsafeusage">utilizzo non sicuro</string>
-    <string name="readstatusfailed">Stato di lettura non riuscito</string>
-    <string name="record_pump_site_change">Modifica sito record micro</string>
+    <string name="readstatusfailed">Lettura stato fallita</string>
+    <string name="record_pump_site_change">Registra cambio sito micro</string>
     <string name="record_insulin_cartridge_change">Sostituzione della cartuccia di insulina record</string>
     <string name="smbalwaysdisabled">SMB e sempre dopo la disattivazione di carboidrati perché non supporta l\'origine attiva BG filtraggio avanzato</string>
     <string name="smbnotallowedinopenloopmode">SMB non consentito in modalità ad anello aperto</string>
