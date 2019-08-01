@@ -928,11 +928,11 @@
     <string name="limitingpercentrate">Limito max percentuale a %1$d%% Causa: %2$s</string>
     <string name="limitingbolus">Limito il bolo a %1$.1f U Causa: %2$s</string>
     <string name="limitingextendedbolus">Limito il bolo esteso a %1$.1f U Causa: %2$s</string>
-    <string name="limitingmaxiob">Limitando il bolo a %1$.1f U a causa %2$s</string>
-    <string name="limitingcarbs">Limitare i carboidrati a %1$d g a causa %2$s</string>
-    <string name="limitingiob">Limitando IOB a %1$.1f U a causa %2$s</string>
-    <string name="maxvalueinpreferences">valore massimo nelle preferenze</string>
-    <string name="hardlimit">limite duro</string>
+    <string name="limitingmaxiob">Limito max IOB a %1$.1f U Causa: %2$s</string>
+    <string name="limitingcarbs">Limito i carboidrati a %1$d g Causa: %2$s</string>
+    <string name="limitingiob">Limito IOB a %1$.1f U Causa: %2$s</string>
+    <string name="maxvalueinpreferences">valore max nelle preferenze</string>
+    <string name="hardlimit">limite fisso</string>
     <string name="unsafeusage">utilizzo non sicuro</string>
     <string name="readstatusfailed">Stato di lettura non riuscito</string>
     <string name="record_pump_site_change">Modifica sito record micro</string>
