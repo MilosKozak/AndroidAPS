@@ -880,7 +880,7 @@
     <string name="category">Categoria</string>
     <string name="subcategory">Sottocategoria</string>
     <string name="bolusrecordedonly">Il bolo sarà solo memorizzato</string>
-    <string name="ns_autobackfill_summary">Autobackfill missig BGs da NS</string>
+    <string name="ns_autobackfill_summary">Ripristina i valori BG mancanti da NS</string>
     <string name="loop_smbsetbypump_label">SMB impostato dal micro</string>
     <string name="overview_show_activity">Attivita\'</string>
     <string name="overview_show_sensitivity">Sensibilità</string>
