@@ -905,12 +905,12 @@
     <string name="combo_error_multiple_boluses_with_identical_timestamp">Sono stati importati più boli con la stessa quantità nello stesso minuto. Solo un record può essere aggiunto ai Trattamenti. Controlla il micro e aggiungi manualmente un record di bolo utilizzando la scheda Careportal. Assicurati di creare un bolo con un orario che nessun altro bolo utilizza.</string>
     <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
     <string name="combo_check_date">L\'ultimo bolo è più vecchio di 24 ore o ha una data nel futuro. Controlla che la data sul micro sia impostata correttamente.</string>
-    <string name="combo_suspious_bolus_time">L\'ora / data del bolo erogato sul micro sembra errata, l\'IOB probabilmente non è corretto. Si prega di controllare l\'ora / data del micro.</string>
-    <string name="profileswitch_ismissing">Pulsante di profilo mancante. Si prega di fare un pulsante di profilo o premere \"Attiva profilo\" nel profilo locale.</string>
-    <string name="combo_bolus_count">Conteggio di bolo</string>
-    <string name="combo_tbr_count">TBR count</string>
+    <string name="combo_suspious_bolus_time">L\'ora/la data del bolo erogato sul micro sembra errata, IOB probabilmente non è corretto. Controlla l\'ora e/o la data del micro.</string>
+    <string name="profileswitch_ismissing">Nessun cambio profilo. Effettua un cambio profilo o premi \"Attiva Profilo\" nella sezione Profilo Locale.</string>
+    <string name="combo_bolus_count">Conteggio Bolo</string>
+    <string name="combo_tbr_count">Conteggio TBR</string>
     <string name="objectivenotstarted">Obiettivo %1$d non avviato</string>
-    <string name="objectivenotfinished">Obiettivo %1$d non avviato</string>
+    <string name="objectivenotfinished">Obiettivo %1$d non terminato</string>
     <string name="pumpisnottempbasalcapable">Micro non in grado di impostare la basale temp</string>
     <string name="novalidbasalrate">Nessun tasso basale valido leggere dal micro</string>
     <string name="closedmodedisabledinpreferences">Modalità ciclo chiuso disattivata nelle preferenze</string>
