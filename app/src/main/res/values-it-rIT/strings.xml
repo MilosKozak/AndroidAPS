@@ -912,11 +912,11 @@
     <string name="objectivenotstarted">Obiettivo %1$d non avviato</string>
     <string name="objectivenotfinished">Obiettivo %1$d non terminato</string>
     <string name="pumpisnottempbasalcapable">Micro non in grado di impostare la basale temp</string>
-    <string name="novalidbasalrate">Nessun tasso basale valido leggere dal micro</string>
+    <string name="novalidbasalrate">Nessuna velocità basale valida letta dal micro</string>
     <string name="closedmodedisabledinpreferences">Modalità ciclo chiuso disattivata nelle preferenze</string>
-    <string name="autosensdisabledinpreferences">Autosens disattivato nelle preferenze</string>
-    <string name="smbdisabledinpreferences">SMB disattivato nelle preferenze</string>
-    <string name="uamdisabledinpreferences">SMB disattivato nelle preferenze</string>
+    <string name="autosensdisabledinpreferences">Autosens disabilitato nelle preferenze</string>
+    <string name="smbdisabledinpreferences">SMB disabilitato nelle preferenze</string>
+    <string name="uamdisabledinpreferences">UAM disabilitato nelle preferenze</string>
     <string name="uamdisabledoref1notselected">attivita\'</string>
     <string name="limitingbasalratio">La limitazione di velocità max basale a %1$.2f U/h a causa di %2$s</string>
     <string name="pumplimit">limite micro</string>
