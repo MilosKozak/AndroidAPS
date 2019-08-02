@@ -10,5 +10,6 @@ public enum PluginType {
     CONSTRAINTS,
     LOOP,
     BGSOURCE,
-    INSULIN
+    INSULIN,
+    NSCLIENT
 }
