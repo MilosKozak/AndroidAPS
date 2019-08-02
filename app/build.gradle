@@ -275,6 +275,8 @@ dependencies {
 
     implementation 'com.github.DavidProdinger:weekdays-selector:1.1.0'
 
+    implementation fileTree(include: ['*.jar'], dir: '../../rest-client-v3/build/libs')
+
     testImplementation "junit:junit:4.12"
     testImplementation "org.json:json:20140107"
     testImplementation "org.mockito:mockito-core:2.8.47"
