@@ -72,7 +72,7 @@ object SourceDexcomPlugin : PluginBase(PluginDescription()
                 bgReading.raw = 0.0
                 if (MainApp.getDbHelper().createIfNotExists(bgReading, "Dexcom")) {
                     if (SP.getBoolean(R.string.key_dexcomg5_nsupload, false)) {
-                        NSUpload.uploadBg(bgReading, "AndroidAPS-DexcomG6")
+                        NSUpload.getActiveUploader().uploadBg(bgReading, "AndroidAPS-DexcomG6")
                     }
                     if (SP.getBoolean(R.string.key_dexcomg5_xdripupload, false)) {
                         NSUpload.sendToXdrip(bgReading)
@@ -84,23 +84,12 @@ object SourceDexcomPlugin : PluginBase(PluginDescription()
                 val meter = meters.getBundle(i.toString())
                 val timestamp = meter!!.getLong("timestamp") * 1000
                 if (MainApp.getDbHelper().getCareportalEventFromTimestamp(timestamp) != null) continue
-                val jsonObject = JSONObject()
-                jsonObject.put("enteredBy", "AndroidAPS-Dexcom")
-                jsonObject.put("created_at", DateUtil.toISOString(timestamp))
-                jsonObject.put("eventType", CareportalEvent.BGCHECK)
-                jsonObject.put("glucoseType", "Finger")
-                jsonObject.put("glucose", meter.getInt("meterValue"))
-                jsonObject.put("units", Constants.MGDL)
-                NSUpload.uploadCareportalEntryToNS(jsonObject)
+                NSUpload.getActiveUploader().uploadBg("AndroidAPS-Dexcom",DateUtil.toISOString(timestamp), "Finger" , meter.getInt("meterValue"), Constants.MGDL);
             }
             if (SP.getBoolean(R.string.key_dexcom_lognssensorchange, false) && intent.hasExtra("sensorInsertionTime")) {
                 val sensorInsertionTime = intent.extras!!.getLong("sensorInsertionTime") * 1000
                 if (MainApp.getDbHelper().getCareportalEventFromTimestamp(sensorInsertionTime) == null) {
-                    val jsonObject = JSONObject()
-                    jsonObject.put("enteredBy", "AndroidAPS-Dexcom")
-                    jsonObject.put("created_at", DateUtil.toISOString(sensorInsertionTime))
-                    jsonObject.put("eventType", CareportalEvent.SENSORCHANGE)
-                    NSUpload.uploadCareportalEntryToNS(jsonObject)
+                    NSUpload.getActiveUploader().uploadSensorChange("AndroidAPS-Dexcom",DateUtil.toISOString(sensorInsertionTime) );
                 }
             }
         } catch (e: Exception) {
