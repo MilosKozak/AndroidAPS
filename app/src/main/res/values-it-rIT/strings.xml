@@ -945,12 +945,12 @@
     <string name="loopdisconnectedfor">Disconnesso (%1$d m)</string>
     <string name="automatic_careportal_events">Eventi careportal automatici</string>
     <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Carica automaticamente su Nightscout i cambi di insulina, cannula e batteria e gli allarmi micro</string>
-    <string name="openapssmb_maxiob_title">Basale Massima in IOB OpenAPS</string>
-    <string name="openapssmb_maxiob_summary">Questo valore è chiamato Max IOB in OpenAPS context\nOpenAPS non aggiungerà più insulina se IOB corrente è maggiore di questo valore</string>
+    <string name="openapssmb_maxiob_title">Max IOB totale oltre la quale OpenAPS non può andare [U]</string>
+    <string name="openapssmb_maxiob_summary">Questo valore è chiamato Max IOB nel contesto OpenAPS\nOpenAPS non aggiungerà ulteriore insulina se IOB corrente è maggiore di questo valore</string>
     <string name="pump_stopped">Micro sospeso</string>
     <string name="pump_started">Micro avviato</string>
     <string name="pump_paused">Micro in pausa</string>
-    <string name="absorption_cutoff_title">Assorbimento max pasto tempo [h]</string>
+    <string name="absorption_cutoff_title">Max tempo assorbimento pasto [h]</string>
     <string name="absorption_cutoff_summary">Tempo in cui ogni pasto è considerato assorbito. Restanti carboidrati sarà tagliato fuori.</string>
     <string name="time">Tempo</string>
     <string name="overview_show_notes_field_in_dialogs_title">Campo note Visualizza nelle finestre di dialogo di trattamento</string>
