@@ -1040,10 +1040,10 @@
     <string name="poctech">Poctech</string>
     <string name="description_source_poctech">Ricevere i valori BG da app Poctech</string>
     <string name="description_source_tomato">Ricevere i valori BG da Tomato app (dispositivo MiaoMiao)</string>
-    <string name="high_temptarget_raises_sensitivity_title">Genera temptarget ad alta sensibilità</string>
-    <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Aumentare la sensibilità per temptargets> = 100]]></string>
-    <string name="low_temptarget_lowers_sensitivity_title">Temptarget basso. abbassare la sensibilità</string>
-    <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Abbassare la sensibilità per temptargets> = 100]]></string>
+    <string name="high_temptarget_raises_sensitivity_title">High Temp-Target aumenta la sensibilità</string>
+    <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Aumenta la sensibilità per temp-target >= 100]]></string>
+    <string name="low_temptarget_lowers_sensitivity_title">Low Temp-Target diminuisce la sensibilità</string>
+    <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Diminuisci la sensibilità per temp-target < 100]]></string>
     <string name="combo_invalid_setup">Non valida l\'installazione del micro, controllare i documenti e verificare che il menu di informazioni rapide è denominato informazioni rapide utilizzando il software di 360 configurazione.</string>
     <string name="custom">Personalizzato</string>
     <string name="largetimedifftitle">Grande differenza di tempo</string>
