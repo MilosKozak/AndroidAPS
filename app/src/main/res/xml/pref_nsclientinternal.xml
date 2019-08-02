@@ -20,6 +20,15 @@
             android:key="@string/key_nsclientinternal_api_secret"
             android:title="@string/nsclientinternal_secret_title" />
 
+        <EditTextPreference
+                android:dialogMessage="@string/nsclientinternal_token_dialogmessage"
+                android:dialogTitle="@string/nsclientinternal_token_dialogtitle"
+                android:inputType="text"
+                android:key="@string/key_nsclientinternal_api_token"
+                android:title="@string/nsclientinternal_token_title"
+        />
+        <!-- //TODO: token OR apiSecret must be editable -->
+
         <SwitchPreference
             android:defaultValue="true"
             android:key="@string/key_ns_logappstartedevent"
