@@ -2,6 +2,7 @@ package info.nightscout.androidaps.plugins.configBuilder;
 
 import androidx.annotation.Nullable;
 
+import info.nightscout.androidaps.interfaces.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,15 +11,6 @@ import java.util.ArrayList;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.events.EventAppInitialized;
-import info.nightscout.androidaps.interfaces.APSInterface;
-import info.nightscout.androidaps.interfaces.BgSourceInterface;
-import info.nightscout.androidaps.interfaces.InsulinInterface;
-import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.interfaces.PluginDescription;
-import info.nightscout.androidaps.interfaces.PluginType;
-import info.nightscout.androidaps.interfaces.ProfileInterface;
-import info.nightscout.androidaps.interfaces.PumpInterface;
-import info.nightscout.androidaps.interfaces.SensitivityInterface;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.insulin.InsulinOrefRapidActingPlugin;
 import info.nightscout.androidaps.plugins.profile.ns.NSProfilePlugin;
@@ -42,6 +34,7 @@ public class ConfigBuilderPlugin extends PluginBase {
     }
 
     private BgSourceInterface activeBgSource;
+    private NightscoutPlugin activeNsPlugin;
     private PumpInterface activePump;
     private ProfileInterface activeProfile;
     private APSInterface activeAPS;
@@ -238,6 +231,10 @@ public class ConfigBuilderPlugin extends PluginBase {
         return activeBgSource;
     }
 
+    public NightscoutPlugin getActiveNightscoutPlugin  ()  {
+        return activeNsPlugin;
+    }
+
     @Nullable
     public ProfileInterface getActiveProfileInterface() {
         return activeProfile;
@@ -314,6 +311,8 @@ public class ConfigBuilderPlugin extends PluginBase {
 
         // PluginType.BGSOURCE
         activeBgSource = this.determineActivePlugin(BgSourceInterface.class, PluginType.BGSOURCE);
+
+        activeNsPlugin = this.determineActivePlugin(NightscoutPlugin.class, PluginType.NSCLIENT);
 
         // PluginType.PUMP
         pluginsInCategory = MainApp.getSpecificPluginsList(PluginType.PUMP);
