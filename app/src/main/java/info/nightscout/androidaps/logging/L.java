@@ -100,6 +100,7 @@ public class L {
     public static final String UI = "UI";
     public static final String LOCATION = "LOCATION";
     public static final String SMS = "SMS";
+    public static final String NSRESTV3 = "NSREST";
 
     private static void initialize() {
         logElements = new ArrayList<>();
