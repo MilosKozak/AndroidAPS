@@ -971,17 +971,17 @@
     <string name="ns_wifi_ssids">WiFi SSID</string>
     <string name="ns_chargingonly">Solo se in carica</string>
     <string name="connectionsettings_title">Impostazioni Connessione</string>
-    <string name="ns_wifi_allowedssids">Ammessi gli SSID (punto e virgola separato)</string>
-    <string name="ns_allowroaming">Consentire la connessione in roaming</string>
-    <string name="openapsama_autosens_max">Rapporto autosens max</string>
-    <string name="openapsama_autosens_min">Min autosens rapporto</string>
-    <string name="openapsama_bolussnooze_dia_divisor">Divisore di bolo snooze Gg</string>
-    <string name="openapsama_max_daily_safety_multiplier">Max giornaliero basale moltiplicatore</string>
+    <string name="ns_wifi_allowedssids">SSID ammessi (separati da punto e virgola)</string>
+    <string name="ns_allowroaming">Consenti connessione in roaming</string>
+    <string name="openapsama_autosens_max">Max rapporto autosens</string>
+    <string name="openapsama_autosens_min">Min rapporto autosens</string>
+    <string name="openapsama_bolussnooze_dia_divisor">Bolus snooze - divisore DIA</string>
+    <string name="openapsama_max_daily_safety_multiplier">Max moltiplicatore di sicurezza basale giornaliera</string>
     <string name="openapsama_current_basal_safety_multiplier">Moltiplicatore di sicurezza basale corrente</string>
     <string name="value_unavailable_short">n/a</string>
     <string name="virtualpump_type">Micro virtuale</string>
-    <string name="virtualpump_definition">Definizione del micro</string>
-    <string name="virtualpump_pump_def">Bolo: Passo =%1$s\n bolo esteso: [step =%2$s, durata =%3$smin -%4$sh] \n Basale: Step =%5$s\nTBR: %6$s (di %7$s), durata =%8$smin -%9$sh\n%10$s</string>
+    <string name="virtualpump_definition">Definizione micro</string>
+    <string name="virtualpump_pump_def">Bolo: Step=%1$s\nBolo Esteso: [Step=%2$s, Durata=%3$smin-%4$sh]\nBasale: Step=%5$s\nTBR: %6$s (by %7$s), Durata=%8$smin-%9$sh\n%10$s</string>
     <string name="virtualpump_pump_def_extended_note">* Solo valori nell\'intervallo sono supportati come dato per basale / bolo nella pompa virtuale.</string>
     <string name="ns_autobackfill_title">Autobackfill BG</string>
     <string name="wear_wizard_settings">Impostazioni della procedura guidata</string>
