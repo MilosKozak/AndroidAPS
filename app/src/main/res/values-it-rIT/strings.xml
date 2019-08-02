@@ -565,8 +565,8 @@
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
     <string name="ultrafastactinginsulincomment">Fiasp</string>
     <string name="insulin_shortname">INS</string>
-    <string name="enablesuperbolus">Abilita Super Bolo nel calcolatore</string>
-    <string name="enablesuperbolus_summary">Abilita funzionalità Super Bolo nel calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
+    <string name="enablesuperbolus">Abilita Super Bolo nel Calcolatore</string>
+    <string name="enablesuperbolus_summary">Abilita funzionalità Super Bolo nel Calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
     <string name="show_statuslights">Mostra \"indicatori di stato\" sulla schermata iniziale</string>
     <string name="show_statuslights_summary">Abilita indicatori di stato per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
     <string name="statuslights_res_warning">Soglia di avviso livello serbatoio [U]</string>
@@ -956,7 +956,7 @@
     <string name="overview_show_notes_field_in_dialogs_title">Mostra campo note nelle finestre trattamento</string>
     <string name="next_button">Avanti</string>
     <string name="previous_button">Indietro</string>
-    <string name="nav_setupwizard">Installazione guidata</string>
+    <string name="nav_setupwizard">Configurazione guidata</string>
     <string name="setupwizard_finish">FINE</string>
     <string name="setupwizard_language_prompt">Seleziona la tua lingua</string>
     <string name="boluserrorcode">Chiesto: %1$.2fU Erogato: %2$.2fU Codice errore: %3$s</string>
@@ -989,13 +989,13 @@
     <string name="wear_display_settings">Impostazioni del display</string>
     <string name="wear_general_settings">Impostazioni generali</string>
     <string name="enable_nsclient">Abilitare NSClient</string>
-    <string name="welcometosetupwizard">Benvenuto nell\'installazione guidata. Ti guiderò attraverso il processo di installazione\n</string>
+    <string name="welcometosetupwizard">Benvenuto nella procedura guidata di configurazione. Ti seguirò durante tutto il processo.\n</string>
     <string name="pumpsetup">Setup Micro</string>
     <string name="readstatus">Stato di lettura</string>
     <string name="adjustprofileinns">Le modifiche devono essere fatte in NS</string>
-    <string name="exitwizard">Esegui installazione guidata</string>
+    <string name="exitwizard">Salta configurazione guidata</string>
     <string name="setupwizard_loop_description">Premere il pulsante qui sotto per attivare AndroidAPS suggerire/fare modifiche basale</string>
-    <string name="setupwizard_objectives_description">Premere il pulsante qui sotto per attivare gli obiettivi. Guarda nella scheda obiettivi, dopo aver completato questa procedura guidata, per rendere completamente funzionale AndroidAPS. \n</string>
+    <string name="setupwizard_objectives_description">Premi il pulsante in basso per abilitare gli obiettivi. Dopo aver completato questa procedura guidata, controlla la scheda obiettivi per rendere AndroidAPS completamente funzionale.\n</string>
     <string name="enableobjectives">Abilitare gli obiettivi</string>
     <string name="apssetup">Configurare il plugin APS</string>
     <string name="sensitivitysetup">Configurare il plugin di sensibilità</string>
