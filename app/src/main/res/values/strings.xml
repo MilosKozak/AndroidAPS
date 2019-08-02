@@ -1,4 +1,4 @@
-<resources>
+﻿<resources>
     <string name="en_lang" translatable="false">English</string>
     <string name="cs_lang" translatable="false">Czech</string>
     <string name="af_lang" translatable="false">Afrikaans</string>
@@ -553,6 +553,9 @@
     <string name="nsclientinternal_secret_title">NS API secret</string>
     <string name="nsclientinternal_secret_dialogtitle">NS API secret</string>
     <string name="nsclientinternal_secret_dialogmessage">Enter NS API secret (min 12 chars)</string>
+    <string name="nsclientinternal_token_title">NS Token</string>
+    <string name="nsclientinternal_token_dialogtitle">NS Token</string>
+    <string name="nsclientinternal_token_dialogmessage">Enter NS Token</string>
     <string name="deliver_now">Deliver now</string>
     <string name="clear_queue">Clear queue</string>
     <string name="show_queue">Show queue</string>
@@ -561,6 +564,8 @@
     <string name="paused">Paused</string>
     <string name="key_nsclientinternal_url" translatable="false">nsclientinternal_url</string>
     <string name="key_nsclientinternal_api_secret" translatable="false">nsclientinternal_api_secret</string>
+    <string name="key_nsclientinternal_api_token" translatable="false">nsclientinternal_api_token</string>
+
     <string name="key_danar_bt_name" translatable="false">danar_bt_name</string>
     <string name="key_danar_password" translatable="false">danar_password</string>
     <string name="key_danar_useextended" translatable="false">danar_useextended</string>
