@@ -941,10 +941,10 @@
     <string name="smbnotallowedinopenloopmode">SMB non consentito in modalità Loop Aperto</string>
     <string name="food_short">Cibo</string>
     <string name="reset">reset</string>
-    <string name="waitingfortimesynchronization">In attesa di sincronizzazione dell\'ora (%1$d sec)</string>
+    <string name="waitingfortimesynchronization">In attesa della sincronizzazione dell\'ora (%1$d sec)</string>
     <string name="loopdisconnectedfor">Disconnesso (%1$d m)</string>
-    <string name="automatic_careportal_events">Automatico careportal eventi</string>
-    <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Caricare automaticamente l\'insulina, cannula e sostituzione della batteria e pompa allarmi su Nightscout</string>
+    <string name="automatic_careportal_events">Eventi careportal automatici</string>
+    <string name="automatically_upload_insulin_cannula_and_battery_changes_to_nightscout">Carica automaticamente su Nightscout i cambi di insulina, cannula e batteria e gli allarmi micro</string>
     <string name="openapssmb_maxiob_title">Basale Massima in IOB OpenAPS</string>
     <string name="openapssmb_maxiob_summary">Questo valore è chiamato Max IOB in OpenAPS context\nOpenAPS non aggiungerà più insulina se IOB corrente è maggiore di questo valore</string>
     <string name="pump_stopped">Micro sospeso</string>
