@@ -981,7 +981,7 @@
     <string name="value_unavailable_short">n/a</string>
     <string name="virtualpump_type">Micro virtuale</string>
     <string name="virtualpump_definition">Definizione micro</string>
-    <string name="virtualpump_pump_def">Bolo: Step=%1$s\nBolo Esteso: [Step=%2$s, Durata=%3$smin-%4$sh]\nBasale: Step=%5$s\nTBR: %6$s (by %7$s), Durata=%8$smin-%9$sh\n%10$s</string>
+    <string name="virtualpump_pump_def">Bolo: Step=%1$s\nBolo Esteso: [Step=%2$s, Durata=%3$smin-%4$sh]\nBasale: Step=%5$s\nTBR: %6$s (di %7$s), Durata=%8$smin-%9$sh\n%10$s</string>
     <string name="virtualpump_pump_def_extended_note">* Solo valori nell\'intervallo sono supportati come dato per basale / bolo nella pompa virtuale.</string>
     <string name="ns_autobackfill_title">Autobackfill BG</string>
     <string name="wear_wizard_settings">Impostazioni della procedura guidata</string>
