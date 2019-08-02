@@ -98,7 +98,7 @@ public class BGSourceFragment extends SubscriberFragment {
         @Override
         public void onBindViewHolder(@NonNull BgReadingsViewHolder holder, int position) {
             BgReading bgReading = bgReadings.get(position);
-            holder.ns.setVisibility(NSUpload.isIdValid(bgReading._id) ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(NSUpload.getActiveUploader().isIdValid(bgReading._id) ? View.VISIBLE : View.GONE);
             holder.invalid.setVisibility(!bgReading.isValid ? View.VISIBLE : View.GONE);
             holder.date.setText(DateUtil.dateAndTimeString(bgReading.date));
             holder.value.setText(bgReading.valueToUnitsToString(units));

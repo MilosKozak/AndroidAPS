@@ -19,7 +19,7 @@ class ErrorHelperActivity : NoSplashAppCompatActivity() {
         errorDialog.show(supportFragmentManager, "Error")
 
         if (SP.getBoolean(R.string.key_ns_create_announcements_from_errors, true)) {
-            NSUpload.uploadError(intent.getStringExtra("status"))
+            NSUpload.getActiveUploader().uploadError(intent.getStringExtra("status"))
         }
     }
 }
