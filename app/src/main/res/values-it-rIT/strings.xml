@@ -1005,11 +1005,11 @@
     <string name="diawarning">Ricorda: i nuovi profili di insulina richiedono una DIA di almeno 5h. DIA di 5 - 6h sui nuovi profili sono uguali a DIA di 3h sui vecchi profili di insulina.</string>
     <string name="bgsourcesetup">Configura sorgente Glicemie</string>
     <string name="setupwizard_profile_description">Seleziona il tipo di profilo. Se il paziente è un bambino è necessario utilizzare il profilo di NS. Se non c\'è nessuno a seguirti su Nightscout probabilmente preferirai il profilo locale. Ricorda che stai solo selezionando la sorgente del profilo. Per utilizzarlo devi attivarlo tramite l\'esecuzione del comando \"Cambio Profilo\"</string>
-    <string name="setupwizard_aps_description">Selezionare uno da algoritmi disponibili. Sono ordinati dal più vecchio al più recente. Nuovo algoritmo è solitamente più potente e più aggressivo. Così se sei nuovo crochet probabilmente si può iniziare con AMA e non con uno più recente. Non dimenticate di leggere la documentazione di OpenAPS e configurarlo prima dell\'uso.</string>
-    <string name="startobjective">Iniziare il vostro primo obiettivo</string>
-    <string name="permission">Permessi</string>
-    <string name="askforpermission">Chiedere il permesso</string>
-    <string name="needlocationpermission">Abilitare posizione per scansione di BT</string>
+    <string name="setupwizard_aps_description">Seleziona uno da algoritmi disponibili. Sono ordinati dal più vecchio al più recente. L\'algoritmo più recente è solitamente più potente, incisivo e \"aggressivo\". Pertanto, se sei un nuovo utente, probabilmente potresti/dovresti iniziare con AMA e non con l\'ultimo. Non dimenticare di leggere la documentazione di OpenAPS e di configurarlo prima dell\'uso.</string>
+    <string name="startobjective">Inizia il tuo primo obiettivo</string>
+    <string name="permission">Permesso</string>
+    <string name="askforpermission">Chiedi il permesso</string>
+    <string name="needlocationpermission">L\'applicazione richiede l\'accesso alla posizione per eseguire lo scan Bluetooth</string>
     <string name="needstoragepermission">Applicazione disponga dell\'autorizzazione di archiviazione di file registro dell\'archivio in grado di essere</string>
     <string name="request">Richiesta</string>
     <string name="insulinsourcesetup">Configurare il plugin di insulina</string>
