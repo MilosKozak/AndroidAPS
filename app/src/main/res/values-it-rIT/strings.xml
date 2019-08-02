@@ -1001,7 +1001,7 @@
     <string name="sensitivitysetup">Configura il plugin di Sensibilità</string>
     <string name="setupwizard_sensitivity_description">Il plugin di Sensibilità è utilizzato per il rilevamento della sensibilità all\'insulina e il calcolo di COB. Per ulteriori informazioni visita:</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
-    <string name="nsclientinfotext">NSClient gestisce la connessione a Nightscout. Si può saltare questa parte ora, ma non sarà in grado di superare gli obiettivi fino a quando è l\'installazione.</string>
+    <string name="nsclientinfotext">NSClient gestisce la connessione a Nightscout. Puoi saltare questa parte ora, ma non sarai in grado di superare gli obiettivi fino a quando non ne porterai a termine la configurazione.</string>
     <string name="diawarning">Si prega di ricordare: nuovi profili di insulina richiedono DIA almeno 5h. DIA 5 – 6h il nuovo profilo è uguale a DIA 3h su vecchi profili di insulina.</string>
     <string name="bgsourcesetup">Configurare la fonte di BG</string>
     <string name="setupwizard_profile_description">Si prega di selezionare la sorgente di profilo. Se il paziente è un bambino è necessario utilizzare il profilo di NS. Se non c\'è nessuno ti seguono il Nightscout probabilmente preferirete profilo locale. Si prega di ricordare che si è solo selezionando la sorgente di profilo. Per utilizzarlo è necessario attivarlo tramite l\'esecuzione di \"Profilo switch\"</string>
