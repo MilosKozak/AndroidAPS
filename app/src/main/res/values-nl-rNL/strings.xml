@@ -1309,6 +1309,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="medtronic_pump_encoding_4b6b_local">Software 4b6b Codering</string>
     <string name="medtronic_pump_encoding_4b6b_rileylink">Hardware 4b6b Codering</string>
     <string name="rileylink_mac_address">MAC-adres RileyLink</string>
+    <string name="medtronic_custom_action_wake_and_tune">Ontwaak en maak verbinding</string>
     <string name="medtronic_custom_action_clear_bolus_block">Bolus Blok wissen</string>
     <string name="medtronic_custom_action_reset_rileylink">Reset RileyLink Configuratie</string>
     <string name="medtronic_pump_battery_select">Batterij type (batterij weergave)</string>
