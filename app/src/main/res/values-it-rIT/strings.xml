@@ -995,7 +995,6 @@
     <string name="adjustprofileinns">Le modifiche devono essere fatte in NS</string>
     <string name="exitwizard">Salta configurazione guidata</string>
     <string name="setupwizard_loop_description">Premere il pulsante in basso per permettere ad AndroidAPS di suggerire/fare modifiche alla basale</string>
-    <string name="setupwizard_objectives_description">Premi il pulsante in basso per abilitare gli obiettivi. Dopo aver completato questa procedura guidata, controlla la scheda obiettivi per rendere AndroidAPS completamente funzionale.\n</string>
     <string name="enableobjectives">Abilita gli Obiettivi</string>
     <string name="apssetup">Configura il plugin APS</string>
     <string name="sensitivitysetup">Configura il plugin di Sensibilità</string>
