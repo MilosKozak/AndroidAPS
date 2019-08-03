@@ -996,7 +996,6 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="adjustprofileinns">Wijzigingen moeten worden gedaan in Nightscout</string>
     <string name="exitwizard">De installatiewizard overslaan</string>
     <string name="setupwizard_loop_description">Druk op de knop hieronder om AndroidAPS basaalwijzigingen te laten voorstellen/uitvoeren</string>
-    <string name="setupwizard_objectives_description">Druk op de knop hieronder voor het activeren van Doelen. Kijk in het tabblad Doelen nadat u klaar bent met deze wizard, om AndroidAPS volledig functioneel te krijgen. \n</string>
     <string name="enableobjectives">Inschakelen van Doelen</string>
     <string name="apssetup">APS plugin configureren</string>
     <string name="sensitivitysetup">Gevoeligheid plugin configureren</string>
