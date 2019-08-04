@@ -1047,7 +1047,7 @@
     <string name="custom">Personalizzato</string>
     <string name="largetimedifftitle">Grande differenza d\'orario</string>
     <string name="largetimediff">Tempo grande differenza: \nTime nella pompa è disattivata per più di 1,5 ore. \nPlease regolare l\'ora manualmente la pompa e assicurarsi che leggendo la storia dalla pompa non causare comportamenti imprevisti. \nIf possibile, rimuovere la cronologia dalla pompa prima di cambiare il tempo o la disattiva il circuito chiuso per una DIA dopo l\'ultima voce di storia sbagliata ma un DIA minimo da ora.</string>
-    <string name="careportal_removestartedevents">Rimuovi eventi avvio AndroidAPS</string>
+    <string name="careportal_removestartedevents">Rimuovi eventi avviati AndroidAPS</string>
     <string name="storedsettingsfound">Impostazioni memorizzate trovate</string>
     <string name="allow_hardware_pump_text">Attenzione: Se si attiva e collegare a una pompa di hardware, AndroidAPS copierà le impostazioni basali dal profilo alla pompa, sovrascrivendo il tasso basale esistente memorizzato sulla pompa. Assicuratevi di che avere la corretta regolazione basale in AndroidAPS. Se siete non sicuri o non si desidera sovrascrivere le impostazioni basale sulla pompa, premere Annulla e ripetere commutazione alla pompa in un secondo momento.</string>
     <string name="error_adding_treatment_title">Trattamento dati incompleti</string>
