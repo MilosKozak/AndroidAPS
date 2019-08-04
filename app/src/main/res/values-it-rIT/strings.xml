@@ -145,7 +145,7 @@
     <string name="loop_tbrsetbypump_label">Basale Temp attivata sul microinfusore</string>
     <string name="openapsma_lastenact_label">Ultimo attuato</string>
     <string name="ok">OK</string>
-    <string name="cancel">Cancella</string>
+    <string name="cancel">Annulla</string>
     <string name="noapsselected">NESSUN APS SELEZIONATO O RISULTATO FORNITO</string>
     <string name="safety">Sicurezza</string>
     <string name="openapsma_disabled">Plugin disabilitato</string>
@@ -639,7 +639,7 @@
     <string name="sensitivity_warning">Attivando la funzione Autosense, ricorda di dichiarare tutti i carboidrati assunti. Altrimenti le deviazioni di glicemia dovute ai carboidrati saranno identificate erroneamente come variazione di sensibilità !!</string>
     <string name="sensitivityweightedaverage">Sensibilità WeightedAverage</string>
     <string name="mdtp_ok">OK</string>
-    <string name="mdtp_cancel">Cancella</string>
+    <string name="mdtp_cancel">Annulla</string>
     <string name="notloadedplugins">Non tutti i profili caricati!</string>
     <string name="valuesnotstored">Valori non memorizzati!</string>
     <string name="ns_localbroadcasts">Abilita la trasmissione ad altre applicazioni (come xDrip).</string>
