@@ -1430,6 +1430,9 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="medtronic_cmd_desc_set_bolus">Instellen Bolus</string>
     <string name="pump_no_connection_h">Geen verbinding gedurende %1$d uur %2$d min</string>
     <string name="pump_no_connection_d">Geen verbinding gedurende %1$d dag(en) %2$d uur</string>
+    <string name="insulinFromCob"><![CDATA[COB insuline: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
+    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus limiet bereikt: %2$.2fU naar %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!! Trage koolhydraat absorptie gedetecteerd: %2$d%% van de tijd. Controleer je berekening goed. COB kan sterk afwijken!!!</font> zijn]]></string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dag</item>
         <item quantity="other">%1$d dag</item>
