@@ -1256,9 +1256,9 @@
     <string name="notification">Notifica</string>
     <string name="notification_message">Notifica: %1$s</string>
     <string name="message_short">Msg:</string>
-    <string name="profilepercentage">Percentuale del profilo</string>
+    <string name="profilepercentage">Percentuale profilo</string>
     <string name="percent_u">Percentuale [%]:</string>
-    <string name="startprofile">Avvia profilo %1$d%% for %2$d min</string>
+    <string name="startprofile">Avvia profilo %1$d%% per %2$d min</string>
     <string name="startprofileforever">Avvia profilo %1$d%%</string>
     <string name="exists">esiste</string>
     <string name="notexists">non esiste</string>
@@ -1293,14 +1293,14 @@
     <string name="pump_operation_not_supported_by_pump_driver">Operazione non supportata dal microinfusore e/o dal driver.</string>
     <string name="pump_operation_not_yet_supported_by_pump">Operazione NON ANCORA supportata dal microinfusore.</string>
     <!-- Medtronic (MDT) - Base -->
-    <string name="description_pump_medtronic">Integrazione del microinfusore Medtronic, richiede un dispositivo RileyLink e uno specifico modello di microinfusore</string>
+    <string name="description_pump_medtronic">Integrazione del micro Medtronic, richiede un dispositivo RileyLink e uno specifico modello di micro</string>
     <!-- MDT Configuration -->
-    <string name="medtronic_serial_number">Numero Seriale microinfusore</string>
-    <string name="medtronic_pump_type">Tipo microinfusore</string>
-    <string name="medtronic_pump_frequency">Frequenza microinfusore</string>
+    <string name="medtronic_serial_number">Numero Seriale micro</string>
+    <string name="medtronic_pump_type">Tipo micro</string>
+    <string name="medtronic_pump_frequency">Frequenza micro</string>
     <string name="medtronic_pump_bolus_delay">Ritardo prima che il Bolo sia avviato (s)</string>
-    <string name="medtronic_pump_max_bolus">Max Bolo su Microinfusore (U)</string>
-    <string name="medtronic_pump_max_basal">Max Basale su Microinfusore (U/h)</string>
+    <string name="medtronic_pump_max_bolus">Max Bolo su Micro (U)</string>
+    <string name="medtronic_pump_max_basal">Max Basale su Micro (U/h)</string>
     <string name="medtronic_pump_encoding">Codifica Medtronic</string>
     <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
     <string name="medtronic_pump_frequency_worldwide">Globale (868 Mhz)</string>
@@ -1309,8 +1309,8 @@
     <string name="rileylink_mac_address">RileyLink MAC Address</string>
     <string name="medtronic_custom_action_wake_and_tune">Risveglio e Sintonizzazione</string>
     <string name="medtronic_custom_action_clear_bolus_block">Cancella Blocco Bolo</string>
-    <string name="medtronic_custom_action_reset_rileylink">Reimposta Configurazione RileyLink</string>
-    <string name="medtronic_pump_battery_select">Tipo di batteria (Power View)</string>
+    <string name="medtronic_custom_action_reset_rileylink">Reset Configurazione RileyLink</string>
+    <string name="medtronic_pump_battery_select">Tipo batteria (Power View)</string>
     <string name="medtronic_pump_battery_no">Non selezionato (Simple view)</string>
     <string name="medtronic_pump_battery_alkaline">Alkaline (Extended view)</string>
     <string name="medtronic_pump_battery_lithium">Lithium (Extended view)</string>
@@ -1318,13 +1318,13 @@
     <string name="rileylink_scanner_scan_scan">SCAN</string>
     <string name="rileylink_scanner_scan_stop">STOP</string>
     <string name="rileylink_scanner_selected_device">Selezionato</string>
-    <string name="rileylink_scanner_scan">Scansiona</string>
+    <string name="rileylink_scanner_scan">Scan</string>
     <string name="rileylink_scanner_title">Scansione RileyLink</string>
-    <string name="rileylink_scanner_scan_menu">Ricerca di RileyLink</string>
+    <string name="rileylink_scanner_scan_menu">Scan di RileyLink</string>
     <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy non supportato.</string>
     <string name="rileylink_scanner_ble_not_enabled">Bluetooth disabilitato.</string>
     <string name="location_not_found_title">La posizione non è abilitata</string>
-    <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni coi nuovi dispositivi, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'accoppiamento. AAPS non tiene traccia della tua posizione.</string>
+    <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni coi nuovi dispositivi, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'associazione. AAPS non tiene traccia della tua posizione.</string>
     <string name="location_yes">Abilita</string>
     <string name="location_no">No</string>
     <string name="rileylink_scanner_scanning">Scansione in corso</string>
@@ -1335,7 +1335,7 @@
     <string name="rileylink_settings_tab2">Storico</string>
     <string name="rileylink_settings_tab3">Dispositivo</string>
     <string name="rileylink_status">Stato RileyLink</string>
-    <string name="medtronic_pump_status">Stato microinfusore</string>
+    <string name="medtronic_pump_status">Stato micro</string>
     <string name="rileylink_settings_title">Impostazioni RileyLink</string>
     <string name="title_activity_rileylink_settings">Impostazioni RileyLink</string>
     <string name="rileylink_title">RileyLink</string>
@@ -1356,8 +1356,8 @@
     <string name="rileylink_state_not_started">Non avviato</string>
     <string name="rileylink_state_rl_init">Inializzazione RileyLink…</string>
     <string name="rileylink_state_rl_error">Errore RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">Sintonizzazione di RileyLink e Microinfusore</string>
-    <string name="rileylink_state_pc_error">Problema di connessione al microinfusore</string>
+    <string name="rileylink_state_pc_tune_up">Sintonizzazione RileyLink e micro</string>
+    <string name="rileylink_state_pc_error">Problema di connessione al micro</string>
     <string name="rileylink_state_connected">Connesso</string>
     <!-- RL Errors -->
     <string name="rileylink_error_not_rl">Il dispositivo non è RileyLink</string>
@@ -1365,15 +1365,15 @@
     <string name="rileylink_error_bt_disabled">Bluetooth disabilitato</string>
     <string name="rileylink_error_no_bt_adapter">Nessun adattatore Bluetooth</string>
     <string name="rileylink_error_tuneup_failed">Sintonizzazione fallita</string>
-    <string name="rileylink_error_pump_unreachable">Microinfusore irraggiungibile</string>
+    <string name="rileylink_error_pump_unreachable">Micro irraggiungibile</string>
     <string name="rileylink_error_pod_unreachable">Pod irraggiungibile</string>
     <string name="rileylink_error_address_not_set_short">Non impostato</string>
     <!-- RL Target Device -->
-    <string name="rileylink_target_device_medtronic">Microinfusore Medtronic</string>
+    <string name="rileylink_target_device_medtronic">Micro Medtronic</string>
     <string name="rileylink_target_device_omnipod">Omnipod</string>
     <!-- MDT Errors -->
     <string name="medtronic_errors">Errori</string>
-    <string name="medtronic_error_serial_not_set">Seriale # non impostato.</string>
+    <string name="medtronic_error_serial_not_set"># seriale non impostato.</string>
     <string name="medtronic_error_serial_invalid">Seriale # non valido.</string>
     <string name="medtronic_error_pump_type_not_set">Tipo microinfusore non impostato.</string>
     <string name="medtronic_error_pump_type_invalid">Tipo microinfusore non supportato.</string>
