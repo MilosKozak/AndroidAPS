@@ -91,7 +91,7 @@
     <string name="treatments_wizard_bolusiob_label">Bolo IOB</string>
     <string name="openapsma_run">Avvia ora</string>
     <string name="vitualpump_label">MICROINFUSORE VIRTUALE</string>
-    <string name="pump_basebasalrate_label">Velocità basale minima</string>
+    <string name="pump_basebasalrate_label">Vel. basale originale</string>
     <string name="pump_tempbasal_label">Basale temporanea</string>
     <string name="virtualpump_extendedbolus_label">Bolo Esteso</string>
     <string name="pump_battery_label">Batteria</string>
@@ -123,7 +123,7 @@
     <string name="tempbasal">BasaleTemp</string>
     <string name="treatments">Trattamenti</string>
     <string name="virtualpump">Micro Virtuale</string>
-    <string name="careportal">Portale</string>
+    <string name="careportal">Careportal</string>
     <string name="configbuilder_pump">Microinfusore</string>
     <string name="configbuilder_pump_description">Quale microinfusore vuoi utilizzare con AndroidAPS?</string>
     <string name="configbuilder_treatments">Trattamenti</string>
@@ -321,14 +321,14 @@
     <string name="waitingforpump">In attesa del micro</string>
     <string name="overview_bolusprogress_goingtodeliver">Sto per erogare %1$.2fU</string>
     <string name="objectives_0_objective">Configurazione della visualizzazione e del monitoraggio, analisi basali e rapporti</string>
-    <string name="objectives_0_gate">Verificare che BG sia disponibile su Nightscout e che i dati sull\'insulina del micro siano in fase di caricamento</string>
+    <string name="objectives_0_gate">Verificare che la Glicemia sia disponibile su Nightscout e che i dati sull\'insulina del micro siano in fase di caricamento</string>
     <string name="objectives_1_objective">Partenza con Loop Aperto</string>
     <string name="objectives_1_gate">Esegui l\'applicazione in modalità Loop Aperto per alcuni giorni e accetta manualmente le basali temporanee. Imposta e utilizza i target temporanei, anche quelli predefiniti (ad esempio, per l\'attività fisica o il trattamento dell\'ipoglicemia con carboidrati)</string>
     <string name="objectives_2_objective">Comprendi il tuo Loop Aperto, incluse le relative raccomandazioni sulle basali temporanee</string>
     <string name="objectives_2_gate">Sulla base di tale esperienza, decidi quale deve essere il valore max della basale e impostalo sul microinfusore e nelle preferenze</string>
     <string name="objectives_3_objective">Iniziare a chiudere il Loop con Low Glucose Suspend</string>
     <string name="objectives_3_gate">Esegui l\'applicazione in Loop Chiuso con max IOB = 0 per pochi giorni senza troppi eventi LGS</string>
-    <string name="objectives_4_objective">Regola il Loop Chiuso, aumentando max IOB al di sopra di 0 e abbassando gradualmente i target BG</string>
+    <string name="objectives_4_objective">Regola il Loop Chiuso, aumentando max IOB al di sopra di 0 e abbassando gradualmente i target glicemici</string>
     <string name="objectives_4_gate">Esegui l\'applicazione per alcuni giorni e almeno una notte senza allarmi BG, prima di abbassare il target delle Glicemia</string>
     <string name="objectives_5_objective">Regola le basali e i rapporti se necessario, quindi attiva auto-sens</string>
     <string name="objectives_5_gate">1 settimana di looping diurno con dichiarazione regolare dei carboidrati, eseguito con successo</string>
@@ -429,7 +429,7 @@
     <string name="deletefuturetreatments">Elimina trattamenti nel futuro</string>
     <string name="eatingsoon">Mangiare a breve</string>
     <string name="hypo">Ipo</string>
-    <string name="activity">Attività Fisica</string>
+    <string name="activity">Attività</string>
     <string name="removerecord">Rimuovi campo:</string>
     <string name="danar_stats">Statistiche DanaR</string>
     <string name="danar_stats_cumulative_tdd">TDD totale</string>
@@ -443,7 +443,7 @@
     <string name="danar_stats_weight">Peso</string>
     <string name="danar_stats_warning_Message">Probabilmente inaccurato se si usano i boli per il caricamento/riempimento al posto dell\'apposita funzione!</string>
     <string name="danar_stats_olddata_Message">Dati Vecchi, premere \"RICARICA\"</string>
-    <string name="danar_stats_tbb">Totale Base basale</string>
+    <string name="danar_stats_tbb">Totale basale originale</string>
     <string name="danar_stats_tbb2">TBB * 2</string>
     <string name="initializing">Inizializzazione...</string>
     <string name="actions_shortname">ACT</string>
@@ -718,7 +718,7 @@
     <string name="missed_bg_readings">Letture BG mancanti</string>
     <string name="raise_notifications_as_android_notifications">Utilizza le notifiche di sistema per avvisi e notifiche</string>
     <string name="localalertsettings_title">Allarmi locali</string>
-    <string name="enable_missed_bg_readings_alert">Allarme se non vengono ricevuti dati BG</string>
+    <string name="enable_missed_bg_readings_alert">Allarme se non si ricevono dati BG</string>
     <string name="enable_pump_unreachable_alert">Allarme se il micro non è raggiungibile</string>
     <string name="pump_unreachable_threshold">Soglia micro irraggiungibile [min]</string>
     <string name="urgent_alarm">Allarme Urgente</string>
@@ -1247,7 +1247,7 @@
     <string name="old_version">versione datata</string>
     <string name="very_old_version">versione molto datata</string>
     <string name="new_version_warning">Nuova versione disponibile da %1$d giorni! Ritorno a LGS trascorsi 60 giorni, disattivazione del loop dopo 90 giorni</string>
-    <string name="scale_insulin_activity">Azione insulinica su scala grafica [U/min]</string>
+    <string name="scale_insulin_activity">Azione insulina su scala grafica [U/min]</string>
     <string name="twohours">2h</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="dexcom_app_patched">Dexcom App (modificata)</string>
