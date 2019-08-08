@@ -1191,7 +1191,6 @@ Unerwartetes Verhalten.</string>
     <string name="automation_short">Automatisch</string>
     <string name="automation">Automatisierung</string>
     <string name="profile_total">== ∑  %1$s IE</string>
-    <string name="profile_ins_units_per_hout">IE/h</string>
     <string name="profile_carbs_per_unit">g/IE</string>
     <string name="profile_per_unit">/IE</string>
     <string name="dexcom_lognssensorchange_title">Speichere Sensor Wechsel in Nightscout</string>
