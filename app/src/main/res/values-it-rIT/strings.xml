@@ -1189,7 +1189,6 @@
     <string name="automation_short">Auto</string>
     <string name="automation">Automazione</string>
     <string name="profile_total">== ∑  %1$s U</string>
-    <string name="profile_ins_units_per_hout">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
     <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">Registra cambio sensore in NS</string>
