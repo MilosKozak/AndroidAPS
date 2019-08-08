@@ -1191,7 +1191,6 @@ Context | Edit Context</string>
     <string name="automation_short">Авто</string>
     <string name="automation">Автоматизация</string>
     <string name="profile_total">== ∑  %1$s ед</string>
-    <string name="profile_ins_units_per_hout">Ед/ч</string>
     <string name="profile_carbs_per_unit">г/ед</string>
     <string name="profile_per_unit">/ед</string>
     <string name="dexcom_lognssensorchange_title">Внести замену сенсора в лог NS</string>
