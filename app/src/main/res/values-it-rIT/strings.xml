@@ -146,6 +146,7 @@
     <string name="openapsma_lastenact_label">Ultimo attuato</string>
     <string name="ok">OK</string>
     <string name="cancel">Annulla</string>
+    <string name="close">Chiudi</string>
     <string name="noapsselected">NESSUN APS SELEZIONATO O RISULTATO FORNITO</string>
     <string name="safety">Sicurezza</string>
     <string name="openapsma_disabled">Plugin disabilitato</string>
