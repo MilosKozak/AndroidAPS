@@ -1030,7 +1030,6 @@ Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden d
     <string name="loop_openmode_min_change">Minimum istek değişikliği [%]</string>
     <string name="pairfirst">Lütfen pompanızı telefonunuzla bağlayın!</string>
     <string name="profile_total">== ∑  %1$s U</string>
-    <string name="profile_ins_units_per_hout">Ü/s</string>
     <string name="profile_carbs_per_unit">g/U</string>
     <string name="profile_per_unit">/U</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
