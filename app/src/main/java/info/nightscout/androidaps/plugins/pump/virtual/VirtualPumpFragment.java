@@ -4,7 +4,7 @@ package info.nightscout.androidaps.plugins.pump.virtual;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +24,7 @@ import info.nightscout.androidaps.plugins.pump.common.defs.PumpType;
 import info.nightscout.androidaps.plugins.pump.virtual.events.EventVirtualPumpUpdateGui;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.FabricPrivacy;
+
 
 public class VirtualPumpFragment extends SubscriberFragment {
     private static Logger log = LoggerFactory.getLogger(VirtualPumpFragment.class);
@@ -119,4 +120,6 @@ public class VirtualPumpFragment extends SubscriberFragment {
                 }
             });
     }
+
+
 }

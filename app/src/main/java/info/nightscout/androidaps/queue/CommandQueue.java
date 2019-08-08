@@ -3,7 +3,7 @@ package info.nightscout.androidaps.queue;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
 
@@ -23,8 +23,8 @@ import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
-import info.nightscout.androidaps.plugins.general.overview.Dialogs.BolusProgressDialog;
-import info.nightscout.androidaps.plugins.general.overview.Dialogs.BolusProgressHelperActivity;
+import info.nightscout.androidaps.plugins.general.overview.dialogs.BolusProgressDialog;
+import info.nightscout.androidaps.plugins.general.overview.dialogs.BolusProgressHelperActivity;
 import info.nightscout.androidaps.plugins.general.overview.events.EventDismissBolusprogressIfRunning;
 import info.nightscout.androidaps.plugins.general.overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.general.overview.events.EventNewNotification;
@@ -143,11 +143,11 @@ public class CommandQueue {
         return queue.size();
     }
 
-    public Command performing() {
+    Command performing() {
         return performing;
     }
 
-    public void resetPerforming() {
+    void resetPerforming() {
         performing = null;
     }
 
@@ -192,7 +192,7 @@ public class CommandQueue {
         Command.CommandType type = detailedBolusInfo.isSMB ? Command.CommandType.SMB_BOLUS : Command.CommandType.BOLUS;
 
         if (type == Command.CommandType.SMB_BOLUS) {
-            if (isRunning(Command.CommandType.BOLUS) || bolusInQueue()) {
+            if (isRunning(Command.CommandType.BOLUS) || isRunning(Command.CommandType.SMB_BOLUS) || bolusInQueue()) {
                 if (L.isEnabled(L.PUMPQUEUE))
                     log.debug("Rejecting SMB since a bolus is queue/running");
                 return false;
@@ -202,6 +202,7 @@ public class CommandQueue {
                     log.debug("Rejecting bolus, another bolus was issued since request time");
                 return false;
             }
+            removeAll(Command.CommandType.SMB_BOLUS);
         }
 
 
@@ -381,20 +382,20 @@ public class CommandQueue {
             Notification notification = new Notification(Notification.NOT_ENG_MODE_OR_RELEASE, MainApp.gs(R.string.not_eng_mode_or_release), Notification.URGENT);
             MainApp.bus().post(new EventNewNotification(notification));
             if (callback != null)
-                callback.result(new PumpEnactResult().success(false).comment(MainApp.gs(R.string.not_eng_mode_or_release))).run();
+                callback.result(new PumpEnactResult().success(false).enacted(false).comment(MainApp.gs(R.string.not_eng_mode_or_release))).run();
             return false;
         }
 
         // Compare with pump limits
-        Profile.BasalValue[] basalValues = profile.getBasalValues();
+        Profile.ProfileValue[] basalValues = profile.getBasalValues();
         PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
 
-        for (Profile.BasalValue basalValue : basalValues) {
+        for (Profile.ProfileValue basalValue : basalValues) {
             if (basalValue.value < pump.getPumpDescription().basalMinimumRate) {
                 Notification notification = new Notification(Notification.BASAL_VALUE_BELOW_MINIMUM, MainApp.gs(R.string.basalvaluebelowminimum), Notification.URGENT);
                 MainApp.bus().post(new EventNewNotification(notification));
                 if (callback != null)
-                    callback.result(new PumpEnactResult().success(false).comment(MainApp.gs(R.string.basalvaluebelowminimum))).run();
+                    callback.result(new PumpEnactResult().success(false).enacted(false).comment(MainApp.gs(R.string.basalvaluebelowminimum))).run();
                 return false;
             }
         }
@@ -432,6 +433,19 @@ public class CommandQueue {
 
         return true;
     }
+
+
+    public synchronized boolean statusInQueue() {
+        if (isRunning(Command.CommandType.READSTATUS))
+            return true;
+        for (int i = 0; i < queue.size(); i++) {
+            if (queue.get(i).commandType == Command.CommandType.READSTATUS) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     // returns true if command is queued
     public boolean loadHistory(byte type, Callback callback) {

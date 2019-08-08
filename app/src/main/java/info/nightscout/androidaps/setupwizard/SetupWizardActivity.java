@@ -3,13 +3,14 @@ package info.nightscout.androidaps.setupwizard;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 
 import com.squareup.otto.Subscribe;
 
@@ -21,8 +22,9 @@ import java.util.List;
 import info.nightscout.androidaps.MainActivity;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.activities.NoSplashAppCompatActivity;
+import info.nightscout.androidaps.events.EventProfileNeedsUpdate;
 import info.nightscout.androidaps.events.EventProfileStoreChanged;
-import info.nightscout.androidaps.events.EventProfileSwitchChange;
 import info.nightscout.androidaps.events.EventPumpStatusChanged;
 import info.nightscout.androidaps.plugins.constraints.objectives.events.EventObjectivesSaved;
 import info.nightscout.androidaps.plugins.general.nsclient.events.EventNSClientStatus;
@@ -33,7 +35,7 @@ import info.nightscout.androidaps.utils.LocaleHelper;
 import info.nightscout.androidaps.utils.OKDialog;
 import info.nightscout.androidaps.utils.SP;
 
-public class SetupWizardActivity extends AppCompatActivity {
+public class SetupWizardActivity extends NoSplashAppCompatActivity {
     //logging
     private static Logger log = LoggerFactory.getLogger(SetupWizardActivity.class);
 
@@ -45,7 +47,7 @@ public class SetupWizardActivity extends AppCompatActivity {
     public static final String INTENT_MESSAGE = "WIZZARDPAGE";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LocaleHelper.onCreate(this, "en");
         setContentView(R.layout.activity_setupwizard);
@@ -115,7 +117,7 @@ public class SetupWizardActivity extends AppCompatActivity {
     }
 
     @Subscribe
-    public void onEventProfileSwitchChange(EventProfileSwitchChange ignored) {
+    public void onEventProfileSwitchChange(EventProfileNeedsUpdate ignored) {
         updateButtons();
     }
 
@@ -223,4 +225,10 @@ public class SetupWizardActivity extends AppCompatActivity {
         updateButtons();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == AndroidPermission.CASE_BATTERY)
+            updateButtons();
+    }
 }

@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSmoothScroller;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,6 +120,7 @@ public class ObjectivesFragment extends SubscriberFragment {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             Objective objective = ObjectivesPlugin.getPlugin().getObjectives().get(position);
             holder.title.setText(MainApp.gs(R.string.nth_objective, position + 1));
+            holder.revert.setVisibility(View.INVISIBLE);
             if (objective.getObjective() != 0) {
                 holder.objective.setVisibility(View.VISIBLE);
                 holder.objective.setText(MainApp.gs(objective.getObjective()));
@@ -145,6 +146,9 @@ public class ObjectivesFragment extends SubscriberFragment {
                 holder.verify.setVisibility(View.VISIBLE);
                 holder.verify.setEnabled(objective.isCompleted() || enableFake.isChecked());
                 holder.start.setVisibility(View.GONE);
+                if(objective.isRevertable()) {
+                    holder.revert.setVisibility(View.VISIBLE);
+                }
                 holder.progress.setVisibility(View.VISIBLE);
                 holder.progress.removeAllViews();
                 for (Objective.Task task : objective.getTasks()) {
@@ -169,7 +173,19 @@ public class ObjectivesFragment extends SubscriberFragment {
                 scrollToCurrentObjective();
                 startUpdateTimer();
             });
+            holder.revert.setOnClickListener((view) -> {
+                objective.setAccomplishedOn(null);
+                objective.setStartedOn(null);
+                if (position > 0) {
+                    Objective prevObj = ObjectivesPlugin.getPlugin().getObjectives().get(position - 1);
+                    prevObj.setAccomplishedOn(null);
+                }
+                notifyDataSetChanged();
+                scrollToCurrentObjective();
+            });
         }
+
+
 
         @Override
         public int getItemCount() {
@@ -185,6 +201,7 @@ public class ObjectivesFragment extends SubscriberFragment {
             public LinearLayout progress;
             public Button verify;
             public Button start;
+            public Button revert;
 
             public ViewHolder(View itemView) {
                 super(itemView);
@@ -195,6 +212,7 @@ public class ObjectivesFragment extends SubscriberFragment {
                 progress = itemView.findViewById(R.id.objective_progress);
                 verify = itemView.findViewById(R.id.objective_verify);
                 start = itemView.findViewById(R.id.objective_start);
+                revert = itemView.findViewById(R.id.objective_back);
             }
         }
     }

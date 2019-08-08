@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
@@ -26,7 +28,10 @@ import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.PumpDescription;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.common.ManufacturerType;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
+import info.nightscout.androidaps.plugins.general.actions.defs.CustomAction;
+import info.nightscout.androidaps.plugins.general.actions.defs.CustomActionType;
 import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
 import info.nightscout.androidaps.plugins.general.overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.general.overview.events.EventOverviewBolusProgress;
@@ -35,7 +40,9 @@ import info.nightscout.androidaps.plugins.pump.common.defs.PumpType;
 import info.nightscout.androidaps.plugins.pump.virtual.events.EventVirtualPumpUpdateGui;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
+import info.nightscout.androidaps.utils.InstanceId;
 import info.nightscout.androidaps.utils.SP;
+
 
 /**
  * Created by mike on 05.08.2016.
@@ -138,6 +145,16 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
     public PumpEnactResult loadTDDs() {
         //no result, could read DB in the future?
         return new PumpEnactResult();
+    }
+
+    @Override
+    public List<CustomAction> getCustomActions() {
+        return null;
+    }
+
+    @Override
+    public void executeCustomAction(CustomActionType customActionType) {
+
     }
 
     @Override
@@ -422,8 +439,18 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
     }
 
     @Override
-    public String deviceID() {
-        return "VirtualPump";
+    public ManufacturerType manufacturer() {
+        return pumpDescription.pumpType.getManufacturer();
+    }
+
+    @Override
+    public PumpType model() {
+        return pumpDescription.pumpType;
+    }
+
+    @Override
+    public String serialNumber() {
+        return InstanceId.INSTANCE.instanceId();
     }
 
     @Override
@@ -438,6 +465,11 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
 
     public PumpType getPumpType() {
         return pumpType;
+    }
+
+    @Override
+    public boolean canHandleDST() {
+        return true;
     }
 
 
@@ -460,5 +492,12 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
         this.pumpType = pumpTypeNew;
 
     }
+
+
+    @Override
+    public void timeDateOrTimeZoneChanged() {
+
+    }
+
 
 }

@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
 import com.squareup.otto.Subscribe;
 
@@ -15,6 +15,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.MainApp;
@@ -36,9 +38,11 @@ import info.nightscout.androidaps.interfaces.ProfileInterface;
 import info.nightscout.androidaps.interfaces.PumpDescription;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.logging.L;
-import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderFragment;
+import info.nightscout.androidaps.plugins.common.ManufacturerType;
 import info.nightscout.androidaps.plugins.configBuilder.DetailedBolusInfoStorage;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
+import info.nightscout.androidaps.plugins.general.actions.defs.CustomAction;
+import info.nightscout.androidaps.plugins.general.actions.defs.CustomActionType;
 import info.nightscout.androidaps.plugins.general.overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.general.overview.events.EventNewNotification;
 import info.nightscout.androidaps.plugins.general.overview.notifications.Notification;
@@ -122,26 +126,8 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
     }
 
     @Override
-    public void switchAllowed(ConfigBuilderFragment.PluginViewHolder.PluginSwitcher pluginSwitcher, FragmentActivity context) {
-        boolean allowHardwarePump = SP.getBoolean("allow_hardware_pump", false);
-        if (allowHardwarePump || context == null) {
-            pluginSwitcher.invoke();
-        } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setMessage(R.string.allow_hardware_pump_text)
-                    .setPositiveButton(R.string.yes, (dialog, id) -> {
-                        pluginSwitcher.invoke();
-                        SP.putBoolean("allow_hardware_pump", true);
-                        if (L.isEnabled(L.PUMP))
-                            log.debug("First time HW pump allowed!");
-                    })
-                    .setNegativeButton(R.string.cancel, (dialog, id) -> {
-                        pluginSwitcher.cancel();
-                        if (L.isEnabled(L.PUMP))
-                            log.debug("User does not allow switching to HW pump!");
-                    });
-            builder.create().show();
-        }
+    public void switchAllowed(boolean newState, FragmentActivity activity, PluginType type) {
+        confirmPumpPluginActivation(newState, activity, type);
     }
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -508,7 +494,7 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
                 if (L.isEnabled(L.PUMP))
                     log.debug("setTempBasalAbsolute: currently running: " + activeTemp.toString());
                 // Correct basal already set ?
-                if (activeTemp.percentRate == percentRate) {
+                if (activeTemp.percentRate == percentRate && activeTemp.getPlannedRemainingMinutes() > 4) {
                     if (!enforceNew) {
                         result.success = true;
                         result.percent = percentRate;
@@ -526,7 +512,7 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
             if (L.isEnabled(L.PUMP))
                 log.debug("setTempBasalAbsolute: Setting temp basal " + percentRate + "% for " + durationInMinutes + " mins (doLowTemp || doHighTemp)");
             if (percentRate == 0 && durationInMinutes > 30) {
-                result = setTempBasalPercent(percentRate, durationInMinutes, profile, false);
+                result = setTempBasalPercent(percentRate, durationInMinutes, profile, enforceNew);
             } else {
                 // use special APS temp basal call ... 100+/15min .... 100-/30min
                 result = setHighTempBasalPercent(percentRate);
@@ -562,8 +548,8 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
         if (percent > getPumpDescription().maxTempPercent)
             percent = getPumpDescription().maxTempPercent;
         long now = System.currentTimeMillis();
-        TemporaryBasal runningTB = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(now);
-        if (runningTB != null && runningTB.percentRate == percent && !enforceNew) {
+        TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(now);
+        if (activeTemp != null && activeTemp.percentRate == percent && activeTemp.getPlannedRemainingMinutes() > 4 && !enforceNew) {
             result.enacted = false;
             result.success = true;
             result.isTempCancel = false;
@@ -765,7 +751,17 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
     }
 
     @Override
-    public String deviceID() {
+    public ManufacturerType manufacturer() {
+        return ManufacturerType.Sooil;
+    }
+
+    @Override
+    public PumpType model() {
+        return PumpType.DanaRS;
+    }
+
+    @Override
+    public String serialNumber() {
         return DanaRPump.getInstance().serialNumber;
     }
 
@@ -811,6 +807,26 @@ public class DanaRSPlugin extends PluginBase implements PumpInterface, DanaRInte
     @Override
     public PumpEnactResult loadTDDs() {
         return loadHistory(RecordTypes.RECORD_TYPE_DAILY);
+    }
+
+    @Override
+    public List<CustomAction> getCustomActions() {
+        return null;
+    }
+
+    @Override
+    public void executeCustomAction(CustomActionType customActionType) {
+
+    }
+
+    @Override
+    public boolean canHandleDST() {
+        return false;
+    }
+
+    @Override
+    public void timeDateOrTimeZoneChanged() {
+
     }
 
 }

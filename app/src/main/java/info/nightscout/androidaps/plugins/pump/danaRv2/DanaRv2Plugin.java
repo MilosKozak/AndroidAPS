@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AlertDialog;
 
 import com.squareup.otto.Subscribe;
 
@@ -19,9 +19,11 @@ import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.events.EventAppExit;
 import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.logging.L;
+
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderFragment;
 import info.nightscout.androidaps.plugins.configBuilder.DetailedBolusInfoStorage;
 import info.nightscout.androidaps.plugins.pump.common.defs.PumpType;
+
 import info.nightscout.androidaps.plugins.pump.danaR.AbstractDanaRPlugin;
 import info.nightscout.androidaps.plugins.pump.danaR.DanaRPump;
 import info.nightscout.androidaps.plugins.pump.danaR.comm.MsgBolusStartWithSpeed;
@@ -122,29 +124,6 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
     @Override
     public void finishHandshaking() {
         sExecutionService.finishHandshaking();
-    }
-
-    @Override
-    public void switchAllowed(ConfigBuilderFragment.PluginViewHolder.PluginSwitcher pluginSwitcher, FragmentActivity context) {
-        boolean allowHardwarePump = SP.getBoolean("allow_hardware_pump", false);
-        if (allowHardwarePump || context == null) {
-            pluginSwitcher.invoke();
-        } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setMessage(R.string.allow_hardware_pump_text)
-                    .setPositiveButton(R.string.yes, (dialog, id) -> {
-                        pluginSwitcher.invoke();
-                        SP.putBoolean("allow_hardware_pump", true);
-                        if (L.isEnabled(L.PUMP))
-                            log.debug("First time HW pump allowed!");
-                    })
-                    .setNegativeButton(R.string.cancel, (dialog, id) -> {
-                        pluginSwitcher.cancel();
-                        if (L.isEnabled(L.PUMP))
-                            log.debug("User does not allow switching to HW pump!");
-                    });
-            builder.create().show();
-        }
     }
 
     // Pump interface
@@ -259,7 +238,7 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
             TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(System.currentTimeMillis());
             if (activeTemp != null) {
                 // Correct basal already set ?
-                if (activeTemp.percentRate == percentRate) {
+                if (activeTemp.percentRate == percentRate && activeTemp.getPlannedRemainingMinutes() > 4) {
                     if (!enforceNew) {
                         result.success = true;
                         result.percent = percentRate;
@@ -277,7 +256,7 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
             if (L.isEnabled(L.PUMP))
                 log.debug("setTempBasalAbsolute: Setting temp basal " + percentRate + "% for " + durationInMinutes + " mins (doLowTemp || doHighTemp)");
             if (percentRate == 0 && durationInMinutes > 30) {
-                result = setTempBasalPercent(percentRate, durationInMinutes, profile, false);
+                result = setTempBasalPercent(percentRate, durationInMinutes, profile, enforceNew);
             } else {
                 // use special APS temp basal call ... 100+/15min .... 100-/30min
                 result = setHighTempBasalPercent(percentRate);
@@ -313,8 +292,8 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
         if (percent > getPumpDescription().maxTempPercent)
             percent = getPumpDescription().maxTempPercent;
         long now = System.currentTimeMillis();
-        TemporaryBasal runningTB = TreatmentsPlugin.getPlugin().getRealTempBasalFromHistory(now);
-        if (runningTB != null && runningTB.percentRate == percent && !enforceNew) {
+        TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getRealTempBasalFromHistory(now);
+        if (activeTemp != null && activeTemp.percentRate == percent && activeTemp.getPlannedRemainingMinutes() > 4 && !enforceNew) {
             result.enacted = false;
             result.success = true;
             result.isTempCancel = false;
@@ -398,6 +377,11 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
             log.error("cancelRealTempBasal: Failed to cancel temp basal");
             return result;
         }
+    }
+
+    @Override
+    public PumpType model() {
+        return PumpType.DanaRv2;
     }
 
     @Override

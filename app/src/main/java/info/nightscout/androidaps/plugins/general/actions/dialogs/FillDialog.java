@@ -3,8 +3,8 @@ package info.nightscout.androidaps.plugins.general.actions.dialogs;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
@@ -19,7 +19,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.crashlytics.android.answers.CustomEvent;
 import com.google.common.base.Joiner;
 
 import org.slf4j.Logger;
@@ -35,11 +34,10 @@ import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
-import info.nightscout.androidaps.plugins.general.overview.Dialogs.ErrorHelperActivity;
+import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
+import info.nightscout.androidaps.plugins.general.overview.dialogs.ErrorHelperActivity;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.androidaps.utils.DecimalFormatter;
-import info.nightscout.androidaps.utils.FabricPrivacy;
-import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
 import info.nightscout.androidaps.utils.NumberPicker;
 import info.nightscout.androidaps.utils.SP;
 import info.nightscout.androidaps.utils.SafeParse;
@@ -105,7 +103,7 @@ public class FillDialog extends DialogFragment implements OnClickListener {
         Double maxInsulin = MainApp.getConstraintChecker().getMaxBolusAllowed().value();
         double bolusstep = ConfigBuilderPlugin.getPlugin().getActivePump().getPumpDescription().bolusStep;
         editInsulin = view.findViewById(R.id.fill_insulinamount);
-        editInsulin.setParams(0d, 0d, maxInsulin, bolusstep, DecimalFormatter.pumpSupportedBolusFormat(), false, textWatcher);
+        editInsulin.setParams(0d, 0d, maxInsulin, bolusstep, DecimalFormatter.pumpSupportedBolusFormat(), false, view.findViewById(R.id.ok), textWatcher);
 
 
         Button preset1Button = view.findViewById(R.id.fill_preset_button1);
@@ -186,11 +184,11 @@ public class FillDialog extends DialogFragment implements OnClickListener {
                 confirmMessage.add("");
                 confirmMessage.add(MainApp.gs(R.string.bolus) + ": " + "<font color='" + MainApp.gc(R.color.colorCarbsButton) + "'>" + DecimalFormatter.toPumpSupportedBolus(insulinAfterConstraints) + "U" + "</font>");
                 if (Math.abs(insulinAfterConstraints - insulin) > 0.01d)
-                    confirmMessage.add("<font color='" + MainApp.gc(R.color.low) + "'>" + MainApp.gs(R.string.bolusconstraintapplied) + "</font>");
+                    confirmMessage.add(MainApp.gs(R.string.bolusconstraintappliedwarning, MainApp.gc(R.color.warning), insulin, insulinAfterConstraints));
             }
 
             if (pumpSiteChangeCheckbox.isChecked())
-                confirmMessage.add("" + "<font color='" + MainApp.gc(R.color.actionsConfirm) + "'>" + MainApp.gs(R.string.record_pump_site_change) +  "</font>");
+                confirmMessage.add("" + "<font color='" + MainApp.gc(R.color.actionsConfirm) + "'>" + MainApp.gs(R.string.record_pump_site_change) + "</font>");
 
             if (insulinCartridgeChangeCheckbox.isChecked())
                 confirmMessage.add("" + "<font color='" + MainApp.gc(R.color.actionsConfirm) + "'>" + MainApp.gs(R.string.record_insulin_cartridge_change) + "</font>");
@@ -236,7 +234,6 @@ public class FillDialog extends DialogFragment implements OnClickListener {
                                     }
                                 }
                             });
-                            FabricPrivacy.getInstance().logCustom(new CustomEvent("Fill"));
                         }
                         if (pumpSiteChangeCheckbox.isChecked())
                             NSUpload.uploadEvent(CareportalEvent.SITECHANGE, now(), notes);

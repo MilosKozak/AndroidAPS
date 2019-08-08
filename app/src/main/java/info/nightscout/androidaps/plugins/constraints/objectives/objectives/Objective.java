@@ -1,6 +1,6 @@
 package info.nightscout.androidaps.plugins.constraints.objectives.objectives;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,6 +40,10 @@ public abstract class Objective {
                 return false;
         }
         return true;
+    }
+
+    public boolean isRevertable() {
+        return false;
     }
 
     public boolean isAccomplished() {

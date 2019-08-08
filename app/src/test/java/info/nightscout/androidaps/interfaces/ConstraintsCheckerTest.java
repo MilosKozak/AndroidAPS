@@ -54,6 +54,7 @@ public class ConstraintsCheckerTest {
     DanaRPlugin danaRPlugin;
     DanaRSPlugin danaRSPlugin;
     LocalInsightPlugin insightPlugin;
+    OpenAPSSMBPlugin openAPSSMBPlugin;
 
     boolean notificationSent = false;
 
@@ -117,6 +118,14 @@ public class ConstraintsCheckerTest {
         Assert.assertEquals(true, c.getReasonList().size() == 1); // Safety
         Assert.assertEquals(true, c.getMostLimitedReasonList().size() == 1); // Safety
         Assert.assertEquals(Boolean.FALSE, c.value());
+    }
+
+    @Test
+    public void isSuperBolusEnabledTest() throws Exception {
+        OpenAPSSMBPlugin.getPlugin().setPluginEnabled(PluginType.APS, true);
+
+        Constraint<Boolean> c = constraintChecker.isSuperBolusEnabled();
+        Assert.assertEquals(Boolean.FALSE, c.value()); // SMB should limit
     }
 
     @Test
@@ -274,13 +283,15 @@ public class ConstraintsCheckerTest {
         AAPSMocker.mockSP();
         AAPSMocker.mockCommandQueue();
 
+        when(mainApp.getPackageName()).thenReturn("info.nightscout.androidaps");
+
         // RS constructor
         when(SP.getString(R.string.key_danars_address, "")).thenReturn("");
 
         //SafetyPlugin
         when(ConfigBuilderPlugin.getPlugin().getActivePump()).thenReturn(pump);
 
-        constraintChecker = new ConstraintChecker(mainApp);
+        constraintChecker = new ConstraintChecker();
 
         safetyPlugin = SafetyPlugin.getPlugin();
         objectivesPlugin = ObjectivesPlugin.getPlugin();
@@ -288,6 +299,7 @@ public class ConstraintsCheckerTest {
         danaRPlugin = DanaRPlugin.getPlugin();
         danaRSPlugin = DanaRSPlugin.getPlugin();
         insightPlugin = LocalInsightPlugin.getPlugin();
+        openAPSSMBPlugin = OpenAPSSMBPlugin.getPlugin();
         ArrayList<PluginBase> constraintsPluginsList = new ArrayList<>();
         constraintsPluginsList.add(safetyPlugin);
         constraintsPluginsList.add(objectivesPlugin);
@@ -295,6 +307,7 @@ public class ConstraintsCheckerTest {
         constraintsPluginsList.add(danaRPlugin);
         constraintsPluginsList.add(danaRSPlugin);
         constraintsPluginsList.add(insightPlugin);
+        constraintsPluginsList.add(openAPSSMBPlugin);
         when(mainApp.getSpecificPluginsListByInterface(ConstraintsInterface.class)).thenReturn(constraintsPluginsList);
 
     }
