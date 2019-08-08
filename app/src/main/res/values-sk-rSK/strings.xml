@@ -1189,7 +1189,6 @@
     <string name="automation_short">Auto</string>
     <string name="automation">Automatika</string>
     <string name="profile_total">== ∑  %1$s JI</string>
-    <string name="profile_ins_units_per_hout">JI/h</string>
     <string name="profile_carbs_per_unit">g/JI</string>
     <string name="profile_per_unit">/JI</string>
     <string name="dexcom_lognssensorchange_title">Ulož výmenu senzora do NS</string>
