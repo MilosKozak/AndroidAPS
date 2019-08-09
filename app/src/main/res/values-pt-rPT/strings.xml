@@ -1079,6 +1079,7 @@
     <string name="speederror">Erro velocidade</string>
     <string name="insulinlimitviolation">Transgressão limite insulina</string>
     <string name="loop_openmode_min_change">Pedido de mudança mínima [%]</string>
+    <string name="loop_openmode_min_change_summary">A app mostrará um pedido de alteração apenas se a mudança for superior a este valor em %. O valor padrão é 20%</string>
     <string name="pairfirst">Emparelhe a sua bomba com o seu telefone!</string>
     <string name="searching_for_devices">A pesquisar dispositivos…</string>
     <string name="please_wait">Por favor aguarde…</string>
@@ -1154,6 +1155,7 @@
     <string name="weekday_wednesday_short">Qua</string>
     <string name="weekday_tuesday_short">Ter</string>
     <string name="weekday_monday_short">Seg</string>
+    <string name="automation_description">Tarefas de automação definidas pelo utilizador</string>
     <string name="automation_missing_task_name">Insira um nome da tarefa.</string>
     <string name="automation_missing_trigger">Especifique pelo menos um gatilho.</string>
     <string name="automation_missing_action">Especifique pelo menos uma acção.</string>
@@ -1321,6 +1323,7 @@
     <string name="rileylink_scanner_ble_not_supported">Bluetooth de energia baixa (LE) não suportado.</string>
     <string name="rileylink_scanner_ble_not_enabled">Bluetooth não está activado.</string>
     <string name="location_not_found_title">Localização Não Está Activada</string>
+    <string name="location_not_found_message">Para que a procura de Bluetooth funcione em aparelhos mais recentes, a localização tem que ser activada. A app não rastreia a sua localização e pode ser desativada depois de um emparelhamento bem sucedido.</string>
     <string name="location_yes">Activar</string>
     <string name="location_no">Não</string>
     <string name="rileylink_scanner_scanning">A procurar</string>
@@ -1376,9 +1379,13 @@
     <string name="medtronic_error_pump_frequency_not_set">Frequência de Bomba não definida.</string>
     <string name="medtronic_error_pump_frequency_invalid">Frequência da Bomba não suportada.</string>
     <string name="medtronic_error_rileylink_address_invalid">Endereço RileyLink inválido.</string>
+    <string name="medtronic_error_pump_type_set_differs_from_detected">A bomba detectada não é a mesma que a bomba configurada.</string>
     <string name="medtronic_error_pump_basal_profiles_not_enabled">Perfis de Basal não estão activos na Bomba.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Perfil Basal definido na Bomba está incorrecto (deve ser STD).</string>
+    <string name="medtronic_error_pump_wrong_tbr_type_set">Tipo de DBT errado definido na bomba (deve ser Absoluto).</string>
+    <string name="medtronic_error_pump_wrong_max_bolus_set">Máx. Basal definida na Bomba está incorreta (deve ser %1$.2f).</string>
     <string name="medtronic_error_pump_wrong_max_basal_set">Máx. Basal definido errado na Bomba (deve ser %1$.2f).</string>
+    <string name="medtronic_error_operation_not_possible_no_configuration">Operação não é possível.\n\n Você precisa configurar a Bomba Medtronic antes de poder usar esta operação.</string>
     <string name="medtronic_error_pump_24h_time_change_requested">Solicitada uma alteração de tempo de mais de 24h.</string>
     <!-- MDT History -->
     <string name="medtronic_history_group_basal">Basais</string>
