@@ -2,14 +2,8 @@ package info.nightscout.androidaps.setupwizard;
 
 import android.Manifest;
 import android.content.Intent;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.squareup.otto.Subscribe;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import info.nightscout.androidaps.Config;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
@@ -51,6 +45,9 @@ import info.nightscout.androidaps.utils.AndroidPermission;
 import info.nightscout.androidaps.utils.LocaleHelper;
 import info.nightscout.androidaps.utils.PasswordProtection;
 import info.nightscout.androidaps.utils.SP;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SWDefinition {
     private AppCompatActivity activity;
@@ -179,7 +176,12 @@ public class SWDefinition {
                     .updateDelay(5)
                     .label(R.string.nsclientinternal_url_title)
                     .comment(R.string.nsclientinternal_url_dialogmessage))
-            .add(new SWEditString()
+//                        .add(new SWInfotext()
+//                        .label(R.string.nsclientinternal_apiV3_comment))
+//                        .add(new SWCheckbox()
+//                                .option(R.string.nsclientinternal_apiV3_title, SP.getInt(R.string.key_nsclientinternal_apiv3, 0)
+//                        )
+           .add(new SWEditString()
                     .validator(text -> text.length() >= 12)
                     .preferenceId(R.string.key_nsclientinternal_api_secret)
                     .updateDelay(5)
@@ -329,7 +331,7 @@ public class SWDefinition {
                                 activity.startActivity(i);
                             }, null);
                         }
-                    })
+                            })
                     .visibility(() -> (ConfigBuilderPlugin.getPlugin().getActivePump() != null && ((PluginBase) ConfigBuilderPlugin.getPlugin().getActivePump()).getPreferencesId() > 0)))
             .add(new SWButton()
                     .text(R.string.readstatus)
@@ -469,18 +471,18 @@ public class SWDefinition {
                 .add(screenEula)
                 .add(screenPermissionBattery)
                 .add(screenPermissionBt)
-                .add(screenPermissionStore)
-                .add(screenImport)
+                        .add(screenPermissionStore)
+                        .add(screenImport)
                 .add(screenNsClient)
                 .add(screenAge)
-                .add(screenInsulin)
-                .add(screenBgSource)
+                        .add(screenInsulin)
+                        .add(screenBgSource)
                 .add(screenProfile)
-                .add(screenNsProfile)
-                .add(screenLocalProfile)
+                        .add(screenNsProfile)
+                        .add(screenLocalProfile)
                 .add(screenSimpleProfile)
-                .add(screenProfileSwitch)
-                .add(screenPump)
+                        .add(screenProfileSwitch)
+                        .add(screenPump)
                 .add(screenSensitivity)
         ;
     }
@@ -488,15 +490,15 @@ public class SWDefinition {
     private void SWDefinitionNSClient() {
         // List all the screens here
         add(screenSetupWizard)
-                .add(screenLanguage)
-                .add(screenEula)
-                .add(screenPermissionBattery)
+                        .add(screenLanguage)
+                        .add(screenEula)
+                        .add(screenPermissionBattery)
                 .add(screenPermissionStore)
-                .add(screenImport)
-                .add(screenNsClient)
-                .add(screenBgSource)
-                .add(screenAge)
-                .add(screenInsulin)
+                        .add(screenImport)
+                        .add(screenNsClient)
+                        .add(screenBgSource)
+                        .add(screenAge)
+                        .add(screenInsulin)
                 .add(screenSensitivity)
         ;
     }
