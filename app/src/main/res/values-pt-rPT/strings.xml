@@ -146,6 +146,7 @@
     <string name="openapsma_lastenact_label">Ultima execução</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
+    <string name="close">Fechar</string>
     <string name="noapsselected">NÃO EXISTE NENHUM APS SELECIONADO OU RESULTADO FORNECIDO</string>
     <string name="safety">Segurança</string>
     <string name="openapsma_disabled">Plugin está desativado</string>
@@ -830,6 +831,7 @@
     <string name="insight_incompatible">Incompativel</string>
     <string name="second">segundo</string>
     <string name="minute">minuto</string>
+    <string name="format_hours">%1$.2f h</string>
     <string name="hour">hora</string>
     <string name="day">dia</string>
     <string name="week">semana</string>
@@ -1189,6 +1191,7 @@
     <string name="automation_short">Auto</string>
     <string name="automation">Automatização</string>
     <string name="profile_total">== ∑  %1$s U</string>
+    <string name="profile_ins_units_per_hour">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
     <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">Registar mudança de sensor para NS</string>
@@ -1406,8 +1409,10 @@
     <string name="medtronic_pump_status_active">Activo</string>
     <string name="medtronic_pump_status_sleeping">A dormir</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_cancel_bolus_not_supported">Cancelou o Bolus, depois de ele já ter sido definido na Bomba. Uma vez que a Bomba Medtronic não suporta cancelamento, precisará de cancelar manualmente. Coloque a Bomba no modo de Suspender e depois Retome (se ainda quiser cancelar). A aplicação irá obter as alterações, na próxima actualização (em menos de 5 minutos).</string>
     <string name="medtronic_cmd_cant_read_tbr">Não foi possível ler a TBR actual.</string>
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Não foi possível cancelar a TBR atual. A parar a operação.</string>
+    <string name="medtronic_cmd_set_profile_pattern_overflow">Falhou Definir Perfil devido aos seguintes padrões, tem uma taxa de basal muito grande: %1$s</string>
     <string name="medtronic_cmd_bolus_could_not_be_delivered">O bólus não pôde ser entregue.</string>
     <string name="medtronic_cmd_tbr_could_not_be_delivered">TBR não pode ser definida.</string>
     <string name="medtronic_cmd_cant_cancel_tbr">Não foi possível cancelar a TBR atual.</string>
@@ -1429,6 +1434,7 @@
     <string name="insulinFromCob"><![CDATA[insulina COB: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Restrição de Bolus aplicada: %2$.2fU para %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Absorção lenta de hidratos detectada: %2$d%% do tempo. Verifique o seu cálculo. COB podem ser estar desajustados !!!</font>]]></string>
+    <string name="reservoirvalue">%1$.0f / %2$d U</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dia</item>
         <item quantity="other">%1$d dias</item>
