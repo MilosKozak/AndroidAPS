@@ -1354,10 +1354,18 @@
     <string name="rileylink_state_bt_error">Bluetooth Fout</string>
     <string name="rileylink_state_bt_ready">Bluetooth Gereed</string>
     <string name="rileylink_state_not_started">Nie Begin</string>
+    <string name="rileylink_state_rl_init">RileyLink inisiasie…</string>
     <string name="rileylink_state_rl_error">RileyLink Fout</string>
+    <string name="rileylink_state_pc_tune_up">Stel RileyLink en pomp in</string>
+    <string name="rileylink_state_pc_error">Probleel om met pomp te praat</string>
     <string name="rileylink_state_connected">Gekoppel</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_not_rl">Toestel is nie RileyLink</string>
+    <string name="rileylink_error_unreachable">RileyLink onverkry</string>
+    <string name="rileylink_error_bt_disabled">Bluetooth afgeskakel</string>
     <string name="rileylink_error_no_bt_adapter">Geen Bluetooth Toestel</string>
+    <string name="rileylink_error_pump_unreachable">Pomp onbereikbaar</string>
+    <string name="rileylink_error_pod_unreachable">Pod onbereikbaar</string>
     <string name="rileylink_error_address_not_set_short">Nie gestel nie</string>
     <!-- RL Target Device -->
     <string name="rileylink_target_device_medtronic">Medtronic Pomp</string>
@@ -1366,15 +1374,28 @@
     <string name="medtronic_errors">Foute</string>
     <string name="medtronic_error_serial_not_set">Reeksno # nie gestel.</string>
     <string name="medtronic_error_serial_invalid">Reeksno # is ongeldig.</string>
+    <string name="medtronic_error_pump_type_invalid">Pomp tipe word nie ondersteun nie.</string>
+    <string name="medtronic_error_rileylink_address_invalid">RileyLink Adres ongeldig.</string>
     <!-- MDT History -->
     <string name="medtronic_history_group_basal">Basale</string>
     <string name="medtronic_history_group_notification">Kennisgewings</string>
     <string name="medtronic_history_group_statistic">Statistiek</string>
+    <string name="medtronic_history_group_unknown">Onbekend</string>
     <string name="medtronic_history_group_all">Alle</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_never_contacted">Nooit gekontak nie</string>
+    <string name="medtronic_pump_status_pump_unreachable">Pomp onbeskikbaar</string>
+    <string name="medtronic_pump_status_invalid_config">Ongeldige konfigirasie</string>
     <string name="medtronic_pump_status_active">Aktief</string>
     <string name="medtronic_pump_status_sleeping">Slaap</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_cancel_bolus_not_supported">U het Bolus gekanselleer nadat dit reeds gestel was op pomp. Aangesien Medtronic pomp nie kansellasie ondesteun sal jy dit self moet kanselleer. Sit pomp in Suspend en hervat(Resume) (as jy steeds wil kanselleer). Spplikasie sal die verandering sppor op volgende opdatering in minder as 5 minute.</string>
+    <string name="medtronic_cmd_cant_read_tbr">Kon nie huidige TBR lees.</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered">Bolus kon nie gelewer word nie.</string>
+    <string name="medtronic_cmd_tbr_could_not_be_delivered">TBR Kon nie stel.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr">Kon nie huidige TBR staak.</string>
+    <string name="medtronic_cmd_basal_profile_could_not_be_set">Basale profiel kon nie stel.</string>
+    <string name="medtronic_cmd_basal_profile_not_set_is_same">Basal profiel is dieselfde, so dit is so gelos.</string>
     <string name="medtronic_cmd_desc_get_history">Verkry Geskiedenis - Bladsy %1$d (%2$d/16)</string>
     <string name="medtronic_cmd_desc_get_history_request">Verkry Geskiedenis - Bladsy %1$d</string>
     <string name="medtronic_cmd_desc_get_history_base">Verkry Geskiedenis - Bladsy %1$d</string>
@@ -1386,6 +1407,12 @@
     <string name="medtronic_cmd_desc_get_tbr">Verkry Tydelike Basale</string>
     <string name="medtronic_cmd_desc_set_tbr">Stel Tydelike Basale</string>
     <string name="medtronic_cmd_desc_set_bolus">Stel Bolus</string>
+    <string name="pump_no_connection_h">Geen konneksie vir %1$d ure %2$d min</string>
+    <string name="pump_no_connection_d">Geen konneksie na %1$d dae %2$d ure</string>
+    <string name="insulinFromCob"><![CDATA[KOB insulin: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
+    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus beperking aangewend: %2$.2fU to %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Stadige Karbs gespeur: %2$d%% van die tyd Gaan u berekeninge na,. KOB Kan verkeerd wees !!!!!</font>]]></string>
+    <string name="reservoirvalue">%1$.0f / %2$d U</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dae</item>
         <item quantity="other">%1$d dae</item>
