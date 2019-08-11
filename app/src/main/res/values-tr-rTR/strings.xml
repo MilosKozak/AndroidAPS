@@ -508,6 +508,7 @@ Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden d
     <string name="loopsuspended">Döngü durduldu</string>
     <string name="loopsuspendedfor">Askıya alındı (%1$d m)</string>
     <string name="loopsuperbolusfor">Superbolus (%1$d m)</string>
+    <string name="suspendloop">Döngüyü duraklat</string>
     <string name="suspendloopfor1h">Döngü 1s\'liğine askıya alındı</string>
     <string name="suspendloopfor2h">Döngü 2s\'liğine askıya alındı</string>
     <string name="suspendloopfor3h">Döngü 3s\'liğine askıya alındı</string>
