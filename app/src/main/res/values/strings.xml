@@ -1513,18 +1513,18 @@
     <string name="medtronic_pump_max_bolus">Max Bolus on Pump (U)</string>
     <string name="medtronic_pump_max_basal">Max Basal on Pump (U/h)</string>
     <string name="medtronic_pump_encoding">Medtronic Encoding</string>
-    <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
-    <string name="medtronic_pump_frequency_worldwide">Worldwide (868 Mhz)</string>
-    <string name="medtronic_pump_encoding_4b6b_local">Software 4b6b Encoding</string>
-    <string name="medtronic_pump_encoding_4b6b_rileylink">Hardware 4b6b Encoding</string>
+    <string name="medtronic_pump_frequency_us_ca" translatable="false">US &amp; Canada (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide" translatable="false">Worldwide (868 Mhz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local" translatable="false">Software 4b6b Encoding</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink" translatable="false">Hardware 4b6b Encoding</string>
     <string name="rileylink_mac_address">RileyLink MAC Address</string>
     <string name="medtronic_custom_action_wake_and_tune">Wake and Tune Up</string>
     <string name="medtronic_custom_action_clear_bolus_block">Clear Bolus Block</string>
     <string name="medtronic_custom_action_reset_rileylink">Reset RileyLink Config</string>
     <string name="medtronic_pump_battery_select">Battery Type (Power View)</string>
-    <string name="medtronic_pump_battery_no">Not selected (Simple view)</string>
-    <string name="medtronic_pump_battery_alkaline">Alkaline (Extended view)</string>
-    <string name="medtronic_pump_battery_lithium">Lithium (Extended view)</string>
+    <string name="medtronic_pump_battery_no" translatable="false">Not selected (Simple view)</string>
+    <string name="medtronic_pump_battery_alkaline" translatable="false">Alkaline (Extended view)</string>
+    <string name="medtronic_pump_battery_lithium" translatable="false">Lithium (Extended view)</string>
 
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">SCAN</string>

@@ -130,7 +130,7 @@
         <item>GPS</item>
     </string-array>
 
-    <string-array name="virtualPumpTypes">
+    <string-array name="virtualPumpTypes" translatable="false">
         <item>Generic AAPS</item>
         <item>Accu-Chek Spirit</item>
         <item>Accu-Chek Combo</item>
@@ -155,7 +155,7 @@
         <item>Tandem t:slim X2</item>
     </string-array>
 
-    <string-array name="medtronicPumpTypeArray">
+    <string-array name="medtronicPumpTypeArray" translatable="false">
         <item>Other (unsupported)</item>
         <item>512</item>
         <item>712</item>
@@ -176,7 +176,7 @@
         <item>@string/medtronic_pump_frequency_worldwide</item>
     </string-array>
 
-    <string-array name="medtronicBolusDelay">
+    <string-array name="medtronicBolusDelay" translatable="false">
         <item>5</item>
         <item>10</item>
         <item>15</item>
