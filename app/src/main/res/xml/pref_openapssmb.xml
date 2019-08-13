@@ -80,18 +80,18 @@
             validate:testType="numericRange" />
 
         <com.andreabaccega.widget.ValidatingEditTextPreference
-                android:defaultValue="30"
-                android:dialogMessage="@string/uamsmbmaxminutes"
-                android:digits="0123456789"
-                android:inputType="number"
-                android:key="key_uamsmbmaxminutes"
-                android:maxLines="20"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:title="@string/uamsmbmaxminutes_summary"
-                validate:maxNumber="120"
-                validate:minNumber="15"
-                validate:testType="numericRange" />
+            android:defaultValue="30"
+            android:dialogMessage="@string/uamsmbmaxminutes"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:key="key_uamsmbmaxminutes"
+            android:maxLines="20"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/uamsmbmaxminutes_summary"
+            validate:maxNumber="120"
+            validate:minNumber="15"
+            validate:testType="numericRange" />
 
         <SwitchPreference
             android:defaultValue="false"
