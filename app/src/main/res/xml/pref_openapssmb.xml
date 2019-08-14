@@ -84,7 +84,7 @@
             android:dialogMessage="@string/uamsmbmaxminutes"
             android:digits="0123456789"
             android:inputType="number"
-            android:key="key_uamsmbmaxminutes"
+            android:key="@string/key_uamsmbmaxminutes"
             android:maxLines="20"
             android:selectAllOnFocus="true"
             android:singleLine="true"
