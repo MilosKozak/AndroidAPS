@@ -1414,6 +1414,7 @@ Eversense-appen.</string>
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Kunde inte avbryta nuvarande temp basal. Avbryter kommandot.</string>
     <string name="medtronic_cmd_set_profile_pattern_overflow">Misslyckades med att sätta basalprofilen. Följande timmar har för högt värde angivet: %1$s</string>
     <string name="medtronic_cmd_bolus_could_not_be_delivered">Bolus misslyckades.</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered_no_insulin">En bolus om %2$.2f enheter kan inte levereras när reservoaren bara innehåller %1$.2f enheter.</string>
     <string name="medtronic_cmd_tbr_could_not_be_delivered">Temp basal kunde inte anges.</string>
     <string name="medtronic_cmd_cant_cancel_tbr">Kunde inte avbryta temp basal.</string>
     <string name="medtronic_cmd_basal_profile_could_not_be_set">Kunde inte byta basalprofil.</string>
