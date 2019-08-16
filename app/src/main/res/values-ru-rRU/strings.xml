@@ -1415,6 +1415,7 @@ Context | Edit Context</string>
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Не удалось отменить текущий врем базал TBR. Остановка операции.</string>
     <string name="medtronic_cmd_set_profile_pattern_overflow">Не удалось установить профиль потому что следующие шаблоны имеют слишком большой базал %1$s</string>
     <string name="medtronic_cmd_bolus_could_not_be_delivered">Болюс не подан.</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered_no_insulin">Болюс не подан т.к. доступное количество инсулина (%1$.2f) меньше, чем требуемый болюс (%2$.2f).</string>
     <string name="medtronic_cmd_tbr_could_not_be_delivered">Врем базал TBR не задан.</string>
     <string name="medtronic_cmd_cant_cancel_tbr">Не удалось отменить текущий врем базал TBR.</string>
     <string name="medtronic_cmd_basal_profile_could_not_be_set">Профиль базала не установлен.</string>
