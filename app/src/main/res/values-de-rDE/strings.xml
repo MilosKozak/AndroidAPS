@@ -1185,7 +1185,7 @@ Unerwartetes Verhalten.</string>
     <string name="and">Und</string>
     <string name="or">Oder</string>
     <string name="xor">Entweder oder</string>
-    <string name="atspecifiedtime">Bei %1$s</string>
+    <string name="atspecifiedtime">Um %1$s</string>
     <string name="use_network_location">Netzwerkstandorts verwenden</string>
     <string name="use_gps_location">GPS-Position verwenden</string>
     <string name="use_passive_location">Passiven Standort verwenden</string>
