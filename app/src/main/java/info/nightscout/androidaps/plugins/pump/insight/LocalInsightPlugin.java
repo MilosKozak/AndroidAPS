@@ -7,41 +7,17 @@ import android.content.ServiceConnection;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-
 import androidx.fragment.app.FragmentActivity;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
-
 import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
-import info.nightscout.androidaps.db.CareportalEvent;
-import info.nightscout.androidaps.db.ExtendedBolus;
-import info.nightscout.androidaps.db.Source;
-import info.nightscout.androidaps.db.TDD;
-import info.nightscout.androidaps.db.TemporaryBasal;
+import info.nightscout.androidaps.db.*;
 import info.nightscout.androidaps.events.EventInitializationChanged;
 import info.nightscout.androidaps.events.EventRefreshOverview;
-import info.nightscout.androidaps.interfaces.Constraint;
-import info.nightscout.androidaps.interfaces.ConstraintsInterface;
-import info.nightscout.androidaps.interfaces.PluginBase;
-import info.nightscout.androidaps.interfaces.PluginDescription;
-import info.nightscout.androidaps.interfaces.PluginType;
-import info.nightscout.androidaps.interfaces.PumpDescription;
-import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.interfaces.*;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.common.ManufacturerType;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
@@ -60,63 +36,15 @@ import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.History
 import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.ReadHistoryEventsMessage;
 import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.StartReadingHistoryMessage;
 import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.StopReadingHistoryMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.BolusDeliveredEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.BolusProgrammedEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.CannulaFilledEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.DateTimeChangedEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.DefaultDateTimeSetEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.EndOfTBREvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.HistoryEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.OccurrenceOfAlertEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.OperatingModeChangedEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.PowerUpEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.SniffingDoneEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.StartOfTBREvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.TotalDailyDoseEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.TubeFilledEvent;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.parameter_blocks.ActiveBRProfileBlock;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.parameter_blocks.BRProfile1Block;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.parameter_blocks.BRProfileBlock;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.parameter_blocks.FactoryMinBolusAmountBlock;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.parameter_blocks.MaxBasalAmountBlock;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.parameter_blocks.MaxBolusAmountBlock;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.parameter_blocks.TBROverNotificationBlock;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.CancelBolusMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.CancelTBRMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.ChangeTBRMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.ConfirmAlertMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.DeliverBolusMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.SetDateTimeMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.SetOperatingModeMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.SetTBRMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetActiveAlertMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetActiveBasalRateMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetActiveBolusesMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetActiveTBRMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetBatteryStatusMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetCartridgeStatusMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetDateTimeMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetOperatingModeMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetPumpStatusRegisterMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.GetTotalDailyDoseMessage;
-import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.ResetPumpStatusRegisterMessage;
+import info.nightscout.androidaps.plugins.pump.insight.app_layer.history.history_events.*;
+import info.nightscout.androidaps.plugins.pump.insight.app_layer.parameter_blocks.*;
+import info.nightscout.androidaps.plugins.pump.insight.app_layer.remote_control.*;
+import info.nightscout.androidaps.plugins.pump.insight.app_layer.status.*;
 import info.nightscout.androidaps.plugins.pump.insight.connection_service.InsightConnectionService;
 import info.nightscout.androidaps.plugins.pump.insight.database.InsightBolusID;
 import info.nightscout.androidaps.plugins.pump.insight.database.InsightHistoryOffset;
 import info.nightscout.androidaps.plugins.pump.insight.database.InsightPumpID;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.ActiveBasalRate;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.ActiveBolus;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.ActiveTBR;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.AlertType;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.BasalProfile;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.BasalProfileBlock;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.BatteryStatus;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.BolusType;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.CartridgeStatus;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.InsightState;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.OperatingMode;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.PumpTime;
-import info.nightscout.androidaps.plugins.pump.insight.descriptors.TotalDailyDose;
+import info.nightscout.androidaps.plugins.pump.insight.descriptors.*;
 import info.nightscout.androidaps.plugins.pump.insight.exceptions.InsightException;
 import info.nightscout.androidaps.plugins.pump.insight.exceptions.app_layer_errors.AppLayerErrorException;
 import info.nightscout.androidaps.plugins.pump.insight.exceptions.app_layer_errors.NoActiveTBRToCanceLException;
@@ -126,13 +54,18 @@ import info.nightscout.androidaps.plugins.treatments.Treatment;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.SP;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
 
 public class LocalInsightPlugin extends PluginBase implements PumpInterface, ConstraintsInterface, InsightConnectionService.StateCallback {
 
     private static LocalInsightPlugin instance = null;
-
+    private final Object $bolusLock = new Object[0];
     private Logger log = LoggerFactory.getLogger(L.PUMP);
-
     private PumpDescription pumpDescription;
     private InsightAlertService alertService;
     private InsightConnectionService connectionService;
@@ -155,8 +88,6 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
             connectionService = null;
         }
     };
-
-    private final Object $bolusLock = new Object[0];
     private int bolusID;
     private boolean bolusCancelled;
     private BasalProfile activeBasalProfile;
@@ -177,11 +108,6 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
     private boolean statusLoaded;
     private TBROverNotificationBlock tbrOverNotificationBlock;
 
-    public static LocalInsightPlugin getPlugin() {
-        if (instance == null) instance = new LocalInsightPlugin();
-        return instance;
-    }
-
     public LocalInsightPlugin() {
         super(new PluginDescription()
                 .pluginName(R.string.insight_local)
@@ -194,6 +120,11 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
 
         pumpDescription = new PumpDescription();
         pumpDescription.setPumpDescription(PumpType.AccuChekInsightBluetooth);
+    }
+
+    public static LocalInsightPlugin getPlugin() {
+        if (instance == null) instance = new LocalInsightPlugin();
+        return instance;
     }
 
     public TBROverNotificationBlock getTBROverNotificationBlock() {
@@ -872,8 +803,8 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
                             extendedBolus.durationInMinutes = (int) ((System.currentTimeMillis() - extendedBolus.date) / 60000);
                             if (extendedBolus.durationInMinutes <= 0) {
                                 final String _id = extendedBolus._id;
-                                if (NSUpload.isIdValid(_id))
-                                    NSUpload.removeCareportalEntryFromNS(_id);
+                                if (NSUpload.getActiveUploader().isIdValid(_id))
+                                    NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                                 else UploadQueue.removeID("dbAdd", _id);
                                 MainApp.getDbHelper().delete(extendedBolus);
                             } else
@@ -982,7 +913,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
     @Override
     public String serialNumber() {
         if (connectionService == null || alertService == null) return "Unknown";
-        return  connectionService.getPumpSystemIdentification().getSerialNumber();
+        return connectionService.getPumpSystemIdentification().getSerialNumber();
     }
 
     public PumpEnactResult stopPump() {
@@ -1228,7 +1159,8 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         if (!SP.getBoolean("insight_log_site_changes", false)) return;
         long timestamp = parseDate(event.getEventYear(), event.getEventMonth(), event.getEventDay(),
                 event.getEventHour(), event.getEventMinute(), event.getEventSecond()) + timeOffset;
-        uploadCareportalEvent(timestamp, CareportalEvent.SITECHANGE);
+        NSUpload.getActiveUploader().uploadSiteChange(SP.getString("careportal_enteredby", null), DateUtil.toISOString(new Date(timestamp)), null);
+
     }
 
     private void processTotalDailyDoseEvent(TotalDailyDoseEvent event) {
@@ -1256,14 +1188,16 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         if (!SP.getBoolean("insight_log_reservoir_changes", false)) return;
         long timestamp = parseDate(event.getEventYear(), event.getEventMonth(), event.getEventDay(),
                 event.getEventHour(), event.getEventMinute(), event.getEventSecond()) + timeOffset;
-        uploadCareportalEvent(timestamp, CareportalEvent.INSULINCHANGE);
+        NSUpload.getActiveUploader().uploadInsulinChangeEvent(SP.getString("careportal_enteredby", ""),
+                DateUtil.toISOString(timestamp), null, null  );
     }
 
     private void processPowerUpEvent(PowerUpEvent event) {
         if (!SP.getBoolean("insight_log_battery_changes", false)) return;
         long timestamp = parseDate(event.getEventYear(), event.getEventMonth(), event.getEventDay(),
                 event.getEventHour(), event.getEventMinute(), event.getEventSecond()) + timeOffset;
-        uploadCareportalEvent(timestamp, CareportalEvent.PUMPBATTERYCHANGE);
+        NSUpload.getActiveUploader().uploadBatteryChanged(SP.getString("careportal_enteredby", ""),
+                DateUtil.toISOString(timestamp), null, null);
     }
 
     private void processOperatingModeChangedEvent(String serial, List<InsightPumpID> pumpStartedEvents, OperatingModeChangedEvent event) {
@@ -1394,7 +1328,8 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
                 ExtendedBolus extendedBolus = MainApp.getDbHelper().getExtendedBolusByPumpId(bolusID.id);
                 if (extendedBolus != null) {
                     final String _id = extendedBolus._id;
-                    if (NSUpload.isIdValid(_id)) NSUpload.removeCareportalEntryFromNS(_id);
+                    if (NSUpload.getActiveUploader().isIdValid(_id))
+                        NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                     else UploadQueue.removeID("dbAdd", _id);
                     MainApp.getDbHelper().delete(extendedBolus);
                 }
@@ -1514,14 +1449,9 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         try {
             if (MainApp.getDbHelper().getCareportalEventFromTimestamp(date) != null)
                 return;
-            JSONObject data = new JSONObject();
             String enteredBy = SP.getString("careportal_enteredby", "");
-            if (!enteredBy.equals("")) data.put("enteredBy", enteredBy);
-            data.put("created_at", DateUtil.toISOString(date));
-            data.put("eventType", CareportalEvent.NOTE);
-            data.put("notes", note);
-            NSUpload.uploadCareportalEntryToNS(data);
-        } catch (JSONException e) {
+            NSUpload.getActiveUploader().uploadCareportalNote(DateUtil.toISOString(date), enteredBy, note, null);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -1537,21 +1467,6 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         calendar.set(Calendar.MINUTE, relativeMinute);
         calendar.set(Calendar.SECOND, relativeSecond);
         return calendar.getTimeInMillis();
-    }
-
-    private void uploadCareportalEvent(long date, String event) {
-        if (MainApp.getDbHelper().getCareportalEventFromTimestamp(date) != null)
-            return;
-        try {
-            JSONObject data = new JSONObject();
-            String enteredBy = SP.getString("careportal_enteredby", "");
-            if (!enteredBy.equals("")) data.put("enteredBy", enteredBy);
-            data.put("created_at", DateUtil.toISOString(date));
-            data.put("eventType", event);
-            NSUpload.uploadCareportalEntryToNS(data);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

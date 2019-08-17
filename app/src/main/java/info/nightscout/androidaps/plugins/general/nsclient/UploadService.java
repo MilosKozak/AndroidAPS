@@ -7,7 +7,7 @@ import info.nightscout.androidaps.db.*;
 import java.util.Date;
 
 /**
- *  @author tanja
+ * @author tanja
  */
 public interface UploadService {
 
@@ -37,11 +37,21 @@ public interface UploadService {
 
     void uploadOpenAPSOffline(int duration);
 
-    void uploadBg(BgReading reading, String source);
+    void uploadCareportalBgCheck(BgReading reading, String source);
 
-    void uploadBg(String enteredBy, String createdAt, String glucoseType, Number glucose, String units);
+    void uploadCareportalBgCheck(String createdAt, String createdBy, String glucoseType, Number glucose, String units, String device);
 
-    //void uploadCareportalEntryToNS(JSONObject data);
+    void uploadCareportalNote(String createdAt, String createdBy, String note, String device);
+
+    void uploadInsulinChangeEvent(String createdBy, String createdAt, String note, String device);
+
+    void uploadBatteryChanged(String createdBy, String createdAt, String note, String device);
+
+    void uploadComboBolus(String createdAt, String enteredBy, String device, Double insulin, Integer duration,
+                          Double relative, Integer splitNow, Integer splitExt);
+
+    void uploadCareportalMealBolus(String createdAt, String enteredBy, String pumpSignature, Double insulin, Double carbs);
+
 
     void removeCareportalEntryFromNS(String _id);
 
@@ -55,7 +65,10 @@ public interface UploadService {
 
     void removeFoodFromNS(String _id);
 
-    void uploadSensorChange(String enteredBy, String created_at);
+    void uploadSensorChange(String enteredBy, String created_at, String device);
 
+    void uploadSiteChange(String enteredBy, String created_at, String device);
+
+    void uploadTempBasal(String createdAt, String createdBy, String device, Integer duration, Double absolute);
 
 }

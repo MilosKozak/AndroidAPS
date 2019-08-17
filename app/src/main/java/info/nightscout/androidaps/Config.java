@@ -5,6 +5,7 @@ package info.nightscout.androidaps;
  */
 public class Config {
     public static int SUPPORTEDNSVERSION = 1002; // 0.10.00
+    public static double SUPPORTED_NSAPIVERSION = 0.13;
 
     public static final boolean APS = BuildConfig.FLAVOR.equals("full");
 

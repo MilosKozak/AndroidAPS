@@ -30,6 +30,9 @@ public class TDD {
     @DatabaseField
     public double total;
 
+    @DatabaseField
+    public double carbs;
+
 
     public double getTotal(){
         return (total > 0d) ? total:(bolus+basal);

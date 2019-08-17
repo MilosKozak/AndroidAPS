@@ -751,9 +751,9 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
                         JsonHelper.safeGetInt(data, "timeshift"),
                         eventTime.getTime()
                 );
-                NSUpload.uploadProfileSwitch(profileSwitch);
+                NSUpload.getActiveUploader().uploadProfileSwitch(profileSwitch);
             } else {
-                NSUpload.uploadCareportalEntryToNS(data);
+                NSUpload.getActiveUploader().uploadCareportalEntryToNS(data);
             }
         }
     }

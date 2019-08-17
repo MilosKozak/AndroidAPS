@@ -349,7 +349,7 @@ public class SmsCommunicatorPlugin extends PluginBase {
             case "RESUME":
                 LoopPlugin.getPlugin().suspendTo(0);
                 MainApp.bus().post(new EventRefreshOverview("SMS_LOOP_RESUME"));
-                NSUpload.uploadOpenAPSOffline(0);
+                NSUpload.getActiveUploader().uploadOpenAPSOffline(0);
                 sendSMSToAllNumbers(new Sms(receivedSms.phoneNumber, R.string.smscommunicator_loopresumed));
                 break;
             case "SUSPEND":
@@ -374,7 +374,7 @@ public class SmsCommunicatorPlugin extends PluginBase {
                                 public void run() {
                                     if (result.success) {
                                         LoopPlugin.getPlugin().suspendTo(System.currentTimeMillis() + anInteger * 60L * 1000);
-                                        NSUpload.uploadOpenAPSOffline(anInteger * 60);
+                                        NSUpload.getActiveUploader().uploadOpenAPSOffline(anInteger * 60);
                                         MainApp.bus().post(new EventRefreshOverview("SMS_LOOP_SUSPENDED"));
                                         String reply = MainApp.gs(R.string.smscommunicator_loopsuspended) + " " +
                                                 MainApp.gs(result.success ? R.string.smscommunicator_tempbasalcanceled : R.string.smscommunicator_tempbasalcancelfailed);

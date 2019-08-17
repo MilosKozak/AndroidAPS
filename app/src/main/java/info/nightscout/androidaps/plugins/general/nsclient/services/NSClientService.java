@@ -669,26 +669,26 @@ public class NSClientService extends Service {
                                 JSONArray sgvs = data.getJSONArray("sgvs");
                                 if (sgvs.length() > 0)
                                     MainApp.bus().post(new EventNSClientNewLog("DATA", "received " + sgvs.length() + " sgvs"));
-                                for (Integer index = 0; index < sgvs.length(); index++) {
-                                    JSONObject jsonSgv = sgvs.getJSONObject(index);
-                                    // MainApp.bus().post(new EventNSClientNewLog("DATA", "svg " + sgvs.getJSONObject(index).toString());
-                                    NSSgv sgv = new NSSgv(jsonSgv);
-                                    // Handle new sgv here
-                                    // remove from upload queue if Ack is failing
-                                    UploadQueue.removeID(jsonSgv);
-                                    //Find latest date in sgv
-                                    if (sgv.getMills() != null && sgv.getMills() < System.currentTimeMillis())
-                                        if (sgv.getMills() > latestDateInReceivedData)
-                                            latestDateInReceivedData = sgv.getMills();
-                                }
-                                // Was that sgv more less 15 mins ago ?
-                                boolean lessThan15MinAgo = false;
-                                if ((System.currentTimeMillis() - latestDateInReceivedData) / (60 * 1000L) < 15L)
-                                    lessThan15MinAgo = true;
-                                if (Notification.isAlarmForStaleData() && lessThan15MinAgo) {
-                                    MainApp.bus().post(new EventDismissNotification(Notification.NSALARM));
-                                }
-                                BroadcastSgvs.handleNewSgv(sgvs, MainApp.instance().getApplicationContext(), isDelta);
+                                    for (Integer index = 0; index < sgvs.length(); index++) {
+                                        JSONObject jsonSgv = sgvs.getJSONObject(index);
+                                        // MainApp.bus().post(new EventNSClientNewLog("DATA", "svg " + sgvs.getJSONObject(index).toString());
+                                        NSSgv sgv = new NSSgv(jsonSgv);
+                                        // Handle new sgv here
+                                        // remove from upload queue if Ack is failing
+                                        UploadQueue.removeID(jsonSgv);
+                                        //Find latest date in sgv
+                                        if (sgv.getMills() != null && sgv.getMills() < System.currentTimeMillis())
+                                            if (sgv.getMills() > latestDateInReceivedData)
+                                                latestDateInReceivedData = sgv.getMills();
+                                     }
+                                    // Was that sgv more less 15 mins ago ?
+                                    boolean lessThan15MinAgo = false;
+                                    if ((System.currentTimeMillis() - latestDateInReceivedData) / (60 * 1000L) < 15L)
+                                        lessThan15MinAgo = true;
+                                    if (Notification.isAlarmForStaleData() && lessThan15MinAgo) {
+                                        MainApp.bus().post(new EventDismissNotification(Notification.NSALARM));
+                                    }
+                                    BroadcastSgvs.handleNewSgv(sgvs, MainApp.instance().getApplicationContext(), isDelta);
                             }
                             MainApp.bus().post(new EventNSClientNewLog("LAST", DateUtil.dateAndTimeString(latestDateInReceivedData)));
                         } catch (JSONException e) {

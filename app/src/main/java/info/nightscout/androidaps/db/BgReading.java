@@ -2,13 +2,6 @@ package info.nightscout.androidaps.db;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Date;
-import java.util.Objects;
-
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
@@ -19,6 +12,12 @@ import info.nightscout.androidaps.plugins.general.overview.OverviewPlugin;
 import info.nightscout.androidaps.plugins.general.overview.graphExtensions.DataPointWithLabelInterface;
 import info.nightscout.androidaps.plugins.general.overview.graphExtensions.PointsWithLabelGraphSeries;
 import info.nightscout.androidaps.utils.DecimalFormatter;
+import info.nightscout.api.v3.documents.Entry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Date;
+import java.util.Objects;
 
 @DatabaseTable(tableName = DatabaseHelper.DATABASE_BGREADINGS)
 public class BgReading implements DataPointWithLabelInterface {
@@ -57,6 +56,14 @@ public class BgReading implements DataPointWithLabelInterface {
         raw = sgv.getFiltered() != null ? sgv.getFiltered() : value;
         direction = sgv.getDirection();
         _id = sgv.getId();
+    }
+
+    public BgReading(Entry nsEntry) {
+        date = nsEntry.date;
+        value = nsEntry.sgv.doubleValue();
+        raw = nsEntry.unfiltered.doubleValue();
+        direction = nsEntry.direction;
+        _id = nsEntry.identifier;
     }
 
     public Double valueToUnits(String units) {

@@ -2,12 +2,6 @@ package info.nightscout.androidaps.plugins.source;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.db.BgReading;
@@ -20,6 +14,12 @@ import info.nightscout.androidaps.plugins.constraints.objectives.ObjectivesPlugi
 import info.nightscout.androidaps.plugins.general.nsclient.data.NSSgv;
 import info.nightscout.androidaps.utils.JsonHelper;
 import info.nightscout.androidaps.utils.SP;
+import info.nightscout.api.v3.documents.DocumentBase;
+import info.nightscout.api.v3.documents.Entry;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by mike on 05.08.2016.
@@ -61,6 +61,15 @@ public class SourceNSClientPlugin extends PluginBase implements BgSourceInterfac
         Bundle bundles = intent.getExtras();
 
         try {
+            if(bundles.containsKey("data")) {
+                DocumentBase documentBase = bundles.getParcelable("data");
+                if(documentBase instanceof Entry) {
+                    Entry sgv = (Entry) documentBase;
+                    if (L.isEnabled(L.BGSOURCE))
+                        log.debug("Received NS Data: " + sgv.sgv);
+                    storeSgv(sgv);
+                }
+            }
             if (bundles.containsKey("sgv")) {
                 String sgvstring = bundles.getString("sgv");
                 if (L.isEnabled(L.BGSOURCE))
@@ -93,7 +102,13 @@ public class SourceNSClientPlugin extends PluginBase implements BgSourceInterfac
         NSSgv nsSgv = new NSSgv(sgvJson);
         BgReading bgReading = new BgReading(nsSgv);
         MainApp.getDbHelper().createIfNotExists(bgReading, "NS");
-        SourceNSClientPlugin.getPlugin().detectSource(JsonHelper.safeGetString(sgvJson, "device", "none"), JsonHelper.safeGetLong(sgvJson, "mills"));
+        detectSource(JsonHelper.safeGetString(sgvJson, "device", "none"), JsonHelper.safeGetLong(sgvJson, "mills"));
+    }
+
+    private void storeSgv(Entry entry) {
+        BgReading bgReading = new BgReading(entry);
+        MainApp.getDbHelper().createIfNotExists(bgReading, "NS");
+        detectSource(entry);
     }
 
     public void detectSource(String source, long timeStamp) {
@@ -103,6 +118,17 @@ public class SourceNSClientPlugin extends PluginBase implements BgSourceInterfac
             else
                 isAdvancedFilteringEnabled = false;
             lastBGTimeStamp = timeStamp;
+        }
+    }
+
+    protected void detectSource(Entry entry) {
+        if (entry.date != null && entry.date > lastBGTimeStamp) {
+            String source = entry.device;
+            if (source != null && (source.contains("G5 Native") || source.contains("G6 Native") || source.contains("AndroidAPS-DexcomG5") || source.contains("AndroidAPS-DexcomG6")))
+                isAdvancedFilteringEnabled = true;
+            else
+                isAdvancedFilteringEnabled = false;
+            lastBGTimeStamp = entry.date;
         }
     }
 }

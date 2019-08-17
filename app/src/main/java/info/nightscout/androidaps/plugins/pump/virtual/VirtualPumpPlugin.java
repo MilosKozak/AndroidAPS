@@ -194,7 +194,7 @@ public class VirtualPumpPlugin extends PluginBase implements PumpInterface {
     @Override
     public void connect(String reason) {
         if (!Config.NSCLIENT)
-            NSUpload.uploadDeviceStatus();
+            NSUpload.getActiveUploader().uploadDeviceStatus();
         lastDataTime = System.currentTimeMillis();
     }
 

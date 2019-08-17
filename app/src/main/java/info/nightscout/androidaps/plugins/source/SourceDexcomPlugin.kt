@@ -72,7 +72,7 @@ object SourceDexcomPlugin : PluginBase(PluginDescription()
                 bgReading.raw = 0.0
                 if (MainApp.getDbHelper().createIfNotExists(bgReading, "Dexcom")) {
                     if (SP.getBoolean(R.string.key_dexcomg5_nsupload, false)) {
-                        NSUpload.getActiveUploader().uploadBg(bgReading, "AndroidAPS-DexcomG6")
+                        NSUpload.getActiveUploader().uploadCareportalBgCheck(bgReading, "AndroidAPS-DexcomG6")
                     }
                     if (SP.getBoolean(R.string.key_dexcomg5_xdripupload, false)) {
                         NSUpload.sendToXdrip(bgReading)
@@ -84,12 +84,13 @@ object SourceDexcomPlugin : PluginBase(PluginDescription()
                 val meter = meters.getBundle(i.toString())
                 val timestamp = meter!!.getLong("timestamp") * 1000
                 if (MainApp.getDbHelper().getCareportalEventFromTimestamp(timestamp) != null) continue
-                NSUpload.getActiveUploader().uploadBg("AndroidAPS-Dexcom",DateUtil.toISOString(timestamp), "Finger" , meter.getInt("meterValue"), Constants.MGDL);
+                NSUpload.getActiveUploader().uploadCareportalBgCheck("AndroidAPS-Dexcom",DateUtil.toISOString(timestamp),
+                        "Finger" , meter.getInt("meterValue"), Constants.MGDL, null);
             }
             if (SP.getBoolean(R.string.key_dexcom_lognssensorchange, false) && intent.hasExtra("sensorInsertionTime")) {
                 val sensorInsertionTime = intent.extras!!.getLong("sensorInsertionTime") * 1000
                 if (MainApp.getDbHelper().getCareportalEventFromTimestamp(sensorInsertionTime) == null) {
-                    NSUpload.getActiveUploader().uploadSensorChange("AndroidAPS-Dexcom",DateUtil.toISOString(sensorInsertionTime) );
+                    NSUpload.getActiveUploader().uploadSensorChange("AndroidAPS-Dexcom",DateUtil.toISOString(sensorInsertionTime) , null);
                 }
             }
         } catch (e: Exception) {

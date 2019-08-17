@@ -452,7 +452,7 @@ public class BLEComm {
                                             log.debug("<<<<< " + "ENCRYPTION__PUMP_CHECK (PUMP)" + " " + DanaRS_Packet.toHexString(inputBuffer));
                                         mSendQueue.clear();
                                         MainApp.bus().post(new EventPumpStatusChanged(EventPumpStatusChanged.DISCONNECTED, MainApp.gs(R.string.pumperror)));
-                                        NSUpload.uploadError(MainApp.gs(R.string.pumperror));
+                                        NSUpload.getActiveUploader().uploadError(MainApp.gs(R.string.pumperror));
                                         Notification n = new Notification(Notification.PUMPERROR, MainApp.gs(R.string.pumperror), Notification.URGENT);
                                         MainApp.bus().post(new EventNewNotification(n));
                                     } else if (inputBuffer.length == 6 && inputBuffer[2] == 'B' && inputBuffer[3] == 'U' && inputBuffer[4] == 'S' && inputBuffer[5] == 'Y') {

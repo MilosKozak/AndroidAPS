@@ -84,7 +84,7 @@ public class DanaRS_Packet_Notify_Alarm extends DanaRS_Packet {
                 log.debug("Error detected: " + errorString);
             return;
         }
-        NSUpload.uploadError(errorString);
+        NSUpload.getActiveUploader().uploadError(errorString);
     }
 
     @Override

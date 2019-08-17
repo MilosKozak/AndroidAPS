@@ -81,7 +81,7 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
             holder.iob.setText(DecimalFormatter.to2Decimal(iob.iobContrib) + " U");
             holder.mealOrCorrection.setText(t.isSMB ? "SMB" : t.mealBolus ? MainApp.gs(R.string.mealbolus) : MainApp.gs(R.string.correctionbous));
             holder.ph.setVisibility(t.source == Source.PUMP ? View.VISIBLE : View.GONE);
-            holder.ns.setVisibility(NSUpload.isIdValid(t._id) ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(NSUpload.getActiveUploader().isIdValid(t._id) ? View.VISIBLE : View.GONE);
             holder.invalid.setVisibility(t.isValid ? View.GONE : View.VISIBLE);
             if (iob.iobContrib != 0)
                 holder.iob.setTextColor(ContextCompat.getColor(MainApp.instance(), R.color.colorActive));
@@ -155,8 +155,8 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
                                     treatment.isValid = false;
                                     TreatmentsPlugin.getPlugin().getService().update(treatment);
                                 } else {
-                                    if (NSUpload.isIdValid(_id)) {
-                                        NSUpload.removeCareportalEntryFromNS(_id);
+                                    if (NSUpload.getActiveUploader().isIdValid(_id)) {
+                                        NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                                     } else {
                                         UploadQueue.removeID("dbAdd", _id);
                                     }
@@ -241,8 +241,8 @@ public class TreatmentsBolusFragment extends SubscriberFragment implements View.
                             .getTreatmentDataFromTime(now() + 1000, true);
                     for (Treatment treatment : futureTreatments) {
                         final String _id = treatment._id;
-                        if (NSUpload.isIdValid(_id)) {
-                            NSUpload.removeCareportalEntryFromNS(_id);
+                        if (NSUpload.getActiveUploader().isIdValid(_id)) {
+                            NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                         } else {
                             UploadQueue.removeID("dbAdd", _id);
                         }

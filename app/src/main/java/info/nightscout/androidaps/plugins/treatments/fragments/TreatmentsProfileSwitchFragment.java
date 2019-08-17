@@ -74,7 +74,7 @@ public class TreatmentsProfileSwitchFragment extends SubscriberFragment implemen
             if (profile == null) return;
             ProfileSwitch profileSwitch = profileSwitchList.get(position);
             holder.ph.setVisibility(profileSwitch.source == Source.PUMP ? View.VISIBLE : View.GONE);
-            holder.ns.setVisibility(NSUpload.isIdValid(profileSwitch._id) ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(NSUpload.getActiveUploader().isIdValid(profileSwitch._id) ? View.VISIBLE : View.GONE);
 
             holder.date.setText(DateUtil.dateAndTimeString(profileSwitch.date));
             if (!profileSwitch.isEndingEvent()) {
@@ -146,8 +146,8 @@ public class TreatmentsProfileSwitchFragment extends SubscriberFragment implemen
                         builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 final String _id = profileSwitch._id;
-                                if (NSUpload.isIdValid(_id)) {
-                                    NSUpload.removeCareportalEntryFromNS(_id);
+                                if (NSUpload.getActiveUploader().isIdValid(_id)) {
+                                    NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                                 } else {
                                     UploadQueue.removeID("dbAdd", _id);
                                 }

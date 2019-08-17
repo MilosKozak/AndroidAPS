@@ -282,7 +282,7 @@ public class SocketNSUpload implements UploadService {
                 deviceStatus.pump = pumpstatus;
             }
 
-            deviceStatus.uploaderBattery = BatteryLevel.getBatteryLevel();;
+            deviceStatus.uploaderBattery = BatteryLevel.getBatteryLevel();
 
             deviceStatus.created_at = DateUtil.toISOString(new Date());
             addDevicestatus(deviceStatus.mongoRecord());
@@ -447,7 +447,8 @@ public class SocketNSUpload implements UploadService {
 
     }
 
-    public void uploadBg(BgReading reading, String source) {
+    @Override
+    public void uploadCareportalBgCheck(BgReading reading, String source) {
         JSONObject data = new JSONObject();
         try {
             data.put("device", source);
@@ -463,22 +464,6 @@ public class SocketNSUpload implements UploadService {
 
     }
 
-    @Override
-    public void uploadBg(String enteredBy, String createdAt, String glucoseType, Number glucose, String units) {
-        JSONObject data = new JSONObject();
-        try {
-            data.put("enteredBy", enteredBy);
-            data.put("created_at", createdAt);
-            data.put("eventType", CareportalEvent.BGCHECK);
-            data.put("glucoseType", glucoseType);
-            data.put("glucose", glucose);
-            data.put("units", units);
-        } catch (JSONException e) {
-            log.error("Unhandled exception", e);
-        }
-        addTreatments(data);
-
-    }
 
     public void uploadAppStart() {
         if (SP.getBoolean(R.string.key_ns_logappstartedevent, true)) {
@@ -564,13 +549,14 @@ public class SocketNSUpload implements UploadService {
     }
 
     @Override
-    public void uploadSensorChange(String enteredBy, String created_at) {
+    public void uploadSensorChange(String enteredBy, String created_at, String device) {
         JSONObject data = new JSONObject();
         try {
             data.put("eventType", CareportalEvent.SENSORCHANGE);
             data.put("enteredBy", enteredBy);
             data.put("created_at", created_at);
-
+            if (device != null)
+                data.put("device", device);
         } catch (JSONException e) {
             log.error("Unhandled exception", e);
         }
@@ -581,8 +567,147 @@ public class SocketNSUpload implements UploadService {
     public boolean isIdValid(String _id) {
         if (_id == null)
             return false;
-        if (_id.length() == 24)
-            return true;
-        return false;
+        return _id.length() == 24;
+    }
+
+    public void uploadInsulinChangeEvent(String createdBy, String createdAt, String note, String device) {
+        try {
+            JSONObject data = new JSONObject();
+            data.put("eventType", CareportalEvent.INSULINCHANGE);
+            data.put("enteredBy", createdBy);
+            data.put("created_at", createdAt);
+            data.put("notes", note);
+            if (device != null)
+                data.put("device", device);
+            addTreatments(data);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
+    }
+
+    @Override
+    public void uploadCareportalNote(String createdAt, String createdBy, String note, String device) {
+        try {
+            JSONObject data = new JSONObject();
+            data.put("eventType", CareportalEvent.NOTE);
+            data.put("enteredBy", createdBy);
+            data.put("created_at", createdAt);
+            data.put("notes", note);
+            if (device != null)
+                data.put("device", device);
+            addTreatments(data);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
+    }
+
+    @Override
+    public void uploadCareportalBgCheck(String createdAt, String createdBy, String glucoseType, Number glucose, String units, String device) {
+        try {
+            JSONObject data = new JSONObject();
+            data.put("eventType", CareportalEvent.BGCHECK);
+            data.put("enteredBy", createdBy);
+            data.put("created_at", createdAt);
+            data.put("glucoseType", glucoseType);
+            data.put("glucose", glucose);
+            data.put("units", units);
+            if (device != null)
+                data.put("device", device);
+            addTreatments(data);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
+    }
+
+    @Override
+    public void uploadComboBolus(String createdAt, String enteredBy, String deviceSignature, Double insulin, Integer duration,
+                                 Double relative, Integer splitNow, Integer splitExt) {
+        try {
+            JSONObject nsrec = new JSONObject();
+            nsrec.put("eventType", CareportalEvent.COMBOBOLUS);
+            if (deviceSignature != null)
+                nsrec.put("device", deviceSignature);
+            if (insulin != null)
+                nsrec.put("insulin", insulin);
+            if (duration != null)
+                nsrec.put("duration", duration);
+            if (relative != null)
+                nsrec.put("relative", relative);
+            if (splitNow != null)
+                nsrec.put("splitNow", splitNow);
+            if (splitExt != null)
+                nsrec.put("splitExt", splitExt);
+            nsrec.put("created_at", createdAt);
+            nsrec.put("enteredBy", enteredBy);
+
+            addTreatments(nsrec);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
+
+    }
+
+    @Override
+    public void uploadCareportalMealBolus(String createdAt, String enteredBy, String pumpSignature, Double insulin, Double carbs) {
+        try {
+            JSONObject nsrec = new JSONObject();
+            nsrec.put("eventType", "Meal Bolus");
+            nsrec.put("device", pumpSignature);
+            nsrec.put("insulin", insulin);
+            nsrec.put("carbs", carbs);
+            nsrec.put("created_at", createdAt);
+            nsrec.put("enteredBy", enteredBy);
+            addTreatments(nsrec);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
+    }
+
+    @Override
+    public void uploadTempBasal(String createdAt, String createdBy, String device, Integer duration, Double absolute) {
+        try {
+            JSONObject nsrec = new JSONObject();
+            if (device != null)
+                nsrec.put("device", device);
+            nsrec.put("eventType", CareportalEvent.TEMPBASAL);
+            nsrec.put("absolute", absolute);
+            nsrec.put("duration", duration);
+            nsrec.put("created_at", createdAt);
+            nsrec.put("enteredBy", createdBy);
+            addTreatments(nsrec);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
+    }
+
+    @Override
+    public void uploadBatteryChanged(String createdBy, String createdAt, String note, String device) {
+        try {
+            JSONObject nsrec = new JSONObject();
+            if (device != null)
+                nsrec.put("device", device);
+            nsrec.put("eventType", CareportalEvent.PUMPBATTERYCHANGE);
+            nsrec.put("created_at", createdAt);
+            nsrec.put("enteredBy", createdBy);
+            nsrec.put("note", note);
+            addTreatments(nsrec);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
+    }
+
+    @Override
+    public void uploadSiteChange(String enteredBy, String created_at, String device) {
+        try {
+            JSONObject nsrec = new JSONObject();
+            if (device != null)
+                nsrec.put("device", device);
+            nsrec.put("eventType", CareportalEvent.SITECHANGE);
+            nsrec.put("created_at", created_at);
+            nsrec.put("enteredBy", enteredBy);
+            addTreatments(nsrec);
+        } catch (JSONException e) {
+            log.error("Unhandled exception", e);
+        }
     }
 }

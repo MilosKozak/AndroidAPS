@@ -552,13 +552,13 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
         if (newRecordCreated) {
             if (extendedBolus.durationInMinutes == 0) {
                 if (ConfigBuilderPlugin.getPlugin().getActivePump().isFakingTempsByExtendedBoluses())
-                    NSUpload.uploadTempBasalEnd(extendedBolus.date, true, extendedBolus.pumpId);
+                    NSUpload.getActiveUploader().uploadTempBasalEnd(extendedBolus.date, true, extendedBolus.pumpId);
                 else
-                    NSUpload.uploadExtendedBolusEnd(extendedBolus.date, extendedBolus.pumpId);
+                    NSUpload.getActiveUploader().uploadExtendedBolusEnd(extendedBolus.date, extendedBolus.pumpId);
             } else if (ConfigBuilderPlugin.getPlugin().getActivePump().isFakingTempsByExtendedBoluses())
-                NSUpload.uploadTempBasalStartAbsolute(new TemporaryBasal(extendedBolus), extendedBolus.insulin);
+                NSUpload.getActiveUploader().uploadTempBasalStartAbsolute(new TemporaryBasal(extendedBolus), extendedBolus.insulin);
             else
-                NSUpload.uploadExtendedBolus(extendedBolus);
+                NSUpload.getActiveUploader().uploadExtendedBolus(extendedBolus);
         }
         return newRecordCreated;
     }
@@ -583,11 +583,11 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
         boolean newRecordCreated = MainApp.getDbHelper().createOrUpdate(tempBasal);
         if (newRecordCreated) {
             if (tempBasal.durationInMinutes == 0)
-                NSUpload.uploadTempBasalEnd(tempBasal.date, false, tempBasal.pumpId);
+                NSUpload.getActiveUploader().uploadTempBasalEnd(tempBasal.date, false, tempBasal.pumpId);
             else if (tempBasal.isAbsolute)
-                NSUpload.uploadTempBasalStartAbsolute(tempBasal, null);
+                NSUpload.getActiveUploader().uploadTempBasalStartAbsolute(tempBasal, null);
             else
-                NSUpload.uploadTempBasalStartPercent(tempBasal);
+                NSUpload.getActiveUploader().uploadTempBasalStartPercent(tempBasal);
         }
         return newRecordCreated;
     }
@@ -632,7 +632,7 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
             //log.debug("Adding new Treatment record" + carbsTreatment);
         }
         if (newRecordCreated && detailedBolusInfo.isValid)
-            NSUpload.uploadTreatmentRecord(detailedBolusInfo);
+            NSUpload.getActiveUploader().uploadTreatmentRecord(detailedBolusInfo);
 
         if (!allowUpdate && !creatOrUpdateResult.success) {
             log.error("Treatment could not be added to DB", new Exception());
@@ -708,7 +708,7 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
     public void addToHistoryTempTarget(TempTarget tempTarget) {
         //log.debug("Adding new TemporaryBasal record" + profileSwitch.log());
         MainApp.getDbHelper().createOrUpdate(tempTarget);
-        NSUpload.uploadTempTarget(tempTarget);
+        NSUpload.getActiveUploader().uploadTempTarget(tempTarget);
     }
 
     // Profile Switch
@@ -737,7 +737,7 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
         //log.debug("Adding new TemporaryBasal record" + profileSwitch.log());
         MainApp.bus().post(new EventDismissNotification(Notification.PROFILE_SWITCH_MISSING));
         MainApp.getDbHelper().createOrUpdate(profileSwitch);
-        NSUpload.uploadProfileSwitch(profileSwitch);
+        NSUpload.getActiveUploader().uploadProfileSwitch(profileSwitch);
     }
 
 

@@ -52,7 +52,7 @@ public class MsgError extends MessageBase {
         }
         if (L.isEnabled(L.PUMPCOMM))
             log.debug("Error detected: " + errorString);
-        NSUpload.uploadError(errorString);
+        NSUpload.getActiveUploader().uploadError(errorString);
     }
 
 }

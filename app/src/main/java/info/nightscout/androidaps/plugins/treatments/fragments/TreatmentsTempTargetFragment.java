@@ -69,7 +69,7 @@ public class TreatmentsTempTargetFragment extends SubscriberFragment implements 
             String units = ProfileFunctions.getInstance().getProfileUnits();
             TempTarget tempTarget = tempTargetList.getReversed(position);
             holder.ph.setVisibility(tempTarget.source == Source.PUMP ? View.VISIBLE : View.GONE);
-            holder.ns.setVisibility(NSUpload.isIdValid(tempTarget._id) ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(NSUpload.getActiveUploader().isIdValid(tempTarget._id) ? View.VISIBLE : View.GONE);
             if (!tempTarget.isEndingEvent()) {
                 holder.date.setText(DateUtil.dateAndTimeString(tempTarget.date) + " - " + DateUtil.timeString(tempTarget.originalEnd()));
                 holder.duration.setText(DecimalFormatter.to0Decimal(tempTarget.durationInMinutes) + " min");
@@ -146,8 +146,8 @@ public class TreatmentsTempTargetFragment extends SubscriberFragment implements 
                         builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 final String _id = tempTarget._id;
-                                if (NSUpload.isIdValid(_id)) {
-                                    NSUpload.removeCareportalEntryFromNS(_id);
+                                if (NSUpload.getActiveUploader().isIdValid(_id)) {
+                                    NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                                 } else {
                                     UploadQueue.removeID("dbAdd", _id);
                                 }

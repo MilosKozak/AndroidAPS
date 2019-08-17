@@ -346,7 +346,7 @@ public class LoopPlugin extends PluginBase {
             lastRun.tbrSetByPump = null;
             lastRun.smbSetByPump = null;
 
-            NSUpload.uploadDeviceStatus();
+            NSUpload.getActiveUploader().uploadDeviceStatus();
 
             if (isSuspended()) {
                 if (L.isEnabled(L.APS))
@@ -470,7 +470,7 @@ public class LoopPlugin extends PluginBase {
                     lastRun.tbrSetByPump = result;
                     lastRun.lastEnact = new Date();
                     lastRun.lastOpenModeAccept = new Date();
-                    NSUpload.uploadDeviceStatus();
+                    NSUpload.getActiveUploader().uploadDeviceStatus();
                     ObjectivesPlugin objectivesPlugin = MainApp.getSpecificPlugin(ObjectivesPlugin.class);
                     if (objectivesPlugin != null) {
                         ObjectivesPlugin.getPlugin().manualEnacts++;
@@ -677,7 +677,7 @@ public class LoopPlugin extends PluginBase {
                 }
             });
         }
-        NSUpload.uploadOpenAPSOffline(durationInMinutes);
+        NSUpload.getActiveUploader().uploadOpenAPSOffline(durationInMinutes);
     }
 
     public void suspendLoop(int durationInMinutes) {
@@ -690,7 +690,7 @@ public class LoopPlugin extends PluginBase {
                 }
             }
         });
-        NSUpload.uploadOpenAPSOffline(durationInMinutes);
+        NSUpload.getActiveUploader().uploadOpenAPSOffline(durationInMinutes);
     }
 
 }

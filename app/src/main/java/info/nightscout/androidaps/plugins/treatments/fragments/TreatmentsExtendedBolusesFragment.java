@@ -57,7 +57,7 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
         public void onBindViewHolder(ExtendedBolusesViewHolder holder, int position) {
             ExtendedBolus extendedBolus = extendedBolusList.getReversed(position);
             holder.ph.setVisibility(extendedBolus.source == Source.PUMP ? View.VISIBLE : View.GONE);
-            holder.ns.setVisibility(NSUpload.isIdValid(extendedBolus._id) ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(NSUpload.getActiveUploader().isIdValid(extendedBolus._id) ? View.VISIBLE : View.GONE);
             if (extendedBolus.isEndingEvent()) {
                 holder.date.setText(DateUtil.dateAndTimeString(extendedBolus.date));
                 holder.duration.setText(MainApp.gs(R.string.cancel));
@@ -142,8 +142,8 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
                         builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 final String _id = extendedBolus._id;
-                                if (NSUpload.isIdValid(_id)) {
-                                    NSUpload.removeCareportalEntryFromNS(_id);
+                                if (NSUpload.getActiveUploader().isIdValid(_id)) {
+                                    NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                                 } else {
                                     UploadQueue.removeID("dbAdd", _id);
                                 }

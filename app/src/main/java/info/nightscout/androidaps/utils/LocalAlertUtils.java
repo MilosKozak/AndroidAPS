@@ -45,7 +45,7 @@ public class LocalAlertUtils {
             SP.putLong("nextPumpDisconnectedAlarm", System.currentTimeMillis() + pumpUnreachableThreshold());
             MainApp.bus().post(new EventNewNotification(n));
             if (SP.getBoolean(R.string.key_ns_create_announcements_from_errors, true)) {
-                NSUpload.uploadError(n.text);
+                NSUpload.getActiveUploader().uploadError(n.text);
             }
         }
         if (!isStatusOutdated && !alarmTimeoutExpired)
@@ -99,7 +99,7 @@ public class LocalAlertUtils {
             SP.putLong("nextMissedReadingsAlarm", System.currentTimeMillis() + missedReadingsThreshold());
             MainApp.bus().post(new EventNewNotification(n));
             if (SP.getBoolean(R.string.key_ns_create_announcements_from_errors, true)) {
-                NSUpload.uploadError(n.text);
+                NSUpload.getActiveUploader().uploadError(n.text);
             }
         }
     }

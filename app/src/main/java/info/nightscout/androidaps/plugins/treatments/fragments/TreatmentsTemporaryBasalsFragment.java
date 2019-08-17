@@ -61,7 +61,7 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
         public void onBindViewHolder(TempBasalsViewHolder holder, int position) {
             TemporaryBasal tempBasal = tempBasalList.getReversed(position);
             holder.ph.setVisibility(tempBasal.source == Source.PUMP ? View.VISIBLE : View.GONE);
-            holder.ns.setVisibility(NSUpload.isIdValid(tempBasal._id) ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(NSUpload.getActiveUploader().isIdValid(tempBasal._id) ? View.VISIBLE : View.GONE);
             if (tempBasal.isEndingEvent()) {
                 holder.date.setText(DateUtil.dateAndTimeString(tempBasal.date));
                 holder.duration.setText(MainApp.gs(R.string.cancel));
@@ -167,8 +167,8 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
                         builder.setMessage(MainApp.gs(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(tempBasal.date));
                         builder.setPositiveButton(MainApp.gs(R.string.ok), (dialog, id) -> {
                             final String _id = tempBasal._id;
-                            if (NSUpload.isIdValid(_id)) {
-                                NSUpload.removeCareportalEntryFromNS(_id);
+                            if (NSUpload.getActiveUploader().isIdValid(_id)) {
+                                NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                             } else {
                                 UploadQueue.removeID("dbAdd", _id);
                             }

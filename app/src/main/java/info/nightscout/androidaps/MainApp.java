@@ -235,7 +235,7 @@ public class MainApp extends Application {
             ConfigBuilderPlugin.getPlugin().initialize();
         }
 
-        NSUpload.uploadAppStart();
+        NSUpload.getActiveUploader().uploadAppStart();
 
         final PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
         if (pump != null) {

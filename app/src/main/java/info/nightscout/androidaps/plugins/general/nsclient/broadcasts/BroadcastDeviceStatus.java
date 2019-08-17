@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import info.nightscout.api.v3.documents.Devicestatus;
 import org.json.JSONArray;
 
 import java.util.List;
@@ -41,5 +42,14 @@ public class BroadcastDeviceStatus {
                 context.sendBroadcast(intent);
             }
         }
+    }
+    public static void handleNewDeviceStatus(Devicestatus devicestatus) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("devicestatuses", devicestatus);
+        Intent intent = new Intent(Intents.ACTION_NEW_DEVICESTATUS);
+        intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        LocalBroadcastManager.getInstance(MainApp.instance()).sendBroadcast(intent);
+
     }
 }

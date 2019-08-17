@@ -265,7 +265,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface, Constr
             msg += ".\n";
             msg += String.format(MainApp.gs(R.string.valuelimitedto), value, newvalue);
             log.error(msg);
-            NSUpload.uploadError(msg);
+            NSUpload.getActiveUploader().uploadError(msg);
             ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), msg, R.raw.error);
         }
         return newvalue;

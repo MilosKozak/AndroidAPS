@@ -156,6 +156,11 @@ public class TDDStatsActivity extends NoSplashActivity {
         label_bolus.setTextColor(Color.WHITE);
         tr_head.addView(label_bolus);
 
+        TextView label_carbs = new TextView(this);
+        label_carbs.setText(MainApp.gs("Carbs"));
+        label_carbs.setTextColor(Color.WHITE);
+        tr_head.addView(label_carbs);
+
         TextView label_tdd = new TextView(this);
         label_tdd.setText(MainApp.gs(R.string.danar_stats_tdd));
         label_tdd.setTextColor(Color.WHITE);

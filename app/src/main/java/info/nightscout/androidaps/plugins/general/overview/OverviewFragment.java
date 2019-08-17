@@ -567,14 +567,14 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                     }
                 }
             });
-            NSUpload.uploadOpenAPSOffline(24 * 60); // upload 24h, we don't know real duration
+            NSUpload.getActiveUploader().uploadOpenAPSOffline(24 * 60); // upload 24h, we don't know real duration
             return true;
         } else if (item.getTitle().equals(MainApp.gs(R.string.enableloop))) {
             loopPlugin.setPluginEnabled(PluginType.LOOP, true);
             loopPlugin.setFragmentVisible(PluginType.LOOP, true);
             ConfigBuilderPlugin.getPlugin().storeSettings("EnablingLoop");
             updateGUI("suspendmenu");
-            NSUpload.uploadOpenAPSOffline(0);
+            NSUpload.getActiveUploader().uploadOpenAPSOffline(0);
             return true;
         } else if (item.getTitle().equals(MainApp.gs(R.string.resume)) ||
                 item.getTitle().equals(MainApp.gs(R.string.reconnect))) {
@@ -588,7 +588,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
                     }
                 }
             });
-            NSUpload.uploadOpenAPSOffline(0);
+            NSUpload.getActiveUploader().uploadOpenAPSOffline(0);
             return true;
         } else if (item.getTitle().equals(MainApp.gs(R.string.suspendloopfor1h))) {
             LoopPlugin.getPlugin().suspendLoop(60);

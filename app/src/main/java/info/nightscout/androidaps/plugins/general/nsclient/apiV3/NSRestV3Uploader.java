@@ -25,6 +25,7 @@ import info.nightscout.androidaps.services.Intents;
 import info.nightscout.androidaps.utils.BatteryLevel;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.SP;
+import info.nightscout.api.v3.documents.Collections;
 import info.nightscout.api.v3.documents.DocumentBase;
 import info.nightscout.api.v3.documents.Entry;
 import info.nightscout.api.v3.documents.Treatment;
@@ -77,14 +78,14 @@ public class NSRestV3Uploader implements UploadService {
                 }
                 data.created_at = DateUtil.toISOString(temporaryBasal.date);
                 data.enteredBy = "openaps://" + MainApp.gs(R.string.app_name);
-                dbAdd(data, "treatments");
+                add(data, "treatments");
             }
         } catch (Exception e) {
             log.error("Unhandled exception", e);
         }
     }
 
-    private void dbAdd(DocumentBase data, String collection) {
+    private void add(DocumentBase data, String collection) {
         Context context = MainApp.instance().getApplicationContext();
         Bundle bundle = getBundle("dbAdd", collection);
         bundle.putSerializable("data", data);
@@ -142,7 +143,7 @@ public class NSRestV3Uploader implements UploadService {
         tempBasal.enteredBy = "openaps://" + MainApp.gs(R.string.app_name);
         //if (originalExtendedAmount != null)
         //    data.put("originalExtendedAmount", originalExtendedAmount); // for back synchronization
-        dbAdd(tempBasal, "treatments");
+        add(tempBasal, "treatments");
 
     }
 
@@ -157,7 +158,7 @@ public class NSRestV3Uploader implements UploadService {
             if (pumpId != 0) {
                 data.device = Long.toString(pumpId);
             }
-            dbAdd(data, "treatments");
+            add(data, "treatments");
 
         } catch (Exception e) {
             log.error("Unhandled exception", e);
@@ -177,7 +178,7 @@ public class NSRestV3Uploader implements UploadService {
             }
             bolus.created_at = DateUtil.toISOString(extendedBolus.date);
             bolus.enteredBy = "openaps://" + MainApp.gs(R.string.app_name);
-            dbAdd(bolus, "treatments");
+            add(bolus, "treatments");
         } catch (Exception e) {
             log.error("Unhandled exception", e);
         }
@@ -196,7 +197,7 @@ public class NSRestV3Uploader implements UploadService {
             if (pumpId != 0) {
                 treatment.device = Long.toString(pumpId);
             }
-            dbAdd(treatment, "treatments");
+            add(treatment, "treatments");
 
         } catch (Exception e) {
             log.error("Unhandled exception", e);
@@ -287,7 +288,7 @@ public class NSRestV3Uploader implements UploadService {
                 data.device = String.valueOf(detailedBolusInfo.pumpId);
             }
             if (detailedBolusInfo.glucose != 0d) {
-                data.glucose = String.valueOf(detailedBolusInfo.glucose);
+                data.glucose = detailedBolusInfo.glucose;
             }
             if (!detailedBolusInfo.glucoseType.equals("")) {
                 data.glucoseType = detailedBolusInfo.glucoseType;
@@ -376,7 +377,7 @@ public class NSRestV3Uploader implements UploadService {
                 prebolus.created_at = DateUtil.toISOString(preBolusDate);
                 uploadCareportalEntryToNS(prebolus);
             }
-            dbAdd(data, "treatments");
+            add(data, "treatments");
 
         } catch (Exception e) {
             log.error("Unhandled exception", e);
@@ -401,7 +402,7 @@ public class NSRestV3Uploader implements UploadService {
             data.duration = durationInMinutes;
             data.created_at = DateUtil.toISOString(new Date());
             data.enteredBy = "openaps://" + MainApp.gs(R.string.app_name);
-            dbAdd(data, "treatments");
+            add(data, "treatments");
 
         } catch (Exception e) {
             log.error("Unhandled exception", e);
@@ -420,10 +421,10 @@ public class NSRestV3Uploader implements UploadService {
         data.notes = error;
         //data.isAnnouncement = true; //TODO duplicate to eventType
 
-        dbAdd(data, "treatments");
+        add(data, "treatments");
     }
 
-    public void uploadBg(BgReading reading, String source) {
+    public void uploadCareportalBgCheck(BgReading reading, String source) {
         Entry data = new Entry();
         data.device = source;
         data.date = reading.date;
@@ -432,19 +433,19 @@ public class NSRestV3Uploader implements UploadService {
         data.direction = reading.direction;
         data.type = "sgv";
 
-        dbAdd(data, "entries");
+        add(data, "entries");
     }
 
-    @Override
-    public void uploadBg(String enteredBy, String createdAt, String type, Number glucose, String units) {
-        Entry data = new Entry();
-        data.device = enteredBy;
-        data.dateString = createdAt;
-        data.sgv = glucose;
-        data.units = units;
-        data.type = type;
-        dbAdd(data, "entries");
-    }
+//    @Override
+//    public void uploadCareportalBgCheck(String device, String createdAt, String type, Integer glucose, String units) {
+//        Entry data = new Entry();
+//        data.device = device;
+//        data.dateString = createdAt;
+//        data.sgv = glucose;
+//        data.units = units;
+//        data.type = type;
+//        add(data, "entries");
+//    }
 
     public void uploadAppStart() {
         if (SP.getBoolean(R.string.key_ns_logappstartedevent, true)) {
@@ -456,7 +457,7 @@ public class NSRestV3Uploader implements UploadService {
             } catch (Exception e) {
                 log.error("Unhandled exception", e);
             }
-            dbAdd(data, "treatments");
+            add(data, "treatments");
         }
     }
 
@@ -472,7 +473,7 @@ public class NSRestV3Uploader implements UploadService {
         } catch (Exception e) {
             log.error("Unhandled exception", e);
         }
-        dbAdd(data, "treatments");
+        add(data, "treatments");
     }
 
     public void removeFoodFromNS(String _id) {
@@ -486,17 +487,119 @@ public class NSRestV3Uploader implements UploadService {
     public boolean isIdValid(String _id) {
         if (_id == null)
             return false;
-        if (_id.length() == 24)
-            return true;
-        return false;
+        return _id.length() == 24;
     }
 
     @Override
-    public void uploadSensorChange(String enteredBy, String created_at) {
+    public void uploadSensorChange(String enteredBy, String created_at, String device) {
         Treatment data = new Treatment();
         data.eventType = CareportalEvent.SENSORCHANGE;
         data.enteredBy = enteredBy;
         data.created_at = created_at;
-        dbAdd(data, "treatments");
+        data.device = device;
+        addTreatments(data);
+    }
+
+    @Override
+    public void uploadInsulinChangeEvent(String createdBy, String createdAt, String note, String device) {
+        Treatment treatment = new Treatment();
+        treatment.eventType = CareportalEvent.INSULINCHANGE;
+        treatment.enteredBy = createdBy;
+        treatment.created_at = createdAt;
+        treatment.notes = note;
+        if (device != null)
+            treatment.device = device;
+        addTreatments(treatment);
+    }
+
+    @Override
+    public void uploadBatteryChanged(String createdBy, String createdAt, String note, String device) {
+        Treatment treatment = new Treatment();
+        treatment.eventType = CareportalEvent.PUMPBATTERYCHANGE;
+        treatment.enteredBy = createdBy;
+        treatment.created_at = createdAt;
+        treatment.notes = note;
+        if (device != null)
+            treatment.device = device;
+        addTreatments(treatment);
+    }
+
+    @Override
+    public void uploadSiteChange(String enteredBy, String created_at, String device) {
+        Treatment treatment = new Treatment();
+        treatment.eventType = CareportalEvent.SITECHANGE;
+        treatment.enteredBy = enteredBy;
+        treatment.created_at = created_at;
+        treatment.device = device;
+        addTreatments(treatment);
+    }
+
+    @Override
+    public void uploadCareportalNote(String createdAt, String createdBy, String note, String device) {
+        Treatment treatment = new Treatment();
+        treatment.eventType = CareportalEvent.NOTE;
+        treatment.enteredBy = createdBy;
+        treatment.created_at = createdAt;
+        treatment.notes = note;
+        if (device != null)
+            treatment.device = device;
+        addTreatments(treatment);
+    }
+
+    public void addTreatments(Treatment data) {
+        add(data, Collections.TREATMENTS);
+    }
+
+    @Override
+    public void uploadCareportalBgCheck(String createdAt, String createdBy, String glucoseType, Number glucose, String units, String device) {
+
+        Treatment data = new Treatment();
+        data.eventType = CareportalEvent.BGCHECK;
+        data.enteredBy = createdBy;
+        data.created_at = createdAt;
+        data.glucoseType = glucoseType;
+        data.glucose = glucose.doubleValue();
+        data.units = units;
+        data.device = device;
+        addTreatments(data);
+    }
+
+    @Override
+    public void uploadComboBolus(String createdAt, String enteredBy, String deviceSignature, Double insulin, Integer duration,
+                                 Double relative, Integer splitNow, Integer splitExt) {
+        Treatment treatment = new Treatment();
+        treatment.device = deviceSignature;
+        treatment.eventType = COMBO_BOLUS;
+        treatment.insulin = insulin;
+        treatment.duration = duration;
+        treatment.relative = relative;
+        treatment.splitNow = splitNow;
+        treatment.splitExt = splitExt;
+        treatment.created_at = createdAt;
+        treatment.enteredBy = enteredBy;
+        addTreatments(treatment);
+    }
+
+    @Override
+    public void uploadCareportalMealBolus(String createdAt, String enteredBy, String pumpSignature, Double insulin, Double carbs) {
+        Treatment treatment = new Treatment();
+        treatment.eventType = MEAL;
+        treatment.device = pumpSignature;
+        treatment.insulin = insulin;
+        treatment.carbs = carbs;
+        treatment.created_at = createdAt;
+        treatment.enteredBy = enteredBy;
+        add(treatment, Collections.TREATMENTS);
+    }
+
+    @Override
+    public void uploadTempBasal(String createdAt, String createdBy, String device, Integer duration, Double absolute) {
+        TempBasal tbr = new TempBasal();
+        tbr.created_at = createdAt;
+        tbr.enteredBy = createdBy;
+        tbr.device = device;
+        tbr.duration = duration;
+        tbr.rate = absolute;
+        addTreatments(tbr);
     }
 }

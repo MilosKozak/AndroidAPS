@@ -3,8 +3,10 @@ package info.nightscout.androidaps.plugins.general.nsclient.broadcasts;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import info.nightscout.api.v3.documents.Entry;
 import org.json.JSONArray;
 
 import info.nightscout.androidaps.MainApp;
@@ -12,10 +14,15 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.services.Intents;
 import info.nightscout.androidaps.utils.SP;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by mike on 26.06.2016.
  */
 public class BroadcastMbgs {
+
+
     public static void handleNewMbg(JSONArray mbgs, Context context, boolean isDelta) {
 
         Bundle bundle = new Bundle();

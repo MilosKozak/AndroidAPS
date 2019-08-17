@@ -236,9 +236,9 @@ public class FillDialog extends DialogFragment implements OnClickListener {
                             });
                         }
                         if (pumpSiteChangeCheckbox.isChecked())
-                            NSUpload.uploadEvent(CareportalEvent.SITECHANGE, now(), notes);
+                            NSUpload.getActiveUploader().uploadEvent(CareportalEvent.SITECHANGE, now(), notes);
                         if (insulinCartridgeChangeCheckbox.isChecked())
-                            NSUpload.uploadEvent(CareportalEvent.INSULINCHANGE, now() + 1000, notes);
+                            NSUpload.getActiveUploader().uploadEvent(CareportalEvent.INSULINCHANGE, now() + 1000, notes);
                     }
                 });
             } else {

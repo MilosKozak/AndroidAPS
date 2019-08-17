@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 
+import com.google.common.base.Strings;
 import com.j256.ormlite.dao.CloseableIterator;
 
 import org.json.JSONException;
@@ -86,6 +87,21 @@ public class UploadQueue {
                     }
                 } catch (JSONException e) {
                     log.error("Unhandled exception", e);
+                }
+            });
+        }
+    }
+
+    public static void removeID(String id) {
+        startService();
+        if (NSClientService.handler != null) {
+            NSClientService.handler.post(() -> {
+                if (Strings.isNullOrEmpty(id)) {
+                    return;
+                }
+                if (MainApp.getDbHelper().deleteDbRequest(id) == 1) {
+                    if (L.isEnabled(L.NSCLIENT))
+                        log.debug("Removed item from UploadQueue. " + UploadQueue.status());
                 }
             });
         }

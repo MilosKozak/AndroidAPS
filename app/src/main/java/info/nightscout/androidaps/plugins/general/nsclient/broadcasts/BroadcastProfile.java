@@ -10,12 +10,29 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.services.Intents;
 import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.androidaps.utils.SP;
+import info.nightscout.api.v3.documents.Profile;
 
 
 /**
  * Created by mike on 20.02.2016.
  */
 public class BroadcastProfile {
+    public static void handleNewProfile(Profile profile, Context context) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("profile", profile);
+        Intent intent = new Intent(Intents.ACTION_NEW_PROFILE);
+        intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        LocalBroadcastManager.getInstance(MainApp.instance()).sendBroadcast(intent);
+        if(SP.getBoolean(R.string.key_nsclient_localbroadcasts, false)) {
+            bundle = new Bundle();
+            bundle.putSerializable("profile", profile);
+            intent = new Intent(Intents.ACTION_NEW_PROFILE);
+            intent.putExtras(bundle);
+            intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+            context.sendBroadcast(intent);
+        }
+    }
     public static void handleNewTreatment(ProfileStore profile, Context context, boolean isDelta) {
 
         Bundle bundle = new Bundle();

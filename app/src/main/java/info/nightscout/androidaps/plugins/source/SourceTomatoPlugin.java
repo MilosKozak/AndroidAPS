@@ -64,7 +64,7 @@ public class SourceTomatoPlugin extends PluginBase implements BgSourceInterface 
         bgReading.date = bundle.getLong("com.fanqies.tomatofn.Extras.Time");
         boolean isNew = MainApp.getDbHelper().createIfNotExists(bgReading, "Tomato");
         if (isNew && SP.getBoolean(R.string.key_dexcomg5_nsupload, false)) {
-            NSUpload.uploadBg(bgReading, "AndroidAPS-Tomato");
+            NSUpload.getActiveUploader().uploadCareportalBgCheck(bgReading, "AndroidAPS-Tomato");
         }
         if (isNew && SP.getBoolean(R.string.key_dexcomg5_xdripupload, false)) {
             NSUpload.sendToXdrip(bgReading);

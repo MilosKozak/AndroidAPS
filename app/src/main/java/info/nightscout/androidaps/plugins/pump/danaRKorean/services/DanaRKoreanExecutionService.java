@@ -204,14 +204,14 @@ public class DanaRKoreanExecutionService extends AbstractDanaRExecutionService {
 
             RxBus.INSTANCE.send(new EventDanaRNewStatus());
             MainApp.bus().post(new EventInitializationChanged());
-            NSUpload.uploadDeviceStatus();
+            NSUpload.getActiveUploader().uploadDeviceStatus();
             if (danaRPump.dailyTotalUnits > danaRPump.maxDailyTotalUnits * Constants.dailyLimitWarning) {
                 if (L.isEnabled(L.PUMP))
                     log.debug("Approaching daily limit: " + danaRPump.dailyTotalUnits + "/" + danaRPump.maxDailyTotalUnits);
                 if (System.currentTimeMillis() > lastApproachingDailyLimit + 30 * 60 * 1000) {
                     Notification reportFail = new Notification(Notification.APPROACHING_DAILY_LIMIT, MainApp.gs(R.string.approachingdailylimit), Notification.URGENT);
                     MainApp.bus().post(new EventNewNotification(reportFail));
-                    NSUpload.uploadError(MainApp.gs(R.string.approachingdailylimit) + ": " + danaRPump.dailyTotalUnits + "/" + danaRPump.maxDailyTotalUnits + "U");
+                    NSUpload.getActiveUploader().uploadError(MainApp.gs(R.string.approachingdailylimit) + ": " + danaRPump.dailyTotalUnits + "/" + danaRPump.maxDailyTotalUnits + "U");
                     lastApproachingDailyLimit = System.currentTimeMillis();
                 }
             }

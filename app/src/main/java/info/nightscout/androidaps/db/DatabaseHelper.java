@@ -1774,7 +1774,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                             if (L.isEnabled(L.DATABASE))
                                 log.debug("Profile switch prefilled with JSON from local store");
                             // Update data in NS
-                            NSUpload.updateProfileSwitch(profileSwitch);
+                            NSUpload.getActiveUploader().updateProfileSwitch(profileSwitch);
                         } else {
                             if (L.isEnabled(L.DATABASE))
                                 log.debug("JSON for profile switch doesn't exist. Ignoring: " + trJson.toString());

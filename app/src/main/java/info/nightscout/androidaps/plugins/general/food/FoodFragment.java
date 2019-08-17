@@ -297,7 +297,7 @@ public class FoodFragment extends SubscriberFragment {
                             public void onClick(DialogInterface dialog, int id) {
                                 final String _id = food._id;
                                 if (_id != null && !_id.equals("")) {
-                                    NSUpload.removeFoodFromNS(_id);
+                                    NSUpload.getActiveUploader().removeFoodFromNS(_id);
                                 }
                                 MainApp.getSpecificPlugin(FoodPlugin.class).getService().delete(food);
                             }

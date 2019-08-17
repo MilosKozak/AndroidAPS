@@ -62,7 +62,7 @@ public class TreatmentsCareportalFragment extends SubscriberFragment implements 
         @Override
         public void onBindViewHolder(CareportalEventsViewHolder holder, int position) {
             CareportalEvent careportalEvent = careportalEventList.get(position);
-            holder.ns.setVisibility(NSUpload.isIdValid(careportalEvent._id) ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(NSUpload.getActiveUploader().isIdValid(careportalEvent._id) ? View.VISIBLE : View.GONE);
             holder.date.setText(DateUtil.dateAndTimeString(careportalEvent.date));
             holder.note.setText(careportalEvent.getNotes());
             holder.type.setText(Translator.translate(careportalEvent.eventType));
@@ -109,8 +109,8 @@ public class TreatmentsCareportalFragment extends SubscriberFragment implements 
                         builder.setMessage(MainApp.gs(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(careportalEvent.date));
                         builder.setPositiveButton(MainApp.gs(R.string.ok), (dialog, id) -> {
                             final String _id = careportalEvent._id;
-                            if (NSUpload.isIdValid(_id)) {
-                                NSUpload.removeCareportalEntryFromNS(_id);
+                            if (NSUpload.getActiveUploader().isIdValid(_id)) {
+                                NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                             } else {
                                 UploadQueue.removeID("dbAdd", _id);
                             }
@@ -205,8 +205,8 @@ public class TreatmentsCareportalFragment extends SubscriberFragment implements 
             CareportalEvent careportalEvent = events.get(i);
             if (careportalEvent.json.contains(MainApp.gs(R.string.androidaps_start))) {
                 final String _id = careportalEvent._id;
-                if (NSUpload.isIdValid(_id)) {
-                    NSUpload.removeCareportalEntryFromNS(_id);
+                if (NSUpload.getActiveUploader().isIdValid(_id)) {
+                    NSUpload.getActiveUploader().removeCareportalEntryFromNS(_id);
                 } else {
                     UploadQueue.removeID("dbAdd", _id);
                 }

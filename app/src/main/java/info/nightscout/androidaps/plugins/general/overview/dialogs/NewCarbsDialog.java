@@ -428,7 +428,7 @@ public class NewCarbsDialog extends DialogFragment implements OnClickListener, C
                                 CarbsGenerator.createCarb(carbsAfterConstraints, time, CareportalEvent.CARBCORRECTION, notes);
                             } else {
                                 CarbsGenerator.generateCarbs(carbsAfterConstraints, time, duration, notes);
-                                NSUpload.uploadEvent(CareportalEvent.NOTE, now() - 2000, MainApp.gs(R.string.generated_ecarbs_note, carbsAfterConstraints, duration, timeOffset));
+                                NSUpload.getActiveUploader().uploadEvent(CareportalEvent.NOTE, now() - 2000, MainApp.gs(R.string.generated_ecarbs_note, carbsAfterConstraints, duration, timeOffset));
                             }
                         }
                     }

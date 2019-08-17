@@ -114,7 +114,7 @@ public class SourceEversensePlugin extends PluginBase implements BgSourceInterfa
                 bgReading.raw = 0;
                 boolean isNew = MainApp.getDbHelper().createIfNotExists(bgReading, "Eversense");
                 if (isNew && SP.getBoolean(R.string.key_dexcomg5_nsupload, false)) {
-                    NSUpload.uploadBg(bgReading, "AndroidAPS-Eversense");
+                    NSUpload.getActiveUploader().uploadCareportalBgCheck(bgReading, "AndroidAPS-Eversense");
                 }
                 if (isNew && SP.getBoolean(R.string.key_dexcomg5_xdripupload, false)) {
                     NSUpload.sendToXdrip(bgReading);
@@ -136,16 +136,14 @@ public class SourceEversensePlugin extends PluginBase implements BgSourceInterfa
             for (int i = 0; i < calibrationGlucoseLevels.length; i++) {
                 try {
                     if (MainApp.getDbHelper().getCareportalEventFromTimestamp(calibrationTimestamps[i]) == null) {
-                        JSONObject data = new JSONObject();
-                        data.put("enteredBy", "AndroidAPS-Eversense");
-                        data.put("created_at", DateUtil.toISOString(calibrationTimestamps[i]));
-                        data.put("eventType", CareportalEvent.BGCHECK);
-                        data.put("glucoseType", "Finger");
-                        data.put("glucose", calibrationGlucoseLevels[i]);
-                        data.put("units", Constants.MGDL);
-                        NSUpload.uploadCareportalEntryToNS(data);
+                        NSUpload.getActiveUploader().uploadCareportalBgCheck(
+                                DateUtil.toISOString(calibrationTimestamps[i]),
+                                "AndroidAPS-Eversense",
+                                "Finger", calibrationGlucoseLevels[i],
+                                Constants.MGDL, null
+                        );
                     }
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     log.error("Unhandled exception", e);
                 }
             }
