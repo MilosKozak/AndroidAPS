@@ -1298,6 +1298,8 @@
     <!-- MDT Configuration -->
     <string name="medtronic_serial_number">Σειριακός Αριθμός Αντλίας</string>
     <string name="medtronic_pump_type">Τύπος Αντλίας</string>
+    <string name="medtronic_pump_frequency">Συχνότητα Αντλίας</string>
+    <string name="medtronic_pump_bolus_delay">Η καθυστέρηση πριν το bolus ξεκίνησε (s)</string>
     <string name="medtronic_pump_max_bolus">Μέγιστο Bolus στην αντλία (U)</string>
     <string name="medtronic_pump_max_basal">Μέγιστος Βασικός στην αντλία (U/h)</string>
     <string name="medtronic_pump_encoding">Αποκωδικοποίηση Medtronic</string>
@@ -1351,11 +1353,57 @@
     <!-- RL State -->
     <string name="rileylink_state_bt_init">Επαναφορά Bluetooth…</string>
     <string name="rileylink_state_bt_error">Σφάλμα Bluetooth</string>
+    <string name="rileylink_state_bt_ready">Bluetooth Έτοιμο</string>
+    <string name="rileylink_state_not_started">Δεν ξεκίνησε</string>
+    <string name="rileylink_state_rl_init">Αρχικοποίηση του RileyLink…</string>
+    <string name="rileylink_state_rl_error">RileyLink Σφάλμα</string>
+    <string name="rileylink_state_pc_tune_up">Ρύθμιση του RileyLink και της αντλίας</string>
+    <string name="rileylink_state_pc_error">Πρόβλημα σύνδεσης με την Αντλία</string>
+    <string name="rileylink_state_connected">Συνδέθηκε</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_not_rl">Η συσκευή δεν είναι RileyLink</string>
+    <string name="rileylink_error_unreachable">Το RileyLink μη προσπελάσιμο</string>
+    <string name="rileylink_error_bt_disabled">Bluetooth απενεργοποιημένο</string>
+    <string name="rileylink_error_no_bt_adapter">Δεν υπάρχει προσαρμογέας Bluetooth</string>
+    <string name="rileylink_error_tuneup_failed">TuneUp απέτυχε</string>
+    <string name="rileylink_error_pump_unreachable">Η αντλία δεν είναι διαθέσιμη</string>
+    <string name="rileylink_error_pod_unreachable">Το Pod δεν είναι διαθέσιμο</string>
+    <string name="rileylink_error_address_not_set_short">Μη ορισμένο</string>
     <!-- RL Target Device -->
+    <string name="rileylink_target_device_medtronic">Αντλία Medtronic</string>
+    <string name="rileylink_target_device_omnipod">Omnipod</string>
     <!-- MDT Errors -->
+    <string name="medtronic_errors">Σφάλματα</string>
+    <string name="medtronic_error_serial_not_set">Δεν ορίστηκε # Serial.</string>
+    <string name="medtronic_error_serial_invalid">Serial # μη έγκυρο.</string>
+    <string name="medtronic_error_pump_type_not_set">Δεν ορίστηκε Τύπος Αντλίας.</string>
+    <string name="medtronic_error_pump_type_invalid">Τύπος Αντλίας δεν υποστηρίζεται.</string>
+    <string name="medtronic_error_pump_frequency_not_set">Δεν ορίστηκε Συχνότητα Αντλίας.</string>
+    <string name="medtronic_error_pump_frequency_invalid">Συχνότητα Αντλίας δεν υποστηρίζεται.</string>
+    <string name="medtronic_error_rileylink_address_invalid">Διεύθυνση RileyLink μη έγκυρη.</string>
+    <string name="medtronic_error_pump_type_set_differs_from_detected">Ο τύπος αντλίας που ανιχνεύτηκε δεν είναι ο ίδιος με αυτόν που ορίστηκε.</string>
+    <string name="medtronic_error_pump_basal_profiles_not_enabled">Τα προφίλ βασικού δεν είναι ενεργοποιημένα στην αντλία.</string>
+    <string name="medtronic_error_pump_incorrect_basal_profile_selected">Το βασικό προφίλ που ορίστηκε στην αντλία είναι λάθoς (πρέπει να είναι STD).</string>
+    <string name="medtronic_error_pump_wrong_tbr_type_set">Λάθος τύπος TBR ορίστηκε στην αντλία (πρέπει να είναι Absolute).</string>
+    <string name="medtronic_error_pump_wrong_max_bolus_set">Λάθος μέγιστο bolus ορίστηκε στην αντλία (πρέπει να είναι %1$.2f).</string>
+    <string name="medtronic_error_pump_wrong_max_basal_set">Λάθος μέγιστο Βασικού ορίστηκε στην αντλία (πρέπει να είναι %1$.2f).</string>
+    <string name="medtronic_error_operation_not_possible_no_configuration">Λειτουργία δεν είναι δυνατή. \n\n Χρειάζεται να ρυθμίσετε την αντλία Medtronic πρώτα, προτού να μπορέσετε να χρησιμοποιήσετε αυτή την λειτουργία.</string>
+    <string name="medtronic_error_pump_24h_time_change_requested">Απαιτήθηκε αλλαγή ώρας πάνω από 24h.</string>
     <!-- MDT History -->
+    <string name="medtronic_history_group_basal">Βασικοί</string>
+    <string name="medtronic_history_group_configuration">Ρύθμιση παραμέτρων</string>
+    <string name="medtronic_history_group_notification">Ειδοποιήσεις</string>
+    <string name="medtronic_history_group_statistic">Στατιστικά</string>
+    <string name="medtronic_history_group_unknown">Άγνωστα</string>
+    <string name="medtronic_history_group_all">Όλα</string>
+    <string name="medtronic_pump_history">Ιστορικό Αντλίας Medtronic</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_never_contacted">Ποτέ δεν επικοινωνήσατε</string>
+    <string name="medtronic_pump_status_waking_up">Ξύπνημα</string>
+    <string name="medtronic_pump_status_error_comm">Σφάλμα με επικοινωνία</string>
+    <string name="medtronic_pump_status_timeout_comm">Λήξη χρόνου επικοινωνίας</string>
+    <string name="medtronic_pump_status_problem_contacting">Πρόβλημα επικοινωνίας με Αντλία</string>
+    <string name="medtronic_pump_status_pump_unreachable">Η αντλία δεν είναι διαθέσιμη</string>
     <string name="medtronic_pump_status_invalid_config">Μη έγκυρη παραμετροποίηση</string>
     <string name="medtronic_pump_status_active">Ενεργή</string>
     <string name="medtronic_pump_status_sleeping">Sleeping</string>
