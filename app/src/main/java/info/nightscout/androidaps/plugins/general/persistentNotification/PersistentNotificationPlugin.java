@@ -54,15 +54,18 @@ public class PersistentNotificationPlugin extends PluginBase {
     private static PersistentNotificationPlugin plugin;
     private Notification notification;
 
+    static {
+        plugin = new PersistentNotificationPlugin();
+        plugin.notification = plugin.updateNotification();
+    }
+
     public static PersistentNotificationPlugin getPlugin() {
-        if (plugin == null) plugin = new PersistentNotificationPlugin(MainApp.instance());
         return plugin;
     }
 
-    public static final String CHANNEL_ID = "AndroidAPS-Ongoing";
+    private static final String CHANNEL_ID = "AndroidAPS-Ongoing";
 
     public static final int ONGOING_NOTIFICATION_ID = 4711;
-    private final Context ctx;
 
     /// For Android Auto
     /// Intents are not declared in manifest and not consumed, this is intentionally because actually we can't do anything with
@@ -76,7 +79,7 @@ public class PersistentNotificationPlugin extends PluginBase {
     /// End Android Auto
 
 
-    private PersistentNotificationPlugin(Context ctx) {
+    private PersistentNotificationPlugin() {
         super(new PluginDescription()
                 .mainType(PluginType.GENERAL)
                 .neverVisible(true)
@@ -86,24 +89,21 @@ public class PersistentNotificationPlugin extends PluginBase {
                 .showInList(false)
                 .description(R.string.description_persistent_notification)
         );
-        this.ctx = ctx;
     }
 
     @Override
     protected void onStart() {
-        createNotificationChannel(); // make sure channels exist before triggering updates through the bus
-        MainApp.bus().register(this);
-        triggerNotificationUpdate();
         super.onStart();
+        createNotificationChannel(); // make sure channels exist before triggering updates through the bus
+        triggerNotificationUpdate();
+        MainApp.bus().register(this);
     }
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-            NotificationManager mNotificationManager =
-                    (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-            @SuppressLint("WrongConstant") NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
-                    CHANNEL_ID,
+            NotificationManager mNotificationManager = (NotificationManager) MainApp.instance()
+                    .getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID,
                     NotificationManager.IMPORTANCE_HIGH);
             mNotificationManager.createNotificationChannel(channel);
         }
@@ -113,6 +113,7 @@ public class PersistentNotificationPlugin extends PluginBase {
     protected void onStop() {
         MainApp.bus().unregister(this);
         MainApp.instance().stopService(new Intent(MainApp.instance(), DummyService.class));
+        super.onStop();
     }
 
     private void triggerNotificationUpdate() {
@@ -123,7 +124,7 @@ public class PersistentNotificationPlugin extends PluginBase {
     }
 
     @Nonnull
-    public Notification updateNotification() {
+    private synchronized Notification updateNotification() {
         String line1 = null;
         String line2 = null;
         String line3 = null;
@@ -185,7 +186,7 @@ public class PersistentNotificationPlugin extends PluginBase {
                     .setPackage(PACKAGE);
 
             PendingIntent msgReadPendingIntent =
-                    PendingIntent.getBroadcast(ctx,
+                    PendingIntent.getBroadcast(MainApp.instance(),
                             ONGOING_NOTIFICATION_ID,
                             msgReadIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
@@ -197,7 +198,7 @@ public class PersistentNotificationPlugin extends PluginBase {
                     .setPackage(PACKAGE);
 
             PendingIntent msgReplyPendingIntent = PendingIntent.getBroadcast(
-                    ctx,
+                    MainApp.instance(),
                     ONGOING_NOTIFICATION_ID,
                     msgReplyIntent,
                     PendingIntent.FLAG_UPDATE_CURRENT);
@@ -217,12 +218,12 @@ public class PersistentNotificationPlugin extends PluginBase {
             /// End Android Auto
         }
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(ctx, CHANNEL_ID);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(MainApp.instance(), CHANNEL_ID);
         builder.setOngoing(true);
         builder.setOnlyAlertOnce(true);
         builder.setCategory(NotificationCompat.CATEGORY_STATUS);
         builder.setSmallIcon(MainApp.getNotificationIcon());
-        Bitmap largeIcon = BitmapFactory.decodeResource(ctx.getResources(), MainApp.getIcon());
+        Bitmap largeIcon = BitmapFactory.decodeResource(MainApp.instance().getResources(), MainApp.getIcon());
         builder.setLargeIcon(largeIcon);
         builder.setContentTitle(line1 != null ? line1 : MainApp.gs(R.string.noprofileset));
         builder.setContentText(line2 != null ? line2 : MainApp.gs(R.string.noprofileset));
@@ -235,9 +236,9 @@ public class PersistentNotificationPlugin extends PluginBase {
         /// End Android Auto
 
 
-        Intent resultIntent = new Intent(ctx, MainActivity.class);
+        Intent resultIntent = new Intent(MainApp.instance(), MainActivity.class);
 
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(ctx);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(MainApp.instance());
         stackBuilder.addParentStack(MainActivity.class);
         stackBuilder.addNextIntent(resultIntent);
         PendingIntent resultPendingIntent =
@@ -247,11 +248,10 @@ public class PersistentNotificationPlugin extends PluginBase {
                 );
         builder.setContentIntent(resultPendingIntent);
         NotificationManager mNotificationManager =
-                (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+                (NotificationManager) MainApp.instance().getSystemService(Context.NOTIFICATION_SERVICE);
 
         android.app.Notification notification = builder.build();
         mNotificationManager.notify(ONGOING_NOTIFICATION_ID, notification);
-        this.notification = notification;
         return notification;
     }
 
@@ -278,8 +278,7 @@ public class PersistentNotificationPlugin extends PluginBase {
      */
 
     public Notification getLastNotification() {
-        if (notification != null) return  notification;
-        else return new Notification();
+        return notification;
     }
 
 
