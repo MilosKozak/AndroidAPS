@@ -1250,7 +1250,6 @@ Eversense-appen.</string>
     <string name="old_version">gammal version</string>
     <string name="very_old_version">väldigt gammal version</string>
     <string name="new_version_warning">Ny version tillgänglig sedan %1$d dagar! Systemet kommer att byta läge till \"stopp innan lågt\" efter 60 dagar och sluta loopa helt efter 90 dagar</string>
-    <string name="scale_insulin_activity">Skala för insulinaktivitet [U/min]</string>
     <string name="twohours">2 tim</string>
     <string name="formatinsulinunits">%1$.2f enheter</string>
     <string name="dexcom_app_patched">Dexcoms app (modifierad)</string>
@@ -1415,6 +1414,7 @@ Eversense-appen.</string>
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Kunde inte avbryta nuvarande temp basal. Avbryter kommandot.</string>
     <string name="medtronic_cmd_set_profile_pattern_overflow">Misslyckades med att sätta basalprofilen. Följande timmar har för högt värde angivet: %1$s</string>
     <string name="medtronic_cmd_bolus_could_not_be_delivered">Bolus misslyckades.</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered_no_insulin">En bolus om %2$.2f enheter kan inte levereras när reservoaren bara innehåller %1$.2f enheter.</string>
     <string name="medtronic_cmd_tbr_could_not_be_delivered">Temp basal kunde inte anges.</string>
     <string name="medtronic_cmd_cant_cancel_tbr">Kunde inte avbryta temp basal.</string>
     <string name="medtronic_cmd_basal_profile_could_not_be_set">Kunde inte byta basalprofil.</string>
