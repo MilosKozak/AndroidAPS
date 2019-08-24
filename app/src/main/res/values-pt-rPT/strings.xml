@@ -18,6 +18,7 @@
     <string name="danar_bt_name_title">Dispositivo Bluetooth DanaR</string>
     <string name="ns_sync_use_absolute_title">Usar sempre valores absolutos de basal</string>
     <string name="alert_dialog_storage_permission_text">Por favor, reinicie o seu telefone ou reinicie o AndroidAPS a partir das Configurações do Sistema \ncaso contrário, o AndroidAPS não terá registro (importante para controlar e verificar se os algoritmos estão a funcionar corretamente)!</string>
+    <string name="alert_dialog_permission_battery_optimization_failed">Este dispositivo não parece suportar a optimização de bateria na lista de permissões - pode ter problemas de desempenho.</string>
     <string name="description_actions">Alguns botões para aceder rapidamente a funções comuns</string>
     <string name="description_careportal">Inserir as entradas avançadas do livro de registo.</string>
     <string name="description_config_builder">Usado para configurar os plugins ativos</string>
