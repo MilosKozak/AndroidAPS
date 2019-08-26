@@ -1438,6 +1438,7 @@ Unerwartetes Verhalten.</string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus-Einschränkung angewendet: %2$.2fU zu %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!! Langsamer Kohlyenhydrate-Abbau erkannt: %2$d%% der Zeit. Überprüfe deine Berechnung. COB könnte sehr falsch sein !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d IE</string>
+    <string name="loading">Lädt ...</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d Tag</item>
         <item quantity="other">%1$d Tage</item>
