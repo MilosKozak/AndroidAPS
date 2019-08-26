@@ -1438,6 +1438,7 @@ Context | Edit Context</string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Применено ограничение на болюс: %2$.2fед до %3$.2fед</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Обнаружено медленное всасывание углеводов: %2$d%% времени. Еще раз проверьте свои расчеты. Возможно акт углеводы COB вне диапазона !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f/%2$d ед</string>
+    <string name="loading">Загрузка...</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d день</item>
         <item quantity="few">%1$d дня</item>
