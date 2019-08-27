@@ -1270,6 +1270,7 @@
     <string name="autosenslabel">Autosens %</string>
     <string name="deltacompared">%3$s %1$s %2$s</string>
     <string name="deltalabel">Diferență glicemie</string>
+    <string name="deltalabel_u">Diferență glicemie [%1$s]</string>
     <string name="currentlocation">Localizarea curentă</string>
     <string name="location">Localizare</string>
     <string name="latitude_short">Lat:</string>
@@ -1434,7 +1435,11 @@
     <string name="pump_no_connection_d">Fără conexiune de %1$d zi/le și %2$d hours</string>
     <string name="insulinFromCob"><![CDATA[Insulină COB: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Restricție de bolus aplicată: %2$.2fU la %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! A fost detectată o absorbție lentă a carbohidraților: %2$d%% din timp. Reverificați calculele. COB poate fi supraestimat, astfel că este posibilă administrarea de mai multă insulină !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
+    <string name="partialboluswizard">Livrați doar partea aceasta din rezultatul sugerat de wizard [%]</string>
+    <string name="deliverpartofboluswizard">Wizard bolus face un calcul, dar numai o parte din insulina calculată este și livrată. Este mai eficient când se folosește cu algoritmul SMB.</string>
+    <string name="loading">Se încarcă ...</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d zi</item>
         <item quantity="few">%1$d zi</item>
