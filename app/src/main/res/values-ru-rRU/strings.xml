@@ -1436,7 +1436,6 @@ Context | Edit Context</string>
     <string name="pump_no_connection_d">Нет соединения %1$d дней %2$d часов</string>
     <string name="insulinFromCob"><![CDATA[COB инсулин: <font color=\'%1$s\'>%2$.1fг %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Применено ограничение на болюс: %2$.2fед до %3$.2fед</font>]]></string>
-    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Обнаружено медленное всасывание углеводов: %2$d%% времени. Еще раз проверьте свои расчеты. Возможно акт углеводы COB вне диапазона !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f/%2$d ед</string>
     <string name="loading">Загрузка...</string>
     <plurals name="objective_days">
