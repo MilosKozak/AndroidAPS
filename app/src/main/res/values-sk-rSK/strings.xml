@@ -1433,7 +1433,6 @@
     <string name="pump_no_connection_d">Žiadne spojenie v trvaní %1$d dní %2$d hodin</string>
     <string name="insulinFromCob"><![CDATA[Inzulín z COB: <font color=\'%1$s\'>%2$.1fg %3$.2fJI</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Aplikované obmedzenie bolusu: %2$.2fJI na %3$.2fJI</font>]]></string>
-    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Detekovaná pomalá absorbcia sacharidov: %2$d%% času. Prekontrolujte kalkuláciu. COB môže byť úplne iné !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d JI</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d deň</item>
