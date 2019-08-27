@@ -1436,7 +1436,6 @@ Unerwartetes Verhalten.</string>
     <string name="pump_no_connection_d">Keine Verbindung für %1$d Tag(e) und %2$d Stunde(n)</string>
     <string name="insulinFromCob"><![CDATA[COB Insulin: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus-Einschränkung angewendet: %2$.2fU zu %3$.2fU</font>]]></string>
-    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!! Langsamer Kohlyenhydrate-Abbau erkannt: %2$d%% der Zeit. Überprüfe deine Berechnung. COB könnte sehr falsch sein !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d IE</string>
     <string name="loading">Lädt ...</string>
     <plurals name="objective_days">
