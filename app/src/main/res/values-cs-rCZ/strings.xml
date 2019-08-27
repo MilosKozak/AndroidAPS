@@ -1270,6 +1270,7 @@
     <string name="autosenslabel">Autosens %</string>
     <string name="deltacompared">%3$s %1$s %2$s</string>
     <string name="deltalabel">Rozdíl glykémie</string>
+    <string name="deltalabel_u">Rozdíl glykémie [%1$s]</string>
     <string name="currentlocation">Současná poloha</string>
     <string name="location">Poloha</string>
     <string name="latitude_short">Zem. šířka:</string>
@@ -1436,6 +1437,7 @@
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Aplikováno omezení bolusu: %2$.2fU na %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Detekována pomalá absorbce sacharidů: %2$d%% času. Překontrolujte kalkulaci. COB může být o hodně jinak !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
+    <string name="loading">Načítání…</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d den</item>
         <item quantity="few">%1$d dnů</item>
