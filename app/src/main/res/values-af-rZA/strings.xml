@@ -1433,7 +1433,6 @@
     <string name="pump_no_connection_d">Geen konneksie na %1$d dae %2$d ure</string>
     <string name="insulinFromCob"><![CDATA[KOB insulin: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus beperking aangewend: %2$.2fU to %3$.2fU</font>]]></string>
-    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Stadige Karbs gespeur: %2$d%% van die tyd Gaan u berekeninge na,. KOB Kan verkeerd wees !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dae</item>
