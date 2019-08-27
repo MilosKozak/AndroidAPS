@@ -1436,7 +1436,6 @@ Eversense-appen.</string>
     <string name="pump_no_connection_d">Ingen anslutning på %1$d d %2$d tim</string>
     <string name="insulinFromCob"><![CDATA[COB insulin: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolusbegränsning: %2$.2fU till %3$.2fU</font>]]></string>
-    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>Varning! Långsam KH-absorption upptäckt %2$d%% av tiden. Dubbelkolla din beräkning. COB kan vara väldigt missvisande!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
     <string name="loading">Laddar...</string>
     <plurals name="objective_days">
