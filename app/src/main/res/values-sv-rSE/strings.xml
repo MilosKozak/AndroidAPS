@@ -1271,6 +1271,7 @@ Eversense-appen.</string>
     <string name="autosenslabel">Autosens %</string>
     <string name="deltacompared">%3$s %1$s %2$s</string>
     <string name="deltalabel">Skillnad</string>
+    <string name="deltalabel_u">BG-skillnad [%1$s]</string>
     <string name="currentlocation">Nuvarande plats</string>
     <string name="location">Plats</string>
     <string name="latitude_short">Lat:</string>
