@@ -1376,6 +1376,7 @@ Context | Edit Context</string>
     <string name="partialboluswizard">Подать эту часть рекомендации мастера болюса [%]</string>
     <string name="deliverpartofboluswizard">Мастер болюса выполняет расчет, но подана только эта часть рекомендуемого инсулина. Полезно с алгоритмом SMB.</string>
     <string name="loading">Загрузка...</string>
+    <string name="snooze">Отложить</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d день</item>
         <item quantity="few">%1$d дня</item>
