@@ -1374,6 +1374,7 @@
     <string name="partialboluswizard">Eroga questa parte del risultato del bolus wizard [%]</string>
     <string name="deliverpartofboluswizard">Bolus wizard esegue il calcolo, ma solo questa parte dell\'insulina calcolata è erogata. Utile con algoritmo SMB.</string>
     <string name="loading">Caricamento ...</string>
+    <string name="snooze">Snooze</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d giorno</item>
         <item quantity="other">%1$d giorni</item>
