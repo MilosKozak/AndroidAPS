@@ -1272,6 +1272,7 @@ Context | Edit Context</string>
     <string name="autosenslabel">Автосенс %</string>
     <string name="deltacompared">%3$s%1$s%2$s</string>
     <string name="deltalabel">Разница Гк</string>
+    <string name="deltalabel_u">Разница ГК [%1$s]</string>
     <string name="currentlocation">Текущее местоположение</string>
     <string name="location">Местоположение</string>
     <string name="latitude_short">Широта:</string>
@@ -1436,7 +1437,10 @@ Context | Edit Context</string>
     <string name="pump_no_connection_d">Нет соединения %1$d дней %2$d часов</string>
     <string name="insulinFromCob"><![CDATA[COB инсулин: <font color=\'%1$s\'>%2$.1fг %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Применено ограничение на болюс: %2$.2fед до %3$.2fед</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Обнаружено медленное всасывание углеводов: %2$d%% времени. Еще раз проверьте свои расчеты. Возможно акт углеводы COB вне диапазона и может быть подано больше инсулина!!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f/%2$d ед</string>
+    <string name="partialboluswizard">Подать эту часть рекомендации мастера болюса [%]</string>
+    <string name="deliverpartofboluswizard">Мастер болюса выполняет расчет, но подана только эта часть рекомендуемого инсулина. Полезно с алгоритмом SMB.</string>
     <string name="loading">Загрузка...</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d день</item>
