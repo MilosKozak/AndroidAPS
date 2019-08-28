@@ -1435,6 +1435,7 @@
     <string name="pump_no_connection_d">Nessuna connessione per %1$d giorno(i) e %2$d ore</string>
     <string name="insulinFromCob"><![CDATA[Insulina COB: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Vincolo Bolo applicato: %2$.2fU a %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Rilevato assorbimento lento dei carboidrati: %2$d%% del tempo. Ricontrolla il tuo calcolo. COB potrebbero essere sovrastimati e potrebbe essere somministrata più insulina !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
     <string name="partialboluswizard">Eroga questa parte del risultato del bolus wizard [%]</string>
     <string name="deliverpartofboluswizard">Bolus wizard esegue il calcolo, ma solo questa parte dell\'insulina calcolata è erogata. Utile con algoritmo SMB.</string>
