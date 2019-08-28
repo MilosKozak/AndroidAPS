@@ -1270,6 +1270,7 @@
     <string name="autosenslabel">Autosens %</string>
     <string name="deltacompared">%3$s %1$s %2$s</string>
     <string name="deltalabel">Differenza Glicemia</string>
+    <string name="deltalabel_u">Differenza Glicemia [%1$s]</string>
     <string name="currentlocation">Posizione corrente</string>
     <string name="location">Posizione</string>
     <string name="latitude_short">Lat:</string>
@@ -1435,6 +1436,9 @@
     <string name="insulinFromCob"><![CDATA[Insulina COB: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Vincolo Bolo applicato: %2$.2fU a %3$.2fU</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
+    <string name="partialboluswizard">Eroga questa parte del risultato del bolus wizard [%]</string>
+    <string name="deliverpartofboluswizard">Bolus wizard esegue il calcolo, ma solo questa parte dell\'insulina calcolata è erogata. Utile con algoritmo SMB.</string>
+    <string name="loading">Caricamento ...</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d giorno</item>
         <item quantity="other">%1$d giorni</item>
