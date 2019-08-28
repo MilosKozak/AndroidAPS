@@ -18,6 +18,7 @@
     <string name="danar_bt_name_title">DanaR Bluetooth zariadenie</string>
     <string name="ns_sync_use_absolute_title">Vždy používaj absolútne hodnoty bazálov</string>
     <string name="alert_dialog_storage_permission_text">Prosím reštartuj svoj telefón, alebo reštartuj AndroidAPS zo systémových nastavení, v opačnom prípade AndroidAPS nebude mocť zapisovať údaje (dôležité kvôli sledovaniu a overovaniu, že algoritmus pracuje správne)!</string>
+    <string name="alert_dialog_permission_battery_optimization_failed">Toto zariadenie zrejme neumožňuje vypnúť optimalizáciu batérie - môže dochádzať k problémom s výkonom.</string>
     <string name="description_actions">Niektoré tlačidlá na rýchly prístup do spoločných funkcií</string>
     <string name="description_careportal">Zadávanie udalostí pre management diabetu.</string>
     <string name="description_config_builder">Používané na konfiguráciu aktívnych pluginov</string>
@@ -1269,6 +1270,7 @@
     <string name="autosenslabel">Autosens %</string>
     <string name="deltacompared">%3$s %1$s %2$s</string>
     <string name="deltalabel">Rozdiel glykémie</string>
+    <string name="deltalabel_u">Rozdiel glykémie [%1$s]</string>
     <string name="currentlocation">Súčasná poloha</string>
     <string name="location">Poloha</string>
     <string name="latitude_short">Lat:</string>
@@ -1433,7 +1435,11 @@
     <string name="pump_no_connection_d">Žiadne spojenie v trvaní %1$d dní %2$d hodin</string>
     <string name="insulinFromCob"><![CDATA[Inzulín z COB: <font color=\'%1$s\'>%2$.1fg %3$.2fJI</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Aplikované obmedzenie bolusu: %2$.2fJI na %3$.2fJI</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Detekovaná pomalá absorbcia sacharidov: %2$d%% času. Prekontrolujte kalkuláciu. COB môže byť úplne iné, môže byť podaného viac inzulínu!!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d JI</string>
+    <string name="partialboluswizard">Podaj túto časť z výsledku kalkulácie [%]</string>
+    <string name="deliverpartofboluswizard">Bolusová kalkulačka urobí výpočet, ale iba táto časť vypočítaného inzulínu je podaná. Pomáha pri SMB algoritme.</string>
+    <string name="loading">Načítavanie...</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d deň</item>
         <item quantity="few">%1$d dní</item>
