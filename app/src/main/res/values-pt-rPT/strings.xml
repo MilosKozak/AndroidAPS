@@ -1374,6 +1374,7 @@
     <string name="partialboluswizard">Entregue esta parte do resultado do assistente de bólus [%]</string>
     <string name="deliverpartofboluswizard">Assistente de bólus executa o cálculo, mas apenas esta parte da insulina calculada é entregue. Útil com o algoritmo SMB.</string>
     <string name="loading">A carregar ...</string>
+    <string name="snooze">Silenciar</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dia</item>
         <item quantity="other">%1$d dias</item>
