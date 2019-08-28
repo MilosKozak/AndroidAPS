@@ -1372,6 +1372,7 @@ Eversense-appen.</string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolusbegränsning: %2$.2fU till %3$.2fU</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
     <string name="loading">Laddar...</string>
+    <string name="snooze">Snooze</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dag</item>
         <item quantity="other">%1$d dagar</item>
