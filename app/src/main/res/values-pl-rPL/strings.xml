@@ -1270,6 +1270,7 @@
     <string name="autosenslabel">Autosens %</string>
     <string name="deltacompared">%3$s %1$s %2$s</string>
     <string name="deltalabel">Różnica poziomu cukru</string>
+    <string name="deltalabel_u">Różnica poziomu cukru [%1$s]</string>
     <string name="currentlocation">Obecna lokalizacja</string>
     <string name="location">Lokalizacja</string>
     <string name="latitude_short">Szerokość:</string>
