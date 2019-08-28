@@ -1374,6 +1374,7 @@
     <string name="partialboluswizard">Podat tuto část z výsledku kalkulace [%]</string>
     <string name="deliverpartofboluswizard">Kalkulátor provede výpočet, ale dodána je pouze tato část inzulínu. Výhodné při používání SMB algoritmu.</string>
     <string name="loading">Načítání…</string>
+    <string name="snooze">Ztišit</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d den</item>
         <item quantity="few">%1$d dnů</item>
