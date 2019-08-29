@@ -86,7 +86,7 @@ class MedtronicFragment : Fragment() {
                 MedtronicPumpPlugin.getPlugin().resetStatusState()
                 ConfigBuilderPlugin.getPlugin().commandQueue.readStatus("Clicked refresh", object : Callback() {
                     override fun run() {
-                        activity?.runOnUiThread { medtronic_refresh.isEnabled = true }
+                        activity?.runOnUiThread { medtronic_refresh?.isEnabled = true }
                     }
                 })
             }
@@ -99,8 +99,6 @@ class MedtronicFragment : Fragment() {
                 MedtronicUtil.displayNotConfiguredDialog(context)
             }
         }
-
-        updateGUI()
     }
 
     @Synchronized
@@ -133,6 +131,8 @@ class MedtronicFragment : Fragment() {
                     MedtronicUtil.getPumpStatus().verifyConfiguration()
                     updateGUI()
                 }, { FabricPrivacy.logException(it) })
+
+        updateGUI()
     }
 
     @Synchronized
