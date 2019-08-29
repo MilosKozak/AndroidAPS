@@ -34,6 +34,7 @@
     <string name="description_smb">Najnowszy algorytm dla zaawansowanych użytkowników</string>
     <string name="description_overview">Wyświetla bieżący stan twojej pętli i przyciski dla większości typowych działań</string>
     <string name="description_persistent_notification">Wyświetla bieżące powiadomienia z krótkim omówieniem działania pętli</string>
+    <string name="description_profile_local">Zdefiniuj profil, który jest dostępny offline.</string>
     <string name="description_profile_nightscout">Użycie profilu, który zdefiniowałeś w Nightscout</string>
     <string name="description_profile_simple">Zdefiniuj profil z tylko jednym blokiem czasowym.</string>
     <string name="description_pump_combo">Integracja z pompą Accu-Chek Combo, wymaga zainstalowania sterownika ruffy</string>
@@ -951,6 +952,7 @@
     <string name="sensitivitysetup">Skonfiguruj wtyczkę wrażliwości</string>
     <string name="setupwizard_sensitivity_description">Wtyczka wrażliwości używana jest w celu określenia wrażliwości i kalkulacji COB. Więcej informacji na:</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+    <string name="nsclientinfotext">NSClient obsługuje połączenia z Nightscout. Można teraz pominąć tę część, ale nie będziesz mógł wykonać Zadań (programu do nauki), dopóki nie dokończysz tej konfiguracji.</string>
     <string name="diawarning">Pamiętaj: nowe profile insuliny wymagają ustawienia DIA (czas działania insuliny) powyżej 5h. DIA między 5-6h na nowym profilu odpowiada 3h DIA na starych profilach insuliny.</string>
     <string name="bgsourcesetup">Skonfiguruj źródło BG</string>
     <string name="setupwizard_profile_description">Proszę wybrać źródło profilu. Jeśli pacjent jest dzieckiem, należy skorzystać z profilu Nightscout. Jeśli nikt nie obserwuje twojej terapii przez Nightscout, prawdopodobnie wolisz profil Lokalny. Przypomnienie - wybierasz tylko źródło profilu. Musisz go później aktywować za pomocą \"Przełącznika profilu\"</string>
@@ -1373,6 +1375,7 @@
     <string name="partialboluswizard">Dostarcz tą część dawki insuliny z wyniku kalkulatora bolusa [%]</string>
     <string name="deliverpartofboluswizard">Kreator bolusa wykonuje obliczenia, ale tylko ta część obliczonej dawki insuliny jest dostarczana. Pomocne z algorytmem SMB.</string>
     <string name="loading">Wczytuję...</string>
+    <string name="snooze">Wycisz</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dzień</item>
         <item quantity="few">%1$d dni</item>
