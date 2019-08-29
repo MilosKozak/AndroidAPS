@@ -18,6 +18,7 @@
     <string name="danar_bt_name_title">DanaR Bluetooth apparaat</string>
     <string name="ns_sync_use_absolute_title">Gebruik altijd absolute basale waarden</string>
     <string name="alert_dialog_storage_permission_text">Herstart je telefoon of herstart AndroidAPS vanuit de systeem instellingen a. u. b. \nanders zal AndroidAPS geen logboek hebben (Belangrijk om te controleren of de algoritmes correct werken)!</string>
+    <string name="alert_dialog_permission_battery_optimization_failed">Dit apparaat lijkt geen ondersteuning te bieden voor whitelisten voor batterijoptimalisatie - u kunt prestatieproblemen ervaren.</string>
     <string name="description_actions">Een aantal knoppen voor snelle toegang tot algemene functies</string>
     <string name="description_careportal">Voer geavanceerde logboekitems in.</string>
     <string name="description_config_builder">Gebruikt om actieve plugins te configureren</string>
@@ -33,8 +34,9 @@
     <string name="description_smb">Meest recente algoritme voor gevorderde gebruikers</string>
     <string name="description_overview">Toont de huidige Loop-status en knoppen voor meest gebruikte acties</string>
     <string name="description_persistent_notification">Toont een permanente melding met een beknopt overzicht van hetgeen de Loop momenteel doet</string>
-    <string name="description_profile_nightscout">Geeft het profiel dat je hebt gedefinieerd in Nightscout</string>
-    <string name="description_profile_simple">Definieer een profiel met slechts één tijdsblok.</string>
+    <string name="description_profile_local">Maak een profiel dat je offline kunt gebruiken.</string>
+    <string name="description_profile_nightscout">Gebruik profiel(en) die je hebt aangemaakt in Nightscout</string>
+    <string name="description_profile_simple">Maak een profiel met slechts één tijdsblok.</string>
     <string name="description_pump_combo">Pomp integratie voor Accu-Chek Combo pompen, vereist dat ruffy geïnstalleerd is</string>
     <string name="description_pump_dana_r">Pomp integratie voor DANA Diabecare R pompen</string>
     <string name="description_pump_dana_r_korean">Pomp integratie voor inheemse DANA Diabecare R pompen</string>
@@ -950,6 +952,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="sensitivitysetup">Gevoeligheid plugin configureren</string>
     <string name="setupwizard_sensitivity_description">Gevoeligheid plugin wordt gebruikt voor de detectie van de gevoeligheid en COB berekening. Voor meer info bezoek:</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+    <string name="nsclientinfotext">NSClient zorgt voor verbinding met Nightscout. Je kunt dit deel nu overslaan, maar pas de Doelen afronden als je het hebt ingesteld.</string>
     <string name="diawarning">Onthoud: nieuwe insuline profielen vereisen een minimale DIA van 5 uur. DIA 5 – 6h op nieuw profiel is gelijk aan DIA 3h op oude insuline profielen.</string>
     <string name="bgsourcesetup">BG bron configureren</string>
     <string name="setupwizard_profile_description">Kies een bron van het profiel. Als de patiënt een kind is, moet u het NS-profiel gebruiken. Als er niemand is die je volgt op Nightscout, zul je waarschijnlijk een lokaal profiel prefereren. Onthoud dat u alleen de profielbron selecteert. Om het te gebruiken, moet u het activeren door \"Profiel wisselen\" uit te voeren</string>
@@ -1214,6 +1217,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="autosenslabel">Gevoeligheid %</string>
     <string name="deltacompared">%3$s %1$s %2$s</string>
     <string name="deltalabel">BG verschil</string>
+    <string name="deltalabel_u">BG verschil [%1$s]</string>
     <string name="currentlocation">Huidige locatie</string>
     <string name="location">Locatie</string>
     <string name="latitude_short">Br:</string>
@@ -1349,6 +1353,7 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Kan huidige TBR niet annuleren. Bewerking wordt gestopt.</string>
     <string name="medtronic_cmd_set_profile_pattern_overflow">Profiel instellen mislukt omdat de volgende patronen een te groot basaal hebben: %1$s</string>
     <string name="medtronic_cmd_bolus_could_not_be_delivered">Bolus kon niet worden afgeleverd.</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered_no_insulin">Bolus kon niet worden uitgevoerd omdat de hoeveelheid beschikbare insuline (%1$.2f) niet voldoende is voor de bolus (%2$.2f).</string>
     <string name="medtronic_cmd_tbr_could_not_be_delivered">TBR kon niet worden ingesteld.</string>
     <string name="medtronic_cmd_cant_cancel_tbr">Kan huidige TBR niet annuleren.</string>
     <string name="medtronic_cmd_basal_profile_could_not_be_set">Basaal profiel kon niet worden ingesteld.</string>
@@ -1365,7 +1370,12 @@ Stel in en gebruik tijdelijk en standaard tijdelijke streefdoelen (bv. bij sport
     <string name="medtronic_cmd_desc_set_bolus">Instellen Bolus</string>
     <string name="insulinFromCob"><![CDATA[COB insuline: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus limiet bereikt: %2$.2fU naar %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!! Trage koolhydraat absorptie gedetecteerd: %2$d%% van de tijd. Controleer je berekening nogmaals. COB kan zijn overschat waardoor er misschien meer insuline wordt afgegeven!!!</font> zijn]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d E</string>
+    <string name="partialboluswizard">Voer dit deel van het bolus wizard resultaat uit [%]</string>
+    <string name="deliverpartofboluswizard">Bolus wizard voert de berekening uit maar alleen dit deel van berekende insuline wordt geleverd. Handig in combinatie met het SMB algoritme.</string>
+    <string name="loading">Bezig met laden...</string>
+    <string name="snooze">Sluimeren</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dag</item>
         <item quantity="other">%1$d dag</item>
