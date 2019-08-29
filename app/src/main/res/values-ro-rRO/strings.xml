@@ -34,6 +34,7 @@
     <string name="description_smb">Cel mai recent algoritm destinat utilizatorilor avansaţi</string>
     <string name="description_overview">Afişează starea curentă a buclei şi butoanele pentru cele mai folosite acţiuni</string>
     <string name="description_persistent_notification">Afişează o notificare activă cu o scurtă descriere referitoare la starea buclei</string>
+    <string name="description_profile_local">Definire profil care să fie valabil offline.</string>
     <string name="description_profile_nightscout">Foloseşte profilul predefinit deja în Nightscout</string>
     <string name="description_profile_simple">Definește un profil cu un singur bloc de timp.</string>
     <string name="description_pump_combo">Integrare cu pompele Accu-Chek, necesită aplicația Ruffy</string>
@@ -950,6 +951,7 @@
     <string name="sensitivitysetup">Configurați pluginul pentru Sensibilitate</string>
     <string name="setupwizard_sensitivity_description">Pluginul Sensibilitate este folosit pentru estimarea sensibilității și calcularea COB. Pentru mai multe info vizitați:</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+    <string name="nsclientinfotext">NSClient se ocupă de conectarea la Nightscout. Puteți sări peste această parte, dar nu se vor îndeplini anumite obiective dacă faceți acest lucru.</string>
     <string name="diawarning">Reamintire: noile profiluri necesită o durată de acțiune a insulinei (DIA) de cel puțin 5 ore. DIA de 5-6 ore în profilurile noi sunt echivalente cu DIA 3 ore din profilele vechi.</string>
     <string name="bgsourcesetup">Configurați sursa glicemiilor</string>
     <string name="setupwizard_profile_description">Selectați sursa sau profilul. Dacă pacientul este copil, ar fi bine să alegeți un profil NS. Dacă nu aveți profil NS, puteți alege profil local. De aici alegeți doar sursa profilului; pentru a utiliza acest profil, trebuie să îl activați prin executarea unei \"Schimbări de profil\"</string>
