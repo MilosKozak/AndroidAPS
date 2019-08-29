@@ -34,6 +34,7 @@
     <string name="description_smb">Nejnovější algoritmus pro pokročilé uživatele</string>
     <string name="description_overview">Zobrazení stavu a informací. Přístup k nejběžnějším ovládacím prvkům</string>
     <string name="description_persistent_notification">Zobrazení průběžného oznámení v Androidu s krátkým přehledem, co smyčka právě dělá</string>
+    <string name="description_profile_local">Definujte profil, který je dostupný offline.</string>
     <string name="description_profile_nightscout">Použití profilu definovaného v Nightscoutu</string>
     <string name="description_profile_simple">Jednoduchý profil s jedním časovým pásmem.</string>
     <string name="description_pump_combo">Ovladač pumpy pro Accu-Check Combo. Vyžaduje nainstalovanou aplikaci Ruffy</string>
@@ -950,6 +951,7 @@
     <string name="sensitivitysetup">Nastavení senzitivity</string>
     <string name="setupwizard_sensitivity_description">Plugin senzitivita slouží k detekci změn v senzitivitě a k počítání COB. Více informací zde:</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+    <string name="nsclientinfotext">NSClient slouží ke spojení s Nightscoutem. Nastavení můžete nyní přeskočit, ale nebudete schopni dokončit cíle, dokud nastavení neprovedete.</string>
     <string name="diawarning">Pozor: Nové inzulínové profily vyžadují DIA minimálně 5h. DIA 5–6 hodin odpovídá zhruba nastavení 3h na starších typech profilů nebo v pumpě.</string>
     <string name="bgsourcesetup">Konfigurace zdroje glykémií</string>
     <string name="setupwizard_profile_description">Vyberte zdroj profilů. Pokud jde o dítě, využijte nejspíše NS profil. Pokud Vás nikdo přes NS nesleduje, budete patrně preferovat Místní profil. Uvědomte si, že nastavujete pouze zdroj profilů. Na to aby se opravdu profil začal používat, je třeba provést aktivaci profilu použitím \"Přepnutí profilu\"</string>
