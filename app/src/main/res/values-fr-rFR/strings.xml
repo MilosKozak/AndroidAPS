@@ -34,6 +34,7 @@
     <string name="description_smb">Algorithme le plus récent pour les utilisateurs avancés</string>
     <string name="description_overview">Affiche l’état actuel de votre Boucle et des boutons d’actions les plus courantes</string>
     <string name="description_persistent_notification">Affiche une notification en cours avec un bref aperçu de ce que fait votre Boucle</string>
+    <string name="description_profile_local">Définissez un profil qui est disponible hors ligne.</string>
     <string name="description_profile_nightscout">Fournit le profil que vous avez défini dans Nightscout</string>
     <string name="description_profile_simple">Définir un profil avec un seul bloc de temps.</string>
     <string name="description_pump_combo">Intégration des pompes Accu-Chek Combo il faut avoir Ruffy installé</string>
@@ -951,6 +952,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="sensitivitysetup">Configurer le plugin de Sensibilité</string>
     <string name="setupwizard_sensitivity_description">Le plugin de Sensibilité est utilisé pour la détection de la Sensibilité et de calcul de glucides actifs. Pour plus d’informations visitez :</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+    <string name="nsclientinfotext">Le NSClient gère la connexion avec Nightscout. Vous pouvez sauter cette étape maintenant mais vous ne pourrez pas terminer les objectifs sans cette configuration.</string>
     <string name="diawarning">Rappel : les nouveaux profils d\'insuline requièrent une DIA d\'au moins 5h. Une DIA 5-6h dans les nouveaux profils d\'insuline équivaut à une DIA 3h dans les anciens profils d\'insuline.</string>
     <string name="bgsourcesetup">Configurez la source des glycémies</string>
     <string name="setupwizard_profile_description">Sélectionnez la source du profil. Si le patient est un enfant vous devriez utiliser un profil NS. Si personne ne vous suit sur Nightscout, vous préférerez probablement un profil local. N\'oubliez pas que vous êtes simplement en train de sélectionner la source du profil. Afin de pouvoir l\'utiliser vous devrez l\'activer via \"Changement de Profil\"</string>
