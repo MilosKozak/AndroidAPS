@@ -34,6 +34,7 @@
     <string name="description_smb">Der aktuellste Algorithmus für erfahrene Nutzer</string>
     <string name="description_overview">Zeigt den aktuellen Status deines Loops und Knöpfe für die geläufigsten Aktionen an</string>
     <string name="description_persistent_notification">Zeigt eine fortlaufende Benachrichtigung mit einer kurzen Übersicht darüber, was dein Loop derzeit tut</string>
+    <string name="description_profile_local">Definiere ein Profil, was auch offline verfügbar ist.</string>
     <string name="description_profile_nightscout">Stellt das Profil zur Verfügung, das in Nightscout definiert ist</string>
     <string name="description_profile_simple">Definiere ein Profil mit nur einem Zeitblock.</string>
     <string name="description_pump_combo">Pumpen-Integration für Accu-Chek Combo Pumpen; erfordert, dass ruffy installiert ist</string>
@@ -951,6 +952,7 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
     <string name="sensitivitysetup">Sensitivitäts Plugin konfigurieren</string>
     <string name="setupwizard_sensitivity_description">Das Sensitivitäts-Plugin wird für die Sensitivitäts- und COB-Berechnung verwendet. Für weitere Informationen siehe:</string>
     <string name="setupwizard_sensitivity_url">http://androidaps.readthedocs.io/en/latest/DE/konfigurations-generator.html#empfindlichkeitserkennung</string>
+    <string name="nsclientinfotext">Nightscout-Client ist für die Verbindung zu Nightscout zuständig. Du kannst diesen Teil jetzt überspringen, aber Du wirst nicht in der Lage sein, Zielsetzungen zu erfüllen, bis Du diesen eingerichtet hast.</string>
     <string name="diawarning">Bitte beachte: Neue Insulin-Profile benötigen einen DIA von mind. 5 Stunden. Eine DIA von 5-6 Stunden im neuen Insulin-Profil entspricht einem DIA von 3 Stunden bei alten Insulin-Profilen.</string>
     <string name="bgsourcesetup">BZ-Quelle konfigurieren</string>
     <string name="setupwizard_profile_description">Wähle eine Profilquelle aus. Verwende für ein Kind das NS-Profil. Wenn Dir niemand auf Nightscout folgt, wirst Du wahrscheinlich das lokale Profil bevorzugen. Beachte, dass hier nur die Profilquelle festgelegt wird. Damit das Profil verwendet werden kann, muss es mit einem \"Profil-Wechsel\" aktiviert werden.</string>
@@ -1216,6 +1218,7 @@ Unerwartetes Verhalten.</string>
     <string name="autosenslabel">Autosens %</string>
     <string name="deltacompared">%3$s %1$s %2$s</string>
     <string name="deltalabel">BZ-Unterschied</string>
+    <string name="deltalabel_u">BZ-Unterschied [%1$s]</string>
     <string name="currentlocation">Aktueller Standort</string>
     <string name="location">Standort</string>
     <string name="latitude_short">Breitengrad:</string>
@@ -1368,8 +1371,12 @@ Unerwartetes Verhalten.</string>
     <string name="medtronic_cmd_desc_set_bolus">Setze Bolus</string>
     <string name="insulinFromCob"><![CDATA[COB Insulin: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus-Einschränkung angewendet: %2$.2fU zu %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Langsamer Kohlenhydrat-Abbau erkannt: %2$d%% der Zeit. Überprüfe Deine Berechnung. COB könnte zu hoch sein und deswegen zu viel Insulin abgegeben werden!!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d IE</string>
+    <string name="partialboluswizard">Abgabe von [%] des Ergebnisses des Bolusrechners</string>
+    <string name="deliverpartofboluswizard">Der Bolus-Assistent führt Berechnungen durch, aber nur dieser Teil der berechneten Insulin wird abgegeben. Nützlich mit SMB-Algorithmus.</string>
     <string name="loading">Lädt ...</string>
+    <string name="snooze">Schlummern</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d Tag</item>
         <item quantity="other">%1$d Tage</item>
