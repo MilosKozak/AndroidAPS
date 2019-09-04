@@ -11,13 +11,18 @@ import android.os.IBinder;
 
 import androidx.core.app.ActivityCompat;
 
+import com.squareup.otto.Subscribe;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.events.EventAppExit;
 import info.nightscout.androidaps.events.EventLocationChange;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.bus.RxBus;
+import info.nightscout.androidaps.plugins.general.persistentNotification.PersistentNotificationPlugin;
 import info.nightscout.androidaps.utils.SP;
 import info.nightscout.androidaps.utils.T;
 
@@ -76,14 +81,17 @@ public class LocationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        super.onStartCommand(intent, flags, startId);
         if (L.isEnabled(L.LOCATION))
             log.debug("onStartCommand");
-        super.onStartCommand(intent, flags, startId);
+        startForeground(PersistentNotificationPlugin.ONGOING_NOTIFICATION_ID, PersistentNotificationPlugin.getPlugin().getLastNotification());
         return START_STICKY;
     }
 
     @Override
     public void onCreate() {
+        super.onCreate();
+        startForeground(PersistentNotificationPlugin.ONGOING_NOTIFICATION_ID, PersistentNotificationPlugin.getPlugin().getLastNotification());
 
         if (L.isEnabled(L.LOCATION))
             log.debug("onCreate");
@@ -117,6 +125,7 @@ public class LocationService extends Service {
         } catch (IllegalArgumentException ex) {
             log.error("network provider does not exist, " + ex.getMessage());
         }
+        MainApp.bus().register(this);
     }
 
     @Override
@@ -134,6 +143,15 @@ public class LocationService extends Service {
                 log.error("fail to remove location listener, ignore", ex);
             }
         }
+        MainApp.bus().unregister(this);
+    }
+
+    @Subscribe
+    public void onStatusEvent(EventAppExit event) {
+        if (L.isEnabled(L.CORE))
+            log.debug("EventAppExit received");
+
+        stopSelf();
     }
 
     private void initializeLocationManager() {

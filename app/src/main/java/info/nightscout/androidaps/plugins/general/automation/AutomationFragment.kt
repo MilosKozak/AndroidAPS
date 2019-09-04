@@ -11,19 +11,16 @@ import info.nightscout.androidaps.plugins.bus.RxBus
 import info.nightscout.androidaps.plugins.general.automation.dialogs.EditEventDialog
 import info.nightscout.androidaps.plugins.general.automation.events.EventAutomationDataChanged
 import info.nightscout.androidaps.plugins.general.automation.events.EventAutomationUpdateGui
+import info.nightscout.androidaps.utils.FabricPrivacy
+import info.nightscout.androidaps.utils.plusAssign
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.automation_fragment.*
 
 class AutomationFragment : Fragment() {
 
     private var disposable: CompositeDisposable = CompositeDisposable()
     private var eventListAdapter: EventListAdapter? = null
-
-    operator fun CompositeDisposable.plusAssign(disposable: Disposable) {
-        add(disposable)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.automation_fragment, container, false)
@@ -45,29 +42,46 @@ class AutomationFragment : Fragment() {
             fragmentManager?.let { dialog.show(it, "EditEventDialog") }
         }
 
+    }
+
+    @Synchronized
+    override fun onResume() {
+        super.onResume()
         disposable += RxBus
                 .toObservable(EventAutomationUpdateGui::class.java)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    eventListAdapter?.notifyDataSetChanged()
-                    val sb = StringBuilder()
-                    for (l in AutomationPlugin.executionLog) {
-                        sb.append(l)
-                        sb.append("\n")
-                    }
-                    automation_logView.text = sb.toString()
-                }, {})
+                    updateGui()
+                }, {
+                    FabricPrivacy.logException(it)
+                })
         disposable += RxBus
                 .toObservable(EventAutomationDataChanged::class.java)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     eventListAdapter?.notifyDataSetChanged()
-                }, {})
+                }, {
+                    FabricPrivacy.logException(it)
+                })
+        updateGui()
     }
 
-    override fun onStop() {
-        super.onStop()
+    @Synchronized
+    override fun onPause() {
+        super.onPause()
         disposable.clear()
+    }
+
+    @Synchronized
+    private fun updateGui() {
+        if (eventListAdapter == null) return
+        eventListAdapter?.notifyDataSetChanged()
+        val sb = StringBuilder()
+        for (l in AutomationPlugin.executionLog) {
+            sb.append(l)
+            sb.append("\n")
+        }
+        automation_logView.text = sb.toString()
     }
 
 }

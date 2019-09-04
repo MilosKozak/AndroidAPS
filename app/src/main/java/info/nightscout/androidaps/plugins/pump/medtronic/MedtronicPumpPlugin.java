@@ -39,6 +39,7 @@ import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.common.ManufacturerType;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.general.actions.defs.CustomAction;
@@ -73,6 +74,7 @@ import info.nightscout.androidaps.plugins.pump.medtronic.defs.MedtronicStatusRef
 import info.nightscout.androidaps.plugins.pump.medtronic.defs.MedtronicUIResponseType;
 import info.nightscout.androidaps.plugins.pump.medtronic.driver.MedtronicPumpStatus;
 import info.nightscout.androidaps.plugins.pump.medtronic.events.EventMedtronicPumpValuesChanged;
+import info.nightscout.androidaps.plugins.pump.medtronic.events.EventRefreshButtonState;
 import info.nightscout.androidaps.plugins.pump.medtronic.service.RileyLinkMedtronicService;
 import info.nightscout.androidaps.plugins.pump.medtronic.util.MedtronicConst;
 import info.nightscout.androidaps.plugins.pump.medtronic.util.MedtronicUtil;
@@ -210,17 +212,17 @@ public class MedtronicPumpPlugin extends PumpPluginAbstract implements PumpInter
     private void migrateSettings() {
 
         if ("US (916 MHz)".equals(SP.getString(MedtronicConst.Prefs.PumpFrequency, null))) {
-            SP.putString(MedtronicConst.Prefs.PumpFrequency, MainApp.gs(R.string.medtronic_pump_frequency_us_ca));
+            SP.putString(MedtronicConst.Prefs.PumpFrequency, MainApp.gs(R.string.key_medtronic_pump_frequency_us_ca));
         }
 
         String encoding = SP.getString(MedtronicConst.Prefs.Encoding, null);
 
         if ("RileyLink 4b6b Encoding".equals(encoding)) {
-            SP.putString(MedtronicConst.Prefs.Encoding, MainApp.gs(R.string.medtronic_pump_encoding_4b6b_rileylink));
+            SP.putString(MedtronicConst.Prefs.Encoding, MainApp.gs(R.string.key_medtronic_pump_encoding_4b6b_rileylink));
         }
 
         if ("Local 4b6b Encoding".equals(encoding)) {
-            SP.putString(MedtronicConst.Prefs.Encoding, MainApp.gs(R.string.medtronic_pump_encoding_4b6b_local));
+            SP.putString(MedtronicConst.Prefs.Encoding, MainApp.gs(R.string.key_medtronic_pump_encoding_4b6b_local));
         }
     }
 
@@ -370,7 +372,7 @@ public class MedtronicPumpPlugin extends PumpPluginAbstract implements PumpInter
             refreshAnyStatusThatNeedsToBeRefreshed();
         }
 
-        MainApp.bus().post(new EventMedtronicPumpValuesChanged());
+       RxBus.INSTANCE.send(new EventMedtronicPumpValuesChanged());
     }
 
 
@@ -494,7 +496,7 @@ public class MedtronicPumpPlugin extends PumpPluginAbstract implements PumpInter
 
 
     private void setRefreshButtonEnabled(boolean enabled) {
-        MedtronicFragment.refreshButtonEnabled(enabled);
+        RxBus.INSTANCE.send(new EventRefreshButtonState(enabled));
     }
 
 
@@ -710,7 +712,7 @@ public class MedtronicPumpPlugin extends PumpPluginAbstract implements PumpInter
 
 
     protected void triggerUIChange() {
-        MainApp.bus().post(new EventMedtronicPumpValuesChanged());
+        RxBus.INSTANCE.send(new EventMedtronicPumpValuesChanged());
     }
 
     private BolusDeliveryType bolusDeliveryType = BolusDeliveryType.Idle;
@@ -741,6 +743,15 @@ public class MedtronicPumpPlugin extends PumpPluginAbstract implements PumpInter
         medtronicUIComm.executeCommand(MedtronicCommandType.GetRealTimeClock);
 
         ClockDTO clock = MedtronicUtil.getPumpTime();
+
+        if (clock==null) { // retry
+            medtronicUIComm.executeCommand(MedtronicCommandType.GetRealTimeClock);
+
+            clock = MedtronicUtil.getPumpTime();
+        }
+
+        if (clock==null)
+            return;
 
         int timeDiff = Math.abs(clock.timeDifference);
 
@@ -779,6 +790,17 @@ public class MedtronicPumpPlugin extends PumpPluginAbstract implements PumpInter
         LOG.info("MedtronicPumpPlugin::deliverBolus - {}", BolusDeliveryType.DeliveryPrepared);
 
         setRefreshButtonEnabled(false);
+
+        MedtronicPumpStatus mdtPumpStatus = getMDTPumpStatus();
+
+        if (detailedBolusInfo.insulin > mdtPumpStatus.reservoirRemainingUnits) {
+            return new PumpEnactResult() //
+                    .success(false) //
+                    .enacted(false) //
+                    .comment(MainApp.gs(R.string.medtronic_cmd_bolus_could_not_be_delivered_no_insulin,
+                            mdtPumpStatus.reservoirRemainingUnits,
+                            detailedBolusInfo.insulin));
+        }
 
         bolusDeliveryType = BolusDeliveryType.DeliveryPrepared;
 
@@ -1037,6 +1059,21 @@ public class MedtronicPumpPlugin extends PumpPluginAbstract implements PumpInter
                     .comment(MainApp.gs(R.string.medtronic_cmd_tbr_could_not_be_delivered));
         }
 
+    }
+
+
+    @Override
+    public PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, Profile profile,
+                                               boolean enforceNew) {
+        if (percent==0) {
+            return setTempBasalAbsolute(0.0d, durationInMinutes, profile, enforceNew);
+        } else {
+            double absoluteValue = profile.getBasal() * (percent /100.0d);
+            getMDTPumpStatus();
+            absoluteValue = pumpStatusLocal.pumpType.determineCorrectBasalSize(absoluteValue);
+            LOG.warn("setTempBasalPercent [MedtronicPumpPlugin] - You are trying to use setTempBasalPercent with percent other then 0% (%d). This will start setTempBasalAbsolute, with calculated value (%.3f). Result might not be 100% correct.", percent, absoluteValue);
+            return setTempBasalAbsolute(absoluteValue, durationInMinutes, profile, enforceNew);
+        }
     }
 
 
