@@ -319,6 +319,7 @@
     <string name="overview_bolusprogress_goingtodeliver">Podávání %1$.2fU inzulínu</string>
     <string name="objectives_0_objective">Nastavit vizualizaci a monitoring, analyzovat bazály a koeficienty</string>
     <string name="objectives_0_gate">Zkontrolovat, zda jsou glykémie a údaje z pumpy viditelné v Nightscoutu</string>
+    <string name="objectives_openloop_objective">Začít s otevřenou smyčkou</string>
     <string name="youareonallowedlimit">Dosaženo limitu</string>
     <string name="noprofileselected">Není vybrán žádný profil</string>
     <string name="smscommunicator_loophasbeendisabled">Smyčka byla zakázána</string>
