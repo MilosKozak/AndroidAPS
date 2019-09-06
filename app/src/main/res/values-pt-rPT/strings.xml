@@ -319,6 +319,7 @@
     <string name="overview_bolusprogress_goingtodeliver">Vão ser administradas %1$.2fU</string>
     <string name="objectives_0_objective">Configuração da visualização e monitoramento, e análise de rácios e basals</string>
     <string name="objectives_0_gate">Verificar se a BG está disponível no Nightscout, e se os dados de insulina da bomba estão a ser carregados</string>
+    <string name="objectives_openloop_objective">A iniciar em Open Loop</string>
     <string name="youareonallowedlimit">Atingiu o limite autorizado</string>
     <string name="noprofileselected">Nenhum perfil seleccionado</string>
     <string name="smscommunicator_loophasbeendisabled">Loop foi desactivado</string>
@@ -1362,6 +1363,18 @@
     <string name="deliverpartofboluswizard">Assistente de bólus executa o cálculo, mas apenas esta parte da insulina calculada é entregue. Útil com o algoritmo SMB.</string>
     <string name="loading">A carregar ...</string>
     <string name="snooze">Silenciar</string>
+    <string name="accomplished">Concluído: %1$s</string>
+    <string name="objectives_usage_gate">Executar diferentes acções no AndroidAPS</string>
+    <string name="objectives_useloop">Exibir conteúdo do plugin do Loop</string>
+    <string name="objectives_button_enter">Inserir</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Digite o código obtido dos programadores para ignorar o resto dos objectivos</string>
+    <string name="codeaccepted">Código aceite</string>
+    <string name="codeinvalid">Código inválido</string>
+    <string name="objectives_exam_objective">Prove seu conhecimento</string>
+    <string name="wronganswer">Resposta errada!</string>
+    <string name="unfinshed_button">Próximo não concluído</string>
+    <string name="close">Fechar</string>
+    <string name="requestcode">Pedir código: %1$s</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dia</item>
         <item quantity="other">%1$d dias</item>
