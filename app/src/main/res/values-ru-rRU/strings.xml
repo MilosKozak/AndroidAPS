@@ -324,6 +324,14 @@
     <string name="objectives_maxbasal_objective">Глубже понимаем незакольцованную систему Open Loop, включая ее рекомендации по временным базалам</string>
     <string name="objectives_maxbasal_gate">На основе полученного опыта определияем макс величину базала и вводим ее в помпу и настройки</string>
     <string name="objectives_maxiobzero_objective">Начинаем замыкать цикл с Low Glucose Suspend (прекращением подачи инсулина на низких сахарах)</string>
+    <string name="objectives_maxiobzero_gate">Работа в замкнутом цикле с макс активным инсулином IOB = 0 на протяжении нескольких дней избегая событий типа приостановка на низких ГК Low Suspend</string>
+    <string name="objectives_maxiob_objective">Настройка замкнутого цикла с поднятием макс величины IOB выше 0 и постепенным понижением целевой ГК</string>
+    <string name="objectives_maxiob_gate">Работа несколько дней и по кр мере одну ночь без срабатывания оповещений о низкой ГК</string>
+    <string name="objectives_autosens_objective">Настраиваем базал и коэффициенты с последующей активацией auto-sens</string>
+    <string name="objectives_autosens_gate">1 неделя успешной дневной работы с регулярным введением углеводов</string>
+    <string name="objectives_ama_objective">Активация таких доп функций для дневного времени как расширенный калькулятор болюса advanced meal assist</string>
+    <string name="objectives_smb_objective">Активация таких доп функций для дневного времени как супер микро болюс SMB</string>
+    <string name="objectives_smb_gate">Прочтите wiki и увеличьте maxIOB чтобы супер микро болюс SMB заработал как положено! Хорошее начало – maxIOB = средний болюс на еду + троекратный максимальный суточный базал</string>
     <string name="youareonallowedlimit">разрешенный предел достигнут</string>
     <string name="noprofileselected">профиль не выбран</string>
     <string name="smscommunicator_loophasbeendisabled">зцикл был деактивирован</string>
@@ -1369,6 +1377,27 @@ Context | Edit Context</string>
     <string name="deliverpartofboluswizard">Мастер болюса выполняет расчет, но подана только эта часть рекомендуемого инсулина. Полезно с алгоритмом SMB.</string>
     <string name="loading">Загрузка...</string>
     <string name="snooze">Отложить</string>
+    <string name="accomplished">Выполнено: %1$s</string>
+    <string name="objectives_usage_objective">Научитесь контролировать AndroidAPS</string>
+    <string name="objectives_usage_gate">Выполните различные действия в AndroidAPS</string>
+    <string name="objectives_useprofileswitch">Установите профиль 90% на 10 мин (Долгое нажатие на имя профиля на Обзор)</string>
+    <string name="objectives_usedisconnectpump">Имитация душа. Отключите помпу на 1ч (Долгое нажатие на Open Loop)</string>
+    <string name="objectives_usereconnectpump">... и снова подключитесь таким же способом</string>
+    <string name="objectives_usetemptarget">Создайте настраиваемую временную цель длительностью 10 мин. (Долгое нажатие на текущую цель)</string>
+    <string name="objectives_useactions">В Конфигураторе включите плагин Actions, сделав его видимым и показав содержимое верхнего меню</string>
+    <string name="objectives_useloop">Показывать содержимое расширения ИПЖ</string>
+    <string name="objectives_usescale">Применить функцию масштабирования по долгому нажатию на диаграмму ГК</string>
+    <string name="objectives_button_enter">Ввод</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Введите код, полученный от разработчиков, чтобы обойти остальные цели</string>
+    <string name="codeaccepted">Код принят</string>
+    <string name="codeinvalid">Неверный код</string>
+    <string name="objectives_exam_objective">Подтвердите ваши знания</string>
+    <string name="objectives_exam_gate">Правильно изучите и ответьте на вопросы</string>
+    <string name="answerdisabledto">Рассмотрение ответов приостановлено на: %1$s</string>
+    <string name="wronganswer">Неправильный ответ!</string>
+    <string name="unfinshed_button">Следующий незавершенный</string>
+    <string name="close">Закрыть</string>
+    <string name="requestcode">Запросить код</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d день</item>
         <item quantity="few">%1$d дня</item>
