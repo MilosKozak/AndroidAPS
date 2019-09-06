@@ -319,6 +319,7 @@
     <string name="overview_bolusprogress_goingtodeliver">Sto per erogare %1$.2fU</string>
     <string name="objectives_0_objective">Configurazione della visualizzazione e del monitoraggio, analisi basali e rapporti</string>
     <string name="objectives_0_gate">Verificare che la Glicemia sia disponibile su Nightscout e che i dati sull\'insulina del micro siano in fase di caricamento</string>
+    <string name="objectives_openloop_objective">Partenza con Loop Aperto</string>
     <string name="youareonallowedlimit">Hai raggiunto il limite consentito</string>
     <string name="noprofileselected">Nessun profilo selezionato</string>
     <string name="smscommunicator_loophasbeendisabled">Disattivazione Loop corretta</string>
@@ -1362,6 +1363,7 @@
     <string name="deliverpartofboluswizard">Bolus wizard esegue il calcolo, ma solo questa parte dell\'insulina calcolata è erogata. Utile con algoritmo SMB.</string>
     <string name="loading">Caricamento ...</string>
     <string name="snooze">Snooze</string>
+    <string name="requestcode">Codice richiesta: %1$s</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d giorno</item>
         <item quantity="other">%1$d giorni</item>
