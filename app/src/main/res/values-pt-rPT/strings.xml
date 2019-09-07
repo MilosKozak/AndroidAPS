@@ -1364,6 +1364,7 @@
     <string name="loading">A carregar ...</string>
     <string name="snooze">Silenciar</string>
     <string name="accomplished">Concluído: %1$s</string>
+    <string name="objectives_usage_objective">Aprenda a controlar o AndroidAPS</string>
     <string name="objectives_usage_gate">Executar diferentes acções no AndroidAPS</string>
     <string name="objectives_useloop">Exibir conteúdo do plugin do Loop</string>
     <string name="objectives_button_enter">Inserir</string>
@@ -1371,10 +1372,12 @@
     <string name="codeaccepted">Código aceite</string>
     <string name="codeinvalid">Código inválido</string>
     <string name="objectives_exam_objective">Prove seu conhecimento</string>
+    <string name="answerdisabledto">Resposta desactivada para: %1$s</string>
     <string name="wronganswer">Resposta errada!</string>
     <string name="unfinshed_button">Próximo não concluído</string>
     <string name="close">Fechar</string>
     <string name="requestcode">Pedir código: %1$s</string>
+    <string name="objectives_hint">(seleccione todas as respostas correctas)</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d dia</item>
         <item quantity="other">%1$d dias</item>
