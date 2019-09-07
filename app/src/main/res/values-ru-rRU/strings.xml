@@ -1392,11 +1392,13 @@ Context | Edit Context</string>
     <string name="codeaccepted">Код принят</string>
     <string name="codeinvalid">Неверный код</string>
     <string name="objectives_exam_objective">Подтвердите ваши знания</string>
+    <string name="objectives_exam_gate">Прочтите и дайте ответы (выбрать из нескольких вариантов)</string>
     <string name="answerdisabledto">Рассмотрение ответов приостановлено на: %1$s</string>
     <string name="wronganswer">Неправильный ответ!</string>
     <string name="unfinshed_button">Следующий незавершенный</string>
     <string name="close">Закрыть</string>
     <string name="requestcode">Запросить код</string>
+    <string name="objectives_hint">(проверить ответы)</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d день</item>
         <item quantity="few">%1$d дня</item>
