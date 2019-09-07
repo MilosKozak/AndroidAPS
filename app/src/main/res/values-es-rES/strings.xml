@@ -18,6 +18,7 @@
     <string name="danar_bt_name_title">Dispositivo Bluetooth DanaR</string>
     <string name="ns_sync_use_absolute_title">Usar siempre valores basales absolutos</string>
     <string name="alert_dialog_storage_permission_text">Por favor reinicia el teléfono o AndroidAPS desde ajustes de sistema, sino AndroidAPS no guardará registros (importante para trazar y verificar que el algoritmo funcione correctamente)</string>
+    <string name="alert_dialog_permission_battery_optimization_failed">Este dispositivo no parece soportar la optimización de la batería por los ajustes - pueden ocurrir problemas de funcionamiento.</string>
     <string name="description_actions">Algunos botones para acceder rápidamente a funciones comunes</string>
     <string name="description_careportal">Insertar notas de registro avanzadas.</string>
     <string name="description_config_builder">Utilizado para configurar complementos activos</string>
@@ -33,6 +34,7 @@
     <string name="description_smb">Algoritmo más reciente para usuarios avanzados</string>
     <string name="description_overview">Muestra el estado actual de tu lazo y los botones para las acciones más usadas</string>
     <string name="description_persistent_notification">Muestra una notificación en curso con un breve resumen de lo que está haciendo tu lazo</string>
+    <string name="description_profile_local">Definir un perfil disponible fuera de linea.</string>
     <string name="description_profile_nightscout">Proporciona el perfil definido en Nightscout</string>
     <string name="description_profile_simple">Definir un perfil con un solo bloque de tiempo.</string>
     <string name="description_pump_combo">Integración de bombas de insulina Accu-Check Combo, necesita tener ruffy instalado</string>
@@ -317,6 +319,19 @@
     <string name="overview_bolusprogress_goingtodeliver">Se van a infundir %1$.2fU</string>
     <string name="objectives_0_objective">Configuración de visualización y monitorización, y análisis de basales y ratios</string>
     <string name="objectives_0_gate">Comprobar que los datos de BG están disponibles en Nightscout, y que los datos de la bomba de insulina se están subiendo</string>
+    <string name="objectives_openloop_objective">Comenzando en lazo abierto</string>
+    <string name="objectives_openloop_gate">Ejecutar en modo de lazo abierto durante unos días, y aceptar manualmente las basales temporales. Configure y use objetivos temporales y predeterminados (por ejemplo, para actividad o carbohidratos para hipoglucemia)</string>
+    <string name="objectives_maxbasal_objective">Entender el lazo abierto, incluidas las recomendaciones de basales temporales</string>
+    <string name="objectives_maxbasal_gate">Sobre la base de esa experiencia, decidir valores de máximo basal, y ajustar la bomba y preferencias</string>
+    <string name="objectives_maxiobzero_objective">Iniciando el lazo cerrado con suspensión con baja glucosa</string>
+    <string name="objectives_maxiobzero_gate">Ejecutar en lazo cerrado con max IOB=0 durante unos días sin demasiados valores bajos de glucosa</string>
+    <string name="objectives_maxiob_objective">Ajuste del lazo cerrado, aumentando máximo IOB por encima de 0 y bajando gradualmente objetivos BG</string>
+    <string name="objectives_maxiob_gate">Usar unos cuantos días, y al menos una noche sin alarmas de glucosa baja, antes de bajar valor de glucosa</string>
+    <string name="objectives_autosens_objective">Ajustar las basales y ratios, si es necesario, y luego activar auto-sens</string>
+    <string name="objectives_autosens_gate">Una semana con éxito en lazo cerrado durante el día con entrada de carbohidratos</string>
+    <string name="objectives_ama_objective">Habilitar funciones adicionales para su uso durante el día, como asistente de comida avanzado</string>
+    <string name="objectives_smb_objective">Habilitar funciones adicionales para uso durante el día como SMB</string>
+    <string name="objectives_smb_gate">¡Debes leer el wiki y subir maxIOB para que SMB funcione bien! Para comenzar un buen valor sería maxIOB = bolo de comida medio + 3 x máximo basal diario</string>
     <string name="youareonallowedlimit">Alcanzado el límite permitido</string>
     <string name="noprofileselected">Sin perfil seleccionado</string>
     <string name="smscommunicator_loophasbeendisabled">Lazo se ha desactivado</string>
@@ -327,6 +342,7 @@
     <string name="valueoutofrange">El valor %1$s está fuera de límites</string>
     <string name="smscommunicator_remotecommandnotallowed">Comando remoto no permitido</string>
     <string name="smscommunicator_remotebolusnotallowed">El bolo remoto no está disponible. Inténtalo de nuevo más tarde.</string>
+    <string name="smscommunicator_basalreplywithcode">Para iniciar una basal de %1$.2f% durante %2$d min, responder con el código %3$s</string>
     <string name="smscommunicator_profilereplywithcode">Para cambiar el perfil a %1$s %2$d%% responder con el código %3$s</string>
     <string name="smscommunicator_extendedreplywithcode">Para iniciar un bolo extendido de %1$.2fU durante %2$d minutos, responder con el código %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">Para iniciar una basal de %1$d%% durante %2$d min, responder con el código %3$s</string>
@@ -518,10 +534,12 @@
     <string name="loopsuspended">Loop desactivado</string>
     <string name="loopsuspendedfor">Desactivado (%1$d m)</string>
     <string name="loopsuperbolusfor">Superbolo (%1$d m)</string>
+    <string name="suspendloop">Suspender lazo</string>
     <string name="suspendloopfor1h">Desactivar lazo por 1h</string>
     <string name="suspendloopfor2h">Desactivar lazo por 2h</string>
     <string name="suspendloopfor3h">Desactivar lazo por 3h</string>
     <string name="suspendloopfor10h">Desactivar lazo por 10 h</string>
+    <string name="suspendloopforXmin">Suspender lazo durante %1$d min</string>
     <string name="disconnectpumpfor15m">Desconectar bomba por 15 min</string>
     <string name="disconnectpumpfor30m">Desconectar bomba por 30 min</string>
     <string name="disconnectpumpfor1h">Desconectar bomba por 1 h</string>
@@ -775,6 +793,7 @@
     <string name="extendedbolusdeliveryerror">Error al emitir bolo extendido</string>
     <string name="insightpump_shortname">Sight</string>
     <string name="ago">hace</string>
+    <string name="format_hours">%1$.2f h</string>
     <string name="enablesmbalways">Habilitar SMB siempre</string>
     <string name="enablesmbalways_summary">Habilitar SMB siempre de forma independiente a los Bolos. Solo posible con fuente BG con buen filtrado de datos como G5</string>
     <string name="enablesmbaftercarbs">Habilitar SMB después de Carbohidratos</string>
@@ -817,6 +836,7 @@
     <string name="bolusrecordedonly">El Bolo sólo será anotado</string>
     <string name="ns_autobackfill_summary">Rellenar BGs perdidos desde NS</string>
     <string name="loop_smbsetbypump_label">SMB administrado por bomba</string>
+    <string name="overview_show_activity">Actividad</string>
     <string name="overview_show_sensitivity">Sensibilidad</string>
     <string name="overview_show_deviations">Desviaciones</string>
     <string name="overview_show_cob">Carbohidratos activos COB</string>
@@ -827,6 +847,7 @@
     <string name="closed_loop_disabled_on_dev_branch">Ejecutando versión dev. Lazo cerrado no disponible.</string>
     <string name="engineering_mode_enabled">Modo de ingeniería activado</string>
     <string name="not_eng_mode_or_release">Modo de ingeniería no está activado y no disponible en esta rama</string>
+    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Leyendo perfil basal</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">El historial de la bomba ha cambiado después de que se realizó el cálculo del bolo. El bolo no fue entregado. Por favor, vuelva a calcular si aún se necesita un bolo.</string>
     <string name="combo_error_updating_treatment_record">El bolo se administró con éxito, pero falló la incorporación de la entrada del tratamiento. Esto puede suceder si se administran dos bolos pequeños del mismo tamaño en los últimos dos minutos. Verifique el historial de la bomba y las entradas de tratamiento y use el portal de tratamientos para agregar entradas faltantes. Asegúrese de no agregar ninguna entrada para el mismo minuto exacto y la misma cantidad.</string>
@@ -930,6 +951,7 @@
     <string name="sensitivitysetup">Configurar complemento Sensibilidad</string>
     <string name="setupwizard_sensitivity_description">El complemento de sensibilidad es usado para detectar la sensibilidad y cálculo de COB. Para más info ver:</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+    <string name="nsclientinfotext">NSCliente controla la conexión con Nightscout. Puedes saltar este paso ahora pero no podrás completar los objetivos hasta que lo configures.</string>
     <string name="diawarning">Por favor, recuerde: nuevos perfiles de insulina requieren DIA de al menos 5h. DIA de 5-6h en nuevos perfiles es lo mismo que DIA de 3h en perfiles antiguos.</string>
     <string name="bgsourcesetup">Configurar origen de BG</string>
     <string name="setupwizard_profile_description">Selecciona origen de perfil. Si el usuario es un niño debe seleccionar perfil NS. Si no hay nadie siguiendo tu Nightscout probablemente preferirás perfil Local. Recuerde que sólo está seleccionando el origen del perfil. Para usarlo debe activarlo ejecutando \"Cambio Perfil\"</string>
@@ -1007,6 +1029,7 @@
     <string name="speederror">Error de velocidad</string>
     <string name="insulinlimitviolation">Violación del límite de insulina</string>
     <string name="loop_openmode_min_change">Valor mínimo de cambio [%]</string>
+    <string name="loop_openmode_min_change_summary">El lazo abierto sólo mostrará una demanda de cambio si el cambio es mayor a este valor. El valor predeterminado es el 20 %</string>
     <string name="pairfirst">Por favor, empareje su bomba con su teléfono!</string>
     <string name="searching_for_devices">Buscando dispositivos…</string>
     <string name="please_wait">Por favor, espere…</string>
@@ -1074,7 +1097,48 @@
     <string name="min_recovery_duration">Min. duración de recuperación [s]</string>
     <string name="recovery_duration">Duración de recuperación</string>
     <string name="timeout_during_handshake">Tiempo excedido durante el sacudido de mano - reiniciar bluetooth</string>
+    <string name="weekday_sunday_short">Dom</string>
+    <string name="weekday_saturday_short">Sáb</string>
+    <string name="weekday_friday_short">Vie</string>
+    <string name="weekday_thursday_short">Jue</string>
+    <string name="weekday_wednesday_short">Mie</string>
+    <string name="weekday_tuesday_short">Mar</string>
+    <string name="weekday_monday_short">Lun</string>
+    <string name="automation_description">Tareas de automatización definidas por el usuario</string>
+    <string name="automation_missing_task_name">Introduzca un nombre de tarea.</string>
+    <string name="automation_missing_trigger">Por favor, especifique al menos un iniciador.</string>
+    <string name="automation_missing_action">Por favor, especifique al menos una acción.</string>
+    <string name="alreadyenabled">Ya está habilitado</string>
+    <string name="alreadydisabled">Ya está deshabilitado</string>
+    <string name="alreadysuspended">Ya está suspendido</string>
+    <string name="resumeloop">Reactivar el lazo</string>
+    <string name="notsuspended">No suspendido</string>
+    <string name="starttemptarget">Iniciar objetivo temporal</string>
+    <string name="stoptemptarget">Detener objetivo temporal</string>
+    <string name="islesser">es menor que</string>
+    <string name="isequalorlesser">es igual o menor que</string>
+    <string name="isequal">es igual a</string>
+    <string name="isequalorgreater">es igual o mayor que</string>
+    <string name="isgreater">es mayor que</string>
+    <string name="isnotavailable">no está disponible</string>
+    <string name="unknown">desconocido</string>
+    <string name="glucoseisnotavailable">El valor de glucosa no está disponible</string>
+    <string name="glucosecomparedmgdl">Glucosa %1$s %2$.0f %3$s</string>
+    <string name="glucosecomparedmmol">Glucosa %1$s %2$.1f %3$s</string>
+    <string name="percentagecompared">Porcentaje de basal en perfil %1$s %2$d</string>
+    <string name="iobcompared">IOB (Insulina a Bordo) %1$s %2$.1f</string>
+    <string name="and">Y</string>
+    <string name="or">O</string>
+    <string name="xor">Xor (O exclusiva)</string>
+    <string name="atspecifiedtime">A las %1$s</string>
+    <string name="use_network_location">Permitir la ubicación de red</string>
+    <string name="use_gps_location">Añadir ubicación GPS</string>
+    <string name="use_passive_location">Usar ubicación automática</string>
+    <string name="locationservice">Servicios de localización</string>
+    <string name="automation_short">Auto</string>
+    <string name="automation">Automatización</string>
     <string name="profile_total">== ∑%1$s U</string>
+    <string name="profile_ins_units_per_hour">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
     <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">Registro de cambio de sensor a NS</string>
@@ -1114,7 +1178,20 @@
     <string name="sms_wrongcode">Código incorrecto. Comando cancelado.</string>
     <string name="notconfigured">Sin configurar</string>
     <string name="profileswitchcreated">Cambio de perfil creado</string>
+    <string name="recurringTime">Hora de Repetición</string>
+    <string name="every">Cada</string>
+    <string name="never">Nunca</string>
+    <string name="mins">%1$dminutos</string>
+    <string name="condition">Condición:</string>
+    <string name="action">Acción:</string>
+    <string name="iob_u">IOB (Insulina a Bordo) [U]:</string>
+    <string name="glucose_u">Glucosa [%1$s]:</string>
+    <string name="delete_short">SUPR</string>
+    <string name="add_short">AÑAD</string>
+    <string name="copy_short">COPIA</string>
+    <string name="addnew">Añadir nuevo</string>
     <string name="versionChecker">Verificador de versión</string>
+    <string name="signature_verifier">Verificador de firma</string>
     <string name="old_version">versión antigua</string>
     <string name="very_old_version">versión muy antigua</string>
     <string name="new_version_warning">Nueva versión desde al menos %1$d dias disponible! Respaldo a LGS después de 60 días, se deshabilitará el lazo después de 90 días</string>
@@ -1123,9 +1200,46 @@
     <string name="dexcom_app_patched">DexcomG App (parcheada)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Recibir valores de glucosa de la app parcheada de Dexcom.</string>
+    <string name="notification">Notificación</string>
+    <string name="notification_message">Notificación: %1$s</string>
+    <string name="message_short">Msj:</string>
+    <string name="profilepercentage">Porcentaje de perfil</string>
+    <string name="percent_u">Porcentaje [%]:</string>
+    <string name="startprofile">Iniciar perfil %1$d%% durante %2$d min</string>
+    <string name="startprofileforever">Iniciar el perfil %1$d%%</string>
+    <string name="exists">existe</string>
+    <string name="notexists">no existe</string>
+    <string name="temptargetcompared">Objetivo temporal %1$s</string>
+    <string name="wifissidcompared">SSID WiFi %1$s %2$s</string>
+    <string name="autosenscompared">Autosens %1$s %2$s %%</string>
+    <string name="autosenslabel">Autosens %</string>
+    <string name="deltacompared">%3$s %1$s %2$s</string>
+    <string name="deltalabel">Diferencia BG</string>
+    <string name="deltalabel_u">Diferencia de BG %1$s</string>
+    <string name="currentlocation">Localización actual</string>
+    <string name="location">Ubicación</string>
+    <string name="latitude_short">Lat:</string>
+    <string name="longitude_short">Long:</string>
+    <string name="distance_short">Dist. [m]:</string>
+    <string name="name_short">Nombre:</string>
+    <string name="lastboluslabel">Último bolo</string>
+    <string name="lastboluscompared">Hora del último bolo: hace %1$s %2$s min</string>
+    <string name="triggercoblabel">COB</string>
+    <string name="cobcompared">COB %1$s %2$.0f</string>
+    <string name="taskname">Nombre de la tarea</string>
+    <string name="edit_short">Editar</string>
+    <string name="please_choose_an_action_type">Por favor, elija el tipo de acción:</string>
+    <string name="please_choose_a_trigger_type">Por favor, elija un tipo de activación:</string>
+    <string name="triggers">Activadores:</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->
+    <string name="medtronic_pump_type">Tipo de Infusora</string>
+    <string name="medtronic_pump_frequency">Frecuencia de la Infusora Medtronic</string>
+    <string name="medtronic_pump_bolus_delay">Retraso antes de que el bolo se inicie (s)</string>
+    <string name="medtronic_pump_max_bolus">Bolo máximo en infusora (U)</string>
+    <string name="medtronic_pump_max_basal">Máxima Basal en Infusora (U/h)</string>
+    <string name="medtronic_pump_encoding">Codificación de Medtronic</string>
     <!-- RL BLE Scanning -->
     <!-- RL Status Page -->
     <!-- RL State -->
