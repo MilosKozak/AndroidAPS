@@ -1392,7 +1392,6 @@ Context | Edit Context</string>
     <string name="codeaccepted">Код принят</string>
     <string name="codeinvalid">Неверный код</string>
     <string name="objectives_exam_objective">Подтвердите ваши знания</string>
-    <string name="objectives_exam_gate">Правильно изучите и ответьте на вопросы</string>
     <string name="answerdisabledto">Рассмотрение ответов приостановлено на: %1$s</string>
     <string name="wronganswer">Неправильный ответ!</string>
     <string name="unfinshed_button">Следующий незавершенный</string>
