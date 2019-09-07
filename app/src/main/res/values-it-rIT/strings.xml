@@ -320,18 +320,6 @@
     <string name="objectives_0_objective">Configurazione della visualizzazione e del monitoraggio, analisi basali e rapporti</string>
     <string name="objectives_0_gate">Verificare che la Glicemia sia disponibile su Nightscout e che i dati sull\'insulina del micro siano in fase di caricamento</string>
     <string name="objectives_openloop_objective">Partenza con Loop Aperto</string>
-    <string name="objectives_openloop_gate">Esegui l\'applicazione in modalità Loop Aperto per alcuni giorni e accetta manualmente le basali temporanee. Imposta e utilizza i target temporanei, anche quelli predefiniti (ad esempio, per l\'attività fisica o il trattamento dell\'ipoglicemia con carboidrati)</string>
-    <string name="objectives_maxbasal_objective">Comprendi il tuo Loop Aperto, incluse le relative raccomandazioni sulle basali temporanee</string>
-    <string name="objectives_maxbasal_gate">Sulla base di tale esperienza, decidi quale deve essere il valore max della basale e impostalo sul microinfusore e nelle preferenze</string>
-    <string name="objectives_maxiobzero_objective">Iniziare a chiudere il Loop con Low Glucose Suspend</string>
-    <string name="objectives_maxiobzero_gate">Esegui l\'applicazione in Loop Chiuso con max IOB = 0 per pochi giorni senza troppi eventi LGS</string>
-    <string name="objectives_maxiob_objective">Regola il Loop Chiuso, aumentando max IOB al di sopra di 0 e abbassando gradualmente i target glicemici</string>
-    <string name="objectives_maxiob_gate">Esegui l\'applicazione per alcuni giorni e almeno una notte senza allarmi glicemia, prima di abbassare il target glicemico</string>
-    <string name="objectives_autosens_objective">Regola le basali e i rapporti se necessario, quindi attiva auto-sens</string>
-    <string name="objectives_autosens_gate">1 settimana di looping diurno con dichiarazione regolare dei carboidrati, eseguito con successo</string>
-    <string name="objectives_ama_objective">Abilita funzioni aggiuntive per l\'uso diurno, ad esempio AMA (advanced meal assist - assistenza avanzata del pasto)</string>
-    <string name="objectives_smb_objective">Abilita funzioni aggiuntive per l\'uso diurno, come SMB</string>
-    <string name="objectives_smb_gate">È necessario leggere il wiki e aumentare maxIOB affinché le azioni di SMB funzionino adeguatamente! Un buon inizio è maxIOB = media bolo posto + 3 x max basale giornaliera</string>
     <string name="youareonallowedlimit">Hai raggiunto il limite consentito</string>
     <string name="noprofileselected">Nessun profilo selezionato</string>
     <string name="smscommunicator_loophasbeendisabled">Disattivazione Loop corretta</string>
@@ -565,7 +553,6 @@
     <string name="enablesuperbolus">Abilita Super Bolo nel Calcolatore</string>
     <string name="enablesuperbolus_summary">Abilita funzionalità Super Bolo nel Calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
     <string name="show_statuslights">Mostra \"indicatori di stato\" sulla schermata iniziale</string>
-    <string name="show_statuslights_summary">Abilita indicatori di stato per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
     <string name="statuslights_res_warning">Soglia di avviso livello serbatoio [U]</string>
     <string name="statuslights_res_critical">Soglia critica livello serbatoio [U]</string>
     <string name="statuslights_bat_warning">Soglia di avviso livello batteria [%%]</string>
@@ -1375,6 +1362,7 @@
     <string name="deliverpartofboluswizard">Bolus wizard esegue il calcolo, ma solo questa parte dell\'insulina calcolata è erogata. Utile con algoritmo SMB.</string>
     <string name="loading">Caricamento ...</string>
     <string name="snooze">Snooze</string>
+    <string name="requestcode">Codice richiesta: %1$s</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d giorno</item>
         <item quantity="other">%1$d giorni</item>
