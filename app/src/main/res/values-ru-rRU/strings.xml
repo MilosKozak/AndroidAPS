@@ -565,6 +565,10 @@
     <string name="enablesuperbolus">активировать суперболюс</string>
     <string name="enablesuperbolus_summary">активировать возможность суперболюса в мастере. не активируйте если не знаете что это. МОЖЕТ ВЫЗВАТЬ ПЕРЕДОЗИРОВКУ ИНСУЛИНА ЕСЛИ ИСПОЛЬЗУЕТСЯ ВСЛЕПУЮ</string>
     <string name="show_statuslights">Показать индикаторы состояния на главном экране</string>
+    <string name="show_statuslights_easy">Показывать индикаторы состояния на главном экране</string>
+    <string name="show_statuslights_easy_summary">Включить на главном экране индикаторы отработанного времени для канюли помпы, инсулина, сенсора, резервуара, а также показать уровень аккумулятора.</string>
+    <string name="show_statuslights_extended">Показывать подробные индикаторы состояния на главном экране</string>
+    <string name="show_statuslights_extended_summary">Включить на главном экране подробные индикаторы отработанного времени для канюли помпы, инсулина, сенсора, резервуара, а также уровня заряда батареи.</string>
     <string name="statuslights_res_warning">Порог уровня наполненности резервуара для оповещения [ед.]</string>
     <string name="statuslights_res_critical">Порог критического уровня наполненности резервуара [U]</string>
     <string name="statuslights_bat_warning">Порог предупреждения о разрядке батареи [%%]</string>
@@ -1391,6 +1395,7 @@ Context | Edit Context</string>
     <string name="codeaccepted">Код принят</string>
     <string name="codeinvalid">Неверный код</string>
     <string name="objectives_exam_objective">Подтвердите ваши знания</string>
+    <string name="objectives_exam_gate">Изучите вопросы и дайте точные ответы.</string>
     <string name="answerdisabledto">Рассмотрение ответов приостановлено на: %1$s</string>
     <string name="wronganswer">Неправильный ответ!</string>
     <string name="unfinshed_button">Следующий незавершенный</string>
