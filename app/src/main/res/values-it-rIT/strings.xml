@@ -322,6 +322,7 @@
     <string name="objectives_openloop_objective">Partenza con Loop Aperto</string>
     <string name="objectives_openloop_gate">Esegui l\'applicazione in modalità Loop Aperto per alcuni giorni e accetta manualmente le basali temporanee. Imposta e utilizza i target temporanei, anche quelli predefiniti (ad esempio, per l\'attività fisica o il trattamento dell\'ipoglicemia con carboidrati)</string>
     <string name="objectives_maxbasal_objective">Comprendi il tuo Loop Aperto, incluse le relative raccomandazioni sulle basali temporanee</string>
+    <string name="objectives_maxbasal_gate">Sulla base di tale esperienza, decidi quale deve essere il valore max della basale e impostalo sul microinfusore e nelle preferenze</string>
     <string name="youareonallowedlimit">Hai raggiunto il limite consentito</string>
     <string name="noprofileselected">Nessun profilo selezionato</string>
     <string name="smscommunicator_loophasbeendisabled">Disattivazione Loop corretta</string>
@@ -1364,7 +1365,11 @@
     <string name="deliverpartofboluswizard">Bolus wizard esegue il calcolo, ma solo questa parte dell\'insulina calcolata è erogata. Utile con algoritmo SMB.</string>
     <string name="loading">Caricamento ...</string>
     <string name="snooze">Snooze</string>
+    <string name="wronganswer">Risposta sbagliata!</string>
+    <string name="unfinshed_button">Prossimo non completato</string>
+    <string name="close">Chiudi</string>
     <string name="requestcode">Codice richiesta: %1$s</string>
+    <string name="objectives_hint">(segna tutte le risposte corrette)</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d giorno</item>
         <item quantity="other">%1$d giorni</item>
