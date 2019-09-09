@@ -1365,6 +1365,7 @@
     <string name="deliverpartofboluswizard">Bolus wizard esegue il calcolo, ma solo questa parte dell\'insulina calcolata è erogata. Utile con algoritmo SMB.</string>
     <string name="loading">Caricamento ...</string>
     <string name="snooze">Snooze</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Inserisci il codice ottenuto dagli sviluppatori per aggirare il resto degli obiettivi</string>
     <string name="wronganswer">Risposta sbagliata!</string>
     <string name="unfinshed_button">Prossimo non completato</string>
     <string name="close">Chiudi</string>
