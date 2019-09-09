@@ -320,6 +320,8 @@
     <string name="objectives_0_objective">Configurazione della visualizzazione e del monitoraggio, analisi basali e rapporti</string>
     <string name="objectives_0_gate">Verificare che la Glicemia sia disponibile su Nightscout e che i dati sull\'insulina del micro siano in fase di caricamento</string>
     <string name="objectives_openloop_objective">Partenza con Loop Aperto</string>
+    <string name="objectives_openloop_gate">Esegui l\'applicazione in modalità Loop Aperto per alcuni giorni e accetta manualmente le basali temporanee. Imposta e utilizza i target temporanei, anche quelli predefiniti (ad esempio, per l\'attività fisica o il trattamento dell\'ipoglicemia con carboidrati)</string>
+    <string name="objectives_maxbasal_objective">Comprendi il tuo Loop Aperto, incluse le relative raccomandazioni sulle basali temporanee</string>
     <string name="youareonallowedlimit">Hai raggiunto il limite consentito</string>
     <string name="noprofileselected">Nessun profilo selezionato</string>
     <string name="smscommunicator_loophasbeendisabled">Disattivazione Loop corretta</string>
