@@ -640,7 +640,6 @@
     <string name="mdtp_cancel">Ακύρωση</string>
     <string name="notloadedplugins">Δεν έχουν φορτωθεί όλα τα προφίλ!</string>
     <string name="valuesnotstored">Οι τιμές δεν αποθηκεύτηκαν!</string>
-    <string name="ns_localbroadcasts">Ενεργοποιήστε την αποστολή σε άλλες εφαρμογές (όπως xDrip).</string>
     <string name="ns_localbroadcasts_title">Ενεργοποιήστε τις τοπικές αποστολές.</string>
     <string name="careportal_activity_label">ΔΡΑΣΤΗΡΙΟΤΗΤΑ &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">ΥΔΑΤΑΝΘΡΑΚΕΣ &amp; BOLUS</string>
