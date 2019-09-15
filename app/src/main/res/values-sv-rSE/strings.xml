@@ -1281,7 +1281,6 @@ Eversense-appen.</string>
     <string name="rileylink_state_not_started">Inte startad</string>
     <string name="rileylink_state_rl_init">Riley Link initierar…</string>
     <string name="rileylink_state_rl_error">Riley Link-fel</string>
-    <string name="rileylink_state_pc_tune_up">Justerar Riley Link mot pump</string>
     <string name="rileylink_state_pc_error">Problem att ansluta till pumpen</string>
     <string name="rileylink_state_connected">Ansluten</string>
     <!-- RL Errors -->
