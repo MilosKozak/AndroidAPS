@@ -1299,7 +1299,6 @@ Context | Edit Context</string>
     <string name="rileylink_state_not_started">Не запущено</string>
     <string name="rileylink_state_rl_init">Инициализация RileyLink…</string>
     <string name="rileylink_state_rl_error">Ошибка RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">Настройка RileyLink и помпы</string>
     <string name="rileylink_state_pc_error">Проблема подключения к помпе</string>
     <string name="rileylink_state_connected">Соединение установлено</string>
     <!-- RL Errors -->
