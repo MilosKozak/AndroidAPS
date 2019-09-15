@@ -640,7 +640,6 @@
     <string name="mdtp_cancel">отмена</string>
     <string name="notloadedplugins">не все профили загружены!</string>
     <string name="valuesnotstored">Данные не сохранены!</string>
-    <string name="ns_localbroadcasts">Активировать передачу на другие приложения (напр. xDrip)</string>
     <string name="ns_localbroadcasts_title">Активировать локальную передачу</string>
     <string name="careportal_activity_label">АКТИВНОСТЬ</string>
     <string name="careportal_carbsandbolus_label">УГЛЕВОДЫ ; БОЛЮС</string>
