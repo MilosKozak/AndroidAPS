@@ -640,6 +640,7 @@
     <string name="mdtp_cancel">Renunță</string>
     <string name="notloadedplugins">Nu s-au încărcat toate profilurile!</string>
     <string name="valuesnotstored">Nu s-au salvat valorile!</string>
+    <string name="ns_localbroadcasts">Activează mesajele pentru alte aplicații (cum ar fi xDrip). Nu activați dacă aveți mai mult de o instanță de AAPS sau NSClient instalată!</string>
     <string name="ns_localbroadcasts_title">Permite anunțuri locale.</string>
     <string name="careportal_activity_label">ACTIVITATE ȘI VERIFICĂRI</string>
     <string name="careportal_carbsandbolus_label">CARBO ȘI BOLUS</string>
