@@ -565,8 +565,6 @@
     <string name="enablesuperbolus">Abilita Super Bolo nel Calcolatore</string>
     <string name="enablesuperbolus_summary">Abilita funzionalità Super Bolo nel Calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
     <string name="show_statuslights">Mostra \"indicatori di stato\" sulla schermata iniziale</string>
-    <string name="show_statuslights_easy">Mostra \"indicatori di stato\" originali sulla schermata iniziale</string>
-    <string name="show_statuslights_easy_summary">Abilita indicatori di stato originali per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
     <string name="show_statuslights_extended">Mostra \"indicatori di stato\" estesi sulla schermata iniziale</string>
     <string name="show_statuslights_extended_summary">Abilita indicatori di stato estesi per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
     <string name="statuslights_res_warning">Soglia di avviso livello serbatoio [U]</string>
