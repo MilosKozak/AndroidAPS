@@ -640,7 +640,6 @@
     <string name="mdtp_cancel">Annulla</string>
     <string name="notloadedplugins">Non tutti i profili caricati!</string>
     <string name="valuesnotstored">Valori non memorizzati!</string>
-    <string name="ns_localbroadcasts">Abilita la trasmissione ad altre applicazioni (come xDrip).</string>
     <string name="ns_localbroadcasts_title">Abilita la trasmissione locale.</string>
     <string name="careportal_activity_label">ATTIVITÀ &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBOIDRATI &amp; BOLO</string>
