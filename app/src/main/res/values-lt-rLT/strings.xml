@@ -623,7 +623,6 @@
     <string name="mdtp_cancel">Atšaukti</string>
     <string name="notloadedplugins">Ne visi profiliai įkelti!</string>
     <string name="valuesnotstored">Reikšmės neišsaugotos!</string>
-    <string name="ns_localbroadcasts">Įgalinti duomenų perdavimą kitoms programėlėms (kaip xDrip).</string>
     <string name="ns_localbroadcasts_title">Įgalinti lokalų duomenų perdavimą.</string>
     <string name="careportal_activity_label">AKTYVUMAS &amp; ATGALINIS RYŠYS</string>
     <string name="careportal_carbsandbolus_label">ANGLIAVANDENIAI &amp; BOLUSAS</string>
