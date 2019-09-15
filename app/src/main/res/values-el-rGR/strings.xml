@@ -1297,7 +1297,6 @@
     <string name="rileylink_state_not_started">Δεν ξεκίνησε</string>
     <string name="rileylink_state_rl_init">Αρχικοποίηση του RileyLink…</string>
     <string name="rileylink_state_rl_error">RileyLink Σφάλμα</string>
-    <string name="rileylink_state_pc_tune_up">Ρύθμιση του RileyLink και της αντλίας</string>
     <string name="rileylink_state_pc_error">Πρόβλημα σύνδεσης με την Αντλία</string>
     <string name="rileylink_state_connected">Συνδέθηκε</string>
     <!-- RL Errors -->
