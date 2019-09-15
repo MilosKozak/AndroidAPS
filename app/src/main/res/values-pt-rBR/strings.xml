@@ -626,7 +626,6 @@
     <string name="mdtp_cancel">Cancelar</string>
     <string name="notloadedplugins">Nem todos perfis foram carregados!</string>
     <string name="valuesnotstored">Valores não guardados!</string>
-    <string name="ns_localbroadcasts">Activar partilha para outras aplicações (como xDrip).</string>
     <string name="ns_localbroadcasts_title">Activar partilha local.</string>
     <string name="careportal_activity_label">ATIVIDADE &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBOS &amp; BOLUS</string>
