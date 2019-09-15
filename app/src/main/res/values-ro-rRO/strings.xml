@@ -1298,7 +1298,6 @@
     <string name="rileylink_state_not_started">Nepornit</string>
     <string name="rileylink_state_rl_init">Se inițializează RileyLink…</string>
     <string name="rileylink_state_rl_error">Eroare RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">Sincronizare cu RileyLink și pompă</string>
     <string name="rileylink_state_pc_error">Probleme la conectarea cu pompa</string>
     <string name="rileylink_state_connected">Conectat</string>
     <!-- RL Errors -->
