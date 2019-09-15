@@ -625,7 +625,6 @@ Eversense-appen.</string>
     <string name="mdtp_cancel">Avbryt</string>
     <string name="notloadedplugins">Alla profiler laddades inte!</string>
     <string name="valuesnotstored">Alla värden sparades inte!</string>
-    <string name="ns_localbroadcasts">Slå på sändning av data till alla appar i telefonen (ex xDrip).</string>
     <string name="ns_localbroadcasts_title">Aktivera lokala broadcasts</string>
     <string name="careportal_activity_label">TRÄNING &amp; BG-MÅL</string>
     <string name="careportal_carbsandbolus_label">KOLHYDRATER &amp; BOLUS</string>
