@@ -1282,7 +1282,6 @@
     <string name="rileylink_state_not_started">시작되지 않았습니다.</string>
     <string name="rileylink_state_rl_init">RileyLink 초기화…</string>
     <string name="rileylink_state_rl_error">RileyLink 에러</string>
-    <string name="rileylink_state_pc_tune_up">RileyLink 와 펌프 튜닝</string>
     <string name="rileylink_state_pc_error">펌프 연결 문제</string>
     <string name="rileylink_state_connected">연결됨</string>
     <!-- RL Errors -->
