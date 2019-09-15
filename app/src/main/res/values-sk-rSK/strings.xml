@@ -640,7 +640,6 @@
     <string name="mdtp_cancel">Zrušiť</string>
     <string name="notloadedplugins">Nenačítané všetky profily!</string>
     <string name="valuesnotstored">Hodnoty nie sú uložené!</string>
-    <string name="ns_localbroadcasts">Povoliť odosielanie do ostatných aplikácií (napr. xDrip).</string>
     <string name="ns_localbroadcasts_title">Povoliť lokálne vysielanie.</string>
     <string name="careportal_activity_label">AKTIVITA &amp; SPÄTNÁ VÄZBA</string>
     <string name="careportal_carbsandbolus_label">SACHARIDY &amp; BOLUSY</string>
