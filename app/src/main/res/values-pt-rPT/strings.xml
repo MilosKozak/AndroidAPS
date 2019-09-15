@@ -1283,7 +1283,6 @@
     <string name="rileylink_state_not_started">Não Iniciado</string>
     <string name="rileylink_state_rl_init">Inicialização do RileyLink…</string>
     <string name="rileylink_state_rl_error">Erro no RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">A configurar RileyLink e Bomba</string>
     <string name="rileylink_state_pc_error">Problema ao ligar à Bomba</string>
     <string name="rileylink_state_connected">Ligado</string>
     <!-- RL Errors -->
