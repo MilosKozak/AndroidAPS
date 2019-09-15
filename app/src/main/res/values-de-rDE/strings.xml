@@ -641,6 +641,7 @@ maxIOB = durchschnittlicher Essensbolus + 3 x maximale Basalrate</string>
     <string name="mdtp_cancel">Abbrechen</string>
     <string name="notloadedplugins">Es sind nicht alle Profile geladen!</string>
     <string name="valuesnotstored">Werte nicht gespeichert!</string>
+    <string name="ns_localbroadcasts">Aktiviere die Datenübertragung zu anderen Apps (z.B. xDrip). Nicht aktivieren falls Du mehr als eine Instanz von AAPS oder NSClient installiert hast!</string>
     <string name="ns_localbroadcasts_title">Aktiviere lokale Broadcasts</string>
     <string name="careportal_activity_label">AKTIVITÄT &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBS &amp; BOLUS</string>
