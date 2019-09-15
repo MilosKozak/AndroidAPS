@@ -626,7 +626,6 @@
     <string name="mdtp_cancel">Откажи</string>
     <string name="notloadedplugins">Не всички профили са заредени!</string>
     <string name="valuesnotstored">Стойностите не са запазени!</string>
-    <string name="ns_localbroadcasts">Разреши предаване към други приложения (напр. xDrip)</string>
     <string name="ns_localbroadcasts_title">Разреши локално предаване на данни</string>
     <string name="careportal_activity_label">АКТИВНОСТ И ОБРАТНА ВРЪЗКА</string>
     <string name="careportal_carbsandbolus_label">ХРАНА И БОЛУС</string>
