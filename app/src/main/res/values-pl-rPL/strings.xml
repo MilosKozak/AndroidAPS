@@ -1298,7 +1298,6 @@
     <string name="rileylink_state_not_started">Nie rozpoczęto</string>
     <string name="rileylink_state_rl_init">Uruchamianie RileyLink…</string>
     <string name="rileylink_state_rl_error">Błąd RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">Strojenie RileyLink i pompy</string>
     <string name="rileylink_state_pc_error">Problem z połączeniem z pompą</string>
     <string name="rileylink_state_connected">Połączono</string>
     <!-- RL Errors -->
