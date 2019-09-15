@@ -565,8 +565,6 @@
     <string name="enablesuperbolus">Zezwalaj na superbolus w kalkulatorze</string>
     <string name="enablesuperbolus_summary">Włącz funkcję Superbolus w kalkulatorze. Nie uruchamiaj, dopóki nie nauczysz się jak ta funkcja działa. MOŻESZ DOPROWADZIĆ DO PRZEDAWKOWANIA INSULINY JEŻELI UŻYJESZ TEJ FUNKCJI NIE POSIADAJĄC ODPOWIEDNIEJ WIEDZY!</string>
     <string name="show_statuslights">Pokaż diody stanu na ekranie głównym</string>
-    <string name="show_statuslights_easy">Pokaż diody stanu na ekranie głównym</string>
-    <string name="show_statuslights_easy_summary">Włącz diody stanu dla cage, iage, sage, rezerwuar i poziom baterii na ekranie głównym.</string>
     <string name="show_statuslights_extended">Pokaż diody stanu na ekranie głównym</string>
     <string name="show_statuslights_extended_summary">Włącz diody stanu dla cage, iage, sage, rezerwuar i poziom baterii na ekranie głównym.</string>
     <string name="statuslights_res_warning">Próg ostrzeżenia o poziomie zbiornika [U]</string>
