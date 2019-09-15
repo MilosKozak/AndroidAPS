@@ -1297,7 +1297,6 @@
     <string name="rileylink_state_not_started">Nezahájeno</string>
     <string name="rileylink_state_rl_init">RileyLink inicializace…</string>
     <string name="rileylink_state_rl_error">Chyba RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">Spojování RileyLinku a pumpy</string>
     <string name="rileylink_state_pc_error">Problém připojení k pumpě</string>
     <string name="rileylink_state_connected">Připojeno</string>
     <!-- RL Errors -->
