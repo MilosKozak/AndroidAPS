@@ -1282,7 +1282,6 @@
     <string name="rileylink_state_not_started">Niet gestart</string>
     <string name="rileylink_state_rl_init">RileyLink initialiseren…</string>
     <string name="rileylink_state_rl_error">RileyLink fout</string>
-    <string name="rileylink_state_pc_tune_up">RileyLink en Pomp status opvragen</string>
     <string name="rileylink_state_pc_error">Probleem tijdens verbinden met de pomp</string>
     <string name="rileylink_state_connected">Verbonden</string>
     <!-- RL Errors -->
