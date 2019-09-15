@@ -641,7 +641,6 @@
     <string name="mdtp_cancel">Anuluj</string>
     <string name="notloadedplugins">Nie wszystkie profile zostały załadowane!</string>
     <string name="valuesnotstored">Wartości nie są przechowywane!</string>
-    <string name="ns_localbroadcasts">Włącz transmisje do innych aplikacji (jak xDrip).</string>
     <string name="ns_localbroadcasts_title">Włącz transmisję lokalnie.</string>
     <string name="careportal_activity_label">AKTYWNOŚĆ &amp; REAKCJA</string>
     <string name="careportal_carbsandbolus_label">WĘGLOW. &amp; BOLUS</string>
