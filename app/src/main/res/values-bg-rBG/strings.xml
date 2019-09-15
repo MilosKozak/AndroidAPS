@@ -1282,7 +1282,6 @@
     <string name="rileylink_state_not_started">Не е стартиран</string>
     <string name="rileylink_state_rl_init">RileyLink стартиране…</string>
     <string name="rileylink_state_rl_error">RileyLink грешка</string>
-    <string name="rileylink_state_pc_tune_up">Настройка на RileyLink и помпа</string>
     <string name="rileylink_state_pc_error">Проблем при връзка с помпата</string>
     <string name="rileylink_state_connected">Свързан</string>
     <!-- RL Errors -->
