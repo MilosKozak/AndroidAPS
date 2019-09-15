@@ -565,8 +565,6 @@
     <string name="enablesuperbolus">Activează superbolus în asistent</string>
     <string name="enablesuperbolus_summary">Activează funcționalitatea de superbolus în asistentul de buclă. Nu activați până nu înțelegeți ce face cu adevărat. DACĂ ESTE FOLOSIT ÎN NECUNOȘTINȚĂ DE CAUZĂ POATE DUCE LA SUPRADOZĂ DE INSULINĂ!</string>
     <string name="show_statuslights">Afișați indicatorii luminoși ai pompei pe ecranul de start</string>
-    <string name="show_statuslights_easy">Afișați indicatorii luminoși de pe pompă pe ecranul de start</string>
-    <string name="show_statuslights_easy_summary">Activați indicatori pentru CAGE, IAGE, SAGE, nivel baterie și rezervor pe ecranul principal.</string>
     <string name="show_statuslights_extended">Afișați indicatorii luminoși referitori la starea detaliată a pompei pe ecranul principal</string>
     <string name="show_statuslights_extended_summary">Activați indicatori pentru CAGE, IAGE, SAGE, nivel baterie și rezervor pe ecranul principal.</string>
     <string name="statuslights_res_warning">Pragul de avertisment pentru insulina din rezervor [U]</string>
