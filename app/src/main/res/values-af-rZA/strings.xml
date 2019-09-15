@@ -623,7 +623,6 @@
     <string name="mdtp_cancel">Kanselleer</string>
     <string name="notloadedplugins">Nie alle profiele gelaai!</string>
     <string name="valuesnotstored">Waardes nie gestoor!</string>
-    <string name="ns_localbroadcasts">Ontsper uitsaai na ander toepassings (soos xDrip).</string>
     <string name="ns_localbroadcasts_title">Aktiveer plaaslike Uitsaai.</string>
     <string name="careportal_activity_label">AKTIWITEIT &amp; TERUGVOER</string>
     <string name="careportal_carbsandbolus_label">KARBS &amp; BOLUS</string>
