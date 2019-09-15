@@ -640,7 +640,6 @@
     <string name="mdtp_cancel">Cancelar</string>
     <string name="notloadedplugins">Faltan perfiles por cargar!</string>
     <string name="valuesnotstored">Valores no guardados!</string>
-    <string name="ns_localbroadcasts">Permitir emisión de mensajes a otras aplicaciones (como xDrip).</string>
     <string name="ns_localbroadcasts_title">Permitir emisión de mensajes localmente.</string>
     <string name="careportal_activity_label">ACTIVIDAD Y FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBS Y BOLUS</string>
