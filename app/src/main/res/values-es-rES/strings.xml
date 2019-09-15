@@ -1297,7 +1297,6 @@
     <string name="rileylink_state_not_started">No iniciado</string>
     <string name="rileylink_state_rl_init">Inicialización de RileyLink…</string>
     <string name="rileylink_state_rl_error">Error de RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">Configurando RileyLink y la bomba</string>
     <string name="rileylink_state_pc_error">Problema al conectar con la infusora</string>
     <string name="rileylink_state_connected">Conectado</string>
     <!-- RL Errors -->
