@@ -625,7 +625,6 @@
     <string name="mdtp_cancel">Afbreken</string>
     <string name="notloadedplugins">Niet alle profielen zijn geladen!</string>
     <string name="valuesnotstored">Waarden niet opgeslagen!</string>
-    <string name="ns_localbroadcasts">Activeer delen met andere apps (zoals xDrip).</string>
     <string name="ns_localbroadcasts_title">Activeer locaal delen.</string>
     <string name="careportal_activity_label">ACTIVITEIT &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">KOOLHYDRATEN &amp; BOLUS</string>
