@@ -3,6 +3,7 @@
 <resources>
     <string name="dia_whatmeansdia">Cosa è vero riguardo DIA?</string>
     <string name="dia_label">Argomento: Durata dell\'Azione dell\'Insulina</string>
+    <string name="suspendloop_no">No, l\'erogazione di insulina è interrotta.</string>
     <string name="basaltest_beforeloop">Prima di iniziare il Loop.</string>
     <string name="prerequisites_label">Argomento: Prerequisiti</string>
     <string name="prerequisites_what">Di cosa ho bisogno?</string>
@@ -39,9 +40,14 @@
     <string name="insulin_novorapid">NovoRapid®</string>
     <string name="insulin_humalog">Humalog®</string>
     <string name="insulin_actrapid">Actrapid®</string>
+    <string name="nsclient_dexcomfollowxdrip">Dexcom Follow se stai usando l\'app xDrip.</string>
     <string name="nsclient_xdripfollower">xDrip in modalità follower.</string>
     <string name="nsclient_looponiphone">App Loop su iPhone.</string>
     <string name="nsclient_spikeiphone">App Spike su iPhone.</string>
+    <string name="ic_label">Argomento: Il Valore IC</string>
+    <string name="profileswitch_label">Argomento: Cambio Profilo</string>
+    <string name="profileswitch_basalhigher">Le basali saranno più alte del 10%.</string>
+    <string name="profileswitch_basallower">Le basali saranno più basse del 10%.</string>
     <string name="profileswitch_ichigher">Il valore IC sarà più alto del 10%.</string>
     <string name="profileswitch_iclower">Il valore IC sarà più basso del 10%.</string>
     <string name="profileswitch_isfhigher">Il valore ISF sarà più alto del 10%.</string>
