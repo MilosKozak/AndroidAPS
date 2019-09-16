@@ -115,4 +115,5 @@ Context | Edit Context</string>
     <string name="extendedcarbs_add">Пересчитать жир и белки в углеводах и добавить их в калькулятор болюса.</string>
     <string name="extendedcarbs_useextendedbolus">Использовать пролонгированный болюс для покрытия жиров и белков.</string>
     <string name="extendedcarbs_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Extended-Carbs.html</string>
+    <string name="nsclient_label">Тема: Детский мониторинг</string>
 </resources>
