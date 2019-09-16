@@ -36,6 +36,8 @@
     <string name="noisycgm_whattodo">Что делать, если наблюдаются шумы данных?</string>
     <string name="nothing">Ничего, алгоритм AAPS сам справится с этим.</string>
     <string name="noisycgm_pause">Приостановите режим замкнутого цикла, чтобы избежать избыточной дозировки.</string>
-    <string name="noisycgm_replacesensor">Заменить сенсор.</string>
+    <string name="noisycgm_replacesensor">Замените сенсор.</string>
     <string name="noisycgm_turnoffphone">Выключите телефон.</string>
+    <string name="noisycgm_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Smoothing-Blood-Glucose-Data-in-xDrip.html#smoothing-blood-glucose-data</string>
+    <string name="noisycgm_checksmoothing">Проверьте, выравниваются ли данные в приложении мониторинга.</string>
 </resources>
