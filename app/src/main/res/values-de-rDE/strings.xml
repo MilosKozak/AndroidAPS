@@ -1300,6 +1300,7 @@ Unerwartetes Verhalten.</string>
     <string name="rileylink_state_not_started">Nicht gestartet</string>
     <string name="rileylink_state_rl_init">RileyLink Initialisierung…</string>
     <string name="rileylink_state_rl_error">RileyLink Fehler</string>
+    <string name="rileylink_state_pc_tune_up">RileyLink und Pumpe einstellen</string>
     <string name="rileylink_state_pc_error">Problem beim Verbinden mit Pumpe</string>
     <string name="rileylink_state_connected">Verbunden</string>
     <!-- RL Errors -->
