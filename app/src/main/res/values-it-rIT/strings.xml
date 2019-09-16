@@ -1297,6 +1297,7 @@
     <string name="rileylink_state_not_started">Non avviato</string>
     <string name="rileylink_state_rl_init">Inializzazione RileyLink…</string>
     <string name="rileylink_state_rl_error">Errore RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">Sintonizzazione RileyLink e micro</string>
     <string name="rileylink_state_pc_error">Problema di connessione al micro</string>
     <string name="rileylink_state_connected">Connesso</string>
     <!-- RL Errors -->
