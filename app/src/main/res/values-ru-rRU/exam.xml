@@ -27,4 +27,15 @@
     <string name="objectives_howtosave">Как эффективнее сохранить свои настройки?</string>
     <string name="objectives_exportsettings">Локально экспортировать их из меню Обслуживание.</string>
     <string name="objectives_storeelsewhere">Хранить экспортированный файл в другом месте, например, отправив по электронной почте, Dropbox, Google drive…</string>
+    <string name="objectives_doexportonstart">Экспортировать их сразу после установки AAPS.</string>
+    <string name="objectives_doexportafterchange">Экспортировать их после каждого изменения параметра.</string>
+    <string name="objectives_doexportafterfirtssettings">Экспортировать их при завершении начальной настройки.</string>
+    <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/ExportImportSettings.html</string>
+    <string name="objectives_hint2">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#what-emergency-equipment-is-recommended-to-take-with-me</string>
+    <string name="noisycgm_label">Тема: Зашумленные данные мониторинга</string>
+    <string name="noisycgm_whattodo">Что делать, если наблюдаются шумы данных?</string>
+    <string name="nothing">Ничего, алгоритм AAPS сам справится с этим.</string>
+    <string name="noisycgm_pause">Приостановите режим замкнутого цикла, чтобы избежать избыточной дозировки.</string>
+    <string name="noisycgm_replacesensor">Заменить сенсор.</string>
+    <string name="noisycgm_turnoffphone">Выключите телефон.</string>
 </resources>
