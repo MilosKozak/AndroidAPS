@@ -36,4 +36,11 @@
     <string name="insulin_novorapid">NovoRapid®</string>
     <string name="insulin_humalog">Humalog®</string>
     <string name="insulin_actrapid">Actrapid®</string>
+    <string name="profileswitch_ichigher">Il valore IC sarà più alto del 10%.</string>
+    <string name="profileswitch_iclower">Il valore IC sarà più basso del 10%.</string>
+    <string name="profileswitch_isfhigher">Il valore ISF sarà più alto del 10%.</string>
+    <string name="profileswitch_isflower">Il valore IC sarà più basso del 10%.</string>
+    <string name="profileswitch_overall">Riceverai il 10% in meno di insulina, in totale.</string>
+    <string name="profileswitch_targethigher">Il Target sarà più alto del 10%.</string>
+    <string name="profileswitch_targetlower">Il Target sarà più basso del 10%.</string>
 </resources>
