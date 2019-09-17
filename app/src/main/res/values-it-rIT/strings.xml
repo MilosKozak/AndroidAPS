@@ -14,8 +14,8 @@
     <string name="nav_resetdb">Ripristina database</string>
     <string name="reset_db_confirm">Vuoi davvero ripristinare i database?</string>
     <string name="nav_exit">Uscita</string>
-    <string name="danar_useextended_title">Usa bolo esteso per &gt;200%%</string>
-    <string name="danar_bt_name_title">Dispositivo Bluetooh DanaR</string>
+    <string name="danar_useextended_title">Usa boli estesi per &gt;200%%</string>
+    <string name="danar_bt_name_title">Dispositivo DanaR Bluetooth</string>
     <string name="ns_sync_use_absolute_title">Utilizzare sempre valori basali assoluti</string>
     <string name="alert_dialog_storage_permission_text">Per favore riavvia il tuo telefono oppure fai ripartire AndroidAPS dalle impostazioni di sistema \naltrimenti Android APS non farà il log (è importante monitorare e verificare che gli algoritmi stiano funzionando correttamente)!</string>
     <string name="alert_dialog_permission_battery_optimization_failed">Questo dispositivo non sembra supportare la whitelisting dell\'ottimizzazione della batteria: potrebbero verificarsi problemi di prestazioni.</string>
@@ -640,6 +640,7 @@
     <string name="mdtp_cancel">Annulla</string>
     <string name="notloadedplugins">Non tutti i profili caricati!</string>
     <string name="valuesnotstored">Valori non memorizzati!</string>
+    <string name="ns_localbroadcasts">Abilita le trasmissioni ad altre app (come xDrip). Non abilitare se hai installato più di un\'istanza di AAPS o NSClient!</string>
     <string name="ns_localbroadcasts_title">Abilita la trasmissione locale.</string>
     <string name="careportal_activity_label">ATTIVITÀ &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBOIDRATI &amp; BOLO</string>
