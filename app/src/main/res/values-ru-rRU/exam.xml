@@ -149,6 +149,10 @@ Context | Edit Context</string>
     <string name="profileswitch_overall">В общей сложности вы получите на 10% меньше инсулина.</string>
     <string name="profileswitch_targethigher">Целевое значение ГК будет на 10% выше.</string>
     <string name="profileswitch_targetlower">Целевое значение ГК будет на 10% ниже.</string>
+    <string name="profileswitch_targetbottom">Только нижняя цель будет ниже на 10%.</string>
+    <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
+    <string name="profileswitchtime_iwant">Я хочу переключить профиль, из-за того, что мне надо проснуться на 1 час раньше, чем обычно, чтобы совместить переход времени с переключением профиля. Какую величину я должен использовать?</string>
+    <string name="profileswitchtime_1">1</string>
     <string name="profileswitchtime__1">-1</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
     <string name="profileswitchtime_60">60</string>
