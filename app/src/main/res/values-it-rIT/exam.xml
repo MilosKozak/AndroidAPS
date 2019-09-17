@@ -3,6 +3,8 @@
 <resources>
     <string name="dia_whatmeansdia">Cosa è vero riguardo DIA?</string>
     <string name="dia_label">Argomento: Durata dell\'Azione dell\'Insulina</string>
+    <string name="dia_minimumis3h">Il minimo predefinito è 3 ore.</string>
+    <string name="dia_minimumis5h">Il minimo predefinito è 5 ore.</string>
     <string name="offlineprofile_label">Argomento: Profilo Offline</string>
     <string name="offlineprofile_nsprofile">Il profilo NS può essere utilizzato, ma non configurato.</string>
     <string name="suspendloop_no">No, l\'erogazione di insulina è interrotta.</string>
