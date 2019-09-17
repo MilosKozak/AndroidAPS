@@ -11,6 +11,7 @@
     <string name="hypott_whenhypott">Perché è utile impostare un ipo TT?</string>
     <string name="hypott_goinglow">Evita che la glicemia vada in basso.</string>
     <string name="hypott_havinglow">Per aiutare il recupero da una glicemia bassa.</string>
+    <string name="hypott_preventoversmb">Per evitare che SMB reagisca all\'aumento della glicemia dovuto ai carboidrati a rapido assorbimento durante una ipo.</string>
     <string name="offlineprofile_label">Argomento: Profilo Offline</string>
     <string name="offlineprofile_nsprofile">Il profilo NS può essere utilizzato, ma non configurato.</string>
     <string name="suspendloop_no">No, l\'erogazione di insulina è interrotta.</string>
