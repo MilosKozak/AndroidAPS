@@ -140,4 +140,17 @@ Context | Edit Context</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Тема: Переключение Профиля</string>
     <string name="profileswitch_pctwillchange"> При установке 90% в переключателе профиля…</string>
+    <string name="profileswitch_basalhigher">Базал будет на 10% выше.</string>
+    <string name="profileswitch_basallower">Базал будет на 10% ниже.</string>
+    <string name="profileswitch_ichigher">Значение IC будет на 10% больше.</string>
+    <string name="profileswitch_iclower">Значение IC будет на 10% ниже.</string>
+    <string name="profileswitch_isfhigher">Значение ISF будет на 10% выше.</string>
+    <string name="profileswitch_isflower">Значение ISF будет на 10% ниже.</string>
+    <string name="profileswitch_overall">В общей сложности вы получите на 10% меньше инсулина.</string>
+    <string name="profileswitch_targethigher">Целевое значение ГК будет на 10% выше.</string>
+    <string name="profileswitch_targetlower">Целевое значение ГК будет на 10% ниже.</string>
+    <string name="profileswitchtime__1">-1</string>
+    <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
+    <string name="profileswitchtime_60">60</string>
+    <string name="profileswitchtime__60">-60</string>
 </resources>
