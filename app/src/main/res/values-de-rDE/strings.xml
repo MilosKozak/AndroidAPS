@@ -268,8 +268,8 @@
     <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
     <string name="smscommunicator_calibrationreplywithcode">Um die Kalibrierung %1$.2f zu senden, antworte mit dem Code %2$s.</string>
     <string name="smscommunicator_bolusfailed">Bolus fehlgeschlagen</string>
-    <string name="bolusdelivered">Bolus %1$.2fU erfolgreich abgegeben</string>
-    <string name="bolusrequested">Werde %1$.2fU abgeben</string>
+    <string name="bolusdelivered">Bolus %1$.2f IE erfolgreich abgegeben</string>
+    <string name="bolusrequested">Werde %1$.2fIE abgeben</string>
     <string name="smscommunicator_bolusdelivered">Bolus %1$.2fU erfolgreich abgegeben</string>
     <string name="bolusdelivering">Gebe %1$.2fU ab</string>
     <string name="smscommunicator_remotecommandsallowed">Erlaube externe Befehle per SMS</string>
