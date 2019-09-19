@@ -98,6 +98,9 @@
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html</string>
     <string name="ic_label">Argomento: Il Valore IC</string>
+    <string name="ic_increasingvalue">L\'aumento del valore IC porterà a una minore erogazione di insulina per la stessa quantità di carboidrati.</string>
+    <string name="ic_decreasingvalue">La riduzione del valore IC porterà a una minore erogazione di insulina per la stessa quantità di carboidrati.</string>
+    <string name="ic_noeffect">Supporre di avere 0 COB. La modifica dell\'IC porterà a una diversa quantità di insulina necessaria per correggere il valore della glicemia.</string>
     <string name="profileswitch_label">Argomento: Cambio Profilo</string>
     <string name="profileswitch_basalhigher">Le basali saranno più alte del 10%.</string>
     <string name="profileswitch_basallower">Le basali saranno più basse del 10%.</string>
