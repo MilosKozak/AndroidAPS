@@ -425,7 +425,7 @@
     <string name="refresheventsfromnightscout">Ricarica eventi da NS</string>
     <string name="deletefuturetreatments">Elimina trattamenti nel futuro</string>
     <string name="eatingsoon">Mangiare a breve</string>
-    <string name="hypo">Ipo</string>
+    <string name="hypo">Ipoglicemia</string>
     <string name="activity">Attività</string>
     <string name="removerecord">Rimuovi campo:</string>
     <string name="danar_stats">Statistiche DanaR</string>
@@ -685,8 +685,8 @@
     <string name="eatingsoon_target">target \"eatingsoon\"</string>
     <string name="activity_duration">durata attività</string>
     <string name="activity_target">target \"attività fisica\"</string>
-    <string name="hypo_duration">durata \"hypo\"</string>
-    <string name="hypo_target">target \"ipo\"</string>
+    <string name="hypo_duration">durata ipoglicemia</string>
+    <string name="hypo_target">target ipoglicemia</string>
     <string name="danar_history_prime">Carica</string>
     <string name="gettingextendedbolusstatus">Richiesta stato bolo esteso</string>
     <string name="gettingbolusstatus">Richiesta stato bolo</string>
@@ -844,7 +844,7 @@
     <string name="overview_show_iob">Insulina attiva</string>
     <string name="overview_show_basals">Basali</string>
     <string name="no_action_selected">Nessuna azione selezionata, non succederà nulla</string>
-    <string name="start_hypo_tt">Avviare Hypo TT</string>
+    <string name="start_hypo_tt">Avvia TT Ipoglicemia</string>
     <string name="closed_loop_disabled_on_dev_branch">Versione sviluppatore. Loop Chiuso disabilitato.</string>
     <string name="engineering_mode_enabled">Engineering mode abilitata</string>
     <string name="not_eng_mode_or_release">Modalità di ingegneria non abilitato e non su ramo di release</string>
