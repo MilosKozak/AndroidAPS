@@ -424,7 +424,7 @@
     <string name="openapsama_useautosens">Usa la funzione Autosens</string>
     <string name="refresheventsfromnightscout">Ricarica eventi da NS</string>
     <string name="deletefuturetreatments">Elimina trattamenti nel futuro</string>
-    <string name="eatingsoon">Mangiare a breve</string>
+    <string name="eatingsoon">Pasto Imminente</string>
     <string name="hypo">Ipoglicemia</string>
     <string name="activity">Attività</string>
     <string name="removerecord">Rimuovi campo:</string>
@@ -681,9 +681,9 @@
     <string name="careportal_newnstreatment_percentage_label">Percentuale</string>
     <string name="careportal_newnstreatment_timeshift_label">Cambio orario</string>
     <string name="default_temptargets">Temp-Target predefiniti</string>
-    <string name="eatingsoon_duration">durata t-t pasto imminente</string>
-    <string name="eatingsoon_target">target \"eatingsoon\"</string>
-    <string name="activity_duration">durata t-t attività</string>
+    <string name="eatingsoon_duration">durata target pasto imminente</string>
+    <string name="eatingsoon_target">target \"pasto imminente\"</string>
+    <string name="activity_duration">target \"attività\" - durata</string>
     <string name="activity_target">target \"attività\"</string>
     <string name="hypo_duration">durata temp-target ipoglicemia</string>
     <string name="hypo_target">target ipoglicemia</string>
