@@ -44,10 +44,10 @@
     <string name="description_pump_dana_rs">Integrazione del microinfusore DANA Diabecare RS</string>
     <string name="description_pump_mdi">Per le persone in terapia multi-iniettiva</string>
     <string name="description_pump_virtual">Per microinfusori che non hanno ancora alcun driver (Loop Aperto)</string>
-    <string name="description_sensitivity_aaps">La sensibilità è calcolata allo stesso modo di Oref0, ma è possibile specificare l\'intervallo di tempo al passato. Minimal carb absorption è calcolato da max carb absorption time nelle preferenze.</string>
+    <string name="description_sensitivity_aaps">La sensibilità è calcolata allo stesso modo di Oref0, ma è possibile specificare l\'intervallo di tempo al passato. L\'assorbimento minimo dei carboidrati è calcolato da \'max tempo assorbimento carb\' nelle preferenze.</string>
     <string name="description_sensitivity_oref0">La sensibilità è calcolata dai dati delle ultime 24h e i carboidrati (se non assorbiti) vengono tagliati fuori dopo il tempo specificato nelle preferenze.</string>
     <string name="description_sensitivity_oref1">La sensibilità è calcolata dai dati delle ultime 8h e i carboidrati (se non assorbiti) vengono tagliati fuori dopo il tempo specificato nelle preferenze. Il Plugin calcola anche UAM.</string>
-    <string name="description_sensitivity_weighted_average">La sensibilità è calcolata come media ponderata dalle deviazioni. Le deviazioni più recenti hanno peso maggiore. Minimal carb absorption è calcolato da max carb absorption time nelle preferenze. Questo algoritmo è il più veloce nel seguire i cambiamenti di sensibilità.</string>
+    <string name="description_sensitivity_weighted_average">La sensibilità è calcolata come media ponderata dalle deviazioni. Le deviazioni più recenti hanno peso maggiore. L\'assorbimento minimo dei carboidrati è calcolato da \'max tempo assorbimento carb\' nelle preferenze. Questo algoritmo è il più veloce nel seguire i cambiamenti di sensibilità.</string>
     <string name="description_source_eversense">Ricevi valori Glicemia dall\'app Eversense modificata.</string>
     <string name="description_source_glimp">Ricevi valori Glicemia da Glimp.</string>
     <string name="description_source_mm640g">Ricevi valori Glicemia da 600SeriesAndroidUploader.</string>
@@ -684,9 +684,9 @@
     <string name="eatingsoon_duration">durata \"eatingsoon\"</string>
     <string name="eatingsoon_target">target \"eatingsoon\"</string>
     <string name="activity_duration">durata attività</string>
-    <string name="activity_target">target \"activity\"</string>
+    <string name="activity_target">target \"attività fisica\"</string>
     <string name="hypo_duration">durata \"hypo\"</string>
-    <string name="hypo_target">target \"hypo\"</string>
+    <string name="hypo_target">target \"ipo\"</string>
     <string name="danar_history_prime">Carica</string>
     <string name="gettingextendedbolusstatus">Richiesta stato bolo esteso</string>
     <string name="gettingbolusstatus">Richiesta stato bolo</string>
@@ -828,7 +828,7 @@
     <string name="allow_automated_crash_reporting">Consenti la segnalazione automatica degli errori e l\'invio dei dati di utilizzo delle funzioni dell\'app agli sviluppatori tramite il servizio fabric.io.</string>
     <string name="g5appnotdetected">Aggiorna la tua Dexcom app ad una versione supportata</string>
     <string name="dexcom_app_not_installed">Dexcom app non installata.</string>
-    <string name="start_activity_tt">Avvia Activity TT</string>
+    <string name="start_activity_tt">Avvia TT Attività Fisica</string>
     <string name="start_eating_soon_tt">Avvia Eating soon TT</string>
     <string name="temptargetshort">TT</string>
     <string name="do_not_bolus_record_only">No bolo, solo record</string>
