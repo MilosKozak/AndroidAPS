@@ -18,6 +18,12 @@
     <string name="offlineprofile_label">Argomento: Profilo Offline</string>
     <string name="offlineprofile_nsprofile">Il profilo NS può essere utilizzato, ma non configurato.</string>
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#profile</string>
+    <string name="pumpdisconnect_label">Argomento: Disconnessione dal micro</string>
+    <string name="pumpdisconnect_whattodo">Cosa fare quando si toglie il micro?</string>
+    <string name="pumpdisconnect_letknow">Far sapere al Loop che non viene erogata insulina al tuo corpo facendo click su \"disconnetti micro\".</string>
+    <string name="pumpdisconnect_dontchnage">Non cambiare nulla nel Loop, staccare solo il micro.</string>
+    <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
+    <string name="objectives_label">Argomento: Impostazioni di AndroidAPS</string>
     <string name="exercise_setactivitytt">Impostare un temp-target \"attività fisica\".</string>
     <string name="exercise_switchprofilebelow100">Fare un cambio profilo sotto il 100%.</string>
     <string name="exercise_switchprofileabove100">Fare un cambio profilo sopra il 100%.</string>
@@ -27,7 +33,7 @@
     <string name="exercise_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html#activity-temp-target</string>
     <string name="suspendloop_label">Argomento: Loop sospeso</string>
     <string name="suspendloop_doigetinsulin">Ricevo insulina quando il Loop è sospeso?</string>
-    <string name="suspendloop_yes">Sì, la velocità basale ordinaria.</string>
+    <string name="suspendloop_yes">Sì, la basale ordinaria.</string>
     <string name="suspendloop_no">No, l\'erogazione di insulina è interrotta.</string>
     <string name="basaltest_label">Argomento: Basale, ISF e Test IC</string>
     <string name="basaltest_when">Quando dovrei verificare i valori di basali, ISF e IC?</string>
