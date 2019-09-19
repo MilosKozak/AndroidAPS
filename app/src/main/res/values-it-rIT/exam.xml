@@ -69,12 +69,14 @@
     <string name="insulin_novorapid">NovoRapid®</string>
     <string name="insulin_humalog">Humalog®</string>
     <string name="insulin_actrapid">Actrapid®</string>
+    <string name="insulin_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#insulin</string>
     <string name="sensitivity_label">Argomento: Plugin di Sensibilità</string>
     <string name="sensitivity_which">Quale plugin di sensibilità ha un intervallo di tempo definito dall\'utente per il rilevamento?</string>
     <string name="sensitivity_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Sensitivity-detection-and-COB.html</string>
     <string name="sensitivityuam_which">Quale plugin di sensibilità deve essere utilizzato per la funzione UAM?</string>
     <string name="wrongcarbs_label">Argomento: Inserimenti non corretti dei Carboidrati</string>
     <string name="wrongcarbs_whattodo">Ti accorgi che hai inserito erroneamente i carboidrati. Cosa dovresti fare?</string>
+    <string name="wrongcarbs_treatmentstab">Andare nella sezione Trattamenti, eliminare i carboidrati \"errati\" e fare un nuovo inserimento.</string>
     <string name="wrongcarbs_addfakeinsulin">Aggiungere insulina fittizia usando la funzione Riempi</string>
     <string name="extendedcarbs_handling">Cosa fare se il tuo cibo contiene una grande quantità di grassi e/o proteine?</string>
     <string name="extendedcarbs_useextendedcarbs">Convertire grassi e proteine in carboidrati e utilizzare la funzione \"carboidrati estesi\".</string>
@@ -102,7 +104,10 @@
     <string name="ic_decreasingvalue">La riduzione del valore IC porterà a una minore erogazione di insulina per la stessa quantità di carboidrati.</string>
     <string name="ic_noeffect">Supporre di avere 0 COB. La modifica dell\'IC porterà a una diversa quantità di insulina necessaria per correggere il valore della glicemia.</string>
     <string name="ic_different">IC sarà diverso se consideri l\'unità di pane (BE) come 10g o 12g.</string>
+    <string name="ic_meaning">Il significato di IC è: Quante unità di pane (BE) sono coperte da 1U di insulina.</string>
+    <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Argomento: Cambio Profilo</string>
+    <string name="profileswitch_pctwillchange"> Quando si specifica il 90% nel cambio profilo…</string>
     <string name="profileswitch_basalhigher">Le basali saranno più alte del 10%.</string>
     <string name="profileswitch_basallower">Le basali saranno più basse del 10%.</string>
     <string name="profileswitch_ichigher">Il valore IC sarà più alto del 10%.</string>
