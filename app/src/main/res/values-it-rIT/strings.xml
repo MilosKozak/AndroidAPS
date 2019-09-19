@@ -236,7 +236,7 @@
     <string name="openapsma_maxiob_summary">Questo valore è chiamato Max IOB nel contesto OpenAPS\nIndica l\'insulina massima in [U] che APS può erogare contemporaneamente.</string>
     <string name="dismiss">RESPINGI</string>
     <string name="danarpump">DanaR</string>
-    <string name="connecting">In Connessione</string>
+    <string name="connecting">Connessione</string>
     <string name="connected">Connesso</string>
     <string name="disconnected">Disconnesso</string>
     <string name="danar_pump_settings">Impostazioni micro DanaR</string>
