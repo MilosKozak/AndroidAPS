@@ -119,15 +119,15 @@
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Argomento: Cambio Profilo</string>
     <string name="profileswitch_pctwillchange"> Quando si specifica il 90% nel cambio profilo…</string>
-    <string name="profileswitch_basalhigher">Le basali saranno più alte del 10%.</string>
-    <string name="profileswitch_basallower">Le basali saranno più basse del 10%.</string>
-    <string name="profileswitch_ichigher">Il valore IC sarà più alto del 10%.</string>
-    <string name="profileswitch_iclower">Il valore IC sarà più basso del 10%.</string>
-    <string name="profileswitch_isfhigher">Il valore ISF sarà più alto del 10%.</string>
-    <string name="profileswitch_isflower">Il valore IC sarà più basso del 10%.</string>
+    <string name="profileswitch_basalhigher">Le basali saranno il 10% più alte.</string>
+    <string name="profileswitch_basallower">Le basali saranno il 10% più basse.</string>
+    <string name="profileswitch_ichigher">Il valore IC sarà il 10% più alto.</string>
+    <string name="profileswitch_iclower">Il valore IC sarà il 10% più basso.</string>
+    <string name="profileswitch_isfhigher">Il valore ISF sarà il 10% più alto.</string>
+    <string name="profileswitch_isflower">Il valore ISF sarà il 10% più basso.</string>
     <string name="profileswitch_overall">Riceverai il 10% in meno di insulina, in totale.</string>
-    <string name="profileswitch_targethigher">Il Target sarà più alto del 10%.</string>
-    <string name="profileswitch_targetlower">Il Target sarà più basso del 10%.</string>
+    <string name="profileswitch_targethigher">Il Target sarà il 10% più alto.</string>
+    <string name="profileswitch_targetlower">Il Target sarà il 10% più basso.</string>
     <string name="profileswitch_targetbottom">Solo il target inferiore sarà più basso del 10%.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
     <string name="profileswitchtime_1">1</string>
