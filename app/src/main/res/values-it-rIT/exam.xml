@@ -24,6 +24,24 @@
     <string name="pumpdisconnect_dontchnage">Non cambiare nulla nel Loop, staccare solo il micro.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
     <string name="objectives_label">Argomento: Impostazioni di AndroidAPS</string>
+    <string name="objectives_howtosave">Quali sono le migliori pratiche per il backup delle impostazioni?</string>
+    <string name="objectives_exportsettings">Esportarle localmente dal menu Manutenzione.</string>
+    <string name="objectives_storeelsewhere">Salvare il file esportato in un altro posto come l\'email, Dropbox, Google drive…</string>
+    <string name="objectives_doexportonstart">Esportarle subito dopo l\'installazione di AAPS.</string>
+    <string name="objectives_doexportafterchange">Esportarle dopo ogni modifica di un\'impostazione.</string>
+    <string name="objectives_doexportafterfirtssettings">Esportarle quando termini le configurazioni iniziali.</string>
+    <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/ExportImportSettings.html</string>
+    <string name="objectives_hint2">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#what-emergency-equipment-is-recommended-to-take-with-me</string>
+    <string name="noisycgm_label">Argomento: Letture CGM \"sporche\" (noisy)</string>
+    <string name="noisycgm_whattodo">Cosa fare quando vedi che i valori CGM sono troppo \"sporchi\"?</string>
+    <string name="nothing">Nulla, il Loop se ne occuperà.</string>
+    <string name="noisycgm_pause">Sospendere la modalità \"Loop Chiuso\" per evitare il sovradosaggio.</string>
+    <string name="noisycgm_replacesensor">Sostituire il sensore CGM.</string>
+    <string name="noisycgm_turnoffphone">Spegnere il telefono.</string>
+    <string name="noisycgm_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Smoothing-Blood-Glucose-Data-in-xDrip.html#smoothing-blood-glucose-data</string>
+    <string name="noisycgm_checksmoothing">Controllare se la tua app CGM fa lo \"smoothing\" dei dati (li pulisce dal \"rumore\").</string>
+    <string name="exercise_label">Argomento: Esercizio Fisico</string>
+    <string name="exercise_whattodo">Come puoi aiutare il sistema a gestire l\'esercizio fisico?</string>
     <string name="exercise_setactivitytt">Impostare un temp-target \"attività fisica\".</string>
     <string name="exercise_switchprofilebelow100">Fare un cambio profilo sotto il 100%.</string>
     <string name="exercise_switchprofileabove100">Fare un cambio profilo sopra il 100%.</string>
@@ -128,7 +146,7 @@
     <string name="profileswitch_overall">Riceverai il 10% in meno di insulina, in totale.</string>
     <string name="profileswitch_targethigher">Il Target sarà il 10% più alto.</string>
     <string name="profileswitch_targetlower">Il Target sarà il 10% più basso.</string>
-    <string name="profileswitch_targetbottom">Solo il target inferiore sarà più basso del 10%.</string>
+    <string name="profileswitch_targetbottom">Solo il target inferiore sarà il 10% più basso.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
     <string name="profileswitchtime_1">1</string>
     <string name="profileswitchtime__1">-1</string>
