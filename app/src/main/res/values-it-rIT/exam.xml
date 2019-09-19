@@ -70,6 +70,11 @@
     <string name="insulin_humalog">Humalog®</string>
     <string name="insulin_actrapid">Actrapid®</string>
     <string name="sensitivity_label">Argomento: Plugin di Sensibilità</string>
+    <string name="sensitivity_which">Quale plugin di sensibilità ha un intervallo di tempo definito dall\'utente per il rilevamento?</string>
+    <string name="sensitivity_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Sensitivity-detection-and-COB.html</string>
+    <string name="sensitivityuam_which">Quale plugin di sensibilità deve essere utilizzato per la funzione UAM?</string>
+    <string name="wrongcarbs_label">Argomento: Inserimenti non corretti dei Carboidrati</string>
+    <string name="wrongcarbs_whattodo">Ti accorgi che hai inserito erroneamente i carboidrati. Cosa dovresti fare?</string>
     <string name="nsclient_dexcomfollowxdrip">Dexcom Follow se stai usando l\'app xDrip.</string>
     <string name="nsclient_xdripfollower">xDrip in modalità follower.</string>
     <string name="nsclient_looponiphone">App Loop su iPhone.</string>
