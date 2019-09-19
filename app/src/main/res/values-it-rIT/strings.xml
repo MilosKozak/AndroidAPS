@@ -95,9 +95,9 @@
     <string name="pump_reservoir_label">Serbatoio</string>
     <string name="virtualpump_resultok">OK</string>
     <string name="openapsma_lastrun_label">Ultima esecuzione</string>
-    <string name="openapsma_inputparameters_label">Entrata parametro</string>
+    <string name="openapsma_inputparameters_label">Parametri di input</string>
     <string name="openapsma_glucosestatus_label">Stato glicemia</string>
-    <string name="openapsma_currenttemp_label">Basale temporanea attuale</string>
+    <string name="openapsma_currenttemp_label">Temp. Corrente</string>
     <string name="openapsma_iobdata_label">Dati IOB</string>
     <string name="openapsma_profile_label">Profilo</string>
     <string name="openapsma_mealdata_label">Dati Pasto</string>
