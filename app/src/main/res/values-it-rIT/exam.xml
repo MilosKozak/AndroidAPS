@@ -90,6 +90,7 @@
     <string name="troubleshooting_googlesupport">Visita il supporto Google di AndroidAPS</string>
     <string name="troubleshooting_yourendo">Parla con il tuo endocrinologo.</string>
     <string name="troubleshooting_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#troubleshooting</string>
+    <string name="troubleshooting_hint2">https://www.facebook.com/groups/aapsitalia/</string>
     <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
     <string name="insulin_label">Argomento: Insulina</string>
     <string name="insulin_ultrarapid">Quale marca di insulina può essere usata con il plugin Ultra-Rapid-Oref?</string>
@@ -148,6 +149,7 @@
     <string name="profileswitch_targetlower">Il Target sarà il 10% più basso.</string>
     <string name="profileswitch_targetbottom">Solo il target inferiore sarà il 10% più basso.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
+    <string name="profileswitchtime_iwant">Voglio fare un cambio profilo perché mi sono dovuto svegliare 1h prima del solito, quindi è più sensato annunciare lo spostamento temporale con un cambio profilo. Che valore dovrei usare?</string>
     <string name="profileswitchtime_1">1</string>
     <string name="profileswitchtime__1">-1</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
