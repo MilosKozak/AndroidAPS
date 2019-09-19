@@ -139,13 +139,13 @@
     <string name="configbuilder_loop_description">Consente di attivare l\'integrazione del loop di AndroidAPS.</string>
     <string name="loop_aps_label">APS</string>
     <string name="loop_constraintsprocessed_label">Dopo aver elaborato i vincoli</string>
-    <string name="loop_tbrsetbypump_label">Basale Temp attivata sul microinfusore</string>
-    <string name="openapsma_lastenact_label">Ultimo attuato</string>
+    <string name="loop_tbrsetbypump_label">Basale Temporanea impostata dal micro</string>
+    <string name="openapsma_lastenact_label">Ultima attivazione</string>
     <string name="ok">OK</string>
     <string name="cancel">Annulla</string>
     <string name="noapsselected">NESSUN APS SELEZIONATO O RISULTATO FORNITO</string>
     <string name="safety">Sicurezza</string>
-    <string name="openapsma_disabled">Plugin disabilitato</string>
+    <string name="openapsma_disabled">Il Plugin è disabilitato</string>
     <string name="constraints_violation">Violazione dei vincoli</string>
     <string name="treatmentdeliveryerror">Errore di erogazione del bolo</string>
     <string name="tempbasaldeliveryerror">Errore somministrazione Basale Temp</string>
