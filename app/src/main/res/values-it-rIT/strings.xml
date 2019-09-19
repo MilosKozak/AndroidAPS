@@ -181,7 +181,7 @@
     <string name="objectives_pumpstatusavailableinns">Stato Micro disponibile in NS</string>
     <string name="objectives_manualenacts">Attivazioni manuali</string>
     <string name="loopdisabled">LOOP DISABILITATO DAI VINCOLI</string>
-    <string name="treatments_wizard_basaliob_label">Basale IOB</string>
+    <string name="treatments_wizard_basaliob_label">IOB Basale</string>
     <string name="bolusconstraintapplied">Vincolo bolo applicato</string>
     <string name="carbsconstraintapplied">Vincolo carboidrati applicato</string>
     <string name="careportal_bgcheck">Controllo Glicemia</string>
@@ -232,7 +232,7 @@
     <string name="nav_import">Importa impostazioni</string>
     <string name="openapsma_maxbasal_title">Max U/h che una Basale Temporanea può impostare</string>
     <string name="openapsma_maxbasal_summary">Questo valore è chiamato \"max basal\" nel contesto OpenAPS</string>
-    <string name="openapsma_maxiob_title">Basale Massima in IOB OpenAPS</string>
+    <string name="openapsma_maxiob_title">Max IOB Basale oltre la quale OpenAPS non può andare [U]</string>
     <string name="openapsma_maxiob_summary">Questo valore è chiamato Max IOB nel contesto OpenAPS\nIndica l\'insulina massima in [U] che APS può erogare contemporaneamente.</string>
     <string name="dismiss">RESPINGI</string>
     <string name="danarpump">DanaR</string>
