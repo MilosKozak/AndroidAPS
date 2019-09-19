@@ -51,7 +51,7 @@
     <string name="prerequisites_tidepoolaccount">Un account Tidepool.</string>
     <string name="prerequisites_googleaccount">Un account Google.</string>
     <string name="prerequisites_githubaccount">Un account Github.</string>
-    <string name="prerequisites_beanandroiddeveloper">Devi essere uno sviluppatore Android.</string>
+    <string name="prerequisites_beanandroiddeveloper">È necessario essere uno sviluppatore Android.</string>
     <string name="prerequisites_own670g">Un micro MiniMed 670G.</string>
     <string name="prerequisites_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html</string>
     <string name="prerequisites_smartwatch">Uno Smartwatch.</string>
@@ -59,10 +59,10 @@
     <string name="update_label">Argomento: Aggiornamento di AndroidAPS</string>
     <string name="whatistrue">Cosa è vero?</string>
     <string name="update_git">Hai bisogno di avere Git installato.</string>
-    <string name="update_asap">Aggiorna non appena la nuova versione viene rilasciata.</string>
+    <string name="update_asap">Aggiornare non appena la nuova versione viene rilasciata.</string>
     <string name="update_keys">Puoi usare le stesse chiavi di firma.</string>
     <string name="update_neverupdate">Non aggiornare mai se il sistema funziona bene.</string>
-    <string name="update_askfriend">Chiedi al tuo amico il nuovo APK.</string>
+    <string name="update_askfriend">Chiedere al tuo amico il nuovo APK.</string>
     <string name="update_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#update-to-a-new-version-or-branch</string>
     <string name="troubleshooting_label">Argomento: Risoluzione dei problemi</string>
     <string name="troubleshooting_wheretoask">Dove cercare aiuto?</string>
