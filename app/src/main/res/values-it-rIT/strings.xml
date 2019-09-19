@@ -8,17 +8,17 @@
     <!--    <string name="pt_BR_lang" translatable="false">Portuguese, Brazilian</string> -->
     <string name="treatmentssafety_title">Sicurezza trattamenti</string>
     <string name="treatmentssafety_maxbolus_title">Max Bolo consentito [U]</string>
-    <string name="treatmentssafety_maxcarbs_title">Max carboidrati consentiti [g]</string>
+    <string name="treatmentssafety_maxcarbs_title">Max Carboidrati consentiti [g]</string>
     <string name="nav_preferences">Preferenze</string>
     <string name="nav_refreshtreatments">Ricarica trattamenti da NS</string>
-    <string name="nav_resetdb">Ripristina database</string>
-    <string name="reset_db_confirm">Vuoi davvero ripristinare i database?</string>
+    <string name="nav_resetdb">Reset database</string>
+    <string name="reset_db_confirm">Vuoi davvero resettare i database?</string>
     <string name="nav_exit">Uscita</string>
     <string name="danar_useextended_title">Usa boli estesi per &gt;200%%</string>
     <string name="danar_bt_name_title">Dispositivo DanaR Bluetooth</string>
     <string name="ns_sync_use_absolute_title">Utilizzare sempre valori basali assoluti</string>
     <string name="alert_dialog_storage_permission_text">Per favore riavvia il tuo telefono oppure fai ripartire AndroidAPS dalle impostazioni di sistema \naltrimenti Android APS non farà il log (è importante monitorare e verificare che gli algoritmi stiano funzionando correttamente)!</string>
-    <string name="alert_dialog_permission_battery_optimization_failed">Questo dispositivo non sembra supportare la whitelisting dell\'ottimizzazione della batteria: potrebbero verificarsi problemi di prestazioni.</string>
+    <string name="alert_dialog_permission_battery_optimization_failed">Questo dispositivo non sembra supportare la whitelist dell\'ottimizzazione della batteria: potrebbero verificarsi problemi di prestazioni.</string>
     <string name="description_actions">Alcuni pulsanti per accedere rapidamente alle funzioni comuni</string>
     <string name="description_careportal">Immetti voci di registro avanzate.</string>
     <string name="description_config_builder">Utilizzato per configurare i plugin attivi</string>
