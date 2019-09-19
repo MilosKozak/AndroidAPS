@@ -101,6 +101,7 @@
     <string name="ic_increasingvalue">L\'aumento del valore IC porterà a una minore erogazione di insulina per la stessa quantità di carboidrati.</string>
     <string name="ic_decreasingvalue">La riduzione del valore IC porterà a una minore erogazione di insulina per la stessa quantità di carboidrati.</string>
     <string name="ic_noeffect">Supporre di avere 0 COB. La modifica dell\'IC porterà a una diversa quantità di insulina necessaria per correggere il valore della glicemia.</string>
+    <string name="ic_different">IC sarà diverso se consideri l\'unità di pane (BE) come 10g o 12g.</string>
     <string name="profileswitch_label">Argomento: Cambio Profilo</string>
     <string name="profileswitch_basalhigher">Le basali saranno più alte del 10%.</string>
     <string name="profileswitch_basallower">Le basali saranno più basse del 10%.</string>
