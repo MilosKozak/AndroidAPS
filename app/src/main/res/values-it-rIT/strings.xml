@@ -198,8 +198,8 @@
     <string name="careportal_mealbolus">Bolo pasto</string>
     <string name="careportal_correctionbolus">Bolo di Correzione</string>
     <string name="careportal_combobolus">Bolo Combo</string>
-    <string name="careportal_tempbasalstart">Inizio Basale Temp</string>
-    <string name="careportal_tempbasalend">Fine Basale Temp</string>
+    <string name="careportal_tempbasalstart">Inizio Basale Temporanea</string>
+    <string name="careportal_tempbasalend">Fine Basale Temporanea</string>
     <string name="careportal_carbscorrection">Correzione con carboidrati</string>
     <string name="careportal_openapsoffline">OpenAPS Offline</string>
     <string name="careportal_newnstreatment_eventtype">Tipo di evento</string>
@@ -219,7 +219,7 @@
     <string name="careportal_newnstreatment_enteredby_title">Inserito da</string>
     <string name="careportal_newnstreatment_glucosetype">Tipo Glicemia</string>
     <string name="noprofile">Nessun profilo ancora caricato da NS</string>
-    <string name="overview_tempbasal_button">Basale Temp</string>
+    <string name="overview_tempbasal_button">Basale Temporanea</string>
     <string name="overview_extendedbolus_button">Bolo Esteso</string>
     <string name="configbuilder_nightscoutversion_label">Versione Nightscout:</string>
     <string name="missing">Mancante</string>
@@ -230,7 +230,7 @@
     <string name="filenotfound">File non trovato</string>
     <string name="nav_export">Esporta impostazioni</string>
     <string name="nav_import">Importa impostazioni</string>
-    <string name="openapsma_maxbasal_title">Max U/h che una Basale Temp può impostare</string>
+    <string name="openapsma_maxbasal_title">Max U/h che una Basale Temporanea può impostare</string>
     <string name="openapsma_maxbasal_summary">Questo valore è chiamato \"max basal\" nel contesto OpenAPS</string>
     <string name="openapsma_maxiob_title">Basale Massima in IOB OpenAPS</string>
     <string name="openapsma_maxiob_summary">Questo valore è chiamato Max IOB nel contesto OpenAPS\nIndica l\'insulina massima in [U] che APS può erogare contemporaneamente.</string>
