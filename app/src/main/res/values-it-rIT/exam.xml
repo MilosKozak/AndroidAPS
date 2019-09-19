@@ -6,14 +6,18 @@
     <string name="dia_minimumis3h">Il minimo predefinito è 3 ore.</string>
     <string name="dia_minimumis5h">Il minimo predefinito è 5 ore.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html?#insulin</string>
+    <string name="dia_meaningisequaltodiapump">È uguale al parametro DIA utilizzato nel tuo micro.</string>
     <string name="dia_valuemustbedetermined">Devi determinare il tuo valore individuale (ma non meno di 5 ore).</string>
     <string name="hypott_label">Argomento: Ipo Temp-Target</string>
     <string name="hypott_whenhypott">Perché è utile impostare un ipo TT?</string>
     <string name="hypott_goinglow">Evita che la glicemia vada in basso.</string>
     <string name="hypott_havinglow">Per aiutare il recupero da una glicemia bassa.</string>
     <string name="hypott_preventoversmb">Per evitare che SMB reagisca all\'aumento della glicemia dovuto ai carboidrati a rapido assorbimento durante una ipo.</string>
+    <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
+    <string name="offlineprofile_whatprofile">Quale profilo può essere usato e configurato offline?</string>
     <string name="offlineprofile_label">Argomento: Profilo Offline</string>
     <string name="offlineprofile_nsprofile">Il profilo NS può essere utilizzato, ma non configurato.</string>
+    <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#profile</string>
     <string name="exercise_setactivitytt">Impostare un temp-target \"attività fisica\".</string>
     <string name="exercise_switchprofilebelow100">Fare un cambio profilo sotto il 100%.</string>
     <string name="exercise_switchprofileabove100">Fare un cambio profilo sopra il 100%.</string>
@@ -78,6 +82,7 @@
     <string name="wrongcarbs_whattodo">Ti accorgi che hai inserito erroneamente i carboidrati. Cosa dovresti fare?</string>
     <string name="wrongcarbs_treatmentstab">Andare nella sezione Trattamenti, eliminare i carboidrati \"errati\" e fare un nuovo inserimento.</string>
     <string name="wrongcarbs_addfakeinsulin">Aggiungere insulina fittizia usando la funzione Riempi</string>
+    <string name="extendedcarbs_label">Argomento: Cibo con Grassi e Proteine</string>
     <string name="extendedcarbs_handling">Cosa fare se il tuo cibo contiene una grande quantità di grassi e/o proteine?</string>
     <string name="extendedcarbs_useextendedcarbs">Convertire grassi e proteine in carboidrati e utilizzare la funzione \"carboidrati estesi\".</string>
     <string name="extendedcarbs_add">Convertire grassi e proteine in carboidrati e aggiungerli al calcolo del bolo.</string>
