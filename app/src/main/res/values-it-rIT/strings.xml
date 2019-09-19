@@ -147,11 +147,11 @@
     <string name="safety">Sicurezza</string>
     <string name="openapsma_disabled">Il Plugin è disabilitato</string>
     <string name="constraints_violation">Violazione dei vincoli</string>
-    <string name="treatmentdeliveryerror">Errore di erogazione del bolo</string>
-    <string name="tempbasaldeliveryerror">Errore somministrazione Basale Temp</string>
+    <string name="treatmentdeliveryerror">Errore erogazione bolo</string>
+    <string name="tempbasaldeliveryerror">Errore erogazione Basale Temporanea</string>
     <string name="overview_newtempbasal_basalpercent">Valore Basale [%%]</string>
     <string name="overview_newtempbasal_percent_label">%% (100%% = corrente)</string>
-    <string name="setbasalquestion">Accetta nuova Basale Temp:</string>
+    <string name="setbasalquestion">Accetta nuova Basale Temporanea:</string>
     <string name="overview_treatment_label">Trattamento</string>
     <string name="overview_calculator_label">Calcolatore</string>
     <string name="constraintapllied">Vincolo applicato!</string>
@@ -165,7 +165,7 @@
     <string name="changeyourinput">Cambia il tuo input!</string>
     <string name="setextendedbolusquestion">Imposta nuovo bolo esteso:</string>
     <string name="configbuilder_bgsource">Origine Glicemia</string>
-    <string name="configbuilder_bgsource_description">Dove prendere i dati per AndroidAPS?</string>
+    <string name="configbuilder_bgsource_description">Da dove AndroidAPS dovrebbe ottenere i suoi dati?</string>
     <string name="xdrip">xDrip</string>
     <string name="apsmode_title">Modalità APS</string>
     <string name="closedloop">Loop Chiuso</string>
@@ -174,12 +174,12 @@
     <string name="disableloop">Disabilita Loop</string>
     <string name="enableloop">Abilita Loop</string>
     <string name="openloop_newsuggestion">Nuovo suggerimento disponibile</string>
-    <string name="unsupportedclientver">Versione NSClient non supportata</string>
+    <string name="unsupportedclientver">Versione non supportata di NSClient</string>
     <string name="unsupportednsversion">Versione non supportata di Nightscout</string>
-    <string name="nsclientnotinstalled">NSClient non istallato. Record perduto!</string>
+    <string name="nsclientnotinstalled">NSClient non installato. Record perduto!</string>
     <string name="objectives_bgavailableinns">Glicemia disponibile in NS</string>
     <string name="objectives_pumpstatusavailableinns">Stato Micro disponibile in NS</string>
-    <string name="objectives_manualenacts">Manuale</string>
+    <string name="objectives_manualenacts">Attivazioni manuali</string>
     <string name="loopdisabled">LOOP DISABILITATO DAI VINCOLI</string>
     <string name="treatments_wizard_basaliob_label">Basale IOB</string>
     <string name="bolusconstraintapplied">Vincolo bolo applicato</string>
@@ -188,7 +188,7 @@
     <string name="careportal_announcement">Annuncio</string>
     <string name="careportal_note">Nota</string>
     <string name="careportal_question">Domanda</string>
-    <string name="careportal_exercise">Sport</string>
+    <string name="careportal_exercise">Esercizio</string>
     <string name="careportal_pumpsitechange">Cambio posizione cannula</string>
     <string name="careportal_cgmsensorinsert">Inserimento sensore</string>
     <string name="careportal_cgmsensorstart">Avvio Sensore</string>
