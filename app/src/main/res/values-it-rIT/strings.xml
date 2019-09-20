@@ -58,7 +58,7 @@
     <string name="description_xdrip_status_line">Visualizzare le informazioni del loop sulla watchface di xDrip+.</string>
     <string name="description_sms_communicator">Controllare AndroidAPS in remoto utilizzando i comandi SMS.</string>
     <string name="objectives_button_back">Indietro</string>
-    <string name="objectives_button_start">Avvio</string>
+    <string name="objectives_button_start">Avviare</string>
     <string name="objectives_button_verify">Verificare</string>
     <string name="nsprofileview_units_label">Unità</string>
     <string name="nsprofileview_dia_label">DIA - Durata Azione dell\'Insulina</string>
@@ -86,10 +86,10 @@
     <string name="treatments_wizard_correction_label">Correzione</string>
     <string name="insulin_unit_shortname">U</string>
     <string name="treatments_wizard_bolusiob_label">IOB da bolo</string>
-    <string name="openapsma_run">Avvia ora</string>
+    <string name="openapsma_run">Avviare ora</string>
     <string name="vitualpump_label">MICROINFUSORE VIRTUALE</string>
     <string name="pump_basebasalrate_label">Vel. basale originale</string>
-    <string name="pump_tempbasal_label">Basale temporanea</string>
+    <string name="pump_tempbasal_label">Basale Temporanea</string>
     <string name="virtualpump_extendedbolus_label">Bolo Esteso</string>
     <string name="pump_battery_label">Batteria</string>
     <string name="pump_reservoir_label">Serbatoio</string>
