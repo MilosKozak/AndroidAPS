@@ -729,7 +729,7 @@
     <string name="bgsource_upload">Impostazioni caricamento BG</string>
     <string name="wear_detailed_delta_title">Visualizza delta dettagliato</string>
     <string name="wear_detailed_delta_summary">Visualizza delta con una cifra decimale in più</string>
-    <string name="smbmaxminutes_summary">Max minuti basale con cui limitare SMB</string>
+    <string name="smbmaxminutes_summary">Max minuti di basale ai quali limitare SMB</string>
     <string name="unsupportedfirmware">Firmware del micro non supportato</string>
     <string name="dexcomg5_xdripupload_title">Invia dati Glicemia a xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">In xDrip+ seleziona origine dati 640g/Eversense</string>
@@ -929,7 +929,7 @@
     <string name="openapsama_autosens_max">Max rapporto autosens</string>
     <string name="openapsama_autosens_min">Min rapporto autosens</string>
     <string name="openapsama_bolussnooze_dia_divisor">Bolus snooze - divisore DIA</string>
-    <string name="openapsama_max_daily_safety_multiplier">Max moltiplicatore di sicurezza giornaliero</string>
+    <string name="openapsama_max_daily_safety_multiplier">Moltiplicatore di sicurezza max basale giornaliera</string>
     <string name="openapsama_current_basal_safety_multiplier">Moltiplicatore di sicurezza basale corrente</string>
     <string name="value_unavailable_short">n/a</string>
     <string name="virtualpump_type">Micro virtuale</string>
@@ -1387,7 +1387,7 @@
     <string name="objectives_useloop">Visualizza il contenuto del plugin Loop</string>
     <string name="objectives_usescale">Usa la funzione di ridimensionamento premendo a lungo sul grafico delle glicemie</string>
     <string name="objectives_button_enter">Invio</string>
-    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Inserisci il codice ottenuto dagli sviluppatori per aggirare il resto degli obiettivi</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Inserire il codice ottenuto dagli sviluppatori per aggirare il resto degli obiettivi</string>
     <string name="codeaccepted">Codice accettato</string>
     <string name="codeinvalid">Codice non valido</string>
     <string name="objectives_exam_objective">Prova la tua conoscenza</string>
