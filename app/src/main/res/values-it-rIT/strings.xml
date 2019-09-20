@@ -122,7 +122,7 @@
     <string name="virtualpump">Micro Virtuale</string>
     <string name="careportal">Portale</string>
     <string name="configbuilder_pump">Microinfusore</string>
-    <string name="configbuilder_pump_description">Quale microinfusore vuoi utilizzare con AndroidAPS?</string>
+    <string name="configbuilder_pump_description">Quale microinfusore desideri utilizzare con AndroidAPS?</string>
     <string name="configbuilder_treatments">Trattamenti</string>
     <string name="configbuilder_treatments_description">Quale plugin dovrebbe essere utilizzato per la gestione del trattamento?</string>
     <string name="configbuilder_profile">Profilo</string>
@@ -156,14 +156,14 @@
     <string name="overview_calculator_label">Calcolatore</string>
     <string name="constraintapllied">Vincolo applicato!</string>
     <string name="confirmation">Conferma</string>
-    <string name="entertreatmentquestion">Inserisci nuovo trattamento:</string>
+    <string name="entertreatmentquestion">Inserire nuovo trattamento:</string>
     <string name="bolus">Bolo</string>
     <string name="sms_bolus">Bolo:</string>
     <string name="basal">Basale</string>
     <string name="sms_basal">Basale</string>
     <string name="carbs">Carboidrati</string>
-    <string name="changeyourinput">Cambia il tuo input!</string>
-    <string name="setextendedbolusquestion">Imposta nuovo bolo esteso:</string>
+    <string name="changeyourinput">Cambiare il tuo input!</string>
+    <string name="setextendedbolusquestion">Impostare nuovo bolo esteso:</string>
     <string name="configbuilder_bgsource">Origine Glicemia</string>
     <string name="configbuilder_bgsource_description">Da dove AndroidAPS dovrebbe ottenere i suoi dati?</string>
     <string name="xdrip">xDrip</string>
