@@ -243,7 +243,7 @@
     <string name="end_user_license_agreement">Contratto di licenza per l\'utente</string>
     <string name="end_user_license_agreement_text">NON DEVE ESSERE UTILIZZATO PER PRENDERE DECISIONI MEDICHE. NON ESISTE ALCUNA GARANZIA PER IL PROGRAMMA, NELLA MISURA CONSENTITA DALLA LEGGE APPLICABILE. TRANNE QUANDO DIVERSAMENTE INDICATO PER ISCRITTO, I DETENTORI DEL COPYRIGHT E/O ALTRE PARTI FORNISCONO IL PROGRAMMA \"COSÌ COM\'È\" SENZA GARANZIA DI ALCUN TIPO, ESPLICITA O IMPLICITA, INCLUSE, MA NON LIMITATAMENTE A, GARANZIE IMPLICITE DI COMMERCIABILITÀ E IDONEITÀ PER UN SCOPO PARTICOLARE. L\'INTERO RISCHIO RIGUARDO LA QUALITÀ E LE PRESTAZIONI DEL PROGRAMMA È TUO. SE IL PROGRAMMA DOVESSE RISULTARE DIFETTOSO, TI ASSUMI IL COSTO DI TUTTE LE NECESSARIE MANUTENZIONI, RIPARAZIONI O CORREZIONI.</string>
     <string name="end_user_license_agreement_i_understand">COMPRENDO E ACCETTO</string>
-    <string name="save">Salva</string>
+    <string name="save">Salvare</string>
     <string name="nobtadapter">Nessun adattatore bluetooth trovato</string>
     <string name="devicenotfound">Dispositivo selezionato non trovato</string>
     <string name="connectionerror">Errore connessione Microinfusore</string>
@@ -253,8 +253,8 @@
     <string name="hoursago">%1$.1fh fa</string>
     <string name="danar_invalidinput">Dati di input non validi</string>
     <string name="danar_valuenotsetproperly">Valore non impostato correttamente</string>
-    <string name="reloadprofile">Ricarica Profilo</string>
-    <string name="danar_viewprofile">Visualizza Profilo</string>
+    <string name="reloadprofile">Ricaricare Profilo</string>
+    <string name="danar_viewprofile">Visualizzare Profilo</string>
     <string name="enacted">Attuato</string>
     <string name="comment">Commento</string>
     <string name="success">OK</string>
