@@ -320,7 +320,7 @@
     <string name="objectives_0_objective">Configurazione della visualizzazione e del monitoraggio, analisi basali e rapporti</string>
     <string name="objectives_0_gate">Verificare che la Glicemia sia disponibile su Nightscout e che i dati sull\'insulina del micro siano in fase di caricamento</string>
     <string name="objectives_openloop_objective">Avvio in Loop Aperto</string>
-    <string name="objectives_openloop_gate">Esegui l\'applicazione in modalità Loop Aperto per alcuni giorni approvando manualmente il maggior numero possibile di modifiche alle basali temporanee e verificane sempre la correttezza. Imposta e utilizza i target temporanei, anche quelli predefiniti (ad esempio, per l\'attività fisica o il trattamento dell\'ipoglicemia con carboidrati)</string>
+    <string name="objectives_openloop_gate">Esegui l\'applicazione in modalità Loop Aperto per alcuni giorni. Approva manualmente il maggior numero possibile di basali temporanee suggerite verificandone sempre la correttezza. Imposta e utilizza i target temporanei, anche quelli predefiniti (ad esempio per l\'attività fisica o il trattamento dell\'ipoglicemia con carboidrati)</string>
     <string name="objectives_maxbasal_objective">Comprendi il tuo Loop Aperto, incluse le relative raccomandazioni sulle basali temporanee</string>
     <string name="objectives_maxbasal_gate">Sulla base di tale esperienza, decidi quale deve essere il valore max della basale e impostalo sul microinfusore e nelle preferenze</string>
     <string name="objectives_maxiobzero_objective">Iniziare a chiudere il Loop con Low Glucose Suspend</string>
