@@ -641,7 +641,7 @@
     <string name="notloadedplugins">Non tutti i profili caricati!</string>
     <string name="valuesnotstored">Valori non memorizzati!</string>
     <string name="ns_localbroadcasts">Abilita le trasmissioni ad altre app (come xDrip). Non abilitare se hai installato più di un\'istanza di AAPS o NSClient!</string>
-    <string name="ns_localbroadcasts_title">Abilita la trasmissione locale.</string>
+    <string name="ns_localbroadcasts_title">Abilitare la trasmissione locale.</string>
     <string name="careportal_activity_label">ATTIVITÀ &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBOIDRATI &amp; BOLO</string>
     <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
@@ -650,8 +650,8 @@
     <string name="careportal_newnstreatment_duration_min_label">Durata [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
     <string name="smb_shortname">SMB</string>
-    <string name="enableuam">Abilita UAM</string>
-    <string name="enablesmb">Abilita SMB</string>
+    <string name="enableuam">Abilitare UAM</string>
+    <string name="enablesmb">Abilitare SMB</string>
     <string name="enablesmb_summary">Utilizza Super Micro Boli al posto della basale temporanea per un\'azione più veloce</string>
     <string name="enableuam_summary">Rilevazione dei Pasti Non Dichiarati</string>
     <string name="insulin_oref_peak">IOB Curve Peak Time</string>
