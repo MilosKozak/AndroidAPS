@@ -171,8 +171,8 @@
     <string name="closedloop">Loop Chiuso</string>
     <string name="openloop">Loop Aperto</string>
     <string name="disabledloop">Loop Disabilitato</string>
-    <string name="disableloop">Disabilita Loop</string>
-    <string name="enableloop">Abilita Loop</string>
+    <string name="disableloop">Disabilitare Loop</string>
+    <string name="enableloop">Abilitare Loop</string>
     <string name="openloop_newsuggestion">Nuovo suggerimento disponibile</string>
     <string name="unsupportedclientver">Versione non supportata di NSClient</string>
     <string name="unsupportednsversion">Versione non supportata di Nightscout</string>
@@ -228,11 +228,11 @@
     <string name="import_from">Importa impostazioni da</string>
     <string name="setting_imported">Impostazioni importate</string>
     <string name="filenotfound">File non trovato</string>
-    <string name="nav_export">Esporta impostazioni</string>
-    <string name="nav_import">Importa impostazioni</string>
+    <string name="nav_export">Esportare impostazioni</string>
+    <string name="nav_import">Importare impostazioni</string>
     <string name="openapsma_maxbasal_title">Max U/h che una Basale Temporanea può impostare</string>
     <string name="openapsma_maxbasal_summary">Questo valore è chiamato max basale nel contesto OpenAPS</string>
-    <string name="openapsma_maxiob_title">Max IOB da Basale oltre la quale OpenAPS non può andare [U]</string>
+    <string name="openapsma_maxiob_title">Max IOB da Basale che OpenAPS può erogare [U]</string>
     <string name="openapsma_maxiob_summary">Questo valore è chiamato Max IOB nel contesto OpenAPS\nIndica l\'insulina massima in [U] che APS può erogare contemporaneamente.</string>
     <string name="dismiss">RESPINGI</string>
     <string name="danarpump">DanaR</string>
