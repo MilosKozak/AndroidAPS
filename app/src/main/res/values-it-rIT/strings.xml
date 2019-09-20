@@ -293,10 +293,10 @@
     <string name="danar_glucose">glicemia</string>
     <string name="danar_carbohydrate">carboidrato</string>
     <string name="danar_alarm">allarme</string>
-    <string name="danar_totaluploaded">%1$d record caricati in totale</string>
+    <string name="danar_totaluploaded">%1$d record totali caricati</string>
     <string name="danar_sbolus">Bolo S</string>
     <string name="danar_history_alarm">Allarmi</string>
-    <string name="danar_history_basalhours">Basali orarie</string>
+    <string name="danar_history_basalhours">Ore basali</string>
     <string name="danar_history_bolus">Boli</string>
     <string name="danar_history_carbohydrates">Carboidrati</string>
     <string name="danar_history_dailyinsulin">Insulina giornaliera</string>
