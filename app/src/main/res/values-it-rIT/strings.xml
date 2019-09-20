@@ -459,7 +459,7 @@
     <string name="wear_shortname">WEAR</string>
     <string name="smscommunicator_shortname">SMS</string>
     <string name="short_tabtitles">Abbreviare i titoli delle schede</string>
-    <string name="always_use_shortavg">Utilizzare sempre deviazione media ridotta invece della deviazione semplice</string>
+    <string name="always_use_shortavg">Utilizzare sempre il delta medio ridotto anziché il delta semplice</string>
     <string name="always_use_shortavg_summary">Utile quando i dati provenienti da sorgenti non filtrate come xDrip diventano \"rumorosi\" (instabili).</string>
     <string name="advancedsettings_title">Impostazioni Avanzate</string>
     <string name="danar_model">Modello:%1$02X Protocollo:%2$02X Codice:%3$02X</string>
