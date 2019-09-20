@@ -371,8 +371,8 @@
     <string name="correctionbous">Correzione</string>
     <string name="actions">Azioni</string>
     <string name="androidaps_start">AndroidAPS avviato</string>
-    <string name="ns_upload_only">Solo caricamento NS (sincronizzazione disabilitata)</string>
-    <string name="ns_upload_only_summary">Carica solo su NS. Non ha effetto su SGV a meno che non sia selezionata una fonte locale come xDrip. Non ha effetto sui Profili durante l\'utilizzo dei profili NS.</string>
+    <string name="ns_upload_only">NS: solo upload (sincronizzazione disabilitata)</string>
+    <string name="ns_upload_only_summary">NS: solo upload. Non ha effetto su SGV a meno che non sia selezionata una fonte locale come xDrip. Non ha effetto sui Profili durante l\'utilizzo dei profili NS.</string>
     <string name="pumpNotInitialized">Micro non inizializzato!</string>
     <string name="pumpNotInitializedProfileNotSet">Micro non inizializzato, profilo non impostato!</string>
     <string name="primefill">Carica/Riempi</string>
