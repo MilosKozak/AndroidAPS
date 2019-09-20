@@ -256,14 +256,14 @@
     <string name="reloadprofile">Ricarica Profilo</string>
     <string name="danar_viewprofile">Visualizza Profilo</string>
     <string name="enacted">Attuato</string>
-    <string name="comment">Commenta</string>
+    <string name="comment">Commento</string>
     <string name="success">OK</string>
     <string name="percent">Per cento</string>
     <string name="absolute">Assoluto</string>
-    <string name="canceltemp">Cancella Basale Temp</string>
+    <string name="canceltemp">Cancella Basale Temporanea</string>
     <string name="smscommunicator">Comunicazioni SMS</string>
-    <string name="waitingforpumpresult">Attendere risultato</string>
-    <string name="smscommunicator_allowednumbers">Numero di telefono acettato</string>
+    <string name="waitingforpumpresult">In attesa del risultato</string>
+    <string name="smscommunicator_allowednumbers">Numeri di telefono consentiti</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Per erogare il bolo di %1$.2fU rispondi col codice %2$s</string>
     <string name="smscommunicator_calibrationreplywithcode">Per inviare la calibrazione %1$.2f rispondi col codice %2$s</string>
@@ -271,7 +271,7 @@
     <string name="bolusdelivered">Bolo di %1$.2fU erogato con successo</string>
     <string name="bolusrequested">Sto per erogare %1$.2fU</string>
     <string name="smscommunicator_bolusdelivered">Bolo di %1$.2fU erogato con successo</string>
-    <string name="bolusdelivering">Erogazione %1$.2fU</string>
+    <string name="bolusdelivering">Erogazione di %1$.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Consenti comandi remoti tramite SMS</string>
     <string name="glucosetype_finger">Dito</string>
     <string name="glucosetype_sensor">Sensore</string>
@@ -280,7 +280,7 @@
     <string name="careportal_temporarytargetcancel">Cancella Target Temporaneo</string>
     <string name="danarprofile">Impostazioni profilo DanaR</string>
     <string name="danarprofile_dia">DIA [h]</string>
-    <string name="danarprofile_dia_summary">Durata Azione Insulina</string>
+    <string name="danarprofile_dia_summary">Durata Azione dell\'Insulina</string>
     <string name="failedupdatebasalprofile">Impossibile aggiornare il profilo basale</string>
     <string name="danar_historyreload">Ricarica</string>
     <string name="uploading">Caricamento</string>
