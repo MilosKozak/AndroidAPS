@@ -34,6 +34,7 @@
     <string name="description_smb">Най-новият алгоритъм (само за напреднали потребители)</string>
     <string name="description_overview">Показва текущото състояние на вашия APS и бутони за най-често използваните действия</string>
     <string name="description_persistent_notification">Показва известие с резюме на това, което прави вашия APS</string>
+    <string name="description_profile_local">Този тип профил е достъпен в офлайн режим.</string>
     <string name="description_profile_nightscout">Работа с профила, които сте дефинирали в Nightscout</string>
     <string name="description_profile_simple">Работа с профил със само една стойност за всички часове.</string>
     <string name="description_pump_combo">Поддръжка за Accu-Chek Combo помпи, изискваща инсталиран ruffy</string>
@@ -318,6 +319,9 @@
     <string name="overview_bolusprogress_goingtodeliver">Ще стартира %1$.2fЕ болус</string>
     <string name="objectives_0_objective">Настройка на визуализацията и наблюдението, а също и анализиране на базалните нужди и коефициенти</string>
     <string name="objectives_0_gate">Потвърждаване, че КЗ е достъпна в Найтскаут и данните за помпата се качват там</string>
+    <string name="objectives_openloop_objective">Стартиране в режим Отворен кръг (Open loop)</string>
+    <string name="objectives_openloop_gate">Работа в режим \"Отворен кръг\" за няколко дни и ръчно въвеждане на много временни базали. Настройте и използвайте временни и стандартни временни цели (напр. за активни въглехидрати или такива при хипо)</string>
+    <string name="objectives_maxbasal_objective">Опитайте се да разбирате по-добре вашият APS в режим \"Отворен кръг\", включително препоръчваните временни базали</string>
     <string name="objectives_maxbasal_gate">Определяне на макс. лимит на базалния инсулин и настройване в помпата и програмата</string>
     <string name="objectives_maxiobzero_objective">Стартиране на \"Затворен кръг\" с изключване на базал при ниска КЗ</string>
     <string name="objectives_maxiobzero_gate">Стартиране на \"Затворен кръг\" с макс. IOB=0 без твърде много събития тип ниска КЗ</string>
@@ -1385,7 +1389,15 @@
     <string name="objectives_button_enter">Въведи</string>
     <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Въведете кода, получен от разработчиците да прескочите останалите цели</string>
     <string name="codeaccepted">Код приет!</string>
+    <string name="codeinvalid">Неправилен код</string>
+    <string name="objectives_exam_objective">Докажете знанията си</string>
     <string name="objectives_exam_gate">Отговорете правилно на въпросите</string>
+    <string name="answerdisabledto">Изключено до: %1$s</string>
+    <string name="wronganswer">Грешен отговор!</string>
+    <string name="unfinshed_button">Следващия неотговорен</string>
+    <string name="close">Затвори</string>
+    <string name="requestcode">Код (request code): %1$s</string>
+    <string name="objectives_hint">(отбележете всички правилни отговори)</string>
     <plurals name="objective_days">
         <item quantity="one">%1$d дeн</item>
         <item quantity="other">%1$d дни</item>
