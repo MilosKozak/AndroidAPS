@@ -723,7 +723,7 @@
     <string name="info">INFO</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">BT Watchdog</string>
-    <string name="btwatchdog_summary">Spegni il bluetooth del telefono per qualche secondo se non è possibile alcuna connessione al micro. Questo può essere utile su alcuni telefoni.</string>
+    <string name="btwatchdog_summary">Spegne il bluetooth del telefono per qualche secondo se non è possibile alcuna connessione al micro. Questo può essere utile su alcuni telefoni.</string>
     <string name="eversense">Eversense App (modificata)</string>
     <string name="dexcomg5_nsupload_title">Carica dati Glicemia su NS</string>
     <string name="bgsource_upload">Impostazioni caricamento BG</string>
