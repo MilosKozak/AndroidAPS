@@ -640,6 +640,7 @@
     <string name="mdtp_cancel">Zrušiť</string>
     <string name="notloadedplugins">Nenačítané všetky profily!</string>
     <string name="valuesnotstored">Hodnoty nie sú uložené!</string>
+    <string name="ns_localbroadcasts">Povoliť vysielanie do iných aplikácií (napr. xDrip). Nepovoľujte, pokiaľ máte nainštalovanú viac ako jednu AAPS, alebo NSClient inštanciu!</string>
     <string name="ns_localbroadcasts_title">Povoliť lokálne vysielanie.</string>
     <string name="careportal_activity_label">AKTIVITA &amp; SPÄTNÁ VÄZBA</string>
     <string name="careportal_carbsandbolus_label">SACHARIDY &amp; BOLUSY</string>
@@ -1297,6 +1298,7 @@
     <string name="rileylink_state_not_started">Nespustené</string>
     <string name="rileylink_state_rl_init">Inicializácia RileyLink...</string>
     <string name="rileylink_state_rl_error">Chyba RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">Ladenie RileyLinku a pumpy</string>
     <string name="rileylink_state_pc_error">Problém s pripojením k pumpe</string>
     <string name="rileylink_state_connected">Pripojené</string>
     <!-- RL Errors -->
