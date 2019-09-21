@@ -8,7 +8,7 @@
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html?#insulin</string>
     <string name="dia_meaningisequaltodiapump">È uguale al parametro DIA utilizzato nel tuo micro.</string>
     <string name="dia_valuemustbedetermined">Devi determinare il tuo valore individuale (ma non meno di 5 ore).</string>
-    <string name="hypott_label">Argomento: Ipo Temp-Target</string>
+    <string name="hypott_label">Argomento: Temp-Target \"Ipoglicemia\"</string>
     <string name="hypott_whenhypott">Perché è utile impostare un ipo TT?</string>
     <string name="hypott_goinglow">Evita che la glicemia vada in basso.</string>
     <string name="hypott_havinglow">Per aiutare il recupero da una glicemia bassa.</string>
