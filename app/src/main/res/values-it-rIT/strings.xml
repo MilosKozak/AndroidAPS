@@ -890,7 +890,7 @@
     <string name="hardlimit">limite fisso</string>
     <string name="unsafeusage">utilizzo non sicuro</string>
     <string name="readstatusfailed">Lettura stato fallita</string>
-    <string name="record_pump_site_change">Registra cambio sito micro</string>
+    <string name="record_pump_site_change">Registrare cambio posizione cannula</string>
     <string name="record_insulin_cartridge_change">Sostituzione della cartuccia di insulina record</string>
     <string name="smbalwaysdisabled">Le funzioni \"SMB sempre\" e \"SMB dopo carboidrati\" sono disabilitate perché la sorgente dati della Glicemia non supporta il filtraggio avanzato</string>
     <string name="smbnotallowedinopenloopmode">SMB non consentito in modalità Loop Aperto</string>
