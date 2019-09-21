@@ -770,7 +770,7 @@
     <string name="combo_pump_action_bolusing">Erogazione Bolo (%1$.1f U)</string>
     <string name="combo_pump_action_refreshing">Aggiornamento</string>
     <string name="combo_pump_unsupported_operation">Operazione richiesta non supportata dal micro</string>
-    <string name="combo_low_suspend_forced_notification">Utilizzo non sicuro: sono attivi boli estesi o multiwave. Il Loop è stato messo in modalità di sola sospensione in caso di valori bassi, per 6 ore. In modalità Loop sono supportati solo boli normali</string>
+    <string name="combo_low_suspend_forced_notification">Utilizzo non sicuro: sono attivi boli estesi o multiwave. Il Loop è stato messo in modalità di sola sospensione dell\'erogazione di insulina in caso di valori bassi, per 6 ore. In modalità Loop sono supportati solo boli normali</string>
     <string name="combo_force_disabled_notification">Utilizzo non sicuro: il micro utilizza un profilo basale diverso dal primo in elenco tra le sue impostazioni. Il Loop è stato disattivato. Seleziona sul microinfusore il profilo basale numero 1.</string>
     <string name="bolus_frequency_exceeded">Un bolo con la stessa quantità è stato richiesto negli ultimi due minuti. Per evitare accidentali boli doppi e a protezione di eventuali \"bug\", questo non è consentito.</string>
     <string name="combo_pump_connected_now">Adesso</string>
