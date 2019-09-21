@@ -640,8 +640,8 @@
     <string name="mdtp_cancel">Annulla</string>
     <string name="notloadedplugins">Non tutti i profili caricati!</string>
     <string name="valuesnotstored">Valori non memorizzati!</string>
-    <string name="ns_localbroadcasts">Abilita le trasmissioni ad altre app (come xDrip). Non abilitare se hai installato più di un\'istanza di AAPS o NSClient!</string>
-    <string name="ns_localbroadcasts_title">Abilitare la trasmissione locale.</string>
+    <string name="ns_localbroadcasts">Abilitare le trasmissioni ad altre app (come xDrip). Non abilitare se hai installato più di un\'istanza di AAPS o NSClient!</string>
+    <string name="ns_localbroadcasts_title">Abilitare le trasmissioni locali.</string>
     <string name="careportal_activity_label">ATTIVITÀ &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBOIDRATI &amp; BOLO</string>
     <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
