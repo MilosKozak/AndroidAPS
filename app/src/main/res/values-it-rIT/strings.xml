@@ -936,12 +936,12 @@
     <string name="virtualpump_definition">Definizione micro</string>
     <string name="virtualpump_pump_def">Bolo: Step=%1$s\nBolo Esteso: [Step=%2$s, Durata=%3$smin-%4$sh]\nBasale: Step=%5$s\nTBR: %6$s (di %7$s), Durata=%8$smin-%9$sh\n%10$s</string>
     <string name="virtualpump_pump_def_extended_note">* Sono supportati solo valori discreti, non intervalli di valori, come incrementi per basale/bolo nel micro virtuale.</string>
-    <string name="ns_autobackfill_title">Riempimento automatico BG</string>
+    <string name="ns_autobackfill_title">Riempimento automatico Glicemie</string>
     <string name="wear_wizard_settings">Impostazioni Wizard</string>
     <string name="wear_wizard_settings_summary">Calcoli inclusi nel risultato della procedura guidata:</string>
     <string name="wear_display_settings">Impostazioni visualizzazione</string>
     <string name="wear_general_settings">Impostazioni generali</string>
-    <string name="enable_nsclient">Abilita NSClient</string>
+    <string name="enable_nsclient">Abilitare NSClient</string>
     <string name="welcometosetupwizard">Benvenuto nella procedura guidata di configurazione. Ti seguirò durante tutto il processo.\n</string>
     <string name="pumpsetup">Setup Micro</string>
     <string name="readstatus">Leggi stato</string>
