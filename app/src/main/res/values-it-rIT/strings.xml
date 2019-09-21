@@ -801,11 +801,11 @@
     <string name="enablesmbaftercarbs_summary">Abilitare SMB per 6h dopo i carboidrati, anche con 0 COB. Possibile solo con sorgente glicemie con un buon filtraggio dei dati, come G5</string>
     <string name="enablesmbwithcob">Abilitare SMB con COB</string>
     <string name="enablesmbwithcob_summary">Abilitare SMB quando COB è attivo (ci sono carboidrati non assorbiti).</string>
-    <string name="enablesmbwithtemptarget">Abilita SMB con temp-target</string>
+    <string name="enablesmbwithtemptarget">Abilitare SMB con temp-target</string>
     <string name="enablesmbwithtemptarget_summary">Abilitare SMB quando è attivo un temp-target (pasto imminente, attività)</string>
-    <string name="enablesmbwithhightemptarget">Abilita SMB con high temp-target</string>
+    <string name="enablesmbwithhightemptarget">Abilitare SMB con temp-target \"alti\"</string>
     <string name="enablesmbwithhightemptarget_summary">Abilitare SMB quando è attivo un temp-target \"alto\"</string>
-    <string name="let_temp_basal_run">Permetti esecuzione Basale Temp</string>
+    <string name="let_temp_basal_run">Permettere esecuzione Basale Temporanea</string>
     <string name="mute">Muto</string>
     <string name="overview_insulin_label">Insulina</string>
     <string name="overview_carbs_label">Carboidrati</string>
