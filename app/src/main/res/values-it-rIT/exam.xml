@@ -32,14 +32,14 @@
     <string name="objectives_doexportafterfirtssettings">Esportarle quando termini le configurazioni iniziali.</string>
     <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/ExportImportSettings.html</string>
     <string name="objectives_hint2">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#what-emergency-equipment-is-recommended-to-take-with-me</string>
-    <string name="noisycgm_label">Argomento: Letture CGM \"sporche\" (noisy)</string>
-    <string name="noisycgm_whattodo">Cosa fare quando vedi che i valori CGM sono troppo \"sporchi\"?</string>
+    <string name="noisycgm_label">Argomento: Letture CGM \"rumorose\" (noisy)</string>
+    <string name="noisycgm_whattodo">Cosa fare quando vedi che i valori CGM sono troppo \"rumorosi\" (instabili)?</string>
     <string name="nothing">Nulla, il Loop se ne occuperà.</string>
     <string name="noisycgm_pause">Sospendere la modalità \"Loop Chiuso\" per evitare il sovradosaggio.</string>
     <string name="noisycgm_replacesensor">Sostituire il sensore CGM.</string>
     <string name="noisycgm_turnoffphone">Spegnere il telefono.</string>
     <string name="noisycgm_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Smoothing-Blood-Glucose-Data-in-xDrip.html#smoothing-blood-glucose-data</string>
-    <string name="noisycgm_checksmoothing">Controllare se la tua app CGM fa lo \"smoothing\" dei dati (li pulisce dal \"rumore\").</string>
+    <string name="noisycgm_checksmoothing">Controllare se la tua app CGM fa lo \"smoothing\" dei dati (ne filtra il \"rumore\").</string>
     <string name="exercise_label">Argomento: Esercizio Fisico</string>
     <string name="exercise_whattodo">Come puoi aiutare il sistema a gestire l\'esercizio fisico?</string>
     <string name="exercise_setactivitytt">Impostare un temp-target \"attività fisica\".</string>
