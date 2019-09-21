@@ -861,14 +861,14 @@
     <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
     <string name="combo_check_date">L\'ultimo bolo è più vecchio di 24 ore o ha una data nel futuro. Controllare che la data sul micro sia impostata correttamente.</string>
     <string name="combo_suspious_bolus_time">L\'ora/la data del bolo erogato sul micro sembra errata, IOB probabilmente non è corretto. Controllare l\'ora e/o la data del micro.</string>
-    <string name="profileswitch_ismissing">Nessun cambio profilo. Effettuare un cambio profilo o premere \"Attiva Profilo\" nella sezione Profilo Locale.</string>
+    <string name="profileswitch_ismissing">Nessun cambio profilo eseguito. Effettuare un cambio profilo o premere \"Attivare Profilo\" nella sezione Profilo Locale.</string>
     <string name="combo_bolus_count">Conteggio Bolo</string>
     <string name="combo_tbr_count">Conteggio TBR</string>
     <string name="objectivenotstarted">Obiettivo %1$d non avviato</string>
     <string name="objectivenotfinished">Obiettivo %1$d non terminato</string>
-    <string name="pumpisnottempbasalcapable">Micro non in grado di impostare la basale temp</string>
+    <string name="pumpisnottempbasalcapable">Micro non in grado di impostare la basale temporanea</string>
     <string name="novalidbasalrate">Nessuna velocità basale valida letta dal micro</string>
-    <string name="closedmodedisabledinpreferences">Modalità ciclo chiuso disattivata nelle preferenze</string>
+    <string name="closedmodedisabledinpreferences">Modalità Loop Chiuso disabilitata nelle preferenze</string>
     <string name="autosensdisabledinpreferences">Autosens disabilitato nelle preferenze</string>
     <string name="smbdisabledinpreferences">SMB disabilitato nelle preferenze</string>
     <string name="uamdisabledinpreferences">UAM disabilitato nelle preferenze</string>
