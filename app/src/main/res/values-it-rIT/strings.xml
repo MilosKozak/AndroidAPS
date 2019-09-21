@@ -872,7 +872,7 @@
     <string name="autosensdisabledinpreferences">Autosens disabilitato nelle preferenze</string>
     <string name="smbdisabledinpreferences">SMB disabilitato nelle preferenze</string>
     <string name="uamdisabledinpreferences">UAM disabilitato nelle preferenze</string>
-    <string name="uamdisabledoref1notselected">UAM disabilitato perché si basa sul plugin di sensibilità Oref1</string>
+    <string name="uamdisabledoref1notselected">UAM disabilitato perché il plugin di sensibilità Oref1, dal quale UAM dipende, non è abilitato</string>
     <string name="limitingbasalratio">Limitazione max velocità basale a %1$.2f U/h. Causa: %2$s</string>
     <string name="pumplimit">limite micro</string>
     <string name="itmustbepositivevalue">deve essere un valore positivo</string>
