@@ -51,7 +51,7 @@
     <string name="exercise_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html#activity-temp-target</string>
     <string name="suspendloop_label">Argomento: Loop sospeso</string>
     <string name="suspendloop_doigetinsulin">Ricevo insulina quando il Loop è sospeso?</string>
-    <string name="suspendloop_yes">Sì, la basale ordinaria.</string>
+    <string name="suspendloop_yes">Sì, la velocità basale ordinaria.</string>
     <string name="suspendloop_no">No, l\'erogazione di insulina è interrotta.</string>
     <string name="basaltest_label">Argomento: Basale, ISF e Test IC</string>
     <string name="basaltest_when">Quando dovrei verificare i valori di basali, ISF e IC?</string>
@@ -84,11 +84,11 @@
     <string name="update_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#update-to-a-new-version-or-branch</string>
     <string name="troubleshooting_label">Argomento: Risoluzione dei problemi</string>
     <string name="troubleshooting_wheretoask">Dove cercare aiuto?</string>
-    <string name="troubleshooting_fb">Unisciti al gruppo Facebook di AndroidAPS.</string>
-    <string name="troubleshooting_wiki">Visita il Wiki di AndroidAPS.</string>
-    <string name="troubleshooting_gitter">Visita la Gitter Room di AndroidAPS.</string>
-    <string name="troubleshooting_googlesupport">Visita il supporto Google di AndroidAPS</string>
-    <string name="troubleshooting_yourendo">Parla con il tuo endocrinologo.</string>
+    <string name="troubleshooting_fb">Entrare nel gruppo Facebook di AndroidAPS.</string>
+    <string name="troubleshooting_wiki">Visitare il Wiki di AndroidAPS.</string>
+    <string name="troubleshooting_gitter">Visitare la Gitter Room di AndroidAPS.</string>
+    <string name="troubleshooting_googlesupport">Visitare il supporto Google di AndroidAPS</string>
+    <string name="troubleshooting_yourendo">Parlare con il tuo endocrinologo.</string>
     <string name="troubleshooting_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#troubleshooting</string>
     <string name="troubleshooting_hint2">https://www.facebook.com/groups/aapsitalia/</string>
     <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
@@ -106,7 +106,7 @@
     <string name="wrongcarbs_label">Argomento: Inserimenti non corretti dei Carboidrati</string>
     <string name="wrongcarbs_whattodo">Ti accorgi che hai inserito erroneamente i carboidrati. Cosa dovresti fare?</string>
     <string name="wrongcarbs_treatmentstab">Andare nella sezione Trattamenti, eliminare i carboidrati \"errati\" e fare un nuovo inserimento.</string>
-    <string name="wrongcarbs_addfakeinsulin">Aggiungere insulina fittizia usando la funzione Riempi</string>
+    <string name="wrongcarbs_addfakeinsulin">Aggiungere insulina fittizia usando la funzione Riempimento</string>
     <string name="extendedcarbs_label">Argomento: Cibo con Grassi e Proteine</string>
     <string name="extendedcarbs_handling">Cosa fare se il tuo cibo contiene una grande quantità di grassi e/o proteine?</string>
     <string name="extendedcarbs_useextendedcarbs">Convertire grassi e proteine in carboidrati e utilizzare la funzione \"carboidrati estesi\".</string>
