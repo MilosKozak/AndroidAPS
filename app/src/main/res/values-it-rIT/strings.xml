@@ -798,9 +798,9 @@
     <string name="enablesmbalways">Abilita SMB sempre</string>
     <string name="enablesmbalways_summary">Abilitare SMB sempre, indipendentemente dai boli. Possibile solo con sorgente glicemie con un buon filtraggio dei dati, come G5</string>
     <string name="enablesmbaftercarbs">Abilita SMB dopo i carboidrati</string>
-    <string name="enablesmbaftercarbs_summary">Abilitare SMB per 6h dopo la dichiarazione di carboidrati, anche con 0 COB. Possibile solo con sorgente glicemie con buon filtraggio dati, come G5</string>
+    <string name="enablesmbaftercarbs_summary">Abilitare SMB per 6h dopo i carboidrati, anche con 0 COB. Possibile solo con sorgente glicemie con un buon filtraggio dei dati, come G5</string>
     <string name="enablesmbwithcob">Abilita SMB con COB</string>
-    <string name="enablesmbwithcob_summary">Abilita SMB quando COB è attivo.</string>
+    <string name="enablesmbwithcob_summary">Abilitare SMB quando COB è attivo.</string>
     <string name="enablesmbwithtemptarget">Abilita SMB con temp-target</string>
     <string name="enablesmbwithtemptarget_summary">Abilita SMB quando c\'è un temp-target attivo (pasto imminente, attività)</string>
     <string name="enablesmbwithhightemptarget">Abilita SMB con high temp-target</string>
