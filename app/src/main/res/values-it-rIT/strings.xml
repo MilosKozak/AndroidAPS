@@ -1201,14 +1201,14 @@
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="dexcom_app_patched">Dexcom App (modificata)</string>
     <string name="dexcom_short">DXCM</string>
-    <string name="description_source_dexcom">Ricevi valori Glicemia dall\'app Dexcom modificata.</string>
+    <string name="description_source_dexcom">Ricevere valori Glicemia dall\'app Dexcom modificata.</string>
     <string name="notification">Notifica</string>
     <string name="notification_message">Notifica: %1$s</string>
     <string name="message_short">Msg:</string>
     <string name="profilepercentage">Percentuale profilo</string>
     <string name="percent_u">Percentuale [%]:</string>
-    <string name="startprofile">Avvia profilo %1$d%% per %2$d min</string>
-    <string name="startprofileforever">Avvia profilo %1$d%%</string>
+    <string name="startprofile">Avviare profilo %1$d%% per %2$d min</string>
+    <string name="startprofileforever">Avviare profilo %1$d%%</string>
     <string name="exists">esiste</string>
     <string name="notexists">non esiste</string>
     <string name="temptargetcompared">Temp target %1$s</string>
@@ -1231,8 +1231,8 @@
     <string name="cobcompared">COB %1$s %2$.0f</string>
     <string name="taskname">Nome Task</string>
     <string name="edit_short">MODIFICA</string>
-    <string name="please_choose_an_action_type">Scegli un tipo di azione:</string>
-    <string name="please_choose_a_trigger_type">Scegli un tipo di trigger:</string>
+    <string name="please_choose_an_action_type">Scegliere un tipo di azione:</string>
+    <string name="please_choose_a_trigger_type">Scegliere un tipo di trigger:</string>
     <string name="triggers">Trigger:</string>
     <string name="remove_label">RIMUOVI</string>
     <string name="preconditions">Presupposti:</string>
@@ -1254,12 +1254,12 @@
     <string name="medtronic_pump_encoding_4b6b_local">Codifica Software 4b6b</string>
     <string name="medtronic_pump_encoding_4b6b_rileylink">Codifica Hardware 4b6b</string>
     <string name="medtronic_custom_action_wake_and_tune">Risveglio e Sintonizzazione</string>
-    <string name="medtronic_custom_action_clear_bolus_block">Cancella Blocco Bolo</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Cancellare Blocco Bolo</string>
     <string name="medtronic_custom_action_reset_rileylink">Reset Configurazione RileyLink</string>
     <string name="medtronic_pump_battery_select">Tipo batteria (Power View)</string>
     <string name="medtronic_pump_battery_no">Non selezionato (Simple view)</string>
-    <string name="medtronic_pump_battery_alkaline">Alkaline (Extended view)</string>
-    <string name="medtronic_pump_battery_lithium">Lithium (Extended view)</string>
+    <string name="medtronic_pump_battery_alkaline">Alcalina (Extended view)</string>
+    <string name="medtronic_pump_battery_lithium">Litio (Extended view)</string>
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">SCAN</string>
     <string name="rileylink_scanner_scan_stop">STOP</string>
@@ -1267,11 +1267,11 @@
     <string name="rileylink_scanner_title">Scansione RileyLink</string>
     <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy non supportato.</string>
     <string name="rileylink_scanner_ble_not_enabled">Bluetooth disabilitato.</string>
-    <string name="location_not_found_title">La posizione non è abilitata</string>
-    <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni coi nuovi dispositivi, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'associazione. AAPS non tiene traccia della tua posizione.</string>
-    <string name="location_yes">Abilita</string>
+    <string name="location_not_found_title">La Posizione è disabilitata</string>
+    <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni sui nuovi dispositivi, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'associazione. AAPS non tiene traccia della tua posizione.</string>
+    <string name="location_yes">Abilitare</string>
     <string name="location_no">No</string>
-    <string name="rileylink_scanner_scanning">Scansione in corso</string>
+    <string name="rileylink_scanner_scanning">Scansione</string>
     <string name="rileylink_scanner_scanning_finished">Scansione terminata</string>
     <string name="rileylink_scanner_scanning_error">Errore scansione: %1$d</string>
     <!-- RL Status Page -->
