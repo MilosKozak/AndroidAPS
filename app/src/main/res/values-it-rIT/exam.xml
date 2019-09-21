@@ -46,8 +46,8 @@
     <string name="exercise_switchprofilebelow100">Fare un cambio profilo sotto il 100%.</string>
     <string name="exercise_switchprofileabove100">Fare un cambio profilo sopra il 100%.</string>
     <string name="exercise_stoploop">Stoppare il Loop.</string>
-    <string name="exercise_doitbeforestart">Impostare il temp-target \"attività fisica\" prima dell\'inizio dell\'esercizio.</string>
-    <string name="exercise_doitafterstart">Impostare il temp-target \"attività fisica\" dopo l\'inizio dell\'esercizio.</string>
+    <string name="exercise_doitbeforestart">Impostare il Temp-Target \"Attività\" prima dell\'inizio dell\'esercizio.</string>
+    <string name="exercise_doitafterstart">Impostare il Temp-Target \"Attività\" dopo l\'inizio dell\'esercizio.</string>
     <string name="exercise_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html#activity-temp-target</string>
     <string name="suspendloop_label">Argomento: Loop sospeso</string>
     <string name="suspendloop_doigetinsulin">Ricevo insulina quando il Loop è sospeso?</string>
