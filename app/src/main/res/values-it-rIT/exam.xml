@@ -9,8 +9,8 @@
     <string name="dia_meaningisequaltodiapump">È uguale al parametro DIA utilizzato nel tuo micro.</string>
     <string name="dia_valuemustbedetermined">Devi determinare il tuo valore individuale (ma non meno di 5 ore).</string>
     <string name="hypott_label">Argomento: Temp-Target \"Ipoglicemia\"</string>
-    <string name="hypott_whenhypott">Perché è utile impostare un ipo TT?</string>
-    <string name="hypott_goinglow">Evita che la glicemia vada in basso.</string>
+    <string name="hypott_whenhypott">Perché è utile impostare un TT Ipoglicemia?</string>
+    <string name="hypott_goinglow">Evitare che la glicemia vada in basso.</string>
     <string name="hypott_havinglow">Per aiutare il recupero da una glicemia bassa.</string>
     <string name="hypott_preventoversmb">Per evitare che SMB reagisca all\'aumento della glicemia dovuto ai carboidrati a rapido assorbimento durante una ipo.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
@@ -20,7 +20,7 @@
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#profile</string>
     <string name="pumpdisconnect_label">Argomento: Disconnessione dal micro</string>
     <string name="pumpdisconnect_whattodo">Cosa fare quando si toglie il micro?</string>
-    <string name="pumpdisconnect_letknow">Far sapere al Loop che non viene erogata insulina al tuo corpo facendo click su \"disconnetti micro\".</string>
+    <string name="pumpdisconnect_letknow">Far sapere al Loop che non viene erogata insulina al tuo corpo facendo click su \"disconnettere micro\".</string>
     <string name="pumpdisconnect_dontchnage">Non cambiare nulla nel Loop, staccare solo il micro.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
     <string name="objectives_label">Argomento: Impostazioni di AndroidAPS</string>
@@ -42,7 +42,7 @@
     <string name="noisycgm_checksmoothing">Controllare se la tua app CGM fa lo \"smoothing\" dei dati (ne filtra il \"rumore\").</string>
     <string name="exercise_label">Argomento: Esercizio Fisico</string>
     <string name="exercise_whattodo">Come puoi aiutare il sistema a gestire l\'esercizio fisico?</string>
-    <string name="exercise_setactivitytt">Impostare un temp-target \"attività fisica\".</string>
+    <string name="exercise_setactivitytt">Impostare un Temp-Target \"Attività\".</string>
     <string name="exercise_switchprofilebelow100">Fare un cambio profilo sotto il 100%.</string>
     <string name="exercise_switchprofileabove100">Fare un cambio profilo sopra il 100%.</string>
     <string name="exercise_stoploop">Stoppare il Loop.</string>
