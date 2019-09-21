@@ -880,7 +880,7 @@
     <string name="maxdailybasalmultiplier">moltiplicatore - max basale giornaliera</string>
     <string name="smb_frequency_exceeded">Un bolo è stato erogato negli ultimi 3 minuti, SMB ignorato</string>
     <string name="basal_set_correctly">Basale impostata correttamente</string>
-    <string name="limitingpercentrate">Limito max percentuale a %1$d%% Causa: %2$s</string>
+    <string name="limitingpercentrate">Limito max percentuale a %1$d%% - Causa: %2$s</string>
     <string name="limitingbolus">Limito il bolo a %1$.1f U Causa: %2$s</string>
     <string name="limitingextendedbolus">Limito il bolo esteso a %1$.1f U Causa: %2$s</string>
     <string name="limitingmaxiob">Limito max IOB a %1$.1f U Causa: %2$s</string>
