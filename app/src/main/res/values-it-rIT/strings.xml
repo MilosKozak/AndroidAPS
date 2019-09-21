@@ -653,7 +653,7 @@
     <string name="enableuam">Abilitare UAM</string>
     <string name="enablesmb">Abilitare SMB</string>
     <string name="enablesmb_summary">Utilizzare Super Micro Boli al posto della basale temporanea per un\'azione più veloce</string>
-    <string name="enableuam_summary">Rilevazione dei Pasti Non Dichiarati</string>
+    <string name="enableuam_summary">Rilevazione dei Pasti Non Annunciati</string>
     <string name="insulin_oref_peak">IOB Curve Peak Time</string>
     <string name="insulin_peak_time">Peak Time [min]</string>
     <string name="free_peak_oref">Free-Peak Oref</string>
@@ -695,7 +695,7 @@
     <string name="gettingpumptime">Richiesta ora micro</string>
     <string name="reuse">riutilizzo</string>
     <string name="wearcontrol_title">Controlli da smartwatch</string>
-    <string name="wearcontrol_summary">Imposta Temp-Target e inserisci Trattamenti dallo smartwatch.</string>
+    <string name="wearcontrol_summary">Impostare Temp-Target e inserire Trattamenti dallo smartwatch.</string>
     <string name="connectiontimedout">Time Out Connessione</string>
     <string name="food">Cibo</string>
     <string name="shortgramm">g</string>
@@ -728,11 +728,11 @@
     <string name="dexcomg5_nsupload_title">Carica dati Glicemia su NS</string>
     <string name="bgsource_upload">Impostazioni caricamento BG</string>
     <string name="wear_detailed_delta_title">Visualizza delta dettagliato</string>
-    <string name="wear_detailed_delta_summary">Visualizza delta con una cifra decimale in più</string>
+    <string name="wear_detailed_delta_summary">Visualizzare delta con una cifra decimale in più</string>
     <string name="smbmaxminutes_summary">Max minuti di basale ai quali limitare SMB</string>
     <string name="unsupportedfirmware">Firmware del micro non supportato</string>
     <string name="dexcomg5_xdripupload_title">Invia dati Glicemia a xDrip+</string>
-    <string name="dexcomg5_xdripupload_summary">In xDrip+ seleziona origine dati 640g/Eversense</string>
+    <string name="dexcomg5_xdripupload_summary">In xDrip+ selezionare origine dati 640g/Eversense</string>
     <string name="nsclientbg">NSClient BG</string>
     <string name="minimalbasalvaluereplaced">Valore basale sostituito dal minimo valore supportato: %1$s</string>
     <string name="maximumbasalvaluereplaced">Valore basale sostituito dal massimo valore supportato: %1$s</string>
@@ -796,7 +796,7 @@
     <string name="ago">fa</string>
     <string name="format_hours">%1$.2f h</string>
     <string name="enablesmbalways">Abilita SMB sempre</string>
-    <string name="enablesmbalways_summary">Abilita SMB sempre, indipendentemente dai boli. Possibile solo con sorgente glicemie con buon filtraggio dati, come G5</string>
+    <string name="enablesmbalways_summary">Abilitare SMB sempre, indipendentemente dai boli. Possibile solo con sorgente glicemie con buon filtraggio dati, come G5</string>
     <string name="enablesmbaftercarbs">Abilita SMB dopo i carboidrati</string>
     <string name="enablesmbaftercarbs_summary">Abilita SMB per 6h dopo la dichiarazione di carboidrati, anche con 0 COB. Possibile solo con sorgente glicemie con buon filtraggio dati, come G5</string>
     <string name="enablesmbwithcob">Abilita SMB con COB</string>
