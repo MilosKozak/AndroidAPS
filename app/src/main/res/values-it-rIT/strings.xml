@@ -999,9 +999,9 @@
     <string name="custom">Personalizzato</string>
     <string name="largetimedifftitle">Grande differenza d\'orario</string>
     <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegolare l\'ora manualmente e assicurarsi che la lettura dello storico del micro non causi comportamenti imprevisti.\nSe possibile, cancellare la cronologia del micro prima di cambiare l\'orario oppure disabilitare il Loop Chiuso per un tempo corrispondente alla tua DIA.</string>
-    <string name="careportal_removestartedevents">Rimuovere gli eventi denominati \"AndroidAPS avviato\"</string>
+    <string name="careportal_removestartedevents">Rimuovere gli eventi \"AndroidAPS avviato\"</string>
     <string name="storedsettingsfound">Trovate impostazioni salvate</string>
-    <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo la velocità basale memorizzata sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi Cancella e ricollega il micro in un altro momento.</string>
+    <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo la velocità basale memorizzata sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi Annulla e ricollega il micro in un altro momento.</string>
     <string name="error_adding_treatment_title">Dati trattamento incompleti</string>
     <string name="maintenance_settings">Impostazioni Manutenzione</string>
     <string name="maintenance_email">Email</string>
@@ -1009,8 +1009,8 @@
     <string name="maintenance">Manutenzione</string>
     <string name="maintenance_shortname">MAINT</string>
     <string name="description_maintenance">Fornisce numerose funzioni per la manutenzione (ad es. invio log, eliminazione log).</string>
-    <string name="send_all_logs">Invia i log via Email</string>
-    <string name="delete_logs">Elimina i log</string>
+    <string name="send_all_logs">Inviare i log via Email</string>
+    <string name="delete_logs">Eliminare i log</string>
     <string name="error_adding_treatment_message">Un trattamento (insulina: %1$.2f, carboidrati: %2$d, a: %3$s) non può essere aggiunto ai trattamenti. Controlla e aggiungi il record necessario.</string>
     <string name="generated_ecarbs_note">eCarbs: %1$d g (%2$d h), ritardo: %3$d m</string>
     <string name="openaps_noasdata">Nessun dato autosens disponibile</string>
