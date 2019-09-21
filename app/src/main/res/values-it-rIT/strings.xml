@@ -563,10 +563,10 @@
     <string name="ultrafastactinginsulincomment">Fiasp</string>
     <string name="insulin_shortname">INS</string>
     <string name="enablesuperbolus">Abilita Super Bolo nel Calcolatore</string>
-    <string name="enablesuperbolus_summary">Abilita la funzionalità Super Bolo nel Calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
+    <string name="enablesuperbolus_summary">Abilitare la funzionalità Super Bolo nel Calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
     <string name="show_statuslights">Mostrare \"indicatori di stato\" sulla schermata iniziale</string>
     <string name="show_statuslights_extended">Mostrare \"indicatori di stato\" estesi sulla schermata iniziale</string>
-    <string name="show_statuslights_extended_summary">Abilita indicatori di stato estesi per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
+    <string name="show_statuslights_extended_summary">Abilitare indicatori di stato estesi per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
     <string name="statuslights_res_warning">Soglia di avviso livello serbatoio [U]</string>
     <string name="statuslights_res_critical">Soglia critica livello serbatoio [U]</string>
     <string name="statuslights_bat_warning">Soglia di avviso livello batteria [%%]</string>
@@ -652,7 +652,7 @@
     <string name="smb_shortname">SMB</string>
     <string name="enableuam">Abilitare UAM</string>
     <string name="enablesmb">Abilitare SMB</string>
-    <string name="enablesmb_summary">Utilizza Super Micro Boli al posto della basale temporanea per un\'azione più veloce</string>
+    <string name="enablesmb_summary">Utilizzare Super Micro Boli al posto della basale temporanea per un\'azione più veloce</string>
     <string name="enableuam_summary">Rilevazione dei Pasti Non Dichiarati</string>
     <string name="insulin_oref_peak">IOB Curve Peak Time</string>
     <string name="insulin_peak_time">Peak Time [min]</string>
