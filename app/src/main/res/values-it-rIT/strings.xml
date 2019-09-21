@@ -998,8 +998,8 @@
     <string name="combo_invalid_setup">Configurazione micro non valida, controllare la documentazione e verificare che il menu Quick Info sia denominato QUICK INFO utilizzando \"360 configuration software\".</string>
     <string name="custom">Personalizzato</string>
     <string name="largetimedifftitle">Grande differenza d\'orario</string>
-    <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegolare l\'ora manualmente e assicurarsi che la lettura dello storico del micro non causi comportamenti imprevisti.\nSe possibile, cancellare la cronologia del micro prima di cambiare l\'orario oppure disabilitare il Loop Chiuso per un tempo corrispondente alla tua DIA a partire dall\'orario dall\'ultima voce errata, ma in ogni caso almeno a partire da adesso.</string>
-    <string name="careportal_removestartedevents">Rimuovi eventi avviati da AndroidAPS</string>
+    <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegolare l\'ora manualmente e assicurarsi che la lettura dello storico del micro non causi comportamenti imprevisti.\nSe possibile, cancellare la cronologia del micro prima di cambiare l\'orario oppure disabilitare il Loop Chiuso per un tempo corrispondente alla tua DIA.</string>
+    <string name="careportal_removestartedevents">Rimuovere gli eventi denominati \"AndroidAPS avviato\"</string>
     <string name="storedsettingsfound">Trovate impostazioni salvate</string>
     <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo la velocità basale memorizzata sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi Cancella e ricollega il micro in un altro momento.</string>
     <string name="error_adding_treatment_title">Dati trattamento incompleti</string>
