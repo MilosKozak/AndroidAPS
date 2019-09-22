@@ -109,7 +109,7 @@
     <string name="wrongcarbs_addfakeinsulin">Aggiungere insulina fittizia usando la funzione Riempimento</string>
     <string name="extendedcarbs_label">Argomento: Cibo con Grassi e Proteine</string>
     <string name="extendedcarbs_handling">Cosa fare se il tuo cibo contiene una grande quantità di grassi e/o proteine?</string>
-    <string name="extendedcarbs_useextendedcarbs">Convertire grassi e proteine in carboidrati e utilizzare la funzione \"carboidrati estesi\".</string>
+    <string name="extendedcarbs_useextendedcarbs">Convertire grassi e proteine in carboidrati e utilizzare la funzione \"carboidrati estesi\" (eCarbs).</string>
     <string name="extendedcarbs_add">Convertire grassi e proteine in carboidrati e aggiungerli al calcolo del bolo.</string>
     <string name="extendedcarbs_useextendedbolus">Utilizzare il bolo esteso per coprire grassi e proteine.</string>
     <string name="extendedcarbs_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Extended-Carbs.html</string>
@@ -121,7 +121,7 @@
     <string name="nsclient_xdripfollower">xDrip in modalità follower.</string>
     <string name="nsclient_looponiphone">App Loop su iPhone.</string>
     <string name="nsclient_spikeiphone">App Spike su iPhone.</string>
-    <string name="isf_label">Argomento: Il Fattore di Sensibilità all\'Insulina</string>
+    <string name="isf_label">Argomento: Fattore di Sensibilità all\'Insulina</string>
     <string name="isf_increasingvalue">L\'aumento del valore ISF porterà a una minore erogazione di insulina se stai cercando di abbassare la tua glicemia con il \"bolus wizard\".</string>
     <string name="isf_decreasingvalue">La riduzione del valore ISF porterà a una minore erogazione di insulina se stai cercando di abbassare la tua glicemia con il \"bolus wizard\".</string>
     <string name="isf_noeffect">La modifica di ISF non ha alcun effetto sulla quantità di insulina somministrata da APPS quando si cerca di correggere l\'iperglicemia.</string>
