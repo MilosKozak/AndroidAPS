@@ -122,6 +122,7 @@
     <string name="nsclient_looponiphone">Aplikace Loop na iPhone.</string>
     <string name="nsclient_spikeiphone">Aplikace Spike na iPhone.</string>
     <string name="isf_label">Téma: Citlivost na inzulín</string>
+    <string name="isf_increasingvalue">Zvýšení hodnoty citlivosti bude mít za následek méně vydaného inzulinu, když se budete snažit snížit glykémii pomocí bolusové kalkulačky.</string>
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Getting-Started/FAQ.html#korekcni-faktor-citlivost-na-inzulin-isf-mmol-l-u-nebo-mg-dl-u</string>
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/Profiles.html</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Getting-Started/FAQ.html#inzulino-sacharidovy-pomer-cr-g-u</string>
