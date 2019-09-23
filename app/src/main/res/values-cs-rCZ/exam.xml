@@ -80,6 +80,7 @@
     <string name="update_asap">Aktualizovat ihned po uvolnění nové verze.</string>
     <string name="update_keys">Můžete použít stejné podpisové klíče.</string>
     <string name="update_neverupdate">Nikdy neaktualizujte, pokud systém funguje dobře.</string>
+    <string name="update_askfriend">Požádejte kamaráda o novou verzi APK.</string>
     <string name="update_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Installing-AndroidAPS/Update-to-new-version.html</string>
     <string name="troubleshooting_label">Téma: Odstraňování problémů</string>
     <string name="troubleshooting_wheretoask">Kde hledat pomoc?</string>
@@ -93,9 +94,36 @@
     <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
     <string name="insulin_label">Téma: Inzulín</string>
     <string name="insulin_ultrarapid">Kterou značku inzulínu lze použít s modulem Ultra-Rychlý-Oref?</string>
+    <string name="insulin_fiasp">Fiasp®</string>
+    <string name="insulin_novorapid">NovoRapid®</string>
+    <string name="insulin_humalog">Humalog®</string>
+    <string name="insulin_actrapid">Actrapid®</string>
     <string name="insulin_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Configuration/Config-Builder.html#inzulin</string>
+    <string name="sensitivity_label">Téma: Modul citlivosti</string>
     <string name="sensitivity_which">Který plugin pro detekci citlivosti má uživatelem definovaný časový rozsah pro detekci?</string>
     <string name="sensitivity_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Configuration/Config-Builder.html#detekce-citlivosti</string>
+    <string name="sensitivityuam_which">Který modul citlivosti musí být použit pro funkci UAM (rozpoznání neoznámeného jídla)?</string>
+    <string name="wrongcarbs_label">Téma: Špatně zadané sacharidy</string>
     <string name="wrongcarbs_whattodo">Vidíte, že jste chybně zadali sacharidy. Co byste měli udělat?</string>
+    <string name="wrongcarbs_treatmentstab">Jděte do Ošetření, smažte špatně zadané sacharidy a vložte nové sacharidy.</string>
     <string name="wrongcarbs_addfakeinsulin">Přidat falešný inzulin pomocí funkce Doplňování</string>
+    <string name="extendedcarbs_label">Téma: Jídlo s tukem a bílkovinami</string>
+    <string name="extendedcarbs_handling">Co dělat, když jídlo obsahuje vysoké množství tuků a/nebo bílkovin?</string>
+    <string name="extendedcarbs_useextendedcarbs">Přepočítejte tuky a bílkoviny na sacharidy a použijte funkci „Rozložené sacharidy“.</string>
+    <string name="extendedcarbs_add">Přepočítejte tuky a bílkoviny na sacharidy a přidejte je do výpočtu bolusu.</string>
+    <string name="extendedcarbs_useextendedbolus">Použijte prodloužený bolus, abyste pokryli tuky a bílkoviny.</string>
+    <string name="extendedcarbs_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/Extended-Carbs.html</string>
+    <string name="nsclient_label">Téma: Monitorování dětí</string>
+    <string name="nsclient_howcanyou">Jak můžete na dálku monitorovat AAPS svého dítěte?</string>
+    <string name="nsclient_nightscout">Pomocí stránky Nightscout.</string>
+    <string name="nsclient_dexcomfollow">Aplikace Dexcom Follow, pokud používáte originální aplikaci Dexcom.</string>
+    <string name="nsclient_dexcomfollowxdrip">Aplikace Dexcom Follow, pokud používáte aplikaci xDrip.</string>
+    <string name="nsclient_xdripfollower">Aplikace xDrip v režimu sledování.</string>
+    <string name="nsclient_looponiphone">Aplikace Loop na iPhone.</string>
+    <string name="nsclient_spikeiphone">Aplikace Spike na iPhone.</string>
+    <string name="isf_label">Téma: Citlivost na inzulín</string>
+    <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Getting-Started/FAQ.html#korekcni-faktor-citlivost-na-inzulin-isf-mmol-l-u-nebo-mg-dl-u</string>
+    <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/Profiles.html</string>
+    <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Getting-Started/FAQ.html#inzulino-sacharidovy-pomer-cr-g-u</string>
+    <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/Profiles.html?highlight=p%C5%99epnut%C3%AD%20profilu</string>
 </resources>
