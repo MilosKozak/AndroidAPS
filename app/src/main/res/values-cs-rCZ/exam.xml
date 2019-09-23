@@ -127,6 +127,8 @@
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/Profiles.html</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Getting-Started/FAQ.html#inzulino-sacharidovy-pomer-cr-g-u</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/Profiles.html?highlight=p%C5%99epnut%C3%AD%20profilu</string>
+    <string name="profileswitchtime_60">60</string>
+    <string name="profileswitchtime__60">-60</string>
     <string name="basalhelp_label">Téma: Pomoc s bazály</string>
     <string name="basalhelp_where">Kam jít pro pomoc s bazály apod.</string>
     <string name="basalhelp_diabetesteam">K Vašemu lékaři</string>
