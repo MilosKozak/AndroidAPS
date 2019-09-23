@@ -1368,7 +1368,6 @@
     <string name="medtronic_cmd_desc_get_tbr">Načítanie dočasného bazálu</string>
     <string name="medtronic_cmd_desc_set_tbr">Nastavovanie dočasného bazálu</string>
     <string name="medtronic_cmd_desc_set_bolus">Nastavovanie bolusu</string>
-    <string name="insulinFromCob"><![CDATA[Inzulín z COB: <font color=\'%1$s\'>%2$.1fg %3$.2fJI</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Aplikované obmedzenie bolusu: %2$.2fJI na %3$.2fJI</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Detekovaná pomalá absorbcia sacharidov: %2$d%% času. Prekontrolujte kalkuláciu. COB môže byť úplne iné, môže byť podaného viac inzulínu!!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d JI</string>
