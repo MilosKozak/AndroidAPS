@@ -34,6 +34,7 @@
     <string name="description_smb">Den senaste algoritmen för avancerade användare</string>
     <string name="description_overview">Visar loopens nuvarande tillstånd och knappar för de vanligaste funktionerna</string>
     <string name="description_persistent_notification">Visar en konstant avisering med en kort sammanfattning av vad din loop gör</string>
+    <string name="description_profile_local">Definiera en profil som är tillgänglig offline.</string>
     <string name="description_profile_nightscout">Använder profiler från Nightscout</string>
     <string name="description_profile_simple">Definiera en insulinprofil som bara har ett enda tidsblock.</string>
     <string name="description_pump_combo">Pumpintegration för Accu-Chek Combo. Kräver att Ruffy är installerat</string>
@@ -319,6 +320,8 @@ Eversense-appen.</string>
     <string name="overview_bolusprogress_goingtodeliver">Kommer att leverera %1$.2f enheter</string>
     <string name="objectives_0_objective">Ställer in utseende och övervakning för att sedan kunna analysera basaler och kvoter</string>
     <string name="objectives_0_gate">Kontrollera att BG syns i Nightscout och att insulindata från pumpen laddas upp</string>
+    <string name="objectives_openloop_objective">Startar med open loop</string>
+    <string name="objectives_openloop_gate">Kör i Open Loop-läge i några dagar och sätt ett antal temp-basaler manuellt. Konfigurera och använd temporära och förinställda temporära mål (t.ex. Träning eller Hypo)</string>
     <string name="youareonallowedlimit">Du har nått din tillåtna gräns</string>
     <string name="noprofileselected">Ingen profil vald</string>
     <string name="smscommunicator_loophasbeendisabled">Loop stängdes av</string>
