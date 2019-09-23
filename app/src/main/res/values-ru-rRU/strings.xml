@@ -1370,7 +1370,6 @@ Context | Edit Context</string>
     <string name="medtronic_cmd_desc_get_tbr">Получить временный базал</string>
     <string name="medtronic_cmd_desc_set_tbr">Установить временный базал</string>
     <string name="medtronic_cmd_desc_set_bolus">Настроить болюс</string>
-    <string name="insulinFromCob"><![CDATA[COB инсулин: <font color=\'%1$s\'>%2$.1fг %3$.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Применено ограничение на болюс: %2$.2fед до %3$.2fед</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Обнаружено медленное всасывание углеводов: %2$d%% времени. Еще раз проверьте свои расчеты. Возможно акт углеводы COB вне диапазона и может быть подано больше инсулина!!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f/%2$d ед</string>
