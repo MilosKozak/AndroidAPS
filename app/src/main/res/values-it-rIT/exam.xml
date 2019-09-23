@@ -121,6 +121,7 @@
     <string name="nsclient_xdripfollower">xDrip in modalità follower.</string>
     <string name="nsclient_looponiphone">App Loop su iPhone.</string>
     <string name="nsclient_spikeiphone">App Spike su iPhone.</string>
+    <string name="nsclient_hint1">https://androidaps.readthedocs.io/en/latest/EN/Children/Children.html</string>
     <string name="isf_label">Argomento: Fattore di Sensibilità all\'Insulina</string>
     <string name="isf_increasingvalue">L\'aumento del valore ISF porterà a una minore erogazione di insulina se stai cercando di abbassare la tua glicemia con il \"bolus wizard\".</string>
     <string name="isf_decreasingvalue">La riduzione del valore ISF porterà a una minore erogazione di insulina se stai cercando di abbassare la tua glicemia con il \"bolus wizard\".</string>
