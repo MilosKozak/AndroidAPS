@@ -623,8 +623,10 @@
     <string name="enablesuperbolus">Enable superbolus in wizard</string>
     <string name="enablesuperbolus_summary">Enable superbolus functionality in wizard. Do not enable until you learn what it really does. IT MAY CAUSE INSULIN OVERDOSE IF USED BLINDLY!</string>
     <string name="key_show_statuslights" translatable="false">key_show_statuslights</string>
+    <string name="key_show_statuslights_extended" translatable="false">key_show_statuslights_extended</string>
     <string name="show_statuslights">Show status lights on home screen</string>
-    <string name="show_statuslights_summary">Enable status lights for cage, iage, sage, reservoir and battery level on home screen.</string>
+    <string name="show_statuslights_extended">Show extended status lights on home screen</string>
+    <string name="show_statuslights_extended_summary">Enable extended status lights for cage, iage, sage, reservoir and battery level on home screen.</string>
     <string name="key_statuslights_res_warning" translatable="false">key_statuslights_res_warning</string>
     <string name="statuslights_res_warning">Threshold warning reservoir level [U]</string>
     <string name="key_statuslights_res_critical" translatable="false">key_statuslights_res_critical</string>
@@ -720,7 +722,7 @@
     <string name="valuesnotstored">Values not stored!</string>
     <string name="combopump" translatable="false">Accu-Chek Combo</string>
     <string name="combopump_shortname" translatable="false">COMBO</string>
-    <string name="ns_localbroadcasts">Enable broadcasts to other apps (like xDrip).</string>
+    <string name="ns_localbroadcasts">Enable broadcasts to other apps (like xDrip). Do not enable if you have more than one instance of AAPS or NSClient installed!</string>
     <string name="ns_localbroadcasts_title">Enable local Broadcasts.</string>
     <string name="careportal_activity_label">ACTIVITY &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBS &amp; BOLUS</string>
@@ -1514,7 +1516,7 @@
     <string name="rileylink_state_not_started">Not Started</string>
     <string name="rileylink_state_rl_init">RileyLink Initialization…</string>
     <string name="rileylink_state_rl_error">RileyLink Error</string>
-    <string name="rileylink_state_pc_tune_up">Tunning up RileyLink and Pump</string>
+    <string name="rileylink_state_pc_tune_up">Tuning up RileyLink and Pump</string>
     <string name="rileylink_state_pc_error">Problem connecting to Pump</string>
     <string name="rileylink_state_connected">Connected</string>
 
@@ -1637,6 +1639,7 @@
     <string name="close">Close</string>
     <string name="key_objectives_request_code" translatable="false">objectives_request_code</string>
     <string name="requestcode">Request code: %1$s</string>
+    <string name="objectives_hint">(check all correct answers)</string>
 
     <plurals name="objective_days">
         <item quantity="one">%1$d day</item>
