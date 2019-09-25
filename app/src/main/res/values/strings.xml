@@ -623,11 +623,8 @@
     <string name="enablesuperbolus">Enable superbolus in wizard</string>
     <string name="enablesuperbolus_summary">Enable superbolus functionality in wizard. Do not enable until you learn what it really does. IT MAY CAUSE INSULIN OVERDOSE IF USED BLINDLY!</string>
     <string name="key_show_statuslights" translatable="false">key_show_statuslights</string>
-    <string name="key_show_statuslights_easy" translatable="false">key_show_statuslights_easy</string>
     <string name="key_show_statuslights_extended" translatable="false">key_show_statuslights_extended</string>
     <string name="show_statuslights">Show status lights on home screen</string>
-    <string name="show_statuslights_easy">Show original status lights on home screen</string>
-    <string name="show_statuslights_easy_summary">Enable original status lights for cage, iage, sage, reservoir and battery level on home screen.</string>
     <string name="show_statuslights_extended">Show extended status lights on home screen</string>
     <string name="show_statuslights_extended_summary">Enable extended status lights for cage, iage, sage, reservoir and battery level on home screen.</string>
     <string name="key_statuslights_res_warning" translatable="false">key_statuslights_res_warning</string>
@@ -725,7 +722,7 @@
     <string name="valuesnotstored">Values not stored!</string>
     <string name="combopump" translatable="false">Accu-Chek Combo</string>
     <string name="combopump_shortname" translatable="false">COMBO</string>
-    <string name="ns_localbroadcasts">Enable broadcasts to other apps (like xDrip).</string>
+    <string name="ns_localbroadcasts">Enable broadcasts to other apps (like xDrip). Do not enable if you have more than one instance of AAPS or NSClient installed!</string>
     <string name="ns_localbroadcasts_title">Enable local Broadcasts.</string>
     <string name="careportal_activity_label">ACTIVITY &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBS &amp; BOLUS</string>
@@ -1522,7 +1519,7 @@
     <string name="rileylink_state_not_started">Not Started</string>
     <string name="rileylink_state_rl_init">RileyLink Initialization…</string>
     <string name="rileylink_state_rl_error">RileyLink Error</string>
-    <string name="rileylink_state_pc_tune_up">Tunning up RileyLink and Pump</string>
+    <string name="rileylink_state_pc_tune_up">Tuning up RileyLink and Pump</string>
     <string name="rileylink_state_pc_error">Problem connecting to Pump</string>
     <string name="rileylink_state_connected">Connected</string>
 
@@ -1604,7 +1601,7 @@
     <string name="medtronic_cmd_desc_set_bolus">Set Bolus</string>
 
 
-    <string name="insulinFromCob"><![CDATA[COB insulin: <font color=\'%1$s\'>%2$.1fg %3$.2fU</font>]]></string>
+    <string name="insulinFromCob"><![CDATA[COB vs IOB: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus constraint applied: %2$.2fU to %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Slow carbs absorption detected: %2$d%% of time. Double check your calculation. COB can be overestimated thus more insulin could be given !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
