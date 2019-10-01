@@ -156,7 +156,8 @@ public class AAPSMocker {
         when(MainApp.gs(R.string.resumeloop)).thenReturn("Resume loop");
         when(MainApp.gs(R.string.suspendloop)).thenReturn("Suspend loop");
         when(MainApp.gs(R.string.pumpNotInitialized)).thenReturn("Pump not initialized!");
-        when(MainApp.gs(R.string.increasingmaxbasal)).thenReturn("Increasing max basal value because setting is lower than your max basal in profile");
+        when(MainApp.gs(R.string.profilename)).thenReturn("Change profile to ");
+        when(MainApp.gs(R.string.profiletoname)).thenReturn("Change profile to ");
     }
 
     public static MainApp mockMainApp() {

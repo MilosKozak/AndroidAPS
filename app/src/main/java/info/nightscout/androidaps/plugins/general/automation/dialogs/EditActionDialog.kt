@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.okcancel.*
 import org.json.JSONObject
 
 class EditActionDialog : DialogFragment() {
+
     private var action: Action? = null
     private var actionPosition: Int = -1
 
@@ -48,11 +49,6 @@ class EditActionDialog : DialogFragment() {
 
         // Cancel button
         cancel.setOnClickListener { dismiss() }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     override fun onSaveInstanceState(bundle: Bundle) {

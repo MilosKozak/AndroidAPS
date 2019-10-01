@@ -70,7 +70,8 @@ class ObjectivesExamDialog : DialogFragment() {
             // Hints
             objectives_exam_hints.removeAllViews()
             for (h in task.hints) {
-                objectives_exam_hints.addView(h.generate(context))
+                val hint: Hint = h as Hint;
+                objectives_exam_hints.addView(hint.generate(context))
             }
             // Disabled to
             objectives_exam_disabledto.text = MainApp.gs(R.string.answerdisabledto, DateUtil.timeString(task.disabledTo))

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.text.util.Linkify;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -37,10 +36,6 @@ public abstract class Objective {
         this.gate = gate;
         startedOn = SP.getLong("Objectives_" + spName + "_started", 0L);
         accomplishedOn = SP.getLong("Objectives_" + spName + "_accomplished", 0L);
-        if ((accomplishedOn - DateUtil.now()) > T.days(1).msecs()) { // more than 1 day in the future
-            setStartedOn(0);
-            setAccomplishedOn(0);
-        }
         setupTasks(tasks);
         for (Task task : tasks) task.objective = this;
     }
@@ -53,20 +48,12 @@ public abstract class Objective {
         return true;
     }
 
-    public boolean isCompleted(long trueTime) {
-        for (Task task : tasks) {
-            if (!task.shouldBeIgnored() && !task.isCompleted(trueTime))
-                return false;
-        }
-        return true;
-    }
-
     public boolean isRevertable() {
         return false;
     }
 
     public boolean isAccomplished() {
-        return accomplishedOn != 0 && accomplishedOn < DateUtil.now();
+        return accomplishedOn != 0;
     }
 
     public boolean isStarted() {
@@ -113,7 +100,6 @@ public abstract class Objective {
         @StringRes
         private int task;
         private Objective objective;
-        ArrayList<Hint> hints = new ArrayList<>();
 
         public Task(@StringRes int task) {
             this.task = task;
@@ -128,19 +114,9 @@ public abstract class Objective {
         }
 
         public abstract boolean isCompleted();
-        public boolean isCompleted(long trueTime) { return isCompleted(); };
 
         public String getProgress() {
             return MainApp.gs(isCompleted() ? R.string.completed_well_done : R.string.not_completed_yet);
-        }
-
-        Task hint(Hint hint) {
-            hints.add(hint);
-            return this;
-        }
-
-        public ArrayList<Hint> getHints() {
-            return hints;
         }
 
         public boolean shouldBeIgnored() {
@@ -163,11 +139,6 @@ public abstract class Objective {
         }
 
         @Override
-        public boolean isCompleted(long trueTime) {
-            return getObjective().isStarted() && trueTime - getObjective().getStartedOn() >= minimumDuration;
-        }
-
-        @Override
         public String getProgress() {
             return getDurationText(System.currentTimeMillis() - getObjective().getStartedOn())
                     + " / " + getDurationText(minimumDuration);
@@ -186,7 +157,8 @@ public abstract class Objective {
     public class ExamTask extends Task {
         @StringRes
         int question;
-        ArrayList<Option> options = new ArrayList<>();
+        List hints = new ArrayList<>();
+        List options = new ArrayList<>();
         private String spIdentifier;
         private boolean answered;
         private long disabledTo;
@@ -226,12 +198,21 @@ public abstract class Objective {
             return this;
         }
 
+        ExamTask hint(Hint hint) {
+            hints.add(hint);
+            return this;
+        }
+
         public @StringRes int getQuestion() {
             return question;
         }
 
         public List getOptions() {
             return options;
+        }
+
+        public List getHints() {
+            return hints;
         }
 
         @Override

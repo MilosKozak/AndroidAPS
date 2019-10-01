@@ -31,21 +31,16 @@ class EditTriggerDialog : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // display root trigger
-        trigger?.generateDialog(automation_layoutTrigger, fragmentManager)
+        trigger?.let { it.generateDialog(automation_layoutTrigger, fragmentManager) }
 
         // OK button
         ok.setOnClickListener {
             dismiss()
-            trigger?.let { trigger -> RxBus.send(EventAutomationUpdateTrigger(trigger)) }
+            RxBus.send(EventAutomationUpdateTrigger(trigger!!))
         }
 
         // Cancel button
         cancel.setOnClickListener { dismiss() }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     override fun onSaveInstanceState(bundle: Bundle) {
