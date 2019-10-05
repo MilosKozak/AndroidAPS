@@ -1272,6 +1272,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="rileylink_state_not_started">Non démarré</string>
     <string name="rileylink_state_rl_init">Initialisation du RileyLink…</string>
     <string name="rileylink_state_rl_error">Erreur RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">Association du RileyLink et de la Pompe</string>
     <string name="rileylink_state_pc_error">Problème communication avec la pompe</string>
     <string name="rileylink_state_connected">Connecté</string>
     <!-- RL Errors -->
@@ -1341,6 +1342,10 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="medtronic_cmd_desc_get_tbr">Obtenir le Basal Temporaire</string>
     <string name="medtronic_cmd_desc_set_tbr">Définir le Basal Temporaire</string>
     <string name="medtronic_cmd_desc_set_bolus">Définir le Bolus</string>
+    <string name="profilename">Remplacer le profil par</string>
+    <string name="changengetoprofilename">Remplacer le profil par %1$s</string>
+    <string name="sendsmsactiondescription">Envoyer SMS à tous les numéros dans les préférences</string>
+    <string name="sendsmsactiontext">Envoyer SMS avec du texte</string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Contraintes de Bolus appliquées : %2$.2fU à %3$.2f</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Absorption lente des glucides détectée : %2$d%% du temps. Vérifiez de nouveau votre calcul. Les GA (Glucides Actifs) peuvent être surestimés et alors plus d\'insuline pourrait être délivré !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
@@ -1348,4 +1353,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="deliverpartofboluswizard">L\'assistant Bolus effectue le calcul mais seulement cette partie de l\'insuline calculée est délivrée. Utile avec l\'algorithme SMB.</string>
     <string name="loading">Chargement ...</string>
     <string name="snooze">Report alarme</string>
+    <string name="between">Entre </string>
+    <string name="close">Fermer</string>
 </resources>
