@@ -25,4 +25,15 @@
     <string name="objectives_hint2">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Getting-Started/FAQ.html#what-emergency-equipment-is-recommended-to-take-with-me</string>
     <string name="nothing">Rien, la Boucle va s\'en occuper.</string>
     <string name="exercise_setactivitytt">Définir une cible temporaire d\'activité.</string>
+    <string name="exercise_stoploop">Arrêter la boucle.</string>
+    <string name="suspendloop_doigetinsulin">Est-ce que je reçois de l\'insuline lorsque la Boucle est suspendue ?</string>
+    <string name="suspendloop_no">Non, l\'injection d\'insuline est arrêtée.</string>
+    <string name="update_askfriend">Demandez à un ami le nouveau APK.</string>
+    <string name="troubleshooting_hint2">https://www.facebook.com/groups/AndroidAPSUsers/</string>
+    <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
+    <string name="insulin_fiasp">Fiasp®</string>
+    <string name="insulin_novorapid">Novorapid®</string>
+    <string name="insulin_humalog">Humalog®</string>
+    <string name="insulin_actrapid">Actrapid®</string>
+    <string name="wrongcarbs_addfakeinsulin">Ajouter une insuline fictive à l\'aide de la fonction Remplissage</string>
 </resources>
