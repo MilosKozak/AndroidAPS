@@ -1273,6 +1273,7 @@
     <string name="rileylink_state_not_started">No iniciado</string>
     <string name="rileylink_state_rl_init">Inicialización de RileyLink…</string>
     <string name="rileylink_state_rl_error">Error de RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">Configurando RileyLink y la bomba</string>
     <string name="rileylink_state_pc_error">Problema al conectar con la infusora</string>
     <string name="rileylink_state_connected">Conectado</string>
     <!-- RL Errors -->
@@ -1342,6 +1343,12 @@
     <string name="medtronic_cmd_desc_get_tbr">Obtener la basal temporal</string>
     <string name="medtronic_cmd_desc_set_tbr">Establecer la basal temporal</string>
     <string name="medtronic_cmd_desc_set_bolus">Fijar Bolo</string>
+    <string name="profilename">Cambiar perfil a</string>
+    <string name="changengetoprofilename">Cambiar perfil a %1$s</string>
+    <string name="sendsmsactionlabel">Enviar a %1$s</string>
+    <string name="sendsmsactiondescription">Enviar SMS a todos los números en las preferencias</string>
+    <string name="sendsmsactiontext">Mandar mensaje SMS</string>
+    <string name="insulinFromCob"><![CDATA[COB vs IOB: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Restricción de bolo aplicada: %2$.2fU a %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>! Se ha detectado una absorción lenta de hidratos de carbono: %2$d%% de tiempo. Compruebe de nuevo su calculo. Los COB se pueden sobrestimar, por lo que ¡se podría administrar más insulina de la cuenta!</font>]]></string>
     <string name="reservoirvalue">%1$.0f/%2$dU</string>
@@ -1349,5 +1356,8 @@
     <string name="deliverpartofboluswizard">El asistente de bolos realiza el cálculo, pero solo se entrega esta parte de la insulina calculada. Útil con el algoritmo SMB.</string>
     <string name="loading">Cargando...</string>
     <string name="snooze">Silenciar</string>
+    <string name="between">Entre </string>
     <string name="close">Cerrar</string>
+    <string name="increasingmaxbasal">Aumentar el valor basal máximo porque el ajuste es inferior a tu base máxima en el perfil</string>
+    <string name="smscommunicator_messagebody">El cuerpo del mensaje es inválido</string>
 </resources>
