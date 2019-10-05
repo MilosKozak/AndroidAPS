@@ -202,7 +202,7 @@
     <string name="careportal_newnstreatment_sensor">Capteur</string>
     <string name="careportal_newnstreatment_carbs_label">Glucides</string>
     <string name="careportal_newnstreatment_insulin_label">Insuline</string>
-    <string name="careportal_newnstreatment_carbtime_label">Durée glucides</string>
+    <string name="careportal_newnstreatment_carbtime_label">Heure glucides</string>
     <string name="careportal_newnstreatment_split_label">Diviser</string>
     <string name="careportal_newnstreatment_duration_label">Durée</string>
     <string name="careportal_newnstreatment_percent_label">Pour cent</string>
