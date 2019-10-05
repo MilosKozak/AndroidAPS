@@ -17,4 +17,12 @@
     <string name="offlineprofile_nsprofile">Le profil NS peut être utilisé, mais il n\'est pas configuré.</string>
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Configuration/Config-Builder.html#profile</string>
     <string name="pumpdisconnect_whattodo">Que faire lorsque la pompe est retirée ?</string>
+    <string name="pumpdisconnect_letknow">Informer la boucle qu\'il n\'y a pas d\'insuline injectée dans votre corps en cliquant sur Déconnecter la pompe.</string>
+    <string name="pumpdisconnect_dontchnage">Ne rien changer dans la boucle, il suffit de débrancher la pompe.</string>
+    <string name="objectives_howtosave">Quelles sont les meilleures pratiques pour sauvegarder vos paramètres ?</string>
+    <string name="objectives_storeelsewhere">Stocker le fichier exporté à un autre endroit comme un email, Dropbox, Google drive…</string>
+    <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Usage/ExportImportSettings.html</string>
+    <string name="objectives_hint2">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Getting-Started/FAQ.html#what-emergency-equipment-is-recommended-to-take-with-me</string>
+    <string name="nothing">Rien, la Boucle va s\'en occuper.</string>
+    <string name="exercise_setactivitytt">Définir une cible temporaire d\'activité.</string>
 </resources>
