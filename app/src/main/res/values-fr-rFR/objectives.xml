@@ -8,8 +8,13 @@
     <string name="objectivenotstarted">Objectif %1$d non démarré</string>
     <string name="objectivenotfinished">Objectif %1$d non terminé</string>
     <string name="objectives_0_objective">Paramétrage de la visualisation et la surveillance des données, analyse des débits Basal et des ratios</string>
+    <string name="objectives_0_gate">Vérifiez que la Glycémie est disponible sur Nightscout et que les données d’insuline ont été téléchargées de la pompe</string>
     <string name="objectives_openloop_objective">Démarrage de la boucle ouverte</string>
     <string name="objectives_openloop_gate">Utilisez votre boucle ouverte pendant plusieurs jours et lancez manuellement plusieurs débits Basal temporaires. Définissez et utilisez les cibles temporaires et celles par défaut (ex : sport ou resucrage suite à une hypo)</string>
+    <string name="objectives_maxbasal_objective">Compréhension de la Boucle Ouverte, y compris les propositions de débits Basal temporaires</string>
+    <string name="objectives_maxbasal_gate">Partant de ce constat, décidez quel doit être le débit de base maximum, et entrez le dans la pompe et les préférences</string>
+    <string name="objectives_maxiobzero_objective">Démarrage de la boucle fermée avec le système AGB ( Arrêt pour Glycémie Basse )</string>
+    <string name="objectives_maxiobzero_gate">Utilisation en Boucle Fermée avec la paramètre max IOB = 0 pendant plusieurs jours sans avoir un trop grand nombre d\'AGB (Arrêt pour Glycémie Basse)</string>
     <string name="objectives_manualenacts">Activation manuelle</string>
     <string name="accomplished">Accompli : %1$s</string>
     <string name="objectives_usage_objective">Apprendre comment contrôler AndroidAPS</string>
