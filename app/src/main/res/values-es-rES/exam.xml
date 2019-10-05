@@ -34,11 +34,13 @@
     <string name="noisycgm_label">Tema: Lecturas de CGM ruidosas</string>
     <string name="noisycgm_whattodo">¿Qué hacer cuando ves que las señales de CGM son demasiado ruidosas?</string>
     <string name="nothing">Nada, el bucle se ocupará de ello.</string>
+    <string name="noisycgm_pause">Poner en pausa el modo de bucle cerrado para evitar sobredosificación.</string>
     <string name="noisycgm_replacesensor">Sustituya el sensor de CGM.</string>
     <string name="noisycgm_turnoffphone">Apagar el movil.</string>
     <string name="noisycgm_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Smoothing-Blood-Glucose-Data-in-xDrip.html#smoothing-blood-glucose-data</string>
     <string name="noisycgm_checksmoothing">Comprueba si tu aplicación CGM suaviza los datos.</string>
     <string name="exercise_label">Tema: Ejercicio</string>
+    <string name="exercise_whattodo">¿Cómo puedes ayudar al sistema a lidiar con el ejercicio?</string>
     <string name="exercise_setactivitytt">Establecer objetivo temporal de actividad.</string>
     <string name="exercise_switchprofilebelow100">Realice un cambio de perfil por debajo del 100%.</string>
     <string name="exercise_switchprofileabove100">Realice un cambio de perfil por encima del 100%.</string>
@@ -117,12 +119,22 @@
     <string name="nsclient_spikeiphone">App de Spike en el iPhone.</string>
     <string name="nsclient_hint1">https://androidaps.readthedocs.io/en/latest/EN/Children/Children.html</string>
     <string name="isf_label">Tema: Factor de sensibilidad de la insulina</string>
+    <string name="isf_increasingvalue">El aumento del número ISF conducirá a una menor entrega de insulina si intentas reducir tu BG con el bolus wizard.</string>
+    <string name="isf_decreasingvalue">Reducir el número ISF conducirá a menos insulina si está intentando bajar su BG con bolus wizard.</string>
+    <string name="isf_noeffect">El cambio de ISF no tiene ningún efecto sobre la cantidad de insulina administrada por AAPS al tratar de corregir la hiperglucemia.</string>
     <string name="isf_preferences">Tiene que especificar ISF en Preferencias.</string>
+    <string name="isf_profile">El cambio del valor de ISF en el perfil es suficiente para aplicar el cambio.</string>
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html</string>
     <string name="ic_label">Tema: El valor de IC</string>
+    <string name="ic_increasingvalue">Aumentar el valor de IC conducirá a menos suministro de insulina para la misma cantidad de carbohidratos.</string>
+    <string name="ic_decreasingvalue">La disminución del valor de IC conducirá a menos suministro de insulina para la misma cantidad de carbohidratos.</string>
+    <string name="ic_noeffect">Asume que tiene 0 COB. El cambio de IC conducirá a una cantidad diferente de insulina para corregir su número de BG.</string>
+    <string name="ic_different">El IC será diferente si cuenta con una unidad de pan como 10g o 12g.</string>
+    <string name="ic_meaning">IC significa: Cuántas unidades de pan están cubiertas por 1U de insulina.</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Tema: Cambio de perfil</string>
+    <string name="profileswitch_pctwillchange"> Especificando el 90% en el cambio de perfil…</string>
     <string name="profileswitch_basalhigher">Las basales serán 10% más altas.</string>
     <string name="profileswitch_basallower">Las basales serán 10% más bajas.</string>
     <string name="profileswitch_ichigher">El valor IC será 10% superior.</string>
@@ -134,6 +146,7 @@
     <string name="profileswitch_targetlower">El objetivo será 10% más bajo.</string>
     <string name="profileswitch_targetbottom">Sólo el objetivo inferior será 10% inferior.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profilewitch#profile-switch</string>
+    <string name="profileswitchtime_iwant">Quiero hacer un cambio de perfil porque tenía que despertarme 1h antes de lo normal, así que tiene más sentido anunciar el cambio en el cambio de hora con un cambio de perfil. ¿Qué número debo utilizar?</string>
     <string name="profileswitchtime_1">1</string>
     <string name="profileswitchtime__1">-1</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
