@@ -46,7 +46,7 @@
     <string name="description_pump_virtual">Intégration pour les pompes qui n’ont pas encore de pilote (Boucle Ouverte)</string>
     <string name="description_sensitivity_aaps">La Sensibilité est calculée de la même manière que Oref0, mais vous pouvez spécifier la periode concernée. L\'absorption minimale des glucides est calculée à partir des temps d’absorption max des glucides du menu préférences.</string>
     <string name="description_sensitivity_oref0">Sensibilité est calculée à partir des données sur les dernières 24h et les glucides (non absorbés) ne sont plus pris en compte après l’heure spécifiée dans les préférences.</string>
-    <string name="description_sensitivity_oref1">Sensibilité est calculée à partir des données des dernières 8 heures et des glucides (si non absorbés) ne sont plus pris en compte après le temps spécifié dans les préférences. Plugin calcule également UAM.</string>
+    <string name="description_sensitivity_oref1">Sensibilité est calculée à partir des données des dernières 8 heures et des glucides (si non absorbés) ne sont plus pris en compte après le temps spécifié dans les préférences. Plugin calcule également RNS (UAM).</string>
     <string name="description_sensitivity_weighted_average">Sensibilité est calculée comme une moyenne pondérée des écarts. Les écarts les plus récents ont un poids plus élevé. L\'absorption minimale des glucides est calculée à partir des temps d’absorption des glucides max du menu préférences. Cet algorithme est le plus rapide pour s\'adapter aux changements de sensibilité.</string>
     <string name="description_source_eversense">Recevoir les valeurs de glycémie de l’app Eversense patchée.</string>
     <string name="description_source_glimp">Recevoir les glycémies depuis Glimp.</string>
@@ -849,8 +849,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="closedmodedisabledinpreferences">Mode de Boucle Fermée désactivé dans les préférences</string>
     <string name="autosensdisabledinpreferences">Autosens désactivé dans les préférences</string>
     <string name="smbdisabledinpreferences">SMB désactivée dans les préférences</string>
-    <string name="uamdisabledinpreferences">Repas Non Prévu (UAM) désactivé dans les préférences</string>
-    <string name="uamdisabledoref1notselected">Repas Non Prévu (UAM) désactivé car il utilise le plugin Sensibilité de Oref1</string>
+    <string name="uamdisabledinpreferences">Repas Non Signalé (UAM) désactivé dans les préférences</string>
+    <string name="uamdisabledoref1notselected">Repas Non Signalé (UAM) désactivé car il utilise le plugin Sensibilité de Oref1</string>
     <string name="limitingbasalratio">Limiter le taux basal max à %1$.2f U/h en raison de %2$s</string>
     <string name="pumplimit">Limite de la pompe</string>
     <string name="itmustbepositivevalue">la valeur doit être positive</string>
