@@ -15,6 +15,7 @@
     <string name="objectives_maxbasal_gate">Partant de ce constat, décidez quel doit être le débit de base maximum, et entrez le dans la pompe et les préférences</string>
     <string name="objectives_maxiobzero_objective">Démarrage de la boucle fermée avec le système AGB ( Arrêt pour Glycémie Basse )</string>
     <string name="objectives_maxiobzero_gate">Utilisation en Boucle Fermée avec la paramètre max IOB = 0 pendant plusieurs jours sans avoir un trop grand nombre d\'AGB (Arrêt pour Glycémie Basse)</string>
+    <string name="objectives_smb_objective">Activation de fonctionnalités supplémentaires pour l\'utilisation en journée, telles que la fonction SMB</string>
     <string name="objectives_manualenacts">Activation manuelle</string>
     <string name="accomplished">Accompli : %1$s</string>
     <string name="objectives_usage_objective">Apprendre comment contrôler AndroidAPS</string>
