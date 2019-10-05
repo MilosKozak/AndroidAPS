@@ -184,8 +184,8 @@
     <string name="careportal_question">Question</string>
     <string name="careportal_exercise">Activité Physique</string>
     <string name="careportal_pumpsitechange">Changement Zone D\'insertion</string>
-    <string name="careportal_cgmsensorinsert">Insertion Capteur MCG</string>
-    <string name="careportal_cgmsensorstart">Début Capteur MCG</string>
+    <string name="careportal_cgmsensorinsert">Insertion Capteur MGC</string>
+    <string name="careportal_cgmsensorstart">Début Capteur MGC</string>
     <string name="careportal_insulincartridgechange">Changement du Réservoir</string>
     <string name="careportal_profileswitch">Changement profil</string>
     <string name="careportal_snackbolus">Bolus Goûter</string>
@@ -621,7 +621,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="ns_localbroadcasts_title">Activer les transmissions locales.</string>
     <string name="careportal_activity_label">ACTIVITÉ et FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">GLUCIDES et BOLUS</string>
-    <string name="careportal_cgm_label">MCG et OPENAPS</string>
+    <string name="careportal_cgm_label">MGC et OPENAPS</string>
     <string name="careportal_pump_label">POMPE</string>
     <string name="overview_newtempbasal_basalabsolute">Valeur Basal [U/h] </string>
     <string name="careportal_newnstreatment_duration_min_label">Durée [min]</string>
@@ -791,8 +791,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="show_cgm_button_summary">Ouvre xDrip+, le bouton de retour renverra vers AAPS</string>
     <string name="carb_increment_button_message">Nombre de glucides à ajouter lorsque vous appuyez sur le bouton</string>
     <string name="insulin_increment_button_message">Quantité d’insuline à ajouter lorsque vous appuyez sur le bouton</string>
-    <string name="error_starting_cgm">Impossible d’exécuter l’application de MCG. Assurez-vous de que celle-ci est installée.</string>
-    <string name="overview_cgm">MCG</string>
+    <string name="error_starting_cgm">Impossible d’exécuter l’application de MGC. Assurez-vous de que celle-ci est installée.</string>
+    <string name="overview_cgm">MGC</string>
     <string name="nav_historybrowser">Historique</string>
     <string name="wear_notifysmb_title">Notifier en SMB</string>
     <string name="wear_notifysmb_summary">Afficher SMB sur la montre comme un bolus standard.</string>
@@ -894,7 +894,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="firstcarbsincrement">Premier incrément de glucides</string>
     <string name="secondcarbsincrement">Deuxième incrément de glucides</string>
     <string name="thirdcarbsincrement">Troisième incrément de glucides</string>
-    <string name="cgm">MCG</string>
+    <string name="cgm">MGC</string>
     <string name="ns_wifionly">Utilisez uniquement connexion Wi-fi</string>
     <string name="ns_wifi_ssids">Wi-fi SSID</string>
     <string name="ns_chargingonly">Wi-fi uniquement pendant la charge</string>
