@@ -36,4 +36,21 @@
     <string name="insulin_humalog">Humalog®</string>
     <string name="insulin_actrapid">Actrapid®</string>
     <string name="wrongcarbs_addfakeinsulin">Ajouter une insuline fictive à l\'aide de la fonction Remplissage</string>
+    <string name="nsclient_nightscout">En utilisant un site Nightscout.</string>
+    <string name="nsclient_dexcomfollow">Dexcom Follow si vous utilisez l\'application officielle Dexcom (Glycémie uniquement).</string>
+    <string name="nsclient_dexcomfollowxdrip">Dexcom Follow si vous utilisez l\'application xDrip.</string>
+    <string name="nsclient_xdripfollower">xDrip exécuté en mode suiveur.</string>
+    <string name="nsclient_looponiphone">Application Loop sur iPhone.</string>
+    <string name="nsclient_spikeiphone">Application Spike sur iPhone.</string>
+    <string name="nsclient_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Children/Children.html</string>
+    <string name="isf_noeffect">La modification de la SI (ISF) n\'a aucun effet sur la quantité d\'insuline injectée par AAPS lorsqu\'on tente de corriger une hyperglycémie.</string>
+    <string name="isf_profile">La modification de la SI (ISF) dans le profil est suffisant pour appliquer le changement.</string>
+    <string name="profileswitch_targetlower">La Cible sera 10% plus faible.</string>
+    <string name="profileswitch_targetbottom">Seule la cible inférieure sera diminuée de 10%.</string>
+    <string name="profileswitchtime_iwant">Je veux faire un changement de profil parce que j\'ai dû me réveiller 1h plus tôt que d\'habitude, donc il est plus logique d\'annoncer la modification par le décalage horaire avec un changement de profil. Quel numéro devrais-je utiliser?</string>
+    <string name="profileswitchtime_1">1</string>
+    <string name="profileswitchtime__1">-1</string>
+    <string name="profileswitchtime_60">60</string>
+    <string name="profileswitchtime__60">-60</string>
+    <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
 </resources>
