@@ -107,6 +107,8 @@
     <string name="wrongcarbs_addfakeinsulin">Cómo agregar una insulina falsa utilizando la función llenado de cánula</string>
     <string name="extendedcarbs_label">Tema: Comida con Grasa y Proteína</string>
     <string name="extendedcarbs_handling">¿Qué hacer si su comida contiene una gran cantidad de grasas y /o proteínas?</string>
+    <string name="extendedcarbs_useextendedcarbs">Recalcular grasas y proteínas a los carbohidratos y utilizar la función \"carbohidratos extendidos\".</string>
+    <string name="extendedcarbs_add">Recalcular grasa y proteínas a los carbohidratos y añadirlo al cálculo del bolo.</string>
     <string name="extendedcarbs_useextendedbolus">Utilice el bolus extendido para cubrir grasas y proteínas.</string>
     <string name="extendedcarbs_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Extended-Carbs.html</string>
     <string name="nsclient_label">Tema: Supervisión de los niños</string>
