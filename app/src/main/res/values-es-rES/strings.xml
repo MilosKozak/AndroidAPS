@@ -619,6 +619,7 @@
     <string name="mdtp_cancel">Cancelar</string>
     <string name="notloadedplugins">Faltan perfiles por cargar!</string>
     <string name="valuesnotstored">Valores no guardados!</string>
+    <string name="ns_localbroadcasts">Habilite las transmisiones a otras aplicaciones (como xDrip). ¡ No habilite si tiene más de una instancia de AAPS o NSClient instalada!</string>
     <string name="ns_localbroadcasts_title">Permitir emisión de mensajes localmente.</string>
     <string name="careportal_activity_label">ACTIVIDAD Y FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBS Y BOLUS</string>
@@ -1356,6 +1357,8 @@
     <string name="deliverpartofboluswizard">El asistente de bolos realiza el cálculo, pero solo se entrega esta parte de la insulina calculada. Útil con el algoritmo SMB.</string>
     <string name="loading">Cargando...</string>
     <string name="snooze">Silenciar</string>
+    <string name="time_range">Intervalo de tiempo</string>
+    <string name="timerange_value">El tiempo está entre %1$s y %2$s</string>
     <string name="between">Entre </string>
     <string name="close">Cerrar</string>
     <string name="increasingmaxbasal">Aumentar el valor basal máximo porque el ajuste es inferior a tu base máxima en el perfil</string>
