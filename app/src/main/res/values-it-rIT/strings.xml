@@ -499,7 +499,7 @@
     <string name="nowritepermission">NSCLIENT non ha il permesso di scrittura. API secret errato?</string>
     <string name="wear_settings">Impostazioni smartwatch</string>
     <string name="wear_detailedIOB_title">Mostra IOB dettagliato</string>
-    <string name="wear_detailedIOB_summary">Dividi IOB tra boli e IOB da basale, sulla watchface dello smartwatch</string>
+    <string name="wear_detailedIOB_summary">Dividi IOB tra boli e IOB da basale sulla watchface</string>
     <string name="nosuccess">non riuscito - controlla il telefono</string>
     <string name="notavailable">Non disponibile</string>
     <string name="patientage">Età del paziente</string>
@@ -531,7 +531,7 @@
     <string name="smscommunicator_loopresumed">Loop ripreso</string>
     <string name="treatments_wizard_bgtrend_label">Trend di 15min</string>
     <string name="treatments_wizard_cob_label">COB</string>
-    <string name="superbolus">Super bolo</string>
+    <string name="superbolus">Superbolo</string>
     <string name="ns_logappstartedevent">Registra l\'avvio dell\'app in NS</string>
     <string name="restartingapp">Uscita dall\'applicazione per applicare le impostazioni.</string>
     <string name="danarv2pump">DanaRv2</string>
@@ -541,8 +541,8 @@
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
     <string name="ultrafastactinginsulincomment">Fiasp</string>
     <string name="insulin_shortname">INS</string>
-    <string name="enablesuperbolus">Abilita super bolo nel calcolatore</string>
-    <string name="enablesuperbolus_summary">Abilita il super bolo nel calcolatore nel Calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
+    <string name="enablesuperbolus">Abilita superbolo nel Wizard</string>
+    <string name="enablesuperbolus_summary">Abilita la funzionalità superbolo nel Wizard. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
     <string name="show_statuslights">Mostra \"indicatori di stato\" sulla schermata iniziale</string>
     <string name="show_statuslights_extended">Mostra \"indicatori di stato\" estesi sulla schermata iniziale</string>
     <string name="show_statuslights_extended_summary">Abilita indicatori di stato estesi per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
@@ -719,7 +719,7 @@
     <string name="overview_editquickwizard_usebolusiob">Calcolo IOB da bolo</string>
     <string name="overview_editquickwizard_usebasaliob">Calcolo IOB da basale</string>
     <string name="overview_editquickwizard_usetrend">Calcolo trend</string>
-    <string name="overview_editquickwizard_usesuperbolus">Calcolo super bolo</string>
+    <string name="overview_editquickwizard_usesuperbolus">Calcolo superbolo</string>
     <string name="yes">Sì</string>
     <string name="no">No</string>
     <string name="positiveonly">Solo positivo</string>
@@ -915,7 +915,7 @@
     <string name="virtualpump_pump_def_extended_note">* Sono supportati solo valori discreti, non intervalli di valori, come incrementi per basale/bolo nel micro virtuale.</string>
     <string name="ns_autobackfill_title">Riempimento automatico BG</string>
     <string name="wear_wizard_settings">Impostazioni Wizard</string>
-    <string name="wear_wizard_settings_summary">Calcoli inclusi nel risultato della procedura guidata:</string>
+    <string name="wear_wizard_settings_summary">Calcoli inclusi nel risultato di Wizard:</string>
     <string name="wear_display_settings">Impostazioni di visualizzazione</string>
     <string name="wear_general_settings">Impostazioni generali</string>
     <string name="enable_nsclient">Abilita NSClient</string>
