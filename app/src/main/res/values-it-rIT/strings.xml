@@ -384,9 +384,9 @@
     <string name="danar_disableeasymode">Disabilita la modalità EasyUI nel micro</string>
     <string name="danar_enableextendedbolus">Abilita bolo esteso sul micro</string>
     <string name="danar_switchtouhmode">Cambia la modalità da U/d a U/h nel micro</string>
-    <string name="basalvaluebelowminimum">Valore basale inferiore al minimo, profilo non impostato!</string>
+    <string name="basalvaluebelowminimum">Valore basale inferiore al minimo. Profilo non impostato!</string>
     <string name="sms_actualbg">BG:</string>
-    <string name="sms_lastbg">Ultima Glicemia:</string>
+    <string name="sms_lastbg">Ultimo BG:</string>
     <string name="mdi">MDI</string>
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Notifica in corso</string>
