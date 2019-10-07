@@ -108,7 +108,7 @@
     <string name="glucose">Glicemia</string>
     <string name="delta">Delta</string>
     <string name="sms_delta">Delta:</string>
-    <string name="configbuilder">Configuratore</string>
+    <string name="configbuilder">Configurazione strutturale</string>
     <string name="objectives">Obiettivi</string>
     <string name="openapsma">OpenAPS MA</string>
     <string name="overview">Panoramica</string>
