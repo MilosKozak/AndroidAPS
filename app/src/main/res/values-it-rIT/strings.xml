@@ -406,7 +406,7 @@
     <string name="eatingsoon">Pasto a breve</string>
     <string name="hypo">Ipo</string>
     <string name="activity">Attività</string>
-    <string name="removerecord">Rimuovi campo:</string>
+    <string name="removerecord">Rimuovi record:</string>
     <string name="danar_stats">Statistiche DanaR</string>
     <string name="danar_stats_cumulative_tdd">TDD cumulativo</string>
     <string name="danar_stats_expweight">TDD esponenzialmente ponderato</string>
@@ -813,7 +813,7 @@
     <string name="do_not_bolus_record_only">No bolo, solo record</string>
     <string name="category">Categoria</string>
     <string name="subcategory">Sottocategoria</string>
-    <string name="bolusrecordedonly">Il bolo sarà solo memorizzato</string>
+    <string name="bolusrecordedonly">Il bolo sarà solo registrato</string>
     <string name="ns_autobackfill_summary">Riempimento automatico glicemie mancanti da NS</string>
     <string name="loop_smbsetbypump_label">SMB impostato dal micro</string>
     <string name="overview_show_activity">Attività</string>
@@ -836,7 +836,7 @@
     <string name="combo_warning_pump_basal_rate_changed">La velocità basale nel micro è cambiata e verrà aggiornata a breve</string>
     <string name="combo_error_failure_reading_changed_basal_rate">Velocità basale cambiata sul micro, ma la sua lettura è fallita</string>
     <string name="combo_activity_checking_for_history_changes">Controllo delle modifiche allo storico</string>
-    <string name="combo_error_multiple_boluses_with_identical_timestamp">Sono stati importati più boli con la stessa quantità nello stesso minuto. Solo un record può essere aggiunto ai Trattamenti. Controlla il micro e aggiungi manualmente un record di bolo utilizzando la sezione Portale. Assicurati di creare un bolo con un orario non utilizzato da nessun altro bolo.</string>
+    <string name="combo_error_multiple_boluses_with_identical_timestamp">Sono stati appena importati più boli con la stessa quantità nello stesso minuto. Solo un record può essere aggiunto ai trattamenti. Controlla il micro e aggiungi manualmente un record di bolo utilizzando la sezione Portale. Assicurati di creare un bolo con un orario non utilizzato da nessun altro bolo.</string>
     <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
     <string name="combo_check_date">L\'ultimo bolo è più vecchio di 24 ore o ha una data nel futuro. Controlla che la data sul micro sia impostata correttamente.</string>
     <string name="combo_suspious_bolus_time">L\'ora/la data del bolo erogato sul micro sembra errata, IOB probabilmente non è corretto. Controlla l\'ora e/o la data del micro.</string>
