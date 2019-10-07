@@ -175,7 +175,7 @@
     <string name="unsupportednsversion">Versione non supportata di Nightscout</string>
     <string name="nsclientnotinstalled">NSClient non installato. Record perduto!</string>
     <string name="loopdisabled">LOOP DISABILITATO DAI VINCOLI</string>
-    <string name="treatments_wizard_basaliob_label">IOB da Basale</string>
+    <string name="treatments_wizard_basaliob_label">IOB da basale</string>
     <string name="bolusconstraintapplied">Vincolo bolo applicato</string>
     <string name="carbsconstraintapplied">Vincolo carboidrati applicato</string>
     <string name="careportal_bgcheck">Controllo BG</string>
@@ -541,8 +541,8 @@
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
     <string name="ultrafastactinginsulincomment">Fiasp</string>
     <string name="insulin_shortname">INS</string>
-    <string name="enablesuperbolus">Abilita superbolo nel Wizard</string>
-    <string name="enablesuperbolus_summary">Abilita la funzionalità superbolo nel Wizard. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
+    <string name="enablesuperbolus">Abilita superbolo nel wizard</string>
+    <string name="enablesuperbolus_summary">Abilita la funzionalità superbolo nel wizard. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
     <string name="show_statuslights">Mostra \"indicatori di stato\" sulla schermata iniziale</string>
     <string name="show_statuslights_extended">Mostra \"indicatori di stato\" estesi sulla schermata iniziale</string>
     <string name="show_statuslights_extended_summary">Abilita indicatori di stato estesi per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
