@@ -370,7 +370,7 @@
     <string name="prefs_range_summary">Limite alto e basso per i grafici nella sezione Panoramica e sullo Smartwatch</string>
     <string name="low_mark">Limite BASSO</string>
     <string name="high_mark">Limite ALTO</string>
-    <string name="wear">Smartwatch</string>
+    <string name="wear">Wear</string>
     <string name="resend_all_data">Invia di nuovo tutti i dati</string>
     <string name="open_settings_on_wear">Apri impostazioni sullo smartwatch</string>
     <string name="pumperror">Errore micro</string>
@@ -385,7 +385,7 @@
     <string name="danar_enableextendedbolus">Abilita bolo esteso sul micro</string>
     <string name="danar_switchtouhmode">Cambia la modalità da U/d a U/h nel micro</string>
     <string name="basalvaluebelowminimum">Valore basale inferiore al minimo, profilo non impostato!</string>
-    <string name="sms_actualbg">Glicemia:</string>
+    <string name="sms_actualbg">BG:</string>
     <string name="sms_lastbg">Ultima Glicemia:</string>
     <string name="mdi">MDI</string>
     <string name="MM640g">MM640g</string>
