@@ -1344,6 +1344,9 @@
     <string name="medtronic_cmd_desc_get_tbr">Получи временния базал</string>
     <string name="medtronic_cmd_desc_set_tbr">Приложи временен базал</string>
     <string name="medtronic_cmd_desc_set_bolus">Стартирай болус</string>
+    <string name="sendsmsactionlabel">Изпращане на SMS с текст %1$s</string>
+    <string name="sendsmsactiondescription">Изпрати SMS до всички телефони от настройките</string>
+    <string name="sendsmsactiontext">Изпрати SMS с текст</string>
     <string name="insulinFromCob"><![CDATA[Въгл срещу АИ: <font color=\'%1$s\'>%2$+.2fг Е</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Ограничение на болуса: %2$.2fЕ на %3$.2fЕ</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Бавна абсорбция на въглехидрати: %2$d%% от времето. Проверете въведените данни. Може да има голяма грешка !!!!!</font>]]></string>
@@ -1357,4 +1360,5 @@
     <string name="between">Между </string>
     <string name="close">Затвори</string>
     <string name="increasingmaxbasal">Повишавам максималната стойност на базал, защото тя е по-ниска от най-високата в базалния профил</string>
+    <string name="smscommunicator_messagebody">Невалиден текст на съобщение</string>
 </resources>
