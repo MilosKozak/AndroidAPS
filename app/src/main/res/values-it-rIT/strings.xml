@@ -484,11 +484,11 @@
     <string name="nsclientinternal_autoscroll">Autoscorrimento</string>
     <string name="restart">Riavvio</string>
     <string name="nsclientinternal_title">NSClient</string>
-    <string name="nsclientinternal_url_title">Nightscout URL</string>
-    <string name="nsclientinternal_url_dialogmessage">Inserisci il tuo URL Nightscout</string>
-    <string name="nsclientinternal_secret_title">NS API secret</string>
-    <string name="nsclientinternal_secret_dialogtitle">NS API secret</string>
-    <string name="nsclientinternal_secret_dialogmessage">Inserisci NS API secret (minimo 12 caratteri)</string>
+    <string name="nsclientinternal_url_title">URL di Nightscout</string>
+    <string name="nsclientinternal_url_dialogmessage">Inserisci il tuo URL di Nightscout</string>
+    <string name="nsclientinternal_secret_title">API secret di NS</string>
+    <string name="nsclientinternal_secret_dialogtitle">API secret di NS</string>
+    <string name="nsclientinternal_secret_dialogmessage">Inserisci l\'API secret di NS (minimo 12 caratteri)</string>
     <string name="deliver_now">Eroga adesso</string>
     <string name="clear_queue">Cancella coda</string>
     <string name="show_queue">Visualizza coda</string>
@@ -606,7 +606,7 @@
     <string name="careportal_sensorage_label_short">SAGE</string>
     <string name="careportal_insulinage_label_short">IAGE</string>
     <string name="careportal_canulaage_label_short">CAGE</string>
-    <string name="careportal_pbage_label_short">PBAGE</string>
+    <string name="careportal_pbage_label_short">BAGE</string>
     <string name="openaps_short">OAPS</string>
     <string name="uploader_short">UPLD</string>
     <string name="basal_short">BAS</string>
