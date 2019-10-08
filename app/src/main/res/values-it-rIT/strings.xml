@@ -434,7 +434,7 @@
     <string name="profileviewer_shortname">PROFILONS</string>
     <string name="treatments_shortname">TRATT</string>
     <string name="careportal_shortname">CP</string>
-    <string name="objectives_shortname">OBJ</string>
+    <string name="objectives_shortname">OBT</string>
     <string name="wear_shortname">WEAR</string>
     <string name="smscommunicator_shortname">SMS</string>
     <string name="short_tabtitles">Abbrevia i titoli delle schede</string>
@@ -983,7 +983,7 @@
     <string name="maintenance_email">Email</string>
     <string name="maintenance_amount">Nessun log da inviare</string>
     <string name="maintenance">Manutenzione</string>
-    <string name="maintenance_shortname">MAINT</string>
+    <string name="maintenance_shortname">MANUT</string>
     <string name="description_maintenance">Fornisce numerose funzioni per la manutenzione (ad es. invio log, eliminazione log).</string>
     <string name="send_all_logs">Invia i log via Email</string>
     <string name="delete_logs">Elimina i log</string>
