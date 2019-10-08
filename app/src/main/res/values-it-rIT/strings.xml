@@ -433,7 +433,7 @@
     <string name="virtualpump_shortname">MICROV</string>
     <string name="profileviewer_shortname">PROFILONS</string>
     <string name="treatments_shortname">TRATT</string>
-    <string name="careportal_shortname">CP</string>
+    <string name="careportal_shortname">PT</string>
     <string name="objectives_shortname">OBT</string>
     <string name="wear_shortname">WEAR</string>
     <string name="smscommunicator_shortname">SMS</string>
@@ -606,7 +606,7 @@
     <string name="careportal_sensorage_label_short">SAGE</string>
     <string name="careportal_insulinage_label_short">IAGE</string>
     <string name="careportal_canulaage_label_short">CAGE</string>
-    <string name="careportal_pbage_label_short">BAGE</string>
+    <string name="careportal_pbage_label_short">BTTAGE</string>
     <string name="openaps_short">OAPS</string>
     <string name="uploader_short">UPLD</string>
     <string name="basal_short">BAS</string>
