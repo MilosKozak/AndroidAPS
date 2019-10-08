@@ -750,7 +750,7 @@
     <string name="combo_pump_action_refreshing">Aggiornamento</string>
     <string name="combo_pump_unsupported_operation">Operazione richiesta non supportata dal micro</string>
     <string name="combo_low_suspend_forced_notification">Utilizzo non sicuro: sono attivi boli estesi o multiwave. Il loop è stato messo in modalità di sola sospensione dell\'erogazione di insulina in caso di valori bassi, per 6 ore. In modalità loop sono supportati solo boli normali</string>
-    <string name="combo_force_disabled_notification">Utilizzo non sicuro: il micro utilizza un profilo basale diverso dal primo in elenco tra le sue impostazioni. Il loop è stato disabilitato. Selezionare sul microinfusore il profilo basale numero 1.</string>
+    <string name="combo_force_disabled_notification">Utilizzo non sicuro: il micro utilizza un profilo della velocità basale diverso dal primo in elenco tra le sue impostazioni. Il loop è stato disabilitato. Selezionare sul microinfusore il profilo basale numero 1.</string>
     <string name="bolus_frequency_exceeded">Un bolo con la stessa quantità è stato richiesto negli ultimi due minuti. Questo non è consentito al fine di evitare boli doppi accidentali e a protezione di eventuali \"bug\".</string>
     <string name="combo_pump_connected_now">Adesso</string>
     <string name="combo_activity_reading_pump_history">Lettura storico micro</string>
@@ -977,7 +977,7 @@
     <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegola l\'ora manualmente e assicurati che la lettura dello storico del micro non causi comportamenti imprevisti.\nSe possibile, cancella la cronologia del micro prima di cambiare l\'orario oppure disabilita il loop chiuso per un tempo corrispondente alla tua DIA.</string>
     <string name="careportal_removestartedevents">Rimuovi gli eventi \"AndroidAPS avviato\"</string>
     <string name="storedsettingsfound">Trovate impostazioni salvate</string>
-    <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo le velocità basali esistenti memorizzate sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi annulla e ripeti il processo in un altro momento.</string>
+    <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo la velocità basale esistente memorizzata sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi annulla e ripeti il processo in un altro momento.</string>
     <string name="error_adding_treatment_title">Dati trattamento incompleti</string>
     <string name="maintenance_settings">Impostazioni manutenzione</string>
     <string name="maintenance_email">Email</string>
