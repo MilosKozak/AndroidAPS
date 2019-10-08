@@ -1346,6 +1346,9 @@
     <string name="medtronic_cmd_desc_set_bolus">Nastavovanie bolusu</string>
     <string name="profilename">Zmeniť profil na</string>
     <string name="changengetoprofilename">Zmena profilu na %1$s</string>
+    <string name="sendsmsactionlabel">Poslať SMS: %1$s</string>
+    <string name="sendsmsactiondescription">Odoslať SMS na všetky predvolené čísla</string>
+    <string name="sendsmsactiontext">Odoslať SMS s textom</string>
     <string name="insulinFromCob"><![CDATA[COB vs IOB: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Aplikované obmedzenie bolusu: %2$.2fJI na %3$.2fJI</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Detekovaná pomalá absorbcia sacharidov: %2$d%% času. Prekontrolujte kalkuláciu. COB môže byť úplne iné, môže byť podaného viac inzulínu!!!!!</font>]]></string>
@@ -1359,4 +1362,5 @@
     <string name="between">Medzi</string>
     <string name="close">Zavrieť</string>
     <string name="increasingmaxbasal">Zvýšenie maximálnej hodnoty bazálu, pretože nastavenie je nižšie, než je vaša maximálna hodnota bazálu v profile</string>
+    <string name="smscommunicator_messagebody">Neplatný obsah správy</string>
 </resources>
