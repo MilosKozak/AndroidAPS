@@ -85,7 +85,7 @@
     <string name="treatments_wizard_bolusiob_label">IOB da bolo</string>
     <string name="openapsma_run">Esegui ora</string>
     <string name="vitualpump_label">MICROINFUSORE VIRTUALE</string>
-    <string name="pump_basebasalrate_label">Vel. basale originale</string>
+    <string name="pump_basebasalrate_label">Velocità basale originale</string>
     <string name="pump_tempbasal_label">Basale temporanea</string>
     <string name="virtualpump_extendedbolus_label">Bolo esteso</string>
     <string name="pump_battery_label">Batteria</string>
@@ -977,7 +977,7 @@
     <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegola l\'ora manualmente e assicurati che la lettura dello storico del micro non causi comportamenti imprevisti.\nSe possibile, cancella la cronologia del micro prima di cambiare l\'orario oppure disabilita il loop chiuso per un tempo corrispondente alla tua DIA.</string>
     <string name="careportal_removestartedevents">Rimuovi gli eventi \"AndroidAPS avviato\"</string>
     <string name="storedsettingsfound">Trovate impostazioni salvate</string>
-    <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo le impostazioni della basale esistenti e memorizzate sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi annulla e ricollega il micro in un altro momento.</string>
+    <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo le velocità basali esistenti memorizzate sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi annulla e ripeti il processo in un altro momento.</string>
     <string name="error_adding_treatment_title">Dati trattamento incompleti</string>
     <string name="maintenance_settings">Impostazioni manutenzione</string>
     <string name="maintenance_email">Email</string>
