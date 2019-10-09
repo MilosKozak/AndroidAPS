@@ -1348,6 +1348,9 @@ Context | Edit Context</string>
     <string name="medtronic_cmd_desc_set_bolus">Настроить болюс</string>
     <string name="profilename">Изменить профиль на</string>
     <string name="changengetoprofilename">Изменить профиль на %1$s</string>
+    <string name="automation_trigger_pump_last_connection_label">Последнее соединение с помпой</string>
+    <string name="automation_trigger_pump_last_connection_description">Последняя связь с помпой [ мин. назад]</string>
+    <string name="automation_trigger_pump_last_connection_compared">Последняя связь с помпой %1$s %2$sмин. назад</string>
     <string name="sendsmsactionlabel">Отправить SMS: %1$s</string>
     <string name="sendsmsactiondescription">Отправьте SMS на все настроенные номера</string>
     <string name="sendsmsactiontext">Отправить SMS с текстом</string>
