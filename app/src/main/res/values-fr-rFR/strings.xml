@@ -1347,6 +1347,9 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="medtronic_cmd_desc_set_bolus">Définir le Bolus</string>
     <string name="profilename">Remplacer le profil par</string>
     <string name="changengetoprofilename">Remplacer le profil par %1$s</string>
+    <string name="automation_trigger_pump_last_connection_label">Dernière connexion à la pompe</string>
+    <string name="automation_trigger_pump_last_connection_description">Dernière connexion de pompe [minutes]</string>
+    <string name="automation_trigger_pump_last_connection_compared">Dernière connexion à la pompe %1$s il y a %2$s min</string>
     <string name="sendsmsactionlabel">Envoyer SMS : %1$s</string>
     <string name="sendsmsactiondescription">Envoyer SMS à tous les numéros dans les préférences</string>
     <string name="sendsmsactiontext">Envoyer SMS avec du texte</string>
