@@ -100,6 +100,18 @@
             android:title="@string/enableuam" />
 
 
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/key_sensitivity_raises_target"
+            android:summary="@string/sensitivity_raises_target_summary"
+            android:title="@string/sensitivity_raises_target_title"
+            />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/key_resistance_lowers_target"
+            android:summary="@string/resistance_lowers_target_summary"
+            android:title="@string/resistance_lowers_target_title"
+            />
         <!-- TODO AS-FIX -->
         <SwitchPreference
             android:defaultValue="false"
