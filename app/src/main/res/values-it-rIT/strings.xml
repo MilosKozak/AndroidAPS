@@ -606,7 +606,7 @@
     <string name="careportal_sensorage_label_short">SAGE</string>
     <string name="careportal_insulinage_label_short">IAGE</string>
     <string name="careportal_canulaage_label_short">CAGE</string>
-    <string name="careportal_pbage_label_short">BTTAGE</string>
+    <string name="careportal_pbage_label_short">PBAGE</string>
     <string name="openaps_short">OAPS</string>
     <string name="uploader_short">UPLD</string>
     <string name="basal_short">BAS</string>
@@ -974,7 +974,7 @@
     <string name="combo_invalid_setup">Configurazione micro non valida, controlla la documentazione e verifica che il menu Quick Info sia denominato QUICK INFO utilizzando \"360 configuration software\".</string>
     <string name="custom">Personalizzato</string>
     <string name="largetimedifftitle">Grande differenza d\'orario</string>
-    <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegola l\'ora manualmente e assicurati che la lettura dello storico del micro non causi comportamenti imprevisti.\nSe possibile, cancella la cronologia del micro prima di cambiare l\'orario oppure disabilita il loop chiuso per un tempo corrispondente alla tua DIA.</string>
+    <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegola l\'ora manualmente e assicurati che la lettura dello storico dal micro non causi comportamenti imprevisti.\nSe possibile, cancella la cronologia del micro prima di cambiare l\'orario oppure disabilita il loop chiuso per un tempo corrispondente al tuo valore DIA.</string>
     <string name="careportal_removestartedevents">Rimuovi gli eventi \"AndroidAPS avviato\"</string>
     <string name="storedsettingsfound">Trovate impostazioni salvate</string>
     <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo la velocità basale esistente memorizzata sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi annulla e ripeti il processo in un altro momento.</string>
