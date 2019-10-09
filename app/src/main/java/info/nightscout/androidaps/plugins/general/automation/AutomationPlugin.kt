@@ -201,7 +201,9 @@ object AutomationPlugin : PluginBase(PluginDescription()
                 ActionStartTempTarget(),
                 ActionStopTempTarget(),
                 ActionNotification(),
-                ActionProfileSwitchPercent()
+                ActionProfileSwitchPercent(),
+                ActionProfileSwitch(),
+                ActionSendSMS()
         )
     }
 
@@ -209,6 +211,7 @@ object AutomationPlugin : PluginBase(PluginDescription()
         return listOf(
                 TriggerTime(),
                 TriggerRecurringTime(),
+                TriggerTimeRange(),
                 TriggerBg(),
                 TriggerDelta(),
                 TriggerIob(),
@@ -218,7 +221,8 @@ object AutomationPlugin : PluginBase(PluginDescription()
                 TriggerWifiSsid(),
                 TriggerLocation(),
                 TriggerAutosensValue(),
-                TriggerBolusAgo()
+                TriggerBolusAgo(),
+                TriggerPumpLastConnection()
         )
     }
 
