@@ -9,8 +9,6 @@
     <string name="dia_meaningisequaltodiapump">Je rovno parametru DIA používaném ve vaší pumpě.</string>
     <string name="dia_valuemustbedetermined">Musíte určit svou individuální hodnotu (ale ne méně než 5 hodin).</string>
     <string name="hypott_label">Téma: Dočasný cíl Hypoglykémie</string>
-    <string name="hypott_whenhypott">Proč je užitečné nastavit dočasný cíl pro hypoglykémii?</string>
-    <string name="hypott_goinglow">Prevence nízké glykémie.</string>
     <string name="hypott_preventoversmb">Aby se po vzestupu glykémie z rychlých sacharidů po řešení hypoglykémie zabránilo vydávání SMB.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Který profil lze použít a konfigurovat offline?</string>
