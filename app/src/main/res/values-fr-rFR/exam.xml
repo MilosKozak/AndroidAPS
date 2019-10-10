@@ -9,8 +9,6 @@
     <string name="dia_meaningisequaltodiapump">Il est égal au paramètre DAI utilisé dans votre pompe.</string>
     <string name="dia_valuemustbedetermined">Vous devez déterminer votre valeur personnelle (mais pas moins de 5 heures).</string>
     <string name="hypott_label">Rubrique: Cible Temporaire Hypo</string>
-    <string name="hypott_whenhypott">Pourquoi est-il utile de définir une CT (Cible Temporaire) pour hypo?</string>
-    <string name="hypott_goinglow">Empêcher la glycémie de descendre plus bas.</string>
     <string name="hypott_preventoversmb">Pour éviter les SMB après une montée après hypo par des glucides rapides.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Quel profil peut être utilisé et configuré hors ligne?</string>
