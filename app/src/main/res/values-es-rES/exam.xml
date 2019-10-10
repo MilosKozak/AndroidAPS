@@ -9,8 +9,6 @@
     <string name="dia_meaningisequaltodiapump">Es igual al parámetro DIA usado en tu bomba.</string>
     <string name="dia_valuemustbedetermined">Debes determinar tu valor individual (pero no menos de 5 horas).</string>
     <string name="hypott_label">Tema: Hypo Temp-Objetivo</string>
-    <string name="hypott_whenhypott">¿Por qué es útil establecer un hipo TT?</string>
-    <string name="hypott_goinglow">Prevenir que BG vaya a ser bajo.</string>
     <string name="hypott_preventoversmb">Para prevenir SMB después de carbohidratos rápidos tras una hipo.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">¿Qué perfil puede ser usado y configurado estando desconectado?</string>
