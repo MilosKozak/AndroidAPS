@@ -9,8 +9,6 @@
     <string name="dia_meaningisequaltodiapump">Entspricht der Insulinwirkdauer, die Du in Deiner Pumpe eingestellt hast.</string>
     <string name="dia_valuemustbedetermined">Du musst den individuell für Dich passenden Wert (nicht weniger als 5 Stunden) ermitteln.</string>
     <string name="hypott_label">Thema: Temporäres Ziel \"Hypo\"</string>
-    <string name="hypott_whenhypott">In welchen Fällen ist es sinnvoll, ein temporäres Ziel \"Hypo\" zu setzen?</string>
-    <string name="hypott_goinglow">Um niedrige BZ-Werte zu verhindern.</string>
     <string name="hypott_preventoversmb">Um zu verhindern, dass nach einer Hypo der durch schnelle KH verursachte Anstieg zu einem SMB führt.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/de/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Welches Profil kann offline verwendet und konfiguriert werden?</string>
