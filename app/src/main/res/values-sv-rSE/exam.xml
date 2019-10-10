@@ -9,8 +9,6 @@
     <string name="dia_meaningisequaltodiapump">Det är samma som värdet Insulinduration som används i pumpen.</string>
     <string name="dia_valuemustbedetermined">Du måste bestämma ditt individuella värde (men inte mindre än 5 timmar).</string>
     <string name="hypott_label">Ämne: \"Hypo\" temp mål</string>
-    <string name="hypott_whenhypott">Varför är det användbart att sätta in en hypo TT?</string>
-    <string name="hypott_goinglow">Förhindra att BG går lågt.</string>
     <string name="hypott_preventoversmb">För att förhindra att SMB går igång när de snabba kolhydraterna absorberas efter en hypo.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Vilken profiltyp kan användas och konfigureras offline?</string>
