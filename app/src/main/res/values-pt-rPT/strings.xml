@@ -1350,4 +1350,10 @@
     <string name="loading">A carregar ...</string>
     <string name="snooze">Silenciar</string>
     <string name="close">Fechar</string>
+    <string name="increasingmaxbasal">Aumentar o valor máximo de basal porque a configuração é inferior à sua basal máxima no perfil</string>
+    <string name="format_bg_isf">%1$s FSI: %2$.1f</string>
+    <string name="format_carbs_ic">%1$.0fg IC: %2$.1f</string>
+    <string name="format_cob_ic">%1$.1fg IC: %2$.1f</string>
+    <string name="boluswizard">Assistente de Bólus</string>
+    <string name="unit_minute_short">min</string>
 </resources>
