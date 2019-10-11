@@ -530,7 +530,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="smscommunicator_wrongduration">Durée incorrecte</string>
     <string name="smscommunicator_loopsuspended">Boucle suspendue</string>
     <string name="smscommunicator_loopresumed">Boucle relancée</string>
-    <string name="treatments_wizard_bgtrend_label">Tendance 15 min</string>
+    <string name="treatments_wizard_bgtrend_label">Delta 15 min</string>
     <string name="treatments_wizard_cob_label">GA</string>
     <string name="superbolus">Superbolus</string>
     <string name="ns_logappstartedevent">Démarrage de l\'app journaux vers NS</string>
@@ -1060,7 +1060,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="multiwave_bolus">Bolus mixte</string>
     <string name="eb_formatter">%1$.2f / %2$.2f U pour %3$d min</string>
     <string name="enable_tbr_over_notification">Activer la notification de la fin DBT\n(réglage de pompe)</string>
-    <string name="disable_tbr_over_notification">Activer la notification de la fin de DBT\n(réglage de pompe)</string>
+    <string name="disable_tbr_over_notification">Désactiver la notification de la fin de DBT\n(réglage de pompe)</string>
     <string name="refresh">Actualiser</string>
     <string name="description_pump_insight_local">Intégration des pompes Accu-Chek Insight</string>
     <string name="not_inserted">Non inséré</string>
