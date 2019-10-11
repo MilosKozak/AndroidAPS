@@ -60,7 +60,7 @@
     <string name="nsprofileview_units_label">Unidades</string>
     <string name="nsprofileview_dia_label">DIA</string>
     <string name="nsprofileview_ic_label">IC</string>
-    <string name="nsprofileview_isf_label">ISF</string>
+    <string name="nsprofileview_isf_label">FSI</string>
     <string name="nsprofileview_basal_label">Basal</string>
     <string name="nsprofileview_target_label">Alvo</string>
     <string name="noprofileset">SEM PERFIL DEFINIDO</string>
