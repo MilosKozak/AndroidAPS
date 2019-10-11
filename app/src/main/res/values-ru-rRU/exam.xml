@@ -9,6 +9,8 @@
     <string name="dia_meaningisequaltodiapump">Он равен параметру продолжительность действия инсулина DIA помпы.</string>
     <string name="dia_valuemustbedetermined">Следует определить свое индивидуальное значение (но не менее 5 часов).</string>
     <string name="hypott_label">Тема: Временная цель Hypo</string>
+    <string name="hypott_whenhypott">Что является основной причиной для установки временной цели TT гипо?</string>
+    <string name="hypott_goinglow">Предотвратить падение ГК, если уже запущен нулевой временный базал.</string>
     <string name="hypott_preventoversmb">Предотвратить введение микроболюса SMB после подъёма ГК от быстрых углеводов.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Какой профиль можно применить и настроить в автономном режиме?</string>
