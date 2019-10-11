@@ -5,6 +5,8 @@
     <string name="pumpdisconnect_label">Tópico: Desligar a Bomba</string>
     <string name="objectives_label">Tópico: Definições do AndroidAPS</string>
     <string name="noisycgm_label">Tópico: Leituras Irregulares CGM</string>
+    <string name="noisycgm_turnoffphone">Desligue o telefone.</string>
+    <string name="noisycgm_checksmoothing">Verifique se a app do CGM suaviza dados.</string>
     <string name="exercise_label">Tópico: Exercício</string>
     <string name="exercise_stoploop">Parar o loop.</string>
     <string name="suspendloop_label">Tópico: Loop Suspenso</string>
