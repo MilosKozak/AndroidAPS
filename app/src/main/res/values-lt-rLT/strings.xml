@@ -1227,5 +1227,34 @@
     <string name="medtronic_cmd_cancel_bolus_not_supported">Atšaukėte Bolusą, kuris jau buvo nustatytas pompoje. Medronic pompa nepalaiko šio atšaukimo, todėl turite jį atšaukti rankiniu būdu. Sustabdykite pompą ir vėl ją paleiskite (jei vis dar norite atšaukti Bolusą). Aplikacija perims pokyčius su kitu atnaujinimu (per mažiau nei 5 minutes).</string>
     <string name="medtronic_cmd_cant_read_tbr">Negalima sužinoti dabartinės laikinos bazės.</string>
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Negalima atšaukti dabartinės laikinos bazės. Operacija stabdoma.</string>
+    <string name="medtronic_cmd_set_profile_pattern_overflow">Profilio nustatymas nepavyko dėl per didelės nustatytos bazės: %1$s</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered">Bolusas nesuleistas.</string>
+    <string name="medtronic_cmd_bolus_could_not_be_delivered_no_insulin">Bolusas nesuleistas, nes turimas insulino kiekis (%1$.2f) yra mažesnis, nei nustatytas Bolusas (%2$.2f).</string>
+    <string name="medtronic_cmd_tbr_could_not_be_delivered">Laikina bazė nenustatyta.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr">Negalima atšaukti dabartinės laikinos bazės.</string>
+    <string name="medtronic_cmd_basal_profile_could_not_be_set">Bazės profilis nenustatytas.</string>
+    <string name="medtronic_cmd_basal_profile_not_set_is_same">Bazės profilis toks pat, todėl nenustatomas pakartotinai.</string>
+    <string name="medtronic_cmd_desc_get_history">Gauti istoriją - Lapas %1$d (%2$d/16)</string>
+    <string name="medtronic_cmd_desc_get_history_request">Gauti istoriją - Lapas %1$d</string>
+    <string name="medtronic_cmd_desc_get_time">Gauti pompos laiką</string>
     <string name="medtronic_cmd_desc_get_settings">Gauti parametrus</string>
+    <string name="medtronic_cmd_desc_get_model">Gauti pompos modelį</string>
+    <string name="medtronic_cmd_desc_get_basal_profile">Gauti bazės profilį</string>
+    <string name="medtronic_cmd_desc_set_basal_profile">Nustatyti bazės profilį</string>
+    <string name="medtronic_cmd_desc_get_tbr">Gauti laikiną bazę</string>
+    <string name="medtronic_cmd_desc_set_tbr">Nustatyti laikiną bazę</string>
+    <string name="medtronic_cmd_desc_set_bolus">Nustatyti bolusą</string>
+    <string name="profilename">Pakeisti profilį</string>
+    <string name="changengetoprofilename">Pakeisti profilį %1$s</string>
+    <string name="automation_trigger_pump_last_connection_label">Paskutinis prisijungimas prie pompos</string>
+    <string name="automation_trigger_pump_last_connection_description">Paskutinis prijungimas prie pompos [min]</string>
+    <string name="automation_trigger_pump_last_connection_compared">Paskutinis prijungimas prie pompos prieš %1$s%2$s min.</string>
+    <string name="sendsmsactionlabel">Siųsti SMS: %1$s</string>
+    <string name="sendsmsactiondescription">Siųsti SMS visais nurodytais numeriais</string>
+    <string name="sendsmsactiontext">Išsiųsti SMS žinutę su tekstu</string>
+    <string name="insulinFromCob"><![CDATA[AAO palyginus su AIO: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
+    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Pritaikyti boluso apribojimai: %2$.2fU to %3$.2fU</font>]]></string>
+    <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Nustatytas lėtas angliavandenių įsisavinimas: %2$d%% laiko. Dar karą patikrinkite savo skaičiavimus. AAO gali būti pervertinti, todėl gali būti suleista per daug insulino!!!!!</font>]]></string>
+    <string name="reservoirvalue">%1$.0f / %2$d vv</string>
+    <string name="partialboluswizard">Suleisti šią boluso skaičiuoklės rezultato dalį [%]</string>
 </resources>
