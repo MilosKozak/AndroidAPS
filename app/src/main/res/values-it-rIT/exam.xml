@@ -3,6 +3,8 @@
 <resources>
     <string name="dia_whatmeansdia">Cosa è vero riguardo DIA?</string>
     <string name="dia_label">Argomento: Durata dell\'Azione dell\'Insulina</string>
+    <string name="dia_minimumis3h">Il valore minimo è 3 ore.</string>
+    <string name="dia_minimumis5h">Il valore minimo è 5 ore.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html?#insulin</string>
     <string name="dia_valuemustbedetermined">Devi determinare il tuo valore individuale (ma non meno di 5 ore).</string>
     <string name="hypott_label">Argomento: Temp-Target \"Ipoglicemia\"</string>
@@ -13,6 +15,7 @@
     <string name="offlineprofile_nsprofile">Il profilo NS può essere utilizzato, ma non configurato.</string>
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#profile</string>
     <string name="pumpdisconnect_label">Argomento: Disconnessione dal micro</string>
+    <string name="pumpdisconnect_whattodo">Cosa dovrebbe essere fatto quando si disconnette il micro?</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
     <string name="objectives_label">Argomento: Impostazioni di AndroidAPS</string>
     <string name="objectives_howtosave">Quali sono le migliori pratiche per il backup delle impostazioni?</string>
