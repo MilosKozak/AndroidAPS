@@ -513,10 +513,12 @@
     <string name="loopsuspended">Ciklas sustabdytas</string>
     <string name="loopsuspendedfor">Sustabdyta (%1$d m)</string>
     <string name="loopsuperbolusfor">Superbolusas (%1$d m)</string>
+    <string name="suspendloop">Sustabdyti ciklą</string>
     <string name="suspendloopfor1h">Sustabdyti ciklą 1 val</string>
     <string name="suspendloopfor2h">Sustabdyti ciklą 2 val</string>
     <string name="suspendloopfor3h">Sustabdyti ciklą 3 val</string>
     <string name="suspendloopfor10h">Sustabdyti ciklą 10 val</string>
+    <string name="suspendloopforXmin">Sustabdyti ciklą %1$d min</string>
     <string name="disconnectpumpfor15m">Atjungti pompą 15 min</string>
     <string name="disconnectpumpfor30m">Atjungti pompą 30 min</string>
     <string name="disconnectpumpfor1h">Atjungti pompą 1 val</string>
@@ -542,6 +544,8 @@
     <string name="enablesuperbolus">Įgalinti superbolusus skaičiuoklėje</string>
     <string name="enablesuperbolus_summary">Įgalina superbolusų naudojimą insulino skaičiuoklėje. Nenaudokite, kol nesuprantate, ką superbolus funkcija atlieka. NAUDODAMI AKLAI GALITE PERDOZUOTI INSULINO!</string>
     <string name="show_statuslights">Pradžios ekrane rodyti spalvotus indikatorius</string>
+    <string name="show_statuslights_extended">Pradžios ekrane rodyti papildomus šviesos indikatorius</string>
+    <string name="show_statuslights_extended_summary">Pradžios ekrane rodyti papildomus šviesos indikatorius adatos, insulino, sensoriaus naudojimo trukmei bei baterijos įkrovimo lygiui.</string>
     <string name="statuslights_res_warning">Įspėjimo apie žemą rezervuaro lygį riba [U]</string>
     <string name="statuslights_res_critical">Įspėjimo apie kritiškai žemą rezervuaro lygį riba [U]</string>
     <string name="statuslights_bat_warning">Įspėjimo apie žemą baterijos įkrovimo lygį riba [%%]</string>
@@ -615,6 +619,7 @@
     <string name="mdtp_cancel">Atšaukti</string>
     <string name="notloadedplugins">Ne visi profiliai įkelti!</string>
     <string name="valuesnotstored">Reikšmės neišsaugotos!</string>
+    <string name="ns_localbroadcasts">Įgalinti perdavimą į kitas programas (pvz., „XDrip“). Neįgalinkite, jei įdiegta daugiau nei vienas AAPS arba NSClient egzempliorius!</string>
     <string name="ns_localbroadcasts_title">Įgalinti lokalų duomenų perdavimą.</string>
     <string name="careportal_activity_label">AKTYVUMAS &amp; ATGALINIS RYŠYS</string>
     <string name="careportal_carbsandbolus_label">ANGLIAVANDENIAI &amp; BOLUSAS</string>
@@ -768,6 +773,7 @@
     <string name="extendedbolusdeliveryerror">Ištęstinio boluso suleidimo klaida</string>
     <string name="insightpump_shortname">Sight</string>
     <string name="ago">prieš</string>
+    <string name="format_hours">%1$.2f h</string>
     <string name="enablesmbalways">Leisti SMB visada</string>
     <string name="enablesmbalways_summary">Leisti SMB visada, nepriklausomai nuo bolusų. Įmanoma tik naudojant patikimų, filtruotų KG duomenų šaltinį, pvz.: Dexcom G5</string>
     <string name="enablesmbaftercarbs">Leisti SMB po angliavandenių įvedimo</string>
@@ -800,6 +806,7 @@
     <string name="fabric_upload">Duomenų perdavimas kūrėjams</string>
     <string name="allow_automated_crash_reporting">Leisti automatinį pranešimų apie programos trikdžius ir funkcijų naudojimo duomenų siuntimą kūrėjams, naudojant fabric.io servisą.</string>
     <string name="g5appnotdetected">Atnaujinkite savo Dexcom programėlės versiją</string>
+    <string name="dexcom_app_not_installed">Dexcom app neįdiegta.</string>
     <string name="start_activity_tt">Pradėti Aktyvumo LT</string>
     <string name="start_eating_soon_tt">Pradėti Netrukus valgysiu LT</string>
     <string name="temptargetshort">LT</string>
@@ -809,6 +816,7 @@
     <string name="bolusrecordedonly">Bolusas bus tik įrašytas</string>
     <string name="ns_autobackfill_summary">Automatiškai atstatyti trūkstamus KG duomenis iš NS</string>
     <string name="loop_smbsetbypump_label">SMB nustatyta iš pompos</string>
+    <string name="overview_show_activity">Aktyvumas</string>
     <string name="overview_show_sensitivity">Jautrumas insulinui</string>
     <string name="overview_show_deviations">Nuokrypiai</string>
     <string name="overview_show_cob">Aktyvūs angliavandeniai</string>
