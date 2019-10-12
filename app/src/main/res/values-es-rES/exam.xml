@@ -3,9 +3,14 @@
 <resources>
     <string name="dia_whatmeansdia">¿Qué es cierto acerca de DIA?</string>
     <string name="dia_label">Tema: la Duración de la Acción de la Insulina</string>
+    <string name="dia_minimumis3h">El valor mínimo es de 3 horas.</string>
+    <string name="dia_minimumis5h">El valor mínimo es de 5 horas.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html?#insulin</string>
+    <string name="dia_meaningisequaltodiapump">El significado es igual al parámetro DIA utilizado en su bomba.</string>
     <string name="dia_valuemustbedetermined">Debes determinar tu valor individual (pero no menos de 5 horas).</string>
     <string name="hypott_label">Tema: Hypo Temp-Objetivo</string>
+    <string name="hypott_whenhypott">¿Cuál es la razón principal para establecer un hipo TT?</string>
+    <string name="hypott_goinglow">Para evitar que BG caiga si ya hay basal temporal a cero corriendo.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">¿Qué perfil puede ser usado y configurado estando desconectado?</string>
     <string name="offlineprofile_label">Tema: Perfil fuera de línea</string>
