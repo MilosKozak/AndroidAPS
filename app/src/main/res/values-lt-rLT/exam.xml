@@ -16,6 +16,7 @@
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#profile</string>
     <string name="pumpdisconnect_label">Tema: Atsijungimas nuo Pompos</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
+    <string name="objectives_label">Tema: AndroidAPS nustatymai</string>
     <string name="objectives_howtosave">Kokie geriausi veiksmai išsaugant nustatymų atsarginę kopiją?</string>
     <string name="objectives_exportsettings">Eksportavimas į vidinę atmintį per Serviso meniu.</string>
     <string name="objectives_storeelsewhere">Išsaugokite eksportuotą failą tokiose vietose kaip el. paštas, Dropbox, Google drive…</string>
@@ -100,4 +101,20 @@
     <string name="profileswitch_pctwillchange"> Kai profilio keitime nustatote 90%…</string>
     <string name="profileswitch_basalhigher">Bazė bus 10% aukštesnė.</string>
     <string name="profileswitch_basallower">Bazė bus 10% žemesnė.</string>
+    <string name="profileswitch_ichigher">IA reikšmė bus 10% didesnė.</string>
+    <string name="profileswitch_iclower">IA reikšmė bus 10% mažesnė.</string>
+    <string name="profileswitch_isfhigher">JIF reikšmė bus 10% didesnė.</string>
+    <string name="profileswitch_isflower">JIF reikšmė bus 10% mažesnė.</string>
+    <string name="profileswitch_overall">Jums bus viso suleista 10% mažiau insulino.</string>
+    <string name="profileswitch_targethigher">Tikslas bus 10% aukštesnis.</string>
+    <string name="profileswitch_targetlower">Tikslas bus 10% žemesnis.</string>
+    <string name="profileswitch_targetbottom">Tik apatinis tikslas bus 10% žemesnis.</string>
+    <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
+    <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
+    <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
+    <string name="basalhelp_label">Tema: Pagalba su valandinėmis bazėmis</string>
+    <string name="basalhelp_where">Kur kreiptis, jei jums reikia pagalbos nustatant valandines bazes ir pan.? </string>
+    <string name="basalhelp_diabetesteam">Į Jūsų endokrinologą ir diabetologą</string>
+    <string name="basalhelp_google">Google</string>
+    <string name="basalhelp_facebook">Facebook</string>
 </resources>
