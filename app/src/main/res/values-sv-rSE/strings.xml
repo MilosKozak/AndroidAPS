@@ -70,7 +70,7 @@ Eversense-appen.</string>
     <string name="treatments_iob_label_string">IOB:</string>
     <string name="sms_iob">IOB:</string>
     <string name="treatments_iobtotal_label_string">IOB fr bolus:</string>
-    <string name="treatments_iobactivitytotal_label_string">Tot aktivitet (5m):</string>
+    <string name="treatments_iobactivitytotal_label_string">Insulinaktivitet (5m):</string>
     <string name="tempbasals_realduration_label_string">Dur:</string>
     <string name="tempbasals_netratio_label_string">Tot:</string>
     <string name="tempbasals_netinsulin_label_string">Ins:</string>
@@ -876,7 +876,7 @@ Eversense-appen.</string>
     <string name="reset">Återställ</string>
     <string name="waitingfortimesynchronization">Väntar på tidssynkronisering (%1$d sek)</string>
     <string name="loopdisconnectedfor">Frånkopplad (%1$d min)</string>
-    <string name="openapssmb_maxiob_title">Max IOB som OpenAPS inte kan överstiga [E]</string>
+    <string name="openapssmb_maxiob_title">Max IOB som OpenAPS inte kan överstiga [U]</string>
     <string name="openapssmb_maxiob_summary">Det här värdet kallas Max IOB av OpenAPS. Om denna mängd insulin on board (IOB) nås, kan inte OpenAPS lägga till mer.</string>
     <string name="pump_stopped">Pump stoppad</string>
     <string name="pump_started">Pump startad</string>
