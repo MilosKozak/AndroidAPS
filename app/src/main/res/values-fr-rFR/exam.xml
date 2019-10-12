@@ -34,6 +34,7 @@
     <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Usage/ExportImportSettings.html</string>
     <string name="objectives_hint2">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Getting-Started/FAQ.html#what-emergency-equipment-is-recommended-to-take-with-me</string>
     <string name="noisycgm_label">Rubrique : Lectures MGC incohérentes</string>
+    <string name="noisycgm_whattodo">Que faut-il faire si les données de MGC sont bruitées ?</string>
     <string name="nothing">Rien, AAPS s\'en occupera.</string>
     <string name="noisycgm_pause">Désactivez la boucle pour éviter un surdosage.</string>
     <string name="noisycgm_replacesensor">Remplacer le capteur MGC.</string>
@@ -123,12 +124,17 @@
     <string name="nsclient_spikeiphone">Application Spike sur iPhone.</string>
     <string name="nsclient_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Children/Children.html</string>
     <string name="isf_label">Rubrique : Sensibilité à l\'Insuline (ISF)</string>
-    <string name="isf_increasingvalue">Des valeurs de SI plus élevées conduisent à moins d\'insuline injectée quand AAPS corrige une hyperglycémie.</string>
-    <string name="isf_decreasingvalue">Des valeurs de SI plus faible conduisent à moins d\'insuline injectée quand AAPS corrige une hyperglycémie.</string>
+    <string name="isf_increasingvalue">Les valeurs de SI plus élevées conduisent à moins d\'insuline injectée quand AAPS corrige une hyperglycémie.</string>
+    <string name="isf_decreasingvalue">Des valeurs plus faibles de SI entraînent une diminution de l\'administration d\'insuline lorsque l\'AAPS corrige une hyperglycémie.</string>
+    <string name="isf_noeffect">Changer les valeurs de SI n\'a aucun effet sur la quantité d\'insuline injectée quand AAPS corrige une hyperglycémie.</string>
     <string name="isf_preferences">Vous devez renseigner la SI (ISF) dans les Préférences.</string>
     <string name="isf_profile">La modification de la SI (ISF) dans le profil est suffisant pour appliquer le changement.</string>
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Usage/Profiles.html</string>
+    <string name="ic_label">Rubrique : Ratio Glucides/Insuline</string>
+    <string name="ic_increasingvalue">Les ratios G/I plus élevés conduisent à moins d\'insuline injectée pour une quantité donnée de glucides.</string>
+    <string name="ic_decreasingvalue">Les ratios G/I plus faibles conduisent à moins d\'insuline injectée pour une quantité donnée de glucides.</string>
+    <string name="ic_noeffect">Si vous avez 0 GA, changer le ratio G/I conduira à différentes quantités d\'insuline pour corriger une valeur de glycémie donnée.</string>
     <string name="ic_different">Le G/I sera différent si vous comptez l\'unité de pain à 10g ou à 12g.</string>
     <string name="ic_meaning">Le G/I (Ratio Glucides/Insuline) est : combien d\'unités de pain sont couverte par 1U d\'insuline.</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
@@ -145,7 +151,12 @@
     <string name="profileswitch_targetlower">La Cible sera 10% plus faible.</string>
     <string name="profileswitch_targetbottom">Seule la cible inférieure sera diminuée de 10%.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
+    <string name="profileswitchtime_iwant">Si vous vous réveillez 1h plus tôt que d\'habitude, comment informez-vous AAPS du changement de votre planning ?</string>
+    <string name="profileswitchtime_1">Faites un changement de profil avec un décalage horaire de 1</string>
+    <string name="profileswitchtime__1">Faites un changement de profil avec un décalage horaire de -1</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profilewitch#timeshift</string>
+    <string name="profileswitchtime_60">Faites un changement de profil avec un décalage horaire de 60</string>
+    <string name="profileswitchtime__60">Faites un changement de profil avec un décalage horaire de -60</string>
     <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
     <string name="basalhelp_label">Rubrique : Aide avec le débit Basal</string>
     <string name="basalhelp_where">Où aller pour avoir de l\'aide avec le débit Basal etc.</string>
