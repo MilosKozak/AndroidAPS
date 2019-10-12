@@ -1345,6 +1345,14 @@ Eversense-appen.</string>
     <string name="medtronic_cmd_desc_get_tbr">Hämta temp basal</string>
     <string name="medtronic_cmd_desc_set_tbr">Sätt temp basal</string>
     <string name="medtronic_cmd_desc_set_bolus">Leverera bolus</string>
+    <string name="profilename">Byt profil till</string>
+    <string name="changengetoprofilename">Byt profil till %1$s</string>
+    <string name="automation_trigger_pump_last_connection_label">Senaste anslutning till pump</string>
+    <string name="automation_trigger_pump_last_connection_description">Senaste anslutning till pump [min sedan]</string>
+    <string name="automation_trigger_pump_last_connection_compared">Senaste anslutning till pump %1$s %2$s min sedan</string>
+    <string name="sendsmsactionlabel">Skicka SMS: %1$s</string>
+    <string name="sendsmsactiondescription">Skicka SMS till alla nummer i inställningar</string>
+    <string name="sendsmsactiontext">Skicka SMS med text</string>
     <string name="insulinFromCob"><![CDATA[COB vs IOB: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolusbegränsning: %2$.2fU till %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>Varning! Långsam KH-absorption upptäckt %2$d%% av tiden. Dubbelkolla din beräkning. COB kan vara väldigt missvisande och du riskerar få för mycket insulin!</font>]]></string>
@@ -1353,5 +1361,15 @@ Eversense-appen.</string>
     <string name="deliverpartofboluswizard">Bolusguiden utför beräkningar, men endast denna del av beräknat insulin levereras. Användbar med SMB-algoritm.</string>
     <string name="loading">Laddar...</string>
     <string name="snooze">Snooze</string>
+    <string name="time_range">Tidsintervall</string>
+    <string name="timerange_value">Klockan är mellan %1$s och %2$s</string>
+    <string name="between">Mellan </string>
     <string name="close">Stäng</string>
+    <string name="increasingmaxbasal">Ökar maximalt basaldos eftersom inställningen är lägre än din maximala basal i profilen</string>
+    <string name="smscommunicator_messagebody">Ogiltigt innehåll i meddelande</string>
+    <string name="format_bg_isf">%1$s ISF: %2$.1f</string>
+    <string name="format_carbs_ic">%1$.0fg IC: %2$.1f</string>
+    <string name="format_cob_ic">%1$.1fg IC: %2$.1f</string>
+    <string name="boluswizard">Kalkylator</string>
+    <string name="unit_minute_short">min</string>
 </resources>
