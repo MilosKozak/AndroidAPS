@@ -69,13 +69,13 @@ Eversense-appen.</string>
     <string name="treatments_carbs_label_string">KH:</string>
     <string name="treatments_iob_label_string">IOB:</string>
     <string name="sms_iob">IOB:</string>
-    <string name="treatments_iobtotal_label_string">Total IOB (bolus):</string>
-    <string name="treatments_iobactivitytotal_label_string">Total aktivitet (5m):</string>
+    <string name="treatments_iobtotal_label_string">IOB fr bolus:</string>
+    <string name="treatments_iobactivitytotal_label_string">Tot aktivitet (5m):</string>
     <string name="tempbasals_realduration_label_string">Dur:</string>
     <string name="tempbasals_netratio_label_string">Tot:</string>
     <string name="tempbasals_netinsulin_label_string">Ins:</string>
     <string name="tempbasals_iob_label_string">IOB:</string>
-    <string name="tempbasals_iobtotal_label_string">Total IOB (basal):</string>
+    <string name="tempbasals_iobtotal_label_string">IOB fr basal:</string>
     <string name="treatments_newtreatment_insulinamount_label">Insulin</string>
     <string name="treatments_newtreatment_carbsamount_label">KH</string>
     <string name="treatments_wizard_bg_label">BG</string>
@@ -84,7 +84,7 @@ Eversense-appen.</string>
     <string name="treatments_wizard_correction_label">Korr</string>
     <string name="insulin_unit_shortname">E</string>
     <string name="treatments_wizard_bolusiob_label">Bolus IOB</string>
-    <string name="openapsma_run">Beräkna nu</string>
+    <string name="openapsma_run">Utför nu</string>
     <string name="vitualpump_label">Virtuell pump</string>
     <string name="pump_basebasalrate_label">Profilens basaldos</string>
     <string name="pump_tempbasal_label">Temp basal</string>
@@ -817,7 +817,7 @@ Eversense-appen.</string>
     <string name="bolusrecordedonly">Bolusen sparas bara i loggboken</string>
     <string name="ns_autobackfill_summary">Hämta saknad BG-data från Nightscout</string>
     <string name="loop_smbsetbypump_label">SMB satt i pump</string>
-    <string name="overview_show_activity">Aktivitet</string>
+    <string name="overview_show_activity">Insulinaktivitet (5m)</string>
     <string name="overview_show_sensitivity">Känslighet (Sens)</string>
     <string name="overview_show_deviations">Avvikelser (Dev)</string>
     <string name="overview_show_cob">Aktiva KH (COB)</string>
