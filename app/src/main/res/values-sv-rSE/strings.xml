@@ -392,7 +392,7 @@ Eversense-appen.</string>
     <string name="MM640g">Minimed 640G</string>
     <string name="ongoingnotificaction">Konstant avisering i telefonen</string>
     <string name="old_data">Aktuellt BG saknas!</string>
-    <string name="minago">%1$d min sedan</string>
+    <string name="minago">%1$d&#160;min sedan</string>
     <string name="sms_minago">%1$d min sedan</string>
     <string name="localprofile">Lokal profil</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -607,7 +607,7 @@ Eversense-appen.</string>
     <string name="careportal_sensorage_label_short">SAGE</string>
     <string name="careportal_insulinage_label_short">IAGE</string>
     <string name="careportal_canulaage_label_short">CAGE</string>
-    <string name="careportal_pbage_label_short">PBAGE</string>
+    <string name="careportal_pbage_label_short">BAGE</string>
     <string name="openaps_short">APS</string>
     <string name="uploader_short">Upld batt</string>
     <string name="basal_short">BAS</string>
