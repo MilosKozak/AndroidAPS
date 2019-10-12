@@ -3,15 +3,23 @@
 <resources>
     <string name="dia_whatmeansdia">Vad är sant om DIA?</string>
     <string name="dia_label">Ämne: Insulinduration</string>
+    <string name="dia_minimumis3h">Minimivärdet är 3 timmar.</string>
+    <string name="dia_minimumis5h">Minimivärdet är 5 timmar.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html?#insulin</string>
+    <string name="dia_meaningisequaltodiapump">Det är samma som värdet Insulinduration som används i pumpen.</string>
     <string name="dia_valuemustbedetermined">Du måste bestämma ditt individuella värde (men inte mindre än 5 timmar).</string>
     <string name="hypott_label">Ämne: \"Hypo\" temp mål</string>
+    <string name="hypott_whenhypott">Vad är främsta skälet till att sätta ett \"hypo\" temp mål?</string>
+    <string name="hypott_goinglow">För att förhindra BG från att gå lågt om du redan har en nolltemp igång.</string>
+    <string name="hypott_preventoversmb">För att förhindra att AAPS tillför för mycket insulin efter en BG-höjning orsakad av snabbverkande kolhydrater som använts för att behandla ett lågt BG.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Vilken profiltyp kan användas och konfigureras offline?</string>
     <string name="offlineprofile_label">Ämne: Offlineprofil</string>
     <string name="offlineprofile_nsprofile">NS-profil kan användas, men inte konfigureras.</string>
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#profile</string>
     <string name="pumpdisconnect_label">Ämne: Koppla från pumpen</string>
+    <string name="pumpdisconnect_whattodo">Vad bör göras innan du kopplar bort pumpen?</string>
+    <string name="pumpdisconnect_letknow">Klicka på \"Koppla loss pump\" så att AAPS vet att inget insulin levereras.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
     <string name="objectives_label">Ämne: AndroidAPS inställningar</string>
     <string name="objectives_howtosave">Vad är bästa praxis för att säkerhetskopiera dina inställningar?</string>
