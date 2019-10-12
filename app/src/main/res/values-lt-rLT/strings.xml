@@ -827,6 +827,7 @@
     <string name="closed_loop_disabled_on_dev_branch">Naudojama neužbaigta versija. Uždaras ciklas neaktyvus.</string>
     <string name="engineering_mode_enabled">Inžinerinis režimas įjungtas</string>
     <string name="not_eng_mode_or_release">Inžinerinis režimas negalimas vartotojo atšakoje</string>
+    <string name="pump_basebasalrate">%1$.2f vv/val</string>
     <string name="combo_actvity_reading_basal_profile">Nuskaitomas bazės profilis</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Skaičiuojant bolusą pasikeitė pompos istorija. Bolusas nesuleistas. Prašome perskaičiuoti, jei boluso vis dar reikia.</string>
     <string name="combo_error_updating_treatment_record">Bolusas sėkmingai suleistas, tačiau įrašas žurnale neįvestas. Taip gali nutikti, jei du vienodi nedideli bolusai suleisti per pastarąsias 2 min. Patikrinkite pompos istoriją ir įrašų žurnalą bei naudodamiesi Careportal įveskite trūkstamus įrašus. Patikrinkite, ar įvedamas įrašas neturi tokios pat laiko žymos ir insulino kiekio, kaip jau egzistuojantis.</string>
@@ -928,6 +929,7 @@
     <string name="sensitivitysetup">Konfigūruoti Jautrumo nustatymo įskiepį</string>
     <string name="setupwizard_sensitivity_description">Jautrumo įskiepis yra naudojamas jautrumo aptikimui ir AAO skaičiavimams. Daugiau informacijos:</string>
     <string name="setupwizard_sensitivity_url">https://github.com/MilosKozak/AndroidAPS/wiki/Sensitivity-detection-and-COB</string>
+    <string name="nsclientinfotext">NSClient palaiko ryšį su Nightscout. Jūs galite praleisti šią dalį dabar, bet negalėsite baigti mokymosi programos, kol nenustatysite ryšio su NS.</string>
     <string name="diawarning">Atminkite: DKS profiliams reikia IVT bent 5 val. IVT = 5 - 6 val DKS profilyje atitinka IVT = 3 val sename (pompos terapijos) insulino profilyje.</string>
     <string name="bgsourcesetup">Sukonfigūruoti KG šaltinį</string>
     <string name="setupwizard_profile_description">Prašome pasirinkti profilį. Jei pacientas yra vaikas, turite naudoti NS profilį. Jei niekas neseka jūsų Nightscout platformoje, tada geriau pasirinkti Vietinį profilį. Atminkite, kad čia Jūs tik pasirenkate profilio šaltinį. Norėdami jį aktyvuoti, turite atlikti Profilio keitimą</string>
@@ -1072,6 +1074,46 @@
     <string name="min_recovery_duration">Min. atkūrimo trukmė [s]</string>
     <string name="recovery_duration">Atkūrimo trukmė</string>
     <string name="timeout_during_handshake">Ryšio užmezgimui skirtas laikas baigėsi - iš naujo nustatykite bluetooth</string>
+    <string name="weekday_sunday_short">Sek</string>
+    <string name="weekday_saturday_short">Šeš</string>
+    <string name="weekday_friday_short">Pen</string>
+    <string name="weekday_thursday_short">Ket</string>
+    <string name="weekday_wednesday_short">Tre</string>
+    <string name="weekday_tuesday_short">An</string>
+    <string name="weekday_monday_short">Pir</string>
+    <string name="automation_description">Vartotojo nustatytos automatizavimo užduotys</string>
+    <string name="automation_missing_task_name">Įveskite užduoties pavadinimą.</string>
+    <string name="automation_missing_trigger">Nurodykite mažiausiai vieną sąlygą.</string>
+    <string name="automation_missing_action">Nurodykite mažiausiai vieną veiksmą.</string>
+    <string name="alreadyenabled">Jau įjungta</string>
+    <string name="alreadydisabled">Jau išjungta</string>
+    <string name="alreadysuspended">Jau sustabdyta</string>
+    <string name="resumeloop">Atnaujinti ciklą</string>
+    <string name="notsuspended">Nesustabdyta</string>
+    <string name="starttemptarget">Nustatykite laikiną tikslą</string>
+    <string name="stoptemptarget">Sustabdykite laikiną tikslą</string>
+    <string name="islesser">mažesnis nei</string>
+    <string name="isequalorlesser">lygus arba mažesnis nei</string>
+    <string name="isequal">yra lygus</string>
+    <string name="isequalorgreater">yra lygus arba didesnis nei</string>
+    <string name="isgreater">didesnis nei</string>
+    <string name="isnotavailable">negalimas</string>
+    <string name="unknown">nežinoma</string>
+    <string name="glucoseisnotavailable">Glikemija nepasiekiama</string>
+    <string name="glucosecomparedmgdl">Glikemija %1$s %2$.0f %3$s</string>
+    <string name="glucosecomparedmmol">Glikemija %1$s %2$.1f %3$s</string>
+    <string name="percentagecompared">Profilis %1$s%2$d</string>
+    <string name="iobcompared">AIO %1$s %2$.1f</string>
+    <string name="and">Ir</string>
+    <string name="or">Arba</string>
+    <string name="xor">Išskyrus arba</string>
+    <string name="atspecifiedtime">%1$s</string>
+    <string name="use_network_location">Naudoti tinklo vietovę</string>
+    <string name="use_gps_location">Naudoti GPS vietovę</string>
+    <string name="use_passive_location">Naudoti pasyviąją vietovę</string>
+    <string name="locationservice">Vietovės paslaugos</string>
+    <string name="automation_short">Auto</string>
+    <string name="automation">Automatiškai</string>
     <string name="profile_total">== ∑  %1$s vv</string>
     <string name="profile_carbs_per_unit">g/vv</string>
     <string name="profile_per_unit">/vv</string>
@@ -1099,10 +1141,60 @@
     <string name="old_version">sena versija</string>
     <string name="very_old_version">labai sena versija</string>
     <string name="new_version_warning">Nauja versija pasiekiama mažiausiai %1$d dienų! Po 60 d. grįšite prie stabdymo prie žemo, po 90 d. ciklas bus išjungtas.</string>
+    <string name="deltacompared">%3$s %1$s %2$s</string>
+    <string name="deltalabel">KG skirtumas</string>
+    <string name="deltalabel_u">KG skirtumas [%1$s]</string>
+    <string name="currentlocation">Dabartinė vieta</string>
+    <string name="location">Vieta</string>
+    <string name="latitude_short">Platuma:</string>
+    <string name="longitude_short">Ilguma:</string>
+    <string name="distance_short">Atstumas [m]:</string>
+    <string name="name_short">Vardas:</string>
+    <string name="locationis">Vietovė %1$s</string>
+    <string name="lastboluslabel">Paskutinis bolusas</string>
+    <string name="lastboluscompared">Paskutinis Bolusas prieš %1$s %2$s min</string>
+    <string name="triggercoblabel">AAO</string>
+    <string name="cobcompared">AAO %1$s %2$.0f</string>
+    <string name="taskname">Užduoties pavadinimas</string>
+    <string name="edit_short">Keisti</string>
+    <string name="please_choose_an_action_type">Pasirinkite veiksmo tipą:</string>
+    <string name="please_choose_a_trigger_type">Pasirinkite sąlygos tipą:</string>
+    <string name="triggers">Sąlygos:</string>
+    <string name="remove_label">PAŠALINTI</string>
+    <string name="preconditions">Išankstinės sąlygos:</string>
     <!-- Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Pompa ir/ar jos valdiklis nepalaiko operacijos.</string>
+    <string name="pump_operation_not_yet_supported_by_pump">Pompa dar nepalaiko operacijos.</string>
     <!-- Medtronic (MDT) - Base -->
+    <string name="description_pump_medtronic">Integracija su Medronic pompa reikalauja RileyLink įrenginio ir specialaus pompos modelio</string>
     <!-- MDT Configuration -->
+    <string name="medtronic_serial_number">Pompos serijos Nr.</string>
+    <string name="medtronic_pump_type">Pompos tipas</string>
+    <string name="medtronic_pump_frequency">Pompos dažnis</string>
+    <string name="medtronic_pump_bolus_delay">Užlaikymas prieš Boluso suleidimą (s)</string>
+    <string name="medtronic_pump_max_bolus">Max Bolusas pompoje (vv)</string>
+    <string name="medtronic_pump_max_basal">Maks val. bazė pompoje (vv/val)</string>
+    <string name="medtronic_pump_encoding">Medronic kodavimas</string>
+    <string name="medtronic_pump_frequency_us_ca">US &amp; Kanada (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Pasaulinis (868 Mhz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">Programinis kodavimas 4b6b</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink">Įrangos kodavimas 4b6b</string>
+    <string name="medtronic_custom_action_wake_and_tune">Pažadinti ir nustatyti</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Išvalyti Boluso bloką</string>
+    <string name="medtronic_custom_action_reset_rileylink">Išvalyti RileyLink nustatymus</string>
+    <string name="medtronic_pump_battery_select">Baterijos tipas (galios vaizdas)</string>
+    <string name="medtronic_pump_battery_no">Nepasirinkta (paprastas vaizdas)</string>
+    <string name="medtronic_pump_battery_alkaline">Šarminė (išplėstinis vaizdas)</string>
+    <string name="medtronic_pump_battery_lithium">Ličio (išplėstinis vaizdas)</string>
     <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SKENAVIMAS</string>
+    <string name="rileylink_scanner_scan_stop">STOP</string>
+    <string name="rileylink_scanner_selected_device">Parinkta</string>
+    <string name="rileylink_scanner_title">RileyLink skanavimas</string>
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy nepalaikoma.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth neįjungta.</string>
+    <string name="location_not_found_title">Vietovės nustatymas neįjungtas</string>
+    <string name="location_not_found_message">Vietos nustatymo paslauga turi būti įjungta, kad Bluetooth aptikimas veiktų naujesniuose įrenginiuose. AAPS neseka Jūsų lokacijos, o vietos nustatymo paslauga gali būti išjungta po sėkmingo įrenginių suporavimo.</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Parametrai</string>
     <string name="rileylink_settings_tab2">Istorija</string>
@@ -1111,8 +1203,29 @@
     <!-- RL Errors -->
     <!-- RL Target Device -->
     <!-- MDT Errors -->
+    <string name="medtronic_error_pump_wrong_max_basal_set">Pompoje nustatyta neteisinga Maks val. bazė (turi būti %1$.2f).</string>
+    <string name="medtronic_error_operation_not_possible_no_configuration">Operacija negalima. \n\n Pirmiausia turite sukonfigūruoti Medronic pompą prieš atliekant šią operaciją.</string>
+    <string name="medtronic_error_pump_24h_time_change_requested">Laiko pokytis didesnis nei 24 val.</string>
     <!-- MDT History -->
+    <string name="medtronic_history_group_basal">Valandinės bazės</string>
+    <string name="medtronic_history_group_configuration">Nustatymai</string>
+    <string name="medtronic_history_group_notification">Pranešimai</string>
+    <string name="medtronic_history_group_statistic">Statistika</string>
+    <string name="medtronic_history_group_unknown">Nežinoma</string>
+    <string name="medtronic_history_group_all">Visi</string>
+    <string name="medtronic_pump_history">Medronic pompos istorija</string>
     <!-- MDT Pump Status -->
+    <string name="medtronic_pump_status_never_contacted">Niekada nebuvo sujungta</string>
+    <string name="medtronic_pump_status_waking_up">Pažadinimas</string>
+    <string name="medtronic_pump_status_error_comm">Ryšio klaida</string>
+    <string name="medtronic_pump_status_timeout_comm">Ryšiui skirtas laikas baigėsi</string>
+    <string name="medtronic_pump_status_pump_unreachable">Pompa nepasiekiama</string>
+    <string name="medtronic_pump_status_invalid_config">Neteisinga konfigūracija</string>
+    <string name="medtronic_pump_status_active">Aktyvi</string>
+    <string name="medtronic_pump_status_sleeping">Užmigusi</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <string name="medtronic_cmd_cancel_bolus_not_supported">Atšaukėte Bolusą, kuris jau buvo nustatytas pompoje. Medronic pompa nepalaiko šio atšaukimo, todėl turite jį atšaukti rankiniu būdu. Sustabdykite pompą ir vėl ją paleiskite (jei vis dar norite atšaukti Bolusą). Aplikacija perims pokyčius su kitu atnaujinimu (per mažiau nei 5 minutes).</string>
+    <string name="medtronic_cmd_cant_read_tbr">Negalima sužinoti dabartinės laikinos bazės.</string>
+    <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Negalima atšaukti dabartinės laikinos bazės. Operacija stabdoma.</string>
     <string name="medtronic_cmd_desc_get_settings">Gauti parametrus</string>
 </resources>
