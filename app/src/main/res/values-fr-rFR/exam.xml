@@ -11,7 +11,7 @@
     <string name="hypott_label">Rubrique: Cible Temporaire Hypo</string>
     <string name="hypott_whenhypott">Quelle est la principale raison de fixer une CT hypo ?</string>
     <string name="hypott_goinglow">Pour empêcher la glycémie de baisser si aucune basale temporaire en cours d\'exécution.</string>
-    <string name="hypott_preventoversmb">Pour empêcher AAPS d\'injecter trop d\'insuline suite à une forte montée de la glycémie causée par des sucres rapides utilisés pour traiter une hypoglycémie.</string>
+    <string name="hypott_preventoversmb">Afin d\'éviter qu\' AAPS n\'administre trop d\'insuline suite à une forte montée de la glycémie causée par des glucides à action rapide utilisés pour traiter une hypoglycémie.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Quel profil peut être utilisé et configuré hors ligne?</string>
     <string name="offlineprofile_label">Rubrique : Profil Hors Ligne</string>
@@ -93,15 +93,19 @@
     <string name="troubleshooting_hint2">https://www.facebook.com/groups/AndroidAPSUsers/</string>
     <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
     <string name="insulin_label">Rubrique : Plugins d\'Insuline</string>
+    <string name="insulin_ultrarapid">Quelle marque d\'insuline peut être utilisée avec le plugin \"Ultra-Rapid-Oref\" ?</string>
     <string name="insulin_fiasp">Fiasp®</string>
     <string name="insulin_novorapid">Novorapid®</string>
     <string name="insulin_humalog">Humalog®</string>
     <string name="insulin_actrapid">Actrapid®</string>
     <string name="insulin_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Configuration/Config-Builder.html#insulin</string>
     <string name="sensitivity_label">Rubrique : Plugins de Sensibilité</string>
+    <string name="sensitivity_which">Quel algorithme de sensibilité a un intervalle de temps paramétrable ?</string>
     <string name="sensitivity_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Sensitivity-detection-and-COB.html</string>
     <string name="sensitivityuam_which">Quel plugin de sensibilité doit être utilisé pour la fonction RNP (UAM) ?</string>
     <string name="wrongcarbs_label">Rubrique : Entrées de glucides erronées</string>
+    <string name="wrongcarbs_whattodo">Que devez-vous faire si vous avez renseigné une valeur erronée de glucides ?</string>
+    <string name="wrongcarbs_treatmentstab">Dans Traitements, supprimez la mauvaise valeur de glucides. Entrez la nouvelle.</string>
     <string name="wrongcarbs_addfakeinsulin">Ajouter une insuline fictive à l\'aide de la fonction Remplissage</string>
     <string name="extendedcarbs_label">Rubrique : Aliments avec Graisses et Protéines</string>
     <string name="extendedcarbs_handling">Que faire si votre nourriture contient une grande quantité de matières grasses ou de protéines ?</string>
@@ -119,6 +123,8 @@
     <string name="nsclient_spikeiphone">Application Spike sur iPhone.</string>
     <string name="nsclient_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Children/Children.html</string>
     <string name="isf_label">Rubrique : Sensibilité à l\'Insuline (ISF)</string>
+    <string name="isf_increasingvalue">Des valeurs de SI plus élevées conduisent à moins d\'insuline injectée quand AAPS corrige une hyperglycémie.</string>
+    <string name="isf_decreasingvalue">Des valeurs de SI plus faible conduisent à moins d\'insuline injectée quand AAPS corrige une hyperglycémie.</string>
     <string name="isf_preferences">Vous devez renseigner la SI (ISF) dans les Préférences.</string>
     <string name="isf_profile">La modification de la SI (ISF) dans le profil est suffisant pour appliquer le changement.</string>
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/fr/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
