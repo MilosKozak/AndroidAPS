@@ -18,6 +18,7 @@
     <string name="pumpdisconnect_whattodo">Cosa dovrebbe essere fatto quando si disconnette il micro?</string>
     <string name="pumpdisconnect_letknow">Click su \'Disconnetti micro\' cosicché AAPS sappia che non viene erogata alcuna insulina.</string>
     <string name="pumpdisconnect_suspend">Click su \'Sospendi loop\' cosicché AAPS stoppi l\'attività di loop mentre il micro è disconnesso.</string>
+    <string name="pumpdisconnect_dontchnage">Non cambiare alcunché in AAPS, solo disconnettere il micro.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
     <string name="objectives_label">Argomento: Impostazioni di AndroidAPS</string>
     <string name="objectives_howtosave">Quali sono le migliori pratiche per il backup delle impostazioni?</string>
