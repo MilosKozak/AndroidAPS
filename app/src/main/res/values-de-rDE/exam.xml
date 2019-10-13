@@ -3,16 +3,23 @@
 <resources>
     <string name="dia_whatmeansdia">Welche Aussagen zum DIA stimmen?</string>
     <string name="dia_label">Thema: Insulinwirkdauer</string>
+    <string name="dia_minimumis3h">Der Mindestwert ist 3 Stunden.</string>
+    <string name="dia_minimumis5h">Der Mindestwert ist 5 Stunden.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/de/Configuration/Config-Builder.html#insulin</string>
+    <string name="dia_meaningisequaltodiapump">Entspricht der Insulinwirkdauer (DIA), die Du in Deiner Pumpe eingestellt hast.</string>
     <string name="dia_valuemustbedetermined">Du musst den individuell für Dich passenden Wert (nicht weniger als 5 Stunden) ermitteln.</string>
     <string name="hypott_label">Thema: Temporäres Ziel \"Hypo\"</string>
     <string name="hypott_whenhypott">Was ist der Hauptgrund, ein Hypo TT zu setzen?</string>
+    <string name="hypott_goinglow">Um zu verhinden, dass der Glukosewert sinkt, wenn die temp. Basalrate bereits 0 ist (sog. zero temp).</string>
+    <string name="hypott_preventoversmb">Um zu verhindern, dass AAPS zu viel Insulin abgibt, wenn der Glukosewert durch Hypo-KH steigt.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/de/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Welches Profil kann offline verwendet und konfiguriert werden?</string>
     <string name="offlineprofile_label">Thema: Offline-Profil</string>
     <string name="offlineprofile_nsprofile">NS-Profil kann verwendet, aber nicht konfiguriert werden.</string>
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/de/Configuration/Config-Builder.html#profil</string>
     <string name="pumpdisconnect_label">Thema: Pumpe abkoppeln</string>
+    <string name="pumpdisconnect_whattodo">Was soll getan werden, wenn die Verbindung zur Pumpe getrennt wird?</string>
+    <string name="pumpdisconnect_letknow">Klicke auf \'Pumpe trennen\', so dass AAPS weiß, dass kein Insulin abgegeben wird.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/de/Getting-Started/FAQ.html#andere-einstellungen</string>
     <string name="objectives_label">Thema: AndroidAPS Einstellungen</string>
     <string name="objectives_howtosave">Welches ist die empfohlene Vorgehensweise, um ein Backup Deiner Einstellungen zu erstellen?</string>
