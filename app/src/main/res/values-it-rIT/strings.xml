@@ -658,7 +658,7 @@
     <string name="danar_setbasalstep001">Imposta incremento basale a 0.01 U/h</string>
     <string name="serialnumber">Numero seriale</string>
     <string name="careportal_newnstreatment_percentage_label">Percentuale</string>
-    <string name="careportal_newnstreatment_timeshift_label">Cambio orario</string>
+    <string name="careportal_newnstreatment_timeshift_label">Time shift</string>
     <string name="default_temptargets">Temp-Target predefiniti</string>
     <string name="eatingsoon_duration">target \"pasto a breve\" - durata</string>
     <string name="eatingsoon_target">target \"pasto a breve\"</string>
