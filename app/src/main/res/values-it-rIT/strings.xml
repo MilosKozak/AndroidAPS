@@ -491,7 +491,7 @@
     <string name="nsclientinternal_secret_dialogmessage">Inserisci l\'API secret di NS (minimo 12 caratteri)</string>
     <string name="deliver_now">Eroga adesso</string>
     <string name="clear_queue">Cancella coda</string>
-    <string name="show_queue">Visualizza coda</string>
+    <string name="show_queue">Mostra coda</string>
     <string name="queue">Coda:</string>
     <string name="status">Stato:</string>
     <string name="paused">In pausa</string>
@@ -706,8 +706,8 @@
     <string name="eversense">Eversense app (modificata)</string>
     <string name="dexcomg5_nsupload_title">Carica dati glicemia su NS</string>
     <string name="bgsource_upload">Impostazioni caricamento glicemia</string>
-    <string name="wear_detailed_delta_title">Visualizza delta dettagliato</string>
-    <string name="wear_detailed_delta_summary">Visualizza delta con una cifra decimale in più</string>
+    <string name="wear_detailed_delta_title">Mostra delta dettagliato</string>
+    <string name="wear_detailed_delta_summary">Mostra delta con una cifra decimale in più</string>
     <string name="smbmaxminutes_summary">Max minuti di basale a cui limitare SMB</string>
     <string name="unsupportedfirmware">Firmware del micro non supportato</string>
     <string name="dexcomg5_xdripupload_title">Invia dati glicemia a xDrip+</string>
@@ -800,7 +800,7 @@
     <string name="wear_notifysmb_summary">Mostra SMB sullo smartwatch come un bolo standard.</string>
     <string name="ns_create_announcements_from_errors_title">Crea avvisi da errori</string>
     <string name="ns_create_announcements_from_errors_summary">Crea avviso su Nightscout per finestre di errore e allarmi locali (visualizzabile anche nella sezione Portale sotto la voce Trattamenti)</string>
-    <string name="wear_predictions_summary">Visualizza le predizioni sulla watchface.</string>
+    <string name="wear_predictions_summary">Mostra le predizioni sulla watchface.</string>
     <string name="wear_predictions_title">Predizioni</string>
     <string name="data_choices">Scelta dei dati</string>
     <string name="fabric_upload">Invio a fabric.io</string>
