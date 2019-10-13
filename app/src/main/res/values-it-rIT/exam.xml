@@ -94,6 +94,8 @@
     <string name="nsclient_spikeiphone">App Spike su iPhone.</string>
     <string name="nsclient_hint1">https://androidaps.readthedocs.io/en/latest/EN/Children/Children.html</string>
     <string name="isf_label">Argomento: Fattore di Sensibilità all\'Insulina</string>
+    <string name="isf_increasingvalue">Valori ISF più alti portano a meno erogazione di insulina quando AAPS corregge glicemie alte.</string>
+    <string name="isf_noeffect">Cambiare i valori di ISF non ha alcun effetto sulla quantità di insulina erogata quando AAPS corregge glicemie alte.</string>
     <string name="isf_preferences">Devi inserire ISF nelle Preferenze.</string>
     <string name="isf_profile">Cambiare il valore ISF nel tuo profilo è sufficiente per applicare la modifica.</string>
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
