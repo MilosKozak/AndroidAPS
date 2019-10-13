@@ -489,7 +489,7 @@
     <string name="nsclientinternal_secret_title">API secret di NS</string>
     <string name="nsclientinternal_secret_dialogtitle">API secret di NS</string>
     <string name="nsclientinternal_secret_dialogmessage">Inserisci l\'API secret di NS (minimo 12 caratteri)</string>
-    <string name="deliver_now">Eroga adesso</string>
+    <string name="deliver_now">Invia adesso</string>
     <string name="clear_queue">Cancella coda</string>
     <string name="show_queue">Mostra coda</string>
     <string name="queue">Coda:</string>
