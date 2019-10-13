@@ -10,6 +10,8 @@
     <string name="dia_valuemustbedetermined">Devi determinare il tuo valore individuale (ma non meno di 5 ore).</string>
     <string name="hypott_label">Argomento: Temp-Target \"Ipoglicemia\"</string>
     <string name="hypott_whenhypott">Qual è la ragione principale per impostare un TT Ipoglicemia?</string>
+    <string name="hypott_goinglow">Per impedire che la glicemia vada in basso se c\'è già in esecuzione una basale temporanea impostata a zero.</string>
+    <string name="hypott_preventoversmb">Per evitare che AAPS somministri troppa insulina dopo un aumento di glicemia causato da carboidrati a veloce assorbimento usati per trattare una glicemia bassa.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Quale profilo può essere usato e configurato offline?</string>
     <string name="offlineprofile_label">Argomento: Profilo offline</string>
@@ -60,6 +62,7 @@
     <string name="basaltest_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#androidaps-settings</string>
     <string name="prerequisites_label">Argomento: Prerequisiti</string>
     <string name="prerequisites_what">Di cosa ho bisogno?</string>
+    <string name="prerequisites_determinedcorrectprofile">Informazioni profilo convalidate (Basale, IC, ISF, DIA).</string>
     <string name="prerequisites_computer">Un computer per creare un APK.</string>
     <string name="prerequisites_phone">Un telefono supportato.</string>
     <string name="prerequisites_car">Un\'auto.</string>
@@ -130,6 +133,8 @@
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html</string>
     <string name="ic_label">Argomento: Il Rapporto IC</string>
     <string name="ic_increasingvalue">Rapporti IC più alti portano a una minore insulina erogata per una data quantità di carboidrati.</string>
+    <string name="ic_decreasingvalue">Rapporti IC più bassi portano a una minore insulina erogata per una data quantità di carboidrati.</string>
+    <string name="ic_noeffect">Se hai 0 COB, cambiare il rapporto IC porterà a una differente quantità di insulina necessaria a correggere una determinata glicemia.</string>
     <string name="ic_different">IC sarà diverso se consideri l\'unità di pane (BE) come 10g o 12g.</string>
     <string name="ic_meaning">Il significato di IC è: Quante unità di pane (BE) sono coperte da 1U di insulina.</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
@@ -146,7 +151,12 @@
     <string name="profileswitch_targetlower">Il target sarà il 10% più basso.</string>
     <string name="profileswitch_targetbottom">Solo il target inferiore sarà il 10% più basso.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
+    <string name="profileswitchtime_iwant">Se ti svegli 1h prima del solito, come dovresti informare AAPS del cambiamento nei tuoi programmi?</string>
+    <string name="profileswitchtime_1">Avviare un cambio profilo con un timeshift di 1</string>
+    <string name="profileswitchtime__1">Avviare un cambio profilo con un timeshift di -1</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
+    <string name="profileswitchtime_60">Avviare un cambio profilo con un timeshift di 60</string>
+    <string name="profileswitchtime__60">Avviare un cambio profilo con un timeshift di -60</string>
     <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
     <string name="basalhelp_label">Argomento: Aiuto le con velocità basali</string>
     <string name="basalhelp_where">Dove andare per avere aiuto con le velocità basali e il resto.</string>
