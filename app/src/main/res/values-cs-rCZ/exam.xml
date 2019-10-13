@@ -3,10 +3,15 @@
 <resources>
     <string name="dia_whatmeansdia">Co je pravda o DIA?</string>
     <string name="dia_label">Téma: Doba trvání účinku inzulínu</string>
+    <string name="dia_minimumis3h">Minimální hodnota je 3 hodiny.</string>
+    <string name="dia_minimumis5h">Minimální hodnota je 5 hodin.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Configuration/Config-Builder.html#inzulin</string>
+    <string name="dia_meaningisequaltodiapump">Význam se shoduje s parametrem DIA používaným ve vaší pumpě.</string>
     <string name="dia_valuemustbedetermined">Musíte určit svou individuální hodnotu (ale ne méně než 5 hodin).</string>
     <string name="hypott_label">Téma: Dočasný cíl Hypoglykémie</string>
     <string name="hypott_whenhypott">Co je primárním důvodem k nastavení dočasného cíle Hypoglykémie?</string>
+    <string name="hypott_goinglow">Zabránit nízké glykémii, pokud je již spuštěn nulový dočasný bazál.</string>
+    <string name="hypott_preventoversmb">Aby se zabránilo AAPS podání příliš velkého množtví inzulínu po růstu glykémie způsobenému rychlými sacharidy použtými k léčbě hypoglykémie.</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/temptarget.html</string>
     <string name="offlineprofile_whatprofile">Který profil lze použít a konfigurovat offline?</string>
     <string name="offlineprofile_label">Téma: Offline profil</string>
