@@ -62,6 +62,7 @@
     <string name="insulin_novorapid">NovoRapid ®</string>
     <string name="insulin_humalog">Humalog ®</string>
     <string name="insulin_actrapid">Actrapid ®</string>
+    <string name="insulin_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#insulin</string>
     <string name="sensitivity_label">Tópico: Plugins de Sensibilidade</string>
     <string name="sensitivity_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Sensitivity-detection-and-COB.html</string>
     <string name="wrongcarbs_label">Tópico: Erros de Entrada de Hidratos</string>
@@ -81,6 +82,7 @@
     <string name="profileswitch_isflower">O valor FSI será 10% mais baixo.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
+    <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
     <string name="basalhelp_label">Tópico: Ajuda com taxas de basal</string>
     <string name="basalhelp_diabetesteam">A sua equipa da diabetes</string>
     <string name="basalhelp_google">Google</string>
