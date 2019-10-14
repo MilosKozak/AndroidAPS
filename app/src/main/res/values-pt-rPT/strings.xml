@@ -1343,6 +1343,8 @@
     <string name="medtronic_cmd_desc_set_bolus">Definir Bólus</string>
     <string name="profilename">Alterar perfil para</string>
     <string name="changengetoprofilename">Alterar perfil para %1$s</string>
+    <string name="automation_trigger_pump_last_connection_label">Última ligação à bomba</string>
+    <string name="automation_trigger_pump_last_connection_description">Última ligação à bomba [minutos atrás]</string>
     <string name="sendsmsactionlabel">Enviar SMS: %1$s</string>
     <string name="sendsmsactiondescription">Enviar SMS para todos os números nas preferências</string>
     <string name="sendsmsactiontext">Enviar SMS com texto</string>
