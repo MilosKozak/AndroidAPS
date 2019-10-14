@@ -76,10 +76,17 @@
     <string name="isf_label">Tópico: Factor de Sensibilidade de Insulina</string>
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html</string>
+    <string name="ic_label">Tópico: Rácio IC</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Tópico: Mudança De Perfil</string>
+    <string name="profileswitch_basalhigher">Basais são 10% superiores.</string>
+    <string name="profileswitch_basallower">Basais serão 10% inferiores.</string>
+    <string name="profileswitch_ichigher">Valor IC será 10% superior.</string>
+    <string name="profileswitch_iclower">Valor IC será 10% inferior.</string>
     <string name="profileswitch_isfhigher">O valor FSI será 10% mais alto.</string>
     <string name="profileswitch_isflower">O valor FSI será 10% mais baixo.</string>
+    <string name="profileswitch_targethigher">Alvo será 10% superior.</string>
+    <string name="profileswitch_targetlower">Alvo será 10% inferior.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
     <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
