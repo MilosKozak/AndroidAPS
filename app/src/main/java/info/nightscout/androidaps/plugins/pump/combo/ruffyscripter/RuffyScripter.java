@@ -205,6 +205,18 @@ public class RuffyScripter implements RuffyCommands {
     }
 
     @Override
+    public String getMacAddress() {
+        try {
+            if (ruffyService != null) {
+                return ruffyService.getMacAddress();
+            }
+        } catch (RemoteException e) {
+            log.debug("No MAC, wtf?");
+        }
+        return null;
+    }
+
+    @Override
     public CommandResult readPumpState() {
         return runCommand(new ReadPumpStateCommand());
     }

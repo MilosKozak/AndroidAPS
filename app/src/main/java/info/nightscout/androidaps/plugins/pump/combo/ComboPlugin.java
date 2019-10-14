@@ -79,8 +79,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
     static final String COMBO_TBRS_SET = "combo_tbrs_set";
     static final String COMBO_BOLUSES_DELIVERED = "combo_boluses_delivered";
 
-    //TODO: Resolve real serial or MAC
-    private final String PUMP_SERIAL = "Combo";
+    private String pumpSerial = "<unknown>";
 
     private static ComboPlugin plugin = null;
 
@@ -354,6 +353,8 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
         if (!stateResult.success) {
             return;
         }
+
+        pumpSerial = ruffyScripter.getMacAddress();
 
         // note that since the history is checked upon every connect, the above already updated
         // the DB with any changed history records
@@ -637,7 +638,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
         boolean inserted = false;
         try {
             inserted = BlockingAppRepository.INSTANCE.runTransactionForResult(new ComboMealBolusTransaction(
-                    PUMP_SERIAL,
+                    pumpSerial,
                     timestampAndId,
                     lastPumpBolus.amount,
                     detailedBolusInfo.carbs,
@@ -738,7 +739,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
         if (state.tbrActive && state.tbrPercent == adjustedPercent
                 && (state.tbrRemainingDuration == durationInMinutes || state.tbrRemainingDuration == durationInMinutes - 1)) {
             BlockingAppRepository.INSTANCE.runTransaction(new ComboNewTempBasalTransaction(
-                    PUMP_SERIAL,
+                    pumpSerial,
                     state.timestamp,
                     state.tbrPercent,
                     state.tbrRemainingDuration));
@@ -931,7 +932,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
                     log.debug("Creating 15m zero temp since pump is suspended");
                 }
                 BlockingAppRepository.INSTANCE.runTransaction(new ComboNewTempBasalTransaction(
-                        PUMP_SERIAL, now, 0, 15));
+                        pumpSerial, now, 0, 15));
             }
         }
 
@@ -1056,7 +1057,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
             if (L.isEnabled(L.PUMP))
                 log.debug("Creating temp basal from pump TBR");
             BlockingAppRepository.INSTANCE.runTransaction(new ComboNewTempBasalTransaction(
-                    PUMP_SERIAL,
+                    pumpSerial,
                     now,
                     state.tbrPercent,
                     state.tbrRemainingDuration));
@@ -1071,7 +1072,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
                 log.debug("AAPSs and pump-TBR differ; ending AAPS-TBR and creating new TBR based on pump TBR");
             BlockingAppRepository.INSTANCE.runTransaction(new ComboCancelTempBasalTransaction());
             BlockingAppRepository.INSTANCE.runTransaction(new ComboNewTempBasalTransaction(
-                    PUMP_SERIAL,
+                    pumpSerial,
                     now + 1000,
                     state.tbrPercent,
                     state.tbrRemainingDuration));
@@ -1109,7 +1110,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
         for (Bolus pumpBolus : history.bolusHistory) {
             long timestampAndId = calculateFakeBolusDate(pumpBolus);
             updated |= BlockingAppRepository.INSTANCE.runTransactionForResult(new ComboMealBolusTransaction(
-                    PUMP_SERIAL,
+                    pumpSerial,
                     timestampAndId,
                     pumpBolus.amount,
                     0,
@@ -1271,7 +1272,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
     @Override
     public String serialNumber() {
-        return InstanceId.INSTANCE.instanceId(); // TODO replace by real serial
+        return pumpSerial;
     }
 
     @Override
@@ -1309,7 +1310,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
                         map.put(currTdd.timestamp, new ComboInsertTotalDailyDoseTransaction.TDD(currTdd.timestamp, currTdd.total));
                     }
                 }
-                BlockingAppRepository.INSTANCE.runTransactionForResult(new ComboInsertTotalDailyDoseTransaction(new ArrayList<>(map.values()), PUMP_SERIAL));
+                BlockingAppRepository.INSTANCE.runTransactionForResult(new ComboInsertTotalDailyDoseTransaction(new ArrayList<>(map.values()), pumpSerial));
             }
         }
         return result;

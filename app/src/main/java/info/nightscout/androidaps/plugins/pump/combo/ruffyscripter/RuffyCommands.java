@@ -1,5 +1,6 @@
 package info.nightscout.androidaps.plugins.pump.combo.ruffyscripter;
 
+import androidx.annotation.Nullable;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.history.PumpHistoryRequest;
 
 public interface RuffyCommands {
@@ -27,6 +28,10 @@ public interface RuffyCommands {
     boolean isConnected();
 
     void disconnect();
+
+    /** Get MAC address. Available once a command has been run (e.g. {@link #readPumpState}. */
+    @Nullable
+    String getMacAddress();
 
     /** Read the state of the pump, which encompasses all information displayed on the main menu. */
     CommandResult readPumpState();
