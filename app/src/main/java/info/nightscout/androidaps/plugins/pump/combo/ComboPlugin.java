@@ -1,7 +1,6 @@
 package info.nightscout.androidaps.plugins.pump.combo;
 
 import android.os.SystemClock;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -104,7 +103,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
      */
     private volatile boolean scripterIsBolusing;
     /**
-     * This is set to true to request a bolus cancellation. {@link #deliverBolus(DetailedBolusInfo)}
+     * This is set to true to request a bolus cancellation. {@link #deliverTreatment(DetailedBolusInfo)}
      * will reset this flag.
      */
     private volatile boolean cancelBolus;
@@ -113,7 +112,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
      * This is set (in {@link #checkHistory()} whenever a connection to the pump is made and
      * indicates if new history records on the pump have been found. This effectively blocks
      * high temps ({@link #setTempBasalPercent(Integer, Integer)} and boluses
-     * ({@link #deliverBolus(DetailedBolusInfo)} till the queue is empty and the connection
+     * ({@link #deliverTreatment(DetailedBolusInfo)} till the queue is empty and the connection
      * is shut down.
      * {@link #initializePump()} resets this since on startup the history is allowed to have
      * changed (and the user can't possible have already calculated anything with out of date IOB).
@@ -128,7 +127,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
     /**
      * Cache of the last <=2 boluses on the pump. Used to detect changes in pump history,
      * requiring reading more pump history. This is read/set in {@link #checkHistory()} when changed
-     * pump history was detected and was read, as well as in {@link #deliverBolus(DetailedBolusInfo)}
+     * pump history was detected and was read, as well as in {@link #deliverTreatment(DetailedBolusInfo)}
      * after bolus delivery. Newest record is the first one.
      */
     private volatile List<Bolus> recentBoluses = new ArrayList<>(0);
@@ -467,41 +466,10 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
      */
     @Override
     public PumpEnactResult deliverTreatment(DetailedBolusInfo detailedBolusInfo) {
-        try {
-            if (detailedBolusInfo.insulin == 0 && detailedBolusInfo.carbs == 0) {
-                // neither carbs nor bolus requested
-                log.error("deliverTreatment: Invalid input");
-                return new PumpEnactResult().success(false).enacted(false)
-                        .bolusDelivered(0d).carbsDelivered(0d)
-                        .comment(MainApp.gs(R.string.danar_invalidinput));
-            } else if (detailedBolusInfo.insulin > 0) {
-                // bolus needed, ask pump to deliver it
-                return deliverBolus(detailedBolusInfo);
-            } else {
-                throw new IllegalArgumentException("Cannot handle carb-only requests");
-                /*
-                // no bolus required, carb only treatment
-                // TODO; method can be simplified to reject any invalid request where bolus == 0;
-                // a call asking for that would be a coder error
-                TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, false);
-
-                EventOverviewBolusProgress bolusingEvent = EventOverviewBolusProgress.getInstance();
-                bolusingEvent.t = new Treatment();
-                bolusingEvent.t.isSMB = detailedBolusInfo.isSMB;
-                bolusingEvent.percent = 100;
-                MainApp.bus().post(bolusingEvent);
-
-                return new PumpEnactResult().success(true).enacted(true)
-                        .bolusDelivered(0d).carbsDelivered(detailedBolusInfo.carbs)
-                        .comment(MainApp.gs(R.string.virtualpump_resultok));*/
-            }
-        } finally {
-            MainApp.bus().post(new EventComboPumpUpdateGUI());
+        if (detailedBolusInfo.insulin == 0) {
+            log.error("Illegal request: " + detailedBolusInfo.toString(), new Exception());
+            return new PumpEnactResult().success(false).enacted(false).comment("Request without insulin");
         }
-    }
-
-    @NonNull
-    private PumpEnactResult deliverBolus(final DetailedBolusInfo detailedBolusInfo) {
         try {
             pump.activity = MainApp.gs(R.string.combo_pump_action_bolusing, detailedBolusInfo.insulin);
             MainApp.bus().post(new EventComboPumpUpdateGUI());
