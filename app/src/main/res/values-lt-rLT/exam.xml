@@ -152,9 +152,11 @@
     <string name="profileswitch_targetbottom">Tik apatinis tikslas bus 10% žemesnis.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
     <string name="profileswitchtime_iwant">Jei atsibundate 1 valanda anksčiau nei įprastai, kaip turėtumėte pranešti AAPS apie savo tvarkaraščio pasikeitimą?</string>
-    <string name="profileswitchtime_1">Perjunkite profilį su 1 val. laiko poslinkiu</string>
-    <string name="profileswitchtime__1">Perjunkite profilį su -1 val. laiko poslinkiu</string>
+    <string name="profileswitchtime_1">Perjunkite profilį su laiko poslinkiu +1</string>
+    <string name="profileswitchtime__1">Perjunkite profilį su laiko poslinkiu -1</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
+    <string name="profileswitchtime_60">Perjunkite profilį su laiko poslinkiu +60</string>
+    <string name="profileswitchtime__60">Perjunkite profilį su laiko poslinkiu -60</string>
     <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
     <string name="basalhelp_label">Tema: Pagalba su valandinėmis bazėmis</string>
     <string name="basalhelp_where">Kur kreiptis, jei jums reikia pagalbos nustatant valandines bazes ir pan.? </string>
