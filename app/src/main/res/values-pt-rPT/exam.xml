@@ -23,6 +23,9 @@
     <string name="noisycgm_turnoffphone">Desligue o telefone.</string>
     <string name="noisycgm_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Smoothing-Blood-Glucose-Data-in-xDrip.html#smoothing-blood-glucose-data</string>
     <string name="exercise_label">Tópico: Exercício</string>
+    <string name="exercise_setactivitytt">Usando o recurso de alvo-temp.</string>
+    <string name="exercise_switchprofilebelow100">Fazer uma mudança de perfil inferior a 100%.</string>
+    <string name="exercise_switchprofileabove100">Fazer uma mudança de perfil acima de 100%.</string>
     <string name="exercise_stoploop">Parar o loop.</string>
     <string name="exercise_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html#activity-temp-target</string>
     <string name="suspendloop_label">Tópico: Loop Desactivado/Suspenso</string>
@@ -51,6 +54,9 @@
     <string name="update_askfriend">Pergunte ao seu amigo pelo novo APK.</string>
     <string name="update_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#update-to-a-new-version-or-branch</string>
     <string name="troubleshooting_label">Tópico: Resolução de Problemas</string>
+    <string name="troubleshooting_wheretoask">Onde ir para obter ajuda?</string>
+    <string name="troubleshooting_fb">Adira ao grupo do Facebook AndroidAPS.</string>
+    <string name="troubleshooting_wiki">Leia a documentação do AndroidAPS.</string>
     <string name="troubleshooting_gitter">Visite AndroidAPS Gitter Room.</string>
     <string name="troubleshooting_googlesupport">Visite o suporte AndroidAPS Google</string>
     <string name="troubleshooting_yourendo">Fale com seu endócrinologista.</string>
@@ -66,6 +72,7 @@
     <string name="sensitivity_label">Tópico: Plugins de Sensibilidade</string>
     <string name="sensitivity_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Sensitivity-detection-and-COB.html</string>
     <string name="wrongcarbs_label">Tópico: Erros de Entrada de Hidratos</string>
+    <string name="extendedcarbs_label">Tópico: Alimentos com Gordura e Proteína</string>
     <string name="extendedcarbs_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Extended-Carbs.html</string>
     <string name="nsclient_label">Tópico: Monitorização Remota</string>
     <string name="nsclient_nightscout">Usando um site Nightscout.</string>
