@@ -544,6 +544,8 @@
     <string name="enablesuperbolus">Activar superbólus no assistente</string>
     <string name="enablesuperbolus_summary">Habilite a funcionalidade de superbolus no assistente. Não habilite até que aprenda o funcionamento. PODE CAUSAR OVERDOSE DE INSULINA SE USAR INDISCRIMINADAMENTE!</string>
     <string name="show_statuslights">Mostrar luzes de estado no ecrã principal</string>
+    <string name="show_statuslights_extended">Mostrar luzes de estado no ecrã principal</string>
+    <string name="show_statuslights_extended_summary">Activar as luzes de estado para idade da cânula, idade da insulina, idade do sensor, reservatório e bateria no ecrã inicial.</string>
     <string name="statuslights_res_warning">Limite de aviso de nível de reservatório [U]</string>
     <string name="statuslights_res_critical">Limite crítico de nível de reservatório [U]</string>
     <string name="statuslights_bat_warning">Limite de aviso de nível de bateria [%%]</string>
@@ -617,6 +619,7 @@
     <string name="mdtp_cancel">Cancelar</string>
     <string name="notloadedplugins">Nem todos perfis foram carregados!</string>
     <string name="valuesnotstored">Valores não guardados!</string>
+    <string name="ns_localbroadcasts">Activar transmissões para outras aplicações (como xDrip). Não habilite se tiver mais de uma instância de AAPS ou NSClient instalado!</string>
     <string name="ns_localbroadcasts_title">Activar partilha local.</string>
     <string name="careportal_activity_label">ACTIVIDADE &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">HIDRATOS &amp; BÓLUS</string>
@@ -1345,6 +1348,7 @@
     <string name="changengetoprofilename">Alterar perfil para %1$s</string>
     <string name="automation_trigger_pump_last_connection_label">Última ligação à bomba</string>
     <string name="automation_trigger_pump_last_connection_description">Última ligação à bomba [minutos atrás]</string>
+    <string name="automation_trigger_pump_last_connection_compared">Última ligação à bomba %1$s %2$s min atrás</string>
     <string name="sendsmsactionlabel">Enviar SMS: %1$s</string>
     <string name="sendsmsactiondescription">Enviar SMS para todos os números nas preferências</string>
     <string name="sendsmsactiontext">Enviar SMS com texto</string>
