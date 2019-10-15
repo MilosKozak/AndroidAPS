@@ -151,4 +151,16 @@
     <string name="profileswitch_targetlower">Ο στόχος θα είναι 10% χαμηλότερος.</string>
     <string name="profileswitch_targetbottom">Μόνο ο χαμηλός στόχος θα είναι 10% χαμηλότερος.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
+    <string name="profileswitchtime_iwant">Αν ξυπνήσετε 1 ώρα νωρίτερα από το συνηθισμένο, πώς θα πρέπει να ενημερώσετε το AAPS για την αλλαγή στο πρόγραμμά σας;</string>
+    <string name="profileswitchtime_1">Ξεκινήστε μία αλλαγή προφίλ με χρονική μετατόπιση 1</string>
+    <string name="profileswitchtime__1">Ξεκινήστε μία αλλαγή προφίλ με χρονική μετατόπιση -1</string>
+    <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
+    <string name="profileswitchtime_60">Ξεκινήστε μία αλλαγή προφίλ με χρονική μετατόπιση 60</string>
+    <string name="profileswitchtime__60">Ξεκινήστε μία αλλαγή προφίλ με χρονική μετατόπιση -60</string>
+    <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
+    <string name="basalhelp_label">Θέμα: Βοήθεια με βασικό ρυθμό</string>
+    <string name="basalhelp_where">Πού θα πάτε για βοήθεια με Βασικό ρυθμό κτλ.</string>
+    <string name="basalhelp_diabetesteam">Στην ομάδα του γιατρού σας</string>
+    <string name="basalhelp_google">Google</string>
+    <string name="basalhelp_facebook">FaceBook</string>
 </resources>
