@@ -22,6 +22,14 @@
     <string name="pumpdisconnect_letknow">Klik op \'pomp ontkoppelen\' zodat AAPS weet dat er geen insuline wordt afgeleverd.</string>
     <string name="pumpdisconnect_suspend">Klik op \'lus onderbreken\' zodat AAPS stopt met loopen terwijl de pomp is losgekoppeld.</string>
     <string name="pumpdisconnect_dontchnage">Verander niets in AAPS, koppel de pomp gewoon af.</string>
-    <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/nl/Getting-Started/FAQ.html#other-settings</string>
+    <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/nl/Getting-Started/FAQ.html#overige-instellingen</string>
     <string name="objectives_label">Onderwerp: AndroidAPS Instellingen</string>
+    <string name="objectives_howtosave">Welke dingen kun je het beste doen om een back-up van uw instellingen te maken?</string>
+    <string name="objectives_exportsettings">Exporteer de instellingen vanuit het menu Onderhoud.</string>
+    <string name="objectives_storeelsewhere">Sla het geëxporteerde bestand op in een andere locatie zoals e-mail, Dropbox, Google-station…</string>
+    <string name="objectives_doexportonstart">Exporteer deze direct na de installatie van AAPS.</string>
+    <string name="objectives_doexportafterchange">Exporteer ze na het wijzigen van instellingen.</string>
+    <string name="objectives_doexportafterobjective">Exporteer ze na het voltooien van een doel.</string>
+    <string name="objectives_doexportafterfirtssettings">Exporteer deze nadat u de eerste instellingen heeft afgemaakt.</string>
+    <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/nl/Usage/ExportImportSettings.html</string>
 </resources>
