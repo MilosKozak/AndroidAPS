@@ -10,8 +10,10 @@
     <string name="hypott_whenhypott">O que é a razão principal para definir TT hipoglicemia?</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
     <string name="offlineprofile_label">Tópico: Perfil Offline</string>
+    <string name="offlineprofile_nsprofile">Perfil NS pode ser usado, mas não configurado.</string>
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#profile</string>
     <string name="pumpdisconnect_label">Tópico: Desligar a Bomba</string>
+    <string name="pumpdisconnect_letknow">Clique em \'Desligar bomba\' para que o AAPS saiba que nenhuma insulina está a ser entregue.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
     <string name="objectives_label">Tópico: Definições do AndroidAPS</string>
     <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/ExportImportSettings.html</string>
@@ -30,6 +32,9 @@
     <string name="exercise_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html#activity-temp-target</string>
     <string name="suspendloop_label">Tópico: Loop Desactivado/Suspenso</string>
     <string name="basaltest_label">Topic: Testar Basal, FSI e IC</string>
+    <string name="basaltest_beforeloop">Antes de começar com o looping.</string>
+    <string name="basaltest_havingregularhypo">Quando ocorrer frequentemente Glic baixa.</string>
+    <string name="basaltest_havingregularhyper">Quando ocorrer frequentemente Glic alta.</string>
     <string name="basaltest_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#androidaps-settings</string>
     <string name="prerequisites_label">Tópico: Pré-requisitos</string>
     <string name="prerequisites_what">O que preciso?</string>
