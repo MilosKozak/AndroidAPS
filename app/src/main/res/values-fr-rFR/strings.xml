@@ -77,7 +77,7 @@
     <string name="tempbasals_iobtotal_label_string">IA Totale :</string>
     <string name="treatments_newtreatment_insulinamount_label">Insuline</string>
     <string name="treatments_newtreatment_carbsamount_label">Glucides</string>
-    <string name="treatments_wizard_bg_label">GLY</string>
+    <string name="treatments_wizard_bg_label">Gly</string>
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">Glucides</string>
     <string name="treatments_wizard_correction_label">Corr</string>
