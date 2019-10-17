@@ -211,7 +211,7 @@ public class RuffyScripter implements RuffyCommands {
                 return ruffyService.getMacAddress();
             }
         } catch (RemoteException e) {
-            log.debug("No MAC, wtf?");
+            log.debug("Unable to retrieve MAC-addresss from ruffy. Ruffy version up to date?", e);
         }
         return null;
     }

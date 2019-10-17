@@ -354,7 +354,13 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
             return;
         }
 
-        pumpSerial = ruffyScripter.getMacAddress();
+        try {
+            pumpSerial = ruffyScripter.getMacAddress();
+        } catch (Exception e) {
+            log.debug("No MAC for you", e);
+            RxBus.INSTANCE.send(new EventNewNotification(
+                    new Notification(Notification.COMBO_PUMP_ALARM, MainApp.gs(R.string.combo_outdated_ruffy_version), Notification.URGENT)));
+        }
 
         // note that since the history is checked upon every connect, the above already updated
         // the DB with any changed history records
