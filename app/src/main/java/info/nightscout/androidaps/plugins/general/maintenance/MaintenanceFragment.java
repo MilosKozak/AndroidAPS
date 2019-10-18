@@ -1,6 +1,5 @@
 package info.nightscout.androidaps.plugins.general.maintenance;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,12 +9,8 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.general.food.FoodPlugin;
 import info.nightscout.androidaps.plugins.general.maintenance.activities.LogSettingActivity;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
@@ -26,8 +21,6 @@ import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 public class MaintenanceFragment extends Fragment {
 
     private Fragment f;
-    private Context context = this.getContext();
-    private static Logger log = LoggerFactory.getLogger(L.CORE);
 
     @Override
     public void onResume() {
@@ -91,10 +84,6 @@ public class MaintenanceFragment extends Fragment {
         });
 
         return view;
-    }
-
-    public MaintenanceFragment getMain() {
-        return this;
     }
 
 }
