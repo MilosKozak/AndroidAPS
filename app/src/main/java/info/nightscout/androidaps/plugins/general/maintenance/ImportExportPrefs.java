@@ -4,11 +4,14 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
 
@@ -153,6 +156,44 @@ public class ImportExportPrefs {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    public static void sendToDropboxClient(Fragment f){
+        // Write an AndroidPreferences file to exports dir and sends it to Dropbox client if installed
+        File path = f.getContext().getExternalFilesDir("exports");
+        final File file = new File(path, MainApp.gs(R.string.app_name) + "Preferences");
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(f.getContext());
+        try {
+            FileWriter fw = new FileWriter(file);
+            PrintWriter pw = new PrintWriter(fw);
+            Map<String, ?> prefsMap = prefs.getAll();
+            for (Map.Entry<String, ?> entry : prefsMap.entrySet()) {
+                pw.println(entry.getKey() + "::" + entry.getValue().toString());
+            }
+            pw.close();
+            fw.close();
+            ToastUtils.showToastInUiThread(f.getContext(), MainApp.gs(R.string.exported));
+        } catch (FileNotFoundException e) {
+            ToastUtils.showToastInUiThread(f.getContext(), MainApp.gs(R.string.filenotfound) + " " + file);
+            log.error("Unhandled exception", e);
+        } catch (IOException e) {
+            log.error("Unhandled exception", e);
+        }
+        try {
+            Intent mIntent = new Intent(Intent.ACTION_SEND);
+            mIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            Context ctx = f.getContext();
+            Uri uri = FileProvider.getUriForFile(f.getContext(), "info.nightscout.androidaps.fileprovider", file);
+
+            mIntent.setType("text/*");
+            mIntent.setData(uri);
+            mIntent.putExtra("android.intent.extra.STREAM",uri);
+            mIntent.setPackage("com.dropbox.android");
+            ctx.startActivity(Intent.createChooser(mIntent, MainApp.gs(R.string.dropbox_export)));
+        } catch (Exception e) {
+            //App not found
+            e.printStackTrace();
+        }
     }
 
 }
