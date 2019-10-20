@@ -772,7 +772,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="combo_error_bolus_verification_failed">L\'administration de bolus et la vérification de l\'historique de la pompe ont échoué. Vérifiez la pompe manuellement. Si un bolus a été administré, il sera ajouté aux traitements au cours de la prochaine connexion avec la pompe.</string>
     <string name="combo_reservoir_level_insufficient_for_bolus">Pas assez d\'insuline dans le réservoir pour le bolus</string>
     <string name="extendedbolusdeliveryerror">Erreur administration bolus étendu</string>
-    <string name="insightpump_shortname">Vue</string>
+    <string name="insightpump_shortname">AC-I</string>
     <string name="ago">passé(e)s</string>
     <string name="format_hours">%1$.2f h</string>
     <string name="enablesmbalways">Activer en permanence les SMB</string>
