@@ -126,11 +126,14 @@
     <string name="isf_label">Tópico: Factor de Sensibilidade de Insulina</string>
     <string name="isf_increasingvalue">Valores elevados de FSI levam a uma entrega de menos insulina quando o AAPS corrige Glic alta.</string>
     <string name="isf_decreasingvalue">Valores baixos de FSI levam a uma entrega de menos insulina quando o AAPS corrige Glic alta.</string>
+    <string name="isf_noeffect">Alterar os valores FSI não tem efeito sobre a quantidade de insulina entregue quando a AAPS corrige Glic alta.</string>
     <string name="isf_preferences">É necessário inserir FSI nas Preferências.</string>
     <string name="isf_profile">A alteração do valor do FSI no seu perfil é suficiente para aplicar a mudança.</string>
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html</string>
     <string name="ic_label">Tópico: Rácio IC</string>
+    <string name="ic_increasingvalue">Rácios IC mais altos levam a menos insulina entregue para uma dada quantidade de hidratos.</string>
+    <string name="ic_decreasingvalue">Rácios IC mais baixos levam a menos insulina entregue para uma dada quantidade de hidratos.</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Tópico: Mudança De Perfil</string>
     <string name="profileswitch_pctwillchange"> Ao especificar 90% na mudança de perfil…</string>
