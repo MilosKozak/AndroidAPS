@@ -7,6 +7,7 @@
     <string name="dia_minimumis5h">O valor mínimo é de 5 horas.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html?#insulin</string>
     <string name="dia_meaningisequaltodiapump">O significado é igual ao parâmetro DIA usado na bomba.</string>
+    <string name="dia_valuemustbedetermined">É necessário determinar o seu valor individual (mas não menos de 5 horas).</string>
     <string name="hypott_label">Tópico: Alvo-Temp. Hipo</string>
     <string name="hypott_whenhypott">O que é a razão principal para definir TT hipoglicemia?</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
