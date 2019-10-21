@@ -134,6 +134,9 @@
     <string name="ic_label">Tópico: Rácio IC</string>
     <string name="ic_increasingvalue">Rácios IC mais altos levam a menos insulina entregue para uma dada quantidade de hidratos.</string>
     <string name="ic_decreasingvalue">Rácios IC mais baixos levam a menos insulina entregue para uma dada quantidade de hidratos.</string>
+    <string name="ic_noeffect">Se tiver 0 COB, alterar o rácio IC irá levar a uma quantidade diferente de insulina para corrigir um determinado valor da Glic.</string>
+    <string name="ic_different">IC será diferente se contar a unidade de pão como 10g ou 12g.</string>
+    <string name="ic_meaning">O significado do IC é: Quantas unidades de pão são cobertas por 1U de insulina.</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Tópico: Mudança De Perfil</string>
     <string name="profileswitch_pctwillchange"> Ao especificar 90% na mudança de perfil…</string>
@@ -148,6 +151,7 @@
     <string name="profileswitch_targetlower">Alvo será 10% inferior.</string>
     <string name="profileswitch_targetbottom">Só alvo inferior será 10% menor.</string>
     <string name="profileswitch_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
+    <string name="profileswitchtime_iwant">Se acordar 1h mais cedo do que o normal, como deve notificar a AAPS da mudança no seu horário?</string>
     <string name="profileswitchtime_1">Iniciar uma mudança de perfil com uma alteração de turno de 1</string>
     <string name="profileswitchtime__1">Iniciar uma mudança de perfil com uma alteração de turno de -1</string>
     <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
