@@ -8,6 +8,8 @@
     <string name="objectivenotstarted">Objetivo %1$d não iniciado</string>
     <string name="objectivenotfinished">Objetivo %1$d não terminado</string>
     <string name="objectives_openloop_objective">A iniciar em Open Loop</string>
+    <string name="objectives_maxiobzero_objective">Começar o close loop com Suspensão por Glicose Baixa</string>
+    <string name="objectives_maxiobzero_gate">Utilizar em close loop com IOB máx = 0 por alguns dias sem muitas situações de Suspensão por Baixa Glicose</string>
     <string name="objectives_autosens_objective">Ajuste as basais e os rácios, se necessário, e, em seguida, active o auto-sens</string>
     <string name="objectives_autosens_gate">1 semana de looping durante o dia com sucesso com entrada regular de hidratos de carbono</string>
     <string name="objectives_smb_objective">Activando recursos adicionais para uso durante o dia, como SMB</string>
