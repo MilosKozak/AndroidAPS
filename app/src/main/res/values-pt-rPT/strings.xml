@@ -296,7 +296,7 @@
     <string name="danar_history_dailyinsulin">Insulina diária</string>
     <string name="danar_history_errors">Erros</string>
     <string name="danar_history_glucose">Glicose</string>
-    <string name="danar_history_refill">Reabastecimento</string>
+    <string name="danar_history_refill">Recarregar</string>
     <string name="danar_history_syspend">Suspender</string>
     <string name="danar_history_connectingfor">A ligar durante %1$d s</string>
     <string name="danar_password_title">Senha da bomba</string>
