@@ -10,6 +10,8 @@
     <string name="objectives_openloop_objective">A iniciar em Open Loop</string>
     <string name="objectives_autosens_objective">Ajuste as basais e os rácios, se necessário, e, em seguida, active o auto-sens</string>
     <string name="objectives_autosens_gate">1 semana de looping durante o dia com sucesso com entrada regular de hidratos de carbono</string>
+    <string name="objectives_smb_objective">Activando recursos adicionais para uso durante o dia, como SMB</string>
+    <string name="objectives_smb_gate">Deverá ler a wiki e aumentar a IOB máx para que os SMBs funcionem devidamente! Inicialmente poderá considerar maxIOB=média dos bólus + 3 x a basal máxima</string>
     <string name="objectives_bgavailableinns">Glic disponível no NS</string>
     <string name="objectives_pumpstatusavailableinns">Estado da Bomba disponível no NS</string>
     <string name="objectives_manualenacts">Execução manual</string>
