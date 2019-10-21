@@ -10,11 +10,15 @@
     <string name="hypott_label">Tópico: Alvo-Temp. Hipo</string>
     <string name="hypott_whenhypott">O que é a razão principal para definir TT hipoglicemia?</string>
     <string name="hypott_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html</string>
+    <string name="offlineprofile_whatprofile">Qual perfil pode ser usado e configurado offline?</string>
     <string name="offlineprofile_label">Tópico: Perfil Offline</string>
     <string name="offlineprofile_nsprofile">Perfil NS pode ser usado, mas não configurado.</string>
     <string name="offlineprofile_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#profile</string>
     <string name="pumpdisconnect_label">Tópico: Desligar a Bomba</string>
+    <string name="pumpdisconnect_whattodo">O que deve ser feito ao desligar a bomba?</string>
     <string name="pumpdisconnect_letknow">Clique em \'Desligar bomba\' para que o AAPS saiba que nenhuma insulina está a ser entregue.</string>
+    <string name="pumpdisconnect_suspend">Clique em \'Suspender loop\' para que AAPS pare o looping enquanto a bomba estiver desconectada.</string>
+    <string name="pumpdisconnect_dontchnage">Não altere nada no AAPS, apenas desconecte a bomba.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
     <string name="objectives_label">Tópico: Definições do AndroidAPS</string>
     <string name="objectives_howtosave">Quais são as práticas recomendadas para fazer cópia de segurança das configurações?</string>
@@ -87,6 +91,7 @@
     <string name="troubleshooting_hint2">https://www.facebook.com/groups/AndroidAPSUsers/</string>
     <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
     <string name="insulin_label">Tópico: Plugins de Insulina</string>
+    <string name="insulin_ultrarapid">Qual marca de insulina pode ser usada com o plugin \'Ultra-Rapid-Oref\'?</string>
     <string name="insulin_fiasp">Fiasp®</string>
     <string name="insulin_novorapid">NovoRapid ®</string>
     <string name="insulin_humalog">Humalog ®</string>
