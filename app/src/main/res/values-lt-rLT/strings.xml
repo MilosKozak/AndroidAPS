@@ -65,7 +65,7 @@
     <string name="nsprofileview_target_label">Tikslas</string>
     <string name="noprofileset">Nenustatytas profilis</string>
     <string name="treatments_insulin_label_string">Insulinas:</string>
-    <string name="treatments_carbs_label_string">Angliavandeniai:</string>
+    <string name="treatments_carbs_label_string">AV:</string>
     <string name="treatments_iob_label_string">AIO:</string>
     <string name="sms_iob">AIO:</string>
     <string name="treatments_iobtotal_label_string">Visas AIO:</string>
