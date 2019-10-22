@@ -478,7 +478,7 @@
     <string name="settings_password">Passwort für die Einstellungen</string>
     <string name="unlock_settings">Einstellungen freischalten</string>
     <string name="approachingdailylimit">Tagesinsulin-Limit wird bald erreicht</string>
-    <string name="nsclientinternal">Nighscout-Client</string>
+    <string name="nsclientinternal">Nightscout-Client</string>
     <string name="nsclientinternal_shortname">NSCl</string>
     <string name="nsclientinternal_url">URL:</string>
     <string name="nsclientinternal_autoscroll">Auto-Scrollen</string>
