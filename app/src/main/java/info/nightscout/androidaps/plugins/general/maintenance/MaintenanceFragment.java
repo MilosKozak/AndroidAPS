@@ -1,24 +1,32 @@
 package info.nightscout.androidaps.plugins.general.maintenance;
 
+import android.app.backup.BackupManager;
+import android.app.backup.RestoreObserver;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.general.food.FoodPlugin;
 import info.nightscout.androidaps.plugins.general.maintenance.activities.LogSettingActivity;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
+import info.nightscout.androidaps.utils.ToastUtils;
 
 /**
  *
  */
 public class MaintenanceFragment extends Fragment {
-
+    private static Logger log = LoggerFactory.getLogger(L.CORE);
     private Fragment f;
 
     @Override
@@ -72,6 +80,14 @@ public class MaintenanceFragment extends Fragment {
             ImportExportPrefs.importSharedPreferences(f);
         });
 
+        view.findViewById(R.id.nav_requestRestore).setOnClickListener(view1 -> {
+            onClickRequestRestore(view1);
+        });
+
+        view.findViewById(R.id.nav_requestBackup).setOnClickListener(view1 -> {
+            onClickTriggerDataChanged(view1);
+        });
+
         view.findViewById(R.id.nav_logsettings).setOnClickListener(view1 -> {
             startActivity(new Intent(getActivity(), LogSettingActivity.class));
         });
@@ -80,4 +96,33 @@ public class MaintenanceFragment extends Fragment {
         return view;
     }
 
+    public void onClickRequestRestore(View v) {
+        BackupManager backupManager = new BackupManager(f.getActivity().getApplicationContext());
+        backupManager.requestRestore(new RestoreObserver() {
+            @Override
+            public void restoreStarting(int numPackages) {
+                super.restoreStarting(numPackages);
+            }
+
+            @Override
+            public void onUpdate(int nowBeingRestored, String currentPackage) {
+                log.debug("Restore requested - current package: "+currentPackage);
+                super.onUpdate(nowBeingRestored, currentPackage);
+            }
+
+            @Override
+            public void restoreFinished(int error) {
+                super.restoreFinished(error);
+                //This is always called!
+                ToastUtils.showToastInUiThread(f.getActivity().getApplicationContext(), "Update successful");
+
+            }
+        });
+    }
+
+    public void onClickTriggerDataChanged(View v){
+        BackupManager backupManager = new BackupManager(f.getActivity().getApplicationContext());
+        backupManager.dataChanged();
+        log.debug("Requested backup! dataChanged()");
+    }
 }

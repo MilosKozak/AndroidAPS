@@ -30,6 +30,8 @@
     <string name="treatmentssafety_maxcarbs_title">Max allowed carbs [g]</string>
 
     <string name="nav_preferences">Preferences</string>
+    <string name="nav_request_backup">Request backup to Google</string>
+    <string name="nav_restore_backup">Restore settings from Google</string>
     <string name="nav_refreshtreatments">Refresh treatments from NS</string>
     <string name="nav_resetdb">Reset Databases</string>
     <string name="reset_db_confirm">Do you really want to reset the databases?</string>

@@ -1,5 +1,7 @@
 package info.nightscout.androidaps.activities;
 
+import android.app.backup.BackupManager;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
@@ -12,9 +14,14 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import info.nightscout.androidaps.Config;
+import info.nightscout.androidaps.MainActivity;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRebuildTabs;
@@ -53,6 +60,7 @@ import info.nightscout.androidaps.plugins.general.automation.AutomationPlugin;
 
 public class PreferencesActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     MyPreferenceFragment myPreferenceFragment;
+    private static Logger log = LoggerFactory.getLogger(L.CORE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +76,12 @@ public class PreferencesActivity extends PreferenceActivity implements SharedPre
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        Context applicationContext = this.getApplicationContext();
+        if(applicationContext != null) {
+            log.debug("Calling dataChanged()!");
+            BackupManager bm = new BackupManager(applicationContext);
+            bm.dataChanged();
+        }
         RxBus.INSTANCE.send(new EventPreferenceChange(key));
         if (key.equals("language")) {
             String lang = sharedPreferences.getString("language", "en");
