@@ -64,6 +64,7 @@ public class AlarmSoundService extends Service {
             if (manager == null || !manager.isMusicActive()) {
                 player.setVolume(100, 100);
             }
+            player.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
             player.prepare();
             player.start();
         } catch (Exception e) {
