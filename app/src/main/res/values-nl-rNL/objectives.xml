@@ -41,6 +41,7 @@
     <string name="codeinvalid">Code ongeldig</string>
     <string name="objectives_exam_objective">Bewijs je kennis</string>
     <string name="objectives_exam_gate">Bestudeer en beantwoord de vragen correct</string>
+    <string name="answerdisabledto">Beantwoorden uitgeschakeld tot: %1$s</string>
     <string name="wronganswer">Verkeerd antwoord!</string>
     <string name="unfinshed_button">Volgende onvoltooide</string>
     <string name="requestcode">Aanvraagcode: %1$s</string>
