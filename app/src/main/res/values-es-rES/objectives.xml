@@ -41,7 +41,6 @@
     <string name="codeinvalid">Código no válido</string>
     <string name="objectives_exam_objective">Compruebe su conocimiento</string>
     <string name="objectives_exam_gate">Responder correctamente</string>
-    <string name="answerdisabledto">Respuesta deshabilitada a: %1$s</string>
     <string name="wronganswer">Respuesta incorrecta!</string>
     <string name="unfinshed_button">Siguien&amp;te sin terminar</string>
     <string name="requestcode">Solicitar código: %1$s</string>
