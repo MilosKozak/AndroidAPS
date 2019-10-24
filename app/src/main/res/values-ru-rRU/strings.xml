@@ -99,6 +99,7 @@
     <string name="openapsma_profile_label">профиль</string>
     <string name="openapsma_mealdata_label">данные приема пищи</string>
     <string name="result">результат</string>
+    <string name="result_insulin_carbs">Результат: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">данные гликемии недоступны</string>
     <string name="nochangerequested">изменения не запрошены</string>
     <string name="openapsma_request_label">запрос</string>
@@ -216,6 +217,7 @@
     <string name="overview_tempbasal_button">ВремБазал</string>
     <string name="overview_extendedbolus_button">расширенный болюс</string>
     <string name="configbuilder_nightscoutversion_label">версия Nightscout:</string>
+    <string name="missing_carbs">Отсутствует %1$dg</string>
     <string name="exported">настройки экспортированы</string>
     <string name="export_to">экспортировать настройки в</string>
     <string name="import_from">импортировать настройки из</string>
@@ -1373,4 +1375,5 @@ Context | Edit Context</string>
     <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Мастер Болюса</string>
     <string name="unit_minute_short">мин</string>
+    <string name="format_carbs">%1$d гр</string>
 </resources>
