@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">Tijdelijk basaal</string>
     <string name="overview_extendedbolus_button">Vertraagde bolus</string>
     <string name="configbuilder_nightscoutversion_label">Nightscout versie:</string>
-    <string name="missing">Te weinig</string>
     <string name="exported">Voorkeuren geëxporteerd</string>
     <string name="export_to">Exporteer instellingen naar</string>
     <string name="import_from">Importeer instellingen van</string>
