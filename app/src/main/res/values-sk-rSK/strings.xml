@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">Dočasný bazál</string>
     <string name="overview_extendedbolus_button">Predĺžený bolus</string>
     <string name="configbuilder_nightscoutversion_label">Verzia Nightscoutu:</string>
-    <string name="missing">Chýba</string>
     <string name="exported">Nastavenie exportované</string>
     <string name="export_to">Exportovať nastavenia do</string>
     <string name="import_from">Importovať nastavenia z</string>
