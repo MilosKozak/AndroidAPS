@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">BazaTymczasowa</string>
     <string name="overview_extendedbolus_button">Bolus Przedłużony</string>
     <string name="configbuilder_nightscoutversion_label">Wersja Nightscout:</string>
-    <string name="missing">Brakujące</string>
     <string name="exported">Właściwości wyeksportowane</string>
     <string name="export_to">Eksportuj ustawienia do</string>
     <string name="import_from">Importuj ustawienia z</string>
