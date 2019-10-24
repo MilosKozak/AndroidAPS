@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">Basal Temporária</string>
     <string name="overview_extendedbolus_button">Bólus estendido</string>
     <string name="configbuilder_nightscoutversion_label">Versão do Nightscout:</string>
-    <string name="missing">Faltando</string>
     <string name="exported">Preferências exportadas</string>
     <string name="export_to">Exportar configurações para</string>
     <string name="import_from">Importar configurações de</string>
@@ -1369,6 +1368,7 @@
     <string name="format_bg_isf">%1$s FSI: %2$.1f</string>
     <string name="format_carbs_ic">%1$.0fg IC: %2$.1f</string>
     <string name="format_cob_ic">%1$.1fg IC: %2$.1f</string>
+    <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Assistente de Bólus</string>
     <string name="unit_minute_short">min</string>
 </resources>
