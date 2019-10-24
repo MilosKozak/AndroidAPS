@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">임시Basal</string>
     <string name="overview_extendedbolus_button">확장 Bolus</string>
     <string name="configbuilder_nightscoutversion_label">Nightscout 버전:</string>
-    <string name="missing">누락</string>
     <string name="exported">설정이 저장되었습니다</string>
     <string name="export_to">다음 위치에 설정을 저장하시겠습니까</string>
     <string name="import_from">다음 위치에서 설정을 불러오시겠습니까</string>
