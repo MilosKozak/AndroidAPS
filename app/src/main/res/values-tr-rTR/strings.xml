@@ -210,7 +210,6 @@
     <string name="overview_tempbasal_button">Geçici Bazal</string>
     <string name="overview_extendedbolus_button">Yayım Bolus</string>
     <string name="configbuilder_nightscoutversion_label">Nightscout sürümü:</string>
-    <string name="missing">Eksik</string>
     <string name="exported">Tercihler dışa aktarıldı</string>
     <string name="export_to">Ayarları aktar</string>
     <string name="import_from">Ayarları içe aktar</string>
