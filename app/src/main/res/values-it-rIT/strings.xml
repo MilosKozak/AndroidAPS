@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">Basale temporanea</string>
     <string name="overview_extendedbolus_button">Bolo esteso</string>
     <string name="configbuilder_nightscoutversion_label">Versione Nightscout:</string>
-    <string name="missing">Mancante</string>
     <string name="exported">Preferenze esportate</string>
     <string name="export_to">Esporta impostazioni su</string>
     <string name="import_from">Importa impostazioni da</string>
