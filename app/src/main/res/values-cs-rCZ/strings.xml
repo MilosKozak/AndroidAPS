@@ -99,6 +99,7 @@
     <string name="openapsma_profile_label">Profil</string>
     <string name="openapsma_mealdata_label">Data o jídle</string>
     <string name="result">Výsledek</string>
+    <string name="result_insulin_carbs">Výsledek: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Nedostupná data o glykémiích</string>
     <string name="nochangerequested">Změna nepožadována</string>
     <string name="openapsma_request_label">Požadavek</string>
@@ -216,6 +217,7 @@
     <string name="overview_tempbasal_button">Dočasný bazál</string>
     <string name="overview_extendedbolus_button">Prodloužený bolus</string>
     <string name="configbuilder_nightscoutversion_label">Verze Nightscoutu:</string>
+    <string name="missing_carbs">Chybí %1$dg</string>
     <string name="exported">Nastavení exportováno</string>
     <string name="export_to">Exportovat nastavení do</string>
     <string name="import_from">Importovat nastavení z</string>
@@ -1371,4 +1373,5 @@
     <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Bolusová kalkulačka</string>
     <string name="unit_minute_short">min</string>
+    <string name="format_carbs">%1$dg</string>
 </resources>
