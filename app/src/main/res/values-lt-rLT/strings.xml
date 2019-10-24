@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">Laikina bazė</string>
     <string name="overview_extendedbolus_button">Ištęstas bolusas</string>
     <string name="configbuilder_nightscoutversion_label">Nightscout versija:</string>
-    <string name="missing">Trūksta</string>
     <string name="exported">Nustatymai eksportuoti</string>
     <string name="export_to">Eksportuoti nustatymus</string>
     <string name="import_from">Importuoti nustatymus iš</string>
