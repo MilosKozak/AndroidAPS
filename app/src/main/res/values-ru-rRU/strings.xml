@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">ВремБазал</string>
     <string name="overview_extendedbolus_button">расширенный болюс</string>
     <string name="configbuilder_nightscoutversion_label">версия Nightscout:</string>
-    <string name="missing">отсутствует</string>
     <string name="exported">настройки экспортированы</string>
     <string name="export_to">экспортировать настройки в</string>
     <string name="import_from">импортировать настройки из</string>
