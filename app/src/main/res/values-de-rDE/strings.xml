@@ -99,6 +99,7 @@
     <string name="openapsma_profile_label">Profil</string>
     <string name="openapsma_mealdata_label">Mahlzeiten-Daten</string>
     <string name="result">Ergebnis</string>
+    <string name="result_insulin_carbs">Ergebnis: %1$s $2$s</string>
     <string name="openapsma_noglucosedata">Keine BZ-Werte verfügbar</string>
     <string name="nochangerequested">Keine Anpassung benötigt</string>
     <string name="openapsma_request_label">Anfrage</string>
@@ -216,6 +217,7 @@
     <string name="overview_tempbasal_button">TBR</string>
     <string name="overview_extendedbolus_button">Verzögerter Bolus</string>
     <string name="configbuilder_nightscoutversion_label">Nightscout-Version:</string>
+    <string name="missing_carbs">Fehlend %1$dg</string>
     <string name="exported">Einstellungen exportiert</string>
     <string name="export_to">Einstellungen exportieren nach</string>
     <string name="import_from">Importiere Einstellungen von</string>
@@ -1372,4 +1374,5 @@ Unerwartetes Verhalten.</string>
     <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Bolus-Rechner</string>
     <string name="unit_minute_short">Min.</string>
+    <string name="format_carbs">%1$dg</string>
 </resources>
