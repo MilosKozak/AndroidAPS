@@ -214,7 +214,6 @@
     <string name="overview_tempbasal_button">临时基础</string>
     <string name="overview_extendedbolus_button">扩展大剂量</string>
     <string name="configbuilder_nightscoutversion_label">Nightscout 版本:</string>
-    <string name="missing">缺少</string>
     <string name="exported">参数选项导出了</string>
     <string name="export_to">导出配置</string>
     <string name="import_from">导入配置</string>
