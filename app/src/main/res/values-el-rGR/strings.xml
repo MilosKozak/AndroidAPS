@@ -216,7 +216,6 @@
     <string name="overview_tempbasal_button">Προσ Ρυθμός</string>
     <string name="overview_extendedbolus_button">Εκτεταμμένο Bolus</string>
     <string name="configbuilder_nightscoutversion_label">Έκδοση Nightscout:</string>
-    <string name="missing">Χαμένες</string>
     <string name="exported">Επιλογές εξήχθησαν</string>
     <string name="export_to">Εξαγωγή ρυθμίσεων σε</string>
     <string name="import_from">Εισαγωγή ρυθμίσεων από</string>
