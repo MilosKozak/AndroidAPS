@@ -41,6 +41,7 @@
     <string name="codeinvalid">Niepoprawny kod</string>
     <string name="objectives_exam_objective">Potwierdź swoje umiejętności</string>
     <string name="objectives_exam_gate">Ucz się i odpowiadaj poprawnie na pytania</string>
+    <string name="answerdisabledto">Odpowiadanie wyłączone na: %1$s</string>
     <string name="wronganswer">Odpowiedź nieprawidłowa!</string>
     <string name="unfinshed_button">Następny niedokończony</string>
     <string name="requestcode">Kod zapytania: %1$s</string>
