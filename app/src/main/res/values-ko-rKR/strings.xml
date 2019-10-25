@@ -5,7 +5,6 @@
     <!--   <string name="he_lang" translatable="false">Hebrew</string> -->
     <!--    <string name="ga_lang" translatable="false">Irish</string> -->
     <!--    <string name="ja_lang" translatable="false">Japanese</string> -->
-    <!--    <string name="pt_BR_lang" translatable="false">Portuguese, Brazilian</string> -->
     <string name="treatmentssafety_title">관리 안전설정</string>
     <string name="treatmentssafety_maxbolus_title">최대 허용 Bolus [U]</string>
     <string name="treatmentssafety_maxcarbs_title">최대 허용 탄수화물 [g]</string>
@@ -545,8 +544,6 @@
     <string name="show_statuslights">홈화면에 상태 표시등 보여주기</string>
     <string name="statuslights_res_warning">주사기량 경고 기준값[U]</string>
     <string name="statuslights_res_critical">주사기량 위험 기준값[U]</string>
-    <string name="statuslights_bat_warning">배터리량 경고 기준값[%%]</string>
-    <string name="statuslights_bat_critical">배터리량 위험 기준값[%%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">펌웨어</string>
