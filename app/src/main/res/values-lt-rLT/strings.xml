@@ -5,7 +5,6 @@
     <!--   <string name="he_lang" translatable="false">Hebrew</string> -->
     <!--    <string name="ga_lang" translatable="false">Irish</string> -->
     <!--    <string name="ja_lang" translatable="false">Japanese</string> -->
-    <!--    <string name="pt_BR_lang" translatable="false">Portuguese, Brazilian</string> -->
     <string name="treatmentssafety_title">Terapijos saugumas</string>
     <string name="treatmentssafety_maxbolus_title">Maksimalus leistinas bolusas [U]</string>
     <string name="treatmentssafety_maxcarbs_title">Maks. leistini angliavandeniai [g]</string>
@@ -547,8 +546,6 @@
     <string name="show_statuslights_extended_summary">Pradžios ekrane rodyti papildomus šviesos indikatorius adatos, insulino, sensoriaus naudojimo trukmei bei baterijos įkrovimo lygiui.</string>
     <string name="statuslights_res_warning">Įspėjimo apie žemą rezervuaro lygį riba [U]</string>
     <string name="statuslights_res_critical">Įspėjimo apie kritiškai žemą rezervuaro lygį riba [U]</string>
-    <string name="statuslights_bat_warning">Įspėjimo apie žemą baterijos įkrovimo lygį riba [%%]</string>
-    <string name="statuslights_bat_critical">Įspėjimo apie kritiškai žemą baterijos įkrovimo lygį riba [%%]</string>
     <string name="iob">AIO</string>
     <string name="cob">AAO</string>
     <string name="virtualpump_firmware_label">Programinė įranga</string>
