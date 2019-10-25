@@ -41,6 +41,7 @@
     <string name="codeinvalid">Neteisingas kodas</string>
     <string name="objectives_exam_objective">Patvirtinkite savo žinias</string>
     <string name="objectives_exam_gate">Išnagrinėkite ir atsakykite į klausimus teisingai</string>
+    <string name="answerdisabledto">Atsakymas sustabdytas: %1$s</string>
     <string name="wronganswer">Neteisingas atsakymas!</string>
     <string name="unfinshed_button">Kitas neužbaigtas</string>
     <string name="requestcode">Paprašyti kodo: %1$s</string>
