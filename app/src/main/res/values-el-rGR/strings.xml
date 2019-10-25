@@ -5,7 +5,6 @@
     <!--   <string name="he_lang" translatable="false">Hebrew</string> -->
     <!--    <string name="ga_lang" translatable="false">Irish</string> -->
     <!--    <string name="ja_lang" translatable="false">Japanese</string> -->
-    <!--    <string name="pt_BR_lang" translatable="false">Portuguese, Brazilian</string> -->
     <string name="treatmentssafety_title">Ασφάλεια Θεραπειών</string>
     <string name="treatmentssafety_maxbolus_title">Μέγιστο Επιτρεπτό bolus[U]</string>
     <string name="treatmentssafety_maxcarbs_title">Μέγιστο Επιτρεπτό υδατανθράκων [g]</string>
@@ -547,8 +546,6 @@
     <string name="show_statuslights_extended_summary">Ενεργοποίηση του φωτισμού κατάστασης για cage, iage, sage, reservoir και επίπεδο μπαταρίας στην αρχική οθόνη.</string>
     <string name="statuslights_res_warning">Όριο προειδοποίησης χαμηλής αμπούλας [U]</string>
     <string name="statuslights_res_critical">Όριο προειδοποίησης πολύ χαμηλής αμπούλας [U]</string>
-    <string name="statuslights_bat_warning">Όριο προειδοποίησης χαμηλής μπαταρίας [%%]</string>
-    <string name="statuslights_bat_critical">Όριο προειδοποίησης πολύ χαμηλής μπαταρίας [%%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Έκδοση</string>
