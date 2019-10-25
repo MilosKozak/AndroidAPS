@@ -548,6 +548,7 @@
     <string name="show_statuslights_extended_summary">Abilita indicatori di stato estesi per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
     <string name="statuslights_res_warning">Soglia di avviso livello serbatoio [U]</string>
     <string name="statuslights_res_critical">Soglia critica livello serbatoio [U]</string>
+    <string name="statuslights_bat_warning">Soglia livello batteria a cui prestare attenzione [%]</string>
     <string name="statuslights_bat_critical">Soglia livello batteria critico [%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
