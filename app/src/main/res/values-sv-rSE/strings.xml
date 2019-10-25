@@ -547,6 +547,8 @@ Eversense-appen.</string>
     <string name="show_statuslights_extended_summary">Aktivera statusindikatorerna för cage, iage, sage, reservoar och batterinivå på hemskärmen.</string>
     <string name="statuslights_res_warning">Varningsnivå för reservoar [U]</string>
     <string name="statuslights_res_critical">Akut varningsnivå för reservoar [U]</string>
+    <string name="statuslights_bat_warning">Varningsnivå för batteri [%]</string>
+    <string name="statuslights_bat_critical">Akut varningsnivå för batteri [%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Firmwareversion</string>
@@ -1366,6 +1368,7 @@ Eversense-appen.</string>
     <string name="format_bg_isf">%1$s ISF: %2$.1f</string>
     <string name="format_carbs_ic">%1$.0fg IC: %2$.1f</string>
     <string name="format_cob_ic">%1$.1fg IC: %2$.1f</string>
+    <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Kalkylator</string>
     <string name="unit_minute_short">min</string>
 </resources>
