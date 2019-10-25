@@ -548,6 +548,8 @@
     <string name="show_statuslights_extended_summary">Povoliť rozšírené indikátory stavu pre CAGE, IAGE, SAGE, Reservoir a Battery Level na domovskej obrazovke.</string>
     <string name="statuslights_res_warning">Prah upozornenia na úroveň hladiny zásobníka [JI]</string>
     <string name="statuslights_res_critical">Prah kritickej úrovne hladiny zásobníka [JI]</string>
+    <string name="statuslights_bat_warning">Prah upozornenia na úroveň batérie [%]</string>
+    <string name="statuslights_bat_critical">Prah kritickej úrovne batérie [%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Firmware</string>
