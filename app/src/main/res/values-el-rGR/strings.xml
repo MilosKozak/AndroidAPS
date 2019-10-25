@@ -98,6 +98,7 @@
     <string name="openapsma_profile_label">Προφίλ</string>
     <string name="openapsma_mealdata_label">Δεδομένα Γεύματος</string>
     <string name="result">Αποτέλεσμα</string>
+    <string name="result_insulin_carbs">Αποτέλεσμα: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Μη διαθέσιμα δεδομένα γλυκόζης</string>
     <string name="nochangerequested">Δεν απαιτείται αλλαγή</string>
     <string name="openapsma_request_label">Αίτημα</string>
@@ -215,6 +216,7 @@
     <string name="overview_tempbasal_button">Προσ Ρυθμός</string>
     <string name="overview_extendedbolus_button">Εκτεταμμένο Bolus</string>
     <string name="configbuilder_nightscoutversion_label">Έκδοση Nightscout:</string>
+    <string name="missing_carbs">Λείπει %1$dg</string>
     <string name="exported">Επιλογές εξήχθησαν</string>
     <string name="export_to">Εξαγωγή ρυθμίσεων σε</string>
     <string name="import_from">Εισαγωγή ρυθμίσεων από</string>
@@ -1370,4 +1372,5 @@
     <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Οδηγός Bolus</string>
     <string name="unit_minute_short">min</string>
+    <string name="format_carbs">%1$dg</string>
 </resources>
