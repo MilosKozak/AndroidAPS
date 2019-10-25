@@ -5,7 +5,6 @@
     <!--   <string name="he_lang" translatable="false">Hebrew</string> -->
     <!--    <string name="ga_lang" translatable="false">Irish</string> -->
     <!--    <string name="ja_lang" translatable="false">Japanese</string> -->
-    <!--    <string name="pt_BR_lang" translatable="false">Portuguese, Brazilian</string> -->
     <string name="treatmentssafety_title">Tedavilerin güvenlik ayarları</string>
     <string name="treatmentssafety_maxbolus_title">Max izin verilen bolus [U]</string>
     <string name="treatmentssafety_maxcarbs_title">Max izin verilen karbonhidrat [g]</string>
