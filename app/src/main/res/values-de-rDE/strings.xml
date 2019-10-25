@@ -548,6 +548,8 @@
     <string name="show_statuslights_extended_summary">Erweiterte Statusanzeige für CAGE, IAGE, SAGE, Reservoir- und Batteriestand auf dem Homescreen.</string>
     <string name="statuslights_res_warning">Warnschwelle Reservoirstand [IE]</string>
     <string name="statuslights_res_critical">Warnschwelle kritischer Reservoirstand [IE]</string>
+    <string name="statuslights_bat_warning">Warnschwelle Batteriestand [%]</string>
+    <string name="statuslights_bat_critical">Warnschwelle kritischer Batteriestand [%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Firmware</string>
