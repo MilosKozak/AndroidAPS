@@ -5,7 +5,6 @@
     <!--   <string name="he_lang" translatable="false">Hebrew</string> -->
     <!--    <string name="ga_lang" translatable="false">Irish</string> -->
     <!--    <string name="ja_lang" translatable="false">Japanese</string> -->
-    <!--    <string name="pt_BR_lang" translatable="false">Portuguese, Brazilian</string> -->
     <string name="treatmentssafety_title">Bezpieczeństwo leczenia</string>
     <string name="treatmentssafety_maxbolus_title">Maks. dopuszczalny bolus [U]</string>
     <string name="treatmentssafety_maxcarbs_title">Maks. dopuszczalne węglowodany [g]</string>
@@ -549,8 +548,6 @@
     <string name="show_statuslights_extended_summary">Włącz diody stanu dla cage, iage, sage, rezerwuar i poziom baterii na ekranie głównym.</string>
     <string name="statuslights_res_warning">Próg ostrzeżenia o poziomie zbiornika [U]</string>
     <string name="statuslights_res_critical">Próg ostrzeżenia o krytycznym poziomie zbiornika [U]</string>
-    <string name="statuslights_bat_warning">Próg ostrzeżenia o poziomie baterii [%%]</string>
-    <string name="statuslights_bat_critical">Próg ostrzeżenia o krytycznym poziomie baterii [%%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Firmware</string>
