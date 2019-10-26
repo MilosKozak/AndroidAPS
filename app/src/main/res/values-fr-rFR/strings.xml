@@ -1353,7 +1353,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="sendsmsactionlabel">Envoyer SMS : %1$s</string>
     <string name="sendsmsactiondescription">Envoyer SMS à tous les numéros dans les préférences</string>
     <string name="sendsmsactiontext">Envoyer SMS avec du texte</string>
-    <string name="insulinFromCob"><![CDATA[Glucides Actifs (GA) vs Insuline Active (IA) : <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
+    <string name="insulinFromCob"><![CDATA[GA vs IA : <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Contraintes de Bolus appliquées : %2$.2fU à %3$.2f</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Absorption lente des glucides détectée : %2$d%% du temps. Vérifiez de nouveau votre calcul. Les GA (Glucides Actifs) peuvent être surestimés et alors plus d\'insuline pourrait être délivré !!!!!</font>]]></string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
