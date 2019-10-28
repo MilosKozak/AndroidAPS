@@ -5,7 +5,6 @@
     <!--   <string name="he_lang" translatable="false">Hebrew</string> -->
     <!--    <string name="ga_lang" translatable="false">Irish</string> -->
     <!--    <string name="ja_lang" translatable="false">Japanese</string> -->
-    <!--    <string name="pt_BR_lang" translatable="false">Portuguese, Brazilian</string> -->
     <string name="treatmentssafety_title">Sicurezza trattamenti</string>
     <string name="treatmentssafety_maxbolus_title">Max bolo consentito [U]</string>
     <string name="treatmentssafety_maxcarbs_title">Max carboidrati consentiti [g]</string>
@@ -85,7 +84,7 @@
     <string name="treatments_wizard_bolusiob_label">IOB da bolo</string>
     <string name="openapsma_run">Esegui ora</string>
     <string name="vitualpump_label">MICROINFUSORE VIRTUALE</string>
-    <string name="pump_basebasalrate_label">Vel. basale originale</string>
+    <string name="pump_basebasalrate_label">Velocità basale originale</string>
     <string name="pump_tempbasal_label">Basale temporanea</string>
     <string name="virtualpump_extendedbolus_label">Bolo esteso</string>
     <string name="pump_battery_label">Batteria</string>
@@ -99,6 +98,7 @@
     <string name="openapsma_profile_label">Profilo</string>
     <string name="openapsma_mealdata_label">Dati pasto</string>
     <string name="result">Esito</string>
+    <string name="result_insulin_carbs">Risultato: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Dati glicemia non disponibili</string>
     <string name="nochangerequested">Nessun cambiamento richiesto</string>
     <string name="openapsma_request_label">Richiesta</string>
@@ -216,7 +216,7 @@
     <string name="overview_tempbasal_button">Basale temporanea</string>
     <string name="overview_extendedbolus_button">Bolo esteso</string>
     <string name="configbuilder_nightscoutversion_label">Versione Nightscout:</string>
-    <string name="missing">Mancante</string>
+    <string name="missing_carbs">Mancanti %1$dg</string>
     <string name="exported">Preferenze esportate</string>
     <string name="export_to">Esporta impostazioni su</string>
     <string name="import_from">Importa impostazioni da</string>
@@ -489,9 +489,9 @@
     <string name="nsclientinternal_secret_title">API secret di NS</string>
     <string name="nsclientinternal_secret_dialogtitle">API secret di NS</string>
     <string name="nsclientinternal_secret_dialogmessage">Inserisci l\'API secret di NS (minimo 12 caratteri)</string>
-    <string name="deliver_now">Eroga adesso</string>
+    <string name="deliver_now">Invia adesso</string>
     <string name="clear_queue">Cancella coda</string>
-    <string name="show_queue">Visualizza coda</string>
+    <string name="show_queue">Mostra coda</string>
     <string name="queue">Coda:</string>
     <string name="status">Stato:</string>
     <string name="paused">In pausa</string>
@@ -548,8 +548,8 @@
     <string name="show_statuslights_extended_summary">Abilita indicatori di stato estesi per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
     <string name="statuslights_res_warning">Soglia di avviso livello serbatoio [U]</string>
     <string name="statuslights_res_critical">Soglia critica livello serbatoio [U]</string>
-    <string name="statuslights_bat_warning">Soglia di avviso livello batteria [%%]</string>
-    <string name="statuslights_bat_critical">Soglia critica livello batteria [%%]</string>
+    <string name="statuslights_bat_warning">Soglia livello batteria a cui prestare attenzione [%]</string>
+    <string name="statuslights_bat_critical">Soglia livello batteria critico [%]</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="virtualpump_firmware_label">Firmware</string>
@@ -606,7 +606,7 @@
     <string name="careportal_sensorage_label_short">SAGE</string>
     <string name="careportal_insulinage_label_short">IAGE</string>
     <string name="careportal_canulaage_label_short">CAGE</string>
-    <string name="careportal_pbage_label_short">BTTAGE</string>
+    <string name="careportal_pbage_label_short">PBAGE</string>
     <string name="openaps_short">OAPS</string>
     <string name="uploader_short">UPLD</string>
     <string name="basal_short">BAS</string>
@@ -658,7 +658,7 @@
     <string name="danar_setbasalstep001">Imposta incremento basale a 0.01 U/h</string>
     <string name="serialnumber">Numero seriale</string>
     <string name="careportal_newnstreatment_percentage_label">Percentuale</string>
-    <string name="careportal_newnstreatment_timeshift_label">Cambio orario</string>
+    <string name="careportal_newnstreatment_timeshift_label">Time shift</string>
     <string name="default_temptargets">Temp-Target predefiniti</string>
     <string name="eatingsoon_duration">target \"pasto a breve\" - durata</string>
     <string name="eatingsoon_target">target \"pasto a breve\"</string>
@@ -706,8 +706,8 @@
     <string name="eversense">Eversense app (modificata)</string>
     <string name="dexcomg5_nsupload_title">Carica dati glicemia su NS</string>
     <string name="bgsource_upload">Impostazioni caricamento glicemia</string>
-    <string name="wear_detailed_delta_title">Visualizza delta dettagliato</string>
-    <string name="wear_detailed_delta_summary">Visualizza delta con una cifra decimale in più</string>
+    <string name="wear_detailed_delta_title">Mostra delta dettagliato</string>
+    <string name="wear_detailed_delta_summary">Mostra delta con una cifra decimale in più</string>
     <string name="smbmaxminutes_summary">Max minuti di basale a cui limitare SMB</string>
     <string name="unsupportedfirmware">Firmware del micro non supportato</string>
     <string name="dexcomg5_xdripupload_title">Invia dati glicemia a xDrip+</string>
@@ -750,7 +750,7 @@
     <string name="combo_pump_action_refreshing">Aggiornamento</string>
     <string name="combo_pump_unsupported_operation">Operazione richiesta non supportata dal micro</string>
     <string name="combo_low_suspend_forced_notification">Utilizzo non sicuro: sono attivi boli estesi o multiwave. Il loop è stato messo in modalità di sola sospensione dell\'erogazione di insulina in caso di valori bassi, per 6 ore. In modalità loop sono supportati solo boli normali</string>
-    <string name="combo_force_disabled_notification">Utilizzo non sicuro: il micro utilizza un profilo basale diverso dal primo in elenco tra le sue impostazioni. Il loop è stato disabilitato. Selezionare sul microinfusore il profilo basale numero 1.</string>
+    <string name="combo_force_disabled_notification">Utilizzo non sicuro: il micro utilizza un profilo della velocità basale diverso dal primo in elenco tra le sue impostazioni. Il loop è stato disabilitato. Selezionare sul microinfusore il profilo basale numero 1.</string>
     <string name="bolus_frequency_exceeded">Un bolo con la stessa quantità è stato richiesto negli ultimi due minuti. Questo non è consentito al fine di evitare boli doppi accidentali e a protezione di eventuali \"bug\".</string>
     <string name="combo_pump_connected_now">Adesso</string>
     <string name="combo_activity_reading_pump_history">Lettura storico micro</string>
@@ -800,7 +800,7 @@
     <string name="wear_notifysmb_summary">Mostra SMB sullo smartwatch come un bolo standard.</string>
     <string name="ns_create_announcements_from_errors_title">Crea avvisi da errori</string>
     <string name="ns_create_announcements_from_errors_summary">Crea avviso su Nightscout per finestre di errore e allarmi locali (visualizzabile anche nella sezione Portale sotto la voce Trattamenti)</string>
-    <string name="wear_predictions_summary">Visualizza le predizioni sulla watchface.</string>
+    <string name="wear_predictions_summary">Mostra le predizioni sulla watchface.</string>
     <string name="wear_predictions_title">Predizioni</string>
     <string name="data_choices">Scelta dei dati</string>
     <string name="fabric_upload">Invio a fabric.io</string>
@@ -850,19 +850,19 @@
     <string name="smbdisabledinpreferences">SMB disabilitato nelle preferenze</string>
     <string name="uamdisabledinpreferences">UAM disabilitato nelle preferenze</string>
     <string name="uamdisabledoref1notselected">UAM disabilitato perché il plugin di sensibilità Oref1, dal quale UAM dipende, non è abilitato</string>
-    <string name="limitingbasalratio">Limitazione max velocità basale a %1$.2f U/h. Causa: %2$s</string>
+    <string name="limitingbasalratio">Limitazione max velocità basale a %1$.2f U/h a causa di: %2$s</string>
     <string name="pumplimit">limite micro</string>
     <string name="itmustbepositivevalue">deve essere un valore positivo</string>
     <string name="maxbasalmultiplier">moltiplicatore - max basale</string>
     <string name="maxdailybasalmultiplier">moltiplicatore - max basale giornaliera</string>
     <string name="smb_frequency_exceeded">Un bolo è stato erogato negli ultimi 3 minuti, SMB ignorato</string>
     <string name="basal_set_correctly">Basale impostata correttamente</string>
-    <string name="limitingpercentrate">Limito max tasso percentuale a %1$d%% - Causa: %2$s</string>
-    <string name="limitingbolus">Limito il bolo a %1$.1f U - Causa: %2$s</string>
-    <string name="limitingextendedbolus">Limito il bolo esteso a %1$.1f U - Causa: %2$s</string>
-    <string name="limitingmaxiob">Limito max IOB a %1$.1f U - Causa: %2$s</string>
-    <string name="limitingcarbs">Limito i carboidrati a %1$d g Causa: %2$s</string>
-    <string name="limitingiob">Limito IOB a %1$.1f U - Causa: %2$s</string>
+    <string name="limitingpercentrate">Limitazione max tasso percentuale a %1$d%% a causa di: %2$s</string>
+    <string name="limitingbolus">Limitazione bolo a %1$.1f U a causa di: %2$s</string>
+    <string name="limitingextendedbolus">Limitazione bolo esteso a %1$.1f U a causa di: %2$s</string>
+    <string name="limitingmaxiob">Limitazione max IOB a %1$.1f U a causa di: %2$s</string>
+    <string name="limitingcarbs">Limitazione carboidrati a %1$d g a causa di: %2$s</string>
+    <string name="limitingiob">Limitazione IOB a %1$.1f U a causa di: %2$s</string>
     <string name="maxvalueinpreferences">valore max nelle preferenze</string>
     <string name="hardlimit">limite fisso</string>
     <string name="unsafeusage">utilizzo non sicuro</string>
@@ -974,10 +974,10 @@
     <string name="combo_invalid_setup">Configurazione micro non valida, controlla la documentazione e verifica che il menu Quick Info sia denominato QUICK INFO utilizzando \"360 configuration software\".</string>
     <string name="custom">Personalizzato</string>
     <string name="largetimedifftitle">Grande differenza d\'orario</string>
-    <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegola l\'ora manualmente e assicurati che la lettura dello storico del micro non causi comportamenti imprevisti.\nSe possibile, cancella la cronologia del micro prima di cambiare l\'orario oppure disabilita il loop chiuso per un tempo corrispondente alla tua DIA.</string>
+    <string name="largetimediff">Grande differenza d\'orario:\nL\'orario nel micro differisce per più di 1h e 30m. \nRegola l\'ora manualmente e assicurati che la lettura dello storico dal micro non causi comportamenti imprevisti.\nSe possibile, cancella la cronologia del micro prima di cambiare l\'orario oppure disabilita il loop chiuso per un tempo corrispondente al tuo valore DIA.</string>
     <string name="careportal_removestartedevents">Rimuovi gli eventi \"AndroidAPS avviato\"</string>
     <string name="storedsettingsfound">Trovate impostazioni salvate</string>
-    <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo le impostazioni della basale esistenti e memorizzate sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi annulla e ricollega il micro in un altro momento.</string>
+    <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo la velocità basale esistente memorizzata sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi annulla e ripeti il processo in un altro momento.</string>
     <string name="error_adding_treatment_title">Dati trattamento incompleti</string>
     <string name="maintenance_settings">Impostazioni manutenzione</string>
     <string name="maintenance_email">Email</string>
@@ -1236,6 +1236,8 @@
     <string name="medtronic_pump_battery_no">Non selezionato (Simple view)</string>
     <string name="medtronic_pump_battery_alkaline">Alcalina (Extended view)</string>
     <string name="medtronic_pump_battery_lithium">Litio (Extended view)</string>
+    <string name="medtronic_pump_battery_nizn">NiZn (Extended view)</string>
+    <string name="medtronic_bolus_debugging">Debug Bolo/Trattamenti</string>
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">SCAN</string>
     <string name="rileylink_scanner_scan_stop">STOP</string>
@@ -1327,7 +1329,7 @@
     <string name="medtronic_cmd_cancel_bolus_not_supported">Hai cancellato il bolo, dopo che era già stato impostato sul microinfusore. Dal momento che il micro Medtronic non supporta la cancellazione, avrai bisogno di cancellare il bolo manualmente. Metti il micro in modalità sospensione e poi fallo ripartire (se vuoi ancora cancellare il bolo). L\'applicazione rileverà le modifiche al prossimo aggiornamento (in meno di 5 minuti).</string>
     <string name="medtronic_cmd_cant_read_tbr">Impossibile leggere il TBR corrente.</string>
     <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Impossibile cancellare il TBR corrente. Arresto dell\'operazione.</string>
-    <string name="medtronic_cmd_set_profile_pattern_overflow">Impostazione del profilo fallita, i seguenti modelli hanno un tasso basale troppo grande: %1$s</string>
+    <string name="medtronic_cmd_set_profile_pattern_overflow">Impostazione del profilo fallita. A causa dei seguenti pattern, hai una velocità basale troppo grande: %1$s</string>
     <string name="medtronic_cmd_bolus_could_not_be_delivered">Il bolo non può essere erogato.</string>
     <string name="medtronic_cmd_bolus_could_not_be_delivered_no_insulin">Il bolo non può essere erogato perché la quantità di insulina disponibile (%1$.2f) è inferiore al bolo richiesto (%2$.2f).</string>
     <string name="medtronic_cmd_tbr_could_not_be_delivered">Il TBR non può essere impostato.</string>
@@ -1366,4 +1368,13 @@
     <string name="close">Chiudi</string>
     <string name="increasingmaxbasal">Aumento del valore max basale perché l\'impostazione è inferiore alla tua basale massima nel profilo</string>
     <string name="smscommunicator_messagebody">Corpo del messaggio non valido</string>
+    <string name="format_bg_isf">%1$s ISF: %2$.1f</string>
+    <string name="format_carbs_ic">%1$.0fg IC: %2$.1f</string>
+    <string name="format_cob_ic">%1$.1fg IC: %2$.1f</string>
+    <string name="format_percent">%1$d%%</string>
+    <string name="boluswizard">Bolus wizard</string>
+    <string name="unit_minute_short">min</string>
+    <string name="format_carbs">%1$dg</string>
+    <string name="common_on">On</string>
+    <string name="common_off">Off</string>
 </resources>
