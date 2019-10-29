@@ -35,6 +35,7 @@ object OverviewPlugin : PluginBase(PluginDescription()
 
     var bgTargetLow = 80.0
     var bgTargetHigh = 180.0
+    var bgTargetVeryHigh = 260.0
 
     var notificationStore = NotificationStore()
 
@@ -69,6 +70,13 @@ object OverviewPlugin : PluginBase(PluginDescription()
         var highLineSetting = SP.getDouble("high_mark", Profile.fromMgdlToUnits(bgTargetHigh, units))!!
         if (highLineSetting < 1)
             highLineSetting = Profile.fromMgdlToUnits(180.0, units)
+        return highLineSetting
+    }
+
+    fun determineVeryHighLine(units: String): Double {
+        var highLineSetting = SP.getDouble("veryhigh_mark", Profile.fromMgdlToUnits(bgTargetVeryHigh, units))!!
+        if (highLineSetting < 1)
+            highLineSetting = Profile.fromMgdlToUnits(260.0, units)
         return highLineSetting
     }
 
