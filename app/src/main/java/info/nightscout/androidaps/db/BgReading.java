@@ -219,7 +219,7 @@ public class BgReading implements DataPointWithLabelInterface {
         Double lowLine = OverviewPlugin.INSTANCE.determineLowLine(units);
         Double highLine = OverviewPlugin.INSTANCE.determineHighLine(units);
         Double veryhighLine = OverviewPlugin.INSTANCE.determineVeryHighLine(units);
-        int color = MainApp.gc(R.color.inrange);
+        int color = MainApp.gc(R.color.veryhigh);
         if (isPrediction())
             return getPredectionColor();
         else if (valueToUnits(units) < lowLine)
