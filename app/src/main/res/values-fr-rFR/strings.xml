@@ -130,6 +130,7 @@
     <string name="configbuilder_general_description">Quelques modules d\'extension que vous pourriez trouver utiles.</string>
     <string name="configbuilder_constraints_description">Quelles restrictions sont appliquées ?</string>
     <string name="days">jours</string>
+    <string name="days_short">j</string>
     <string name="constraints">Restrictions</string>
     <string name="loop">Boucle</string>
     <string name="configbuilder_loop">Boucle</string>
@@ -575,6 +576,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="careportal_canulaage_label">Age Cathéter</string>
     <string name="careportal_insulinage_label">Age Insuline</string>
     <string name="hours">heures</string>
+    <string name="hours_short">h</string>
     <string name="overview_newtempbasal_basaltype_label">Type du Basal</string>
     <string name="invalidprofile">Profil incorrect !!!</string>
     <string name="profileswitch">Changement Profil</string>

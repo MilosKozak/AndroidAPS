@@ -100,8 +100,8 @@ public class CareportalEvent implements DataPointWithLabelInterface, Interval {
         String hours = " " + MainApp.gs(R.string.hours) + " ";
 
         if (useShortText) {
-            days = "d";
-            hours = "h";
+            days = MainApp.gs(R.string.days_short);
+            hours = MainApp.gs(R.string.hours_short);
         }
 
         return diff.get(TimeUnit.DAYS) + days + diff.get(TimeUnit.HOURS) + hours;

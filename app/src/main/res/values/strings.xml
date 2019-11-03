@@ -156,6 +156,7 @@
     <string name="configbuilder_general_description">These are some general plugins you might find useful.</string>
     <string name="configbuilder_constraints_description">Which constraints are applied?</string>
     <string name="days">days</string>
+    <string name="days_short">d</string>
     <string name="constraints">Constraints</string>
 
     <string name="loop">Loop</string>
@@ -641,6 +642,7 @@
     <string name="careportal_canulaage_label">Canula age</string>
     <string name="careportal_insulinage_label">Insulin age</string>
     <string name="hours">hours</string>
+    <string name="hours_short">h</string>
     <string name="overview_newtempbasal_basaltype_label">Basal type</string>
     <string name="invalidprofile">Invalid profile !!!</string>
     <string name="profileswitch">ProfileSwitch</string>
