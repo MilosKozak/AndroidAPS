@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -24,24 +25,25 @@ import java.util.Locale;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.logging.L;
-import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
-import info.nightscout.androidaps.services.Intents;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Profile;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.ExtendedBolus;
 import info.nightscout.androidaps.db.ProfileSwitch;
 import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.db.TemporaryBasal;
-import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.aps.loop.APSResult;
 import info.nightscout.androidaps.plugins.aps.loop.DeviceStatus;
 import info.nightscout.androidaps.plugins.aps.loop.LoopPlugin;
+import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
+import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.general.nsclient.data.DbLogger;
+import info.nightscout.androidaps.services.Intents;
 import info.nightscout.androidaps.utils.BatteryLevel;
 import info.nightscout.androidaps.utils.DateUtil;
+import info.nightscout.androidaps.utils.GlucoseValueUtilsKt;
 import info.nightscout.androidaps.utils.SP;
 
 /**
@@ -470,7 +472,7 @@ public class NSUpload {
         DbLogger.dbAdd(intent, data.toString());
     }
 
-    public static void uploadBg(BgReading reading, String source) {
+    public static void uploadBg(GlucoseValue reading, String source) {
         Context context = MainApp.instance().getApplicationContext();
         Bundle bundle = new Bundle();
         bundle.putString("action", "dbAdd");
@@ -478,10 +480,10 @@ public class NSUpload {
         JSONObject data = new JSONObject();
         try {
             data.put("device", source);
-            data.put("date", reading.date);
-            data.put("dateString", DateUtil.toISOString(reading.date));
-            data.put("sgv", reading.value);
-            data.put("direction", reading.direction);
+            data.put("date", reading.getTimestamp());
+            data.put("dateString", DateUtil.toISOString(reading.getTimestamp()));
+            data.put("sgv", reading.getValue());
+            data.put("direction", GlucoseValueUtilsKt.toText(reading.getTrendArrow()));
             data.put("type", "sgv");
         } catch (JSONException e) {
             log.error("Unhandled exception", e);
@@ -559,23 +561,19 @@ public class NSUpload {
 
     }
 
-    public static void sendToXdrip(BgReading bgReading) {
+    public static void sendToXdrip(GlucoseValue bgReading) {
         final String XDRIP_PLUS_NS_EMULATOR = "com.eveningoutpost.dexdrip.NS_EMULATOR";
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.US);
 
         try {
             final JSONArray entriesBody = new JSONArray();
             JSONObject json = new JSONObject();
-            json.put("sgv", bgReading.value);
-            if (bgReading.direction == null) {
-                json.put("direction", "NONE");
-            } else {
-                json.put("direction", bgReading.direction);
-            }
+            json.put("sgv", bgReading.getValue());
+            json.put("direction", GlucoseValueUtilsKt.toText(bgReading.getTrendArrow()));
             json.put("device", "G5");
             json.put("type", "sgv");
-            json.put("date", bgReading.date);
-            json.put("dateString", format.format(bgReading.date));
+            json.put("date", bgReading.getTimestamp());
+            json.put("dateString", format.format(bgReading.getTimestamp()));
             entriesBody.put(json);
 
             final Bundle bundle = new Bundle();

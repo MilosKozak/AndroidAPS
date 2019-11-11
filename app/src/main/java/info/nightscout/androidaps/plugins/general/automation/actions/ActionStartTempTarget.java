@@ -12,6 +12,9 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.TemporaryTarget;
+import info.nightscout.androidaps.database.transactions.InsertTemporaryTargetAndCancelCurrentTransaction;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.plugins.general.automation.elements.ComparatorExists;
@@ -20,7 +23,6 @@ import info.nightscout.androidaps.plugins.general.automation.elements.InputTempT
 import info.nightscout.androidaps.plugins.general.automation.elements.LabelWithElement;
 import info.nightscout.androidaps.plugins.general.automation.elements.LayoutBuilder;
 import info.nightscout.androidaps.plugins.general.automation.triggers.TriggerTempTarget;
-import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.JsonHelper;
@@ -54,14 +56,12 @@ public class ActionStartTempTarget extends Action {
 
     @Override
     public void doAction(Callback callback) {
-        tempTarget = new TempTarget()
-                .date(DateUtil.now())
-                .duration(duration.getMinutes())
-                .reason(reason)
-                .source(Source.USER)
-                .low(Profile.toMgdl(value.getValue(), value.getUnits()))
-                .high(Profile.toMgdl(value.getValue(), value.getUnits()));
-        TreatmentsPlugin.getPlugin().addToHistoryTempTarget(tempTarget);
+        TemporaryTarget.Reason convertedReason;
+        if (reason.equalsIgnoreCase("Hypo")) convertedReason = TemporaryTarget.Reason.HYPOGLYCEMIA;
+        else if (reason.equalsIgnoreCase("Activity")) convertedReason = TemporaryTarget.Reason.ACTIVITY;
+        else if (reason.equalsIgnoreCase("Eating Soon")) convertedReason = TemporaryTarget.Reason.EATING_SOON;
+        else convertedReason = TemporaryTarget.Reason.CUSTOM;
+        BlockingAppRepository.INSTANCE.runTransactionForResult(new InsertTemporaryTargetAndCancelCurrentTransaction(DateUtil.now(), duration.getMinutes() * 60000, convertedReason, Profile.toMgdl(value.getValue(), value.getUnits())));
         if (callback != null)
             callback.result(new PumpEnactResult().success(true).comment(R.string.ok)).run();
     }

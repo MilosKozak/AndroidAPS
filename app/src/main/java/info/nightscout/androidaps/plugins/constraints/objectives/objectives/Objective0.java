@@ -3,13 +3,12 @@ package info.nightscout.androidaps.plugins.constraints.objectives.objectives;
 import java.util.List;
 
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.db.DatabaseHelper;
+import info.nightscout.androidaps.database.BlockingAppRepository;
 import info.nightscout.androidaps.interfaces.APSInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PluginType;
-import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
-import info.nightscout.androidaps.plugins.constraints.objectives.ObjectivesPlugin;
 import info.nightscout.androidaps.plugins.aps.loop.LoopPlugin;
+import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.general.nsclient.NSClientPlugin;
 import info.nightscout.androidaps.plugins.pump.virtual.VirtualPumpPlugin;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
@@ -56,7 +55,7 @@ public class Objective0 extends Objective {
         tasks.add(new Task(R.string.hasbgdata) {
             @Override
             public boolean isCompleted() {
-                return DatabaseHelper.lastBg() != null;
+                return BlockingAppRepository.INSTANCE.getLastGlucoseValueIfRecent() != null;
             }
         });
         tasks.add(new Task(R.string.loopenabled) {

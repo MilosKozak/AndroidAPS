@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.DialogFragment;
-import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
@@ -17,6 +15,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,12 +27,14 @@ import java.util.Objects;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.Bolus;
+import info.nightscout.androidaps.database.transactions.MealBolusTransaction;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
-import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.androidaps.utils.DecimalFormatter;
 import info.nightscout.androidaps.utils.NumberPicker;
@@ -189,7 +192,7 @@ public class NewTreatmentDialog extends DialogFragment implements OnClickListene
                                             }
                                         });
                                     } else {
-                                        TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, false);
+                                        BlockingAppRepository.INSTANCE.runTransaction(new MealBolusTransaction(System.currentTimeMillis(), finalInsulinAfterConstraints, finalCarbsAfterConstraints, Bolus.Type.NORMAL, 0, null));
                                     }
                                 }
                             }

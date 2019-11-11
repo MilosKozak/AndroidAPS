@@ -26,9 +26,9 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.db.CareportalEvent;
-import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.events.EventAcceptOpenLoopChange;
@@ -60,7 +60,6 @@ import info.nightscout.androidaps.queue.commands.Command;
 import info.nightscout.androidaps.utils.FabricPrivacy;
 import info.nightscout.androidaps.utils.SP;
 import info.nightscout.androidaps.utils.T;
-import info.nightscout.androidaps.utils.ToastUtils;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -139,15 +138,21 @@ public class LoopPlugin extends PluginBase {
                 .observeOn(Schedulers.io())
                 .subscribe(event -> {
                     // Autosens calculation not triggered by a new BG
-                    if (!(event.getCause() instanceof EventNewBG)) return;
+                    if (!(event.getCause() instanceof EventNewBG)) {
+                        // Autosens calculation not triggered by a new BG
+                        return;
+                    }
+                    GlucoseValue bgReading = BlockingAppRepository.INSTANCE.getLastGlucoseValueIfRecent();
+                    if (bgReading == null) {
+                        // BG outdated
+                        return;
+                    }
+                    if (bgReading.getTimestamp() <= lastBgTriggeredRun) {
+                        // already looped with that value
+                        return;
+                    }
 
-                    BgReading bgReading = DatabaseHelper.actualBg();
-                    // BG outdated
-                    if (bgReading == null) return;
-                    // already looped with that value
-                    if (bgReading.date <= lastBgTriggeredRun) return;
-
-                    lastBgTriggeredRun = bgReading.date;
+                    lastBgTriggeredRun = bgReading.getTimestamp();
                     invoke("AutosenseCalculation for " + bgReading, true);
                 }, FabricPrivacy::logException)
         );
@@ -176,6 +181,14 @@ public class LoopPlugin extends PluginBase {
         PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
         return pump == null || pump.getPumpDescription().isTempBasalCapable;
     }
+
+    /**
+     * This method is triggered once autosens calculation has completed, so the LoopPlugin
+     * has current data to work with. However, autosens calculation can be triggered by multiple
+     * sources and currently only a new BG should trigger a loop run. Hence we return early if
+     * the event causing the calculation is not EventNewBg.
+     * <p>
+     */
 
     public long suspendedTo() {
         return loopSuspendedTill;

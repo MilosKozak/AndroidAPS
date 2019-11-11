@@ -4,8 +4,9 @@ import android.text.Spanned
 import info.nightscout.androidaps.Constants
 import info.nightscout.androidaps.MainApp
 import info.nightscout.androidaps.R
+import info.nightscout.androidaps.database.AppRepository
+import info.nightscout.androidaps.database.entities.GlucoseValue
 import info.nightscout.androidaps.events.EventNetworkChange
-import info.nightscout.androidaps.events.EventNewBG
 import info.nightscout.androidaps.events.EventPreferenceChange
 import info.nightscout.androidaps.interfaces.PluginBase
 import info.nightscout.androidaps.interfaces.PluginDescription
@@ -69,22 +70,19 @@ object TidepoolPlugin : PluginBase(PluginDescription()
                 .subscribe({ event -> addToLog(event) }, {
                     FabricPrivacy.logException(it)
                 })
-        disposable += RxBus
-                .toObservable(EventNewBG::class.java)
+        disposable += AppRepository.changeObservable
                 .observeOn(Schedulers.io())
-                .filter { it.bgReading != null } // better would be optional in API level >24
-                .map { it.bgReading }
-                .subscribe({ bgReading ->
-                    if (bgReading!!.date < TidepoolUploader.getLastEnd())
-                        TidepoolUploader.setLastEnd(bgReading.date)
-                    if (isEnabled(PluginType.GENERAL)
-                            && (!SP.getBoolean(R.string.key_tidepool_only_while_charging, false) || ChargingStateReceiver.isCharging())
-                            && (!SP.getBoolean(R.string.key_tidepool_only_while_unmetered, false) || NetworkChangeReceiver.isWifiConnected())
-                            && RateLimit.rateLimit("tidepool-new-data-upload", T.mins(4).secs().toInt()))
-                        doUpload()
-                }, {
-                    FabricPrivacy.logException(it)
-                })
+                .subscribe { list ->
+                    list.filterIsInstance<GlucoseValue>()
+                            .minBy { it.timestamp }?.apply {
+                                if (timestamp < TidepoolUploader.getLastEnd())
+                                    TidepoolUploader.setLastEnd(timestamp)
+                                if (isEnabled(PluginType.GENERAL)
+                                        && (!SP.getBoolean(R.string.key_tidepool_only_while_charging, false) || ChargingStateReceiver.isCharging())
+                                        && (!SP.getBoolean(R.string.key_tidepool_only_while_unmetered, false) || NetworkChangeReceiver.isWifiConnected())
+                                        && RateLimit.rateLimit("tidepool-new-data-upload", T.mins(4).secs().toInt())) doUpload()
+                            }
+                }
         disposable += RxBus
                 .toObservable(EventPreferenceChange::class.java)
                 .observeOn(Schedulers.io())
@@ -112,12 +110,14 @@ object TidepoolPlugin : PluginBase(PluginDescription()
     }
 
     private fun doUpload() =
-        when (TidepoolUploader.connectionStatus) {
-            TidepoolUploader.ConnectionStatus.FAILED -> {}
-            TidepoolUploader.ConnectionStatus.CONNECTING -> {}
-            TidepoolUploader.ConnectionStatus.DISCONNECTED -> TidepoolUploader.doLogin(true)
-            TidepoolUploader.ConnectionStatus.CONNECTED -> TidepoolUploader.doUpload()
-        }
+            when (TidepoolUploader.connectionStatus) {
+                TidepoolUploader.ConnectionStatus.FAILED -> {
+                }
+                TidepoolUploader.ConnectionStatus.CONNECTING -> {
+                }
+                TidepoolUploader.ConnectionStatus.DISCONNECTED -> TidepoolUploader.doLogin(true)
+                TidepoolUploader.ConnectionStatus.CONNECTED -> TidepoolUploader.doUpload()
+            }
 
     @Synchronized
     private fun addToLog(ev: EventTidepoolStatus) {

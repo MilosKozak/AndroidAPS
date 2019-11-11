@@ -3,8 +3,6 @@ package info.nightscout.androidaps.plugins.general.careportal.Dialogs;
 
 import android.app.Activity;
 import android.os.Bundle;
-import androidx.fragment.app.DialogFragment;
-import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
@@ -19,6 +17,9 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.common.collect.Lists;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -39,19 +40,24 @@ import java.util.List;
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.plugins.iob.iobCobCalculator.GlucoseStatus;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileStore;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
+import info.nightscout.androidaps.database.entities.TemporaryTarget;
+import info.nightscout.androidaps.database.exception.NoActiveEntryException;
+import info.nightscout.androidaps.database.transactions.CancelTemporaryTargetTransaction;
+import info.nightscout.androidaps.database.transactions.InsertTemporaryTargetAndCancelCurrentTransaction;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.ProfileSwitch;
-import info.nightscout.androidaps.db.Source;
-import info.nightscout.androidaps.db.TempTarget;
+import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.general.careportal.OptionsToShow;
 import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
+import info.nightscout.androidaps.plugins.iob.iobCobCalculator.GlucoseStatus;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
+import info.nightscout.androidaps.utils.CareportalUtilKt;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DefaultValueHelper;
 import info.nightscout.androidaps.utils.HardLimits;
@@ -453,11 +459,11 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
 
     private void updateBGforDateTime() {
         long millis = eventTime.getTime() - (150 * 1000L); // 2,5 * 60 * 1000
-        List<BgReading> data = MainApp.getDbHelper().getBgreadingsDataFromTime(millis, true);
+        List<GlucoseValue> data = BlockingAppRepository.INSTANCE.getGlucoseValuesInTimeRangeIf39OrHigher(millis, Long.MAX_VALUE);
         if ((data.size() > 0) &&
-                (data.get(0).date > millis - 7 * 60 * 1000L) &&
-                (data.get(0).date < millis + 7 * 60 * 1000L)) {
-            editBg.setValue(Profile.fromMgdlToUnits(data.get(0).value, units));
+                (data.get(0).getTimestamp() > millis - 7 * 60 * 1000L) &&
+                (data.get(0).getTimestamp() < millis + 7 * 60 * 1000L)) {
+            editBg.setValue(Profile.fromMgdlToUnits(data.get(0).getValue(), units));
         }
     }
 
@@ -551,10 +557,9 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
                 case R.id.careportal_temporarytarget:
                     data.put("eventType", CareportalEvent.TEMPORARYTARGET);
                     if (!reasonSpinner.getSelectedItem().toString().equals(""))
-                        data.put("reason", reasonSpinner.getSelectedItem().toString());
+                        data.put("reason", reasonSpinner.getSelectedItemPosition());
                     if (SafeParse.stringToDouble(editTemptarget.getText()) != 0d) {
-                        data.put("targetBottom", SafeParse.stringToDouble(editTemptarget.getText()));
-                        data.put("targetTop", SafeParse.stringToDouble(editTemptarget.getText()));
+                        data.put("target", SafeParse.stringToDouble(editTemptarget.getText()));
                     }
                     allowZeroDuration = true;
                     break;
@@ -679,12 +684,9 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
             ret += JsonHelper.safeGetObject(data, "timeshift", "");
             ret += " h\n";
         }
-        if (data.has("targetBottom") && data.has("targetTop")) {
-            ret += MainApp.gs(R.string.target_range);
-            ret += " ";
-            ret += JsonHelper.safeGetObject(data, "targetBottom", "");
-            ret += " - ";
-            ret += JsonHelper.safeGetObject(data, "targetTop", "");
+        if (data.has("target")) {
+            ret += MainApp.gs(R.string.target);
+            ret += JsonHelper.safeGetObject(data, "target", "");
             ret += "\n";
         }
         if (data.has("created_at")) {
@@ -722,24 +724,43 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
             if (data.has("profile")) {
                 ProfileFunctions.doProfileSwitch(profileStore, JsonHelper.safeGetString(data, "profile"), JsonHelper.safeGetInt(data, "duration"), JsonHelper.safeGetInt(data, "percentage"), JsonHelper.safeGetInt(data, "timeshift"));
             }
-        } else if (options.executeTempTarget) {
+        } else if (options.executeTempTarget || options.tempTarget) {
+            if (!data.has("duration")) return;
+            if (!data.has("target")) return;
+            if (!data.has("reason")) return;
             final int duration = JsonHelper.safeGetInt(data, "duration");
-            final double targetBottom = JsonHelper.safeGetDouble(data, "targetBottom");
-            final double targetTop = JsonHelper.safeGetDouble(data, "targetTop");
-            final String reason = JsonHelper.safeGetString(data, "reason", "");
-            if ((targetBottom != 0d && targetTop != 0d) || duration == 0) {
-                TempTarget tempTarget = new TempTarget()
-                        .date(eventTime.getTime())
-                        .duration(duration)
-                        .reason(reason)
-                        .source(Source.USER);
-                if (tempTarget.durationInMinutes != 0) {
-                    tempTarget.low(Profile.toMgdl(targetBottom, units))
-                            .high(Profile.toMgdl(targetTop, units));
-                } else {
-                    tempTarget.low(0).high(0);
+            final double target = JsonHelper.safeGetDouble(data, "target");
+            final int reasonPos = JsonHelper.safeGetInt(data, "reason");
+            TemporaryTarget.Reason reason = null;
+            switch (reasonPos) {
+                case 0:
+                    reason = TemporaryTarget.Reason.CUSTOM;
+                    break;
+                case 1:
+                    reason = TemporaryTarget.Reason.EATING_SOON;
+                    break;
+                case 2:
+                    reason = TemporaryTarget.Reason.ACTIVITY;
+                    break;
+                case 3:
+                    reason = TemporaryTarget.Reason.HYPOGLYCEMIA;
+                    break;
+            }
+            if (duration == 0) {
+                try {
+                    BlockingAppRepository.INSTANCE.runTransactionExComp(new CancelTemporaryTargetTransaction());
+                } catch (NoActiveEntryException exception) {
+                    if (L.isEnabled(L.UI))
+                        log.debug("No TT active");
+                } catch (Exception igonored) {
                 }
-                TreatmentsPlugin.getPlugin().addToHistoryTempTarget(tempTarget);
+            } else {
+                BlockingAppRepository.INSTANCE.runTransaction(new InsertTemporaryTargetAndCancelCurrentTransaction(
+                        System.currentTimeMillis(),
+                        duration * 60000,
+                        reason,
+                        target
+                ));
             }
             if (duration == 10)
                 SP.putBoolean(R.string.key_objectiveusetemptarget, true);
@@ -755,7 +776,7 @@ public class NewNSTreatmentDialog extends DialogFragment implements View.OnClick
                 );
                 NSUpload.uploadProfileSwitch(profileSwitch);
             } else {
-                NSUpload.uploadCareportalEntryToNS(data);
+                CareportalUtilKt.saveCareportalJSON(data);
             }
         }
     }

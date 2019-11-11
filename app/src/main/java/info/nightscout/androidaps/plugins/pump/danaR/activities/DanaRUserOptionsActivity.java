@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import java.text.DecimalFormat;
 
 import info.nightscout.androidaps.Constants;
-import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.activities.NoSplashActivity;
 import info.nightscout.androidaps.events.EventInitializationChanged;

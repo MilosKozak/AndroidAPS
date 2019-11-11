@@ -22,6 +22,20 @@ import java.io.File;
 import java.util.ArrayList;
 
 import info.nightscout.androidaps.data.ConstraintChecker;
+import info.nightscout.androidaps.database.AppRepository;
+import info.nightscout.androidaps.database.entities.Bolus;
+import info.nightscout.androidaps.database.entities.BolusCalculatorResult;
+import info.nightscout.androidaps.database.entities.Carbs;
+import info.nightscout.androidaps.database.entities.ExtendedBolus;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
+import info.nightscout.androidaps.database.entities.ProfileSwitch;
+import info.nightscout.androidaps.database.entities.TemporaryBasal;
+import info.nightscout.androidaps.database.entities.TemporaryTarget;
+import info.nightscout.androidaps.database.entities.TherapyEvent;
+import info.nightscout.androidaps.database.entities.links.MealLink;
+import info.nightscout.androidaps.database.interfaces.DBEntry;
+import info.nightscout.androidaps.database.interfaces.DBEntryWithTime;
+import info.nightscout.androidaps.database.transactions.SaveVersionChangeIfNeededTransaction;
 import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PluginType;
@@ -45,8 +59,6 @@ import info.nightscout.androidaps.plugins.general.food.FoodPlugin;
 import info.nightscout.androidaps.plugins.general.maintenance.LoggerUtils;
 import info.nightscout.androidaps.plugins.general.maintenance.MaintenancePlugin;
 import info.nightscout.androidaps.plugins.general.nsclient.NSClientPlugin;
-import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
-import info.nightscout.androidaps.plugins.general.nsclient.receivers.AckAlarmReceiver;
 import info.nightscout.androidaps.plugins.general.nsclient.receivers.DBAccessReceiver;
 import info.nightscout.androidaps.plugins.general.overview.OverviewPlugin;
 import info.nightscout.androidaps.plugins.general.persistentNotification.PersistentNotificationPlugin;
@@ -81,6 +93,7 @@ import info.nightscout.androidaps.plugins.source.SourceNSClientPlugin;
 import info.nightscout.androidaps.plugins.source.SourcePoctechPlugin;
 import info.nightscout.androidaps.plugins.source.SourceTomatoPlugin;
 import info.nightscout.androidaps.plugins.source.SourceXdripPlugin;
+import info.nightscout.androidaps.plugins.treatments.TreatmentService;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.receivers.DataReceiver;
 import info.nightscout.androidaps.receivers.KeepAliveReceiver;
@@ -90,6 +103,8 @@ import info.nightscout.androidaps.services.Intents;
 import info.nightscout.androidaps.utils.FabricPrivacy;
 import info.nightscout.androidaps.utils.LocaleHelper;
 import io.fabric.sdk.android.Fabric;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 import static info.nightscout.androidaps.plugins.constraints.versionChecker.VersionCheckerUtilsKt.triggerCheckVersion;
 
@@ -110,7 +125,7 @@ public class MainApp extends Application {
 
     private static DataReceiver dataReceiver = new DataReceiver();
     private static NSAlarmReceiver alarmReciever = new NSAlarmReceiver();
-    private static AckAlarmReceiver ackAlarmReciever = new AckAlarmReceiver();
+    //private static AckAlarmReceiver ackAlarmReciever = new AckAlarmReceiver();
     private static DBAccessReceiver dbAccessReciever = new DBAccessReceiver();
     private LocalBroadcastManager lbm;
     BroadcastReceiver btReceiver;
@@ -122,6 +137,52 @@ public class MainApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        AppRepository.INSTANCE.initialize(this);
+        String gitRemote = BuildConfig.REMOTE;
+        String commitHash = BuildConfig.HEAD;
+        if (gitRemote.contains("NoGitSystemAvailable")) {
+            gitRemote = null;
+            commitHash = null;
+        }
+        AppRepository.INSTANCE.runTransaction(new SaveVersionChangeIfNeededTransaction(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, gitRemote, commitHash));
+        AppRepository.INSTANCE.getChangeObservable()
+                .observeOn(Schedulers.io())
+                .subscribe(changes -> {
+                    Long earliestDataChange = null;
+                    boolean glucoseValuesChanged = false;
+                    boolean temporaryBasalsChanged = false;
+                    boolean extendedBolusesChanged = false;
+                    boolean temporaryTargetChanged = false;
+                    boolean treatmentsChanged = false;
+                    boolean therapyEventsChanged = false;
+                    boolean profileSwitchesChanged = false;
+                    for (DBEntry entry : changes) {
+                        if (entry instanceof DBEntryWithTime) {
+                            if (earliestDataChange == null || earliestDataChange < ((DBEntryWithTime) entry).getTimestamp()) {
+                                earliestDataChange = ((DBEntryWithTime) entry).getTimestamp();
+                            }
+                        }
+                        if (entry instanceof GlucoseValue) glucoseValuesChanged = true;
+                        else if (entry instanceof TemporaryBasal) temporaryBasalsChanged = true;
+                        else if (entry instanceof ExtendedBolus) extendedBolusesChanged = true;
+                        else if (entry instanceof TemporaryTarget) temporaryTargetChanged = true;
+                        else if (entry instanceof Bolus
+                                || entry instanceof Carbs
+                                || entry instanceof BolusCalculatorResult
+                                || entry instanceof MealLink) treatmentsChanged = true;
+                        else if (entry instanceof TherapyEvent) therapyEventsChanged = true;
+                        else if (entry instanceof ProfileSwitch) profileSwitchesChanged = true;
+                    }
+                    if (earliestDataChange != null)
+                        DatabaseHelper.updateEarliestDataChange(earliestDataChange);
+                    if (glucoseValuesChanged) DatabaseHelper.scheduleBgChange();
+                    if (temporaryBasalsChanged) DatabaseHelper.scheduleTemporaryBasalChange();
+                    if (extendedBolusesChanged) DatabaseHelper.scheduleExtendedBolusChange();
+                    if (temporaryTargetChanged) DatabaseHelper.scheduleTemporaryTargetChange();
+                    if (treatmentsChanged) TreatmentService.scheduleTreatmentChange(null);
+                    if (therapyEventsChanged) DatabaseHelper.scheduleCareportalEventChange();
+                    if (profileSwitchesChanged) DatabaseHelper.scheduleProfileSwitchChange();
+                });
         log.debug("onCreate");
         sInstance = this;
         sResources = getResources();
@@ -196,14 +257,14 @@ public class MainApp extends Application {
             if (Config.APS) pluginsList.add(StorageConstraintPlugin.getPlugin());
             if (Config.APS) pluginsList.add(SignatureVerifierPlugin.getPlugin());
             if (Config.APS) pluginsList.add(ObjectivesPlugin.INSTANCE);
-            pluginsList.add(SourceXdripPlugin.getPlugin());
-            pluginsList.add(SourceNSClientPlugin.getPlugin());
-            pluginsList.add(SourceMM640gPlugin.getPlugin());
-            pluginsList.add(SourceGlimpPlugin.getPlugin());
+            pluginsList.add(SourceXdripPlugin.INSTANCE);
+            pluginsList.add(SourceNSClientPlugin.INSTANCE);
+            pluginsList.add(SourceMM640gPlugin.INSTANCE);
+            pluginsList.add(SourceGlimpPlugin.INSTANCE);
             pluginsList.add(SourceDexcomPlugin.INSTANCE);
-            pluginsList.add(SourcePoctechPlugin.getPlugin());
-            pluginsList.add(SourceTomatoPlugin.getPlugin());
-            pluginsList.add(SourceEversensePlugin.getPlugin());
+            pluginsList.add(SourcePoctechPlugin.INSTANCE);
+            pluginsList.add(SourceTomatoPlugin.INSTANCE);
+            pluginsList.add(SourceEversensePlugin.INSTANCE);
             if (!Config.NSCLIENT) pluginsList.add(SmsCommunicatorPlugin.getPlugin());
             pluginsList.add(FoodPlugin.getPlugin());
 
@@ -211,7 +272,7 @@ public class MainApp extends Application {
             pluginsList.add(StatuslinePlugin.initPlugin(this));
             pluginsList.add(PersistentNotificationPlugin.getPlugin());
             pluginsList.add(NSClientPlugin.getPlugin());
-//            if (engineeringMode) pluginsList.add(TidepoolPlugin.INSTANCE);
+            //if (engineeringMode) pluginsList.add(TidepoolPlugin.INSTANCE);
             pluginsList.add(MaintenancePlugin.initPlugin(this));
             pluginsList.add(AutomationPlugin.INSTANCE);
 
@@ -223,7 +284,7 @@ public class MainApp extends Application {
             ConfigBuilderPlugin.getPlugin().initialize();
         }
 
-        NSUpload.uploadAppStart();
+        //NSUpload.uploadAppStart();
 
         final PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
         if (pump != null) {
@@ -257,9 +318,10 @@ public class MainApp extends Application {
         lbm.registerReceiver(alarmReciever, new IntentFilter(Intents.ACTION_URGENT_ALARM));
 
         //register ack alarm
-        lbm.registerReceiver(ackAlarmReciever, new IntentFilter(Intents.ACTION_ACK_ALARM));
+        //lbm.registerReceiver(ackAlarmReciever, new IntentFilter(Intents.ACTION_ACK_ALARM));
 
         //register dbaccess
+        //lbm.registerReceiver(dbAccessReciever, new IntentFilter(Intents.ACTION_DATABASE));
         lbm.registerReceiver(dbAccessReciever, new IntentFilter(Intents.ACTION_DATABASE));
 
         this.timeDateOrTZChangeReceiver = new TimeDateOrTZChangeReceiver();

@@ -40,6 +40,8 @@ import info.nightscout.androidaps.utils.Round;
 public class ExtendedBolus implements Interval, DataPointWithLabelInterface {
     private static Logger log = LoggerFactory.getLogger(L.DATABASE);
 
+    public info.nightscout.androidaps.database.entities.ExtendedBolus backing;
+
     @DatabaseField(id = true)
     public long date;
 

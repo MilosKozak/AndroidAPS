@@ -1,11 +1,15 @@
 package info.nightscout.androidaps.plugins.treatments;
 
 import android.content.Intent;
+
 import androidx.annotation.Nullable;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.Bolus;
+import info.nightscout.androidaps.database.transactions.MealBolusTransaction;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
@@ -53,7 +57,7 @@ public class CarbsGenerator {
         } else {
             // Don't send to pump if it is in the future or more than 5 minutes in the past
             // as pumps might return those as as "now" when reading the history.
-            TreatmentsPlugin.getPlugin().addToHistoryTreatment(carbInfo, false);
+            BlockingAppRepository.INSTANCE.runTransaction(new MealBolusTransaction(time, 0, carbs, Bolus.Type.NORMAL, 0, null));
         }
     }
 }

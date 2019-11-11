@@ -2,17 +2,17 @@ package info.nightscout.androidaps.plugins.general.maintenance;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import info.nightscout.androidaps.MainApp;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.plugins.general.food.FoodPlugin;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.transactions.ResetDatabaseTransaction;
 import info.nightscout.androidaps.plugins.general.maintenance.activities.LogSettingActivity;
-import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 
 /**
  *
@@ -51,11 +51,7 @@ public class MaintenanceFragment extends Fragment {
                 .setMessage(R.string.reset_db_confirm)
                 .setNegativeButton(android.R.string.cancel, null)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                    MainApp.getDbHelper().resetDatabases();
-                    // should be handled by Plugin-Interface and
-                    // additional service interface and plugin registry
-                    FoodPlugin.getPlugin().getService().resetFood();
-                    TreatmentsPlugin.getPlugin().getService().resetTreatments();
+                    BlockingAppRepository.INSTANCE.runTransaction(new ResetDatabaseTransaction());
                 })
                 .create()
                 .show());

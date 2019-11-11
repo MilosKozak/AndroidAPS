@@ -1,11 +1,6 @@
 package info.nightscout.androidaps.plugins.treatments;
 
-import android.content.Intent;
-import android.os.Bundle;
-
 import androidx.annotation.Nullable;
-
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,8 +39,6 @@ import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
-import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
-import info.nightscout.androidaps.plugins.general.overview.dialogs.ErrorHelperActivity;
 import info.nightscout.androidaps.plugins.general.overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.general.overview.notifications.Notification;
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.AutosensData;
@@ -57,6 +50,7 @@ import info.nightscout.androidaps.plugins.sensitivity.SensitivityAAPSPlugin;
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityWeightedAveragePlugin;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.FabricPrivacy;
+import info.nightscout.androidaps.utils.ProfileSwitchUtilKt;
 import info.nightscout.androidaps.utils.SP;
 import info.nightscout.androidaps.utils.T;
 import io.reactivex.disposables.CompositeDisposable;
@@ -582,20 +576,7 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
 
     @Override
     public boolean addToHistoryExtendedBolus(ExtendedBolus extendedBolus) {
-        //log.debug("Adding new ExtentedBolus record" + extendedBolus.log());
-        boolean newRecordCreated = MainApp.getDbHelper().createOrUpdate(extendedBolus);
-        if (newRecordCreated) {
-            if (extendedBolus.durationInMinutes == 0) {
-                if (ConfigBuilderPlugin.getPlugin().getActivePump().isFakingTempsByExtendedBoluses())
-                    NSUpload.uploadTempBasalEnd(extendedBolus.date, true, extendedBolus.pumpId);
-                else
-                    NSUpload.uploadExtendedBolusEnd(extendedBolus.date, extendedBolus.pumpId);
-            } else if (ConfigBuilderPlugin.getPlugin().getActivePump().isFakingTempsByExtendedBoluses())
-                NSUpload.uploadTempBasalStartAbsolute(new TemporaryBasal(extendedBolus), extendedBolus.insulin);
-            else
-                NSUpload.uploadExtendedBolus(extendedBolus);
-        }
-        return newRecordCreated;
+        return false;
     }
 
     @Override
@@ -615,7 +596,7 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
     @Override
     public boolean addToHistoryTempBasal(TemporaryBasal tempBasal) {
         //log.debug("Adding new TemporaryBasal record" + tempBasal.toString());
-        boolean newRecordCreated = MainApp.getDbHelper().createOrUpdate(tempBasal);
+        /*boolean newRecordCreated = MainApp.getDbHelper().createOrUpdate(tempBasal);
         if (newRecordCreated) {
             if (tempBasal.durationInMinutes == 0)
                 NSUpload.uploadTempBasalEnd(tempBasal.date, false, tempBasal.pumpId);
@@ -623,82 +604,14 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
                 NSUpload.uploadTempBasalStartAbsolute(tempBasal, null);
             else
                 NSUpload.uploadTempBasalStartPercent(tempBasal);
-        }
-        return newRecordCreated;
+        }*/
+        return false;
     }
 
     // return true if new record is created
     @Override
     public boolean addToHistoryTreatment(DetailedBolusInfo detailedBolusInfo, boolean allowUpdate) {
-        boolean medtronicPump = MedtronicUtil.isMedtronicPump();
-
-        if (MedtronicHistoryData.doubleBolusDebug)
-            log.debug("DoubleBolusDebug: addToHistoryTreatment::isMedtronicPump={}", medtronicPump);
-
-        Treatment treatment = new Treatment();
-        treatment.date = detailedBolusInfo.date;
-        treatment.source = detailedBolusInfo.source;
-        treatment.pumpId = detailedBolusInfo.pumpId;
-        treatment.insulin = detailedBolusInfo.insulin;
-        treatment.isValid = detailedBolusInfo.isValid;
-        treatment.isSMB = detailedBolusInfo.isSMB;
-        if (detailedBolusInfo.carbTime == 0)
-            treatment.carbs = detailedBolusInfo.carbs;
-        treatment.source = detailedBolusInfo.source;
-        treatment.mealBolus = treatment.carbs > 0;
-        treatment.boluscalc = detailedBolusInfo.boluscalc != null ? detailedBolusInfo.boluscalc.toString() : null;
-        TreatmentService.UpdateReturn creatOrUpdateResult;
-
-        if (medtronicPump && MedtronicHistoryData.doubleBolusDebug)
-            log.debug("DoubleBolusDebug: addToHistoryTreatment::treatment={}", treatment);
-
-        if (!medtronicPump)
-            creatOrUpdateResult = getService().createOrUpdate(treatment);
-        else
-            creatOrUpdateResult = getService().createOrUpdateMedtronic(treatment, false);
-
-        boolean newRecordCreated = creatOrUpdateResult.newRecord;
-        //log.debug("Adding new Treatment record" + treatment.toString());
-        if (detailedBolusInfo.carbTime != 0) {
-
-            Treatment carbsTreatment = new Treatment();
-            carbsTreatment.source = detailedBolusInfo.source;
-            carbsTreatment.pumpId = detailedBolusInfo.pumpId; // but this should never happen
-            carbsTreatment.date = detailedBolusInfo.date + detailedBolusInfo.carbTime * 60 * 1000L + 1000L; // add 1 sec to make them different records
-            carbsTreatment.carbs = detailedBolusInfo.carbs;
-            carbsTreatment.source = detailedBolusInfo.source;
-
-            if (medtronicPump && MedtronicHistoryData.doubleBolusDebug)
-                log.debug("DoubleBolusDebug: carbTime!=0, creating second treatment. CarbsTreatment={}", carbsTreatment);
-
-            if (!medtronicPump)
-                getService().createOrUpdate(carbsTreatment);
-            else
-                getService().createOrUpdateMedtronic(carbsTreatment, false);
-            //log.debug("Adding new Treatment record" + carbsTreatment);
-        }
-        if (newRecordCreated && detailedBolusInfo.isValid)
-            NSUpload.uploadTreatmentRecord(detailedBolusInfo);
-
-        if (!allowUpdate && !creatOrUpdateResult.success) {
-            log.error("Treatment could not be added to DB", new Exception());
-
-            String status = String.format(MainApp.gs(R.string.error_adding_treatment_message), treatment.insulin, (int) treatment.carbs, DateUtil.dateAndTimeString(treatment.date));
-
-            Intent i = new Intent(MainApp.instance(), ErrorHelperActivity.class);
-            i.putExtra("soundid", R.raw.error);
-            i.putExtra("title", MainApp.gs(R.string.error_adding_treatment_title));
-            i.putExtra("status", status);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            MainApp.instance().startActivity(i);
-
-            Bundle bundle = new Bundle();
-            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "TreatmentClash");
-            bundle.putString(FirebaseAnalytics.Param.VALUE, status);
-            FabricPrivacy.getInstance().logCustom(bundle);
-        }
-
-        return newRecordCreated;
+        return false;
     }
 
     @Override
@@ -744,13 +657,6 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
     }
 
     @Override
-    public void addToHistoryTempTarget(TempTarget tempTarget) {
-        //log.debug("Adding new TemporaryBasal record" + profileSwitch.log());
-        MainApp.getDbHelper().createOrUpdate(tempTarget);
-        NSUpload.uploadTempTarget(tempTarget);
-    }
-
-    @Override
     @Nullable
     public ProfileSwitch getProfileSwitchFromHistory(long time) {
         synchronized (profiles) {
@@ -767,10 +673,11 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
 
     @Override
     public void addToHistoryProfileSwitch(ProfileSwitch profileSwitch) {
-        //log.debug("Adding new TemporaryBasal record" + profileSwitch.log());
+        ProfileSwitchUtilKt.storeInNewDatabase(profileSwitch);
         RxBus.INSTANCE.send(new EventDismissNotification(Notification.PROFILE_SWITCH_MISSING));
-        MainApp.getDbHelper().createOrUpdate(profileSwitch);
-        NSUpload.uploadProfileSwitch(profileSwitch);
+        //log.debug("Adding new TemporaryBasal record" + profileSwitch.log());
+        //MainApp.getDbHelper().createOrUpdate(profileSwitch);
+        //NSUpload.uploadProfileSwitch(profileSwitch);
     }
 
 

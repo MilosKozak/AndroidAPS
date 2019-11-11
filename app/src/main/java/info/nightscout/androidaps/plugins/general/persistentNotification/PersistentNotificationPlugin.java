@@ -20,8 +20,8 @@ import info.nightscout.androidaps.MainActivity;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.IobTotal;
-import info.nightscout.androidaps.db.BgReading;
-import info.nightscout.androidaps.db.DatabaseHelper;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.events.EventExtendedBolusChange;
 import info.nightscout.androidaps.events.EventInitializationChanged;
@@ -42,6 +42,7 @@ import info.nightscout.androidaps.plugins.iob.iobCobCalculator.events.EventAutos
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DecimalFormatter;
 import info.nightscout.androidaps.utils.FabricPrivacy;
+import info.nightscout.androidaps.utils.GlucoseValueUtilsKt;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -51,7 +52,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class PersistentNotificationPlugin extends PluginBase {
 
-    private CompositeDisposable disposable  = new CompositeDisposable();
+    private CompositeDisposable disposable = new CompositeDisposable();
 
     private static PersistentNotificationPlugin plugin;
     private Notification notification;
@@ -184,15 +185,15 @@ public class PersistentNotificationPlugin extends PluginBase {
             String units = ProfileFunctions.getInstance().getProfileUnits();
 
 
-            BgReading lastBG = DatabaseHelper.lastBg();
+            GlucoseValue lastBG = BlockingAppRepository.INSTANCE.getLastGlucoseValue();
             GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
 
             if (lastBG != null) {
-                line1 = line1_aa = lastBG.valueToUnitsToString(units);
+                line1 = line1_aa = GlucoseValueUtilsKt.valueToUnitsString(lastBG.getValue(), units);
                 if (glucoseStatus != null) {
                     line1 += "  Δ" + deltastring(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units)
                             + " avgΔ" + deltastring(glucoseStatus.avgdelta, glucoseStatus.avgdelta * Constants.MGDL_TO_MMOLL, units);
-                    line1_aa += "  " + lastBG.directionToSymbol();
+                    line1_aa += "  " + GlucoseValueUtilsKt.toSymbol(lastBG.getTrendArrow());
                 } else {
                     line1 += " " +
                             MainApp.gs(R.string.old_data) +
@@ -329,7 +330,7 @@ public class PersistentNotificationPlugin extends PluginBase {
      */
 
     public Notification getLastNotification() {
-        if (notification != null) return  notification;
+        if (notification != null) return notification;
         else {
             throw new IllegalStateException("Notification is null");
         }

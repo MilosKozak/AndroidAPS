@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+
 import androidx.annotation.Nullable;
 
 import org.slf4j.Logger;

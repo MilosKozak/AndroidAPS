@@ -399,6 +399,7 @@
     <string name="mmol">mmol/l</string>
     <string name="dia">DIA:</string>
     <string name="target_range">Target range:</string>
+    <string name="target">Target:</string>
     <string name="prefs_range_title">Range for Visualization</string>
     <string name="prefs_range_summary">High and low mark for the charts in Overview and Smartwatch</string>
     <string name="low_mark">LOW mark</string>

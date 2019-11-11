@@ -23,6 +23,7 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Profile;
+import info.nightscout.androidaps.database.entities.TherapyEvent;
 import info.nightscout.androidaps.interfaces.Interval;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
@@ -37,6 +38,8 @@ import info.nightscout.androidaps.utils.Translator;
 @DatabaseTable(tableName = DatabaseHelper.DATABASE_CAREPORTALEVENTS)
 public class CareportalEvent implements DataPointWithLabelInterface, Interval {
     private static Logger log = LoggerFactory.getLogger(L.DATABASE);
+
+    public TherapyEvent backing;
 
     @DatabaseField(id = true)
     public long date;

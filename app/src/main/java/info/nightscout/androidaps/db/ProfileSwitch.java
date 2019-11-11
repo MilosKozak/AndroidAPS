@@ -2,6 +2,7 @@ package info.nightscout.androidaps.db;
 
 import android.graphics.Color;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -34,6 +35,8 @@ import info.nightscout.androidaps.utils.T;
 @DatabaseTable(tableName = DatabaseHelper.DATABASE_PROFILESWITCHES)
 public class ProfileSwitch implements Interval, DataPointWithLabelInterface {
     private static Logger log = LoggerFactory.getLogger(L.DATABASE);
+
+    public info.nightscout.androidaps.database.entities.ProfileSwitch backing;
 
     @DatabaseField(id = true)
     public long date;

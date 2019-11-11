@@ -1,6 +1,7 @@
 package info.nightscout.androidaps.utils;
 
 import android.content.Context;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -11,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.TextViewCompat;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -236,7 +240,7 @@ public class TimeListEdit {
         if (i == 0) next = ONEHOURINSECONDS;
         fillSpinner(timeSpinner, secondFromMidnight(i), previous, next);
 
-        editText1.setParams(value1(i), min, max, step, formatter, false,null);
+        editText1.setParams(value1(i), min, max, step, formatter, false, null);
         editText2.setParams(value2(i), min, max, step, formatter, false, null);
 
         if (data2 == null) {

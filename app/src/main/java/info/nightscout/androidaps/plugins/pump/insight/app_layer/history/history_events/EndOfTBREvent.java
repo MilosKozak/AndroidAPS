@@ -3,7 +3,7 @@ package info.nightscout.androidaps.plugins.pump.insight.app_layer.history.histor
 import info.nightscout.androidaps.plugins.pump.insight.utils.BOCUtil;
 import info.nightscout.androidaps.plugins.pump.insight.utils.ByteBuf;
 
-public class EndOfTBREvent extends HistoryEvent {
+public class EndOfTBREvent extends HistoryEventWithStart {
 
     private int startHour;
     private int startMinute;

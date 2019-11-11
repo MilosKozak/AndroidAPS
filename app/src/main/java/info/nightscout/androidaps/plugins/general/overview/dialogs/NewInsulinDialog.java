@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.HandlerThread;
-import androidx.fragment.app.DialogFragment;
-import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
@@ -19,6 +17,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.common.base.Joiner;
 
@@ -34,14 +35,17 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Profile;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.Bolus;
+import info.nightscout.androidaps.database.entities.TemporaryTarget;
+import info.nightscout.androidaps.database.transactions.InsertTemporaryTargetAndCancelCurrentTransaction;
+import info.nightscout.androidaps.database.transactions.MealBolusTransaction;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.Source;
-import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
-import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DecimalFormatter;
@@ -267,14 +271,12 @@ public class NewInsulinDialog extends DialogFragment implements OnClickListener 
                         accepted = true;
 
                         if (startEatingSoonTTCheckbox.isChecked()) {
-                            TempTarget tempTarget = new TempTarget()
-                                    .date(System.currentTimeMillis())
-                                    .duration(finalEatingSoonTTDuration)
-                                    .reason(MainApp.gs(R.string.eatingsoon))
-                                    .source(Source.USER)
-                                    .low(Profile.toMgdl(finalEatigSoonTT, currentProfile.getUnits()))
-                                    .high(Profile.toMgdl(finalEatigSoonTT, currentProfile.getUnits()));
-                            TreatmentsPlugin.getPlugin().addToHistoryTempTarget(tempTarget);
+                            BlockingAppRepository.INSTANCE.runTransaction(new InsertTemporaryTargetAndCancelCurrentTransaction(
+                                    System.currentTimeMillis(),
+                                    finalEatingSoonTTDuration * 60000,
+                                    TemporaryTarget.Reason.EATING_SOON,
+                                    Profile.toMgdl(finalEatigSoonTT, currentProfile.getUnits())
+                            ));
                         }
 
                         if (finalInsulinAfterConstraints > 0) {
@@ -285,8 +287,7 @@ public class NewInsulinDialog extends DialogFragment implements OnClickListener 
                             detailedBolusInfo.source = Source.USER;
                             detailedBolusInfo.notes = notes;
                             if (recordOnlyCheckbox.isChecked()) {
-                                detailedBolusInfo.date = time;
-                                TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, false);
+                                BlockingAppRepository.INSTANCE.runTransaction(new MealBolusTransaction(time, finalInsulinAfterConstraints, 0, Bolus.Type.NORMAL, 0, null));
                             } else {
                                 detailedBolusInfo.date = now();
                                 ConfigBuilderPlugin.getPlugin().getCommandQueue().bolus(detailedBolusInfo, new Callback() {

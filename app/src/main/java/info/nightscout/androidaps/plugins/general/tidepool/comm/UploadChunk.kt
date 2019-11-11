@@ -2,6 +2,7 @@ package info.nightscout.androidaps.plugins.general.tidepool.comm
 
 import info.nightscout.androidaps.MainApp
 import info.nightscout.androidaps.R
+import info.nightscout.androidaps.database.BlockingAppRepository
 import info.nightscout.androidaps.logging.L
 import info.nightscout.androidaps.plugins.bus.RxBus
 import info.nightscout.androidaps.plugins.general.tidepool.elements.*
@@ -67,14 +68,7 @@ object UploadChunk {
 
     private fun getOldestRecordTimeStamp(): Long {
         // TODO we could make sure we include records older than the first bg record for completeness
-
-        val start: Long = 0
-        val end = DateUtil.now()
-
-        val bgReadingList = MainApp.getDbHelper().getBgreadingsDataFromTime(start, end, true)
-        return if (bgReadingList.size > 0)
-            bgReadingList[0].date
-        else -1
+        return BlockingAppRepository.getGlucoseValuesInTimeRangeIf39OrHigher(0, DateUtil.now()).firstOrNull()?.timestamp ?: -1L
     }
 
     private fun getTreatments(start: Long, end: Long): List<BaseElement> {
@@ -100,7 +94,7 @@ object UploadChunk {
     }
 
     internal fun getBgReadings(start: Long, end: Long): List<SensorGlucoseElement> {
-        val readings = MainApp.getDbHelper().getBgreadingsDataFromTime(start, end, true)
+        val readings = BlockingAppRepository.getGlucoseValuesInTimeRangeIf39OrHigher(start, end)
         val selection = SensorGlucoseElement.fromBgReadings(readings)
         if (selection.isNotEmpty())
             RxBus.send(EventTidepoolStatus("${selection.size} CGMs selected for upload"))

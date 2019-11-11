@@ -31,6 +31,8 @@ import info.nightscout.androidaps.utils.SP;
 public class TemporaryBasal implements Interval, DbObjectBase {
     private static Logger log = LoggerFactory.getLogger(L.DATABASE);
 
+    public info.nightscout.androidaps.database.entities.TemporaryBasal backing;
+
     @DatabaseField(id = true)
     public long date;
 

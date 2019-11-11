@@ -1,6 +1,7 @@
 package info.nightscout.androidaps.plugins.treatments;
 
 import android.graphics.Color;
+
 import androidx.annotation.Nullable;
 
 import com.j256.ormlite.field.DatabaseField;
@@ -16,8 +17,9 @@ import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Iob;
-import info.nightscout.androidaps.db.DbObjectBase;
 import info.nightscout.androidaps.data.Profile;
+import info.nightscout.androidaps.database.transactions.MergedBolus;
+import info.nightscout.androidaps.db.DbObjectBase;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.interfaces.InsulinInterface;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
@@ -32,6 +34,8 @@ import info.nightscout.androidaps.utils.JsonHelper;
 @DatabaseTable(tableName = Treatment.TABLE_TREATMENTS)
 public class Treatment implements DataPointWithLabelInterface, DbObjectBase {
     public static final String TABLE_TREATMENTS = "Treatments";
+
+    public MergedBolus backing;
 
     @DatabaseField(id = true)
     public long date;

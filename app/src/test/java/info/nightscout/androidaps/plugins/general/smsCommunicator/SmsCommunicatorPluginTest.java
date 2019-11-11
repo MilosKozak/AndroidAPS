@@ -21,7 +21,7 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.PumpEnactResult;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.ProfileInterface;
@@ -727,9 +727,22 @@ public class SmsCommunicatorPluginTest {
         AAPSMocker.mockNSUpload();
         AAPSMocker.mockConstraintsChecker();
 
-        BgReading reading = new BgReading();
-        reading.value = 100;
-        List<BgReading> bgList = new ArrayList<>();
+        GlucoseValue reading = new GlucoseValue(
+                0,
+                0,
+                0,
+                true,
+                null,
+                null,
+                0,
+                0,
+                null,
+                100,
+                GlucoseValue.TrendArrow.NONE,
+                null,
+                GlucoseValue.SourceSensor.UNKNOWN
+        );
+        List<GlucoseValue> bgList = new ArrayList<>();
         bgList.add(reading);
         PowerMockito.when(IobCobCalculatorPlugin.getPlugin().getBgReadings()).thenReturn(bgList);
         PowerMockito.when(IobCobCalculatorPlugin.getPlugin().getCobInfo(false, "SMS COB")).thenReturn(new CobInfo(10d, 2d));

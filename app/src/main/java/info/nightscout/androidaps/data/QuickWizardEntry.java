@@ -8,16 +8,17 @@ import org.slf4j.LoggerFactory;
 import java.util.Date;
 
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.interfaces.TreatmentsInterface;
+import info.nightscout.androidaps.plugins.aps.loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.CobInfo;
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.GlucoseStatus;
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.IobCobCalculatorPlugin;
-import info.nightscout.androidaps.plugins.aps.loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.BolusWizard;
 import info.nightscout.androidaps.utils.DateUtil;
+import info.nightscout.androidaps.utils.GlucoseValueUtilsKt;
 import info.nightscout.androidaps.utils.SP;
 
 /**
@@ -69,12 +70,12 @@ public class QuickWizardEntry {
         return Profile.secondsFromMidnight() >= validFrom() && Profile.secondsFromMidnight() <= validTo();
     }
 
-    public BolusWizard doCalc(Profile profile, String profileName, BgReading lastBG, boolean _synchronized) {
+    public BolusWizard doCalc(Profile profile, String profileName, GlucoseValue lastBG, boolean _synchronized) {
         final TempTarget tempTarget = TreatmentsPlugin.getPlugin().getTempTargetFromHistory();
         //BG
         double bg = 0;
         if (lastBG != null && useBG() == YES) {
-            bg = lastBG.valueToUnits(profile.getUnits());
+            bg = GlucoseValueUtilsKt.valueToUnits(lastBG.getValue(), profile.getUnits());
         }
 
         // COB

@@ -5,9 +5,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.text.Spanned;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ContextThemeWrapper;
-import android.text.Spanned;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

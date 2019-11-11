@@ -8,9 +8,10 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+
 import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

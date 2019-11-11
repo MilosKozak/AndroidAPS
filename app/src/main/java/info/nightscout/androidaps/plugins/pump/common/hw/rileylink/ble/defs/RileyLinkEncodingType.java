@@ -3,8 +3,8 @@ package info.nightscout.androidaps.plugins.pump.common.hw.rileylink.ble.defs;
 import java.util.HashMap;
 import java.util.Map;
 
-import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.MainApp;
+import info.nightscout.androidaps.R;
 
 public enum RileyLinkEncodingType {
 

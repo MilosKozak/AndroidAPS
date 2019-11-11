@@ -1,10 +1,10 @@
 package info.nightscout.androidaps.plugins.pump.common.hw.rileylink.service.tasks;
 
+import android.util.Log;
+
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
-import android.util.Log;
 
 import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.RileyLinkUtil;
 

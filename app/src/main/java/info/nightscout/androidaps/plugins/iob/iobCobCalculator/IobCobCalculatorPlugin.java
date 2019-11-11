@@ -12,13 +12,14 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 import info.nightscout.androidaps.Constants;
-import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.Profile;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.events.Event;
 import info.nightscout.androidaps.events.EventAppInitialized;
@@ -67,8 +68,8 @@ public class IobCobCalculatorPlugin extends PluginBase {
     private LongSparseArray<AutosensData> autosensDataTable = new LongSparseArray<>(); // oldest at index 0
     private LongSparseArray<BasalData> basalDataTable = new LongSparseArray<>(); // oldest at index 0
 
-    private volatile List<BgReading> bgReadings = null; // newest at index 0
-    private volatile List<BgReading> bucketed_data = null;
+    private volatile List<GlucoseValue> bgReadings = null; // newest at index 0
+    private volatile List<GlucoseValue> bucketed_data = null;
 
     private final Object dataLock = new Object();
 
@@ -210,15 +211,15 @@ public class IobCobCalculatorPlugin extends PluginBase {
         return autosensDataTable;
     }
 
-    public List<BgReading> getBgReadings() {
+    public List<GlucoseValue> getBgReadings() {
         return bgReadings;
     }
 
-    public void setBgReadings(List<BgReading> bgReadings) {
+    public void setBgReadings(List<GlucoseValue> bgReadings) {
         this.bgReadings = bgReadings;
     }
 
-    public List<BgReading> getBucketedData() {
+    public List<GlucoseValue> getBucketedData() {
         return bucketed_data;
     }
 
@@ -242,11 +243,11 @@ public class IobCobCalculatorPlugin extends PluginBase {
         if (DateUtil.isCloseToNow(to)) {
             // if close to now expect there can be some readings with time in close future (caused by wrong time setting)
             // so read all records
-            bgReadings = MainApp.getDbHelper().getBgreadingsDataFromTime(start, false);
+            bgReadings = BlockingAppRepository.INSTANCE.getGlucoseValuesInTimeRangeIf39OrHigher(start, Long.MAX_VALUE);
             if (L.isEnabled(L.AUTOSENS))
                 log.debug("BG data loaded. Size: " + bgReadings.size() + " Start date: " + DateUtil.dateAndTimeString(start));
         } else {
-            bgReadings = MainApp.getDbHelper().getBgreadingsDataFromTime(start, to, false);
+            bgReadings = BlockingAppRepository.INSTANCE.getGlucoseValuesInTimeRangeIf39OrHigher(start, to);
             if (L.isEnabled(L.AUTOSENS))
                 log.debug("BG data loaded. Size: " + bgReadings.size() + " Start date: " + DateUtil.dateAndTimeString(start) + " End date: " + DateUtil.dateAndTimeString(to));
         }
@@ -259,8 +260,8 @@ public class IobCobCalculatorPlugin extends PluginBase {
             }
             long totalDiff = 0;
             for (int i = 1; i < bgReadings.size(); ++i) {
-                long bgTime = bgReadings.get(i).date;
-                long lastbgTime = bgReadings.get(i - 1).date;
+                long bgTime = bgReadings.get(i).getTimestamp();
+                long lastbgTime = bgReadings.get(i - 1).getTimestamp();
                 long diff = lastbgTime - bgTime;
                 diff %= T.mins(5).msecs();
                 if (diff > T.mins(2).plus(T.secs(30)).msecs())
@@ -289,27 +290,27 @@ public class IobCobCalculatorPlugin extends PluginBase {
     }
 
     @Nullable
-    public BgReading findNewer(long time) {
-        BgReading lastFound = bgReadings.get(0);
-        if (lastFound.date < time) return null;
+    public GlucoseValue findNewer(long time) {
+        GlucoseValue lastFound = bgReadings.get(0);
+        if (lastFound.getTimestamp() < time) return null;
         for (int i = 1; i < bgReadings.size(); ++i) {
-            if (bgReadings.get(i).date == time) return bgReadings.get(i);
-            if (bgReadings.get(i).date > time) continue;
+            if (bgReadings.get(i).getTimestamp() == time) return bgReadings.get(i);
+            if (bgReadings.get(i).getTimestamp() > time) continue;
             lastFound = bgReadings.get(i - 1);
-            if (bgReadings.get(i).date < time) break;
+            if (bgReadings.get(i).getTimestamp() < time) break;
         }
         return lastFound;
     }
 
     @Nullable
-    public BgReading findOlder(long time) {
-        BgReading lastFound = bgReadings.get(bgReadings.size() - 1);
-        if (lastFound.date > time) return null;
+    public GlucoseValue findOlder(long time) {
+        GlucoseValue lastFound = bgReadings.get(bgReadings.size() - 1);
+        if (lastFound.getTimestamp() > time) return null;
         for (int i = bgReadings.size() - 2; i >= 0; --i) {
-            if (bgReadings.get(i).date == time) return bgReadings.get(i);
-            if (bgReadings.get(i).date < time) continue;
+            if (bgReadings.get(i).getTimestamp() == time) return bgReadings.get(i);
+            if (bgReadings.get(i).getTimestamp() < time) continue;
             lastFound = bgReadings.get(i + 1);
-            if (bgReadings.get(i).date > time) break;
+            if (bgReadings.get(i).getTimestamp() > time) break;
         }
         return lastFound;
     }
@@ -321,26 +322,38 @@ public class IobCobCalculatorPlugin extends PluginBase {
         }
 
         bucketed_data = new ArrayList<>();
-        long currentTime = bgReadings.get(0).date - bgReadings.get(0).date % T.mins(5).msecs();
+        long currentTime = bgReadings.get(0).getTimestamp() - bgReadings.get(0).getTimestamp() % T.mins(5).msecs();
         //log.debug("First reading: " + new Date(currentTime).toLocaleString());
 
         while (true) {
             // test if current value is older than current time
-            BgReading newer = findNewer(currentTime);
-            BgReading older = findOlder(currentTime);
+            GlucoseValue newer = findNewer(currentTime);
+            GlucoseValue older = findOlder(currentTime);
             if (newer == null || older == null)
                 break;
 
-            if (older.date == newer.date) { // direct hit
+            if (older.getTimestamp() == newer.getTimestamp()) { // direct hit
                 bucketed_data.add(newer);
             } else {
-                double bgDelta = newer.value - older.value;
-                long timeDiffToNew = newer.date - currentTime;
+                double bgDelta = newer.getTimestamp() - older.getTimestamp();
+                long timeDiffToNew = newer.getTimestamp() - currentTime;
 
-                double currentBg = newer.value - (double) timeDiffToNew / (newer.date - older.date) * bgDelta;
-                BgReading newBgreading = new BgReading();
-                newBgreading.date = currentTime;
-                newBgreading.value = Math.round(currentBg);
+                double currentBg = newer.getTimestamp() - (double) timeDiffToNew / (newer.getTimestamp() - older.getTimestamp()) * bgDelta;
+                GlucoseValue newBgreading = new GlucoseValue(
+                        0,
+                        0,
+                        0,
+                        true,
+                        null,
+                        null,
+                        currentTime,
+                        TimeZone.getDefault().getOffset(currentTime),
+                        null,
+                        Math.round(currentBg),
+                        GlucoseValue.TrendArrow.NONE,
+                        null,
+                        GlucoseValue.SourceSensor.UNKNOWN
+                );
                 bucketed_data.add(newBgreading);
                 //log.debug("BG: " + newBgreading.value + " (" + new Date(newBgreading.date).toLocaleString() + ") Prev: " + older.value + " (" + new Date(older.date).toLocaleString() + ") Newer: " + newer.value + " (" + new Date(newer.date).toLocaleString() + ")");
             }
@@ -359,32 +372,44 @@ public class IobCobCalculatorPlugin extends PluginBase {
         bucketed_data = new ArrayList<>();
         bucketed_data.add(bgReadings.get(0));
         if (L.isEnabled(L.AUTOSENS))
-            log.debug("Adding. bgTime: " + DateUtil.toISOString(bgReadings.get(0).date) + " lastbgTime: " + "none-first-value" + " " + bgReadings.get(0).toString());
+            log.debug("Adding. bgTime: " + DateUtil.toISOString(bgReadings.get(0).getTimestamp()) + " lastbgTime: " + "none-first-value" + " " + bgReadings.get(0).toString());
         int j = 0;
         for (int i = 1; i < bgReadings.size(); ++i) {
-            long bgTime = bgReadings.get(i).date;
-            long lastbgTime = bgReadings.get(i - 1).date;
+            long bgTime = bgReadings.get(i).getTimestamp();
+            long lastbgTime = bgReadings.get(i - 1).getTimestamp();
             //log.error("Processing " + i + ": " + new Date(bgTime).toString() + " " + bgReadings.get(i).value + "   Previous: " + new Date(lastbgTime).toString() + " " + bgReadings.get(i - 1).value);
-            if (bgReadings.get(i).value < 39 || bgReadings.get(i - 1).value < 39) {
+            if (bgReadings.get(i).getValue() < 39 || bgReadings.get(i - 1).getValue() < 39) {
                 throw new IllegalStateException("<39");
             }
 
             long elapsed_minutes = (bgTime - lastbgTime) / (60 * 1000);
             if (Math.abs(elapsed_minutes) > 8) {
                 // interpolate missing data points
-                double lastbg = bgReadings.get(i - 1).value;
+                double lastbg = bgReadings.get(i - 1).getValue();
                 elapsed_minutes = Math.abs(elapsed_minutes);
                 //console.error(elapsed_minutes);
                 long nextbgTime;
                 while (elapsed_minutes > 5) {
                     nextbgTime = lastbgTime - 5 * 60 * 1000;
                     j++;
-                    BgReading newBgreading = new BgReading();
-                    newBgreading.date = nextbgTime;
-                    double gapDelta = bgReadings.get(i).value - lastbg;
+                    double gapDelta = bgReadings.get(i).getValue() - lastbg;
                     //console.error(gapDelta, lastbg, elapsed_minutes);
                     double nextbg = lastbg + (5d / elapsed_minutes * gapDelta);
-                    newBgreading.value = Math.round(nextbg);
+                    GlucoseValue newBgreading = new GlucoseValue(
+                            0,
+                            0,
+                            0,
+                            true,
+                            null,
+                            null,
+                            nextbgTime,
+                            TimeZone.getDefault().getOffset(nextbgTime),
+                            null,
+                            Math.round(Math.round(nextbg)),
+                            GlucoseValue.TrendArrow.NONE,
+                            null,
+                            GlucoseValue.SourceSensor.UNKNOWN
+                    );
                     //console.error("Interpolated", bucketed_data[j]);
                     bucketed_data.add(newBgreading);
                     if (L.isEnabled(L.AUTOSENS))
@@ -395,34 +420,58 @@ public class IobCobCalculatorPlugin extends PluginBase {
                     lastbgTime = nextbgTime;
                 }
                 j++;
-                BgReading newBgreading = new BgReading();
-                newBgreading.value = bgReadings.get(i).value;
-                newBgreading.date = bgTime;
+                GlucoseValue newBgreading = new GlucoseValue(
+                        0,
+                        0,
+                        0,
+                        true,
+                        null,
+                        null,
+                        bgTime,
+                        TimeZone.getDefault().getOffset(bgTime),
+                        null,
+                        bgReadings.get(i).getValue(),
+                        GlucoseValue.TrendArrow.NONE,
+                        null,
+                        GlucoseValue.SourceSensor.UNKNOWN
+                );
                 bucketed_data.add(newBgreading);
                 if (L.isEnabled(L.AUTOSENS))
                     log.debug("Adding. bgTime: " + DateUtil.toISOString(bgTime) + " lastbgTime: " + DateUtil.toISOString(lastbgTime) + " " + newBgreading.toString());
             } else if (Math.abs(elapsed_minutes) > 2) {
                 j++;
-                BgReading newBgreading = new BgReading();
-                newBgreading.value = bgReadings.get(i).value;
-                newBgreading.date = bgTime;
+                GlucoseValue newBgreading = new GlucoseValue(
+                        0,
+                        0,
+                        0,
+                        true,
+                        null,
+                        null,
+                        bgTime,
+                        TimeZone.getDefault().getOffset(bgTime),
+                        null,
+                        bgReadings.get(i).getValue(),
+                        GlucoseValue.TrendArrow.NONE,
+                        null,
+                        GlucoseValue.SourceSensor.UNKNOWN
+                );
                 bucketed_data.add(newBgreading);
                 if (L.isEnabled(L.AUTOSENS))
                     log.debug("Adding. bgTime: " + DateUtil.toISOString(bgTime) + " lastbgTime: " + DateUtil.toISOString(lastbgTime) + " " + newBgreading.toString());
             } else {
-                bucketed_data.get(j).value = (bucketed_data.get(j).value + bgReadings.get(i).value) / 2;
+                bucketed_data.get(j).setValue((bucketed_data.get(j).getValue() + bgReadings.get(i).getValue()) / 2);
                 //log.error("***** Average");
             }
         }
 
         // Normalize bucketed data
         for (int i = bucketed_data.size() - 2; i >= 0; i--) {
-            BgReading current = bucketed_data.get(i);
-            BgReading previous = bucketed_data.get(i + 1);
-            long msecDiff = current.date - previous.date;
+            GlucoseValue current = bucketed_data.get(i);
+            GlucoseValue previous = bucketed_data.get(i + 1);
+            long msecDiff = current.getTimestamp() - previous.getTimestamp();
             long adjusted = (msecDiff - T.mins(5).msecs()) / 1000;
             if (L.isEnabled(L.AUTOSENS))
-                log.debug("Adjusting bucketed data time. Current: " + DateUtil.toISOString(current.date) + " to: " + DateUtil.toISOString(previous.date + T.mins(5).msecs()) + " by " + adjusted + " sec");
+                log.debug("Adjusting bucketed data time. Current: " + DateUtil.toISOString(current.getTimestamp()) + " to: " + DateUtil.toISOString(previous.getTimestamp() + T.mins(5).msecs()) + " by " + adjusted + " sec");
             if (Math.abs(adjusted) > 90) {
                 // too big adjustment, fallback to non 5 min data
                 if (L.isEnabled(L.AUTOSENS))
@@ -430,7 +479,7 @@ public class IobCobCalculatorPlugin extends PluginBase {
                 createBucketedDataRecalculated();
                 return;
             }
-            current.date = previous.date + T.mins(5).msecs();
+            current.setTimestamp(previous.getTimestamp() + T.mins(5).msecs());
         }
 
         if (L.isEnabled(L.AUTOSENS))
@@ -530,8 +579,8 @@ public class IobCobCalculatorPlugin extends PluginBase {
         if (bucketed_data == null)
             return null;
         for (int index = 0; index < bucketed_data.size(); index++) {
-            if (bucketed_data.get(index).date <= time)
-                return bucketed_data.get(index).date;
+            if (bucketed_data.get(index).getTimestamp() <= time)
+                return bucketed_data.get(index).getTimestamp();
         }
         return null;
     }

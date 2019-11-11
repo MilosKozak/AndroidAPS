@@ -3,21 +3,20 @@ package info.nightscout.androidaps.plugins.source
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
-import info.nightscout.androidaps.Constants
 import info.nightscout.androidaps.MainApp
 import info.nightscout.androidaps.R
 import info.nightscout.androidaps.activities.RequestDexcomPermissionActivity
-import info.nightscout.androidaps.db.BgReading
-import info.nightscout.androidaps.db.CareportalEvent
+import info.nightscout.androidaps.database.BlockingAppRepository
+import info.nightscout.androidaps.database.entities.GlucoseValue
+import info.nightscout.androidaps.database.transactions.CgmSourceTransaction
 import info.nightscout.androidaps.interfaces.BgSourceInterface
 import info.nightscout.androidaps.interfaces.PluginBase
 import info.nightscout.androidaps.interfaces.PluginDescription
 import info.nightscout.androidaps.interfaces.PluginType
 import info.nightscout.androidaps.logging.L
 import info.nightscout.androidaps.plugins.general.nsclient.NSUpload
-import info.nightscout.androidaps.utils.DateUtil
 import info.nightscout.androidaps.utils.SP
-import org.json.JSONObject
+import info.nightscout.androidaps.utils.toTrendArrow
 import org.slf4j.LoggerFactory
 
 object SourceDexcomPlugin : PluginBase(PluginDescription()
@@ -62,45 +61,46 @@ object SourceDexcomPlugin : PluginBase(PluginDescription()
         if (!isEnabled(PluginType.BGSOURCE)) return
         try {
             val sensorType = intent.getStringExtra("sensorType") ?: ""
-            val glucoseValues = intent.getBundleExtra("glucoseValues")
-            for (i in 0 until glucoseValues.size()) {
-                val glucoseValue = glucoseValues.getBundle(i.toString())
-                val bgReading = BgReading()
-                bgReading.value = glucoseValue!!.getInt("glucoseValue").toDouble()
-                bgReading.direction = glucoseValue.getString("trendArrow")
-                bgReading.date = glucoseValue.getLong("timestamp") * 1000
-                bgReading.raw = 0.0
-                if (MainApp.getDbHelper().createIfNotExists(bgReading, "Dexcom$sensorType")) {
-                    if (SP.getBoolean(R.string.key_dexcomg5_nsupload, false)) {
-                        NSUpload.uploadBg(bgReading, "AndroidAPS-Dexcom$sensorType")
-                    }
-                    if (SP.getBoolean(R.string.key_dexcomg5_xdripupload, false)) {
-                        NSUpload.sendToXdrip(bgReading)
-                    }
-                }
+            val sourceSensor = when (sensorType) {
+                "G6" -> GlucoseValue.SourceSensor.DEXCOM_G6_NATIVE
+                "G5" -> GlucoseValue.SourceSensor.DEXCOM_G5_NATIVE
+                else -> GlucoseValue.SourceSensor.DEXCOM_NATIVE_UNKNOWN
+            }
+            val glucoseValuesBundle = intent.getBundleExtra("glucoseValues")!!
+            val glucoseValues = mutableListOf<CgmSourceTransaction.GlucoseValue>()
+            for (i in 0 until glucoseValuesBundle.size()) {
+                val glucoseValueBundle = glucoseValuesBundle.getBundle(i.toString())!!
+                glucoseValues.add(CgmSourceTransaction.GlucoseValue(
+                        timestamp = glucoseValueBundle.getLong("timestamp") * 1000,
+                        value = glucoseValueBundle.getInt("glucoseValue").toDouble(),
+                        noise = null,
+                        raw = null,
+                        trendArrow = glucoseValueBundle.getString("trendArrow")!!.toTrendArrow(),
+                        sourceSensor = sourceSensor
+                ))
             }
             val meters = intent.getBundleExtra("meters")
+            val calibrations = mutableListOf<CgmSourceTransaction.Calibration>()
             for (i in 0 until meters.size()) {
-                val meter = meters.getBundle(i.toString())
-                val timestamp = meter!!.getLong("timestamp") * 1000
-                if (MainApp.getDbHelper().getCareportalEventFromTimestamp(timestamp) != null) continue
-                val jsonObject = JSONObject()
-                jsonObject.put("enteredBy", "AndroidAPS-Dexcom$sensorType")
-                jsonObject.put("created_at", DateUtil.toISOString(timestamp))
-                jsonObject.put("eventType", CareportalEvent.BGCHECK)
-                jsonObject.put("glucoseType", "Finger")
-                jsonObject.put("glucose", meter.getInt("meterValue"))
-                jsonObject.put("units", Constants.MGDL)
-                NSUpload.uploadCareportalEntryToNS(jsonObject)
+                val meter = meters.getBundle(i.toString())!!
+                calibrations.add(CgmSourceTransaction.Calibration(meter.getLong("timestamp") * 1000,
+                        meter.getInt("meterValue").toDouble()))
             }
-            if (SP.getBoolean(R.string.key_dexcom_lognssensorchange, false) && intent.hasExtra("sensorInsertionTime")) {
-                val sensorInsertionTime = intent.extras!!.getLong("sensorInsertionTime") * 1000
-                if (MainApp.getDbHelper().getCareportalEventFromTimestamp(sensorInsertionTime) == null) {
-                    val jsonObject = JSONObject()
-                    jsonObject.put("enteredBy", "AndroidAPS-Dexcom$sensorType")
-                    jsonObject.put("created_at", DateUtil.toISOString(sensorInsertionTime))
-                    jsonObject.put("eventType", CareportalEvent.SENSORCHANGE)
-                    NSUpload.uploadCareportalEntryToNS(jsonObject)
+            val sensorStartTime = if (SP.getBoolean(R.string.key_dexcom_lognssensorchange, false)) {
+                if (intent.hasExtra("sensorInsertionTime")) {
+                    intent.getLongExtra("sensorInsertionTime", 0) * 1000
+                } else {
+                    null
+                }
+            } else {
+                null
+            }
+            BlockingAppRepository.runTransactionForResult(CgmSourceTransaction(glucoseValues, calibrations, sensorStartTime)).forEach {
+                if (SP.getBoolean(R.string.key_dexcomg5_nsupload, false)) {
+                    NSUpload.uploadBg(it, "AndroidAPS-$sensorType")
+                }
+                if (SP.getBoolean(R.string.key_dexcomg5_xdripupload, false)) {
+                    NSUpload.sendToXdrip(it)
                 }
             }
         } catch (e: Exception) {

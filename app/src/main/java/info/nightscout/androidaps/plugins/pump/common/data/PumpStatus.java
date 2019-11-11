@@ -1,8 +1,8 @@
 package info.nightscout.androidaps.plugins.pump.common.data;
 
-import java.util.Date;
-
 import org.joda.time.LocalDateTime;
+
+import java.util.Date;
 
 import info.nightscout.androidaps.data.ProfileStore;
 import info.nightscout.androidaps.interfaces.PumpDescription;

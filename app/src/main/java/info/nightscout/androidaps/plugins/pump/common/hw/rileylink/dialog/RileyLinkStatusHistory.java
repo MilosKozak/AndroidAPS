@@ -1,16 +1,17 @@
 package info.nightscout.androidaps.plugins.pump.common.hw.rileylink.dialog;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.plugins.pump.common.dialog.RefreshableInterface;

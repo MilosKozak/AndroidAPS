@@ -21,13 +21,12 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Intervals;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.Profile;
-import info.nightscout.androidaps.db.Source;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.transactions.InvalidateTemporaryBasalTransaction;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.events.EventTempBasalChange;
 import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
-import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
-import info.nightscout.androidaps.plugins.general.nsclient.UploadQueue;
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.events.EventAutosensCalculationFinished;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
@@ -64,8 +63,8 @@ public class TreatmentsTemporaryBasalsFragment extends Fragment {
         @Override
         public void onBindViewHolder(TempBasalsViewHolder holder, int position) {
             TemporaryBasal tempBasal = tempBasalList.getReversed(position);
-            holder.ph.setVisibility(tempBasal.source == Source.PUMP ? View.VISIBLE : View.GONE);
-            holder.ns.setVisibility(NSUpload.isIdValid(tempBasal._id) ? View.VISIBLE : View.GONE);
+            holder.ph.setVisibility(tempBasal.backing.getInterfaceIDs().getPumpType() != null ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(tempBasal.backing.getInterfaceIDs().getNightscoutId() != null ? View.VISIBLE : View.GONE);
             if (tempBasal.isEndingEvent()) {
                 holder.date.setText(DateUtil.dateAndTimeString(tempBasal.date));
                 holder.duration.setText(MainApp.gs(R.string.cancel));
@@ -170,13 +169,7 @@ public class TreatmentsTemporaryBasalsFragment extends Fragment {
                         builder.setTitle(MainApp.gs(R.string.confirmation));
                         builder.setMessage(MainApp.gs(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(tempBasal.date));
                         builder.setPositiveButton(MainApp.gs(R.string.ok), (dialog, id) -> {
-                            final String _id = tempBasal._id;
-                            if (NSUpload.isIdValid(_id)) {
-                                NSUpload.removeCareportalEntryFromNS(_id);
-                            } else {
-                                UploadQueue.removeID("dbAdd", _id);
-                            }
-                            MainApp.getDbHelper().delete(tempBasal);
+                            BlockingAppRepository.INSTANCE.runTransaction(new InvalidateTemporaryBasalTransaction(tempBasal.backing.getId()));
                         });
                         builder.setNegativeButton(MainApp.gs(R.string.cancel), null);
                         builder.show();

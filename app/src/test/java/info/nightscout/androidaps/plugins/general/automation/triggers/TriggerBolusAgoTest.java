@@ -20,7 +20,6 @@ import info.nightscout.androidaps.plugins.general.automation.elements.Comparator
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
 
-import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)

@@ -1,7 +1,7 @@
 package info.nightscout.androidaps.plugins.general.tidepool.comm
 
-import info.nightscout.androidaps.plugins.bus.RxBus
 import info.nightscout.androidaps.logging.L
+import info.nightscout.androidaps.plugins.bus.RxBus
 import info.nightscout.androidaps.plugins.general.tidepool.events.EventTidepoolStatus
 import org.slf4j.LoggerFactory
 import retrofit2.Call

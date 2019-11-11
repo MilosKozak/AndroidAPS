@@ -1,9 +1,9 @@
 package info.nightscout.androidaps.plugins.pump.common.hw.rileylink;
 
+import android.content.Context;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import android.content.Context;
 
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.pump.common.data.PumpStatus;

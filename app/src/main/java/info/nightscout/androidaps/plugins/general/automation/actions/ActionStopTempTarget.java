@@ -8,16 +8,15 @@ import org.json.JSONObject;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.PumpEnactResult;
-import info.nightscout.androidaps.db.Source;
-import info.nightscout.androidaps.db.TempTarget;
-import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.TemporaryTarget;
+import info.nightscout.androidaps.database.transactions.CancelTemporaryTargetTransaction;
 import info.nightscout.androidaps.queue.Callback;
-import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.JsonHelper;
 
 public class ActionStopTempTarget extends Action {
     String reason = "";
-    private TempTarget tempTarget;
+    private TemporaryTarget tempTarget;
 
     public ActionStopTempTarget() {
     }
@@ -34,8 +33,7 @@ public class ActionStopTempTarget extends Action {
 
     @Override
     public void doAction(Callback callback) {
-        tempTarget = new TempTarget().date(DateUtil.now()).duration(0).reason(reason).source(Source.USER).low(0).high(0);
-        TreatmentsPlugin.getPlugin().addToHistoryTempTarget(tempTarget);
+        BlockingAppRepository.INSTANCE.runTransaction(new CancelTemporaryTargetTransaction());
         if (callback != null)
             callback.result(new PumpEnactResult().success(true).comment(R.string.ok)).run();
     }

@@ -9,7 +9,6 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,12 +19,18 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Profile;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.Bolus;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
+import info.nightscout.androidaps.database.entities.TemporaryTarget;
+import info.nightscout.androidaps.database.entities.TotalDailyDose;
+import info.nightscout.androidaps.database.exception.NoActiveEntryException;
+import info.nightscout.androidaps.database.transactions.CancelTemporaryTargetTransaction;
+import info.nightscout.androidaps.database.transactions.InsertTemporaryTargetAndCancelCurrentTransaction;
+import info.nightscout.androidaps.database.transactions.MealBolusTransaction;
 import info.nightscout.androidaps.db.CareportalEvent;
-import info.nightscout.androidaps.db.DatabaseHelper;
 import info.nightscout.androidaps.db.ProfileSwitch;
 import info.nightscout.androidaps.db.Source;
-import info.nightscout.androidaps.db.TDD;
 import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.interfaces.APSInterface;
 import info.nightscout.androidaps.interfaces.Constraint;
@@ -52,6 +57,7 @@ import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.androidaps.utils.BolusWizard;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DecimalFormatter;
+import info.nightscout.androidaps.utils.GlucoseValueUtilsKt;
 import info.nightscout.androidaps.utils.HardLimits;
 import info.nightscout.androidaps.utils.SP;
 import info.nightscout.androidaps.utils.SafeParse;
@@ -207,7 +213,7 @@ public class ActionStringHandler {
                 return;
             }
 
-            BgReading bgReading = DatabaseHelper.actualBg();
+            GlucoseValue bgReading = BlockingAppRepository.INSTANCE.getLastGlucoseValueIfRecent();
             if (bgReading == null && useBG) {
                 sendError("No recent BG to base calculation on!");
                 return;
@@ -222,7 +228,7 @@ public class ActionStringHandler {
             DecimalFormat format = new DecimalFormat("0.00");
             DecimalFormat formatInt = new DecimalFormat("0");
             BolusWizard bolusWizard = new BolusWizard(profile, profileName, TreatmentsPlugin.getPlugin().getTempTargetFromHistory(),
-                    carbsAfterConstraints, cobInfo.displayCob, bgReading.valueToUnits(profile.getUnits()),
+                    carbsAfterConstraints, cobInfo.displayCob, GlucoseValueUtilsKt.valueToUnits(bgReading.getValue(), profile.getUnits()),
                     0d, percentage, useBG, useCOB, useBolusIOB, useBasalIOB, false, useTT, useTrend);
 
             if (Math.abs(bolusWizard.getInsulinAfterConstraints() - bolusWizard.getCalculatedTotalInsulin()) >= 0.01) {
@@ -287,8 +293,8 @@ public class ActionStringHandler {
             Object activePump = ConfigBuilderPlugin.getPlugin().getActivePump();
             if (activePump != null) {
                 // check if DB up to date
-                List<TDD> dummies = new LinkedList<TDD>();
-                List<TDD> historyList = getTDDList(dummies);
+                List<TotalDailyDose> dummies = new LinkedList<TotalDailyDose>();
+                List<TotalDailyDose> historyList = getTDDList(dummies);
 
                 if (isOldData(historyList)) {
                     rTitle = "TDD";
@@ -305,8 +311,8 @@ public class ActionStringHandler {
                         ConfigBuilderPlugin.getPlugin().getCommandQueue().loadTDDs(new Callback() {
                             @Override
                             public void run() {
-                                List<TDD> dummies = new LinkedList<TDD>();
-                                List<TDD> historyList = getTDDList(dummies);
+                                List<TotalDailyDose> dummies = new LinkedList<>();
+                                List<TotalDailyDose> historyList = getTDDList(dummies);
                                 if (isOldData(historyList)) {
                                     sendStatusmessage("TDD", "TDD: Still old data! Cannot load from pump.\n" + generateTDDMessage(historyList, dummies));
                                 } else {
@@ -370,7 +376,7 @@ public class ActionStringHandler {
         lastConfirmActionString = rAction;
     }
 
-    private static String generateTDDMessage(List<TDD> historyList, List<TDD> dummies) {
+    private static String generateTDDMessage(List<TotalDailyDose> historyList, List<TotalDailyDose> dummies) {
 
         Profile profile = ProfileFunctions.getInstance().getProfile();
 
@@ -388,8 +394,8 @@ public class ActionStringHandler {
         double refTDD = profile.baseBasalSum() * 2;
 
         PumpInterface pump = ConfigBuilderPlugin.getPlugin().getActivePump();
-        if (df.format(new Date(historyList.get(0).date)).equals(df.format(new Date()))) {
-            double tdd = historyList.get(0).getTotal();
+        if (df.format(new Date(historyList.get(0).getTimestamp())).equals(df.format(new Date()))) {
+            double tdd = historyList.get(0).getTotalAmount();
             historyList.remove(0);
             message += "Today: " + DecimalFormatter.to2Decimal(tdd) + "U " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + "\n";
             message += "\n";
@@ -406,8 +412,8 @@ public class ActionStringHandler {
         double weighted07 = 0d;
 
         Collections.reverse(historyList);
-        for (TDD record : historyList) {
-            double tdd = record.getTotal();
+        for (TotalDailyDose record : historyList) {
+            double tdd = record.getTotalAmount();
             if (i == 0) {
                 weighted03 = tdd;
                 weighted05 = tdd;
@@ -428,14 +434,14 @@ public class ActionStringHandler {
         Collections.reverse(historyList);
 
         //add TDDs:
-        for (TDD record : historyList) {
-            double tdd = record.getTotal();
-            message += df.format(new Date(record.date)) + " " + DecimalFormatter.to2Decimal(tdd) + "U " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + (dummies.contains(record) ? "x" : "") + "\n";
+        for (TotalDailyDose record : historyList) {
+            double tdd = record.getTotalAmount();
+            message += df.format(new Date(record.getTimestamp())) + " " + DecimalFormatter.to2Decimal(tdd) + "U " + (DecimalFormatter.to0Decimal(100 * tdd / refTDD) + "%") + (dummies.contains(record) ? "x" : "") + "\n";
         }
         return message;
     }
 
-    public static boolean isOldData(List<TDD> historyList) {
+    public static boolean isOldData(List<TotalDailyDose> historyList) {
         Object activePump = ConfigBuilderPlugin.getPlugin().getActivePump();
         PumpInterface dana = DanaRPlugin.getPlugin();
         PumpInterface danaRS = DanaRSPlugin.getPlugin();
@@ -446,41 +452,40 @@ public class ActionStringHandler {
         boolean startsYesterday = activePump == dana || activePump == danaRS || activePump == danaV2 || activePump == danaKorean || activePump == insight;
 
         DateFormat df = new SimpleDateFormat("dd.MM.");
-        return (historyList.size() < 3 || !(df.format(new Date(historyList.get(0).date)).equals(df.format(new Date(System.currentTimeMillis() - (startsYesterday ? 1000 * 60 * 60 * 24 : 0))))));
+        return (historyList.size() < 3 || !(df.format(new Date(historyList.get(0).getTimestamp())).equals(df.format(new Date(System.currentTimeMillis() - (startsYesterday ? 1000 * 60 * 60 * 24 : 0))))));
     }
 
     @NonNull
-    public static List<TDD> getTDDList(List<TDD> returnDummies) {
-        List<TDD> historyList = MainApp.getDbHelper().getTDDs();
+    public static List<TotalDailyDose> getTDDList(List<TotalDailyDose> returnDummies) {
+        List<TotalDailyDose> historyList = BlockingAppRepository.INSTANCE.getTotalDailyDoses(10);
 
         historyList = historyList.subList(0, Math.min(10, historyList.size()));
 
         //fill single gaps - only needed for Dana*R data
-        List<TDD> dummies = (returnDummies != null) ? returnDummies : (new LinkedList());
+        List<TotalDailyDose> dummies = (returnDummies != null) ? returnDummies : (new LinkedList());
         DateFormat df = new SimpleDateFormat("dd.MM.");
         for (int i = 0; i < historyList.size() - 1; i++) {
-            TDD elem1 = historyList.get(i);
-            TDD elem2 = historyList.get(i + 1);
+            TotalDailyDose elem1 = historyList.get(i);
+            TotalDailyDose elem2 = historyList.get(i + 1);
 
-            if (!df.format(new Date(elem1.date)).equals(df.format(new Date(elem2.date + 25 * 60 * 60 * 1000)))) {
-                TDD dummy = new TDD();
-                dummy.date = elem1.date - 24 * 60 * 60 * 1000;
-                dummy.basal = elem1.basal / 2;
-                dummy.bolus = elem1.bolus / 2;
-                dummies.add(dummy);
-                elem1.basal /= 2;
-                elem1.bolus /= 2;
-
-
+            if (!df.format(new Date(elem1.getTimestamp())).equals(df.format(new Date(elem2.getTimestamp() + 25 * 60 * 60 * 1000)))) {
+                TotalDailyDose dummy = new TotalDailyDose(
+                        0,
+                        0,
+                        0,
+                        true,
+                        null,
+                        null,
+                        elem1.getTimestamp() - 24 * 60 * 60 * 1000,
+                        0,
+                        elem1.getBasalAmount() / 2,
+                        elem2.getBolusAmount() / 2,
+                        elem1.getBasalAmount() / 2 + elem2.getBolusAmount() / 2
+                );
             }
         }
         historyList.addAll(dummies);
-        Collections.sort(historyList, new Comparator<TDD>() {
-            @Override
-            public int compare(TDD lhs, TDD rhs) {
-                return (int) (rhs.date - lhs.date);
-            }
-        });
+        Collections.sort(historyList, (lhs, rhs) -> (int) (rhs.getTimestamp() - lhs.getTimestamp()));
 
         return historyList;
     }
@@ -688,17 +693,20 @@ public class ActionStringHandler {
     }
 
     private static void generateTempTarget(int duration, double low, double high) {
-        TempTarget tempTarget = new TempTarget()
-                .date(System.currentTimeMillis())
-                .duration(duration)
-                .reason("WearPlugin")
-                .source(Source.USER);
-        if (tempTarget.durationInMinutes != 0) {
-            tempTarget.low(low).high(high);
+        if (duration == 0) {
+            try {
+                BlockingAppRepository.INSTANCE.runTransactionExComp(new CancelTemporaryTargetTransaction());
+            } catch (NoActiveEntryException exception) {
+            } catch (Exception ignored) {
+            }
         } else {
-            tempTarget.low(0).high(0);
+            BlockingAppRepository.INSTANCE.runTransaction(new InsertTemporaryTargetAndCancelCurrentTransaction(
+                    System.currentTimeMillis(),
+                    duration * 60000,
+                    TemporaryTarget.Reason.EATING_SOON,
+                    high
+            ));
         }
-        TreatmentsPlugin.getPlugin().addToHistoryTempTarget(tempTarget);
     }
 
     private static void doFillBolus(final Double amount) {
@@ -735,7 +743,7 @@ public class ActionStringHandler {
                 }
             });
         } else {
-            TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, false);
+            BlockingAppRepository.INSTANCE.runTransaction(new MealBolusTransaction(System.currentTimeMillis(), detailedBolusInfo.insulin, detailedBolusInfo.carbs, Bolus.Type.NORMAL, 0, null));
         }
     }
 

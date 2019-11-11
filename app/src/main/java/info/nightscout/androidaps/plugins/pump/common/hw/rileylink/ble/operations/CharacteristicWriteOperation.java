@@ -1,14 +1,14 @@
 package info.nightscout.androidaps.plugins.pump.common.hw.rileylink.ble.operations;
 
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCharacteristic;
+import android.os.SystemClock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.bluetooth.BluetoothGatt;
-import android.bluetooth.BluetoothGattCharacteristic;
-import android.os.SystemClock;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.ble.RileyLinkBLE;

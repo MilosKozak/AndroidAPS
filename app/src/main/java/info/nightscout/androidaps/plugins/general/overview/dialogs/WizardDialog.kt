@@ -14,8 +14,7 @@ import info.nightscout.androidaps.Constants
 import info.nightscout.androidaps.MainApp
 import info.nightscout.androidaps.R
 import info.nightscout.androidaps.data.Profile
-import info.nightscout.androidaps.db.BgReading
-import info.nightscout.androidaps.db.DatabaseHelper
+import info.nightscout.androidaps.database.BlockingAppRepository
 import info.nightscout.androidaps.interfaces.Constraint
 import info.nightscout.androidaps.plugins.bus.RxBus
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin
@@ -30,7 +29,6 @@ import kotlinx.android.synthetic.main.overview_wizard_dialog.*
 import org.slf4j.LoggerFactory
 import java.text.DecimalFormat
 import java.util.*
-import kotlin.math.abs
 
 class WizardDialog : DialogFragment() {
     private val log = LoggerFactory.getLogger(WizardDialog::class.java)
@@ -230,10 +228,10 @@ class WizardDialog : DialogFragment() {
             treatments_wizard_bg_input.setStep(0.1)
 
         // Set BG if not old
-        val lastBg = DatabaseHelper.actualBg()
+        val lastBg = BlockingAppRepository.getLastGlucoseValueIfRecent()
 
         if (lastBg != null) {
-            treatments_wizard_bg_input.value = lastBg.valueToUnits(units)
+            treatments_wizard_bg_input.value = valueToUnits(lastBg.value, units)
         } else {
             treatments_wizard_bg_input.value = 0.0
         }
@@ -272,7 +270,7 @@ class WizardDialog : DialogFragment() {
         val carbs = SafeParse.stringToInt(treatments_wizard_carbs_input.text)
         val correction = SafeParse.stringToDouble(treatments_wizard_correction_input.text)
         val carbsAfterConstraint = MainApp.getConstraintChecker().applyCarbsConstraints(Constraint(carbs)).value()
-        if (abs(carbs - carbsAfterConstraint) > 0.01) {
+        if (Math.abs(carbs - carbsAfterConstraint) > 0.01) {
             treatments_wizard_carbs_input.value = 0.0
             ToastUtils.showToastInUiThread(MainApp.instance().applicationContext, MainApp.gs(R.string.carbsconstraintapplied))
             return
@@ -302,7 +300,7 @@ class WizardDialog : DialogFragment() {
                 treatment_wizard_notes.text.toString(), carbTime)
 
         wizard?.let { wizard ->
-            treatments_wizard_bg.text = String.format(MainApp.gs(R.string.format_bg_isf), BgReading().value(Profile.toMgdl(bg, specificProfile.units)).valueToUnitsToString(specificProfile.units), wizard.sens)
+            treatments_wizard_bg.text = String.format(MainApp.gs(R.string.format_bg_isf), valueToUnitsString(valueToUnits(bg, specificProfile.units), specificProfile.units), wizard.sens)
             treatments_wizard_bginsulin.text = StringUtils.formatInsulin(wizard.insulinFromBG)
 
             treatments_wizard_carbs.text = String.format(MainApp.gs(R.string.format_carbs_ic), carbs.toDouble(), wizard.ic)

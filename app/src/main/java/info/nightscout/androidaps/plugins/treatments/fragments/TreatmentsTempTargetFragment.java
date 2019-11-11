@@ -1,6 +1,5 @@
 package info.nightscout.androidaps.plugins.treatments.fragments;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Paint;
@@ -21,13 +20,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.Intervals;
-import info.nightscout.androidaps.db.Source;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.transactions.InvalidateTemporaryTargetTransaction;
 import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.events.EventTempTargetChange;
 import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
-import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
-import info.nightscout.androidaps.plugins.general.nsclient.UploadQueue;
 import info.nightscout.androidaps.plugins.general.nsclient.events.EventNSClientRestart;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
@@ -71,8 +69,8 @@ public class TreatmentsTempTargetFragment extends Fragment implements View.OnCli
         public void onBindViewHolder(TempTargetsViewHolder holder, int position) {
             String units = ProfileFunctions.getInstance().getProfileUnits();
             TempTarget tempTarget = tempTargetList.getReversed(position);
-            holder.ph.setVisibility(tempTarget.source == Source.PUMP ? View.VISIBLE : View.GONE);
-            holder.ns.setVisibility(NSUpload.isIdValid(tempTarget._id) ? View.VISIBLE : View.GONE);
+            holder.ph.setVisibility(tempTarget.backing.getInterfaceIDs().getPumpType() != null ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(tempTarget.backing.getInterfaceIDs().getNightscoutId() != null ? View.VISIBLE : View.GONE);
             if (!tempTarget.isEndingEvent()) {
                 holder.date.setText(DateUtil.dateAndTimeString(tempTarget.date) + " - " + DateUtil.timeString(tempTarget.originalEnd()));
                 holder.duration.setText(DecimalFormatter.to0Decimal(tempTarget.durationInMinutes) + " min");
@@ -148,13 +146,7 @@ public class TreatmentsTempTargetFragment extends Fragment implements View.OnCli
                         builder.setMessage(MainApp.gs(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(tempTarget.date));
                         builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                final String _id = tempTarget._id;
-                                if (NSUpload.isIdValid(_id)) {
-                                    NSUpload.removeCareportalEntryFromNS(_id);
-                                } else {
-                                    UploadQueue.removeID("dbAdd", _id);
-                                }
-                                MainApp.getDbHelper().delete(tempTarget);
+                                BlockingAppRepository.INSTANCE.runTransaction(new InvalidateTemporaryTargetTransaction(tempTarget.backing.getId()));
                             }
                         });
                         builder.setNegativeButton(MainApp.gs(R.string.cancel), null);
@@ -216,7 +208,7 @@ public class TreatmentsTempTargetFragment extends Fragment implements View.OnCli
                 builder.setMessage(MainApp.gs(R.string.refresheventsfromnightscout) + " ?");
                 builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        MainApp.getDbHelper().resetTempTargets();
+                        //MainApp.getDbHelper().resetTempTargets();
                         RxBus.INSTANCE.send(new EventNSClientRestart());
                     }
                 });

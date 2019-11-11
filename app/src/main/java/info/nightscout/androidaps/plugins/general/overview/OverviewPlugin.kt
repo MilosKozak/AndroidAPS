@@ -1,6 +1,5 @@
 package info.nightscout.androidaps.plugins.general.overview
 
-import info.nightscout.androidaps.MainApp
 import info.nightscout.androidaps.R
 import info.nightscout.androidaps.data.Profile
 import info.nightscout.androidaps.events.EventRefreshOverview

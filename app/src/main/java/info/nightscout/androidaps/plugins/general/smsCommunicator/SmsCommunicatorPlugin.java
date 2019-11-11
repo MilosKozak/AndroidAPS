@@ -20,8 +20,8 @@ import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileStore;
-import info.nightscout.androidaps.db.BgReading;
-import info.nightscout.androidaps.db.DatabaseHelper;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.events.EventRefreshOverview;
@@ -49,6 +49,7 @@ import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DecimalFormatter;
 import info.nightscout.androidaps.utils.FabricPrivacy;
+import info.nightscout.androidaps.utils.GlucoseValueUtilsKt;
 import info.nightscout.androidaps.utils.SP;
 import info.nightscout.androidaps.utils.SafeParse;
 import info.nightscout.androidaps.utils.XdripCalibrations;
@@ -270,19 +271,19 @@ public class SmsCommunicatorPlugin extends PluginBase {
 
     @SuppressWarnings("unused")
     private void processBG(String[] splitted, Sms receivedSms) {
-        BgReading actualBG = DatabaseHelper.actualBg();
-        BgReading lastBG = DatabaseHelper.lastBg();
+        GlucoseValue actualBG = BlockingAppRepository.INSTANCE.getLastGlucoseValueIfRecent();
+        GlucoseValue lastBG = BlockingAppRepository.INSTANCE.getLastGlucoseValue();
 
         String reply = "";
 
         String units = ProfileFunctions.getInstance().getProfileUnits();
 
         if (actualBG != null) {
-            reply = MainApp.gs(R.string.sms_actualbg) + " " + actualBG.valueToUnitsToString(units) + ", ";
+            reply = MainApp.gs(R.string.sms_actualbg) + " " + GlucoseValueUtilsKt.valueToUnitsString(actualBG.getValue(), units) + ", ";
         } else if (lastBG != null) {
-            Long agoMsec = System.currentTimeMillis() - lastBG.date;
+            Long agoMsec = System.currentTimeMillis() - lastBG.getTimestamp();
             int agoMin = (int) (agoMsec / 60d / 1000d);
-            reply = MainApp.gs(R.string.sms_lastbg) + " " + lastBG.valueToUnitsToString(units) + " " + String.format(MainApp.gs(R.string.sms_minago), agoMin) + ", ";
+            reply = MainApp.gs(R.string.sms_lastbg) + " " + GlucoseValueUtilsKt.valueToUnitsString(lastBG.getValue(), units) + " " + String.format(MainApp.gs(R.string.sms_minago), agoMin) + ", ";
         }
         GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData();
         if (glucoseStatus != null)

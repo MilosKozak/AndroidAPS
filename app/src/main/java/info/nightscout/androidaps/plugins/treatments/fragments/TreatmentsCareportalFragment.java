@@ -20,6 +20,8 @@ import java.util.List;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.transactions.InvalidateTherapyEventTransaction;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.events.EventCareportalEventChange;
 import info.nightscout.androidaps.plugins.bus.RxBus;
@@ -64,7 +66,7 @@ public class TreatmentsCareportalFragment extends Fragment implements View.OnCli
         @Override
         public void onBindViewHolder(CareportalEventsViewHolder holder, int position) {
             CareportalEvent careportalEvent = careportalEventList.get(position);
-            holder.ns.setVisibility(NSUpload.isIdValid(careportalEvent._id) ? View.VISIBLE : View.GONE);
+            holder.ns.setVisibility(careportalEvent.backing.getInterfaceIDs().getNightscoutId() != null ? View.VISIBLE : View.GONE);
             holder.date.setText(DateUtil.dateAndTimeString(careportalEvent.date));
             holder.note.setText(careportalEvent.getNotes());
             holder.type.setText(Translator.translate(careportalEvent.eventType));
@@ -110,13 +112,7 @@ public class TreatmentsCareportalFragment extends Fragment implements View.OnCli
                         builder.setTitle(MainApp.gs(R.string.confirmation));
                         builder.setMessage(MainApp.gs(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(careportalEvent.date));
                         builder.setPositiveButton(MainApp.gs(R.string.ok), (dialog, id) -> {
-                            final String _id = careportalEvent._id;
-                            if (NSUpload.isIdValid(_id)) {
-                                NSUpload.removeCareportalEntryFromNS(_id);
-                            } else {
-                                UploadQueue.removeID("dbAdd", _id);
-                            }
-                            MainApp.getDbHelper().delete(careportalEvent);
+                            BlockingAppRepository.INSTANCE.runTransaction(new InvalidateTherapyEventTransaction(careportalEvent.backing.getId()));
                         });
                         builder.setNegativeButton(MainApp.gs(R.string.cancel), null);
                         builder.show();
@@ -179,7 +175,7 @@ public class TreatmentsCareportalFragment extends Fragment implements View.OnCli
                 builder.setMessage(MainApp.gs(R.string.refresheventsfromnightscout) + " ?");
                 builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        MainApp.getDbHelper().resetCareportalEvents();
+                        //MainApp.getDbHelper().resetCareportalEvents();
                         RxBus.INSTANCE.send(new EventNSClientRestart());
                     }
                 });
@@ -215,7 +211,7 @@ public class TreatmentsCareportalFragment extends Fragment implements View.OnCli
                 } else {
                     UploadQueue.removeID("dbAdd", _id);
                 }
-                MainApp.getDbHelper().delete(careportalEvent);
+                //MainApp.getDbHelper().delete(careportalEvent);
             }
         }
     }

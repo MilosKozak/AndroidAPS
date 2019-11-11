@@ -9,12 +9,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 public class SourceXdripPluginTest {
 
     @Test
-    public void getPlugin() {
-        Assert.assertNotEquals(null, SourceXdripPlugin.getPlugin());
-    }
-
-    @Test
     public void advancedFilteringSupported() {
-        Assert.assertEquals(false, SourceXdripPlugin.getPlugin().advancedFilteringSupported());
+        Assert.assertEquals(false, SourceXdripPlugin.INSTANCE.advancedFilteringSupported());
     }
 }

@@ -3,13 +3,14 @@ package info.nightscout.androidaps.plugins.general.overview.dialogs;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import androidx.fragment.app.DialogFragment;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +19,9 @@ import java.text.DecimalFormat;
 
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.plugins.iob.iobCobCalculator.GlucoseStatus;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
+import info.nightscout.androidaps.plugins.iob.iobCobCalculator.GlucoseStatus;
 import info.nightscout.androidaps.utils.NumberPicker;
 import info.nightscout.androidaps.utils.SafeParse;
 import info.nightscout.androidaps.utils.XdripCalibrations;

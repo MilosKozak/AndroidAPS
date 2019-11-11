@@ -11,12 +11,12 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.Profile;
-import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.PumpDescription;
@@ -24,8 +24,11 @@ import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
+import info.nightscout.androidaps.plugins.general.overview.graphExtensions.DataPointWithLabelInterface;
+import info.nightscout.androidaps.plugins.general.overview.graphExtensions.PointsWithLabelGraphSeries;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DecimalFormatter;
+import info.nightscout.androidaps.utils.GlucoseValueUtilsKt;
 import info.nightscout.androidaps.utils.SP;
 
 /**
@@ -189,8 +192,8 @@ public class APSResult {
         return json;
     }
 
-    public List<BgReading> getPredictions() {
-        List<BgReading> array = new ArrayList<>();
+    public List<Prediction> getPredictions() {
+        List<Prediction> predictions = new ArrayList<>();
         try {
             long startTime = date;
             if (json != null && json.has("predBGs")) {
@@ -198,58 +201,48 @@ public class APSResult {
                 if (predBGs.has("IOB")) {
                     JSONArray iob = predBGs.getJSONArray("IOB");
                     for (int i = 1; i < iob.length(); i++) {
-                        BgReading bg = new BgReading();
-                        bg.value = iob.getInt(i);
-                        bg.date = startTime + i * 5 * 60 * 1000L;
-                        bg.isIOBPrediction = true;
-                        array.add(bg);
+                        predictions.add(new Prediction(iob.getInt(i),
+                                startTime + i * TimeUnit.MINUTES.toMillis(5),
+                                Prediction.Type.IOB));
                     }
                 }
                 if (predBGs.has("aCOB")) {
                     JSONArray iob = predBGs.getJSONArray("aCOB");
                     for (int i = 1; i < iob.length(); i++) {
-                        BgReading bg = new BgReading();
-                        bg.value = iob.getInt(i);
-                        bg.date = startTime + i * 5 * 60 * 1000L;
-                        bg.isaCOBPrediction = true;
-                        array.add(bg);
+                        predictions.add(new Prediction(iob.getInt(i),
+                                startTime + i * TimeUnit.MINUTES.toMillis(5),
+                                Prediction.Type.A_COB));
                     }
                 }
                 if (predBGs.has("COB")) {
                     JSONArray iob = predBGs.getJSONArray("COB");
                     for (int i = 1; i < iob.length(); i++) {
-                        BgReading bg = new BgReading();
-                        bg.value = iob.getInt(i);
-                        bg.date = startTime + i * 5 * 60 * 1000L;
-                        bg.isCOBPrediction = true;
-                        array.add(bg);
+                        predictions.add(new Prediction(iob.getInt(i),
+                                startTime + i * TimeUnit.MINUTES.toMillis(5),
+                                Prediction.Type.COB));
                     }
                 }
                 if (predBGs.has("UAM")) {
                     JSONArray iob = predBGs.getJSONArray("UAM");
                     for (int i = 1; i < iob.length(); i++) {
-                        BgReading bg = new BgReading();
-                        bg.value = iob.getInt(i);
-                        bg.date = startTime + i * 5 * 60 * 1000L;
-                        bg.isUAMPrediction = true;
-                        array.add(bg);
+                        predictions.add(new Prediction(iob.getInt(i),
+                                startTime + i * TimeUnit.MINUTES.toMillis(5),
+                                Prediction.Type.UAM));
                     }
                 }
                 if (predBGs.has("ZT")) {
                     JSONArray iob = predBGs.getJSONArray("ZT");
                     for (int i = 1; i < iob.length(); i++) {
-                        BgReading bg = new BgReading();
-                        bg.value = iob.getInt(i);
-                        bg.date = startTime + i * 5 * 60 * 1000L;
-                        bg.isZTPrediction = true;
-                        array.add(bg);
+                        predictions.add(new Prediction(iob.getInt(i),
+                                startTime + i * TimeUnit.MINUTES.toMillis(5),
+                                Prediction.Type.ZERO_TEMP));
                     }
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return array;
+        return predictions;
     }
 
     public long getLatestPredictionsTime() {
@@ -400,6 +393,92 @@ public class APSResult {
                     log.debug("TRUE: Inside allowed range " + (change * 100d) + "%");
                 return false;
             }
+        }
+    }
+
+    public static class Prediction implements DataPointWithLabelInterface {
+
+        private final double value;
+        private final long timestamp;
+        private final Type type;
+
+        public Prediction(double value, long timestamp, Type type) {
+            this.value = value;
+            this.timestamp = timestamp;
+            this.type = type;
+        }
+
+        public double getValue() {
+            return value;
+        }
+
+        public long getTimestamp() {
+            return timestamp;
+        }
+
+        public Type getType() {
+            return type;
+        }
+
+        @Override
+        public double getX() {
+            return timestamp;
+        }
+
+        @Override
+        public double getY() {
+            String units = ProfileFunctions.getInstance().getProfileUnits();
+            return GlucoseValueUtilsKt.valueToUnits(value, units);
+        }
+
+        @Override
+        public void setY(double y) {
+
+        }
+
+        @Override
+        public String getLabel() {
+            return null;
+        }
+
+        @Override
+        public long getDuration() {
+            return 0;
+        }
+
+        @Override
+        public PointsWithLabelGraphSeries.Shape getShape() {
+            return PointsWithLabelGraphSeries.Shape.PREDICTION;
+        }
+
+        @Override
+        public float getSize() {
+            return 1;
+        }
+
+        @Override
+        public int getColor() {
+            switch (type) {
+                case A_COB:
+                    return 0x80FFFFFF & MainApp.gc(R.color.cob);
+                case COB:
+                    return MainApp.gc(R.color.cob);
+                case IOB:
+                    return MainApp.gc(R.color.iob);
+                case ZERO_TEMP:
+                    return MainApp.gc(R.color.zt);
+                case UAM:
+                    return MainApp.gc(R.color.uam);
+            }
+            return 0;
+        }
+
+        public enum Type {
+            A_COB,
+            COB,
+            IOB,
+            ZERO_TEMP,
+            UAM
         }
     }
 }

@@ -2,9 +2,9 @@ package info.nightscout.androidaps.plugins.general.overview.notifications;
 
 import java.util.Date;
 
-import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.plugins.general.nsclient.data.NSAlarm;
 import info.nightscout.androidaps.plugins.general.nsclient.data.NSSettingsStatus;
 import info.nightscout.androidaps.utils.SP;
@@ -179,25 +179,25 @@ public class Notification {
     }
 
     boolean isAlarmForLow() {
-        BgReading bgReading = MainApp.getDbHelper().lastBg();
+        GlucoseValue bgReading = BlockingAppRepository.INSTANCE.getLastGlucoseValue();
         if (bgReading == null)
             return false;
         Double threshold = NSSettingsStatus.getInstance().getThreshold("bgTargetTop");
         if (threshold == null)
             return false;
-        if (bgReading.value <= threshold)
+        if (bgReading.getValue() <= threshold)
             return true;
         return false;
     }
 
     boolean isAlarmForHigh() {
-        BgReading bgReading = MainApp.getDbHelper().lastBg();
+        GlucoseValue bgReading = BlockingAppRepository.INSTANCE.getLastGlucoseValue();
         if (bgReading == null)
             return false;
         Double threshold = NSSettingsStatus.getInstance().getThreshold("bgTargetBottom");
         if (threshold == null)
             return false;
-        if (bgReading.value >= threshold)
+        if (bgReading.getValue() >= threshold)
             return true;
         return false;
     }
@@ -210,10 +210,10 @@ public class Notification {
                 return false;
             }
         }
-        BgReading bgReading = MainApp.getDbHelper().lastBg();
+        GlucoseValue bgReading = BlockingAppRepository.INSTANCE.getLastGlucoseValue();
         if (bgReading == null)
             return false;
-        long bgReadingAgo = System.currentTimeMillis() - bgReading.date;
+        long bgReadingAgo = System.currentTimeMillis() - bgReading.getTimestamp();
         int bgReadingAgoMin = (int) (bgReadingAgo / (1000 * 60));
         // Added for testing
         // bgReadingAgoMin = 20;
@@ -230,7 +230,7 @@ public class Notification {
             return true;
         }
         //snoozing for threshold
-        SP.putLong("snoozedTo", (long) (bgReading.date + (threshold * 1000 * 60L)));
+        SP.putLong("snoozedTo", (long) (bgReading.getTimestamp() + (threshold * 1000 * 60L)));
         //log.debug("New bg data is available Alarm is snoozed for next "+threshold*1000*60+" seconds");
         return false;
     }

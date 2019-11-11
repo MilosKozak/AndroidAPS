@@ -18,7 +18,6 @@ import info.nightscout.androidaps.utils.T
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.virtualpump_fragment.*
-import org.slf4j.LoggerFactory
 
 class VirtualPumpFragment : Fragment() {
     private val disposable = CompositeDisposable()

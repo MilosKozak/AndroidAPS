@@ -1,14 +1,11 @@
 package info.nightscout.androidaps.plugins.general.automation.elements;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import info.AAPSMocker;
-import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
 
 @RunWith(PowerMockRunner.class)

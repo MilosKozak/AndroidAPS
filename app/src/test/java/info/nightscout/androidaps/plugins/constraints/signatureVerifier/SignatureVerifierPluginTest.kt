@@ -1,8 +1,7 @@
 package info.nightscout.androidaps.plugins.constraints.signatureVerifier
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class SignatureVerifierPluginTest {
 

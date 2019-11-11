@@ -9,11 +9,9 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import info.AAPSMocker;
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.logging.L;
-import info.nightscout.androidaps.plugins.pump.danaR.DanaRPlugin;
-import info.nightscout.androidaps.plugins.pump.danaRv2.DanaRv2Plugin;
 import info.nightscout.androidaps.utils.SP;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 /**
  * Created by Rumen Georgiev on 30.10.2018.
  */

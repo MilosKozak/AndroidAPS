@@ -13,6 +13,9 @@ import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
+import info.nightscout.androidaps.database.BlockingAppRepository;
+import info.nightscout.androidaps.database.entities.Bolus;
+import info.nightscout.androidaps.database.transactions.MealBolusTransaction;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PluginDescription;
 import info.nightscout.androidaps.interfaces.PluginType;
@@ -23,7 +26,6 @@ import info.nightscout.androidaps.plugins.common.ManufacturerType;
 import info.nightscout.androidaps.plugins.general.actions.defs.CustomAction;
 import info.nightscout.androidaps.plugins.general.actions.defs.CustomActionType;
 import info.nightscout.androidaps.plugins.pump.common.defs.PumpType;
-import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.InstanceId;
 
@@ -157,7 +159,11 @@ public class MDIPlugin extends PluginBase implements PumpInterface {
         result.bolusDelivered = detailedBolusInfo.insulin;
         result.carbsDelivered = detailedBolusInfo.carbs;
         result.comment = MainApp.gs(R.string.virtualpump_resultok);
-        TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, false);
+        Bolus.Type type;
+        if (!detailedBolusInfo.isValid) type = Bolus.Type.PRIMING;
+        else if (detailedBolusInfo.isSMB) type = Bolus.Type.SMB;
+        else type = Bolus.Type.NORMAL;
+        BlockingAppRepository.INSTANCE.runTransaction(new MealBolusTransaction(System.currentTimeMillis(), detailedBolusInfo.insulin, detailedBolusInfo.carbs, type, 0, detailedBolusInfo.bolusCalculatorResult));
         return result;
     }
 

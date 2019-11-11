@@ -10,7 +10,7 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.utils.SP;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Rumen Georgiev on 8/30/2018.

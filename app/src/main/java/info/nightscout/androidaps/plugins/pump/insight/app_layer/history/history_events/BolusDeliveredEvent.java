@@ -5,7 +5,7 @@ import info.nightscout.androidaps.plugins.pump.insight.ids.BolusTypeIDs;
 import info.nightscout.androidaps.plugins.pump.insight.utils.BOCUtil;
 import info.nightscout.androidaps.plugins.pump.insight.utils.ByteBuf;
 
-public class BolusDeliveredEvent extends HistoryEvent {
+public class BolusDeliveredEvent extends HistoryEventWithStart {
 
     private BolusType bolusType;
     private int startHour;

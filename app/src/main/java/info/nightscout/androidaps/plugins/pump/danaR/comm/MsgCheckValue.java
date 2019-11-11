@@ -3,7 +3,6 @@ package info.nightscout.androidaps.plugins.pump.danaR.comm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.pump.danaR.DanaRPlugin;
 import info.nightscout.androidaps.plugins.pump.danaR.DanaRPump;

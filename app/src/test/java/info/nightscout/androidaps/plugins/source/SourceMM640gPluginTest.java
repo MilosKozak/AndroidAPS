@@ -10,11 +10,11 @@ public class SourceMM640gPluginTest {
 
     @Test
     public void getPlugin() {
-        Assert.assertNotEquals(null, SourceMM640gPlugin.getPlugin());
+        Assert.assertNotEquals(null, SourceMM640gPlugin.INSTANCE);
     }
 
     @Test
     public void advancedFilteringSupported() {
-        Assert.assertEquals(false, SourceMM640gPlugin.getPlugin().advancedFilteringSupported());
+        Assert.assertEquals(false, SourceMM640gPlugin.INSTANCE.advancedFilteringSupported());
     }
 }

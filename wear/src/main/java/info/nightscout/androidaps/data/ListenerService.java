@@ -1,8 +1,5 @@
 package info.nightscout.androidaps.data;
 
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,12 +10,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
 import android.util.Log;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -36,8 +32,11 @@ import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
 import com.google.android.gms.wearable.WearableListenerService;
 
-import info.nightscout.androidaps.interaction.AAPSPreferences;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.interaction.AAPSPreferences;
 import info.nightscout.androidaps.interaction.actions.AcceptActivity;
 import info.nightscout.androidaps.interaction.actions.CPPActivity;
 import info.nightscout.androidaps.interaction.utils.SafeParse;

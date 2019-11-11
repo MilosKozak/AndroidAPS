@@ -1,15 +1,13 @@
 package info.nightscout.androidaps.plugins.pump.common.hw.rileylink.service;
 
-import static info.nightscout.androidaps.plugins.pump.common.hw.rileylink.RileyLinkUtil.getRileyLinkCommunicationManager;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.RileyLinkCommunicationManager;
@@ -26,6 +24,8 @@ import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.service.data.
 import info.nightscout.androidaps.plugins.pump.medtronic.defs.PumpDeviceState;
 import info.nightscout.androidaps.plugins.pump.medtronic.util.MedtronicUtil;
 import info.nightscout.androidaps.utils.SP;
+
+import static info.nightscout.androidaps.plugins.pump.common.hw.rileylink.RileyLinkUtil.getRileyLinkCommunicationManager;
 
 /**
  * Created by andy on 5/6/18.

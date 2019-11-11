@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.util.Date;
 
+import info.nightscout.androidaps.database.transactions.MealBolusTransaction;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.Source;
 
@@ -30,6 +31,7 @@ public class DetailedBolusInfo {
     public boolean isSMB = false;          // is a Super-MicroBolus
     public long deliverAt = 0;             // SMB should be delivered within 1 min from this time
     public String notes = null;
+    public MealBolusTransaction.BolusCalculatorResult bolusCalculatorResult;
 
     public DetailedBolusInfo copy() {
         DetailedBolusInfo n = new DetailedBolusInfo();

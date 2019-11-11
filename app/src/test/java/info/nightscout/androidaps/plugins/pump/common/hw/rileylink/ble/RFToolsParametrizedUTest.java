@@ -1,14 +1,14 @@
 package info.nightscout.androidaps.plugins.pump.common.hw.rileylink.ble;
 
-import java.util.Arrays;
-import java.util.Collection;
+import android.util.Log;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import android.util.Log;
+import java.util.Arrays;
+import java.util.Collection;
 
 import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.ble.data.encoding.Encoding4b6bGeoff;
 import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.ble.data.encoding.Encoding4b6bGo;

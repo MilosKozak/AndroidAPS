@@ -1,9 +1,9 @@
 package info.nightscout.androidaps.plugins.pump.medtronic.comm.history;
 
-import java.util.Arrays;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
 
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.pump.common.utils.ByteUtil;
