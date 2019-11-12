@@ -102,4 +102,8 @@
         android:defaultValue="false"
         android:key="@string/key_raise_notifications_as_android_notifications"
         android:title="@string/raise_notifications_as_android_notifications" />
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/key_override_volume_for_alerts"
+        android:title="@string/override_volume_for_alerts" />
 </PreferenceScreen>
