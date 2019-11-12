@@ -1,19 +1,17 @@
 package info.nightscout.androidaps.plugins.pump.common;
 
-import java.util.Date;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 
 import androidx.fragment.app.FragmentActivity;
-import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderFragment;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-
-import com.squareup.otto.Subscribe;
+import java.util.Date;
 
 import info.nightscout.androidaps.BuildConfig;
 import info.nightscout.androidaps.MainApp;
@@ -27,17 +25,23 @@ import info.nightscout.androidaps.events.EventAppExit;
 import info.nightscout.androidaps.interfaces.ConstraintsInterface;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PluginDescription;
+import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.interfaces.PumpDescription;
 import info.nightscout.androidaps.interfaces.PumpInterface;
 import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.general.overview.events.EventOverviewBolusProgress;
 import info.nightscout.androidaps.plugins.pump.common.data.PumpStatus;
 import info.nightscout.androidaps.plugins.pump.common.defs.PumpDriverState;
 import info.nightscout.androidaps.plugins.pump.common.defs.PumpType;
+import info.nightscout.androidaps.plugins.pump.medtronic.data.MedtronicHistoryData;
 import info.nightscout.androidaps.plugins.treatments.Treatment;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DecimalFormatter;
+import info.nightscout.androidaps.utils.FabricPrivacy;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by andy on 23.04.18.
@@ -46,13 +50,14 @@ import info.nightscout.androidaps.utils.DecimalFormatter;
 // When using this class, make sure that your first step is to create mConnection (see MedtronicPumpPlugin)
 
 public abstract class PumpPluginAbstract extends PluginBase implements PumpInterface, ConstraintsInterface {
+    private CompositeDisposable disposable = new CompositeDisposable();
 
     private static final Logger LOG = LoggerFactory.getLogger(L.PUMP);
 
     protected static final PumpEnactResult OPERATION_NOT_SUPPORTED = new PumpEnactResult().success(false)
-        .enacted(false).comment(MainApp.gs(R.string.pump_operation_not_supported_by_pump_driver));
+            .enacted(false).comment(MainApp.gs(R.string.pump_operation_not_supported_by_pump_driver));
     protected static final PumpEnactResult OPERATION_NOT_YET_SUPPORTED = new PumpEnactResult().success(false)
-        .enacted(false).comment(MainApp.gs(R.string.pump_operation_not_yet_supported_by_pump));
+            .enacted(false).comment(MainApp.gs(R.string.pump_operation_not_yet_supported_by_pump));
 
     protected PumpDescription pumpDescription = new PumpDescription();
     protected PumpStatus pumpStatus;
@@ -79,15 +84,21 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
 
     @Override
     protected void onStart() {
+        super.onStart();
         Context context = MainApp.instance().getApplicationContext();
         Intent intent = new Intent(context, getServiceClass());
         context.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 
         serviceRunning = true;
 
-        MainApp.bus().register(this);
+        disposable.add(RxBus.INSTANCE
+                .toObservable(EventAppExit.class)
+                .observeOn(Schedulers.io())
+                .subscribe(event -> {
+                    MainApp.instance().getApplicationContext().unbindService(serviceConnection);
+                }, FabricPrivacy::logException)
+        );
         onStartCustomActions();
-        super.onStart();
     }
 
 
@@ -98,7 +109,8 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
 
         serviceRunning = false;
 
-        MainApp.bus().unregister(this);
+        disposable.clear();
+        super.onStop();
     }
 
 
@@ -108,8 +120,8 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
     public abstract void onStartCustomActions();
 
     @Override
-    public void switchAllowed(ConfigBuilderFragment.PluginViewHolder.PluginSwitcher pluginSwitcher, FragmentActivity activity) {
-        confirmPumpPluginActivation(pluginSwitcher, activity);
+    public void switchAllowed(boolean newState, FragmentActivity activity, PluginType type) {
+        confirmPumpPluginActivation(newState, activity, type);
     }
 
     /**
@@ -118,14 +130,6 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
      * @return
      */
     public abstract Class getServiceClass();
-
-
-    @SuppressWarnings("UnusedParameters")
-    @Subscribe
-    public void onStatusEvent(final EventAppExit e) {
-        MainApp.instance().getApplicationContext().unbindService(serviceConnection);
-    }
-
 
     public PumpStatus getPumpStatusData() {
         return pumpStatus;
@@ -237,7 +241,7 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
 
     @Override
     public PumpEnactResult setTempBasalAbsolute(Double absoluteRate, Integer durationInMinutes, Profile profile,
-            boolean enforceNew) {
+                                                boolean enforceNew) {
         if (isLoggingEnabled())
             LOG.warn("setTempBasalAbsolute [PumpPluginAbstract] - Not implemented.");
         return getOperationNotSupportedWithCustomText(R.string.pump_operation_not_supported_by_pump_driver);
@@ -246,7 +250,7 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
 
     @Override
     public PumpEnactResult setTempBasalPercent(Integer percent, Integer durationInMinutes, Profile profile,
-            boolean enforceNew) {
+                                               boolean enforceNew) {
         if (isLoggingEnabled())
             LOG.warn("setTempBasalPercent [PumpPluginAbstract] - Not implemented.");
         return getOperationNotSupportedWithCustomText(R.string.pump_operation_not_supported_by_pump_driver);
@@ -338,7 +342,7 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
             TemporaryBasal tb = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(System.currentTimeMillis());
             if (tb != null) {
                 extended.put("TempBasalAbsoluteRate",
-                    tb.tempBasalConvertedToAbsolute(System.currentTimeMillis(), profile));
+                        tb.tempBasalConvertedToAbsolute(System.currentTimeMillis(), profile));
                 extended.put("TempBasalStart", DateUtil.dateAndTimeString(tb.date));
                 extended.put("TempBasalRemaining", tb.getPlannedRemainingMinutes());
             }
@@ -370,20 +374,20 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
         String ret = "";
         if (pumpStatus.lastConnection != 0) {
             Long agoMsec = System.currentTimeMillis() - pumpStatus.lastConnection;
-            int agoMin = (int)(agoMsec / 60d / 1000d);
+            int agoMin = (int) (agoMsec / 60d / 1000d);
             ret += "LastConn: " + agoMin + " min ago\n";
         }
         if (pumpStatus.lastBolusTime != null && pumpStatus.lastBolusTime.getTime() != 0) {
             ret += "LastBolus: " + DecimalFormatter.to2Decimal(pumpStatus.lastBolusAmount) + "U @" + //
-                android.text.format.DateFormat.format("HH:mm", pumpStatus.lastBolusTime) + "\n";
+                    android.text.format.DateFormat.format("HH:mm", pumpStatus.lastBolusTime) + "\n";
         }
         TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin()
-            .getRealTempBasalFromHistory(System.currentTimeMillis());
+                .getRealTempBasalFromHistory(System.currentTimeMillis());
         if (activeTemp != null) {
             ret += "Temp: " + activeTemp.toStringFull() + "\n";
         }
         ExtendedBolus activeExtendedBolus = TreatmentsPlugin.getPlugin().getExtendedBolusFromHistory(
-            System.currentTimeMillis());
+                System.currentTimeMillis());
         if (activeExtendedBolus != null) {
             ret += "Extended: " + activeExtendedBolus.toString() + "\n";
         }
@@ -407,25 +411,28 @@ public abstract class PumpPluginAbstract extends PluginBase implements PumpInter
                 if (isLoggingEnabled())
                     LOG.error("deliverTreatment: Invalid input");
                 return new PumpEnactResult().success(false).enacted(false).bolusDelivered(0d).carbsDelivered(0d)
-                    .comment(MainApp.gs(R.string.danar_invalidinput));
+                        .comment(MainApp.gs(R.string.danar_invalidinput));
             } else if (detailedBolusInfo.insulin > 0) {
                 // bolus needed, ask pump to deliver it
                 return deliverBolus(detailedBolusInfo);
             } else {
+                if (MedtronicHistoryData.doubleBolusDebug)
+                    LOG.debug("DoubleBolusDebug: deliverTreatment::(carb only entry)");
+
                 // no bolus required, carb only treatment
                 TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, true);
 
-                EventOverviewBolusProgress bolusingEvent = EventOverviewBolusProgress.getInstance();
-                bolusingEvent.t = new Treatment();
-                bolusingEvent.t.isSMB = detailedBolusInfo.isSMB;
-                bolusingEvent.percent = 100;
-                MainApp.bus().post(bolusingEvent);
+                EventOverviewBolusProgress bolusingEvent = EventOverviewBolusProgress.INSTANCE;
+                bolusingEvent.setT(new Treatment());
+                bolusingEvent.getT().isSMB = detailedBolusInfo.isSMB;
+                bolusingEvent.setPercent(100);
+                RxBus.INSTANCE.send(bolusingEvent);
 
                 if (isLoggingEnabled())
                     LOG.debug("deliverTreatment: Carb only treatment.");
 
                 return new PumpEnactResult().success(true).enacted(true).bolusDelivered(0d)
-                    .carbsDelivered(detailedBolusInfo.carbs).comment(MainApp.gs(R.string.virtualpump_resultok));
+                        .carbsDelivered(detailedBolusInfo.carbs).comment(MainApp.gs(R.string.virtualpump_resultok));
             }
         } finally {
             triggerUIChange();

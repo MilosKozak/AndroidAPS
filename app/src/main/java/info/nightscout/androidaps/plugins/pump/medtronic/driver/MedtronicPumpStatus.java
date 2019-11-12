@@ -22,6 +22,7 @@ import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.ble.defs.Rile
 import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.ble.defs.RileyLinkTargetFrequency;
 import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.defs.RileyLinkError;
 import info.nightscout.androidaps.plugins.pump.common.hw.rileylink.defs.RileyLinkServiceState;
+import info.nightscout.androidaps.plugins.pump.medtronic.data.MedtronicHistoryData;
 import info.nightscout.androidaps.plugins.pump.medtronic.defs.BasalProfileStatus;
 import info.nightscout.androidaps.plugins.pump.medtronic.defs.BatteryType;
 import info.nightscout.androidaps.plugins.pump.medtronic.defs.MedtronicDeviceType;
@@ -134,8 +135,8 @@ public class MedtronicPumpStatus extends PumpStatus {
         medtronicPumpMap.put("754", PumpType.Medtronic_554_754_Veo);
 
         frequencies = new String[2];
-        frequencies[0] = MainApp.gs(R.string.medtronic_pump_frequency_us_ca);
-        frequencies[1] = MainApp.gs(R.string.medtronic_pump_frequency_worldwide);
+        frequencies[0] = MainApp.gs(R.string.key_medtronic_pump_frequency_us_ca);
+        frequencies[1] = MainApp.gs(R.string.key_medtronic_pump_frequency_worldwide);
     }
 
 
@@ -182,11 +183,12 @@ public class MedtronicPumpStatus extends PumpStatus {
                 } else {
                     this.pumpType = medtronicPumpMap.get(pumpTypePart);
                     this.medtronicDeviceType = medtronicDeviceTypeMap.get(pumpTypePart);
+                    this.pumpDescription.setPumpDescription(this.pumpType);
 
                     if (pumpTypePart.startsWith("7"))
-                        this.reservoirFullUnits = "300";
+                        this.reservoirFullUnits = 300;
                     else
-                        this.reservoirFullUnits = "176";
+                        this.reservoirFullUnits = 176;
                 }
             }
 
@@ -279,6 +281,12 @@ public class MedtronicPumpStatus extends PumpStatus {
                 this.batteryType = batteryType;
                 MedtronicUtil.setBatteryType(this.batteryType);
             }
+
+            String bolusDebugEnabled = SP.getString(MedtronicConst.Prefs.BolusDebugEnabled, null);
+
+            boolean bolusDebug = bolusDebugEnabled != null && bolusDebugEnabled.equals(MainApp.gs(R.string.common_on));
+
+            MedtronicHistoryData.doubleBolusDebug = bolusDebug;
 
             reconfigureService();
 

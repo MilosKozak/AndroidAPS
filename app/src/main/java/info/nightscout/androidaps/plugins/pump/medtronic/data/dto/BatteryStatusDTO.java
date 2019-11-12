@@ -2,6 +2,8 @@ package info.nightscout.androidaps.plugins.pump.medtronic.data.dto;
 
 import com.google.gson.annotations.Expose;
 
+import java.util.Locale;
+
 import info.nightscout.androidaps.plugins.pump.medtronic.defs.BatteryType;
 
 /**
@@ -27,6 +29,9 @@ public class BatteryStatusDTO {
 
         int percentInt = (int) (percent * 100.0d);
 
+        if (percentInt<0)
+            percentInt = 1;
+
         if (percentInt > 100)
             percentInt = 100;
 
@@ -35,10 +40,11 @@ public class BatteryStatusDTO {
 
 
     public String toString() {
-        return String.format("BatteryStatusDTO [voltage=%.2f, alkaline=%d, lithium=%d]",
+        return String.format(Locale.ENGLISH, "BatteryStatusDTO [voltage=%.2f, alkaline=%d, lithium=%d, niZn={}]",
                 voltage == null ? 0.0f : voltage,
                 getCalculatedPercent(BatteryType.Alkaline),
-                getCalculatedPercent(BatteryType.Lithium));
+                getCalculatedPercent(BatteryType.Lithium),
+                getCalculatedPercent(BatteryType.NiZn));
     }
 
 
