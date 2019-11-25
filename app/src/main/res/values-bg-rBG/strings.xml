@@ -680,6 +680,7 @@
     <string name="shortgramm">гр.</string>
     <string name="shortminute">мин.</string>
     <string name="shorthour">ч.</string>
+    <string name="shortday">д</string>
     <string name="none"><![CDATA[<празно>]]></string>
     <string name="shortkilojoul">килодж.</string>
     <string name="shortenergy">Ен</string>
