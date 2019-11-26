@@ -260,6 +260,9 @@
     <string name="smscommunicator_allowednumbers">разрешенные телефонные номера</string>
     <string name="smscommunicator_allowednumbers_summary">+ XXXXXXXXXX; + YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Чтобы подать болюс %1$.2fU ответьте кодом %2$s</string>
+    <string name="smscommunicator_mealbolusreplywithcode">Чтобы подать болюс %1$.2fU ответьте кодом %2$s</string>
+    <string name="smscommunicator_temptargetwithcode">Чтобы установить временную цель %1$s ответьте кодом %2$s</string>
+    <string name="smscommunicator_temptargetcancel">Чтобы отменить временную цель ответьте кодом %1$s</string>
     <string name="smscommunicator_calibrationreplywithcode">чтобы отправить калибровку %1$.2f ответьте кодом %2$s</string>
     <string name="smscommunicator_bolusfailed">Подача болюса не состоялась</string>
     <string name="bolusdelivered">Болюс %1$.2fед. подан успешно</string>
