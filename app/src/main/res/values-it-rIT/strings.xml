@@ -262,6 +262,7 @@
     <string name="smscommunicator_bolusreplywithcode">Per erogare il bolo di %1$.2fU rispondi col codice %2$s</string>
     <string name="smscommunicator_mealbolusreplywithcode">Per erogare il bolo pasto di %1$.2fU rispondi col codice %2$s</string>
     <string name="smscommunicator_temptargetwithcode">Per impostare il Temp-Target %1$s rispondi con il codice %2$s</string>
+    <string name="smscommunicator_temptargetcancel">Per cancellare il Temp-Target rispondi col codice %1$s</string>
     <string name="smscommunicator_calibrationreplywithcode">Per inviare la calibrazione %1$.2f rispondi col codice %2$s</string>
     <string name="smscommunicator_bolusfailed">Bolo fallito</string>
     <string name="bolusdelivered">Bolo di %1$.2fU erogato con successo</string>
