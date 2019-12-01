@@ -260,6 +260,9 @@
     <string name="smscommunicator_allowednumbers">Geautoriseerde telefoon nummers</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Om de bolus %1$.2fU toe te dienen antwoord met de code %2$s</string>
+    <string name="smscommunicator_mealbolusreplywithcode">Antwoord met de code %2$s om de bolus %1$.2fE toe te dienen</string>
+    <string name="smscommunicator_temptargetwithcode">Antwoord met code %2$s om tijdelijk streefdoel %1$s in te stellen</string>
+    <string name="smscommunicator_temptargetcancel">Antwoord met code %1$s om tijdelijk streefdoel te annuleren</string>
     <string name="smscommunicator_calibrationreplywithcode">Om calibratie %1$.2f te verzenden antwoord met de code %2$s</string>
     <string name="smscommunicator_bolusfailed">Bolus mislukt</string>
     <string name="bolusdelivered">Bolus van %1$.2fE succesvol toegediend</string>
