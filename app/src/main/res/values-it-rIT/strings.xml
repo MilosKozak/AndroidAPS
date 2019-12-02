@@ -853,7 +853,7 @@
     <string name="combo_activity_checking_pump_state">Aggiornamento stato micro</string>
     <string name="combo_warning_pump_basal_rate_changed">La velocità basale nel micro è cambiata e verrà aggiornata a breve</string>
     <string name="combo_error_failure_reading_changed_basal_rate">Velocità basale cambiata sul micro, ma la sua lettura è fallita</string>
-    <string name="combo_activity_checking_for_history_changes">Controllo delle modifiche allo storico</string>
+    <string name="combo_activity_checking_for_history_changes">Controllo modifiche allo storico</string>
     <string name="combo_error_multiple_boluses_with_identical_timestamp">Sono appena stati importati più boli con la stessa quantità nello stesso minuto. Solo un record può essere aggiunto ai trattamenti. Controlla il micro e aggiungi manualmente un record di bolo utilizzando la sezione Portale. Assicurati di creare un bolo con un orario non utilizzato da nessun altro bolo.</string>
     <string name="about_link_urls">\n\nhttp://www.androidaps.org\nhttp://www.androidaps.de (de)\n\nfacebook:\nhttp://facebook.androidaps.org\nhttp://facebook.androidaps.de (de)</string>
     <string name="combo_check_date">L\'ultimo bolo è più vecchio di 24 ore o ha una data nel futuro. Controlla che la data sul micro sia impostata correttamente.</string>
@@ -1405,12 +1405,13 @@
     <string name="doyouwantresetstart">Vuoi resettare l\'avvio dell\'obiettivo? Potresti perdere i tuoi progressi.</string>
     <string name="nopumpselected">Nessun micro selezionato</string>
     <string name="setupwizard_units_prompt">Seleziona le unità in cui vuoi visualizzare i valori</string>
-    <string name="ns_ploadlocalprofile">Carica le modifiche al profilo locale in NS</string>
+    <string name="ns_ploadlocalprofile">Carica modifiche al profilo locale in NS</string>
     <string name="dia_short">DIA</string>
     <string name="ic_short">IC</string>
     <string name="isf_short">ISF</string>
     <string name="target_short">TARG</string>
     <string name="clone_label">Clona</string>
+    <string name="saveorresetchangesfirst">Salva o reimposta prima le modifiche correnti</string>
     <string name="deletecurrentprofile">Rimuovere il profilo corrente?</string>
     <string name="copytolocalprofile">Creare nuovo profilo locale da questo cambio profilo?</string>
     <string name="profilenamecontainsdot">Il nome profilo contiene dei punti.\nQuesto non è supportato da NS.\nIl profilo non viene caricato in NS.</string>
