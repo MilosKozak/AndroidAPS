@@ -362,8 +362,11 @@
     <string name="button1">Botão 1</string>
     <string name="button2">Botão 2</string>
     <string name="button3">Botão 3</string>
+    <string name="units_colon">Unidades:</string>
+    <string name="units">Unidades</string>
     <string name="mgdl">mg/dL</string>
     <string name="mmol">mmol/L</string>
+    <string name="dia">DIA</string>
     <string name="target_range">Intervalo Alvo:</string>
     <string name="prefs_range_title">Intervalo para visualização</string>
     <string name="prefs_range_summary">Marca Alto e Baixo para os gráficos em Sumário e Smartwatch</string>
@@ -1375,7 +1378,21 @@
     <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Assistente de Bólus</string>
     <string name="unit_minute_short">min</string>
+    <string name="profile_name">Nome do Perfil:</string>
+    <string name="selected_profile">Seleccionado:</string>
+    <string name="unitsnosemicolon">Unidades</string>
     <string name="format_carbs">%1$dg</string>
     <string name="common_on">Ligado</string>
     <string name="common_off">Desligado</string>
+    <string name="objectives_button_unfinish">Limpar terminado</string>
+    <string name="objectives_button_unstart">Limpar iniciado</string>
+    <string name="timedetection">Detecção de tempo</string>
+    <string name="nopumpselected">Nenhuma bomba seleccionada</string>
+    <string name="dia_short">DIA</string>
+    <string name="ic_short">IC</string>
+    <string name="isf_short">FSI</string>
+    <string name="target_short">ALV</string>
+    <string name="clone_label">Clone</string>
+    <string name="deletecurrentprofile">Eliminar perfil actual?</string>
+    <string name="copytolocalprofile">Criar novo perfil local a partir desta troca de perfil?</string>
 </resources>
