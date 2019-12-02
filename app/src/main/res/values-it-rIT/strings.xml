@@ -1405,6 +1405,7 @@
     <string name="doyouwantresetstart">Vuoi resettare l\'avvio dell\'obiettivo? Potresti perdere i tuoi progressi.</string>
     <string name="nopumpselected">Nessun micro selezionato</string>
     <string name="setupwizard_units_prompt">Seleziona le unità in cui vuoi visualizzare i valori</string>
+    <string name="ns_ploadlocalprofile">Carica le modifiche al profilo locale in NS</string>
     <string name="dia_short">DIA</string>
     <string name="ic_short">IC</string>
     <string name="isf_short">ISF</string>
