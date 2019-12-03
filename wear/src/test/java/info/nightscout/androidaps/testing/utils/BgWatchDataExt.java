@@ -26,6 +26,7 @@ public class BgWatchDataExt extends BgWatchData {
         assertClassHaveSameFields(BgWatchData.class, "sgv,high,low,timestamp,color");
 
         this.sgv = ref.sgv;
+        this.veryhigh = ref.veryhigh;
         this.high = ref.high;
         this.low = ref.low;
         this.timestamp = ref.timestamp;
