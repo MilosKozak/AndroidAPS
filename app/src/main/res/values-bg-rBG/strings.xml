@@ -1392,4 +1392,13 @@
     <string name="format_carbs">%1$dг</string>
     <string name="common_on">Вкл</string>
     <string name="common_off">Изкл</string>
+    <string name="objectives_button_unfinish">Изчисти приключение</string>
+    <string name="objectives_button_unstart">Изчисти стартираните</string>
+    <string name="timedetection">Засичане на времето</string>
+    <string name="doyouwantresetstart">Искате ли да нулирате прогреса си?</string>
+    <string name="nopumpselected">Не е избрана помпа</string>
+    <string name="setupwizard_units_prompt">Изберете единиците, в които искате да работите</string>
+    <string name="ns_ploadlocalprofile">Качване на локални промени в НС профила</string>
+    <string name="dia_short">DIA</string>
+    <string name="ic_short">IC (Инсулин/въглехидр.):</string>
 </resources>
