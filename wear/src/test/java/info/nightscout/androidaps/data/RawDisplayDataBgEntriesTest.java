@@ -39,6 +39,7 @@ public class RawDisplayDataBgEntriesTest {
             DataMap entry = new DataMap();
             entry.putLong("timestamp", WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS*4*(16-i));
             entry.putDouble("sgvDouble", 145.0-5*i);
+            entry.putDouble("veryhigh", 260.0);
             entry.putDouble("high", 170.0);
             entry.putDouble("low", 80.0);
             entry.putInt("color", 0);
@@ -53,6 +54,7 @@ public class RawDisplayDataBgEntriesTest {
         DataMap entry = new DataMap();
         entry.putLong("timestamp", timestamp);
         entry.putDouble("sgvDouble", sgv);
+        entry.putDouble("veryhigh", 260.0);
         entry.putDouble("high", 160.0);
         entry.putDouble("low", 90.0);
         entry.putInt("color", 1);

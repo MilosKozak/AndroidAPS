@@ -23,7 +23,7 @@ public class BgWatchDataExt extends BgWatchData {
 
         // since we do not want modify BgWatchDataExt - we use this wrapper class
         // but we make sure it has same fields
-        assertClassHaveSameFields(BgWatchData.class, "sgv,high,low,timestamp,color");
+        assertClassHaveSameFields(BgWatchData.class, "sgv,veryhigh,high,low,timestamp,color");
 
         this.sgv = ref.sgv;
         this.veryhigh = ref.veryhigh;
@@ -57,12 +57,12 @@ public class BgWatchDataExt extends BgWatchData {
 
     @Override
     public String toString() {
-        return sgv+", "+high+", "+low+", "+timestamp+", "+color;
+        return sgv+", "+veryhigh+", "+high+", "+low+", "+timestamp+", "+color;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sgv, high, low, timestamp, color);
+        return Objects.hash(sgv, veryhigh, high, low, timestamp, color);
     }
 
 }
