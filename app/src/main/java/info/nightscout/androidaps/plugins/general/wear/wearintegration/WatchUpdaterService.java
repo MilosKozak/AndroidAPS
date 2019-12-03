@@ -302,11 +302,9 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
 
     private DataMap dataMapSingleBG(BgReading lastBG, GlucoseStatus glucoseStatus) {
         String units = ProfileFunctions.getSystemUnits();
-
-        final String units = ProfileFunctions.getSystemUnits();
-        final double lowLine = OverviewPlugin.INSTANCE.determineLowLine();
-        final double highLine = OverviewPlugin.INSTANCE.determineHighLine();
-        final double veryhighLine = OverviewPlugin.INSTANCE.determineVeryHighLine(units);
+        Double lowLine = OverviewPlugin.INSTANCE.determineLowLine();
+        Double highLine = OverviewPlugin.INSTANCE.determineHighLine();
+        Double veryhighLine = OverviewPlugin.INSTANCE.determineVeryHighLine(units);
       
         // convert to mg/dl
         if (!units.equals(Constants.MGDL)) {

@@ -32,6 +32,7 @@ import com.ustwo.clockwise.common.WatchFaceTime;
 import com.ustwo.clockwise.common.WatchShape;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import info.nightscout.androidaps.complications.BaseComplicationProviderService;
@@ -540,45 +541,6 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
         int minutes_since   = (int) Math.floor(timeSince()/(1000*60));
         if(minutes_since >= 16 && ((minutes_since - 16) % 5) == 0) {
             ListenerService.requestData(this); // attempt endTime recover missing data
-        }
-    }
-
-    public void addToWatchSet(DataMap dataMap) {
-
-        ArrayList<DataMap> entries = dataMap.getDataMapArrayList("entries");
-        if (entries != null) {
-            bgDataList = new ArrayList<BgWatchData>();
-            for (DataMap entry : entries) {
-                double sgv = entry.getDouble("sgvDouble");
-                double veryhigh = entry.getDouble("veryhigh");
-                double high = entry.getDouble("high");
-                double low = entry.getDouble("low");
-                long timestamp = entry.getLong("timestamp");
-                int color = entry.getInt("color", 0);
-                bgDataList.add(new BgWatchData(sgv, veryhigh, high, low, timestamp, color));
-            }
-        } else {
-            double sgv = dataMap.getDouble("sgvDouble");
-            double veryhigh = dataMap.getDouble("veryhigh");
-            double high = dataMap.getDouble("high");
-            double low = dataMap.getDouble("low");
-            long timestamp = dataMap.getLong("timestamp");
-            int color = dataMap.getInt("color", 0);
-
-            final int size = bgDataList.size();
-            if (size > 0) {
-                if (bgDataList.get(size - 1).timestamp == timestamp)
-                    return; // Ignore duplicates.
-            }
-
-            bgDataList.add(new BgWatchData(sgv, veryhigh, high, low, timestamp, color));
-        }
-
-        for (int i = 0; i < bgDataList.size(); i++) {
-            if (bgDataList.get(i).timestamp < (System.currentTimeMillis() - (1000 * 60 * 60 * 5))) {
-                bgDataList.remove(i); //Get rid of anything more than 5 hours old
-                break;
-            }
         }
     }
 
