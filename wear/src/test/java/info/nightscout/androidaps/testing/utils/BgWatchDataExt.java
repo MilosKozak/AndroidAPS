@@ -44,6 +44,7 @@ public class BgWatchDataExt extends BgWatchData {
     public boolean equals(@Nullable Object obj) {
         if ((obj instanceof BgWatchData)||(obj instanceof BgWatchDataExt)) {
             return (this.sgv == ((BgWatchData) obj).sgv)
+                    && (this.veryhigh == ((BgWatchData) obj).veryhigh)
                     && (this.high == ((BgWatchData) obj).high)
                     && (this.low == ((BgWatchData) obj).low)
                     && (this.timestamp == ((BgWatchData) obj).timestamp)
