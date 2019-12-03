@@ -35,7 +35,7 @@ public class BgWatchDataTest {
     public void bgWatchDataHashTest() {
         // GIVEN
         BgWatchData inserted = new BgWatchData(
-                88.0, 160.0, 90.0,
+                88.0, 260.0, 160.0, 90.0,
                 WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS*4*1, 1
         );
         Set<BgWatchData> set = new HashSet<>();
@@ -53,21 +53,21 @@ public class BgWatchDataTest {
     public void bgWatchDataEqualsTest() {
         // GIVEN
         BgWatchData item1 = new BgWatchData(
-                88.0, 160.0, 90.0,
+                88.0, 260.0, 160.0, 90.0,
                 WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS, 1
         );
 
         BgWatchData item2sameTimeSameColor = new BgWatchData(
-                123.0, 190, 90.0,
+                123.0, 260.0, 190, 90.0,
                 WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS, 1
         );
 
         BgWatchData item3sameTimeSameDiffColor = new BgWatchData(
-                96.0, 190, 90.0,
+                96.0, 260.0, 190, 90.0,
                 WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS, 0
         );
         BgWatchData item4differentTime = new BgWatchData(
-                88.0, 160.0, 90.0,
+                88.0, 260.0, 160.0, 90.0,
                 WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS*2, 1
         );
 
@@ -86,22 +86,22 @@ public class BgWatchDataTest {
     public void bgWatchDataCompareTest() {
         // GIVEN
         BgWatchData item1 = new BgWatchData(
-                85, 160.0, 90.0,
+                85, 260.0, 160.0, 90.0,
                 WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS*2, 1
         );
 
         BgWatchData item2 = new BgWatchData(
-                80, 190, 90.0,
+                80, 260.0, 190, 90.0,
                 WearUtilMocker.REF_NOW, 1
         );
 
         BgWatchData item3 = new BgWatchData(
-                80, 190, 50.0,
+                80, 260.0, 190, 50.0,
                 WearUtilMocker.REF_NOW + Constants.MINUTE_IN_MS*5, 0
         );
 
         BgWatchData item4 = new BgWatchData(
-                160, 140, 70.0,
+                160, 260.0, 140, 70.0,
                 WearUtilMocker.REF_NOW, 0
         );
 

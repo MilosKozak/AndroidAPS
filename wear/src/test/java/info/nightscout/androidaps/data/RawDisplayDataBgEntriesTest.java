@@ -74,13 +74,13 @@ public class RawDisplayDataBgEntriesTest {
 
         assertThat(new BgWatchDataExt(newRaw.bgDataList.get(5)),
                 is(new BgWatchDataExt(new BgWatchData(
-                        120.0, 170.0, 80.0,
+                        120.0, 260.0, 170.0, 80.0,
                         WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS*4*(16-5), 0
                 ))));
 
         assertThat(new BgWatchDataExt(newRaw.bgDataList.get(11)),
                 is(new BgWatchDataExt(new BgWatchData(
-                        90.0, 170.0, 80.0,
+                        90.0, 260.0, 170.0, 80.0,
                         WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS*4*(16-11), 0
                 ))));
 
@@ -91,12 +91,12 @@ public class RawDisplayDataBgEntriesTest {
 
         assertThat(new BgWatchDataExt(newRaw.bgDataList.get(12)),
                 is(new BgWatchDataExt(new BgWatchData(
-                        92.0, 160.0, 90.0,
+                        92.0, 260.0, 160.0, 90.0,
                         WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS*4*2, 1
                 ))));
         assertThat(new BgWatchDataExt(newRaw.bgDataList.get(13)),
                 is(new BgWatchDataExt(new BgWatchData(
-                        88.0, 160.0, 90.0,
+                        88.0, 260.0, 160.0, 90.0,
                         WearUtilMocker.REF_NOW - Constants.MINUTE_IN_MS*4*1, 1
                 ))));
 

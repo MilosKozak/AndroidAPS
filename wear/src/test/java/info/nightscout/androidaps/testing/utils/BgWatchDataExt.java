@@ -14,8 +14,8 @@ public class BgWatchDataExt extends BgWatchData {
         super();
     }
 
-    public BgWatchDataExt(double aSgv, double aHigh, double aLow, long aTimestamp, int aColor) {
-        super(aSgv, aHigh, aLow, aTimestamp, aColor);
+    public BgWatchDataExt(double aSgv, double aVeryHigh, double aHigh, double aLow, long aTimestamp, int aColor) {
+        super(aSgv, aVeryHigh, aHigh, aLow, aTimestamp, aColor);
     }
 
     public BgWatchDataExt(BgWatchData ref) {
