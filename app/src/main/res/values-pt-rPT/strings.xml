@@ -1401,7 +1401,9 @@
     <string name="isf_short">FSI</string>
     <string name="target_short">ALV</string>
     <string name="clone_label">Clone</string>
+    <string name="saveorresetchangesfirst">Guardar ou repor as alterações actuais primeiro</string>
     <string name="deletecurrentprofile">Eliminar perfil actual?</string>
     <string name="copytolocalprofile">Criar novo perfil local a partir desta troca de perfil?</string>
     <string name="profilenamecontainsdot">Nome do perfil contém pontos.\nIsso não é suportado pelo NS.\nPerfil não é enviado para o NS.</string>
+    <string name="reorder_label">Reordenar</string>
 </resources>
