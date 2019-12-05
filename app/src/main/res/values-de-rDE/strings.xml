@@ -1418,4 +1418,5 @@ Unerwartetes Verhalten.</string>
     <string name="profilenamecontainsdot">Profilname enthält Punkte.\nDies wird von NS nicht unterstützt.\nProfil wird nicht zu NS hochgeladen.</string>
     <string name="low_mark_comment">Unterer Wert des Zielbereichs (nur Anzeige)</string>
     <string name="high_mark_comment">Oberer Wert des Zielbereichs (nur Anzeige)</string>
+    <string name="reorder_label">Umsortieren</string>
 </resources>
