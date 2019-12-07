@@ -1191,7 +1191,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="running_invalid_version">Nous avons détecté que vous utilisez une version invalide. Boucle désactivée !</string>
     <string name="old_version">ancienne version</string>
     <string name="very_old_version">très ancienne version</string>
-    <string name="new_version_warning">Une nouvelle version est disponible depuis au moins %1$d jours ! Retour au traitement par pompe assistée par capteur (Arrêt par Glycémie Basse (AGB), Low Glucose Suspend (LGS) ) après 60 jours et la Boucle sera désactivée après 90 jours</string>
     <string name="twohours">2 h</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="dexcom_app_patched">App Dexcom (patchée)</string>
