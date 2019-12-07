@@ -898,7 +898,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 PreparedQuery<TemporaryBasal> preparedQuery2 = queryBuilder2.prepare();
                 List<TemporaryBasal> trList2 = getDaoTemporaryBasal().query(preparedQuery2);
 
-                if (trList2.size() > 0) {
+                if (trList2.size() > 0 && trList2.get(0).pumpId == 0) { // don't update existing record if it has a pumpId
                     old = trList2.get(0);
 
                     old.copyFromPump(tempBasal);
@@ -1001,7 +1001,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             List<TemporaryBasal> tempbasals;
             QueryBuilder<TemporaryBasal, Long> queryBuilder = getDaoTemporaryBasal().queryBuilder();
-            queryBuilder.orderBy("date", ascending);
+            // order by date and duration to ensure end of previous tbr doesn't override next tbr
+            queryBuilder.orderBy("date", ascending).orderBy("durationInMinutes", ascending);
             Where where = queryBuilder.where();
             where.ge("date", mills);
             PreparedQuery<TemporaryBasal> preparedQuery = queryBuilder.prepare();
@@ -1017,7 +1018,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             List<TemporaryBasal> tempbasals;
             QueryBuilder<TemporaryBasal, Long> queryBuilder = getDaoTemporaryBasal().queryBuilder();
-            queryBuilder.orderBy("date", ascending);
+            // order by date and duration to ensure end of previous tbr doesn't override next tbr
+            queryBuilder.orderBy("date", ascending).orderBy("durationInMinutes", ascending);
             Where where = queryBuilder.where();
             where.between("date", from, to);
             PreparedQuery<TemporaryBasal> preparedQuery = queryBuilder.prepare();
