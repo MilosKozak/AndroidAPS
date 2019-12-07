@@ -1168,7 +1168,6 @@
     <string name="running_invalid_version">Nustatyta, kad naudojate neteisingą versiją. Ciklas išjungtas!</string>
     <string name="old_version">sena versija</string>
     <string name="very_old_version">labai sena versija</string>
-    <string name="new_version_warning">Nauja versija pasiekiama mažiausiai %1$d dienų! Po 60 d. grįšite prie stabdymo prie žemo, po 90 d. ciklas bus išjungtas.</string>
     <string name="twohours">2 val</string>
     <string name="formatinsulinunits">%1$.2fV</string>
     <string name="dexcom_app_patched">Dexcom programėlė (modifikuota)</string>
