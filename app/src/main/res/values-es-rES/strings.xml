@@ -1187,7 +1187,6 @@
     <string name="running_invalid_version">Hemos detectado que está ejecutando una versión no válida. ¡Bucle desactivado!</string>
     <string name="old_version">versión antigua</string>
     <string name="very_old_version">versión muy antigua</string>
-    <string name="new_version_warning">Nueva versión desde al menos %1$d dias disponible! Respaldo a LGS después de 60 días, se deshabilitará el lazo después de 90 días</string>
     <string name="twohours">2h</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="dexcom_app_patched">DexcomG App (parcheada)</string>
