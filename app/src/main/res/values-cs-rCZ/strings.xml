@@ -1190,6 +1190,7 @@
     <string name="running_invalid_version">Zjistili jsme, že používáte neplatnou verzi, smyčka zakázána!</string>
     <string name="old_version">stará verze</string>
     <string name="very_old_version">velmi stará verze</string>
+    <string name="new_version_warning">Nová verze je dostupná minimálně %1$d dní! Přepnutí na ochranu před nízkou glykémií po %2$d dnech, vypnutí smyčky po %3$d dnech</string>
     <string name="twohours">2h</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="dexcom_app_patched">Aplikace Dexcom (upravená)</string>
