@@ -1419,5 +1419,5 @@ Context | Edit Context</string>
     <string name="profilenamecontainsdot">Имя профиля содержит точки.\nЭто не поддерживается NS.\nПрофиль не выгружен в NS.</string>
     <string name="low_mark_comment">Меньшее значение диапазона целевых значений (только для дисплея)</string>
     <string name="high_mark_comment">Большее значение диапазона целевых значений (только для дисплея)</string>
-    <string name="reorder_label">Перезаказать</string>
+    <string name="reorder_label">Повторный заказ</string>
 </resources>
