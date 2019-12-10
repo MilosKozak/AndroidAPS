@@ -33,9 +33,9 @@
     <string name="pref_show_bg">Afficher Glycémie</string>
     <string name="pref_show_direction_arrow">Afficher Flèche</string>
     <string name="pref_show_ago">Afficher Min Passées</string>
-    <string name="pref_dark">Sombre</string>
+    <string name="pref_dark" comment="Enables dark visual theme">Sombre</string>
     <string name="pref_highlight_basals">Surbrillance Basale</string>
-    <string name="pref_matching_divider">Séparateur Noir</string>
+    <string name="pref_matching_divider" comment="To make divider match its background with background of whole watchface">Séparateur Noir</string>
     <string name="pref_chart_timeframe">Echelle Graphique</string>
     <string name="pref_1_hour">1 heure</string>
     <string name="pref_2_hours">2 heures</string>
@@ -73,9 +73,9 @@
     <string name="menu_default">Défaut</string>
     <string name="menu_menu">Menu</string>
     <string name="action_duration">durée</string>
-    <string name="action_target">cible</string>
-    <string name="action_low">bas</string>
-    <string name="action_high">haut</string>
+    <string name="action_target" comment="In temp target menu, single target value">cible</string>
+    <string name="action_low" comment="In temp target menu, lower value from range">bas</string>
+    <string name="action_high" comment="In temp target menu, higher value from range">haut</string>
     <string name="action_carbs">glucides</string>
     <string name="action_percentage">pourcentage</string>
     <string name="action_start_min">début [min]</string>
@@ -84,7 +84,7 @@
     <string name="action_preset_1">Quantité 1</string>
     <string name="action_preset_2">Quantité 2</string>
     <string name="action_preset_3">Quantité 3</string>
-    <string name="action_free_amount">Quantité libre</string>
+    <string name="action_free_amount" comment="In prime/fill menu, allows to enter any amount to be used for priming/filling">Quantité libre</string>
     <string name="action_confirm">CONFIRMER</string>
     <string name="action_status_pump">ÉTAT POMPE</string>
     <string name="action_status_loop">ÉTAT BOUCLE</string>
@@ -100,10 +100,9 @@
     <string name="activity_no_status">aucun statut</string>
     <string name="unit_mg_dl">mg/dl</string>
     <string name="unit_mmol_l">mmol/l</string>
-    <string name="unit_g">g</string>
-    <string name="unit_u">U</string>
-    <string name="unit_u_p_h">U/h</string>
-    <string name="unit_h">h</string>
-    <string name="unit_d">j</string>
-    <string name="unit_w">w/s</string>
+    <string name="unit_g" comment="Shortcut for ISO unit: gram">g</string>
+    <string name="unit_u" comment="Shortcut for: insulin Unit">U</string>
+    <string name="unit_u_p_h" comment="Shortcut for: insulin Unit per Hour">U/h</string>
+    <string name="unit_h" comment="One letter shortcut for: Hour" maxLength="1">h</string>
+    <string name="unit_d" comment="One letter shortcut for: Day" maxLength="1">j</string>
 </resources>
