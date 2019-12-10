@@ -1406,4 +1406,21 @@
     <string name="copytolocalprofile">Criar novo perfil local a partir desta troca de perfil?</string>
     <string name="profilenamecontainsdot">Nome do perfil contém pontos.\nIsso não é suportado pelo NS.\nPerfil não é enviado para o NS.</string>
     <string name="reorder_label">Reordenar</string>
+    <string name="age">Idade:</string>
+    <string name="weight">Peso:</string>
+    <string name="id">ID:</string>
+    <string name="submit">Enviar</string>
+    <string name="mostcommonprofile">Perfil mais comum:</string>
+    <string name="survey_comment">Nota: Apenas os dados visíveis neste ecrã serão enviados anonimamente. O ID é atribuído a esta instalação do AndroidAPS. Você pode enviar dados novamente se o perfil principal for alterado, mas deixá-lo rodar pelo menos uma semana para tornar o resultado visível no intervalo de tempo. Sua ajuda é apreciada.</string>
+    <string name="nav_survey">Questionário</string>
+    <string name="invalidage">Entrada de idade inválida</string>
+    <string name="invalidweight">Entrada de peso inválida</string>
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
+    <string name="tirformat"><![CDATA[<b>%1$s:</b> Hipo: <b>%2$02d%%</b> Dentro: <b>%3$02d%%</b> Hiper: <b>%4$02d%%</b>]]></string>
+    <string name="average">Média</string>
+    <string name="tdd">TDD</string>
+    <string name="tir">TIR</string>
+    <string name="activitymonitor">Monitor de actividade</string>
+    <string name="doyouwantresetstats">Quer reiniciar as estatísticas de actividade?</string>
+    <string name="statistics">Estatísticas</string>
 </resources>
