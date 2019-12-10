@@ -20,7 +20,7 @@
     <string name="pref_on">Oui</string>
     <string name="pref_off">Non</string>
     <string name="pref_vibrate_on_bolus">Vibrer sur Bolus</string>
-    <string name="pref_units_for_actions">Unités pour Actions</string>
+    <string name="pref_units_for_actions">Unités des Actions</string>
     <string name="pref_show_date">Afficher Date</string>
     <string name="pref_show_iob">Afficher IA</string>
     <string name="pref_show_cob">Afficher GA</string>
@@ -42,7 +42,7 @@
     <string name="pref_3_hours">3 heures</string>
     <string name="pref_4_hours">4 heures</string>
     <string name="pref_5_hours">5 heures</string>
-    <string name="pref_input_design">Interface Entrée</string>
+    <string name="pref_input_design">Design de saisie</string>
     <string name="pref_default">Défaut</string>
     <string name="pref_quick_righty">Droitier</string>
     <string name="pref_quick_lefty">Gaucher</string>
