@@ -29,7 +29,7 @@
     <string name="pref_show_bg">Rodyti KG</string>
     <string name="pref_show_direction_arrow">Rodyti krypties rodyklę</string>
     <string name="pref_show_ago">Laikas nuo pask. vertės</string>
-    <string name="pref_dark">Tamsus</string>
+    <string name="pref_dark" comment="Enables dark visual theme">Tamsus</string>
     <string name="pref_highlight_basals">Paryškinti valandines bazes</string>
     <string name="pref_1_hour">1 val.</string>
     <string name="pref_2_hours">2 val.</string>
@@ -56,9 +56,9 @@
     <string name="menu_default">Numatytasis</string>
     <string name="menu_menu">Meniu</string>
     <string name="action_duration">trukmė</string>
-    <string name="action_target">tikslas</string>
-    <string name="action_low">žemas</string>
-    <string name="action_high">aukštas</string>
+    <string name="action_target" comment="In temp target menu, single target value">tikslas</string>
+    <string name="action_low" comment="In temp target menu, lower value from range">žemas</string>
+    <string name="action_high" comment="In temp target menu, higher value from range">aukštas</string>
     <string name="action_carbs">AV</string>
     <string name="action_percentage">procentais</string>
     <string name="action_start_min">pradėti [min]</string>
@@ -80,9 +80,9 @@
     <string name="activity_IOB">AIO</string>
     <string name="unit_mg_dl">mg/dl</string>
     <string name="unit_mmol_l">mmol/l</string>
-    <string name="unit_g">g</string>
-    <string name="unit_u">vv</string>
-    <string name="unit_u_p_h">Vv/val</string>
-    <string name="unit_h">val</string>
-    <string name="unit_d">d.</string>
+    <string name="unit_g" comment="Shortcut for ISO unit: gram">g</string>
+    <string name="unit_u" comment="Shortcut for: insulin Unit">vv</string>
+    <string name="unit_u_p_h" comment="Shortcut for: insulin Unit per Hour">Vv/val</string>
+    <string name="unit_h" comment="One letter shortcut for: Hour" maxLength="1">val</string>
+    <string name="unit_d" comment="One letter shortcut for: Day" maxLength="1">d.</string>
 </resources>
