@@ -54,4 +54,5 @@
     <string name="pref_wizard_percentage">Sprievodca percentuálne</string>
     <string name="pref_version">Verzia:</string>
     <string name="menu_tempt">TempT</string>
+    <string name="menu_wizard">Sprievodca</string>
 </resources>
