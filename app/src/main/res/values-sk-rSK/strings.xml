@@ -1418,4 +1418,21 @@
     <string name="low_mark_comment">Spodná hodnota v oblasti cieľového rozsahu (iba zobrazovanie)</string>
     <string name="high_mark_comment">Horná hodnota v oblasti cieľového rozsahu (iba zobrazovanie)</string>
     <string name="reorder_label">Zmena poradia</string>
+    <string name="age">Vek:</string>
+    <string name="weight">Váha:</string>
+    <string name="id">ID:</string>
+    <string name="submit">Odoslať</string>
+    <string name="mostcommonprofile">Najčastejšie používaný profil:</string>
+    <string name="survey_comment">Poznámka: Len údaje zobrazené na tejto obrazovke budú odosielané anonymne. ID je pridelené na túto inštaláciu AndroidAPS. Údaje môžete odoslať znova, ak sa váš hlavný profil zmení, ale nechajte ho bežať aspoň týždeň, aby bol výsledok času v rozsahu viditeľný. Vaša pomoc je vítaná.</string>
+    <string name="nav_survey">Prieskum</string>
+    <string name="invalidage">Neplatný záznam veku</string>
+    <string name="invalidweight">Neplatný záznam váhy</string>
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Baz: <b>%4$.2f</b>]]></string>
+    <string name="tirformat"><![CDATA[<b>%1$s:</b> Pod: <b>%2$02d%%</b> V: <b>%3$02d%%</b> Nad: <b>%4$02d%%</b>]]></string>
+    <string name="average">Priemer</string>
+    <string name="tdd">CDD</string>
+    <string name="tir">Čas v rozsahu</string>
+    <string name="activitymonitor">Monitor aktivity</string>
+    <string name="doyouwantresetstats">Chcete resetovať štatistiky aktivity?</string>
+    <string name="statistics">Štatistiky</string>
 </resources>
