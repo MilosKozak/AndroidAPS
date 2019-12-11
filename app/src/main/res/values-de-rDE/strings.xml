@@ -1013,7 +1013,7 @@
     <string name="nsmalfunction">NSClient Störung. Ziehe einen Neustart von NS und NSClient in Betracht.</string>
     <string name="as">AS</string>
     <string name="versionavailable">Version %1$s ist verfügbar.</string>
-    <string name="time_offset">Zeit Verschiebung</string>
+    <string name="time_offset">Zeitversatz</string>
     <string name="setupwizard_preferred_aps_mode">Bevorzugter APS-Modus</string>
     <string name="treatments_wizard_total_label">Gesamt</string>
     <string name="calculation_short">Berech.</string>
@@ -1411,7 +1411,7 @@ Unerwartetes Verhalten.</string>
     <string name="ic_short">IC</string>
     <string name="isf_short">ISF</string>
     <string name="target_short">ZIEL</string>
-    <string name="clone_label">Duplizieren</string>
+    <string name="clone_label">Klonen</string>
     <string name="saveorresetchangesfirst">Speichere oder verwerfe die aktuellen Änderungen zuerst</string>
     <string name="deletecurrentprofile">Aktuelles Profil löschen?</string>
     <string name="copytolocalprofile">Neues lokales Profil auf Basis dieses Profilwechsels erstellen?</string>
