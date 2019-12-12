@@ -1424,5 +1424,6 @@
     <string name="average">Media</string>
     <string name="tdd">TDD</string>
     <string name="tir">TIR</string>
+    <string name="activitymonitor">Monitor attività</string>
     <string name="statistics">Statistiche</string>
 </resources>
