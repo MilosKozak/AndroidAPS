@@ -1418,4 +1418,11 @@
     <string name="low_mark_comment">Valore più basso per l\'intervallo di visualizzazione dell\'area \"in range\"</string>
     <string name="high_mark_comment">Valore più alto per l\'intervallo di visualizzazione dell\'area \"in range\"</string>
     <string name="reorder_label">Riordina</string>
+    <string name="age">Età:</string>
+    <string name="weight">Peso:</string>
+    <string name="id">ID:</string>
+    <string name="average">Media</string>
+    <string name="tdd">TDD</string>
+    <string name="tir">TIR</string>
+    <string name="statistics">Statistiche</string>
 </resources>
