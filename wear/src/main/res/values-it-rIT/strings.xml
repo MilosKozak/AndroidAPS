@@ -9,7 +9,7 @@
     <string name="label_xdrip_no_chart">AAPS(NoGrafico)</string>
     <string name="label_xdrip_circle">AAPS(Cerchio)</string>
     <string name="label_xdrip_v2">AAPSv2</string>
-    <string name="label_warning_sync">Nessun dato!</string>
+    <string name="label_warning_sync">No dati!</string>
     <string name="label_warning_old">Dati vecchi!</string>
     <string name="label_warning_since">Da %1$s</string>
     <string name="label_warning_sync_aaps">Sincro con AAPS!</string>
@@ -37,6 +37,9 @@
     <string name="pref_animations">Animazioni</string>
     <string name="pref_version">Versione:</string>
     <string name="menu_bolus">Bolo</string>
+    <string name="menu_settings">Impostazioni</string>
+    <string name="menu_status">Stato</string>
+    <string name="menu_prime_fill">Carica/Riempi</string>
     <string name="menu_menu">Menu</string>
     <string name="action_duration">durata</string>
     <string name="action_target" comment="In temp target menu, single target value">target</string>
@@ -49,6 +52,7 @@
     <string name="action_preset_1">Preset 1</string>
     <string name="action_preset_2">Preset 2</string>
     <string name="action_preset_3">Preset 3</string>
+    <string name="action_confirm">CONFERMA</string>
     <string name="action_bolus">bolo</string>
     <string name="status_pump">Micro</string>
     <string name="status_loop">Loop</string>
@@ -58,4 +62,6 @@
     <string name="activity_IOB">IOB</string>
     <string name="unit_mg_dl">mg/dl</string>
     <string name="unit_mmol_l">mmol/l</string>
+    <string name="unit_u" comment="Shortcut for: insulin Unit">U</string>
+    <string name="unit_u_p_h" comment="Shortcut for: insulin Unit per Hour">U/h</string>
 </resources>
