@@ -17,6 +17,8 @@
     <string name="msg_warning_old">I dati di AAPS sono vecchi di %1$s ! Controlla il tuo sensore, xDrip+, NS, la configurazione di AAPS o altro!</string>
     <string name="pref_on">On</string>
     <string name="pref_off">Off</string>
+    <string name="pref_show_date">Mostra data</string>
+    <string name="pref_show_iob">Mostra IOB</string>
     <string name="pref_show_cob">Mostra COB</string>
     <string name="pref_show_delta">Mostra Delta</string>
     <string name="pref_1_hour">1 ora</string>
@@ -25,7 +27,13 @@
     <string name="pref_4_hours">4 ore</string>
     <string name="pref_5_hours">5 ore</string>
     <string name="pref_low">Basso</string>
+    <string name="pref_medium">Medio</string>
+    <string name="pref_high">Alto</string>
+    <string name="menu_menu">Menu</string>
+    <string name="action_duration">durata</string>
+    <string name="action_target" comment="In temp target menu, single target value">target</string>
     <string name="action_low" comment="In temp target menu, lower value from range">basso</string>
+    <string name="action_high" comment="In temp target menu, higher value from range">alto</string>
     <string name="action_carbs">CHO</string>
     <string name="action_percentage">percentuale</string>
     <string name="action_duration_h">durata [h]</string>
