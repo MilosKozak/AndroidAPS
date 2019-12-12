@@ -124,7 +124,10 @@ class NSProfileFragment : Fragment() {
             nsprofile_spinner.adapter = adapter
             // set selected to actual profile
             for (p in profileList.indices) {
-                if (profileList[p] == ProfileFunctions.getInstance().profileName)
+                val indexOfBrace = ProfileFunctions.getInstance().profileName.indexOf("(");
+                val concatedName = profileList[p].substring(0,indexOfBrace);
+
+                if (profileList[p] == concatedName)
                     nsprofile_spinner.setSelection(p)
             }
             profileview_noprofile.visibility = View.GONE
