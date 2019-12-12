@@ -25,4 +25,21 @@
     <string name="pref_4_hours">4 ore</string>
     <string name="pref_5_hours">5 ore</string>
     <string name="pref_low">Basso</string>
+    <string name="action_low" comment="In temp target menu, lower value from range">basso</string>
+    <string name="action_carbs">CHO</string>
+    <string name="action_percentage">percentuale</string>
+    <string name="action_duration_h">durata [h]</string>
+    <string name="action_insulin">insulina</string>
+    <string name="action_preset_1">Preset 1</string>
+    <string name="action_preset_2">Preset 2</string>
+    <string name="action_preset_3">Preset 3</string>
+    <string name="action_bolus">bolo</string>
+    <string name="status_pump">Micro</string>
+    <string name="status_loop">Loop</string>
+    <string name="status_cpp">CPP</string>
+    <string name="status_tdd">TDD</string>
+    <string name="activity_carb">CHO</string>
+    <string name="activity_IOB">IOB</string>
+    <string name="unit_mg_dl">mg/dl</string>
+    <string name="unit_mmol_l">mmol/l</string>
 </resources>
