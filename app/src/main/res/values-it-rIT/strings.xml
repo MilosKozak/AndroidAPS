@@ -1421,6 +1421,9 @@
     <string name="age">Età:</string>
     <string name="weight">Peso:</string>
     <string name="id">ID:</string>
+    <string name="mostcommonprofile">Profilo più comune:</string>
+    <string name="invalidage">Inserimento età non valido</string>
+    <string name="invalidweight">Inserimento peso non valido</string>
     <string name="average">Media</string>
     <string name="tdd">TDD</string>
     <string name="tir">TIR</string>
