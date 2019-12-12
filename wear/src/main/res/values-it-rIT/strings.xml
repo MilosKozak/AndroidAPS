@@ -20,7 +20,11 @@
     <string name="pref_show_date">Mostra data</string>
     <string name="pref_show_iob">Mostra IOB</string>
     <string name="pref_show_cob">Mostra COB</string>
-    <string name="pref_show_delta">Mostra Delta</string>
+    <string name="pref_show_delta">Mostra delta</string>
+    <string name="pref_show_basal_rate">Mostra velocità basale</string>
+    <string name="pref_show_loop_status">Mostra stato loop</string>
+    <string name="pref_show_direction_arrow">Mostra frecce direzionali</string>
+    <string name="pref_dark" comment="Enables dark visual theme">Scuro</string>
     <string name="pref_1_hour">1 ora</string>
     <string name="pref_2_hours">2 ore</string>
     <string name="pref_3_hours">3 ore</string>
@@ -29,6 +33,10 @@
     <string name="pref_low">Basso</string>
     <string name="pref_medium">Medio</string>
     <string name="pref_high">Alto</string>
+    <string name="pref_big_numbers">Numeri grandi</string>
+    <string name="pref_animations">Animazioni</string>
+    <string name="pref_version">Versione:</string>
+    <string name="menu_bolus">Bolo</string>
     <string name="menu_menu">Menu</string>
     <string name="action_duration">durata</string>
     <string name="action_target" comment="In temp target menu, single target value">target</string>
