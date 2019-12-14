@@ -412,7 +412,7 @@
     <string name="danar_stats_expweight">Eksponentiškai svertinė BPD</string>
     <string name="danar_stats_basalrate">Valandinė bazė</string>
     <string name="danar_stats_bolus">Bolusas</string>
-    <string name="danar_stats_tdd">BPD bendroji paros dozė</string>
+    <string name="danar_stats_tdd">BPD</string>
     <string name="danar_stats_date">Data</string>
     <string name="danar_stats_ratio">Koeficientas</string>
     <string name="danar_stats_amount_days"># dienų</string>
