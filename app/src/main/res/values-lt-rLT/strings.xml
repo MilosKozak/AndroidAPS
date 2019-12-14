@@ -184,8 +184,8 @@
     <string name="careportal_question">Klausimas</string>
     <string name="careportal_exercise">FA-fizinis aktyvumas</string>
     <string name="careportal_pumpsitechange">Kateterio keitimas</string>
-    <string name="careportal_cgmsensorinsert">CGM sensoriaus įvedimas</string>
-    <string name="careportal_cgmsensorstart">CGM sensoriaus paleidimas</string>
+    <string name="careportal_cgmsensorinsert">NGJ sensoriaus įvedimas</string>
+    <string name="careportal_cgmsensorstart">NGJ sensoriaus paleidimas</string>
     <string name="careportal_insulincartridgechange">Insulino rezervuaro keitimas</string>
     <string name="careportal_profileswitch">Profilio keitimas</string>
     <string name="careportal_snackbolus">Užkandžio bolusas</string>
@@ -570,7 +570,7 @@
     <string name="extendedbolus">Ištęstas bolusas</string>
     <string name="temptarget">Laik.tikslas</string>
     <string name="overview_extendedbolus_cancel_button">Atšaukti ištęstą bolusą</string>
-    <string name="careportal_sensorage_label">Sensoriaus naudojimo laikas</string>
+    <string name="careportal_sensorage_label">Sensorius</string>
     <string name="careportal_canulaage_label">Adatos naudojimo laikas</string>
     <string name="careportal_insulinage_label">Insulino naudojimo laikas</string>
     <string name="hours">valandos</string>
@@ -623,7 +623,7 @@
     <string name="ns_localbroadcasts_title">Įgalinti lokalų duomenų perdavimą.</string>
     <string name="careportal_activity_label">AKTYVUMAS &amp; ATGALINIS RYŠYS</string>
     <string name="careportal_carbsandbolus_label">ANGLIAVANDENIAI &amp; BOLUSAS</string>
-    <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
+    <string name="careportal_cgm_label">NGJ &amp; OPENAPS</string>
     <string name="careportal_pump_label">POMPA</string>
     <string name="overview_newtempbasal_basalabsolute">Valandinė bazė [vv/val]</string>
     <string name="careportal_newnstreatment_duration_min_label">Trukmė [min]</string>
@@ -793,8 +793,8 @@
     <string name="show_cgm_button_summary">Atidaro xDrip+, o mygtukas ATGAL gražina į AAPS</string>
     <string name="carb_increment_button_message">Paspaudus mygtuką įvedamas nustatytas angliavandenių kiekis</string>
     <string name="insulin_increment_button_message">Paspaudus mygtuką įvedamas nustatytas insulino kiekis</string>
-    <string name="error_starting_cgm">Nepavyko paleisti CGM programos.  Įsitikinkite, kad ji įdiegta.</string>
-    <string name="overview_cgm">CGM</string>
+    <string name="error_starting_cgm">Nepavyko paleisti NGJ programos.  Įsitikinkite, kad ji įdiegta.</string>
+    <string name="overview_cgm">NGJ</string>
     <string name="nav_historybrowser">Istorija</string>
     <string name="wear_notifysmb_title">Pranešti apie SMB</string>
     <string name="wear_notifysmb_summary">Rodyti SMB laikrodyje kaip standartinį bolusą.</string>
@@ -896,7 +896,7 @@
     <string name="firstcarbsincrement">Pirmas angliavandenių kiekio žingsnis</string>
     <string name="secondcarbsincrement">Antras angliavandenių kiekio žingsnis</string>
     <string name="thirdcarbsincrement">Trečias angliavandenių kiekio žingsnis</string>
-    <string name="cgm">CGM</string>
+    <string name="cgm">NGJ</string>
     <string name="ns_wifionly">Naudoti tik WiFi</string>
     <string name="ns_wifi_ssids">WiFi pavadinimas</string>
     <string name="ns_chargingonly">Tik įkraunant</string>
