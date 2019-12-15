@@ -1422,6 +1422,7 @@
     <string name="weight">Peso:</string>
     <string name="id">ID:</string>
     <string name="mostcommonprofile">Profilo più comune:</string>
+    <string name="nav_survey">Sondaggio</string>
     <string name="invalidage">Inserimento età non valido</string>
     <string name="invalidweight">Inserimento peso non valido</string>
     <string name="average">Media</string>
