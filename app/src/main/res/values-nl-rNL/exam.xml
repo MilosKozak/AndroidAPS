@@ -20,7 +20,7 @@
     <string name="pumpdisconnect_whattodo">Wat moet er gebeuren bij het loskoppelen van de pomp?</string>
     <string name="pumpdisconnect_letknow">Klik op \'pomp ontkoppelen\' zodat AAPS weet dat er geen insuline wordt afgeleverd.</string>
     <string name="pumpdisconnect_suspend">Klik op \'lus onderbreken\' zodat AAPS stopt met loopen terwijl de pomp is losgekoppeld.</string>
-    <string name="pumpdisconnect_dontchnage">Verander niets in AAPS, koppel de pomp gewoon af.</string>
+    <string name="pumpdisconnect_dontchnage">Verander niets in AAPS, koppel gewoon de pomp af.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/nl/Getting-Started/FAQ.html#overige-instellingen</string>
     <string name="objectives_label">Onderwerp: AndroidAPS Instellingen</string>
     <string name="objectives_howtosave">Welke dingen kun je het beste doen om een back-up van uw instellingen te maken?</string>
@@ -40,7 +40,7 @@
     <string name="noisycgm_turnoffphone">Schakel de telefoon uit.</string>
     <string name="noisycgm_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/nl/Usage/Smoothing-Blood-Glucose-Data-in-xDrip.html#filteren-van-bloed-glucose-waardes</string>
     <string name="noisycgm_checksmoothing">Zorg dat uw CGM-app de BG-gegevens vloeiend maakt.</string>
-    <string name="exercise_label">Onderwerp: Inspanning</string>
+    <string name="exercise_label">Onderwerp: Fysieke inspanning</string>
     <string name="exercise_whattodo">Hoe kunt u het systeem helpen zich aan te passen bij sporten?</string>
     <string name="exercise_setactivitytt">Met behulp van de tijdelijk streefdoel functie.</string>
     <string name="exercise_switchprofilebelow100">Pas het profiel %% aan naar een waarde onder de 100%.</string>
@@ -141,8 +141,8 @@
     <string name="profileswitch_pctwillchange"> Bij het opgeven van 90% in je profiel wissel…</string>
     <string name="profileswitch_basalhigher">Basalen zullen 10% hoger zijn.</string>
     <string name="profileswitch_basallower">Basalen zullen 10% lager zijn.</string>
-    <string name="profileswitch_ichigher">De KH ratio wordt 10% hoger.</string>
-    <string name="profileswitch_iclower">De KH ratio wordt 10% lager.</string>
+    <string name="profileswitch_ichigher">De KH ratio zal 10% hoger worden.</string>
+    <string name="profileswitch_iclower">De KH ratio zal 10% lager worden.</string>
     <string name="profileswitch_isfhigher">ISF-waarde wordt 10% hoger.</string>
     <string name="profileswitch_isflower">ISF-waarde wordt 10% lager.</string>
     <string name="profileswitch_overall">In totaal zul je ongeveer 10% minder insuline krijgen.</string>
