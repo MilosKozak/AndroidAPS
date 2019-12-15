@@ -1422,7 +1422,9 @@
     <string name="age">Età:</string>
     <string name="weight">Peso:</string>
     <string name="id">ID:</string>
+    <string name="submit">Invia</string>
     <string name="mostcommonprofile">Profilo più comune:</string>
+    <string name="survey_comment">Nota: solo i dati visibili su questa schermata verranno caricati (in modo anonimo). Un ID è assegnato a questa installazione di AndroidAPS. Puoi inviare nuovamente i dati se il tuo profilo principale viene modificato, ma lascialo in esecuzione almeno per una settimana per rendere visibili i risultati nel time in range. Il tuo aiuto è apprezzato.</string>
     <string name="nav_survey">Sondaggio</string>
     <string name="invalidage">Inserimento età non valido</string>
     <string name="invalidweight">Inserimento peso non valido</string>
