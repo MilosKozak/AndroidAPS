@@ -35,6 +35,7 @@
     <string name="pref_high">Alto</string>
     <string name="pref_big_numbers">Numeri grandi</string>
     <string name="pref_animations">Animazioni</string>
+    <string name="pref_single_target">Target singolo</string>
     <string name="pref_version">Versione:</string>
     <string name="menu_bolus">Bolo</string>
     <string name="menu_settings">Impostazioni</string>
@@ -52,6 +53,7 @@
     <string name="action_preset_1">Preset 1</string>
     <string name="action_preset_2">Preset 2</string>
     <string name="action_preset_3">Preset 3</string>
+    <string name="action_free_amount" comment="In prime/fill menu, allows to enter any amount to be used for priming/filling">Quantità libera</string>
     <string name="action_confirm">CONFERMA</string>
     <string name="action_bolus">bolo</string>
     <string name="status_pump">Micro</string>
