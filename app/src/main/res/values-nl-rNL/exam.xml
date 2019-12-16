@@ -127,7 +127,7 @@
     <string name="isf_increasingvalue">Hogere ISF-waarden leiden tot minder insulineafgifte wanneer AAPS voor hoge BG corrigeert.</string>
     <string name="isf_decreasingvalue">Lagere ISF-waarden leiden tot minder insulineafgifte wanneer AAPS voor hoge BG corrigeert.</string>
     <string name="isf_noeffect">Het wijzigen van de ISF-waarden heeft geen effect op de hoeveelheid insuline die wordt geleverd wanneer AAPS voor hoge BG corrigeert.</string>
-    <string name="isf_preferences">U moet ISF invoeren in Voorkeuren.</string>
+    <string name="isf_preferences">U moet ISF invoeren in Instellingen.</string>
     <string name="isf_profile">Het wijzigen van de ISF-waarde in uw profiel is voldoende om de wijziging toe te passen.</string>
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/CROWDIN/nl/Getting-Started/FAQ.html#insuline-gevoeligheids-factor-insulin-sensitivity-factor-ISF-mmol-l-E-of-mg-dl-E</string>
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/CROWDIN/nl/Usage/Profielen.html</string>
