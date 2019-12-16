@@ -28,7 +28,7 @@
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/key_ns_uploadlocalprofile"
-            android:title="@string/ns_ploadlocalprofile" />
+            android:title="@string/ns_uploadlocalprofile" />
 
         <PreferenceScreen android:title="@string/ns_alarmoptions">
 

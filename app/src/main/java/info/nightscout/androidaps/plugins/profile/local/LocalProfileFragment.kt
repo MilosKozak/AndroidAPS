@@ -98,7 +98,7 @@ class LocalProfileFragment : Fragment() {
         TimeListEdit(context, view, R.id.localprofile_ic, "IC", MainApp.gs(R.string.nsprofileview_ic_label), LocalProfilePlugin.currentProfile().ic, null, HardLimits.MINIC, HardLimits.MAXIC, 0.1, DecimalFormat("0.0"), save)
         basalView = TimeListEdit(context, view, R.id.localprofile_basal, "BASAL", MainApp.gs(R.string.nsprofileview_basal_label) + ": " + sumLabel(), LocalProfilePlugin.currentProfile().basal, null, pumpDescription.basalMinimumRate, 10.0, 0.01, DecimalFormat("0.00"), save)
         if (units == Constants.MGDL) {
-            TimeListEdit(context, view, R.id.localprofile_isf, "ISF", MainApp.gs(R.string.nsprofileview_isf_label), LocalProfilePlugin.currentProfile().isf, null, HardLimits.MINISF, HardLimits.MAXISF, 1.0, DecimalFormat("0"), save)
+            TimeListEdit(context, view, R.id.localprofile_isf, "ISF", MainApp.gs(R.string.nsprofileview_isf_label), LocalProfilePlugin.currentProfile().isf, null, HardLimits.MINISF, HardLimits.MAXISF, 0.5, DecimalFormat("0.0"), save)
             TimeListEdit(context, view, R.id.localprofile_target, "TARGET", MainApp.gs(R.string.nsprofileview_target_label), LocalProfilePlugin.currentProfile().targetLow, LocalProfilePlugin.currentProfile().targetHigh, HardLimits.VERY_HARD_LIMIT_TARGET_BG[0].toDouble(), HardLimits.VERY_HARD_LIMIT_TARGET_BG[1].toDouble(), 1.0, DecimalFormat("0"), save)
         } else {
             TimeListEdit(context, view, R.id.localprofile_isf, "ISF", MainApp.gs(R.string.nsprofileview_isf_label), LocalProfilePlugin.currentProfile().isf, null, Profile.fromMgdlToUnits(HardLimits.MINISF, Constants.MMOL), Profile.fromMgdlToUnits(HardLimits.MAXISF, Constants.MMOL), 0.1, DecimalFormat("0.0"), save)
