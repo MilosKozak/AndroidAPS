@@ -1436,4 +1436,7 @@
     <string name="activitymonitor">Monitor attività</string>
     <string name="doyouwantresetstats">Vuoi resettare le statistiche sull\'attività?</string>
     <string name="statistics">Statistiche</string>
+    <string name="randombg">BG casuale</string>
+    <string name="description_source_randombg">Genera dati BG casuali (solo modalità demo)</string>
+    <string name="randombg_short">BG</string>
 </resources>
