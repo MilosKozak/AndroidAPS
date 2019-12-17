@@ -593,6 +593,7 @@
     <string name="overview_newtempbasal_basaltype_label">Typ bazálu</string>
     <string name="invalidprofile">Chybný profil !!!</string>
     <string name="profileswitch">Přepnutí profilu</string>
+    <string name="doprofileswitch">Proveďte přepnutí profilu</string>
     <string name="careportal_pbage_label">Stáří baterie v pumpě</string>
     <string name="careportal_pumpbatterychange">Výměna baterie pumpy</string>
     <string name="ns_alarmoptions">Nastavení alarmů</string>
@@ -1435,4 +1436,7 @@
     <string name="activitymonitor">Monitor aktivity</string>
     <string name="doyouwantresetstats">Chcete resetovat statistiky aktivity?</string>
     <string name="statistics">Statistika</string>
+    <string name="randombg">Náhodná glykémie</string>
+    <string name="description_source_randombg">Generovat náhodná data glykémie (pouze režim Demo)</string>
+    <string name="randombg_short">GLYK</string>
 </resources>
