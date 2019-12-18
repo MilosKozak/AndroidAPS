@@ -8,6 +8,7 @@
     <string name="label_xdrip_big_chart">AAPS (Крупный график)</string>
     <string name="label_xdrip_no_chart">AAPS (Без графика)</string>
     <string name="label_xdrip_circle">AAPS (круглый)</string>
+    <string name="label_xdrip_v2">AAPSv2</string>
     <string name="label_warning_sync">Данные не поступают!</string>
     <string name="label_warning_old">Старые данные!</string>
     <string name="label_warning_since">Длится с: %1$s</string>
