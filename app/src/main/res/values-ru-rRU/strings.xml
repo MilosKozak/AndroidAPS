@@ -593,6 +593,7 @@
     <string name="overview_newtempbasal_basaltype_label">тип базала</string>
     <string name="invalidprofile">Неверный профиль !!!</string>
     <string name="profileswitch">смена профиля</string>
+    <string name="doprofileswitch">Переключить профиль</string>
     <string name="careportal_pbage_label">Батарея помпы работает</string>
     <string name="careportal_pumpbatterychange">замена батареи помпы</string>
     <string name="ns_alarmoptions">опции оповещения</string>
@@ -1437,4 +1438,7 @@ Context | Edit Context</string>
     <string name="activitymonitor">Монитор активности</string>
     <string name="doyouwantresetstats">Хотите сбросить статистику активности?</string>
     <string name="statistics">Статистика</string>
+    <string name="randombg">Случайные значения ГК</string>
+    <string name="description_source_randombg">Генерировать случайные данные ГК (только демо-режим)</string>
+    <string name="randombg_short">BG/ГК</string>
 </resources>
