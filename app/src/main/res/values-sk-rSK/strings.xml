@@ -1219,7 +1219,6 @@
     <string name="longitude_short">Lon:</string>
     <string name="distance_short">Vzdial. [m]:</string>
     <string name="name_short">Meno:</string>
-    <string name="locationis">Poloha je %1$s</string>
     <string name="lastboluslabel">Od posledného bolusu</string>
     <string name="lastboluscompared">Čas posledného bolusu: pred %1$s %2$s min </string>
     <string name="triggercoblabel">COB</string>
