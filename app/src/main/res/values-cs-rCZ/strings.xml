@@ -1219,7 +1219,6 @@
     <string name="longitude_short">Zem. délka:</string>
     <string name="distance_short">Vzdálenost [m]:</string>
     <string name="name_short">Jméno:</string>
-    <string name="locationis">Poloha je %1$s</string>
     <string name="lastboluslabel">Poslední bolus</string>
     <string name="lastboluscompared">Poslední bolus %1$s před %2$s min</string>
     <string name="triggercoblabel">COB</string>
