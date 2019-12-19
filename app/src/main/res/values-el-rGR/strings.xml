@@ -1195,7 +1195,6 @@
     <string name="longitude_short">Lon:</string>
     <string name="distance_short">Αποστ [m]:</string>
     <string name="name_short">Όνομα:</string>
-    <string name="locationis">Η τοποθεσία είναι %1$s</string>
     <string name="lastboluslabel">Τελευταίο Bolus</string>
     <string name="lastboluscompared">Τελευταίο bolus %1$s %2$s λεπτά πριν</string>
     <string name="triggercoblabel">COB</string>
