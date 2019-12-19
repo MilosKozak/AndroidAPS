@@ -1219,6 +1219,11 @@
     <string name="longitude_short">Lon:</string>
     <string name="distance_short">Dist [m]:</string>
     <string name="name_short">Nome:</string>
+    <string name="locationis">%1$s %2$s</string>
+    <string name="location_mode">Quando </string>
+    <string name="location_inside">Quando sei all\'interno dell\'area</string>
+    <string name="location_outside">Quando sei all\'esterno dell\'area</string>
+    <string name="location_going_in">Quando accedi all\'area denominata</string>
     <string name="lastboluslabel">Ultimo bolo</string>
     <string name="lastboluscompared">Ora ultimo bolo %1$s %2$s min fa</string>
     <string name="triggercoblabel">COB</string>
