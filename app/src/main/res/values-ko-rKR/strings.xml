@@ -1188,7 +1188,6 @@
     <string name="longitude_short">경도</string>
     <string name="distance_short">거리 [m]:</string>
     <string name="name_short">이름:</string>
-    <string name="locationis">위치는 %1$s</string>
     <string name="lastboluslabel">마지막 Bolus 전</string>
     <string name="lastboluscompared">마지막 Bolus 시간 %1$s %2$s 분 전</string>
     <string name="triggercoblabel">COB</string>
