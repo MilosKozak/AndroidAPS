@@ -1217,7 +1217,6 @@
     <string name="longitude_short">Leng:</string>
     <string name="distance_short">Afst [m]:</string>
     <string name="name_short">Naam:</string>
-    <string name="locationis">Locatie is %1$s</string>
     <string name="lastboluslabel">Laatste bolus</string>
     <string name="lastboluscompared">Laatste bolus %1$s %2$s min geleden</string>
     <string name="triggercoblabel">COB</string>
