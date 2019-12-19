@@ -1219,7 +1219,6 @@
     <string name="longitude_short">Дължина:</string>
     <string name="distance_short">Разсt [м]:</string>
     <string name="name_short">Име:</string>
-    <string name="locationis">Местоположението e %1$s</string>
     <string name="lastboluslabel">Последен болус</string>
     <string name="lastboluscompared">Последен болус преди %1$s %2$s минути</string>
     <string name="triggercoblabel">Активни въглехидрати</string>
