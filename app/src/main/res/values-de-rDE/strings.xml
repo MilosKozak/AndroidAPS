@@ -1220,7 +1220,6 @@ Unerwartetes Verhalten.</string>
     <string name="longitude_short">Längengrad:</string>
     <string name="distance_short">Umkreis [m]:</string>
     <string name="name_short">Name:</string>
-    <string name="locationis">Standort: %1$s</string>
     <string name="lastboluslabel">Letzter Bolus vor</string>
     <string name="lastboluscompared">Letzter Bolus vor %1$s %2$s Min</string>
     <string name="triggercoblabel">COB</string>
