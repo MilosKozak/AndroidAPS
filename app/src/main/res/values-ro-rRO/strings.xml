@@ -1192,7 +1192,6 @@
     <string name="longitude_short">Long:</string>
     <string name="distance_short">Dist [m]:</string>
     <string name="name_short">Nume:</string>
-    <string name="locationis">Localizarea este %1$s</string>
     <string name="lastboluslabel">Ultimul bolus</string>
     <string name="lastboluscompared">Ultimul bolus acum %1$s %2$s min</string>
     <string name="triggercoblabel">COB</string>
