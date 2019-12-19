@@ -1219,6 +1219,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="longitude_short">Long :</string>
     <string name="distance_short">Dist [m]:</string>
     <string name="name_short">Nom :</string>
+    <string name="locationis">%1$s %2$s</string>
+    <string name="location_mode">Quand </string>
     <string name="lastboluslabel">Lors du dernier Bolus</string>
     <string name="lastboluscompared">Dernièr Bolus %1$s il y a %2$s min</string>
     <string name="triggercoblabel">GA</string>
