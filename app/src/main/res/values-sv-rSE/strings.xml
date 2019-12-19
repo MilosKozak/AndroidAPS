@@ -1215,7 +1215,6 @@ Eversense-appen.</string>
     <string name="longitude_short">Lon:</string>
     <string name="distance_short">Dist [m]:</string>
     <string name="name_short">Namn:</string>
-    <string name="locationis">Platsen är %1$s</string>
     <string name="lastboluslabel">Senaste bolus</string>
     <string name="lastboluscompared">Senaste bolus %1$s %2$s min sedan</string>
     <string name="triggercoblabel">COB</string>
