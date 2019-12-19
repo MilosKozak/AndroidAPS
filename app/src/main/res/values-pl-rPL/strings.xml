@@ -1219,7 +1219,6 @@
     <string name="longitude_short">Długość:</string>
     <string name="distance_short">Odległość [m]:</string>
     <string name="name_short">Nazwa:</string>
-    <string name="locationis">Lokalizacja to %1$s</string>
     <string name="lastboluslabel">Przed ostatnim bolusem</string>
     <string name="lastboluscompared">Czas ostatniego bolusa %1$s %2$s min temu</string>
     <string name="triggercoblabel">Węgle</string>
