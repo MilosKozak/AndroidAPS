@@ -594,6 +594,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="overview_newtempbasal_basaltype_label">Type du Basal</string>
     <string name="invalidprofile">Profil incorrect !!!</string>
     <string name="profileswitch">Changement Profil</string>
+    <string name="doprofileswitch">Changer de profil</string>
     <string name="careportal_pbage_label">Age batterie pompe</string>
     <string name="careportal_pumpbatterychange">Nouvelle Batterie Pompe</string>
     <string name="ns_alarmoptions">Options d\'alarme</string>
@@ -1221,6 +1222,10 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="name_short">Nom :</string>
     <string name="locationis">%1$s %2$s</string>
     <string name="location_mode">Quand </string>
+    <string name="location_inside">Quand vous êtes à l\'intérieur de la zone</string>
+    <string name="location_outside">Quand vous êtes à l\'extérieur de la zone</string>
+    <string name="location_going_in">Quand vous entrez dans la zone</string>
+    <string name="location_going_out">Quand vous sortez de la zone</string>
     <string name="lastboluslabel">Lors du dernier Bolus</string>
     <string name="lastboluscompared">Dernièr Bolus %1$s il y a %2$s min</string>
     <string name="triggercoblabel">GA</string>
@@ -1433,7 +1438,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Bas: <b>%2$02d%%</b> Médian: <b>%3$02d%%</b> Haut: <b>%4$02d%%</b>]]></string>
     <string name="average">Moyenne</string>
     <string name="tdd">DTI</string>
+    <string name="tir">TIR</string>
     <string name="activitymonitor">Moniteur d\'activité</string>
     <string name="doyouwantresetstats">Voulez-vous réinitialiser les stats d\'activité ?</string>
     <string name="statistics">Statistiques</string>
+    <string name="randombg">Gly Aléatoire</string>
+    <string name="description_source_randombg">Générer des glycémies aléatoires (mode démo uniquement)</string>
+    <string name="randombg_short">Gly</string>
 </resources>
