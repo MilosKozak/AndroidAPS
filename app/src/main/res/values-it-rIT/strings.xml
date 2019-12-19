@@ -1219,7 +1219,6 @@
     <string name="longitude_short">Lon:</string>
     <string name="distance_short">Dist [m]:</string>
     <string name="name_short">Nome:</string>
-    <string name="locationis">La posizione è %1$s</string>
     <string name="lastboluslabel">Ultimo bolo</string>
     <string name="lastboluscompared">Ora ultimo bolo %1$s %2$s min fa</string>
     <string name="triggercoblabel">COB</string>
