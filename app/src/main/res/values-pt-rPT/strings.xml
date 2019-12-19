@@ -1219,6 +1219,12 @@
     <string name="longitude_short">Long.:</string>
     <string name="distance_short">Dist [m]:</string>
     <string name="name_short">Nome:</string>
+    <string name="locationis">%1$s %2$s</string>
+    <string name="location_mode">Quando </string>
+    <string name="location_inside">Quando estiver dentro da área</string>
+    <string name="location_outside">Quando estiver fora da área</string>
+    <string name="location_going_in">Quando entrar na área definida</string>
+    <string name="location_going_out">Quando sair da área definida</string>
     <string name="lastboluslabel">Último bolus atrás</string>
     <string name="lastboluscompared">Última vez do bolus %1$s %2$s atrás</string>
     <string name="triggercoblabel">COB</string>
