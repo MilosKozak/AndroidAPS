@@ -630,7 +630,7 @@
     <string name="virtualpump_extendedbolus_label_short">EXT</string>
     <string name="keep_screen_on_title">Mantieni lo schermo acceso</string>
     <string name="keep_screen_on_summary">Evita che Android disattivi lo schermo. Consumerà molta energia quando non è collegato alla presa di corrente.</string>
-    <string name="sensitivity_warning">Attivando la funzione Autosense, ricorda di dichiarare tutti i carboidrati assunti. Altrimenti le deviazioni di glicemia dovute ai carboidrati saranno identificate erroneamente come variazione di sensibilità !!</string>
+    <string name="sensitivity_warning">Attivando la funzione Autosense, ricorda di inserire tutti i carboidrati assunti. Altrimenti le deviazioni di glicemia dovute ai carboidrati saranno identificate erroneamente come variazione di sensibilità !!</string>
     <string name="sensitivityweightedaverage">Sensibilità WeightedAverage</string>
     <string name="mdtp_ok">OK</string>
     <string name="mdtp_cancel">Annulla</string>
