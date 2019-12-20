@@ -20,6 +20,7 @@
     <string name="pref_on">On</string>
     <string name="pref_off">Off</string>
     <string name="pref_vibrate_on_bolus">Vibra durante bolo</string>
+    <string name="pref_units_for_actions">Unità per Azioni</string>
     <string name="pref_show_date">Mostra data</string>
     <string name="pref_show_iob">Mostra IOB</string>
     <string name="pref_show_cob">Mostra COB</string>
@@ -36,6 +37,7 @@
     <string name="pref_3_hours">3 ore</string>
     <string name="pref_4_hours">4 ore</string>
     <string name="pref_5_hours">5 ore</string>
+    <string name="pref_delta_granularity">Delta Granularity (Steampunk)</string>
     <string name="pref_low">Basso</string>
     <string name="pref_medium">Medio</string>
     <string name="pref_high">Alto</string>
@@ -45,6 +47,7 @@
     <string name="pref_wizard_in_menu">Wizard in Menu</string>
     <string name="pref_prime_in_menu">Carica in Menu</string>
     <string name="pref_single_target">Target singolo</string>
+    <string name="pref_wizard_percentage">Percentuale Wizard</string>
     <string name="pref_unicode_in_complications">Unicode in Complications</string>
     <string name="pref_version">Versione:</string>
     <string name="menu_tempt">TempT</string>
@@ -70,6 +73,8 @@
     <string name="action_preset_3">Preset 3</string>
     <string name="action_free_amount" comment="In prime/fill menu, allows to enter any amount to be used for priming/filling">Quantità libera</string>
     <string name="action_confirm">CONFERMA</string>
+    <string name="action_status_pump">STATO MICRO</string>
+    <string name="action_status_loop">STATO LOOP</string>
     <string name="action_timeshift">timeshift</string>
     <string name="action_tdd_weighted">TDD ponderato</string>
     <string name="action_bolus">bolo</string>
