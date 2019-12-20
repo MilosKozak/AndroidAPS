@@ -1224,6 +1224,7 @@
     <string name="location_inside">Quando sei all\'interno dell\'area</string>
     <string name="location_outside">Quando sei all\'esterno dell\'area</string>
     <string name="location_going_in">Quando accedi all\'area denominata</string>
+    <string name="location_going_out">Quando lasci l\'area denominata</string>
     <string name="lastboluslabel">Ultimo bolo</string>
     <string name="lastboluscompared">Ora ultimo bolo %1$s %2$s min fa</string>
     <string name="triggercoblabel">COB</string>
