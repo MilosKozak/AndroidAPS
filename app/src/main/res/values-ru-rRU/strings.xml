@@ -1221,6 +1221,12 @@ Context | Edit Context</string>
     <string name="longitude_short">Долгота:</string>
     <string name="distance_short">Расст [м]:</string>
     <string name="name_short">Имя:</string>
+    <string name="locationis">%1$s %2$s</string>
+    <string name="location_mode">Когда </string>
+    <string name="location_inside">Когда вы находитесь внутри зоны</string>
+    <string name="location_outside">Когда вы вне зоны</string>
+    <string name="location_going_in">Когда вы входите в названную зону</string>
+    <string name="location_going_out">Когда вы покидаете названную зону</string>
     <string name="lastboluslabel">Предыдущий болюс</string>
     <string name="lastboluscompared">Время болюса %1$s %2$s мин назад</string>
     <string name="triggercoblabel">Активн углеводы</string>
