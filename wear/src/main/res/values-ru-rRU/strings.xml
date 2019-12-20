@@ -27,4 +27,33 @@
     <string name="pref_show_delta">Показывать дельту</string>
     <string name="pref_show_avgdelta">Показывать среднюю дельту</string>
     <string name="pref_show_phone_battery">Показывать заряд батареи телефона</string>
+    <string name="pref_quick_righty">Быстрый правосторонний</string>
+    <string name="pref_quick_lefty">Быстрый левосторонний</string>
+    <string name="pref_modern_sparse">Современный разреженный</string>
+    <string name="pref_delta_granularity">Дельта детально (Стимпанк)</string>
+    <string name="pref_low">Низкий</string>
+    <string name="pref_medium">Средний</string>
+    <string name="pref_high">Высокий</string>
+    <string name="pref_big_numbers">Цифры крупно</string>
+    <string name="pref_animations">Анимация</string>
+    <string name="pref_wizard_in_menu">Мастер в меню</string>
+    <string name="pref_prime_in_menu">Первичное заполнение в меню</string>
+    <string name="pref_single_target">Единичная цель</string>
+    <string name="pref_complication_tap_action">Действия при нажатии кнопки расширений</string>
+    <string name="pref_unicode_in_complications">Юникод в репликации</string>
+    <string name="pref_version">Версия:</string>
+    <string name="menu_tempt">ВремЦ</string>
+    <string name="menu_wizard">Мастер настройки</string>
+    <string name="menu_bolus">Болюс</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_status">Состояние</string>
+    <string name="menu_prime_fill">Прайм/заполнение</string>
+    <string name="menu_none">Не показывать</string>
+    <string name="menu_default">По умолчанию</string>
+    <string name="menu_menu">Menu</string>
+    <string name="action_duration">продолжительность</string>
+    <string name="action_target" comment="In temp target menu, single target value">целевое значение ГК:</string>
+    <string name="action_low" comment="In temp target menu, lower value from range">низкий</string>
+    <string name="action_high" comment="In temp target menu, higher value from range">высокий</string>
+    <string name="action_carbs">углеводы</string>
 </resources>
