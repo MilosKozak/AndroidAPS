@@ -1166,6 +1166,7 @@
     <string name="running_invalid_version">We hebben gedetecteerd dat je een ongeldige versie gebruikt. Loop is uitgeschakeld!</string>
     <string name="old_version">oude versie</string>
     <string name="very_old_version">zeer oude versie</string>
+    <string name="new_version_warning">Nieuwe versie al zeker %1$d dagen beschikbaar! Terugval LGS na %2$d dagen, loop zal worden uitgeschakeld na %3$d dagen</string>
     <string name="twohours">2u</string>
     <string name="formatinsulinunits">%1$.2fE</string>
     <string name="dexcom_app_patched">Dexcom App (patched)</string>
@@ -1193,6 +1194,12 @@
     <string name="longitude_short">Leng:</string>
     <string name="distance_short">Afst [m]:</string>
     <string name="name_short">Naam:</string>
+    <string name="locationis">%1$s %2$s</string>
+    <string name="location_mode">Wanneer </string>
+    <string name="location_inside">Wanneer u zich in het gebied bevindt</string>
+    <string name="location_outside">Wanneer u zich buiten het gebied bevindt</string>
+    <string name="location_going_in">Wanneer u het gebied met deze naam binnengaat</string>
+    <string name="location_going_out">Wanneer u het gebied met deze naam verlaat</string>
     <string name="lastboluslabel">Laatste bolus</string>
     <string name="lastboluscompared">Laatste bolus %1$s %2$s min geleden</string>
     <string name="triggercoblabel">COB</string>
