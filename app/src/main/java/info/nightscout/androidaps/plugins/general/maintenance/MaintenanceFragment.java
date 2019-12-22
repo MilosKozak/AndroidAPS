@@ -12,6 +12,7 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.plugins.general.food.FoodPlugin;
 import info.nightscout.androidaps.plugins.general.maintenance.activities.LogSettingActivity;
+import info.nightscout.androidaps.plugins.general.maintenance.activities.LoginActivity;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 
 /**
@@ -74,6 +75,11 @@ public class MaintenanceFragment extends Fragment {
 
         view.findViewById(R.id.nav_logsettings).setOnClickListener(view1 -> {
             startActivity(new Intent(getActivity(), LogSettingActivity.class));
+        });
+
+        view.findViewById(R.id.nav_firebase).setOnClickListener(view1 -> {
+            startActivity(new Intent(getActivity(), LoginActivity.class));
+            getActivity().onBackPressed();
         });
 
 

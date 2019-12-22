@@ -1076,7 +1076,7 @@
     <string name="openapsama_max_daily_safety_multiplier">Max daily safety multiplier</string>
     <string name="openapsama_current_basal_safety_multiplier">Current basal safety multiplier</string>
     <string name="value_unavailable_short">n/a</string>
-    <string translatable="false" name="key_virtualpump_type">virtualpump_type</string>
+    <string name="key_virtualpump_type" translatable="false">virtualpump_type</string>
     <string name="virtualpump_type">Virtual Pump Type</string>
     <string name="virtualpump_definition">Pump Definition</string>
     <string name="virtualpump_pump_def">Bolus: Step=%1$s\nExtended Bolus: [Step=%2$s, Duration=%3$smin-%4$sh]\nBasal: Step=%5$s\nTBR: %6$s (by %7$s), Duration=%8$smin-%9$sh\n%10$s</string>
@@ -1688,5 +1688,26 @@
     <string name="randombg">Random BG</string>
     <string name="description_source_randombg">Generate random BG data (Demo mode only)</string>
     <string name="randombg_short">BG</string>
+
+    <string name="nav_firebase">Import/Export settings to Firebase</string>
+    <string name="firebase_export">Export settings to Firebase</string>
+    <string name="firebase_import">Import settings from Firebase</string>
+    <string name="firebase_functions">Firebase import/export</string>
+    <string name="firebase_logged">Already logged in!</string>
+    <string name="enter_email">Enter email</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="password_length">Password should be at least 6 characters</string>
+    <string name="password_hint">Your password</string>
+    <string name="login_successful">Logged in successfully!</string>
+    <string name="login">Log me in</string>
+    <string name="login_top">Log in</string>
+    <string name="login_failed">Login FAILED!</string>
+    <string name="login_link">Go back</string>
+    <string name="preferences_file_missing">Export preferences locally and try to upload again!!!</string>
+    <string name="upload_success">Upload successful!</string>
+    <string name="download_success">Download successful!</string>
+    <string name="download_failed">Download of preferences failed! Did you export them?</string>
+    <string name="signup_link">Don\'t have an account? Sign-up here</string>
+    <string name="register_user">Register user</string>
 
 </resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="2dp"
+    tools:context=".plugins.general.maintenance.MaintenanceFragment">
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00131313"
+        android:paddingTop="2dp"
+        android:layout_gravity="center_horizontal|center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:background="@color/defaultbackground"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:text="@string/firebase_functions"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/firebase_export"
+                style="?android:attr/buttonStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0.5"
+                android:text="@string/firebase_export"
+                android:textColor="@color/colorTreatmentButton" />
+            <Button
+                android:id="@+id/firebase_import"
+                style="?android:attr/buttonStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0.5"
+                android:text="Import settings from Firebase"
+                android:textColor="@color/colorTreatmentButton" />
+
+            <TextView
+                android:id="@+id/login_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login_link"
+                android:layout_margin="10dp"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

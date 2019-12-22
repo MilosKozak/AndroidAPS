@@ -301,6 +301,11 @@
 
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
+        <activity android:name=".plugins.general.maintenance.activities.LoginActivity" />
+        <activity android:name=".plugins.general.maintenance.activities.SignUpActivity" />
+        <activity android:name=".plugins.general.maintenance.activities.FirebaseFunctions" />
+
+
     </application>
 
 </manifest>
