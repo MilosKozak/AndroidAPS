@@ -1227,7 +1227,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="location_going_in">Quand vous entrez dans la zone</string>
     <string name="location_going_out">Quand vous sortez de la zone</string>
     <string name="lastboluslabel">Lors du dernier Bolus</string>
-    <string name="lastboluscompared">Dernièr Bolus %1$s il y a %2$s min</string>
+    <string name="lastboluscompared">Heure du dernier bolus %1$s il y a %2$s min</string>
     <string name="triggercoblabel">GA</string>
     <string name="cobcompared">GA %1$s %2$.0f</string>
     <string name="taskname">Nom de tâche</string>
