@@ -74,8 +74,6 @@
     <string name="tempbasals_netinsulin_label_string">Ins:</string>
     <string name="tempbasals_iob_label_string">IOB:</string>
     <string name="tempbasals_iobtotal_label_string">Całkowita IOB:</string>
-    <string name="treatments_newtreatment_insulinamount_label">Insulina</string>
-    <string name="treatments_newtreatment_carbsamount_label">Węglow.</string>
     <string name="treatments_wizard_bg_label">BG</string>
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">Węglow</string>
@@ -114,7 +112,6 @@
     <string name="overview">Przegląd</string>
     <string name="nsprofile">Profil Nightscout</string>
     <string name="simpleprofile">Prosty profil</string>
-    <string name="tempbasal">TymczasowaBaza</string>
     <string name="treatments">Leczenie</string>
     <string name="virtualpump">Pompa wirtualna</string>
     <string name="careportal">PortalOpieki</string>
@@ -146,21 +143,17 @@
     <string name="constraints_violation">Naruszenie ograniczeń</string>
     <string name="treatmentdeliveryerror">Błąd podania bolusa</string>
     <string name="tempbasaldeliveryerror">Błąd podania bazy tymczasowej</string>
-    <string name="overview_newtempbasal_basalpercent">Wartość bazy [%%]</string>
-    <string name="overview_newtempbasal_percent_label">%% (100%% = aktualny)</string>
     <string name="setbasalquestion">Akceptuj nową bazę tymczasową:</string>
     <string name="overview_treatment_label">Leczenie</string>
     <string name="overview_calculator_label">Kalkulator</string>
     <string name="constraintapllied">Ograniczenie nałożone!</string>
     <string name="confirmation">Potwierdzenie</string>
-    <string name="entertreatmentquestion">Wprowadź nowe leczenie:</string>
     <string name="bolus">Bolus</string>
     <string name="sms_bolus">Bolus:</string>
     <string name="basal">Baza</string>
     <string name="sms_basal">Baza:</string>
     <string name="carbs">Węglow.</string>
     <string name="changeyourinput">Zmień wprowadzone dane!</string>
-    <string name="setextendedbolusquestion">Ustaw nowy bolus przedłużony:</string>
     <string name="configbuilder_bgsource">Źródło BG</string>
     <string name="configbuilder_bgsource_description">Skąd AndroidAPS powinien czerpać dane?</string>
     <string name="xdrip">xDrip</string>
@@ -187,7 +180,6 @@
     <string name="careportal_cgmsensorinsert">Założenie sensora CGM</string>
     <string name="careportal_cgmsensorstart">Uruchomienie sensora CGM</string>
     <string name="careportal_insulincartridgechange">Zmiana zasobnika insuliny</string>
-    <string name="careportal_profileswitch">Zmiana profilu</string>
     <string name="careportal_snackbolus">Bolus na przekąskę</string>
     <string name="careportal_mealbolus">Bolus na posiłek</string>
     <string name="careportal_correctionbolus">Bolus korekcyjny</string>
@@ -208,7 +200,6 @@
     <string name="careportal_newnstreatment_percent_label">Procent</string>
     <string name="careportal_newnstreatment_absolute_label">Całkowity</string>
     <string name="careportal_newnstreatment_notes_label">Notatki</string>
-    <string name="careportal_newnstreatment_eventtime_label">Czas zdarzenia</string>
     <string name="careportal_newnstreatment_profile_label">Profil</string>
     <string name="careportal_newnstreatment_enteredby_title">Wprowadzone przez</string>
     <string name="careportal_newnstreatment_glucosetype">Typ glukozy</string>
@@ -233,7 +224,6 @@
     <string name="connecting">Łączę</string>
     <string name="connected">Połączono</string>
     <string name="disconnected">Rozłączono</string>
-    <string name="danar_pump_settings">Ustawienia pompy DanaR</string>
     <string name="end_user_license_agreement">Umowa licencyjna użytkownika końcowego</string>
     <string name="end_user_license_agreement_text">NIE MOŻE BY WYKORZYSTYWANY DO PODEJMOWANIA DECYZJI MEDYCZNYCH. NIE MA ŻADNEJ GWARANCJI NA PROGRAM, W ZAKRESIE DOZWOLONYM PRZEZ OBOWIĄZUJĄCE PRAWO. Z WYJĄTKIEM PRZYPADKÓW, GDY W INNY SPOSÓB PISMO OŚWIADCZENIA PRAW AUTORSKICH I / LUB INNYCH STRON, PRZEDSTAWIAĆ PROGRAM \"W STANIE TAKIM, W JAKIM SIĘ ZNAJDUJE\" BEZ JAKIEJKOLWIEK GWARANCJI, WYRAŹNEJ LUB DOMNIEMANEJ, W TYM MIĘDZY INNYMI DOMNIEMANYCH GWARANCJI PRZYDATNOŚCI HANDLOWEJ I PRZYDATNOŚCI DO OKREŚLONEGO CELU. CAŁKOWITE RYZYKO ZWIĄZANE Z JAKOŚCIĄ I WYNIKIEM PROGRAMU JEST PO PAŃSTWA STRONIE. W PRZYPADKU USZKODZENIA PROGRAMU UŻYTKOWNIK PONOSI KOSZT CAŁEGO NIEZBĘDNEGO SERWISU, NAPRAWY LUB POPRAWEK. W PRZYPADKU NIEPOROZUMIEŃ ZASTOSOWANIE PRAWNE MA UMOWA W ANGIELSKIEJ WERSJI JĘZYKOWEJ!!!</string>
     <string name="end_user_license_agreement_i_understand">ROZUMIEM I WYRAŻAM ZGODĘ</string>
@@ -282,8 +272,6 @@
     <string name="glucosetype_finger">Palec</string>
     <string name="glucosetype_sensor">Sensor</string>
     <string name="manual">Ręczne</string>
-    <string name="careportal_temporarytarget">Cel tymczasowy (TT)</string>
-    <string name="careportal_temporarytargetcancel">Odrzuć Cel tymczasowy</string>
     <string name="danarprofile">Ustawienia profilu DanaR</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Czas aktywności insuliny</string>
@@ -422,7 +410,6 @@
     <string name="eatingsoon">Wkrótce posiłek</string>
     <string name="hypo">Hipo</string>
     <string name="activity">Ćwiczenia</string>
-    <string name="removerecord">Usuń rekord:</string>
     <string name="danar_stats">DanaR Statystyki</string>
     <string name="danar_stats_cumulative_tdd">Kumulatywna TDD (dawka dzienna)</string>
     <string name="danar_stats_expweight">Ważona wykładniczo TDD</string>
@@ -584,16 +571,12 @@
  żadnych zmian w NS</string>
     <string name="basal_step">Krok bazy</string>
     <string name="bolus_step">Krok bolusa</string>
-    <string name="extendedbolus">BolusPrzedłużony</string>
-    <string name="temptarget">CelTymczasowy</string>
     <string name="overview_extendedbolus_cancel_button">Anuluj bolus przedłużony </string>
     <string name="careportal_sensorage_label">Czas sensora</string>
     <string name="careportal_canulaage_label">Czas wkłucia</string>
     <string name="careportal_insulinage_label">Czas insuliny</string>
     <string name="hours">godzin</string>
-    <string name="overview_newtempbasal_basaltype_label">Typ bazy</string>
     <string name="invalidprofile">Nieprawidłowy profil !!!</string>
-    <string name="profileswitch">ZmieńProfil</string>
     <string name="careportal_pbage_label">Czas baterii pompy</string>
     <string name="careportal_pumpbatterychange">Zmiana baterii pompy</string>
     <string name="ns_alarmoptions">Opcje alarmu</string>
@@ -642,7 +625,6 @@
     <string name="careportal_carbsandbolus_label">WĘGLOW. &amp; BOLUS</string>
     <string name="careportal_cgm_label">CGM &amp; OPENAPS</string>
     <string name="careportal_pump_label">POMPA</string>
-    <string name="overview_newtempbasal_basalabsolute">Wartość bazy [U/h]</string>
     <string name="careportal_newnstreatment_duration_min_label">Czas trwania [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
     <string name="smb_shortname">SMB</string>
@@ -662,7 +644,6 @@
     <string name="waitingforpairing">Oczekiwanie na pompe na sparowanie</string>
     <string name="pairingok">Parowanie OK</string>
     <string name="pairingtimedout">Przekroczono limit czasu parowania</string>
-    <string name="pairing">PAROWANIE</string>
     <string name="danars_nodeviceavailable">Urządzenie nie zostało znalezione do tej pory</string>
     <string name="emptyreservoir">Pusty zasobnik</string>
     <string name="bloodsugarmeasurementalert">Alarm pomiaru poziomu cukru</string>
@@ -773,7 +754,6 @@
     <string name="bolus_frequency_exceeded">W ciągu ostatnich dwóch minut zażądano bolusa o tej samej wielkości. Z uwagi na zapobieganie przypadkowym podwójnym bolusom i ochronę przed błędami jest to zabronione.</string>
     <string name="combo_pump_connected_now">Teraz</string>
     <string name="combo_activity_reading_pump_history">Sczytuję historię pompy</string>
-    <string name="danar_history">historia pompy</string>
     <string name="combo_activity_setting_basal_profile">Wczytuje profil bazowy</string>
     <string name="combo_pump_cartridge_low_warrning">Poziom zasobnika pompy jest niski</string>
     <string name="combo_pump_battery_low_warrning">Poziom baterii pompy jest niski</string>
@@ -969,11 +949,7 @@
     <string name="danar_pumpalarm_sound">Dźwięk</string>
     <string name="danar_pumpalarm_vibrate">Wibracja</string>
     <string name="danar_pumpalarm_both">Obie opcje</string>
-    <string name="danar_screentimeout">Czas LCD [s]</string>
-    <string name="danar_backlight">Czas podświetlenia [s]</string>
     <string name="danar_glucoseunits">Jednostki glukozy</string>
-    <string name="danar_shutdown">Automatyczne wyłączenie (godziny)</string>
-    <string name="danar_lowreservoir">Niski poziom zbiornika (jednostki)</string>
     <string name="danar_saveuseroptions">Zapisz ustawienia w pompie</string>
     <string name="option_on">Włącz</string>
     <string name="option_off">Wyłącz</string>
@@ -1225,8 +1201,6 @@
     <string name="cobcompared">Węgle %1$s %2$.0f</string>
     <string name="taskname">Nazwa zadania</string>
     <string name="edit_short">EDYTUJ</string>
-    <string name="please_choose_an_action_type">Proszę wybrać typ akcji:</string>
-    <string name="please_choose_a_trigger_type">Proszę wybrać typ wyzwalacza:</string>
     <string name="triggers">Wyzwalacz:</string>
     <string name="remove_label">USUŃ</string>
     <string name="preconditions">Warunki wstępne:</string>
@@ -1370,7 +1344,6 @@
     <string name="automation_trigger_pump_last_connection_description">Ostatnie połączenie z pompą [minut temu]</string>
     <string name="automation_trigger_pump_last_connection_compared">Ostatnie połączenie z pompą %1$s %2$s min temu</string>
     <string name="sendsmsactionlabel">Wyślij SMS: %1$s</string>
-    <string name="sendsmsactiondescription">Wyślij SMS do wszystkich numerów w preferencjach</string>
     <string name="sendsmsactiontext">Wyślij SMS z tekstem</string>
     <string name="insulinFromCob"><![CDATA[COB vs IOB: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Wprowadzono ograniczenie bolusa: %2$.2fU to %3$.2fU</font>]]></string>
