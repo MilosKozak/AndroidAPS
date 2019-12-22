@@ -1373,6 +1373,7 @@
     <string name="profile_name">Profielnaam:</string>
     <string name="selected_profile">Geselecteerd:</string>
     <string name="unitsnosemicolon">Eenheden</string>
+    <string name="doyouwantswitchprofile">Wilt u van profiel wisselen en de wijzigingen in het huidige profiel ongedaan maken?</string>
     <string name="format_carbs">%1$dg</string>
     <string name="common_on">Aan</string>
     <string name="common_off">Uit</string>
@@ -1386,7 +1387,18 @@
     <string name="dia_short">DIA</string>
     <string name="ic_short">KH ratio</string>
     <string name="isf_short">ISF</string>
+    <string name="target_short">DOEL</string>
     <string name="clone_label">Dupliceren</string>
+    <string name="saveorresetchangesfirst">Huidige wijzigingen eerst opslaan of ongedaan maken</string>
     <string name="deletecurrentprofile">Huidige profiel verwijderen?</string>
+    <string name="copytolocalprofile">Nieuw lokaal profiel maken op basis van deze profiel wissel?</string>
+    <string name="profilenamecontainsdot">Profielnaam bevat punten.\nDit wordt niet ondersteund door NS.\nProfiel is niet geüpload naar NS.</string>
+    <string name="low_mark_comment">Laagste waarde in bereik (alleen weergave)</string>
+    <string name="high_mark_comment">Hoogste waarde in bereik (alleen weergave)</string>
     <string name="reorder_label">Sorteren</string>
+    <string name="age">Leeftijd:</string>
+    <string name="weight">Gewicht:</string>
+    <string name="id">ID:</string>
+    <string name="submit">Verzenden</string>
+    <string name="survey_comment">Opmerking: Alleen gegevens die zichtbaar zijn op dit scherm worden anoniem geüpload. ID is toegewezen aan deze installatie van AndroidAPS. U kunt gegevens opnieuw indienen als uw hoofdprofiel wordt gewijzigd, maar laat het ten minste een week draaien om resultaat zichtbaar te maken in de tijd in het bereik. Uw hulp wordt gewaardeerd.</string>
 </resources>
