@@ -143,6 +143,7 @@
     <string name="constraints_violation">Нарушено ограничение</string>
     <string name="treatmentdeliveryerror">Грешка при подаване на болус</string>
     <string name="tempbasaldeliveryerror">Грешка при подаване на временен базал</string>
+    <string name="overview_newtempbasal_basalpercent">Базална стойност [%]</string>
     <string name="setbasalquestion">Приложи нов временен базал:</string>
     <string name="overview_treatment_label">Болус</string>
     <string name="overview_calculator_label">Калкулатор</string>
@@ -180,6 +181,7 @@
     <string name="careportal_cgmsensorinsert">Смяна на сензор</string>
     <string name="careportal_cgmsensorstart">Старт на сензор</string>
     <string name="careportal_insulincartridgechange">Смяна на резервоар</string>
+    <string name="careportal_profileswitch">Смяна на профил</string>
     <string name="careportal_snackbolus">Болус за закуска</string>
     <string name="careportal_mealbolus">Болус за основно хранене</string>
     <string name="careportal_correctionbolus">Болус корекция</string>
@@ -200,6 +202,7 @@
     <string name="careportal_newnstreatment_percent_label">Процент</string>
     <string name="careportal_newnstreatment_absolute_label">Абсолютна</string>
     <string name="careportal_newnstreatment_notes_label">Бележки</string>
+    <string name="event_time_label">Време</string>
     <string name="careportal_newnstreatment_profile_label">Профил</string>
     <string name="careportal_newnstreatment_enteredby_title">Въведено от</string>
     <string name="careportal_newnstreatment_glucosetype">Тип КЗ</string>
@@ -224,6 +227,7 @@
     <string name="connecting">Свързване</string>
     <string name="connected">Свързана</string>
     <string name="disconnected">Не е сврзана</string>
+    <string name="danar_pump_settings">DanaR настройки</string>
     <string name="end_user_license_agreement">Лицензионно споразумение с краен потребител</string>
     <string name="end_user_license_agreement_text">НЕ ТРЯБВА ДА СЕ ИЗПОЛЗВА ЗА ВЗЕМАНЕ НА МЕДИЦИНСКИ РЕШЕНИЯ. НЯМА ГАРАНЦИЯ ЗА ПРОГРАМАТА, ДО СТЕПЕНТА, ПОЗВОЛЕНА ОТ ПРИЛОЖИМОТО ПРАВО. ОСВЕН КОГАТО Е ПОСОЧЕНО ДРУГО В ПИСМЕН ВИД, ПРИТЕЖАТЕЛИТЕ НА АВТОРСКОТО ПРАВО И/ИЛИ ДРУГИ СТРАНИ ПРЕДОСТАВЯТ ПРОГРАМАТА \"КАКТО Е\", БЕЗ ГАРАНЦИИ ОТ ВСЯКАКЪВ ВИД,  ИЗРАЗЕНИ ИЛИ ПОДРАЗБИРАЩИ СЕ, ВКЛЮЧИТЕЛНО, НО НЕ САМО, ПОДРАЗБИРАЩИ СЕ ГАРАНЦИИ ЗА ПРОДАВАЕМОСТ И ПРИГОДНОСТ ЗА  КОНКРЕТНА ЦЕЛ. ЦЕЛИЯ РИСК ПО ОТНОШЕНИЕ НА КАЧЕСТВОТО И ЕФЕКТИВНОСТТА НА ПРОГРАМАТА Е САМО ВАШ. АКО ПРОГРАМАТА НЕ СРАБОТИ, ВИЕ ПОЕМАТЕ  ВСИЧКИ НЕОБХОДИМИ РАЗХОДИ ЗА ОБСЛУЖВАНЕ, РЕМОНТ ИЛИ КОРЕКЦИЯ.</string>
     <string name="end_user_license_agreement_i_understand">Разбирам и приемам</string>
@@ -272,6 +276,8 @@
     <string name="glucosetype_finger">Пръст</string>
     <string name="glucosetype_sensor">Сензор</string>
     <string name="manual">Друго</string>
+    <string name="careportal_temporarytarget">Временна цел</string>
+    <string name="careportal_temporarytargetcancel">Откажи временна цел</string>
     <string name="danarprofile">DanaR профил</string>
     <string name="danarprofile_dia">DIA (Време на действие на инсулина) ч.:</string>
     <string name="danarprofile_dia_summary">Време на действие на инсулина</string>
@@ -410,6 +416,7 @@
     <string name="eatingsoon">Преди хранене</string>
     <string name="hypo">Хипоглекимия</string>
     <string name="activity">Физ.активност</string>
+    <string name="removerecord">Премахни</string>
     <string name="danar_stats">DanaR статистика</string>
     <string name="danar_stats_cumulative_tdd">Комулативна TDD</string>
     <string name="danar_stats_expweight">Експоненциално претеглена TDD</string>
@@ -644,6 +651,7 @@
     <string name="waitingforpairing">Очаква сдвояване с помпа</string>
     <string name="pairingok">Сдвояване - ОК</string>
     <string name="pairingtimedout">Времето за сдвояване изтече</string>
+    <string name="pairing">Сдвояване</string>
     <string name="danars_nodeviceavailable">Все още устройството не е намерено</string>
     <string name="emptyreservoir">Празен резервоар</string>
     <string name="bloodsugarmeasurementalert">Предупреждение за измерване на КЗ</string>
@@ -754,6 +762,7 @@
     <string name="bolus_frequency_exceeded">Болуси с едно и също количество бяха поискани в последните две минути. За да се предотврати дублиране вече доставен болус, операцията е забранена.</string>
     <string name="combo_pump_connected_now">Сега</string>
     <string name="combo_activity_reading_pump_history">Чете историята на помпата</string>
+    <string name="danar_history">История</string>
     <string name="combo_activity_setting_basal_profile">Настройва базалният профил</string>
     <string name="combo_pump_cartridge_low_warrning">Ниско ниво на резервоар на помпа</string>
     <string name="combo_pump_battery_low_warrning">Батерията на помпата е слаба</string>
@@ -773,6 +782,7 @@
     <string name="insightpump_shortname">Sight</string>
     <string name="ago">преди</string>
     <string name="format_hours">%1$.2f ч</string>
+    <string name="format_mins">%1$d мин</string>
     <string name="enablesmbalways">Разреши SMB постоянно</string>
     <string name="enablesmbalways_summary">Разрешава SMB постоянно и независимо от болусите. Възможно само с източник на КЗ с добра филтрация като G5  </string>
     <string name="enablesmbaftercarbs">Разреши SMB след въглехидрати</string>
@@ -949,7 +959,11 @@
     <string name="danar_pumpalarm_sound">Звукова</string>
     <string name="danar_pumpalarm_vibrate">Вибрация</string>
     <string name="danar_pumpalarm_both">И двете</string>
+    <string name="danar_screentimeout">Включен екран за [seconds]</string>
+    <string name="danar_backlight">Подсветка [seconds]</string>
     <string name="danar_glucoseunits">Единици на КЗ</string>
+    <string name="danar_shutdown">Изключване след [hours]</string>
+    <string name="danar_lowreservoir">Минимален инсулин в резервоара [Units]</string>
     <string name="danar_saveuseroptions">Запиши опциите в помпата</string>
     <string name="option_on">Вкл</string>
     <string name="option_off">Изкл</string>
@@ -1195,12 +1209,20 @@
     <string name="longitude_short">Дължина:</string>
     <string name="distance_short">Разсt [м]:</string>
     <string name="name_short">Име:</string>
+    <string name="locationis">%1$s %2$s</string>
+    <string name="location_mode">Когато </string>
+    <string name="location_inside">Когато сте в зоната</string>
+    <string name="location_outside">Когато сте извън зоната на</string>
+    <string name="location_going_in">Когато влезе в тази зона</string>
+    <string name="location_going_out">Когато напуснете тази зона</string>
     <string name="lastboluslabel">Последен болус</string>
     <string name="lastboluscompared">Последен болус преди %1$s %2$s минути</string>
     <string name="triggercoblabel">Активни въглехидрати</string>
     <string name="cobcompared">Въгл %1$s %2$.0f</string>
     <string name="taskname">Име на правилото</string>
     <string name="edit_short">РЕД</string>
+    <string name="please_choose_an_action_type">Избиране на действие</string>
+    <string name="please_choose_a_trigger_type">Иберете условие</string>
     <string name="triggers">Активиращи условия:</string>
     <string name="remove_label">ИЗТРИИ</string>
     <string name="preconditions">Предварителни условия:</string>
@@ -1344,6 +1366,7 @@
     <string name="automation_trigger_pump_last_connection_description">Последнa връзкa с помпата [минути]</string>
     <string name="automation_trigger_pump_last_connection_compared">Последна връзка с помпата е %1$s %2$s минути преди</string>
     <string name="sendsmsactionlabel">Изпращане на SMS с текст %1$s</string>
+    <string name="sendsmsactiondescription">Изпратете SMS на всички</string>
     <string name="sendsmsactiontext">Изпрати SMS с текст</string>
     <string name="insulinFromCob"><![CDATA[Въгл срещу АИ: <font color=\'%1$s\'>%2$+.2fг Е</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Ограничение на болуса: %2$.2fЕ на %3$.2fЕ</font>]]></string>
@@ -1411,4 +1434,13 @@
     <string name="randombg">Произволна КЗ</string>
     <string name="description_source_randombg">Генерира произволни захари(демо режим)</string>
     <string name="randombg_short">КЗ</string>
+    <string name="tools">Инструменти</string>
+    <string name="show_calculation">Покажи изчисленията</string>
+    <string name="error">Грешка</string>
+    <string name="timeformat12h">12ч</string>
+    <string name="timeformat24h">24ч</string>
+    <string name="automation_event">Събитие</string>
+    <string name="alreadyset">Вече направено</string>
+    <string name="message">Съобщение</string>
+    <string name="clearqueueconfirm">Изтрий опашка? Всички данни ще се загубят!</string>
 </resources>
