@@ -52,6 +52,7 @@
     <string name="pref_medium">Средний</string>
     <string name="pref_high">Высокий</string>
     <string name="pref_big_numbers">Цифры крупно</string>
+    <string name="pref_ring_history">Показывать историю в кольце</string>
     <string name="pref_animations">Анимация</string>
     <string name="pref_wizard_in_menu">Мастер в меню</string>
     <string name="pref_prime_in_menu">Первичное заполнение в меню</string>
