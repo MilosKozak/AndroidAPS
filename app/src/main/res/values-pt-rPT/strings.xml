@@ -227,6 +227,7 @@
     <string name="connecting">A ligar</string>
     <string name="connected">Ligado</string>
     <string name="disconnected">Desligado</string>
+    <string name="danar_pump_settings">Configurações da bomba Dana</string>
     <string name="end_user_license_agreement">Condições de Utilização</string>
     <string name="end_user_license_agreement_text">NÃO DEVE SER USADO PARA FAZER DECISÕES MÉDICAS. NÃO HÁ NENHUMA GARANTIA PARA O PROGRAMA, NA EXTENSÃO PERMITIDA PELA LEGISLAÇÃO APLICÁVEL. EXCETO QUANDO DE OUTRA FORMA, POR ESCRITO, OS TITULARES DOS DIREITOS DE AUTOR E / OU OUTRAS PARTES FORNECEM O PROGRAMA “TAL COMO ESTÁ”, SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO, ÀS GARANTIAS IMPLÍCITAS DE COMERCIALIZAÇÃO E ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. TODO O RISCO QUANTO À QUALIDADE E DESEMPENHO DO PROGRAMA É COM VOCÊ. CASO O PROGRAMA SEJA DEFEITUOSO, VOCÊ ASSUME O CUSTO DE TODOS OS SERVIÇOS, REPAROS OU CORREÇÕES NECESSÁRIOS.</string>
     <string name="end_user_license_agreement_i_understand">EU ENTENDO E CONCORDO</string>
@@ -276,6 +277,7 @@
     <string name="glucosetype_sensor">Sensor</string>
     <string name="manual">Manual</string>
     <string name="careportal_temporarytarget">Alvo Temporário</string>
+    <string name="careportal_temporarytargetcancel">Cancelar alvo temporário</string>
     <string name="danarprofile">Definições perfil DanaR</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Duração da Insulina Activa</string>
@@ -414,6 +416,7 @@
     <string name="eatingsoon">Comer brevemente</string>
     <string name="hypo">Hipo</string>
     <string name="activity">Actividade</string>
+    <string name="removerecord">Remover registo</string>
     <string name="danar_stats">Estatísticas DanaR</string>
     <string name="danar_stats_cumulative_tdd">Dose diária acumulativa</string>
     <string name="danar_stats_expweight">Dose diária exponencialmente ponderada</string>
@@ -956,7 +959,11 @@
     <string name="danar_pumpalarm_sound">Som</string>
     <string name="danar_pumpalarm_vibrate">Vibrar</string>
     <string name="danar_pumpalarm_both">Ambos</string>
+    <string name="danar_screentimeout">LCD na hora [segundos]</string>
+    <string name="danar_backlight">Luz de fundo na hora [segundos]</string>
     <string name="danar_glucoseunits">Unidades de Glucose</string>
+    <string name="danar_shutdown">Desligar [horas]</string>
+    <string name="danar_lowreservoir">Reservatório baixo [Unidades]</string>
     <string name="danar_saveuseroptions">Gravar opções para a bomba</string>
     <string name="option_on">Ligado</string>
     <string name="option_off">Desligado</string>
@@ -1214,6 +1221,8 @@
     <string name="cobcompared">COB %1$s %2$.0f</string>
     <string name="taskname">Nome da Tarefa</string>
     <string name="edit_short">EDITAR</string>
+    <string name="please_choose_an_action_type">Escolha um tipo de acção</string>
+    <string name="please_choose_a_trigger_type">Escolha um tipo de gatilho</string>
     <string name="triggers">Gatilhos:</string>
     <string name="remove_label">REMOVER</string>
     <string name="preconditions">Precondições:</string>
@@ -1357,6 +1366,7 @@
     <string name="automation_trigger_pump_last_connection_description">Última ligação à bomba [minutos atrás]</string>
     <string name="automation_trigger_pump_last_connection_compared">Última ligação à bomba %1$s %2$s min atrás</string>
     <string name="sendsmsactionlabel">Enviar SMS: %1$s</string>
+    <string name="sendsmsactiondescription">Enviar SMS para todos os números</string>
     <string name="sendsmsactiontext">Enviar SMS com texto</string>
     <string name="insulinFromCob"><![CDATA[COB vs IOB: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Restrição de Bolus aplicada: %2$.2fU para %3$.2fU</font>]]></string>
@@ -1430,5 +1440,7 @@
     <string name="timeformat12h">12h</string>
     <string name="timeformat24h">24h</string>
     <string name="automation_event">Evento de automação</string>
+    <string name="alreadyset">Já definido</string>
     <string name="message">Mensagem</string>
+    <string name="clearqueueconfirm">Limpar fila? Todos os dados na fila serão perdidos!</string>
 </resources>
