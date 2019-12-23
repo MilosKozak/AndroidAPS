@@ -143,6 +143,7 @@
     <string name="constraints_violation">Violation des restrictions</string>
     <string name="treatmentdeliveryerror">Erreur injection bolus</string>
     <string name="tempbasaldeliveryerror">Erreur injection basal temporaire</string>
+    <string name="overview_newtempbasal_basalpercent">Valeur Basal [%]</string>
     <string name="setbasalquestion">Accepter nouveau basal temporaire :</string>
     <string name="overview_treatment_label">Traitement</string>
     <string name="overview_calculator_label">Calculatrice</string>
@@ -180,6 +181,7 @@
     <string name="careportal_cgmsensorinsert">Insertion Capteur MGC</string>
     <string name="careportal_cgmsensorstart">Début Capteur MGC</string>
     <string name="careportal_insulincartridgechange">Changement du Réservoir</string>
+    <string name="careportal_profileswitch">Changement de profil</string>
     <string name="careportal_snackbolus">Bolus Goûter</string>
     <string name="careportal_mealbolus">Bolus Repas</string>
     <string name="careportal_correctionbolus">Bolus de correction</string>
@@ -200,6 +202,7 @@
     <string name="careportal_newnstreatment_percent_label">Pourcentage</string>
     <string name="careportal_newnstreatment_absolute_label">Absolu</string>
     <string name="careportal_newnstreatment_notes_label">Notes</string>
+    <string name="event_time_label">Heure événement</string>
     <string name="careportal_newnstreatment_profile_label">Profil</string>
     <string name="careportal_newnstreatment_enteredby_title">Entré par</string>
     <string name="careportal_newnstreatment_glucosetype">Source de Glycémie</string>
@@ -224,6 +227,7 @@
     <string name="connecting">Connection en cours</string>
     <string name="connected">Connectée</string>
     <string name="disconnected">Déconnectée</string>
+    <string name="danar_pump_settings">Paramètres de la pompe Dana</string>
     <string name="end_user_license_agreement">Contrat de Licence pour Utilisateur Final</string>
     <string name="end_user_license_agreement_text">NE DOIT PAS ÊTRE UTILISÉ POUR PRENDRE DES DÉCISIONS MÉDICALES. IL N\'Y A AUCUNE GARANTIE POUR LE PROGRAMME, DANS LA LIMITE PERMISE PAR LA LOI APPLICABLE. SAUF S\'IL EST INDIQUÉ LE CONTRAIRE PAR ÉCRIT. LES TITULAIRES DU DROIT D\'AUTEUR ET / OU D\'AUTRES PARTIES FOURNISSENT LE PROGRAMME «EN L\'ÉTAT» SANS GARANTIE D\'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS MAIS NON SEULEMENT AUX GARANTIES IMPLICITES DE QUALITÉ MARCHANDE ET D\'ADÉQUATION À UN USAGE PARTICULIER
 L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME SONT DE VOTRE RESPONSABILITÉ. SI LE PROGRAMME EST DÉFECTUEUX, VOUS ASSUMEZ LE COÛT DE TOUS LES SERVICES, RÉPARATIONS OU CORRECTIONS NÉCESSAIRES.</string>
@@ -273,6 +277,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="glucosetype_finger">Doigt</string>
     <string name="glucosetype_sensor">Capteur</string>
     <string name="manual">Manuel</string>
+    <string name="careportal_temporarytarget">Cible temp.</string>
+    <string name="careportal_temporarytargetcancel">Annuler Cible Temporaire</string>
     <string name="danarprofile">Paramètres du profil DanaR</string>
     <string name="danarprofile_dia">Durée d\'Action [h] </string>
     <string name="danarprofile_dia_summary">Durée d\'Action de l\'Insuline</string>
@@ -411,6 +417,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="eatingsoon">Repas imminent</string>
     <string name="hypo">Hypo</string>
     <string name="activity">Activité</string>
+    <string name="removerecord">Supprimer l\'enregistrement</string>
     <string name="danar_stats">Dana Stats</string>
     <string name="danar_stats_cumulative_tdd">DTI cumulé</string>
     <string name="danar_stats_expweight">DTI avec Pondération Exponentielle</string>
@@ -645,6 +652,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="waitingforpairing">Attente de l\'appairage de la pompe</string>
     <string name="pairingok">Appairage OK</string>
     <string name="pairingtimedout">Temps d\'appairage dépassé</string>
+    <string name="pairing">Appairage</string>
     <string name="danars_nodeviceavailable">Jusqu\'à présent aucun appareil n\'a été trouvé</string>
     <string name="emptyreservoir">Réservoir vide</string>
     <string name="bloodsugarmeasurementalert">Alerte de mesure de glycémie</string>
@@ -755,6 +763,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="bolus_frequency_exceeded">Un bolus avec la même quantité d’insuline a été demandé au cours de la dernière minute. Pour prévenir l’administration accidentelle de deux bolus à la fois et pour protéger contre les bugs, ceci (bolus) n\'est pas autorisé.</string>
     <string name="combo_pump_connected_now">Maintenant</string>
     <string name="combo_activity_reading_pump_history">Lecture historique pompe</string>
+    <string name="danar_history">Historique pompe</string>
     <string name="combo_activity_setting_basal_profile">Définir le profil basal</string>
     <string name="combo_pump_cartridge_low_warrning">Niveau réservoir pompe bas</string>
     <string name="combo_pump_battery_low_warrning">Niveau batterie pompe bas</string>
@@ -774,6 +783,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="insightpump_shortname">AC-I</string>
     <string name="ago">passé(e)s</string>
     <string name="format_hours">%1$.2f h</string>
+    <string name="format_mins">%1$d min</string>
     <string name="enablesmbalways">Activer en permanence les SMB</string>
     <string name="enablesmbalways_summary">Activer toujours SMB de manière autonome pour les bolus. Ceci est possible uniquement avec une source de glycémie ayant un très bon filtrage de données comme le G5</string>
     <string name="enablesmbaftercarbs">Activer SMB après ingestion de glucides</string>
@@ -1208,6 +1218,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="cobcompared">GA %1$s %2$.0f</string>
     <string name="taskname">Nom de tâche</string>
     <string name="edit_short">ÉDITER</string>
+    <string name="please_choose_an_action_type">Choisir un type d\'action</string>
+    <string name="please_choose_a_trigger_type">Choisir un type de déclencheur</string>
     <string name="triggers">Déclencheurs :</string>
     <string name="remove_label">SUPPRIMER</string>
     <string name="preconditions">Conditions préalables :</string>
@@ -1351,6 +1363,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="automation_trigger_pump_last_connection_description">Dernière connexion de pompe [minutes]</string>
     <string name="automation_trigger_pump_last_connection_compared">Dernière connexion à la pompe %1$s il y a %2$s min</string>
     <string name="sendsmsactionlabel">Envoyer SMS : %1$s</string>
+    <string name="sendsmsactiondescription">Envoyer SMS à tous les numéros</string>
     <string name="sendsmsactiontext">Envoyer SMS avec du texte</string>
     <string name="insulinFromCob"><![CDATA[GA vs IA : <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Contraintes de Bolus appliquées : %2$.2fU à %3$.2f</font>]]></string>
@@ -1418,4 +1431,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="randombg">Gly Aléatoire</string>
     <string name="description_source_randombg">Générer des glycémies aléatoires (mode démo uniquement)</string>
     <string name="randombg_short">Gly</string>
+    <string name="tools">Outils</string>
+    <string name="show_calculation">Afficher le calcul</string>
+    <string name="error">Erreur</string>
+    <string name="timeformat12h">12h</string>
+    <string name="timeformat24h">24h</string>
+    <string name="automation_event">Evénement d\'automatisation</string>
+    <string name="alreadyset">Déjà configuré</string>
+    <string name="message">Message</string>
+    <string name="clearqueueconfirm">Effacer la file d\'attente ? Toutes les données en file d\'attente seront perdues !</string>
 </resources>
