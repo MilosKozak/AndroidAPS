@@ -143,6 +143,7 @@
     <string name="constraints_violation">Beschränkungen wurden verletzt oder Limit erreicht.</string>
     <string name="treatmentdeliveryerror">Bolus-Abgabefehler</string>
     <string name="tempbasaldeliveryerror">TBR Abgabe-Fehler</string>
+    <string name="overview_newtempbasal_basalpercent">Basal-Wert [%]</string>
     <string name="setbasalquestion">Akzeptiere neue TBR:</string>
     <string name="overview_treatment_label">Bolus</string>
     <string name="overview_calculator_label">Rechner</string>
@@ -180,6 +181,7 @@
     <string name="careportal_cgmsensorinsert">CGM-Sensor gesetzt</string>
     <string name="careportal_cgmsensorstart">CGM-Sensor Start</string>
     <string name="careportal_insulincartridgechange">Insulinreservoir Wechsel</string>
+    <string name="careportal_profileswitch">Profilwechsel</string>
     <string name="careportal_snackbolus">Snack Bolus</string>
     <string name="careportal_mealbolus">Mahlzeiten Bolus</string>
     <string name="careportal_correctionbolus">Korrektur Bolus</string>
@@ -200,6 +202,7 @@
     <string name="careportal_newnstreatment_percent_label">Prozent</string>
     <string name="careportal_newnstreatment_absolute_label">Absolut</string>
     <string name="careportal_newnstreatment_notes_label">Notiz</string>
+    <string name="event_time_label">Ereignis-Zeit</string>
     <string name="careportal_newnstreatment_profile_label">Profil</string>
     <string name="careportal_newnstreatment_enteredby_title">Eingegeben durch</string>
     <string name="careportal_newnstreatment_glucosetype">Glukose-Art</string>
@@ -224,6 +227,7 @@
     <string name="connecting">Verbinden</string>
     <string name="connected">Verbunden</string>
     <string name="disconnected">Getrennt</string>
+    <string name="danar_pump_settings">Dana Pumpen-Einstellungen</string>
     <string name="end_user_license_agreement">Endbenutzervereinbarung</string>
     <string name="end_user_license_agreement_text">DAS PROGRAMM DARF NICHT FÜR MEDIZINISCHE ENTSCHEIDUNGEN BENUTZT WERDEN. ES GIBT IN DIESEM PROJEKT KEINE GEWÄHRLEISTUNG ODER GARANTIERTE UNTERSTÜTZUNG IN IRGENDEINER ART. WENN DU DICH ENTSCHEIDEST, ES ZU NUTZEN, HÄNGT DIE QUALITÄT UND LEISTUNGSFÄHIGKEIT DIESES PROJEKTES VON DIR SELBST AB. ES WIRD \"WIE BESEHEN\" ZUR VERFÜGUNG GESTELLT. SOLLTE SICH DAS PROGRAMM ALS FEHLERHAFT ERWEISEN, ÜBERNEHMEN SIE ALLE NOTWENDIGEN KRANKHEITSKOSTEN, SERVICELEISTUNGEN, REPARATUREN ODER KORREKTUREN.</string>
     <string name="end_user_license_agreement_i_understand">Ich verstehe und stimme zu.</string>
@@ -272,6 +276,8 @@
     <string name="glucosetype_finger">Finger</string>
     <string name="glucosetype_sensor">Sensor</string>
     <string name="manual">Manuell</string>
+    <string name="careportal_temporarytarget">Temporäres Ziel</string>
+    <string name="careportal_temporarytargetcancel">Temporäres Ziel abbrechen</string>
     <string name="danarprofile">DanaR Profil-Einstellungen</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Dauer der Insulinwirkung</string>
@@ -410,6 +416,7 @@
     <string name="eatingsoon">Bald essen</string>
     <string name="hypo">Hypo</string>
     <string name="activity">Aktivität</string>
+    <string name="removerecord">Eintrag löschen</string>
     <string name="danar_stats">DanaR Statistiken</string>
     <string name="danar_stats_cumulative_tdd">Kumulative TDD</string>
     <string name="danar_stats_expweight">Exponentiell gewichtete TDD</string>
@@ -644,6 +651,7 @@
     <string name="waitingforpairing">Auf Verbindung warten</string>
     <string name="pairingok">Pairing OK</string>
     <string name="pairingtimedout">Zeitüberschreitung beim Pairing</string>
+    <string name="pairing">Koppeln</string>
     <string name="danars_nodeviceavailable">Pumpe noch nicht gefunden</string>
     <string name="emptyreservoir">Reservoir leer</string>
     <string name="bloodsugarmeasurementalert">Alarm BZ-Messung</string>
@@ -754,6 +762,7 @@
     <string name="bolus_frequency_exceeded">Ein gleich großer Bolus wurde in den letzten zwei Minuten angefordert. Dies ist nicht zulässig, um ungewollte Doppelboli zu verhindern und vor eventuellen Bugs zu schützen.</string>
     <string name="combo_pump_connected_now">Jetzt</string>
     <string name="combo_activity_reading_pump_history">Historie wird gelesen</string>
+    <string name="danar_history">Pumpen Historie</string>
     <string name="combo_activity_setting_basal_profile">BR-Profil wird aktualisiert.</string>
     <string name="combo_pump_cartridge_low_warrning">Das Reservoir in der Pumpe ist fast leer</string>
     <string name="combo_pump_battery_low_warrning">Die Batterie in der Pumpe ist fast leer</string>
@@ -773,6 +782,7 @@
     <string name="insightpump_shortname">Sight</string>
     <string name="ago">her</string>
     <string name="format_hours">%1$.2f h</string>
+    <string name="format_mins">%1$d mins</string>
     <string name="enablesmbalways">SMB immer aktivieren</string>
     <string name="enablesmbalways_summary">Aktiviere SMB immer, unabhängig von Boli. Dies ist nur möglich, wenn eine BZ-Quelle genutzt wird, die die Daten besonders gut filtert wie z. B. G5.</string>
     <string name="enablesmbaftercarbs">Aktiviere SMB nach Mahlzeiten.</string>
@@ -949,7 +959,11 @@
     <string name="danar_pumpalarm_sound">Töne</string>
     <string name="danar_pumpalarm_vibrate">Vibration</string>
     <string name="danar_pumpalarm_both">Beides</string>
+    <string name="danar_screentimeout">LCD-Einschaltdauer [Sek.]</string>
+    <string name="danar_backlight">Einschaltdauer Hintergrundbeleuchtung [Sek.]</string>
     <string name="danar_glucoseunits">BZ-Einheit</string>
+    <string name="danar_shutdown">Abschalten (Std.)</string>
+    <string name="danar_lowreservoir">Reservoir fast leer (IE)</string>
     <string name="danar_saveuseroptions">In Pumpe speichern</string>
     <string name="option_on">Ein</string>
     <string name="option_off">Aus</string>
@@ -1208,6 +1222,8 @@ Unerwartetes Verhalten.</string>
     <string name="cobcompared">COB %1$s %2$.0f</string>
     <string name="taskname">Name der Aufgabe</string>
     <string name="edit_short">BEARBEITEN</string>
+    <string name="please_choose_an_action_type">Aktion wählen</string>
+    <string name="please_choose_a_trigger_type">Auslöser wählen</string>
     <string name="triggers">Auslöser:</string>
     <string name="remove_label">ENTFERNEN</string>
     <string name="preconditions">Voraussetzung:</string>
@@ -1351,6 +1367,7 @@ Unerwartetes Verhalten.</string>
     <string name="automation_trigger_pump_last_connection_description">Letzte Verbindung zur Pumpe [vor X Minuten]</string>
     <string name="automation_trigger_pump_last_connection_compared">Letzte Verbindung zur Pumpe vor %1$s %2$s Minuten</string>
     <string name="sendsmsactionlabel">SMS senden: %1$s</string>
+    <string name="sendsmsactiondescription">SMS an alle Nummern senden</string>
     <string name="sendsmsactiontext">SMS mit Text senden</string>
     <string name="insulinFromCob"><![CDATA[COB vs IOB: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
     <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Bolus-Einschränkung angewendet: %2$.2fIE zu %3$.2fIE</font>]]></string>
@@ -1418,4 +1435,13 @@ Unerwartetes Verhalten.</string>
     <string name="randombg">Zufalls-BZ</string>
     <string name="description_source_randombg">Zufalls-BZ Daten erstellen (nur Demo-Modus)</string>
     <string name="randombg_short">BZ</string>
+    <string name="tools">Tools</string>
+    <string name="show_calculation">Berechnung anzeigen</string>
+    <string name="error">Fehler</string>
+    <string name="timeformat12h">12h</string>
+    <string name="timeformat24h">24h</string>
+    <string name="automation_event">Automatisierungs-Ereignis</string>
+    <string name="alreadyset">Bereits festgelegt</string>
+    <string name="message">Nachricht</string>
+    <string name="clearqueueconfirm">Warteschlange löschen? Alle Daten in der Warteschlange gehen verloren!</string>
 </resources>
