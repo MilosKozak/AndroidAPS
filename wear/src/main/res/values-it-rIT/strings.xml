@@ -25,18 +25,27 @@
     <string name="pref_show_iob">Mostra IOB</string>
     <string name="pref_show_cob">Mostra COB</string>
     <string name="pref_show_delta">Mostra delta</string>
+    <string name="pref_show_avgdelta">Mostra AvgDelta</string>
     <string name="pref_show_phone_battery">Mostra batteria telefono</string>
+    <string name="pref_show_rig_battery">Mostra Batteria Rig</string>
     <string name="pref_show_basal_rate">Mostra velocità basale</string>
     <string name="pref_show_loop_status">Mostra stato loop</string>
     <string name="pref_show_bg">Mostra BG</string>
     <string name="pref_show_direction_arrow">Mostra frecce direzionali</string>
     <string name="pref_dark" comment="Enables dark visual theme">Scuro</string>
     <string name="pref_highlight_basals">Evidenzia basali</string>
+    <string name="pref_matching_divider" comment="To make divider match its background with background of whole watchface">Matching divider</string>
+    <string name="pref_chart_timeframe">Timeframe Grafico</string>
     <string name="pref_1_hour">1 ora</string>
     <string name="pref_2_hours">2 ore</string>
     <string name="pref_3_hours">3 ore</string>
     <string name="pref_4_hours">4 ore</string>
     <string name="pref_5_hours">5 ore</string>
+    <string name="pref_input_design">Input Design</string>
+    <string name="pref_default">Default</string>
+    <string name="pref_quick_righty">Quick righty</string>
+    <string name="pref_quick_lefty">Quick lefty</string>
+    <string name="pref_modern_sparse">Modern Sparse</string>
     <string name="pref_delta_granularity">Delta Granularity (Steampunk)</string>
     <string name="pref_low">Basso</string>
     <string name="pref_medium">Medio</string>
@@ -48,6 +57,7 @@
     <string name="pref_prime_in_menu">Carica in Menu</string>
     <string name="pref_single_target">Target singolo</string>
     <string name="pref_wizard_percentage">Percentuale Wizard</string>
+    <string name="pref_complication_tap_action">Complication Tap Action</string>
     <string name="pref_unicode_in_complications">Unicode in Complications</string>
     <string name="pref_version">Versione:</string>
     <string name="menu_tempt">TempT</string>
@@ -58,6 +68,7 @@
     <string name="menu_status">Stato</string>
     <string name="menu_prime_fill">Carica/Riempi</string>
     <string name="menu_none">Nessuno</string>
+    <string name="menu_default">Default</string>
     <string name="menu_menu">Menu</string>
     <string name="action_duration">durata</string>
     <string name="action_target" comment="In temp target menu, single target value">target</string>
