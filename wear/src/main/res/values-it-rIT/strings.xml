@@ -53,6 +53,7 @@
     <string name="pref_high">Alto</string>
     <string name="pref_big_numbers">Numeri grandi</string>
     <string name="pref_ring_history">Storico Ring</string>
+    <string name="pref_light_ring_history">Storico Light Ring</string>
     <string name="pref_animations">Animazioni</string>
     <string name="pref_wizard_in_menu">Wizard in Menu</string>
     <string name="pref_prime_in_menu">Carica in Menu</string>
