@@ -1317,7 +1317,6 @@ Context | Edit Context</string>
     <string name="medtronic_error_pump_frequency_invalid">Частота помпы не поддерживается.</string>
     <string name="medtronic_error_rileylink_address_invalid">Недопустимый адрес RileyLink.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">Обнаруженный тип помпы не соответствует настроенному.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">Профили базала не включены на помпе.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Базовый профиль на помпе неверный (должен быть STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Неверный тип временной скорости базала TBR на помпе (должен быть Absolute).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">На помпе задан неверный макс болюс (должен быть %1$.2f).</string>
