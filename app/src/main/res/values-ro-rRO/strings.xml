@@ -1264,7 +1264,6 @@
     <string name="medtronic_error_pump_frequency_invalid">Frecvența pompei nesuportată.</string>
     <string name="medtronic_error_rileylink_address_invalid">Adresa RileyLink invalidă.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">Tipul de pompă detectat nu corespunde cu cel configurat.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">Nu sunt active profile de rată bazală în pompă.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Tipul de profil bazal setat în pompă este incorect (trebuie să fie STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Tip incorect de RBT setat în pompă (trebuie să fie Absolut).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Bolus maxim setat incorect în pompă (trebuie să fie %1$.2f).</string>
