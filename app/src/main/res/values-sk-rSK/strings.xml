@@ -1293,7 +1293,6 @@
     <string name="medtronic_error_pump_frequency_invalid">Nepodporovaná frekvencia pumpy.</string>
     <string name="medtronic_error_rileylink_address_invalid">Neplatná adresa RileyLinku.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">Rozpoznaná pumpa je iného typu než nakonfigurovaná.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">Bazálne profily nie sú na pumpe aktivované.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Bazálny profil na pumpe je chybný (musí byť STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Chybný typ dočasného bazálu na pumpe (musí byť absolútny).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Chybný max. bolus na pumpe (musí byť %1$.2f).</string>
