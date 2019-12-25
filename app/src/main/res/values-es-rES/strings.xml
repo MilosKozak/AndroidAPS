@@ -1209,6 +1209,12 @@
     <string name="longitude_short">Long:</string>
     <string name="distance_short">Dist. [m]:</string>
     <string name="name_short">Nombre:</string>
+    <string name="locationis">%1$s%2$s</string>
+    <string name="location_mode">Cuando </string>
+    <string name="location_inside">Cuando estés dentro de la zona</string>
+    <string name="location_outside">Cuando estés fuera de la zona</string>
+    <string name="location_going_in">Cuando entres en el area llamada</string>
+    <string name="location_going_out">Cuando dejes el área llamada</string>
     <string name="lastboluslabel">Último bolo</string>
     <string name="lastboluscompared">Hora del último bolo: hace %1$s %2$s min</string>
     <string name="triggercoblabel">COB</string>
@@ -1309,6 +1315,7 @@
     <string name="medtronic_error_pump_frequency_invalid">Frecuencia de la infusora no soportada.</string>
     <string name="medtronic_error_rileylink_address_invalid">Dirección de RileyLink no válida.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">El tipo de infusora detectado no es el mismo que el tipo configurado.</string>
+    <string name="medtronic_error_pump_basal_profiles_not_enabled">Los perfiles de basal/valor de los patrones no están activados en la bomba. Actívalos en la bomba.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">El perfil basal establecido en la infusora es incorrecto (debe ser estándar).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Tipo incorrecto de basal temporal en la infusora (debe ser Absoluto).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Valor máximo incorrecto configurado en la infusora (debe ser %1$.2f).</string>
@@ -1425,6 +1432,7 @@
     <string name="doyouwantresetstats">¿Desea restablecer las estadísticas de actividad?</string>
     <string name="statistics">Estadísticas</string>
     <string name="randombg">BG aleatorio</string>
+    <string name="description_source_randombg">Generar datos aleatorios de BG (solo modo Demo)</string>
     <string name="randombg_short">BG</string>
     <string name="tools">Herramientas</string>
     <string name="show_calculation">Mostrar cálculo</string>
@@ -1432,5 +1440,7 @@
     <string name="timeformat12h">12 h</string>
     <string name="timeformat24h">24 h</string>
     <string name="automation_event">Automatización de eventos</string>
+    <string name="alreadyset">Set listo</string>
     <string name="message">Mensaje</string>
+    <string name="clearqueueconfirm">¿Borrar cola? ¡Se perderán todos los datos de la cola!</string>
 </resources>
