@@ -1312,7 +1312,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="medtronic_error_pump_frequency_invalid">Fréquence de pompe non pris en charge.</string>
     <string name="medtronic_error_rileylink_address_invalid">Adresse RileyLink invalide.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">Le type de pompe détecté n\'est pas le même que le type configuré.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">Les profils Basal ne sont pas activés sur la pompe.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Le profil Basal défini sur la pompe est incorrect (doit être STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Mauvais type DBT (TBR) réglé sur la pompe (doit être Absolu).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Mauvais paramètre Max Bolus sur la pompe (doit être %1$.2f).</string>
