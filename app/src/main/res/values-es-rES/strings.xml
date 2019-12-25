@@ -1309,7 +1309,6 @@
     <string name="medtronic_error_pump_frequency_invalid">Frecuencia de la infusora no soportada.</string>
     <string name="medtronic_error_rileylink_address_invalid">Dirección de RileyLink no válida.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">El tipo de infusora detectado no es el mismo que el tipo configurado.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">Los perfiles basales no están habilitados en la infusora.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">El perfil basal establecido en la infusora es incorrecto (debe ser estándar).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Tipo incorrecto de basal temporal en la infusora (debe ser Absoluto).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Valor máximo incorrecto configurado en la infusora (debe ser %1$.2f).</string>
