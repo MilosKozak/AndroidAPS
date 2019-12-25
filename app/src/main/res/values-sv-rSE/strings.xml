@@ -1289,7 +1289,6 @@ Eversense-appen.</string>
     <string name="medtronic_error_pump_frequency_invalid">Pumpfrekvens stöds inte.</string>
     <string name="medtronic_error_rileylink_address_invalid">Riley Link adress felaktig.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">Pumptypen verkar inte vara samma som den inställda.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">Basalprofiler inte aktiverat på pumpen.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Fel basalprofiltyp inställt på pumpen (måste vara STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Fel typ av temp basal på pumpen (måste vara satt till Absolut).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Fel max bolus i pumpen (måste vara %1$.2f).</string>
