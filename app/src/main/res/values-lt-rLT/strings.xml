@@ -1269,7 +1269,6 @@
     <string name="medtronic_error_pump_frequency_invalid">Nepalaikomas pompos dažnis.</string>
     <string name="medtronic_error_rileylink_address_invalid">RileyLink adresas neteisingas.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">Aptiktas pompos tipas neatitinka nustatymų.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">Pompoje neįjungtas bazės profilis.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Pompoje nustatytas neteisingas bazės profilis (turi būti STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Pompoje nustatytas neteisingas laikinos bazės tipas (turi būti absoliutus).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Pompoje nustatytas neteisingas Max Bolusas (turi būti %1$.2f).</string>
