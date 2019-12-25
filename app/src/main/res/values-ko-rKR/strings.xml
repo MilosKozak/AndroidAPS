@@ -1259,7 +1259,6 @@
     <string name="medtronic_error_pump_frequency_invalid">지원되지 않는 펌프 주파수입니다.</string>
     <string name="medtronic_error_rileylink_address_invalid">RileyLink 주소가 유효하지 않습니다.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">감지된 펌프타입이 설정된 타입과 다릅니다.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">펌프에서 Basal 프로파일이 활성화되지 않았습니다.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">펌프에 설정된 Basal 프로파일이 올바르지 않습니다 (STD 이어야 합니다).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">펌프에 잘못된 TBR 유형이 설정되었습니다 (절대값이어야합니다).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">펌프에 잘못된 최대 Bolus가 설정되었습니다 (%1$.2f 이어야 합니다.).</string>
