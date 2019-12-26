@@ -608,7 +608,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="sensitivityoref1">Sensibilité Oref1</string>
     <string name="sensitivityaaps">Sensibilité AAPS </string>
     <string name="absorptionsettings_title">Paramètres d’absorption</string>
-    <string name="absorption_maxtime_title">Durée maximale d’absorption pour un repas</string>
+    <string name="absorption_maxtime_title">Durée max d’absorption d\'un repas [h]</string>
     <string name="absorption_maxtime_summary">Le temps estimé en heures pour une absorbption totale des glucides d’un repas</string>
     <string name="danar_visualizeextendedaspercentage_title">Afficher le bolus étendu en %%</string>
     <string name="careportal_sensorage_label_short">AgeC</string>
@@ -667,11 +667,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="careportal_newnstreatment_percentage_label">Pourcentage</string>
     <string name="careportal_newnstreatment_timeshift_label">Décalage horaire</string>
     <string name="default_temptargets">Cibles Temporaires par défaut</string>
-    <string name="eatingsoon_duration">Durée pour le prochain repas [min]</string>
+    <string name="eatingsoon_duration">durée repas imminent [min]</string>
     <string name="eatingsoon_target">Cible Glyc. pour le prochain repas</string>
     <string name="activity_duration">Durée d\'activité</string>
     <string name="activity_target">Cible Glycémie pour l\'activité</string>
-    <string name="hypo_duration">Durée de période hypo [min]</string>
+    <string name="hypo_duration">durée hypo [min]</string>
     <string name="hypo_target">Cible Glycémie pendant l’hypo</string>
     <string name="danar_history_prime">Amorcer</string>
     <string name="gettingextendedbolusstatus">Obtenir l\'état du bolus étendu</string>
@@ -960,7 +960,11 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="danar_pumpalarm_sound">Son</string>
     <string name="danar_pumpalarm_vibrate">Vibration</string>
     <string name="danar_pumpalarm_both">Les deux</string>
+    <string name="danar_screentimeout">Durée affichage LCD [secondes]</string>
+    <string name="danar_backlight">Rétro-éclairage [secondes]</string>
     <string name="danar_glucoseunits">Unités glycémie</string>
+    <string name="danar_shutdown">Éteindre [heures]</string>
+    <string name="danar_lowreservoir">Réservoir faible [Unités]</string>
     <string name="danar_saveuseroptions">Enregistrer les options sur la pompe</string>
     <string name="option_on">Activé</string>
     <string name="option_off">Désactivé</string>
@@ -1312,6 +1316,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="medtronic_error_pump_frequency_invalid">Fréquence de pompe non pris en charge.</string>
     <string name="medtronic_error_rileylink_address_invalid">Adresse RileyLink invalide.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">Le type de pompe détecté n\'est pas le même que le type configuré.</string>
+    <string name="medtronic_error_pump_basal_profiles_not_enabled">Le réglage des profils de basal n\'est pas activé sur la pompe. Activez-le sur la pompe.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Le profil Basal défini sur la pompe est incorrect (doit être STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Mauvais type DBT (TBR) réglé sur la pompe (doit être Absolu).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Mauvais paramètre Max Bolus sur la pompe (doit être %1$.2f).</string>
