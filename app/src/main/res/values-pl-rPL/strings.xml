@@ -1432,4 +1432,16 @@
     <string name="activitymonitor">Monitor aktywności</string>
     <string name="doyouwantresetstats">Czy chcesz zresetować statystyki aktywności?</string>
     <string name="statistics">Statystyki</string>
+    <string name="randombg">Losowa BG</string>
+    <string name="description_source_randombg">Generuj losowe dane BG (tylko tryb demonstracyjny)</string>
+    <string name="randombg_short">BG (poziom cukru)</string>
+    <string name="tools">Narzędzia</string>
+    <string name="show_calculation">Pokaż obliczenia</string>
+    <string name="error">Błąd</string>
+    <string name="timeformat12h">12h</string>
+    <string name="timeformat24h">24h</string>
+    <string name="automation_event">Zdarzenie automatyzacji</string>
+    <string name="alreadyset">Już ustawiono</string>
+    <string name="message">Wiadomość</string>
+    <string name="clearqueueconfirm">Wyczyścić kolejkę? Wszystkie dane w kolejce zostaną utracone!</string>
 </resources>
