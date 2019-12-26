@@ -143,6 +143,7 @@
     <string name="constraints_violation">Mimo povolený rozsah</string>
     <string name="treatmentdeliveryerror">Chyba podání bolusu</string>
     <string name="tempbasaldeliveryerror">Chyba nastavování dočasného bazálu</string>
+    <string name="overview_newtempbasal_basalpercent">Hodnota bazálu [%]</string>
     <string name="setbasalquestion">Spustit nový dočasný bazál:</string>
     <string name="overview_treatment_label">Bolus</string>
     <string name="overview_calculator_label">Kalkulačka</string>
@@ -1195,6 +1196,7 @@
     <string name="longitude_short">Zem. délka:</string>
     <string name="distance_short">Vzdálenost [m]:</string>
     <string name="name_short">Jméno:</string>
+    <string name="locationis">%1$s %2$s</string>
     <string name="lastboluslabel">Poslední bolus</string>
     <string name="lastboluscompared">Poslední bolus %1$s před %2$s min</string>
     <string name="triggercoblabel">COB</string>
