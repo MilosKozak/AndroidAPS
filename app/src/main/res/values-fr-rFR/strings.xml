@@ -1002,7 +1002,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="openaps_noasdata">Pas de données d\'Autosens disponibles</string>
     <string name="nav_logsettings">Paramètres journal</string>
     <string name="resettodefaults">Réinitialiser les valeurs par défaut</string>
-    <string name="nsmalfunction">Dysfonctionnement du NSClient. Considérerez une réinitialisation de NS et de NSClient.</string>
+    <string name="nsmalfunction">Dysfonctionnement NSClient. Faites une réinitialisation de NS et de NSClient.</string>
     <string name="as">AS</string>
     <string name="versionavailable">Version %1$s disponible</string>
     <string name="time_offset">Décalage horaire</string>
