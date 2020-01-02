@@ -132,7 +132,7 @@
     <string name="configbuilder_loop">Loop</string>
     <string name="configbuilder_loop_description">Usalo per attivare l\'integrazione del loop di AndroidAPS.</string>
     <string name="loop_aps_label">APS</string>
-    <string name="loop_constraintsprocessed_label">Dopo i vincoli elaborati</string>
+    <string name="loop_constraintsprocessed_label">Dopo elaborazione vincoli</string>
     <string name="loop_tbrsetbypump_label">Basale temporanea impostata dal micro</string>
     <string name="openapsma_lastenact_label">Ultima attivazione</string>
     <string name="ok">OK</string>
@@ -246,7 +246,7 @@
     <string name="enacted">Attivato</string>
     <string name="comment">Commento</string>
     <string name="success">OK</string>
-    <string name="percent">Per cento</string>
+    <string name="percent">Percentuale</string>
     <string name="absolute">Assoluto</string>
     <string name="canceltemp">Cancellare basale temporanea</string>
     <string name="smscommunicator">Comunicazioni SMS</string>
@@ -1113,9 +1113,9 @@
     <string name="glucosecomparedmmol">Glicemia %1$s %2$.1f %3$s</string>
     <string name="percentagecompared">Pct profilo %1$s %2$d</string>
     <string name="iobcompared">IOB %1$s %2$.1f</string>
-    <string name="and">And</string>
+    <string name="and">E</string>
     <string name="or">Or</string>
-    <string name="xor">Xor</string>
+    <string name="xor">O (esclusivo)</string>
     <string name="atspecifiedtime">A %1$s</string>
     <string name="use_network_location">Usa posizione di rete</string>
     <string name="use_gps_location">Usa posizione GPS</string>
