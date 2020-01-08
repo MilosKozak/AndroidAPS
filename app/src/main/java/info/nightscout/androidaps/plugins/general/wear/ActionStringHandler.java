@@ -31,12 +31,15 @@ import info.nightscout.androidaps.interfaces.APSInterface;
 import info.nightscout.androidaps.interfaces.Constraint;
 import info.nightscout.androidaps.interfaces.PluginBase;
 import info.nightscout.androidaps.interfaces.PumpInterface;
+import info.nightscout.androidaps.interfaces.PluginType;
 import info.nightscout.androidaps.plugins.aps.loop.APSResult;
 import info.nightscout.androidaps.plugins.aps.loop.LoopPlugin;
+import info.nightscout.androidaps.plugins.aps.loop.events.EventLoopUpdateGui;
 import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.general.careportal.Dialogs.NewNSTreatmentDialog;
+import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
 import info.nightscout.androidaps.plugins.general.overview.events.EventDismissNotification;
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.CobInfo;
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.IobCobCalculatorPlugin;
@@ -356,6 +359,55 @@ public class ActionStringHandler {
 
             WearPlugin.getPlugin().requestNotificationCancel(rAction);
             return;
+        } else if ("loopStatus".equals(act[0])) {
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+            rTitle = "loopStatus";
+            rAction = "loopStatus" + " " + loopPlugin.isEnabled(PluginType.LOOP) + " " + loopPlugin.isDisconnected() + " " + loopPlugin.isSuspended() + " " + loopPlugin.minutesToEndOfSuspend();
+        } else if ("disconnect".equals(act[0])) {
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+            if (loopPlugin.isDisconnected()) {
+                sendError(MainApp.gs(R.string.pumpdisconnected));
+                return;
+            } else {
+                rMessage += MainApp.gs(R.string.disconnectpumpforXmin, SafeParse.stringToInt(act[1]));
+                rAction = actionstring;
+            }
+        } else if ("suspend".equals(act[0])) {
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+            if (loopPlugin.isSuspended()) {
+                sendError(MainApp.gs(R.string.loopsuspended));
+                return;
+            } else {
+                rMessage += MainApp.gs(R.string.suspendloopforXmin, SafeParse.stringToInt(act[1]));
+                rAction = actionstring;
+            }
+        } else if ("resume".equals(act[0])) {
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+            if (!loopPlugin.isDisconnected() && !loopPlugin.isSuspended()) {
+                sendError(MainApp.gs(R.string.loopactive));
+                return;
+            } else {
+                rMessage += MainApp.gs(R.string.resumeloop);
+                rAction = actionstring;
+            }
+        } else if ("disable".equals(act[0])) {
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+            if (!loopPlugin.isEnabled(PluginType.LOOP)) {
+                sendError(MainApp.gs(R.string.loop_disabled));
+                return;
+            } else {
+                rMessage += MainApp.gs(R.string.disableloop);
+                rAction = actionstring;
+            }
+        } else if ("enable".equals(act[0])) {
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+            if (loopPlugin.isEnabled(PluginType.LOOP)) {
+                sendError(MainApp.gs(R.string.loopenabled));
+                return;
+            } else {
+                rMessage += MainApp.gs(R.string.enableloop);
+                rAction = actionstring;
+            }
         } else return;
 
 
@@ -636,6 +688,18 @@ public class ActionStringHandler {
             NotificationManager notificationManager =
                     (NotificationManager) MainApp.instance().getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.cancel(Constants.notificationID);
+        } else if ("disconnect".equals(act[0])) {
+            int duration = SafeParse.stringToInt(act[1]);
+            doDisconnect(duration);
+        } else if ("suspend".equals(act[0])) {
+            int duration = SafeParse.stringToInt(act[1]);
+            doSuspend(duration);
+        } else if ("resume".equals(act[0])) {
+            doResume();
+        } else if ("disable".equals(act[0])) {
+            doDisable();
+        } else if ("enable".equals(act[0])) {
+            doEnable();
         }
         lastBolusWizard = null;
     }
@@ -754,5 +818,65 @@ public class ActionStringHandler {
         lastSentTimestamp = System.currentTimeMillis();
         lastConfirmActionString = actionstring;
         lastBolusWizard = null;
+    }
+
+    private static void doDisconnect(int duration) {
+        final Profile profile = ProfileFunctions.getInstance().getProfile();
+        if (profile != null) {
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+            LoopPlugin.getPlugin().disconnectPump(duration, profile);
+            RxBus.INSTANCE.send(new EventLoopUpdateGui());
+        }
+        return;
+    }
+
+    private static void doSuspend(int duration) {
+        final Profile profile = ProfileFunctions.getInstance().getProfile();
+        if (profile != null) {
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+            LoopPlugin.getPlugin().suspendLoop(duration);
+            RxBus.INSTANCE.send(new EventLoopUpdateGui());
+        }
+        return;
+    }
+
+    private static void doResume() {
+        final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+        loopPlugin.suspendTo(0L);
+        ConfigBuilderPlugin.getPlugin().getCommandQueue().cancelTempBasal(true, new Callback() {
+            @Override
+            public void run() {
+                if (!result.success) {
+                    ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.tempbasaldeliveryerror));
+                }
+            }
+        });
+        SP.putBoolean(R.string.key_objectiveusereconnect, true);
+        NSUpload.uploadOpenAPSOffline(0);
+        RxBus.INSTANCE.send(new EventLoopUpdateGui());
+    }
+
+    private static void doDisable() {
+        final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+        if (loopPlugin.isEnabled(PluginType.LOOP)) {
+            loopPlugin.setPluginEnabled(PluginType.LOOP, false);
+            ConfigBuilderPlugin.getPlugin().getCommandQueue().cancelTempBasal(true, new Callback() {
+                @Override
+                public void run() {
+                    if (!result.success) {
+                        ToastUtils.showToastInUiThread(MainApp.instance().getApplicationContext(), MainApp.gs(R.string.tempbasaldeliveryerror));
+                    }
+                }
+            });
+            RxBus.INSTANCE.send(new EventLoopUpdateGui());
+        }
+    }
+
+    private static void doEnable() {
+        final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
+        if (!loopPlugin.isEnabled(PluginType.LOOP)) {
+            loopPlugin.setPluginEnabled(PluginType.LOOP, true);
+            RxBus.INSTANCE.send(new EventLoopUpdateGui());
+        }
     }
 }

@@ -17,7 +17,7 @@ import info.nightscout.androidaps.interaction.utils.WearUtil;
  * Holds bunch of data model variables and lists that arrive from phone app and are due to be
  * displayed on watchface and complications. Keeping them together makes code cleaner and allows
  * passing it to complications via persistence layer.
- *
+ * <p>
  * Created by dlvoy on 2019-11-12
  */
 public class RawDisplayData {
@@ -30,25 +30,26 @@ public class RawDisplayData {
     public long sgvLevel = 0;
     public long datetime;
     public String sSgv = "---";
-    public String sDirection  = "--";
+    public String sDirection = "--";
     public String sDelta = "--";
     public String sAvgDelta = "--";
     public String sUnits = "-";
 
     // status bundle
-    public String sBasalRate  = "-.--U/h";
+    public String sBasalRate = "-.--U/h";
     public String sUploaderBattery = "--";
     public String sRigBattery = "--";
     public boolean detailedIOB = false;
     public String sIOB1 = "IOB";
     public String sIOB2 = "-.--";
-    public String sCOB1  = "Carb";
-    public String sCOB2= "--g";
+    public String sCOB1 = "Carb";
+    public String sCOB2 = "--g";
     public String sBgi = "--";
     public boolean showBGI = false;
     public String externalStatusString = "no status";
     public int batteryLevel = 1;
     public long openApsStatus = -1;
+    public boolean looping = false;
 
     // basals bundle
     public ArrayList<BgWatchData> bgDataList = new ArrayList<>();
@@ -84,6 +85,7 @@ public class RawDisplayData {
                 ", basalWatchDataList size=" + basalWatchDataList.size() +
                 ", bolusWatchDataLis size=" + bolusWatchDataList.size() +
                 ", predictionList size=" + predictionList.size() +
+                ", looping=" + looping +
                 '}';
     }
 
@@ -164,6 +166,7 @@ public class RawDisplayData {
         externalStatusString = dataMap.getString("externalStatusString");
         batteryLevel = dataMap.getInt("batteryLevel");
         openApsStatus = dataMap.getLong("openApsStatus");
+        looping = dataMap.getBoolean("looping");
     }
 
     public DataMap updateBasalsFromMessage(Intent intent, PowerManager.WakeLock wakeLock) {
@@ -188,7 +191,7 @@ public class RawDisplayData {
             for (DataMap temp : temps) {
                 TempWatchData twd = new TempWatchData();
                 twd.startTime = temp.getLong("starttime");
-                twd.startBasal =  temp.getDouble("startBasal");
+                twd.startBasal = temp.getDouble("startBasal");
                 twd.endTime = temp.getLong("endtime");
                 twd.endBasal = temp.getDouble("endbasal");
                 twd.amount = temp.getDouble("amount");
@@ -263,7 +266,7 @@ public class RawDisplayData {
         // We use iterator instead for-loop because we iterate and remove on the go
         Iterator itr = bgDataList.iterator();
         while (itr.hasNext()) {
-            BgWatchData entry = (BgWatchData)itr.next();
+            BgWatchData entry = (BgWatchData) itr.next();
             if (entry.timestamp < (WearUtil.timestamp() - (Constants.HOUR_IN_MS * 5))) {
                 itr.remove(); //Get rid of anything more than 5 hours old
             }

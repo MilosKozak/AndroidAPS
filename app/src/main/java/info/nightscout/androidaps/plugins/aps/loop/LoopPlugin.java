@@ -686,6 +686,7 @@ public class LoopPlugin extends PluginBase {
             });
         }
         NSUpload.uploadOpenAPSOffline(durationInMinutes);
+        RxBus.INSTANCE.send(new EventLoopUpdateGui());
     }
 
     public void suspendLoop(int durationInMinutes) {
@@ -704,6 +705,7 @@ public class LoopPlugin extends PluginBase {
             }
         });
         NSUpload.uploadOpenAPSOffline(durationInMinutes);
+        RxBus.INSTANCE.send(new EventLoopUpdateGui());
     }
 
 }
