@@ -3,7 +3,6 @@
 
     <string name="app_name">AAPS</string>
     <string name="label_actions_activity">AAPS</string>
-    <string name="duration">Duration</string>
 
     <string name="label_xdrip">AAPS</string>
     <string name="label_xdrip_large">AAPS(Large)</string>

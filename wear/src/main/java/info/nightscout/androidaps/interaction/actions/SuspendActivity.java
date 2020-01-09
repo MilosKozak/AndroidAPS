@@ -67,14 +67,14 @@ public class SuspendActivity extends ViewSelectorActivity {
             if (col == 0) {
                 final View view = getInflatedPlusMinusView(container);
                 final TextView textView = (TextView) view.findViewById(R.id.label);
-                textView.setText(aaps.gs(R.string.duration));
+                textView.setText(aaps.gs(R.string.action_duration));
                 if (time == null) {
                     time = new PlusMinusEditText(view, R.id.amountfield, R.id.plusbutton, R.id.minusbutton, 15d, 0d, 180d, 15d, new DecimalFormat("0"), false);
                 } else {
                     double def = SafeParse.stringToDouble(time.editText.getText().toString());
                     time = new PlusMinusEditText(view, R.id.amountfield, R.id.plusbutton, R.id.minusbutton, def, 0d, 180d, 15d, new DecimalFormat("0"), false);
                 }
-                setLabelToPlusMinusView(view, aaps.gs(R.string.duration));
+                setLabelToPlusMinusView(view, aaps.gs(R.string.action_duration));
                 container.addView(view);
                 return view;
 
