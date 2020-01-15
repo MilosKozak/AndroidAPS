@@ -1447,4 +1447,5 @@ Eversense-appen.</string>
     <string name="ebstopsloop">OBS! Om du använder förlängd bolus, kommer du inte längre vara i Closed Loop under den tiden som den förlängda bolusen är igång. Vill du fortsätta?</string>
     <string name="closed_loop_disabled_with_eb">Closed Loop-läget inaktiverat pga att en förlängd bolus är aktiv</string>
     <string name="extended_bolus_short">FB</string>
+    <string name="phonechecker">Telefonkontroll</string>
 </resources>
