@@ -205,8 +205,8 @@ public class DanaRPlugin extends AbstractDanaRPlugin {
 
         absoluteRate = MainApp.getConstraintChecker().applyBasalConstraints(new Constraint<>(absoluteRate), profile).value();
 
-        final boolean doTempOff = getBaseBasalRate() - absoluteRate == 0d;
-        final boolean doLowTemp = absoluteRate < getBaseBasalRate();
+        final boolean doTempOff = getBaseBasalRate() - absoluteRate == 0d && absoluteRate >= 0.10d;
+        final boolean doLowTemp = absoluteRate < getBaseBasalRate() || absoluteRate < 0.10d;
         final boolean doHighTemp = absoluteRate > getBaseBasalRate() && !useExtendedBoluses;
         final boolean doExtendedTemp = absoluteRate > getBaseBasalRate() && useExtendedBoluses;
 
@@ -239,6 +239,8 @@ public class DanaRPlugin extends AbstractDanaRPlugin {
 
         if (doLowTemp || doHighTemp) {
             Integer percentRate = Double.valueOf(absoluteRate / getBaseBasalRate() * 100).intValue();
+            // if absoluteRate is less than 0.10u/h, go with 0% as all basal insulin will be dumped at :59 of the hour instead of every 4 mins.
+            if (absoluteRate < 0.10d) percentRate = 0;
             if (percentRate < 100) percentRate = Round.ceilTo((double) percentRate, 10d).intValue();
             else percentRate = Round.floorTo((double) percentRate, 10d).intValue();
             if (percentRate > getPumpDescription().maxTempPercent) {
