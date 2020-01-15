@@ -1444,4 +1444,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="alreadyset">Déjà configuré</string>
     <string name="message">Message</string>
     <string name="clearqueueconfirm">Effacer la file d\'attente ? Toutes les données en file d\'attente seront perdues !</string>
+    <string name="ebstopsloop">L\'utilisation du bolus étendu arrètera la boucle fermée pour la durée d\'exécution du bolus étendu. Voulez-vous vraiment le faire ?</string>
+    <string name="closed_loop_disabled_with_eb">Boucle fermée désactivée à cause du bolus étendu</string>
+    <string name="extended_bolus_short">EG</string>
+    <string name="phonechecker">\"Vérif. du téléphone\"</string>
 </resources>
