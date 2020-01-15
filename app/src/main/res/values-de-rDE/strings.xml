@@ -1447,4 +1447,5 @@ Unerwartetes Verhalten.</string>
     <string name="ebstopsloop">Die Verwendung eines Verzögerungsbolus unterbricht dem Closed Loop Modus für die Dauer des Verzögerungsbolus. Willst Du das wirklich?</string>
     <string name="closed_loop_disabled_with_eb">Closed Loop wegen Verzögerungsbolus unterbrochen</string>
     <string name="extended_bolus_short">VB</string>
+    <string name="phonechecker">\"PhoneChecker\"</string>
 </resources>
