@@ -423,7 +423,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="danar_stats_expweight">DTI avec Pondération Exponentielle</string>
     <string name="danar_stats_basalrate">Basal</string>
     <string name="danar_stats_bolus">Bolus</string>
-    <string name="danar_stats_tdd">DTI Dosage Total d\'Insuline</string>
+    <string name="danar_stats_tdd">DTI</string>
     <string name="danar_stats_date">Date</string>
     <string name="danar_stats_ratio">Ratio</string>
     <string name="danar_stats_amount_days">Nb Jours</string>
@@ -1056,9 +1056,9 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="stop_pump">Arrêter la pompe</string>
     <string name="operating_mode">Mode de fonctionnement</string>
     <string name="insight_status">État</string>
-    <string name="tdd_bolus">Bolus DTI</string>
-    <string name="tdd_basal">DTI basale</string>
-    <string name="tdd_total">Total DTI</string>
+    <string name="tdd_bolus">DTI Bolus</string>
+    <string name="tdd_basal">DTI Basale</string>
+    <string name="tdd_total">DTI Total</string>
     <string name="recovering">Récupération en cours.</string>
     <string name="not_paired">Non appairé</string>
     <string name="last_connected">Dernière connexion</string>
