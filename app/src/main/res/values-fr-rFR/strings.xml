@@ -628,7 +628,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="notloadedplugins">Les profils ne sont pas tous téléchargés !</string>
     <string name="valuesnotstored">Valeurs non enregistrées !</string>
     <string name="ns_localbroadcasts">Active les diffusions vers d\'autres applications (comme xDrip). Ne pas activer si plusieurs instances d\'AAPS ou de NSClient sont installées !</string>
-    <string name="ns_localbroadcasts_title">Activer les transmissions locales.</string>
+    <string name="ns_localbroadcasts_title">Activer les transmissions locales</string>
     <string name="careportal_activity_label">ACTIVITÉ et FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">GLUCIDES et BOLUS</string>
     <string name="careportal_cgm_label">MGC et OPENAPS</string>
@@ -809,7 +809,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="wear_notifysmb_title">Notifier en SMB</string>
     <string name="wear_notifysmb_summary">Afficher SMB sur la montre comme un bolus standard.</string>
     <string name="ns_create_announcements_from_errors_title">Créer des messages d’erreurs</string>
-    <string name="ns_create_announcements_from_errors_summary">Créer des annonces Nightscout pour les dialogues d’erreur et alertes locales (également visible dans Careportal sous Traitements)</string>
+    <string name="ns_create_announcements_from_errors_summary">Créer une annonce Nightscout pour les messages d\'erreur et les alertes locales (également visible dans la section Careportal de l\'onglet traitements)</string>
     <string name="wear_predictions_summary">Affichez les prédictions sur l\'écran de montre.</string>
     <string name="wear_predictions_title">Prédictions</string>
     <string name="data_choices">Choix de données</string>
@@ -824,7 +824,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="category">Catégorie</string>
     <string name="subcategory">Sous-catégorie</string>
     <string name="bolusrecordedonly">Le bolus sera seulement enregistré</string>
-    <string name="ns_autobackfill_summary">Réassortiment automatique des glycémies manquantes en utilisant NS</string>
+    <string name="ns_autobackfill_summary">Remplissage automatique des glycémies manquantes en utilisant NS</string>
     <string name="loop_smbsetbypump_label">SMB défini par la pompe</string>
     <string name="overview_show_activity">Activité</string>
     <string name="overview_show_sensitivity">Sensibilité</string>
