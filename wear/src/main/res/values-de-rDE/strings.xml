@@ -64,12 +64,12 @@
     <string name="pref_unicode_in_complications">Unicode in Komplikationen</string>
     <string name="pref_version">Version:</string>
     <string name="menu_tempt">Temp. Ziel</string>
-    <string name="menu_wizard">Assistent</string>
+    <string name="menu_wizard">Rechner</string>
     <string name="menu_bolus">Bolus</string>
     <string name="menu_ecarb">eCarb</string>
     <string name="menu_settings">Einstellungen</string>
     <string name="menu_status">Status</string>
-    <string name="menu_prime_fill">Vorfüllen/Füllen</string>
+    <string name="menu_prime_fill">(Vor-)Füllen</string>
     <string name="menu_none">Kein(e)</string>
     <string name="menu_default">Standard</string>
     <string name="menu_menu">Menü</string>
@@ -78,7 +78,7 @@
     <string name="action_low" comment="In temp target menu, lower value from range">niedrig</string>
     <string name="action_high" comment="In temp target menu, higher value from range">hoch</string>
     <string name="action_carbs">COB</string>
-    <string name="action_percentage">Prozentsatz</string>
+    <string name="action_percentage">%-Satz</string>
     <string name="action_start_min">Start [min]</string>
     <string name="action_duration_h">Dauer [h]</string>
     <string name="action_insulin">Insulin</string>
