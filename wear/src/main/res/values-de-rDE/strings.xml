@@ -77,7 +77,7 @@
     <string name="action_target" comment="In temp target menu, single target value">Ziel</string>
     <string name="action_low" comment="In temp target menu, lower value from range">niedrig</string>
     <string name="action_high" comment="In temp target menu, higher value from range">hoch</string>
-    <string name="action_carbs">COB</string>
+    <string name="action_carbs">gKH</string>
     <string name="action_percentage">%-Satz</string>
     <string name="action_start_min">Start [min]</string>
     <string name="action_duration_h">Dauer [h]</string>
