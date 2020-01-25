@@ -1448,4 +1448,6 @@ Unerwartetes Verhalten.</string>
     <string name="closed_loop_disabled_with_eb">Closed Loop wegen Verzögerungsbolus unterbrochen</string>
     <string name="extended_bolus_short">VB</string>
     <string name="phonechecker">\"PhoneChecker\"</string>
+    <string name="chartmenu">Diagrammmenü</string>
+    <string name="sensitivity_short">AS</string>
 </resources>
