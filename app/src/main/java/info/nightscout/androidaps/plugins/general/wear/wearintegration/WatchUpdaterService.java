@@ -697,7 +697,7 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
         }
     }
 
-    private void sendStatus() {
+    public void sendStatus() {
 
         if (googleApiClient.isConnected()) {
             Profile profile = ProfileFunctions.getInstance().getProfile();
@@ -740,7 +740,7 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
                 //NSClient or remote
                 openApsStatus = NSDeviceStatus.getOpenApsTimestamp();
             }
-
+            final LoopPlugin loopPlugin = LoopPlugin.getPlugin();
             PutDataMapRequest dataMapRequest = PutDataMapRequest.create(NEW_STATUS_PATH);
             //unique content
             dataMapRequest.getDataMap().putString("externalStatusString", status);
@@ -755,6 +755,7 @@ public class WatchUpdaterService extends WearableListenerService implements Goog
             dataMapRequest.getDataMap().putString("bgi", bgiString);
             dataMapRequest.getDataMap().putBoolean("showBgi", SP.getBoolean(R.string.key_wear_showbgi, false));
             dataMapRequest.getDataMap().putInt("batteryLevel", (phoneBattery >= 30) ? 1 : 0);
+            dataMapRequest.getDataMap().putBoolean("looping", loopPlugin.isEnabled(PluginType.LOOP) && !loopPlugin.isDisconnected() && !loopPlugin.isSuspended());
             PutDataRequest putDataRequest = dataMapRequest.asPutDataRequest();
             debugData("sendStatus", putDataRequest);
             Wearable.DataApi.putDataItem(googleApiClient, putDataRequest);

@@ -78,6 +78,13 @@
     <string name="menu_none">None</string>
     <string name="menu_default">Default</string>
     <string name="menu_menu">Menu</string>
+    <string name="menu_loop">Loop</string>
+
+    <string name="loop_disconnect">Disconnect</string>
+    <string name="loop_suspend">Suspend</string>
+    <string name="loop_disable">Disable</string>
+    <string name="loop_resume">Resume</string>
+    <string name="loop_enable">Enable</string>
 
     <string name="action_duration">duration</string>
     <string name="action_target" comment="In temp target menu, single target value">target</string>
@@ -98,7 +105,6 @@
     <string name="action_timeshift">timeshift</string>
     <string name="action_tdd_weighted">TDD weighted</string>
     <string name="action_bolus">bolus</string>
-
 
     <string name="status_pump">Pump</string>
     <string name="status_loop">Loop</string>
