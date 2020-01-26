@@ -1447,4 +1447,5 @@
     <string name="closed_loop_disabled_with_eb">Loop chiuso disabilitato a causa dell\'esecuzione di un bolo esteso</string>
     <string name="extended_bolus_short">BE</string>
     <string name="phonechecker">\"PhoneChecker\"</string>
+    <string name="sensitivity_short">AS</string>
 </resources>
