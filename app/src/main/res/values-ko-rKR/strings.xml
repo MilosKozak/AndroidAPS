@@ -123,7 +123,7 @@
     <string name="configbuilder_aps">APS</string>
     <string name="configbuilder_aps_description">어떤 APS 알고리즘을 사용합니까?</string>
     <string name="configbuilder_general">일반</string>
-    <string name="configbuilder_general_description">유용한 여러가지 플로그인</string>
+    <string name="configbuilder_general_description">유용한 여러가지 플러그인</string>
     <string name="configbuilder_constraints_description">어떤 제약을 적용합니까?</string>
     <string name="days">일</string>
     <string name="constraints">제한</string>
