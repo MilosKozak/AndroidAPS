@@ -593,8 +593,8 @@
     <string name="nsalarm_urgentlow">위험 저혈당</string>
     <string name="nsalarm_staledata">누락 데이터</string>
     <string name="nsalarm_urgentstaledata">위험 누락 데이터</string>
-    <string name="nsalarm_staledatavalue_label">누락 데이터 기준값[분]</string>
-    <string name="nsalarm_urgent_staledatavalue_label">위험 누락 데이터 기준값[분]</string>
+    <string name="nsalarm_staledatavalue_label">누락 데이터 기준값 [min]</string>
+    <string name="nsalarm_urgent_staledatavalue_label">위험 누락 데이터 기준값 [min]</string>
     <string name="openapsama_autosens_period">autosens 시간 [h]</string>
     <string name="openapsama_autosens_period_summary">민감도를 감지하기 위해 계산될 총 시간 (탄수화물 흡수 시간은 제외됩니다.)</string>
     <string name="pump">펌프</string>
@@ -889,7 +889,7 @@
     <string name="pump_stopped">펌프 중지</string>
     <string name="pump_started">펌프 시작</string>
     <string name="pump_paused">펌프 일시중지</string>
-    <string name="absorption_cutoff_title">식사 최대 흡수 시간[h]</string>
+    <string name="absorption_cutoff_title">식사 최대 흡수 시간 [h]</string>
     <string name="absorption_cutoff_summary">식사가 모두 흡수되었다고 간주되는 시간. 나머지 탄수화물은 모두 없어집니다.</string>
     <string name="time">시간</string>
     <string name="overview_show_notes_field_in_dialogs_title">관리창에 노트 영역 보여주기</string>
