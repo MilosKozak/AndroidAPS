@@ -24,8 +24,8 @@
     <string name="pref_show_date">날짜 표시</string>
     <string name="pref_show_iob">IOB 표시</string>
     <string name="pref_show_cob">COB 표시</string>
-    <string name="pref_show_delta">방향 표시</string>
-    <string name="pref_show_avgdelta">평균방향 표시</string>
+    <string name="pref_show_delta">증분 표시</string>
+    <string name="pref_show_avgdelta">평균증분 표시</string>
     <string name="pref_show_phone_battery">폰배터리 표시</string>
     <string name="pref_show_rig_battery">종합 배터리 표시</string>
     <string name="pref_show_basal_rate">Basal 값 표시</string>
@@ -47,7 +47,7 @@
     <string name="pref_quick_righty">오른손잡이</string>
     <string name="pref_quick_lefty">왼손잡이</string>
     <string name="pref_modern_sparse">모던스타일</string>
-    <string name="pref_delta_granularity">방향 밀도(스팀펑크)</string>
+    <string name="pref_delta_granularity">증분 밀도(스팀펑크)</string>
     <string name="pref_low">저</string>
     <string name="pref_medium">중</string>
     <string name="pref_high">고</string>
