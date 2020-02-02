@@ -273,7 +273,7 @@
     <string name="smscommunicator_tt_canceled">임시 목표 취소가 완료되었습니다</string>
     <string name="bolusdelivering">%1$.2fU 주입중</string>
     <string name="smscommunicator_remotecommandsallowed">SMS 원격 명령 사용하기</string>
-    <string name="glucosetype_finger">체혈</string>
+    <string name="glucosetype_finger">채혈</string>
     <string name="glucosetype_sensor">센서</string>
     <string name="manual">수동</string>
     <string name="careportal_temporarytarget">임시 목표</string>
