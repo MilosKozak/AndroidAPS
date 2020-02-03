@@ -641,7 +641,7 @@
     <string name="enableuam_summary">알리지 않은 식사 감지</string>
     <string name="insulin_oref_peak">IOB 커브 피크 시간</string>
     <string name="insulin_peak_time">피크 시간 [min]</string>
-    <string name="free_peak_oref">자유-피크 Oref</string>
+    <string name="free_peak_oref">사용자지정-피크 Oref</string>
     <string name="rapid_acting_oref">초속효성 Oref</string>
     <string name="ultrarapid_oref">초-초속효성 Oref</string>
     <string name="dia_too_short">DIA %1$f는 너무 짧습니다. 대신 %2$f을 사용하세요!</string>
