@@ -946,6 +946,7 @@
     <string name="startobjective">첫번째 목표를 시작하세요.</string>
     <string name="permission">권한</string>
     <string name="askforpermission">권한 요청하기</string>
+    <string name="needsystemwindowpermission">알림에 대한 시스템 창 권한이 필요합니다</string>
     <string name="needlocationpermission">블루투스 스캔을 위해 위치 권한이 필요로 합니다.</string>
     <string name="needstoragepermission">로그 파일을 저장하기 위해 저장공간 권한이 필요로 합니다.</string>
     <string name="request">요청</string>
@@ -1449,4 +1450,8 @@
     <string name="phonechecker">\"전화확인\"</string>
     <string name="chartmenu">차트 메뉴</string>
     <string name="sensitivity_short">AS</string>
+    <string name="loop_smbrequest_time_label">SMB 요청시간</string>
+    <string name="loop_smbexecution_time_label">SMB 실행시간</string>
+    <string name="loop_tbrrequest_time_label">임시 Basal 요청시간</string>
+    <string name="loop_tbrexecution_time_label">임시 Basal 실행시간</string>
 </resources>
