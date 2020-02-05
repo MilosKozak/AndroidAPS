@@ -132,7 +132,7 @@
     <string name="configbuilder_loop">Loop</string>
     <string name="configbuilder_loop_description">Usalo per attivare l\'integrazione del loop di AndroidAPS.</string>
     <string name="loop_aps_label">APS</string>
-    <string name="loop_constraintsprocessed_label">Dopo aver elaborato i vincoli</string>
+    <string name="loop_constraintsprocessed_label">Dopo elaborazione vincoli</string>
     <string name="loop_tbrsetbypump_label">Basale temporanea impostata dal micro</string>
     <string name="openapsma_lastenact_label">Ultima attivazione</string>
     <string name="ok">OK</string>
@@ -246,7 +246,7 @@
     <string name="enacted">Attivato</string>
     <string name="comment">Commento</string>
     <string name="success">OK</string>
-    <string name="percent">Per cento</string>
+    <string name="percent">Percentuale</string>
     <string name="absolute">Assoluto</string>
     <string name="canceltemp">Cancellare basale temporanea</string>
     <string name="smscommunicator">Comunicazioni SMS</string>
@@ -1111,11 +1111,11 @@
     <string name="glucoseisnotavailable">Glicemia non disponibile</string>
     <string name="glucosecomparedmgdl">Glicemia %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Glicemia %1$s %2$.1f %3$s</string>
-    <string name="percentagecompared">Pct profilo %1$s %2$d</string>
+    <string name="percentagecompared">PCT profilo %1$s %2$d</string>
     <string name="iobcompared">IOB %1$s %2$.1f</string>
-    <string name="and">And</string>
-    <string name="or">Or</string>
-    <string name="xor">Xor</string>
+    <string name="and">E</string>
+    <string name="or">O</string>
+    <string name="xor">O (esclusivo)</string>
     <string name="atspecifiedtime">A %1$s</string>
     <string name="use_network_location">Usa posizione di rete</string>
     <string name="use_gps_location">Usa posizione GPS</string>
@@ -1164,7 +1164,7 @@
     <string name="sms_wrongcode">Codice errato. Comando annullato.</string>
     <string name="notconfigured">Non configurato</string>
     <string name="profileswitchcreated">Cambio profilo creato</string>
-    <string name="recurringTime">Ora ripetizione</string>
+    <string name="recurringTime">Tempo ricorrente</string>
     <string name="every">Ogni</string>
     <string name="never">Mai</string>
     <string name="mins">%1$dmin</string>
@@ -1175,7 +1175,7 @@
     <string name="delete_short">CANC</string>
     <string name="add_short">AGG</string>
     <string name="copy_short">COPIA</string>
-    <string name="addnew">Aggiungere nuovo</string>
+    <string name="addnew">Aggiungi nuovo</string>
     <string name="versionChecker">Controllo Versione</string>
     <string name="signature_verifier">Verificatore firma</string>
     <string name="running_invalid_version">Abbiamo rilevato che stai eseguendo una versione non valida. Loop disabilitato!</string>
@@ -1443,4 +1443,14 @@
     <string name="alreadyset">Già impostato</string>
     <string name="message">Messaggio</string>
     <string name="clearqueueconfirm">Cancellare la coda? Tutti i dati in coda andranno persi!</string>
+    <string name="ebstopsloop">L\'uso della funzione bolo esteso interromperà la modalità loop chiuso per il tempo di esecuzione del bolo esteso. Lo vuoi davvero?</string>
+    <string name="closed_loop_disabled_with_eb">Loop chiuso disabilitato a causa dell\'esecuzione di un bolo esteso</string>
+    <string name="extended_bolus_short">BE</string>
+    <string name="phonechecker">\"PhoneChecker\"</string>
+    <string name="chartmenu">Menu grafico</string>
+    <string name="sensitivity_short">AS</string>
+    <string name="loop_smbrequest_time_label">Tempo richiesta SMB</string>
+    <string name="loop_smbexecution_time_label">Tempo esecuzione SMB</string>
+    <string name="loop_tbrrequest_time_label">Tempo richiesta basale temporanea</string>
+    <string name="loop_tbrexecution_time_label">Tempo esecuzione basale temporanea</string>
 </resources>
