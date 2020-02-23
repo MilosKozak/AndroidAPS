@@ -118,7 +118,7 @@ class TempTargetDialog : DialogFragmentWithDate() {
         if (target != 0.0 && duration != 0.0) {
             actions.add(MainApp.gs(R.string.reason) + ": " + reason)
             actions.add(MainApp.gs(R.string.nsprofileview_target_label) + ": " + Profile.toCurrentUnitsString(target) + " " + MainApp.gs(unitResId))
-            actions.add(MainApp.gs(R.string.duration) + ": " + MainApp.gs(R.string.format_hours, duration))
+            actions.add(MainApp.gs(R.string.duration) + ": " + MainApp.gs(R.string.format_mins, duration.toInt()))
         } else {
             actions.add(MainApp.gs(R.string.stoptemptarget))
         }
