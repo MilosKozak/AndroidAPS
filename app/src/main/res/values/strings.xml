@@ -982,6 +982,7 @@
     <string name="profileswitch_ismissing">ProfileSwitch missing. Please do a profile switch or press \"Activate Profile\" in the LocalProfile.</string>
     <string name="combo_bolus_count">Bolus count</string>
     <string name="combo_tbr_count">TBR count</string>
+    <string name="combo_timezone_offset">Timezone Offset (h)</string>
     <string name="pumpisnottempbasalcapable">Pump is not temp basal capable</string>
     <string name="novalidbasalrate">No valid basal rate read from pump</string>
     <string name="closedmodedisabledinpreferences">Closed loop mode disabled in preferences</string>
@@ -1698,5 +1699,7 @@
     <string name="loop_smbexecution_time_label">SMB execution time</string>
     <string name="loop_tbrrequest_time_label">Temp basal request time</string>
     <string name="loop_tbrexecution_time_label">Temp basal execution time</string>
+    <string name="key_combo_timezone" translatable="false">combo_timezone</string>
+    <string name="pumptimezone">Pump timezone</string>
 
 </resources>

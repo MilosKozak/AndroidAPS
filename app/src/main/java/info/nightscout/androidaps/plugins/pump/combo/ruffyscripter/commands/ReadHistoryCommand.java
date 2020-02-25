@@ -166,16 +166,7 @@ public class ReadHistoryCommand extends BaseCommand {
         scripter.verifyMenuIsDisplayed(MenuType.DAILY_DATA);
         Double dailyTotal = (Double) scripter.getCurrentMenu().getAttribute(MenuAttribute.DAILY_TOTAL);
         MenuDate date = (MenuDate) scripter.getCurrentMenu().getAttribute(MenuAttribute.DATE);
-
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-        if (date.getMonth() > Calendar.getInstance().get(Calendar.MONTH) + 1) {
-            year -= 1;
-        }
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, date.getMonth() - 1, date.getDay(), 0, 0, 0);
-        long time = calendar.getTimeInMillis();
-        time = time - time%1000;
-        return new Tdd(time, dailyTotal);
+        return new Tdd(date.toTimestamp(offsetHours), dailyTotal);
     }
 
     private void readTbrRecords(long requestedTime) {

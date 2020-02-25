@@ -1,5 +1,6 @@
 package org.monkey.d.ruffy.ruffy.driver.display.menu;
 
+import java.util.Calendar;
 import java.util.Locale;
 
 /**
@@ -28,6 +29,21 @@ public class MenuDate {
 
     public int getMonth() {
         return month;
+    }
+
+    public long toTimestamp(int offsetHours) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.HOUR, -offsetHours);
+        int year = calendar.get(Calendar.YEAR);
+        if (month > calendar.get(Calendar.MONTH) + 1) {
+            year -= 1;
+        }
+        calendar.set(year, month - 1, day, 0, 0, 0);
+        calendar.add(Calendar.HOUR, offsetHours);
+
+        // round to second
+        return (calendar.getTimeInMillis() - calendar.getTimeInMillis() % 1000);
+
     }
 
     @Override

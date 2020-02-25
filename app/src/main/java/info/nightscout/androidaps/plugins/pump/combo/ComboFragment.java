@@ -20,6 +20,7 @@ import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.pump.combo.events.EventComboPumpUpdateGUI;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpState;
+import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.TimezoneOffset;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.history.Bolus;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.androidaps.queue.events.EventQueueChanged;
@@ -43,6 +44,7 @@ public class ComboFragment extends Fragment implements View.OnClickListener {
     private Button refreshButton;
     private TextView bolusCount;
     private TextView tbrCount;
+    private TextView timezoneOffset;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -59,6 +61,7 @@ public class ComboFragment extends Fragment implements View.OnClickListener {
         tempBasalText = view.findViewById(R.id.combo_temp_basal);
         bolusCount = view.findViewById(R.id.combo_bolus_count);
         tbrCount = view.findViewById(R.id.combo_tbr_count);
+        timezoneOffset = view.findViewById(R.id.combo_timezone_offset);
 
         refreshButton = view.findViewById(R.id.combo_refresh_button);
         refreshButton.setOnClickListener(this);
@@ -239,6 +242,9 @@ public class ComboFragment extends Fragment implements View.OnClickListener {
             // stats
             bolusCount.setText(String.valueOf(SP.getLong(ComboPlugin.COMBO_BOLUSES_DELIVERED, 0L)));
             tbrCount.setText(String.valueOf(SP.getLong(ComboPlugin.COMBO_TBRS_SET, 0L)));
+
+            // Timezone adjustments
+            timezoneOffset.setText(String.valueOf(plugin.getTimezoneOffset()));
         }
     }
 }

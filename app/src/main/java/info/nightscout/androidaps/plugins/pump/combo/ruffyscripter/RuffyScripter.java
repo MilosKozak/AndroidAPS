@@ -60,6 +60,8 @@ public class RuffyScripter implements RuffyCommands {
 
     private final Object screenlock = new Object();
 
+    private TimezoneOffset timezoneOffset = new TimezoneOffset();
+
     private IRTHandler mHandler = new IRTHandler.Stub() {
         @Override
         public void log(String message) {
@@ -117,7 +119,10 @@ public class RuffyScripter implements RuffyCommands {
         }
     };
 
-    public RuffyScripter(Context context) {
+    public RuffyScripter(Context context, TimezoneOffset timezoneOffset) {
+
+        this.timezoneOffset = timezoneOffset;
+
         boolean boundSucceeded = false;
 
         try {
@@ -256,6 +261,7 @@ public class RuffyScripter implements RuffyCommands {
 
                         // execute the command
                         cmd.setScripter(RuffyScripter.this);
+                        cmd.setOffsetHours(timezoneOffset.getOffset());
                         long cmdStartTime = System.currentTimeMillis();
                         cmd.execute();
                         long cmdEndTime = System.currentTimeMillis();
@@ -525,8 +531,12 @@ public class RuffyScripter implements RuffyCommands {
                 state.insulinState = ((int) menu.getAttribute(MenuAttribute.INSULIN_STATE));
             }
             if (menu.attributes().contains(MenuAttribute.TIME)) {
+
                 MenuTime pumpTime = (MenuTime) menu.getAttribute(MenuAttribute.TIME);
+
                 Date date = new Date();
+                date.setTime(date.getTime() + timezoneOffset.getOffset() * 60 * 60 * 1000);
+
                 // infer yesterday as the pump's date if midnight just passed, but the pump is
                 // a bit behind
                 if (date.getHours() == 0 && date.getMinutes() <= 5
@@ -536,6 +546,7 @@ public class RuffyScripter implements RuffyCommands {
                 date.setHours(pumpTime.getHour());
                 date.setMinutes(pumpTime.getMinute());
                 date.setSeconds(0);
+                date.setTime(date.getTime() - timezoneOffset.getOffset() * 60 * 60 * 1000);
                 state.pumpTime = date.getTime() - date.getTime() % 1000;
             }
         } else if (menuType == MenuType.WARNING_OR_ERROR) {

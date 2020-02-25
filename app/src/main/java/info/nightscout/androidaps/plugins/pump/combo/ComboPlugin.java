@@ -54,8 +54,8 @@ import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.BolusProgress
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.CommandResult;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpState;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpWarningCodes;
-import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.RuffyCommands;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.RuffyScripter;
+import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.TimezoneOffset;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.WarningOrErrorCode;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.history.Bolus;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.history.PumpHistory;
@@ -87,10 +87,13 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
     private final static PumpDescription pumpDescription = new PumpDescription();
 
     @NonNull
-    private final RuffyCommands ruffyScripter;
+    private final RuffyScripter ruffyScripter;
 
     @NonNull
     private static final ComboPump pump = new ComboPump();
+
+    @NonNull
+    private final TimezoneOffset timezoneOffset = new TimezoneOffset();
 
     /**
      * This is used to determine when to pass a bolus cancel request to the scripter
@@ -135,9 +138,10 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
                 .fragmentClass(ComboFragment.class.getName())
                 .pluginName(R.string.combopump)
                 .shortName(R.string.combopump_shortname)
+                .preferencesId(R.xml.pref_combo)
                 .description(R.string.description_pump_combo)
         );
-        ruffyScripter = new RuffyScripter(MainApp.instance().getApplicationContext());
+        ruffyScripter = new RuffyScripter(MainApp.instance().getApplicationContext(), timezoneOffset);
         pumpDescription.setPumpDescription(PumpType.AccuChekCombo);
     }
 
@@ -228,6 +232,10 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
     @Override
     public synchronized PumpEnactResult setNewBasalProfile(Profile profile) {
+        return setNewBasalProfile(profile, false);
+    }
+
+    private synchronized PumpEnactResult setNewBasalProfile(Profile profile, boolean timezoneChange) {
         if (!isInitialized()) {
             // note that this should not happen anymore since the queue is present, which
             // issues a READSTATE when starting to issue commands which initializes the pump
@@ -238,7 +246,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
         }
 
         BasalProfile requestedBasalProfile = convertProfileToComboProfile(profile);
-        if (pump.basalProfile.equals(requestedBasalProfile)) {
+        if (!timezoneChange && pump.basalProfile.equals(requestedBasalProfile)) {
             //dismiss previously "FAILED" overview notifications
             RxBus.INSTANCE.send(new EventDismissNotification(Notification.PROFILE_NOT_SET_NOT_INITIALIZED));
             RxBus.INSTANCE.send(new EventDismissNotification(Notification.FAILED_UDPATE_PROFILE));
@@ -283,6 +291,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
     @NonNull
     private BasalProfile convertProfileToComboProfile(Profile profile) {
+
         BasalProfile basalProfile = new BasalProfile();
         for (int i = 0; i < 24; i++) {
             double rate = profile.getBasalTimeFromMidnight(i * 60 * 60);
@@ -1386,13 +1395,20 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
     @Override
     public boolean canHandleDST() {
-        return false;
+        return timezoneOffset.isAbsolutePumpTimezone();
     }
 
     @Override
     public void timeDateOrTimeZoneChanged() {
-
+        if (timezoneOffset.isAbsolutePumpTimezone()) {
+            // re-apply the current basal profile back to the pump so it can be offset by the new timezone difference
+            Profile profile = ProfileFunctions.getInstance().getProfile();
+            setNewBasalProfile(profile, true);
+        }
     }
 
+    public int getTimezoneOffset() {
+        return timezoneOffset.getOffset();
+    }
 
 }

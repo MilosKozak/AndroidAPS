@@ -30,6 +30,7 @@ public class CancelTbrCommand extends BaseCommand {
                 + "% with " + pumpState.tbrRemainingDuration + " min remaining");
         SetTbrCommand setTbrCommand = new SetTbrCommand(100, 0);
         setTbrCommand.setScripter(scripter);
+        setTbrCommand.setOffsetHours(offsetHours);
         setTbrCommand.execute();
         result = setTbrCommand.result;
     }

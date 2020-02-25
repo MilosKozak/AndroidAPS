@@ -14,6 +14,7 @@ import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.CommandResult
  */
 public interface Command {
     void setScripter(RuffyScripter scripter);
+    void setOffsetHours(int offsetHours);
     List<String> validateArguments();
     boolean needsRunMode();
     void execute();

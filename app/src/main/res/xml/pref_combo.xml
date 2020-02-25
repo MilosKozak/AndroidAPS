@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/combopump">
+
+        <ListPreference
+            android:entries="@array/comboTimezoneLabels"
+            android:entryValues="@array/comboTimezoneValues"
+            android:key="@string/key_combo_timezone"
+            android:title="@string/pumptimezone"
+            android:defaultValue="Phone" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

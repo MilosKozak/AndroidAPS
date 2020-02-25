@@ -21,6 +21,8 @@ public abstract class BaseCommand implements Command {
     // RS will inject itself here
     protected RuffyScripter scripter;
 
+    protected int offsetHours = 0;
+
     protected CommandResult result;
 
     public BaseCommand() {
@@ -30,6 +32,11 @@ public abstract class BaseCommand implements Command {
     @Override
     public void setScripter(RuffyScripter scripter) {
         this.scripter = scripter;
+    }
+
+    @Override
+    public void setOffsetHours(int offsetHours) {
+        this.offsetHours = offsetHours;
     }
 
     @Override
@@ -71,15 +78,17 @@ public abstract class BaseCommand implements Command {
         MenuDate date = (MenuDate) scripter.getCurrentMenu().getAttribute(MenuAttribute.DATE);
         MenuTime time = (MenuTime) scripter.getCurrentMenu().getAttribute(MenuAttribute.TIME);
 
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-        if (date.getMonth() > Calendar.getInstance().get(Calendar.MONTH) + 1) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.HOUR, offsetHours);
+        int year = calendar.get(Calendar.YEAR);
+        if (date.getMonth() > calendar.get(Calendar.MONTH) + 1) {
             year -= 1;
         }
-        Calendar calendar = Calendar.getInstance();
         calendar.set(year, date.getMonth() - 1, date.getDay(), time.getHour(), time.getMinute(), 0);
+        calendar.add(Calendar.HOUR, -offsetHours);
 
         // round to second
-        return calendar.getTimeInMillis() - calendar.getTimeInMillis() % 1000;
+        return (calendar.getTimeInMillis() - calendar.getTimeInMillis() % 1000);
 
     }
 }
