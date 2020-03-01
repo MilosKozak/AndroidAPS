@@ -112,7 +112,7 @@ public class SafetyPlugin extends PluginBase implements ConstraintsInterface {
         return value;
     }
 
-    @Override
+    /*@Override
     public Constraint<Boolean> isAdvancedFilteringEnabled(Constraint<Boolean> value) {
         BgSourceInterface bgSource = ConfigBuilderPlugin.getPlugin().getActiveBgSource();
 
@@ -121,7 +121,7 @@ public class SafetyPlugin extends PluginBase implements ConstraintsInterface {
                 value.set(false, MainApp.gs(R.string.smbalwaysdisabled), this);
         }
         return value;
-    }
+    }*/
 
     @Override
     public Constraint<Double> applyBasalConstraints(Constraint<Double> absoluteRate, Profile profile) {
