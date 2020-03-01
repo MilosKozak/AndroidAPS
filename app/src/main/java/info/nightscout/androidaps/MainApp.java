@@ -86,6 +86,7 @@ import info.nightscout.androidaps.plugins.source.SourcePoctechPlugin;
 import info.nightscout.androidaps.plugins.source.SourceTomatoPlugin;
 import info.nightscout.androidaps.plugins.source.SourceXdripPlugin;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
+import info.nightscout.androidaps.plugins.TuneProfile.TuneProfilePlugin;
 import info.nightscout.androidaps.receivers.DataReceiver;
 import info.nightscout.androidaps.receivers.KeepAliveReceiver;
 import info.nightscout.androidaps.receivers.NSAlarmReceiver;
