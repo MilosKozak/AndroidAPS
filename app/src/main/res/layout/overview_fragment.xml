@@ -46,8 +46,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:gravity="center_vertical|center_horizontal"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
                     android:text="@string/openloop"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -62,8 +62,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:gravity="center_vertical|center_horizontal"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
                     android:text="@string/profile"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -76,8 +76,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|center_horizontal"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
                     android:text="@string/temptargetshort"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/mdtp_white"
@@ -127,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="00.0"
-                    android:textSize="42sp"
+                    android:textSize="56sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/overview_arrow"
                     app:layout_constraintStart_toStartOf="parent"
@@ -138,10 +138,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:paddingStart="-2dp"
+                    android:paddingStart="0dp"
                     android:paddingEnd="0dp"
                     android:text="→"
-                    android:textSize="28sp"
+                    android:textSize="36sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/overview_bg_guideline"
                     app:layout_constraintStart_toEndOf="@+id/overview_bg"
@@ -166,6 +166,7 @@
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/overview_delta"
                     app:layout_constraintEnd_toEndOf="@+id/overview_arrow"
+                    app:layout_constraintHorizontal_bias="0.172"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/overview_bg" />
 
@@ -177,8 +178,12 @@
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/overview_avgdelta"
                     app:layout_constraintEnd_toEndOf="@+id/overview_arrow"
+                    app:layout_constraintHorizontal_bias="0.242"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/overview_timeago" />
+
+
+                <!-- right side -->
 
                 <TextView
                     android:id="@+id/overview_avgdelta"
@@ -187,11 +192,9 @@
                     android:text="delta 40m: 0.3"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/overview_arrow"
+                    app:layout_constraintHorizontal_bias="0.242"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/overview_delta" />
-
-
-                <!-- right side -->
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/overview_bg_guideline"
