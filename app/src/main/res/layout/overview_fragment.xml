@@ -233,18 +233,18 @@
                     app:layout_constraintStart_toEndOf="@+id/overview_iob_label"
                     app:layout_constraintTop_toTopOf="@+id/overview_iob_label" />
 
+                <!-- right side COB -->
                 <TextView
                     android:id="@+id/overview_iob"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:text="@string/iob"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/overview_iob_label"
                     app:layout_constraintStart_toEndOf="@+id/overview_iob_colon" />
 
-                <!-- right side COB -->
                 <TextView
                     android:id="@+id/overview_cob_label"
                     android:layout_width="wrap_content"
@@ -301,7 +301,7 @@
                     android:id="@+id/overview_basebasal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="11dp"
                     android:text="0.50U/h @17:35 1/30min"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -329,24 +329,24 @@
                     app:layout_constraintBottom_toBottomOf="@+id/overview_extendedbolus_label"
                     app:layout_constraintStart_toEndOf="@+id/overview_extendedbolus_label" />
 
+                <!-- right side AS  -->
                 <TextView
                     android:id="@+id/overview_extendedbolus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="22dp"
                     android:text="0.50U/h @17:35 1/30min"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/overview_extendedbolus_label"
                     app:layout_constraintStart_toEndOf="@+id/overview_extendedbolus_colon" />
 
-                <!-- right side AS  -->
                 <TextView
                     android:id="@+id/overview_sensitivity_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/sensitivity_short"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -366,7 +366,7 @@
                     android:id="@+id/overview_sensitivity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:text="100%"
                     android:textSize="16sp"
                     android:textStyle="bold"
