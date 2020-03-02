@@ -284,7 +284,7 @@
                     android:layout_marginStart="24dp"
                     android:text="@string/basal_short"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/overview_extendedbolus_label"
+                    app:layout_constraintBottom_toTopOf="@id/overview_sensitivity_label"
                     app:layout_constraintStart_toEndOf="@+id/overview_bg_guideline"
                     app:layout_constraintTop_toBottomOf="@+id/overview_cob_label" />
 
@@ -309,37 +309,8 @@
                     app:layout_constraintStart_toEndOf="@+id/overview_basebasal_colon" />
 
                 <!-- right side extended  -->
-                <TextView
-                    android:id="@+id/overview_extendedbolus_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:text="@string/extended_bolus_short"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/overview_sensitivity_label"
-                    app:layout_constraintStart_toEndOf="@+id/overview_bg_guideline"
-                    app:layout_constraintTop_toBottomOf="@+id/overview_basebasal_label" />
-
-                <TextView
-                    android:id="@+id/overview_extendedbolus_colon"
-                    android:layout_width="5dp"
-                    android:layout_height="wrap_content"
-                    android:text=":"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/overview_extendedbolus_label"
-                    app:layout_constraintStart_toEndOf="@+id/overview_extendedbolus_label" />
 
                 <!-- right side AS  -->
-                <TextView
-                    android:id="@+id/overview_extendedbolus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="22dp"
-                    android:text="0.50U/h @17:35 1/30min"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/overview_extendedbolus_label"
-                    app:layout_constraintStart_toEndOf="@+id/overview_extendedbolus_colon" />
 
                 <TextView
                     android:id="@+id/overview_sensitivity_label"
@@ -349,9 +320,9 @@
                     android:layout_marginBottom="20dp"
                     android:text="@string/sensitivity_short"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/overview_basebasal_label"
                     app:layout_constraintStart_toEndOf="@+id/overview_bg_guideline"
-                    app:layout_constraintTop_toBottomOf="@+id/overview_extendedbolus_label" />
+                    app:layout_constraintTop_toBottomOf="@id/overview_basebasal_label" />
 
                 <TextView
                     android:id="@+id/overview_sensitivity_colon"
@@ -381,6 +352,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
+                android:padding="2dp"
                 app:layout_constraintBottom_toTopOf="@+id/overview_bggraph"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
