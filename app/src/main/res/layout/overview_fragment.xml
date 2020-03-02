@@ -112,7 +112,7 @@
                     android:paddingBottom="8dp"
                     android:text="@string/initializing"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
