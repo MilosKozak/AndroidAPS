@@ -472,7 +472,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
                 return deliverBolus(detailedBolusInfo);
             } else {
                 // no bolus required, carb only treatment
-                TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, false);
+                TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, true);
 
                 EventOverviewBolusProgress bolusingEvent = EventOverviewBolusProgress.INSTANCE;
                 bolusingEvent.setT(new Treatment());
