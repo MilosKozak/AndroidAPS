@@ -1407,9 +1407,13 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
         }
     }
 
+    public boolean showPumpDateTime() {
+        return pumpTimeHelper.isPumpUTC();
+    }
+
     public String getPumpDateTimeString() {
         Calendar cal = pumpTimeHelper.getPumpCalendar();
-        return DateUtil.toISOString(cal.getTime(), null, cal.getTimeZone());
+        return DateUtil.toISOString(cal.getTime(), "yyyy-MM-dd HH:mm", cal.getTimeZone());
     }
 
 }

@@ -5,10 +5,12 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,8 @@ import info.nightscout.androidaps.utils.SP;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 
+import static android.view.View.GONE;
+
 public class ComboFragment extends Fragment implements View.OnClickListener {
     private CompositeDisposable disposable = new CompositeDisposable();
 
@@ -43,7 +47,13 @@ public class ComboFragment extends Fragment implements View.OnClickListener {
     private Button refreshButton;
     private TextView bolusCount;
     private TextView tbrCount;
-    private TextView timezoneOffset;
+    private LinearLayout utcTimeLayout;
+    private TextView utcTime;
+
+    private Handler updateGUIHandler = new Handler();
+    private Runnable updateGUI = null;
+
+    private static final long updateGUIIntervalMS = 30 * 1000l;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -60,7 +70,8 @@ public class ComboFragment extends Fragment implements View.OnClickListener {
         tempBasalText = view.findViewById(R.id.combo_temp_basal);
         bolusCount = view.findViewById(R.id.combo_bolus_count);
         tbrCount = view.findViewById(R.id.combo_tbr_count);
-        timezoneOffset = view.findViewById(R.id.combo_timezone_offset);
+        utcTimeLayout = view.findViewById(R.id.combo_utc_time_layout);
+        utcTime = view.findViewById(R.id.combo_utc_time);
 
         refreshButton = view.findViewById(R.id.combo_refresh_button);
         refreshButton.setOnClickListener(this);
@@ -81,12 +92,19 @@ public class ComboFragment extends Fragment implements View.OnClickListener {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(event -> updateGui(), FabricPrivacy::logException)
         );
+        updateGUI = () -> {
+            updateGui();
+            updateGUIHandler.postDelayed(updateGUI, updateGUIIntervalMS);
+        };
+        updateGUIHandler.postDelayed(updateGUI, updateGUIIntervalMS);
+
         updateGui();
     }
 
     @Override
     public synchronized void onPause() {
         super.onPause();
+        updateGUIHandler.removeCallbacksAndMessages(null);
         disposable.clear();
     }
 
@@ -242,8 +260,13 @@ public class ComboFragment extends Fragment implements View.OnClickListener {
             bolusCount.setText(String.valueOf(SP.getLong(ComboPlugin.COMBO_BOLUSES_DELIVERED, 0L)));
             tbrCount.setText(String.valueOf(SP.getLong(ComboPlugin.COMBO_TBRS_SET, 0L)));
 
-            // Timezone adjustments
-            timezoneOffset.setText(String.valueOf(plugin.getPumpDateTimeString()));
+            // UTC Pump details
+            if (plugin.showPumpDateTime()) {
+                utcTimeLayout.setVisibility(View.VISIBLE);
+                utcTime.setText(String.valueOf(plugin.getPumpDateTimeString()));
+            } else {
+                utcTimeLayout.setVisibility(View.GONE);
+            }
         }
     }
 }
