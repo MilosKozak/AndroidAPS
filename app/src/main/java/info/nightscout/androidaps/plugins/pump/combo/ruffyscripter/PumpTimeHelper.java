@@ -1,7 +1,5 @@
 package info.nightscout.androidaps.plugins.pump.combo.ruffyscripter;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -22,7 +20,7 @@ public class PumpTimeHelper {
         }
     }
 
-    protected int getPhonePumpOffsetHours() {
+    protected int getPhoneToPumpOffsetHours() {
         if (!isPumpUTC()) {
             return 0;
         }
@@ -34,39 +32,12 @@ public class PumpTimeHelper {
         return (int) Math.round(diff);
     }
 
-    protected int getOffset() {
-        if (!isPumpUTC()) return 0;
-        return -getPhonePumpOffsetHours();
-    }
-
     public boolean isPumpUTC() {
         return SP.getBoolean(R.string.key_pump_uses_utc, false);
     }
-/*
-    public Calendar convertToPhoneTimezone(Calendar cal) {
-        Calendar phoneCal = getPhoneCalendar();
 
-        // Accessing .get calls the internal complete() function
-        // until complete() is called changing the timezone doesn't cause a re-calc
-        cal.get(Calendar.HOUR_OF_DAY);
-
-        cal.setTimeZone(phoneCal.getTimeZone());
-        return cal;
-    }
-
-    public Calendar convertToPumpTimezone(Calendar cal) {
-        Calendar pumpCal = getPhoneCalendar();
-
-        // Accessing .get calls the internal complete() function
-        // until complete() is called changing the timezone doesn't cause a re-calc
-        cal.get(Calendar.HOUR_OF_DAY);
-
-        cal.setTimeZone(pumpCal.getTimeZone());
-        return cal;
-    }
-*/
     public int phoneHourToPumpHour(int hour) {
-        int pumpHour = (hour-getOffset()) % 24;
+        int pumpHour = (hour- getPhoneToPumpOffsetHours()) % 24;
         if (pumpHour < 0) pumpHour += 24;
         return pumpHour;
     }

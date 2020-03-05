@@ -543,7 +543,7 @@ public class RuffyScripter implements RuffyCommands {
                         && pumpTime.getHour() == 23 && pumpTime.getMinute() >= 55) {
                     calendar.add(Calendar.DATE, -1);
                 }
-                calendar.set(Calendar.HOUR, pumpTime.getHour());
+                calendar.set(Calendar.HOUR_OF_DAY, pumpTime.getHour());
                 calendar.set(Calendar.MINUTE, pumpTime.getMinute());
                 calendar.set(Calendar.SECOND, 0);
 
