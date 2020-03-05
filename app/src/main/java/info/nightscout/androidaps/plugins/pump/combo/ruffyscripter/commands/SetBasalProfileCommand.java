@@ -46,9 +46,7 @@ public class SetBasalProfileCommand extends BaseCommand {
             }
             scripter.verifyMenuIsDisplayed(MenuType.BASAL_SET);
 
-            int actualHour = (i-offsetHours) % 24;
-            if (actualHour < 0) actualHour += 24;
-            double requestedRate = basalProfile.hourlyRates[actualHour];
+            double requestedRate = basalProfile.hourlyRates[i];
 
             long change = inputBasalRate(requestedRate);
             if (change != 0) {

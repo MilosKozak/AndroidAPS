@@ -44,11 +44,8 @@ public class ReadBasalProfileCommand extends BaseCommand {
                 throw new CommandException("Attempting to read basal rate for hour " + i + ", but hour " + startTime.getHour() + " is displayed");
             }
 
-            int actualHour = (i-offsetHours) % 24;
-            if (actualHour < 0) actualHour += 24;
-
-            basalProfile.hourlyRates[actualHour] = scripter.readBlinkingValue(Double.class, MenuAttribute.BASAL_RATE);
-            log.debug("Read basal profile, hour " + i + "(" + actualHour + "): " + basalProfile.hourlyRates[actualHour]);
+            basalProfile.hourlyRates[i] = scripter.readBlinkingValue(Double.class, MenuAttribute.BASAL_RATE);
+            log.debug("Read basal profile, hour " + i + ": " + basalProfile.hourlyRates[i]);
         }
 
         log.debug("Basal profile read: " + Arrays.toString(basalProfile.hourlyRates));

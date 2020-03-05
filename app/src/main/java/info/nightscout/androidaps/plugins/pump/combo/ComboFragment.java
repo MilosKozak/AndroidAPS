@@ -20,7 +20,6 @@ import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.configBuilder.ConfigBuilderPlugin;
 import info.nightscout.androidaps.plugins.pump.combo.events.EventComboPumpUpdateGUI;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpState;
-import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.TimezoneOffset;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.history.Bolus;
 import info.nightscout.androidaps.queue.Callback;
 import info.nightscout.androidaps.queue.events.EventQueueChanged;
@@ -244,7 +243,7 @@ public class ComboFragment extends Fragment implements View.OnClickListener {
             tbrCount.setText(String.valueOf(SP.getLong(ComboPlugin.COMBO_TBRS_SET, 0L)));
 
             // Timezone adjustments
-            timezoneOffset.setText(String.valueOf(plugin.getTimezoneOffset()));
+            timezoneOffset.setText(String.valueOf(plugin.getPumpDateTimeString()));
         }
     }
 }

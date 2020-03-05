@@ -22,6 +22,7 @@ import org.monkey.d.ruffy.ruffy.driver.display.menu.MenuTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -60,7 +61,7 @@ public class RuffyScripter implements RuffyCommands {
 
     private final Object screenlock = new Object();
 
-    private TimezoneOffset timezoneOffset = new TimezoneOffset();
+    private PumpTimeHelper pumpTimeHelper;
 
     private IRTHandler mHandler = new IRTHandler.Stub() {
         @Override
@@ -119,9 +120,9 @@ public class RuffyScripter implements RuffyCommands {
         }
     };
 
-    public RuffyScripter(Context context, TimezoneOffset timezoneOffset) {
+    public RuffyScripter(Context context, PumpTimeHelper pumpTimeHelper) {
 
-        this.timezoneOffset = timezoneOffset;
+        this.pumpTimeHelper = pumpTimeHelper;
 
         boolean boundSucceeded = false;
 
@@ -261,7 +262,7 @@ public class RuffyScripter implements RuffyCommands {
 
                         // execute the command
                         cmd.setScripter(RuffyScripter.this);
-                        cmd.setOffsetHours(timezoneOffset.getOffset());
+                        cmd.setPumpTimeHelper(pumpTimeHelper);
                         long cmdStartTime = System.currentTimeMillis();
                         cmd.execute();
                         long cmdEndTime = System.currentTimeMillis();
@@ -534,20 +535,19 @@ public class RuffyScripter implements RuffyCommands {
 
                 MenuTime pumpTime = (MenuTime) menu.getAttribute(MenuAttribute.TIME);
 
-                Date date = new Date();
-                date.setTime(date.getTime() + timezoneOffset.getOffset() * 60 * 60 * 1000);
+                Calendar calendar = pumpTimeHelper.getPumpCalendar();
 
                 // infer yesterday as the pump's date if midnight just passed, but the pump is
                 // a bit behind
-                if (date.getHours() == 0 && date.getMinutes() <= 5
+                if (calendar.get(Calendar.HOUR) == 0 && calendar.get(Calendar.HOUR) <= 5
                         && pumpTime.getHour() == 23 && pumpTime.getMinute() >= 55) {
-                    date.setTime(date.getTime() - 24 * 60 * 60 * 1000);
+                    calendar.add(Calendar.DATE, -1);
                 }
-                date.setHours(pumpTime.getHour());
-                date.setMinutes(pumpTime.getMinute());
-                date.setSeconds(0);
-                date.setTime(date.getTime() - timezoneOffset.getOffset() * 60 * 60 * 1000);
-                state.pumpTime = date.getTime() - date.getTime() % 1000;
+                calendar.set(Calendar.HOUR, pumpTime.getHour());
+                calendar.set(Calendar.MINUTE, pumpTime.getMinute());
+                calendar.set(Calendar.SECOND, 0);
+
+                state.pumpTime = calendar.getTimeInMillis() - (calendar.getTimeInMillis() % 1000);
             }
         } else if (menuType == MenuType.WARNING_OR_ERROR) {
             state.activeAlert = readWarningOrErrorCode();

@@ -55,7 +55,7 @@ import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.CommandResult
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpState;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpWarningCodes;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.RuffyScripter;
-import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.TimezoneOffset;
+import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpTimeHelper;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.WarningOrErrorCode;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.history.Bolus;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.history.PumpHistory;
@@ -93,7 +93,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
     private static final ComboPump pump = new ComboPump();
 
     @NonNull
-    private final TimezoneOffset timezoneOffset = new TimezoneOffset();
+    private final PumpTimeHelper pumpTimeHelper = new PumpTimeHelper();
 
     /**
      * This is used to determine when to pass a bolus cancel request to the scripter
@@ -141,7 +141,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
                 .preferencesId(R.xml.pref_combo)
                 .description(R.string.description_pump_combo)
         );
-        ruffyScripter = new RuffyScripter(MainApp.instance().getApplicationContext(), timezoneOffset);
+        ruffyScripter = new RuffyScripter(MainApp.instance().getApplicationContext(), pumpTimeHelper);
         pumpDescription.setPumpDescription(PumpType.AccuChekCombo);
     }
 
@@ -294,7 +294,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
         BasalProfile basalProfile = new BasalProfile();
         for (int i = 0; i < 24; i++) {
-            double rate = profile.getBasalTimeFromMidnight(i * 60 * 60);
+            double rate = profile.getBasalTimeFromMidnight(pumpTimeHelper.phoneHourToPumpHour(i) * 60 * 60);
 
             /*The Combo pump does hava a different granularity for basal rate:
              * 0.01 - if below 1U/h
@@ -420,7 +420,7 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
     @Override
     public double getBaseBasalRate() {
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        int currentHour = pumpTimeHelper.phoneHourToPumpHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
         return pump.basalProfile.hourlyRates[currentHour];
     }
 
@@ -1395,20 +1395,21 @@ public class ComboPlugin extends PluginBase implements PumpInterface, Constraint
 
     @Override
     public boolean canHandleDST() {
-        return timezoneOffset.isAbsolutePumpTimezone();
+        return pumpTimeHelper.isPumpUTC();
     }
 
     @Override
     public void timeDateOrTimeZoneChanged() {
-        if (timezoneOffset.isAbsolutePumpTimezone()) {
+        if (pumpTimeHelper.isPumpUTC()) {
             // re-apply the current basal profile back to the pump so it can be offset by the new timezone difference
             Profile profile = ProfileFunctions.getInstance().getProfile();
             setNewBasalProfile(profile, true);
         }
     }
 
-    public int getTimezoneOffset() {
-        return timezoneOffset.getOffset();
+    public String getPumpDateTimeString() {
+        Calendar cal = pumpTimeHelper.getPumpCalendar();
+        return DateUtil.toISOString(cal.getTime(), null, cal.getTimeZone());
     }
 
 }

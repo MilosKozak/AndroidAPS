@@ -15,13 +15,13 @@ import java.util.List;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.CommandResult;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpWarningCodes;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.RuffyScripter;
+import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpTimeHelper;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.history.Bolus;
 
 public abstract class BaseCommand implements Command {
     // RS will inject itself here
     protected RuffyScripter scripter;
-
-    protected int offsetHours = 0;
+    protected PumpTimeHelper pumpTimeHelper;
 
     protected CommandResult result;
 
@@ -35,8 +35,8 @@ public abstract class BaseCommand implements Command {
     }
 
     @Override
-    public void setOffsetHours(int offsetHours) {
-        this.offsetHours = offsetHours;
+    public void setPumpTimeHelper(PumpTimeHelper pumpTimeHelper) {
+        this.pumpTimeHelper = pumpTimeHelper;
     }
 
     @Override
@@ -78,14 +78,12 @@ public abstract class BaseCommand implements Command {
         MenuDate date = (MenuDate) scripter.getCurrentMenu().getAttribute(MenuAttribute.DATE);
         MenuTime time = (MenuTime) scripter.getCurrentMenu().getAttribute(MenuAttribute.TIME);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.HOUR, offsetHours);
+        Calendar calendar = pumpTimeHelper.getPumpCalendar();
         int year = calendar.get(Calendar.YEAR);
         if (date.getMonth() > calendar.get(Calendar.MONTH) + 1) {
             year -= 1;
         }
         calendar.set(year, date.getMonth() - 1, date.getDay(), time.getHour(), time.getMinute(), 0);
-        calendar.add(Calendar.HOUR, -offsetHours);
 
         // round to second
         return (calendar.getTimeInMillis() - calendar.getTimeInMillis() % 1000);

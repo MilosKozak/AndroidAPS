@@ -3,12 +3,10 @@
 
     <PreferenceCategory android:title="@string/combopump">
 
-        <ListPreference
-            android:entries="@array/comboTimezoneLabels"
-            android:entryValues="@array/comboTimezoneValues"
-            android:key="@string/key_combo_timezone"
-            android:title="@string/pumptimezone"
-            android:defaultValue="Phone" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_pump_uses_utc"
+            android:title="@string/pumpt_uses_utc" />
 
     </PreferenceCategory>
 

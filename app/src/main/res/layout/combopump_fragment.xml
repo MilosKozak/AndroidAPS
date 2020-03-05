@@ -482,7 +482,7 @@
                     android:layout_weight="1.5"
                     android:gravity="end"
                     android:paddingRight="5dp"
-                    android:text="@string/combo_timezone_offset"
+                    android:text="@string/utc_pump_time"
                     android:textSize="14sp" />
 
                 <TextView

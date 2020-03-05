@@ -4,6 +4,7 @@ import java.util.List;
 
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.RuffyScripter;
 import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.CommandResult;
+import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.PumpTimeHelper;
 
 /**
  * Interface for all commands to be executed by the pump.
@@ -14,7 +15,7 @@ import info.nightscout.androidaps.plugins.pump.combo.ruffyscripter.CommandResult
  */
 public interface Command {
     void setScripter(RuffyScripter scripter);
-    void setOffsetHours(int offsetHours);
+    void setPumpTimeHelper(PumpTimeHelper pumpTimeHelper);
     List<String> validateArguments();
     boolean needsRunMode();
     void execute();
