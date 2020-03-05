@@ -414,7 +414,7 @@
     <string name="deletefuturetreatments">Elimina trattamenti nel futuro</string>
     <string name="eatingsoon">Pasto a breve</string>
     <string name="hypo">Ipoglicemia</string>
-    <string name="activity">Attività</string>
+    <string name="activity">Attività fisica</string>
     <string name="removerecord">Rimuovi record</string>
     <string name="danar_stats">Statistiche DanaR</string>
     <string name="danar_stats_cumulative_tdd">TDD cumulativo</string>
@@ -667,8 +667,8 @@
     <string name="default_temptargets">Temp-Target predefiniti</string>
     <string name="eatingsoon_duration">target \"pasto a breve\" - durata</string>
     <string name="eatingsoon_target">target \"pasto a breve\"</string>
-    <string name="activity_duration">target \"attività\" - durata</string>
-    <string name="activity_target">target \"attività\"</string>
+    <string name="activity_duration">target \"attività fisica\" - durata</string>
+    <string name="activity_target">target \"attività fisica\"</string>
     <string name="hypo_duration">target \"ipoglicemia\" - durata</string>
     <string name="hypo_target">target \"ipoglicemia\"</string>
     <string name="danar_history_prime">Riempimento</string>
@@ -789,7 +789,7 @@
     <string name="enablesmbwithcob">Abilita SMB con COB</string>
     <string name="enablesmbwithcob_summary">Abilita SMB quando COB è attivo (ci sono carboidrati non assorbiti).</string>
     <string name="enablesmbwithtemptarget">Abilita SMB con target temporanei</string>
-    <string name="enablesmbwithtemptarget_summary">Abilita SMB quando è attivo un target temporaneo (pasto a breve, attività)</string>
+    <string name="enablesmbwithtemptarget_summary">Abilita SMB quando è attivo un target temporaneo (pasto a breve, attività fisica)</string>
     <string name="enablesmbwithhightemptarget">Abilita SMB con target temporanei \"alti\"</string>
     <string name="enablesmbwithhightemptarget_summary">Abilita SMB quando è attivo un target temporaneo \"alto\"</string>
     <string name="let_temp_basal_run">Lascia eseguire la basale temporanea</string>
@@ -815,7 +815,7 @@
     <string name="allow_automated_crash_reporting">Consenti la segnalazione automatica degli errori e l\'invio dei dati di utilizzo delle funzioni dell\'app agli sviluppatori tramite il servizio fabric.io.</string>
     <string name="g5appnotdetected">Aggiorna la tua app Dexcom ad una versione supportata</string>
     <string name="dexcom_app_not_installed">App Dexcom non installata.</string>
-    <string name="start_activity_tt">Avvia TT Attività</string>
+    <string name="start_activity_tt">Avvia TT Attività fisica</string>
     <string name="start_eating_soon_tt">Avvia TT Pasto a breve</string>
     <string name="temptargetshort">TT</string>
     <string name="do_not_bolus_record_only">No bolo, solo record</string>
