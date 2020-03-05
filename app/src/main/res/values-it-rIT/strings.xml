@@ -649,7 +649,7 @@
     <string name="invalid">NON VALIDO</string>
     <string name="waitingforpairing">In attesa di associare il micro</string>
     <string name="pairingok">Associazione OK</string>
-    <string name="pairingtimedout">Time out associazione micro</string>
+    <string name="pairingtimedout">Time out associazione</string>
     <string name="pairing">Accoppiamento</string>
     <string name="danars_nodeviceavailable">Nessun dispositivo trovato finora</string>
     <string name="emptyreservoir">Serbatoio vuoto</string>
@@ -890,7 +890,7 @@
     <string name="pump_paused">Micro in pausa</string>
     <string name="absorption_cutoff_title">Max tempo assorbimento pasto [h]</string>
     <string name="absorption_cutoff_summary">Tempo entro il quale ogni pasto si considera assorbito. Eventuali carboidrati rimanenti verranno tagliati fuori.</string>
-    <string name="time">Tempo</string>
+    <string name="time">Offset</string>
     <string name="overview_show_notes_field_in_dialogs_title">Finestre tratt.nto: mostra campo note</string>
     <string name="next_button">Avanti</string>
     <string name="previous_button">Indietro</string>
@@ -1164,7 +1164,7 @@
     <string name="sms_wrongcode">Codice errato. Comando annullato.</string>
     <string name="notconfigured">Non configurato</string>
     <string name="profileswitchcreated">Cambio profilo creato</string>
-    <string name="recurringTime">Tempo ricorrente</string>
+    <string name="recurringTime">Tempo di ripetizione</string>
     <string name="every">Ogni</string>
     <string name="never">Mai</string>
     <string name="mins">%1$dmin</string>
@@ -1377,7 +1377,7 @@
     <string name="loading">Caricamento ...</string>
     <string name="snooze">Posticipa</string>
     <string name="time_range">Intervallo di tempo</string>
-    <string name="timerange_value">Il tempo è compreso tra %1$s e %2$s</string>
+    <string name="timerange_value">L\'intervallo di tempo è compreso tra %1$s e %2$s</string>
     <string name="between">Tra </string>
     <string name="close">Chiudi</string>
     <string name="increasingmaxbasal">Aumento del valore max basale perché l\'impostazione è inferiore alla tua basale massima nel profilo</string>
@@ -1419,7 +1419,7 @@
     <string name="id">ID:</string>
     <string name="submit">Invia</string>
     <string name="mostcommonprofile">Profilo più comune:</string>
-    <string name="survey_comment">Nota: solo i dati visibili su questa schermata verranno caricati (in modo anonimo). Un ID è assegnato a questa installazione di AndroidAPS. Puoi inviare nuovamente i dati se il tuo profilo principale viene modificato, ma lascialo in esecuzione almeno per una settimana per rendere visibili i risultati nel time in range. Il tuo aiuto è apprezzato.</string>
+    <string name="survey_comment">Nota: solo i dati visibili su questa schermata verranno caricati (in modo anonimo). Un ID è assegnato a questa installazione di AndroidAPS. Puoi inviare nuovamente i dati se il tuo profilo principale viene modificato, ma lascialo in esecuzione almeno per una settimana per rendere il risultato visibile nel time in range (TIR). Il tuo aiuto è apprezzato.</string>
     <string name="nav_survey">Sondaggio</string>
     <string name="invalidage">Inserimento età non valido</string>
     <string name="invalidweight">Inserimento peso non valido</string>
