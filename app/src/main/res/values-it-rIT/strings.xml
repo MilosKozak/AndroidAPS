@@ -119,7 +119,7 @@
     <string name="configbuilder_treatments">Trattamenti</string>
     <string name="configbuilder_treatments_description">Quale plugin dovrebbe essere utilizzato per la gestione del trattamento?</string>
     <string name="configbuilder_profile">Profilo</string>
-    <string name="configbuilder_profile_description">Quale profilo dovrebbe usare AndroidAPS?</string>
+    <string name="configbuilder_profile_description">Quale profilo AndroidAPS dovrebbe usare?</string>
     <string name="configbuilder_aps">APS</string>
     <string name="configbuilder_aps_description">Quale algoritmo APS dovrebbe apportare aggiustamenti terapeutici?</string>
     <string name="configbuilder_general">Generale</string>
@@ -890,7 +890,7 @@
     <string name="pump_paused">Micro in pausa</string>
     <string name="absorption_cutoff_title">Max tempo assorbimento pasto [h]</string>
     <string name="absorption_cutoff_summary">Tempo entro il quale ogni pasto si considera assorbito. Eventuali carboidrati rimanenti verranno tagliati fuori.</string>
-    <string name="time">Momento</string>
+    <string name="time">Tempo</string>
     <string name="overview_show_notes_field_in_dialogs_title">Finestre tratt.nto: mostra campo note</string>
     <string name="next_button">Avanti</string>
     <string name="previous_button">Indietro</string>
@@ -1164,7 +1164,7 @@
     <string name="sms_wrongcode">Codice errato. Comando annullato.</string>
     <string name="notconfigured">Non configurato</string>
     <string name="profileswitchcreated">Cambio profilo creato</string>
-    <string name="recurringTime">Momento ricorrente</string>
+    <string name="recurringTime">Tempo ricorrente</string>
     <string name="every">Ogni</string>
     <string name="never">Mai</string>
     <string name="mins">%1$dmin</string>
