@@ -269,7 +269,7 @@
     <string name="smscommunicator_mealbolusdelivered">Bolo pasto di %1$.2fU erogato con successo</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Target %1$s per %2$d minuti</string>
     <string name="smscommunicator_tt_set">Target %1$s per %2$d minuti impostato con successo</string>
-    <string name="smscommunicator_tt_canceled">Temp-Target cancellato con successo</string>
+    <string name="smscommunicator_tt_canceled">Temp-Target: cancellato con successo</string>
     <string name="bolusdelivering">Erogazione di %1$.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Consenti comandi remoti tramite SMS</string>
     <string name="glucosetype_finger">Dito</string>
@@ -343,7 +343,7 @@
     <string name="smscommunicator_extendedstopreplywithcode">Per stoppare il bolo esteso rispondi col codice %1$s</string>
     <string name="smscommunicator_tempbasalcanceled">Basale temporanea cancellata</string>
     <string name="smscommunicator_extendedcanceled">Bolo esteso cancellato</string>
-    <string name="smscommunicator_tempbasalcancelfailed">Cancellazione basale temporanea fallita</string>
+    <string name="smscommunicator_tempbasalcancelfailed">Basale temporanea: cancellazione fallita</string>
     <string name="smscommunicator_extendedcancelfailed">Cancellazione bolo esteso fallita</string>
     <string name="smscommunicator_unknowncommand">Comando sconosciuto o risposta errata</string>
     <string name="quickwizard">Calcolatore Rapido</string>
@@ -1161,7 +1161,7 @@
     <string name="storage">vincolo di archiviazione interna</string>
     <string name="diskfull">Libera almeno %1$d MB dalla memoria interna! Loop disabilitato!</string>
     <string name="wrongformat">Formato errato</string>
-    <string name="sms_wrongcode">Codice errato. Comando annullato.</string>
+    <string name="sms_wrongcode">Codice errato. Comando cancellato.</string>
     <string name="notconfigured">Non configurato</string>
     <string name="profileswitchcreated">Cambio profilo creato</string>
     <string name="recurringTime">Tempo ricorrente</string>
