@@ -269,7 +269,7 @@
     <string name="smscommunicator_mealbolusdelivered">Bolo pasto di %1$.2fU erogato con successo</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Target %1$s per %2$d minuti</string>
     <string name="smscommunicator_tt_set">Target %1$s per %2$d minuti impostato con successo</string>
-    <string name="smscommunicator_tt_canceled">Temp-Target: cancellato con successo</string>
+    <string name="smscommunicator_tt_canceled">Temp-Target cancellato con successo</string>
     <string name="bolusdelivering">Erogazione di %1$.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Consenti comandi remoti tramite SMS</string>
     <string name="glucosetype_finger">Dito</string>
@@ -344,7 +344,7 @@
     <string name="smscommunicator_tempbasalcanceled">Basale temporanea cancellata</string>
     <string name="smscommunicator_extendedcanceled">Bolo esteso cancellato</string>
     <string name="smscommunicator_tempbasalcancelfailed">Basale temporanea: cancellazione fallita</string>
-    <string name="smscommunicator_extendedcancelfailed">Cancellazione bolo esteso fallita</string>
+    <string name="smscommunicator_extendedcancelfailed">Bolo esteso: cancellazione fallita</string>
     <string name="smscommunicator_unknowncommand">Comando sconosciuto o risposta errata</string>
     <string name="quickwizard">Calcolatore Rapido</string>
     <string name="quickwizardsettings">Impostazioni Calcolatore Rapido</string>
@@ -771,7 +771,7 @@
     <string name="combo_reservoir_normal">Normale</string>
     <string name="combo_notification_check_time_date">Necessario aggiornare orologio micro</string>
     <string name="combo_warning">Attenzione</string>
-    <string name="combo_pump_tbr_cancelled_warrning">Avviso TBR CANCELLATO confermato</string>
+    <string name="combo_pump_tbr_cancelled_warrning">Avviso TBR CANCELLATO: confermato</string>
     <string name="combo_error_no_connection_no_bolus_delivered">Il micro potrebbe non essere raggiungibile. Nessun bolo erogato</string>
     <string name="combo_error_no_bolus_delivered">Erogazione bolo fallita. Sembra che nessun bolo sia stato erogato. Per sicurezza, controlla il micro per evitare un doppio bolo e se è tutto ok, erogalo di nuovo. Come protezione da eventuali \"bug\", i boli non vengono ripetuti automaticamente.</string>
     <string name="combo_error_partial_bolus_delivered">Solo la quantità di %1$.2f U del bolo richiesto di %2$.2f U è stata erogata a causa di un errore. Controlla il micro per verificare quanto accaduto e intraprendi le azioni necessarie.</string>
