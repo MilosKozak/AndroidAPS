@@ -1453,4 +1453,5 @@
     <string name="loop_smbexecution_time_label">Čas provedení SMB</string>
     <string name="loop_tbrrequest_time_label">Čas požadavku dočasného bazálu</string>
     <string name="loop_tbrexecution_time_label">Čas provedení dočasného bazálu</string>
+    <string name="insight_alert_notification_channel">Upozornění pumpy Insight</string>
 </resources>
