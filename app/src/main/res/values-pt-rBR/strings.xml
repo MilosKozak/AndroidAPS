@@ -1453,4 +1453,5 @@
     <string name="loop_smbexecution_time_label">Hora de execução do SMB</string>
     <string name="loop_tbrrequest_time_label">Hora de solicitação Basal Temp</string>
     <string name="loop_tbrexecution_time_label">Hora de execução Basal Temp</string>
+    <string name="insight_alert_notification_channel">Alertas Bomba Insight</string>
 </resources>
