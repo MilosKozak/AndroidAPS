@@ -365,22 +365,22 @@ task full_clean(type: Delete) {
 //    }
 //}
 // Clear Application Data (once) before running instrumentation test
-tasks.whenTaskAdded { task ->
-    // Both of these targets are equivalent today, although in future connectedCheck
-    // will also include connectedUiAutomatorTest (not implemented yet)
-    if(task.name == "connectedAndroidTest" || task.name == "connectedCheck"){
-        task.dependsOn(clearMainAppData)
-    }
-}
+//tasks.whenTaskAdded { task ->
+//    // Both of these targets are equivalent today, although in future connectedCheck
+//    // will also include connectedUiAutomatorTest (not implemented yet)
+//    if(task.name == "connectedAndroidTest" || task.name == "connectedCheck"){
+//        task.dependsOn(clearMainAppData)
+//    }
+//}
 
 //clean.dependsOn full_clean
 preBuild.dependsOn copyLibs
 
-printf('--------------\n')
-printf('isMaster: %s\n', isMaster().toString())
-printf('allCommited: %s\n', allCommited().toString())
-printf('--------------\n')
-if (isMaster() && !allCommited()) {
-    throw new GradleException('There are uncommitted changes or git system is not available. Clone sources again as described in wiki and do not allow gradle update')
-}
+//printf('--------------\n')
+//printf('isMaster: %s\n', isMaster().toString())
+//printf('allCommited: %s\n', allCommited().toString())
+//printf('--------------\n')
+//if (isMaster() && !allCommited()) {
+//    throw new GradleException('There are uncommitted changes or git system is not available. Clone sources again as described in wiki and do not allow gradle update')
+//}
 
