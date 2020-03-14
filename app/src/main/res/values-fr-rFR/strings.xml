@@ -145,7 +145,7 @@
     <string name="overview_newtempbasal_basalpercent">Valeur Basal [%]</string>
     <string name="setbasalquestion">Accepter nouveau basal temporaire :</string>
     <string name="overview_treatment_label">Traitement</string>
-    <string name="overview_calculator_label">Calculatrice</string>
+    <string name="overview_calculator_label">Assistant</string>
     <string name="constraintapllied">Restriction appliquée !</string>
     <string name="confirmation">Confirmation</string>
     <string name="bolus">Bolus</string>
