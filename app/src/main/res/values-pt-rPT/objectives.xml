@@ -35,6 +35,7 @@
     <string name="objectives_useloop">Mostrar conteúdo do plugin Loop</string>
     <string name="objectives_usescale">Utilizar a função de escala premindo longamente gráfico Glic</string>
     <string name="objectives_button_enter">Inserir</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Se tiver pelo menos 3 meses de experiência com Close Loop com outros sistemas, pode-se qualificar para um código para ignorar objectivos. Ver https://androidaps.readthedocs.io/en/latest/EN/Usage/Objectives.html#skip-objectives para mais detalhes.</string>
     <string name="codeaccepted">Código aceite</string>
     <string name="codeinvalid">Código inválido</string>
     <string name="objectives_exam_objective">Prove seu conhecimento</string>
