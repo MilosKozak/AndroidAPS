@@ -36,6 +36,7 @@ die Formel maxIOB = durchschnittlicher Essensbolus + 3 x höchste Basalrate</str
     <string name="objectives_useloop">Zeige den Inhalt des Loop-Plugins an</string>
     <string name="objectives_usescale">Nutze die Skalierfunktion. Drücke dazu lange auf das BZ-Diagramm</string>
     <string name="objectives_button_enter">OK</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Wenn Du mindestens 3 Monate Closed-Loop-Erfahrung mit einem anderen System hast, kannst Du evtl. einen Code zum Überspringen der Objektives erhalten. Weitere Details unter https://androidaps.readthedocs.io/en/latest/CROWDIN/de/Usage/Objectives.html#objectives-ziele-uberspringen.</string>
     <string name="codeaccepted">Code akzeptiert</string>
     <string name="codeinvalid">Code ungültig</string>
     <string name="objectives_exam_objective">Prüfe Dein Wissen</string>
