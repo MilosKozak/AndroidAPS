@@ -99,7 +99,7 @@ class KeepAliveReceiver : BroadcastReceiver() {
                 log.debug("Last connection: " + DateUtil.dateAndTimeString(lastConnection))
             // sometimes keep alive broadcast stops
             // as as workaround test if readStatus was requested before an alarm is generated
-            if (lastReadStatus != 0L && lastReadStatus > System.currentTimeMillis() - T.mins(5).msecs()) {
+            if (lastReadStatus == 0L && lastConnection < System.currentTimeMillis() - T.mins(5).msecs()) {
                 LocalAlertUtils.checkPumpUnreachableAlarm(lastConnection, isStatusOutdated)
             }
             if (!pump.isThisProfileSet(profile) && !ConfigBuilderPlugin.getPlugin().commandQueue.isRunning(Command.CommandType.BASALPROFILE)) {
