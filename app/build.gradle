@@ -312,8 +312,8 @@ dependencies {
     implementation 'com.scottyab:rootbeer-lib:0.0.7'
 
     // Tizen
-    implementation(name: "accessory-v2.6.1", ext: "jar")
-    implementation(name: "sdk-v1.0.0", ext: "jar")
+    // implementation(name: "accessory-v2.6.1", ext: "jar")
+    // implementation(name: "sdk-v1.0.0", ext: "jar")
     
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha03'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
