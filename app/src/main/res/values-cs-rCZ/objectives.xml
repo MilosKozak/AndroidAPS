@@ -35,6 +35,7 @@
     <string name="objectives_useloop">Zobrazte obsah modulu Smyčka</string>
     <string name="objectives_usescale">Přepněte režim zobrazení dlouhým stisknutím grafu glykémie</string>
     <string name="objectives_button_enter">Zadat</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Pokud máte alespoň 3 měsíce zkušeností s uzavřenou smyčkou na jiných systémech, můžete získat kód, který vám umožní přeskočit cíle. Více informací najdete na https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/Objectives.html#skip-objectives.</string>
     <string name="codeaccepted">Kód přijat</string>
     <string name="codeinvalid">Neplatný kód</string>
     <string name="objectives_exam_objective">Prokažte své znalosti</string>
