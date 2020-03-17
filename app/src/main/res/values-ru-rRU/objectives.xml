@@ -35,6 +35,7 @@
     <string name="objectives_useloop">Просмотр содержимого модуля Цикл Loop</string>
     <string name="objectives_usescale">Применить функцию масштабирования по долгому нажатию на диаграмму ГК</string>
     <string name="objectives_button_enter">Ввод</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Если у вас есть хотя бы три месяца работы с замкнутым циклом с другими системами, то можно получить код пропуска. Подробности смотрите по адресу https://androidaps.readthedocs.io/en/latest/EN/Usage/Objectives.html#skip-objectives.</string>
     <string name="codeaccepted">Код принят</string>
     <string name="codeinvalid">Неверный код</string>
     <string name="objectives_exam_objective">Подтвердите ваши знания</string>
