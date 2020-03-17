@@ -35,6 +35,7 @@
     <string name="objectives_useloop">Zobrazte obsah modulu uzavretý okruh</string>
     <string name="objectives_usescale">Prepnite režim zobrazenia dlhým stlačením grafu glykémie</string>
     <string name="objectives_button_enter">Zadať</string>
+    <string name="enter_code_obtained_from_developers_to_bypass_the_rest_of_objectives">Pokiaľ máte aspoň 3 mesiace skúseností s uzavretým okruhom na iných systémoch, môžete získať kód, ktorý vám umožní preskočiť ciele. Viac informácií nájdete na https://androidaps.readthedocs.io/en/latest/CROWDIN/cs/Usage/Objectives.html#skip-objectives.</string>
     <string name="codeaccepted">Kód akceptovaný</string>
     <string name="codeinvalid">Neplatný kód</string>
     <string name="objectives_exam_objective">Preukážte svoje znalosti</string>
