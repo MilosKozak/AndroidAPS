@@ -5,12 +5,16 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.PutDataMapRequest;
@@ -23,6 +27,8 @@ import com.samsung.android.sdk.accessory.SAAuthenticationToken;
 import com.samsung.android.sdk.accessory.SAPeerAgent;
 import com.samsung.android.sdk.accessory.SASocket;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,8 +60,10 @@ import info.nightscout.androidaps.plugins.iob.iobCobCalculator.IobCobCalculatorP
 import info.nightscout.androidaps.plugins.pump.common.utils.ByteUtil;
 import info.nightscout.androidaps.plugins.treatments.Treatment;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
+import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DecimalFormatter;
 import info.nightscout.androidaps.utils.SP;
+import info.nightscout.androidaps.utils.SafeParse;
 import info.nightscout.androidaps.utils.ToastUtils;
 
 import static android.app.Service.START_STICKY;
@@ -76,17 +84,17 @@ public class TizenUpdaterService extends SAAgent {
     // Draft, to be updated with Tizen library
     public static final String WEARABLE_DATA_PATH = "/nightscout_watch_data";
 
-    public static final int WEARABLE_RESEND_PATH = 110;
-    private static final int WEARABLE_CANCELBOLUS_PATH = 115;
-    public static final int WEARABLE_CONFIRM_ACTIONSTRING_PATH = 120;
-    public static final int WEARABLE_INITIATE_ACTIONSTRING_PATH = 125;
+    private static final int TIZEN_RESEND_CH = SafeParse.stringToInt(MainApp.gs(R.string.tizen_resend_ch));
+    private static final int TIZEN_CANCELBOLUS_CH = SafeParse.stringToInt(MainApp.gs(R.string.tizen_cancelbolus_ch));
+    private static final int TIZEN_CONFIRM_ACTIONSTRING_CH = SafeParse.stringToInt(MainApp.gs(R.string.tizen_confirm_actionstring_ch));
+    private static final int TIZEN_INITIATE_ACTIONSTRING_CH = SafeParse.stringToInt(MainApp.gs(R.string.tizen_initiate_actionstring_ch));
 
     private static final String OPEN_SETTINGS_PATH = "/openwearsettings";
     private static final String NEW_STATUS_PATH = "/sendstatustowear";
     private static final String NEW_PREFERENCES_PATH = "/sendpreferencestowear";
     public static final String BASAL_DATA_PATH = "/nightscout_watch_basal";
     public static final String BOLUS_PROGRESS_PATH = "/nightscout_watch_bolusprogress";
-    public static final String ACTION_CONFIRMATION_REQUEST_PATH = "/nightscout_watch_actionconfirmationrequest";
+    public static final int ACTION_CONFIRMATION_REQUEST_CH = SafeParse.stringToInt(MainApp.gs(R.string.action_confirm_actionstring_ch));
     public static final String ACTION_CHANGECONFIRMATION_REQUEST_PATH = "/nightscout_watch_changeconfirmationrequest";
     public static final String ACTION_CANCELNOTIFICATION_REQUEST_PATH = "/nightscout_watch_cancelnotificationrequest";
 
@@ -94,6 +102,8 @@ public class TizenUpdaterService extends SAAgent {
     public static final String logPrefix = "Tizen::";
 
     boolean wear_integration = false;
+    private static boolean lastLoopStatus;
+
     private Handler handler;
 
     private static final String TAG = "HelloAccessory(P)";
@@ -280,23 +290,23 @@ public class TizenUpdaterService extends SAAgent {
             }
 
             if (wear_integration && SP.getBoolean(TIZEN_ENABLE, false)) {
-                if (channelId == WEARABLE_RESEND_PATH) {
+                if (channelId == TIZEN_RESEND_CH) {
                     // todo
                     // resendData();
                 }
 
-                if (channelId == WEARABLE_CANCELBOLUS_PATH) {
+                if (channelId == TIZEN_CANCELBOLUS_CH) {
                     // todo
                     // cancelBolus();
                 }
 
-                if (channelId == WEARABLE_INITIATE_ACTIONSTRING_PATH) {
+                if (channelId == TIZEN_INITIATE_ACTIONSTRING_CH) {
                     String actionstring = data.toString();
                     LOGGER.info("Tizen initiate: " + actionstring);
                     ActionStringHandler.handleInitiate(actionstring);
                 }
 
-                if (channelId == WEARABLE_CONFIRM_ACTIONSTRING_PATH) {
+                if (channelId == TIZEN_CONFIRM_ACTIONSTRING_CH) {
                     String actionstring = data.toString();
                     LOGGER.info("Tizen Confirm: " + actionstring);
                     ActionStringHandler.handleConfirmation(actionstring);
@@ -352,20 +362,23 @@ public class TizenUpdaterService extends SAAgent {
             handler.post(() -> {
 
                 if (isConnectionEstablished()) {
-
+                    if (ACTION_RESEND.equals(action)) {
+                        resendData();
+                    } else
                     if (ACTION_SEND_STATUS.equals(action)) {
                         sendStatus();
                     } else if (ACTION_SEND_BASALS.equals(action)) {
                         sendBasals();
+                    } else if (ACTION_SEND_ACTIONCONFIRMATIONREQUEST.equals(action)) {
+                        String title = intent.getStringExtra("title");
+                        String message = intent.getStringExtra("message");
+                        String actionstring = intent.getStringExtra("actionstring");
+                        sendActionConfirmationRequest(title, message, actionstring);
                     } else {
                         sendData();
                     }
                 }
 
-
-//                if (googleApiClient.isConnected()) {
-//                    if (ACTION_RESEND.equals(action)) {
-//                        resendData();
 //                    } else if (ACTION_OPEN_SETTINGS.equals(action)) {
 //                        sendNotification();
 //                    } else if (ACTION_SEND_STATUS.equals(action)) {
@@ -374,11 +387,6 @@ public class TizenUpdaterService extends SAAgent {
 //                        sendBasals();
 //                    } else if (ACTION_SEND_BOLUSPROGRESS.equals(action)) {
 //                        sendBolusProgress(intent.getIntExtra("progresspercent", 0), intent.hasExtra("progressstatus") ? intent.getStringExtra("progressstatus") : "");
-//                    } else if (ACTION_SEND_ACTIONCONFIRMATIONREQUEST.equals(action)) {
-//                        String title = intent.getStringExtra("title");
-//                        String message = intent.getStringExtra("message");
-//                        String actionstring = intent.getStringExtra("actionstring");
-//                        sendActionConfirmationRequest(title, message, actionstring);
 //                    } else if (ACTION_SEND_CHANGECONFIRMATIONREQUEST.equals(action)) {
 //                        String title = intent.getStringExtra("title");
 //                        String message = intent.getStringExtra("message");
@@ -399,20 +407,110 @@ public class TizenUpdaterService extends SAAgent {
         return START_STICKY;
     }
 
+    private void resendData() {
+        if (isConnectionEstablished()) {
+            long startTime = System.currentTimeMillis() - (long) (60000 * 60 * 5.5);
+            BgReading last_bg = DatabaseHelper.lastBg();
+
+            if (last_bg == null) return;
+
+            List<BgReading> graph_bgs = MainApp.getDbHelper().getBgreadingsDataFromTime(startTime, true);
+            GlucoseStatus glucoseStatus = GlucoseStatus.getGlucoseStatusData(true);
+
+            if (!graph_bgs.isEmpty()) {
+                /*
+                DataMap entries = dataMapSingleBG(last_bg, glucoseStatus);
+                if (entries == null) {
+                    ToastUtils.showToastInUiThread(this, MainApp.gs(R.string.noprofile));
+                    return;
+                }
+                final ArrayList<DataMap> dataMaps = new ArrayList<>(graph_bgs.size());
+                for (BgReading bg : graph_bgs) {
+                    DataMap dataMap = dataMapSingleBG(bg, glucoseStatus);
+                    if (dataMap != null) {
+                        dataMaps.add(dataMap);
+                    }
+                }
+                entries.putDataMapArrayList("entries", dataMaps);
+                executeTask(new SendToDataLayerThread(WEARABLE_DATA_PATH, googleApiClient), entries);
+
+                 */
+            }
+            sendPreferences();
+            sendBasals();
+            sendStatus();
+        }
+    }
+
+    private void sendPreferences() {
+        if (isConnectionEstablished()) {
+            /*
+            boolean wearcontrol = SP.getBoolean("wearcontrol", false);
+
+            PutDataMapRequest dataMapRequest = PutDataMapRequest.create(NEW_PREFERENCES_PATH);
+            //unique content
+            dataMapRequest.getDataMap().putLong("timestamp", System.currentTimeMillis());
+            dataMapRequest.getDataMap().putBoolean("wearcontrol", wearcontrol);
+            PutDataRequest putDataRequest = dataMapRequest.asPutDataRequest();
+            debugData("sendPreferences", putDataRequest);
+            Wearable.DataApi.putDataItem(googleApiClient, putDataRequest);
+            
+             */
+        } else {
+            Log.e("SendStatus", "No connection to wearable available!");
+        }
+    }
+
+
+    private void sendActionConfirmationRequest(String title, String message, String actionstring) {
+        if (isConnectionEstablished()) {
+            try {
+                JSONObject data = new JSONObject();
+                data.put("timestamp", System.currentTimeMillis());
+                data.put("actionConfirmationRequest", "actionConfirmationRequest");
+                data.put("title", title);
+                data.put("message", message);
+                data.put("actionstring", actionstring);
+
+            } catch (JSONException e) {
+                LOGGER.info("Unhandled exception", e); //LOGGER.info("sendData: mConnectionHandler(isNull)=" + (mConnectionHandler == null));
+            }
+            /*
+            dataMapRequest.getDataMap().putLong("timestamp", System.currentTimeMillis());
+            dataMapRequest.getDataMap().putString("actionConfirmationRequest", "actionConfirmationRequest");
+            dataMapRequest.getDataMap().putString("title", title);
+            dataMapRequest.getDataMap().putString("message", message);
+            dataMapRequest.getDataMap().putString("actionstring", actionstring);
+             */
+            String rmessage = databaseList().toString();
+            LOGGER.info("Requesting confirmation from tizen: " + actionstring);
+
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        mConnectionHandler.send(ACTION_CONFIRMATION_REQUEST_CH, rmessage.getBytes());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+
+        } else {
+            Log.e("confirmationRequest", "No connection to tizen available!");
+        }
+    }
+
+
     private void sendBasals() {
-//        if (googleApiClient != null && !googleApiClient.isConnected() && !googleApiClient.isConnecting()) {
-//            googleApiConnect();
-//        }
+//      if (isConnectionEstablished2()) {
 //
 //        long now = System.currentTimeMillis();
 //        final long startTimeWindow = now - (long) (60000 * 60 * 5.5);
-//
 //
 //        ArrayList<DataMap> basals = new ArrayList<>();
 //        ArrayList<DataMap> temps = new ArrayList<>();
 //        ArrayList<DataMap> boluses = new ArrayList<>();
 //        ArrayList<DataMap> predictions = new ArrayList<>();
-//
 //
 //        Profile profile = ProfileFunctions.getInstance().getProfile();
 //
@@ -440,7 +538,6 @@ public class TizenUpdaterService extends SAAgent {
 //                tb_start = runningTime;
 //            }
 //        }
-//
 //
 //        for (; runningTime < now; runningTime += 5 * 60 * 1000) {
 //            Profile profileTB = ProfileFunctions.getInstance().getProfile(runningTime);
@@ -536,14 +633,86 @@ public class TizenUpdaterService extends SAAgent {
 //            }
 //        }
 //
-//
 //        DataMap dm = new DataMap();
 //        dm.putDataMapArrayList("basals", basals);
 //        dm.putDataMapArrayList("temps", temps);
 //        dm.putDataMapArrayList("boluses", boluses);
 //        dm.putDataMapArrayList("predictions", predictions);
 //
-//        executeTask(new SendToDataLayerThread(BASAL_DATA_PATH, googleApiClient), dm);
+        /*
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        mConnectionHandler.send(ACTION_CONFIRMATION_REQUEST_CH, message.getBytes());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+
+         */
+    }
+
+
+    @NonNull
+    private String generateStatusString(Profile profile, String currentBasal, String iobSum, String iobDetail, String bgiString) {
+        String status = "";
+        if (profile == null) {
+            status = MainApp.gs(R.string.noprofile);
+            return status;
+        }
+        LoopPlugin activeloop = LoopPlugin.getPlugin();
+        if (!activeloop.isEnabled(PluginType.LOOP)) {
+            status += MainApp.gs(R.string.disabledloop) + "\n";
+            lastLoopStatus = false;
+        } else {
+            lastLoopStatus = true;
+        }
+        String iobString = "";
+        if (SP.getBoolean(R.string.key_wear_detailediob, false)) {
+            iobString = iobSum + " " + iobDetail;
+        } else {
+            iobString = iobSum + "U";
+        }
+        status += currentBasal + " " + iobString;
+        //add BGI if shown, otherwise return
+        if (SP.getBoolean(R.string.key_wear_showbgi, false)) {
+            status += " " + bgiString;
+        }
+        return status;
+    }
+
+    @NonNull
+    private String generateBasalString(TreatmentsInterface treatmentsInterface) {
+        String basalStringResult;
+        Profile profile = ProfileFunctions.getInstance().getProfile();
+        if (profile == null)
+            return "";
+        TemporaryBasal activeTemp = treatmentsInterface.getTempBasalFromHistory(System.currentTimeMillis());
+        if (activeTemp != null) {
+            basalStringResult = activeTemp.toStringShort();
+        } else {
+            if (SP.getBoolean(R.string.key_danar_visualizeextendedaspercentage, false)) {
+                basalStringResult = "100%";
+            } else {
+                basalStringResult = DecimalFormatter.to2Decimal(profile.getBasal()) + "U/h";
+            }
+        }
+        return basalStringResult;
+    }
+
+    public static int getBatteryLevel(Context context) {
+        Intent batteryIntent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        if (batteryIntent != null) {
+            int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+            int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+            if (level == -1 || scale == -1) {
+                return 50;
+            }
+            return (int) (((float) level / (float) scale) * 100.0f);
+        }
+        return 50;
     }
 
     private void sendStatus() {
@@ -563,22 +732,17 @@ public class TizenUpdaterService extends SAAgent {
                 iobSum = DecimalFormatter.to2Decimal(bolusIob.iob + basalIob.basaliob);
                 iobDetail = "(" + DecimalFormatter.to2Decimal(bolusIob.iob) + "|" + DecimalFormatter.to2Decimal(basalIob.basaliob) + ")";
                 cobString = IobCobCalculatorPlugin.getPlugin().getCobInfo(false, "WatcherUpdaterService").generateCOBString();
-                //currentBasal = generateBasalString(treatmentsInterface);
-                // TODO
+                currentBasal = generateBasalString(treatmentsInterface);
                 //bgi
-
-
                 double bgi = -(bolusIob.activity + basalIob.activity) * 5 * Profile.fromMgdlToUnits(profile.getIsfMgdl(), ProfileFunctions.getSystemUnits());
                 bgiString = "" + ((bgi >= 0) ? "+" : "") + DecimalFormatter.to1Decimal(bgi);
-                // TODO
-                //status = generateStatusString(profile, currentBasal, iobSum, iobDetail, bgiString);
+
+                status = generateStatusString(profile, currentBasal, iobSum, iobDetail, bgiString);
             }
 
-
             //batteries
-            int phoneBattery = 80; // TODO //getBatteryLevel(getApplicationContext());
+            int phoneBattery = getBatteryLevel(getApplicationContext());
             String rigBattery = NSDeviceStatus.getInstance().getUploaderStatus().trim();
-
 
             long openApsStatus = -1;
             //OpenAPS status
@@ -590,25 +754,33 @@ public class TizenUpdaterService extends SAAgent {
                 openApsStatus = NSDeviceStatus.getOpenApsTimestamp();
             }
 
-            PutDataMapRequest dataMapRequest = PutDataMapRequest.create(NEW_STATUS_PATH);
-            //unique content
-            dataMapRequest.getDataMap().putString("externalStatusString", status);
-            dataMapRequest.getDataMap().putString("iobSum", iobSum);
-            dataMapRequest.getDataMap().putString("iobDetail", iobDetail);
-            dataMapRequest.getDataMap().putBoolean("detailedIob", SP.getBoolean(R.string.key_wear_detailediob, false));
-            dataMapRequest.getDataMap().putString("cob", cobString);
-            dataMapRequest.getDataMap().putString("currentBasal", currentBasal);
-            dataMapRequest.getDataMap().putString("battery", "" + phoneBattery);
-            dataMapRequest.getDataMap().putString("rigBattery", rigBattery);
-            dataMapRequest.getDataMap().putLong("openApsStatus", openApsStatus);
-            dataMapRequest.getDataMap().putString("bgi", bgiString);
-            dataMapRequest.getDataMap().putBoolean("showBgi", SP.getBoolean(R.string.key_wear_showbgi, false));
-            dataMapRequest.getDataMap().putInt("batteryLevel", (phoneBattery >= 30) ? 1 : 0);
-            PutDataRequest putDataRequest = dataMapRequest.asPutDataRequest();
+            // PutDataMapRequest dataMapRequest = PutDataMapRequest.create(NEW_STATUS_PATH);
+            // unique content
+            // dataMapRequest.getDataMap().putString("externalStatusString", status);
+            // dataMapRequest.getDataMap().putString("iobSum", iobSum);
+            // dataMapRequest.getDataMap().putString("iobDetail", iobDetail);
+            // dataMapRequest.getDataMap().putBoolean("detailedIob", SP.getBoolean(R.string.key_wear_detailediob, false));
+            // dataMapRequest.getDataMap().putString("cob", cobString);
+            // dataMapRequest.getDataMap().putString("currentBasal", currentBasal);
+            // dataMapRequest.getDataMap().putString("battery", "" + phoneBattery);
+            // dataMapRequest.getDataMap().putString("rigBattery", rigBattery);
+            // dataMapRequest.getDataMap().putLong("openApsStatus", openApsStatus);
+            // dataMapRequest.getDataMap().putString("bgi", bgiString);
+            // dataMapRequest.getDataMap().putBoolean("showBgi", SP.getBoolean(R.string.key_wear_showbgi, false));
+            // dataMapRequest.getDataMap().putInt("batteryLevel", (phoneBattery >= 30) ? 1 : 0);
+            // PutDataRequest putDataRequest = dataMapRequest.asPutDataRequest();
 
-            // TODO
-            //debugData("sendStatus", putDataRequest);
-            //Wearable.DataApi.putDataItem(googleApiClient, putDataRequest);
+            /*
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        mConnectionHandler.send(ACTION_CONFIRMATION_REQUEST_CH, message.getBytes());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+            */
         } else {
             Log.e("SendStatus", "No connection to wearable available!");
         }

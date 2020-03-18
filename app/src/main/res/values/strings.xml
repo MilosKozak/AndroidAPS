@@ -566,6 +566,14 @@
     <string name="tizen_settings">Tizen Watch settings</string>
     <string name="tizen_title">Enable Tizen</string>
     <string name="tizen_summary">Enable Tizen watch</string>
+    <string name="androidaps_tizen_app" translatable="false">/androidaps/tizen/app</string>
+    <string name="androidaps_tizen_app_name" translatable="false">androidaps_tizen_app</string>
+    <string name="androidaps_tizen_watchface" translatable="false">/androidaps/tizen/watchface</string>
+    <string name="tizen_resend_ch" translatable="false">110</string>
+    <string name="tizen_cancelbolus_ch" translatable="false">115</string>
+    <string name="tizen_confirm_actionstring_ch" translatable="false">120</string>
+    <string name="action_confirm_actionstring_ch" translatable="false">121</string>
+    <string name="tizen_initiate_actionstring_ch" translatable="false">125</string>
 
     <string name="wear_detailedIOB_title">Show detailed IOB</string>
     <string name="wear_detailedIOB_summary">Break down IOB into bolus and basal IOB on the watchface</string>

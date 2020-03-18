@@ -29,8 +29,8 @@
 
     <application name="info.nightscout.androidaps.MainApp" >
         <serviceProfile
-            id="/androidaps/tizen/app"
-            name="androidaps_tizen_app"
+            id="@string/androidaps_tizen_app"
+            name="@string/androidaps_tizen_app_name"
             role="provider"
             serviceImpl="info.nightscout.androidaps.plugins.general.wear.tizenintegration.TizenUpdaterService"
             version="1.0"
@@ -40,31 +40,12 @@
                 <transport type="TRANSPORT_BT" />
                 <transport type="TRANSPORT_WIFI" />
             </supportedTransports>
-            <serviceChannel
-                id="104"
-                dataRate="low"
-                priority="low"
-                reliability= "enable"/>
-            <serviceChannel
-                id="110"
-                dataRate="low"
-                priority="low"
-                reliability= "enable"/>
-            <serviceChannel
-                id="115"
-                dataRate="low"
-                priority="low"
-                reliability= "enable"/>
-            <serviceChannel
-                id="120"
-                dataRate="low"
-                priority="low"
-                reliability= "enable"/>
-            <serviceChannel
-                id="125"
-                dataRate="low"
-                priority="low"
-                reliability= "enable"/>
+            <serviceChannel id="104" dataRate="low" priority="low" reliability= "enable"/>
+            <serviceChannel id="@string/tizen_resend_ch" dataRate="low" priority="low" reliability= "enable"/>
+            <serviceChannel id="@string/tizen_cancelbolus_ch" dataRate="low" priority="low" reliability= "enable"/>
+            <serviceChannel id="@string/tizen_confirm_actionstring_ch" dataRate="low" priority="low" reliability= "enable"/>
+            <serviceChannel id="@string/action_confirm_actionstring_ch" dataRate="low" priority="low" reliability= "enable"/>
+            <serviceChannel id="@string/tizen_initiate_actionstring_ch" dataRate="low" priority="low" reliability= "enable"/>
         </serviceProfile>
     </application>
 
