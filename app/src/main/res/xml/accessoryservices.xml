@@ -29,8 +29,8 @@
 
     <application name="info.nightscout.androidaps.MainApp" >
         <serviceProfile
-            id="/sample/hello"
-            name="helloaccessory"
+            id="/androidaps/tizen/app"
+            name="androidaps_tizen_app"
             role="provider"
             serviceImpl="info.nightscout.androidaps.plugins.general.wear.tizenintegration.TizenUpdaterService"
             version="1.0"
@@ -42,6 +42,26 @@
             </supportedTransports>
             <serviceChannel
                 id="104"
+                dataRate="low"
+                priority="low"
+                reliability= "enable"/>
+            <serviceChannel
+                id="110"
+                dataRate="low"
+                priority="low"
+                reliability= "enable"/>
+            <serviceChannel
+                id="115"
+                dataRate="low"
+                priority="low"
+                reliability= "enable"/>
+            <serviceChannel
+                id="120"
+                dataRate="low"
+                priority="low"
+                reliability= "enable"/>
+            <serviceChannel
+                id="125"
                 dataRate="low"
                 priority="low"
                 reliability= "enable"/>

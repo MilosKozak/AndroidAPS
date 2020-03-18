@@ -46,6 +46,7 @@ import info.nightscout.androidaps.interfaces.TreatmentsInterface;
 import info.nightscout.androidaps.plugins.aps.loop.LoopPlugin;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.general.nsclient.data.NSDeviceStatus;
+import info.nightscout.androidaps.plugins.general.wear.ActionStringHandler;
 import info.nightscout.androidaps.plugins.general.wear.WearPlugin;
 
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.GlucoseStatus;
@@ -74,10 +75,11 @@ public class TizenUpdaterService extends SAAgent {
 
     // Draft, to be updated with Tizen library
     public static final String WEARABLE_DATA_PATH = "/nightscout_watch_data";
-    public static final String WEARABLE_RESEND_PATH = "/nightscout_watch_data_resend";
-    private static final String WEARABLE_CANCELBOLUS_PATH = "/nightscout_watch_cancel_bolus";
-    public static final String WEARABLE_CONFIRM_ACTIONSTRING_PATH = "/nightscout_watch_confirmactionstring";
-    public static final String WEARABLE_INITIATE_ACTIONSTRING_PATH = "/nightscout_watch_initiateactionstring";
+
+    public static final int WEARABLE_RESEND_PATH = 110;
+    private static final int WEARABLE_CANCELBOLUS_PATH = 115;
+    public static final int WEARABLE_CONFIRM_ACTIONSTRING_PATH = 120;
+    public static final int WEARABLE_INITIATE_ACTIONSTRING_PATH = 125;
 
     private static final String OPEN_SETTINGS_PATH = "/openwearsettings";
     private static final String NEW_STATUS_PATH = "/sendstatustowear";
@@ -97,6 +99,8 @@ public class TizenUpdaterService extends SAAgent {
     private static final String TAG = "HelloAccessory(P)";
     private static final Class<ServiceConnection> SASOCKET_CLASS = ServiceConnection.class;
     private final IBinder mBinder = new LocalBinder();
+
+    // for managin 1st socket (tizen app)
     private ServiceConnection mConnectionHandler = null;
     Handler mHandler = new Handler();
 
@@ -109,7 +113,7 @@ public class TizenUpdaterService extends SAAgent {
     public void onCreate() {
         listenForChangeInSettings();
         setSettings();
-        if (wear_integration && SP.getBoolean(TIZEN_ENABLE, true)) {
+        if (wear_integration && SP.getBoolean(TIZEN_ENABLE, false)) {
             //googleApiConnect();
         }
         if (handler == null) {
@@ -263,17 +267,44 @@ public class TizenUpdaterService extends SAAgent {
 
         @Override
         public void onError(int channelId, String errorMessage, int errorCode) {
-            LOGGER.info("ServieConnection: onError: [channelId=" + channelId + ", errorMessage=" + errorMessage + ", errorCode=" + errorCode);
+            LOGGER.info("ServiceConnection: onError: [channelId=" + channelId + ", errorMessage=" + errorMessage + ", errorCode=" + errorCode);
         }
 
         @Override
         public void onReceive(int channelId, byte[] data) {
 
-            LOGGER.info("ServieConnection: onReceive: [channelId=" + channelId + ", mConnectionHandler(isNull)=" + (mConnectionHandler == null) + ", data=" + ByteUtil.getCompactString(data));
+            LOGGER.info("ServiceConnection: onReceive: [channelId=" + channelId + ", mConnectionHandler(isNull)=" + (mConnectionHandler == null) + ", data=" + ByteUtil.getCompactString(data));
 
             if (mConnectionHandler == null) {
                 return;
             }
+
+            if (wear_integration && SP.getBoolean(TIZEN_ENABLE, false)) {
+                if (channelId == WEARABLE_RESEND_PATH) {
+                    // todo
+                    // resendData();
+                }
+
+                if (channelId == WEARABLE_CANCELBOLUS_PATH) {
+                    // todo
+                    // cancelBolus();
+                }
+
+                if (channelId == WEARABLE_INITIATE_ACTIONSTRING_PATH) {
+                    String actionstring = data.toString();
+                    LOGGER.info("Tizen initiate: " + actionstring);
+                    ActionStringHandler.handleInitiate(actionstring);
+                }
+
+                if (channelId == WEARABLE_CONFIRM_ACTIONSTRING_PATH) {
+                    String actionstring = data.toString();
+                    LOGGER.info("Tizen Confirm: " + actionstring);
+                    ActionStringHandler.handleConfirmation(actionstring);
+                }
+            }
+
+
+
             Calendar calendar = new GregorianCalendar();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd aa hh:mm:ss.SSS");
             String timeStr = " " + dateFormat.format(calendar.getTime());
@@ -298,13 +329,14 @@ public class TizenUpdaterService extends SAAgent {
                 public void run() {
                     //Toast.makeText(getBaseContext(), R.string.ConnectionTerminateddMsg, Toast.LENGTH_SHORT).show();
                     // TODO
-                    LOGGER.info("ServieConnection: onServiceConnectionLost: [reason=" + reason);
+                    LOGGER.info("ServiceConnection: onServiceConnectionLost: [reason=" + reason);
 
                 }
             });
         }
     }
 
+    // for connection with tizen app
     private boolean isConnectionEstablished() {
         return (mConnectionHandler!=null && mConnectionHandler.isConnected());
     }
@@ -316,7 +348,7 @@ public class TizenUpdaterService extends SAAgent {
 
         Log.d(TAG, logPrefix + "onStartCommand: " + action);
 
-        if (wear_integration && SP.getBoolean(TIZEN_ENABLE, true)) {
+        if (wear_integration && SP.getBoolean(TIZEN_ENABLE, false)) {
             handler.post(() -> {
 
                 if (isConnectionEstablished()) {
@@ -605,7 +637,7 @@ public class TizenUpdaterService extends SAAgent {
 //                executeTask(new SendToDataLayerThread(WEARABLE_DATA_PATH, googleApiClient), dataMap);
 //            }
 //        }
-
+        BgReading lastBG = DatabaseHelper.lastBg();
         LOGGER.info("sendData: mConnectionHandler(isNull)=" + (mConnectionHandler == null));
 
         if (mConnectionHandler == null) {
