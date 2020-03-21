@@ -566,8 +566,10 @@
     <string name="tizen_settings">Tizen Watch settings</string>
     <string name="tizen_title">Enable Tizen</string>
     <string name="tizen_summary">Enable Tizen watch</string>
-    <string name="androidaps_tizen_app" translatable="false">/androidaps/tizen/app</string>
-    <string name="androidaps_tizen_app_name" translatable="false">androidaps_tizen_app</string>
+
+    <!-- Tizen wear service -->
+    <string name="androidaps_tizen_app" translatable="false">/androidaps/tizen</string>
+    <string name="androidaps_tizen_app_name" translatable="false">androidaps_tizen</string>
     <string name="androidaps_tizen_watchface" translatable="false">/androidaps/tizen/watchface</string>
     <string name="tizen_resend_ch" translatable="false">110</string>
     <string name="tizen_cancelbolus_ch" translatable="false">115</string>

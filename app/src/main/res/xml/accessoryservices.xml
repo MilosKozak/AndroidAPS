@@ -41,11 +41,11 @@
                 <transport type="TRANSPORT_WIFI" />
             </supportedTransports>
             <serviceChannel id="104" dataRate="low" priority="low" reliability= "enable"/>
-            <serviceChannel id="@string/tizen_resend_ch" dataRate="low" priority="low" reliability= "enable"/>
-            <serviceChannel id="@string/tizen_cancelbolus_ch" dataRate="low" priority="low" reliability= "enable"/>
-            <serviceChannel id="@string/tizen_confirm_actionstring_ch" dataRate="low" priority="low" reliability= "enable"/>
-            <serviceChannel id="@string/action_confirm_actionstring_ch" dataRate="low" priority="low" reliability= "enable"/>
-            <serviceChannel id="@string/tizen_initiate_actionstring_ch" dataRate="low" priority="low" reliability= "enable"/>
+            <serviceChannel id="110" dataRate="low" priority="low" reliability= "enable"/>          <!--   @string/tizen_resend_ch -->
+            <serviceChannel id="115" dataRate="low" priority="low" reliability= "enable"/>          <!--   @string/tizen_cancelbolus_ch -->
+            <serviceChannel id="120" dataRate="low" priority="low" reliability= "enable"/>          <!--   @string/tizen_confirm_actionstring_ch -->
+            <serviceChannel id="121" dataRate="low" priority="low" reliability= "enable"/>          <!--   @string/action_confirm_actionstring_ch -->
+            <serviceChannel id="125" dataRate="low" priority="low" reliability= "enable"/>          <!--   @string/tizen_initiate_actionstring_ch -->
         </serviceProfile>
     </application>
 

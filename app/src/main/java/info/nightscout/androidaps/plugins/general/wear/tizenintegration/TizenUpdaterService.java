@@ -106,14 +106,12 @@ public class TizenUpdaterService extends SAAgent {
 
     private Handler handler;
 
-    private static final String TAG = "HelloAccessory(P)";
+// Philoul start of code to compare with Example
+    private static final String TAG = MainApp.gs(R.string.app_name);
     private static final Class<ServiceConnection> SASOCKET_CLASS = ServiceConnection.class;
     private final IBinder mBinder = new LocalBinder();
-
-    // for managin 1st socket (tizen app)
     private ServiceConnection mConnectionHandler = null;
     Handler mHandler = new Handler();
-
 
     public TizenUpdaterService() {
         super(TAG, SASOCKET_CLASS);
@@ -123,55 +121,14 @@ public class TizenUpdaterService extends SAAgent {
     public void onCreate() {
         listenForChangeInSettings();
         setSettings();
+
         if (wear_integration && SP.getBoolean(TIZEN_ENABLE, false)) {
-            //googleApiConnect();
+            tizenApiConnect();
         }
         if (handler == null) {
             HandlerThread handlerThread = new HandlerThread(this.getClass().getSimpleName() + "Handler");
             handlerThread.start();
             handler = new Handler(handlerThread.getLooper());
-        }
-
-        /****************************************************
-         * Example codes for Android O OS (startForeground) *
-         ****************************************************/
-        if (Build.VERSION.SDK_INT >= 26) {
-            NotificationManager notificationManager = null;
-            String channel_id = "sample_channel_01";
-
-            if(notificationManager == null) {
-                String channel_name = "Accessory_SDK_Sample";
-                notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                NotificationChannel notiChannel = new NotificationChannel(channel_id, channel_name, NotificationManager.IMPORTANCE_LOW);
-                notificationManager.createNotificationChannel(notiChannel);
-            }
-
-            int notifyID = 1;
-            Notification notification = new Notification.Builder(this.getBaseContext(),channel_id)
-                    .setContentTitle(TAG)
-                    .setContentText("")
-                    .setChannelId(channel_id)
-                    .build();
-
-            startForeground(notifyID, notification);
-        }
-
-        SA mAccessory = new SA();
-        try {
-            mAccessory.initialize(this);
-        } catch (SsdkUnsupportedException e) {
-            // try to handle SsdkUnsupportedException
-            if (processUnsupportedException(e) == true) {
-                return;
-            }
-        } catch (Exception e1) {
-            e1.printStackTrace();
-            /*
-             * Your application can not use Samsung Accessory SDK. Your application should work smoothly
-             * without using this SDK, or you may want to notify user and close your application gracefully
-             * (release resources, stop Service threads, close UI thread, etc.)
-             */
-            stopSelf();
         }
     }
 
@@ -190,17 +147,8 @@ public class TizenUpdaterService extends SAAgent {
             stopForeground(true);
         }
         super.onDestroy();
+        WearPlugin.unRegisterTizenUpdaterService();
     }
-
-    public void setSettings() {
-        wear_integration = WearPlugin.getPlugin().isEnabled(PluginType.GENERAL);
-        // Log.d(TAG, "WR: wear_integration=" + wear_integration);
-        if (wear_integration && SP.getBoolean(TIZEN_ENABLE, false)) {
-            // googleApiConnect();
-        }
-    }
-
-    public void listenForChangeInSettings() { WearPlugin.registerTizenUpdaterService(this); }
 
 
     @Override
@@ -288,7 +236,7 @@ public class TizenUpdaterService extends SAAgent {
             if (mConnectionHandler == null) {
                 return;
             }
-
+            /* desactivated philoul to be as close as sample
             if (wear_integration && SP.getBoolean(TIZEN_ENABLE, false)) {
                 if (channelId == TIZEN_RESEND_CH) {
                     // todo
@@ -313,13 +261,18 @@ public class TizenUpdaterService extends SAAgent {
                 }
             }
 
+            */
 
-
+            /* to delete replaced by BG Value
             Calendar calendar = new GregorianCalendar();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd aa hh:mm:ss.SSS");
             String timeStr = " " + dateFormat.format(calendar.getTime());
             String strToUpdateUI = new String(data);
             final String message = strToUpdateUI.concat(timeStr);
+            */
+            final String units = ProfileFunctions.getSystemUnits();
+            BgReading lastBG = DatabaseHelper.lastBg();
+            final String message = "BG : " + lastBG.valueToUnitsToString(units) + " " + lastBG.directionToSymbol();
             new Thread(new Runnable() {
                 public void run() {
                     try {
@@ -345,6 +298,75 @@ public class TizenUpdaterService extends SAAgent {
             });
         }
     }
+    /************************************************************************************************************************************************
+     *
+     *
+     *   End of template code, lines below are added for AAPS integration
+     *
+     *
+     ************************************************************************************************************************************************/
+
+    public void setSettings() {
+        wear_integration = WearPlugin.getPlugin().isEnabled(PluginType.GENERAL);
+        // Log.d(TAG, "WR: wear_integration=" + wear_integration);
+        if (wear_integration && SP.getBoolean(TIZEN_ENABLE, false)) {
+            tizenApiConnect();
+        }
+    }
+
+    public void listenForChangeInSettings() { WearPlugin.registerTizenUpdaterService(this); }
+
+
+    private void tizenApiConnect() {
+        if (mConnectionHandler != null && mConnectionHandler.isConnected() ) {
+            mConnectionHandler = null;
+        }
+        super.onCreate();
+
+
+        /****************************************************
+         * Example codes for Android O OS (startForeground) *
+         ****************************************************/
+        if (Build.VERSION.SDK_INT >= 26) {
+            NotificationManager notificationManager = null;
+            String channel_id = "sample_channel_01";
+
+            if(notificationManager == null) {
+                String channel_name = "Accessory_SDK_Sample";
+                notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationChannel notiChannel = new NotificationChannel(channel_id, channel_name, NotificationManager.IMPORTANCE_LOW);
+                notificationManager.createNotificationChannel(notiChannel);
+            }
+
+            int notifyID = 1;
+            Notification notification = new Notification.Builder(this.getBaseContext(),channel_id)
+                    .setContentTitle(TAG)
+                    .setContentText("")
+                    .setChannelId(channel_id)
+                    .build();
+
+            startForeground(notifyID, notification);
+        }
+
+        SA mAccessory = new SA();
+        try {
+            mAccessory.initialize(this);
+        } catch (SsdkUnsupportedException e) {
+            // try to handle SsdkUnsupportedException
+            if (processUnsupportedException(e) == true) {
+                return;
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            /*
+             * Your application can not use Samsung Accessory SDK. Your application should work smoothly
+             * without using this SDK, or you may want to notify user and close your application gracefully
+             * (release resources, stop Service threads, close UI thread, etc.)
+             */
+            stopSelf();
+        }
+    }
+
 
     // for connection with tizen app
     private boolean isConnectionEstablished() {
@@ -815,6 +837,10 @@ public class TizenUpdaterService extends SAAgent {
         if (mConnectionHandler == null) {
             return;
         }
+        if (mConnectionHandler != null && !mConnectionHandler.isConnected() ) {
+            tizenApiConnect();
+        }
+
         Calendar calendar = new GregorianCalendar();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd aa hh:mm:ss.SSS");
         String timeStr = " " + dateFormat.format(calendar.getTime());
