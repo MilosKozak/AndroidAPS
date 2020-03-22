@@ -644,6 +644,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
                 result.comment = ExceptionTranslator.getString(e);
             }
         } else if (detailedBolusInfo.carbs > 0) {
+            TreatmentsPlugin.getPlugin().addToHistoryTreatment(detailedBolusInfo, true);
             result.success = true;
             result.enacted = true;
         }
