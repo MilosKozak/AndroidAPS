@@ -52,6 +52,24 @@ public interface PumpInterface {
 
     int getBatteryLevel();  // in percent as integer
 
+    /**
+     * Deliver treatment, where the supplied DetailedBolusInfo might have:
+     * <pre>
+     *   - insulin and carbs: deliver bolus and record carbs on pump if supported. Then pass the DBI on to
+     *                        TreatmentPlugin.addTohHistoryTreatment. That method can split up DBI into two
+     *                        separate records if DBI.carbTime != 0, but this is prone to errors and thus the
+     *                        pump driver should do that instead by creating separate DBIs for insulin and carbs,
+     *                        where each record has a different time (the carbTime offset) and only carry
+     *                        insulin or carbs. Care must also be taken to set DBI.source appropriately.
+     *   - insulin only: deliver bolus and call TreatmentPlugin.addTohHistoryTreatment to add the bolus to the
+     *                   database
+     *   - carbs only: if supported by the pump, record on the pump. Whether or not the pump supports that,
+     *                 afterwards TreatmentPlugin.addTohHistoryTreatment must be called to add the carbs to the DB
+     * </pre>
+     *
+     * @param detailedBolusInfo Requested treatments add deliver/add
+     * @return PumpEnactResult indicating success or failure and actions taken
+     */
     PumpEnactResult deliverTreatment(DetailedBolusInfo detailedBolusInfo);
 
     void stopBolusDelivering();
