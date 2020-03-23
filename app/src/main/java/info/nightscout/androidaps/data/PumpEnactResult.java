@@ -23,7 +23,7 @@ public class PumpEnactResult {
     public double absolute = -1d;      // absolute rate [U/h] , isPercent = false
     public int percent = -1;       // percent of current basal [%] (100% = current basal), isPercent = true
     public boolean isPercent = false;  // if true percent is used, otherwise absolute
-    public boolean isTempCancel = false; // if true we are caceling temp basal
+    public boolean isTempCancel = false; // if true we are canceling temp basal
     // Result of treatment delivery
     public double bolusDelivered = 0d; // real value of delivered insulin
     public double carbsDelivered = 0d; // real value of delivered carbs

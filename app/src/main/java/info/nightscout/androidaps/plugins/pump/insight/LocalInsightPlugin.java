@@ -361,6 +361,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         calendar.set(Calendar.HOUR_OF_DAY, pumpTime.getHour());
         calendar.set(Calendar.MINUTE, pumpTime.getMinute());
         calendar.set(Calendar.SECOND, pumpTime.getSecond());
+        calendar.set(Calendar.MILLISECOND, 0); // truncate leftover milliseconds from current time
         if (calendar.get(Calendar.HOUR_OF_DAY) != pumpTime.getHour() || Math.abs(calendar.getTimeInMillis() - System.currentTimeMillis()) > 10000) {
             calendar.setTime(new Date());
             pumpTime.setYear(calendar.get(Calendar.YEAR));
@@ -1141,10 +1142,13 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
 
     private void readHistory() {
         try {
-            PumpTime pumpTime = connectionService.requestMessage(new GetDateTimeMessage()).await().getPumpTime();
             String pumpSerial = connectionService.getPumpSystemIdentification().getSerialNumber();
+
+            // compute the delta between device and pump time so we can correct historyEvents to match device time
+            PumpTime pumpTime = connectionService.requestMessage(new GetDateTimeMessage()).await().getPumpTime();
             timeOffset = Calendar.getInstance(TimeZone.getTimeZone("UTC")).getTimeInMillis() - parseDate(pumpTime.getYear(),
                     pumpTime.getMonth(), pumpTime.getDay(), pumpTime.getHour(), pumpTime.getMinute(), pumpTime.getSecond());
+
             InsightHistoryOffset historyOffset = MainApp.getDbHelper().getInsightHistoryOffset(pumpSerial);
             try {
                 List<HistoryEvent> historyEvents = new ArrayList<>();
@@ -1165,7 +1169,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
                         historyEvents.addAll(newEvents);
                     }
                 }
-                Collections.sort(historyEvents);
+                Collections.sort(historyEvents); // sorts by eventPosition ascending, oldest event first
                 Collections.reverse(historyEvents);
                 if (historyOffset != null) processHistoryEvents(pumpSerial, historyEvents);
                 if (historyEvents.size() > 0) {
@@ -1197,12 +1201,25 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
     }
 
     private void processHistoryEvents(String serial, List<HistoryEvent> historyEvents) {
+        // this method expects historyEvents to be sorted from new to old in order to account for time changes.
+        // timeOffset is computed to be the current offset between device and pump and we will update this offset
+        // when we detect that the pump time has changed
         List<TemporaryBasal> temporaryBasals = new ArrayList<>();
         List<InsightPumpID> pumpStartedEvents = new ArrayList<>();
         for (HistoryEvent historyEvent : historyEvents)
             if (!processHistoryEvent(serial, temporaryBasals, pumpStartedEvents, historyEvent))
                 break;
         Collections.reverse(temporaryBasals);
+        for (int i = 0; i + 1 < temporaryBasals.size(); i++) {
+            TemporaryBasal current = temporaryBasals.get(i);
+            TemporaryBasal next = temporaryBasals.get(i + 1);
+            // remove cancel TBR records if they're immediately followed by another TBR record since
+            // they have no benefit and only one TBR in the same second can be saved to the db
+            if (current.durationInMinutes == 0 && Math.abs(next.date - current.date) < 1000) {
+                temporaryBasals.remove(i);
+                i--;
+            }
+        }
         for (InsightPumpID pumpID : pumpStartedEvents) {
             InsightPumpID stoppedEvent = MainApp.getDbHelper().getPumpStoppedEvent(pumpID.pumpSerial, pumpID.timestamp);
             if (stoppedEvent == null || stoppedEvent.eventType.equals("PumpPaused")) continue;
@@ -1537,6 +1554,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, second);
+        calendar.set(Calendar.MILLISECOND, 0); // truncate leftover milliseconds from current UTC time
         return calendar.getTimeInMillis();
     }
 
@@ -1572,6 +1590,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         calendar.set(Calendar.HOUR_OF_DAY, relativeHour);
         calendar.set(Calendar.MINUTE, relativeMinute);
         calendar.set(Calendar.SECOND, relativeSecond);
+        calendar.set(Calendar.MILLISECOND, 0); // truncate leftover milliseconds from current UTC time
         return calendar.getTimeInMillis();
     }
 
