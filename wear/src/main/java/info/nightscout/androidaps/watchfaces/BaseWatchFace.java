@@ -10,10 +10,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.support.wearable.view.WatchViewStub;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -21,6 +20,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,82 +31,87 @@ import com.ustwo.clockwise.wearable.WatchFace;
 import com.ustwo.clockwise.common.WatchFaceTime;
 import com.ustwo.clockwise.common.WatchShape;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import info.nightscout.androidaps.data.BasalWatchData;
-import info.nightscout.androidaps.data.BgWatchData;
+import info.nightscout.androidaps.aaps;
+import info.nightscout.androidaps.complications.BaseComplicationProviderService;
+import info.nightscout.androidaps.data.RawDisplayData;
 import info.nightscout.androidaps.data.ListenerService;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.data.TempWatchData;
 import lecho.lib.hellocharts.view.LineChartView;
 
 /**
  * Created by emmablack on 12/29/14.
+ * Updated by andrew-warrington on 02-Jan-2018.
+ * Refactored by dlvoy on 2019-11-2019
  */
+
 public  abstract class BaseWatchFace extends WatchFace implements SharedPreferences.OnSharedPreferenceChangeListener {
     public final static IntentFilter INTENT_FILTER;
     public static final long[] vibratePattern = {0,400,300,400,300,400};
-    public TextView mTime, mSgv, mDirection, mTimestamp, mUploaderBattery, mDelta, mStatus;
+    public TextView mTime, mSgv, mDirection, mTimestamp, mUploaderBattery, mRigBattery, mDelta, mAvgDelta, mStatus, mBasalRate, mIOB1, mIOB2, mCOB1, mCOB2, mBgi, mLoop, mDay, mMonth, isAAPSv2, mHighLight, mLowLight;
+    public ImageView mGlucoseDial, mDeltaGauge, mHourHand, mMinuteHand;
     public RelativeLayout mRelativeLayout;
-    public LinearLayout mLinearLayout;
-    public long sgvLevel = 0;
-    public int batteryLevel = 1;
+    public LinearLayout mLinearLayout, mLinearLayout2, mDate, mChartTap, mMainMenuTap;
     public int ageLevel = 1;
+    public int loopLevel = 1;
     public int highColor = Color.YELLOW;
     public int lowColor = Color.RED;
     public int midColor = Color.WHITE;
     public int gridColor = Color.WHITE;
     public int basalBackgroundColor = Color.BLUE;
     public int basalCenterColor = Color.BLUE;
+    public int bolusColor = Color.MAGENTA;
     public boolean lowResMode = false;
-    public int pointSize = 2;
     public boolean layoutSet = false;
-    public int missed_readings_alert_id = 818;
+    public boolean bIsRound = false;
+    public boolean dividerMatchesBg = false;
+    public int pointSize = 2;
     public BgGraphBuilder bgGraphBuilder;
     public LineChartView chart;
-    public double datetime;
-    public ArrayList<BgWatchData> bgDataList = new ArrayList<>();
-    public ArrayList<TempWatchData> tempWatchDataList = new ArrayList<>();
-    public ArrayList<BasalWatchData> basalWatchDataList = new ArrayList<>();
+
+
+    public RawDisplayData rawData = new RawDisplayData();
+
     public PowerManager.WakeLock wakeLock;
     // related endTime manual layout
     public View layoutView;
-    private final Point displaySize = new Point();
-    private int specW, specH;
-
+    public final Point displaySize = new Point();
+    public int specW, specH;
     private LocalBroadcastManager localBroadcastManager;
     private MessageReceiver messageReceiver;
 
     protected SharedPreferences sharedPrefs;
-    private String batteryString = "--";
-    private String sgvString = "--";
-    private String externalStatusString = "no status";
-    private String avgDelta = "";
-    private String delta = "";
 
+    public boolean forceSquareCanvas = false;  //set to true by the Steampunk watch face.
+    public String sMinute = "0";
+    public String sHour = "0";
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE))
-                .getDefaultDisplay();
+        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         display.getSize(displaySize);
-        wakeLock = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Clock");
+        wakeLock = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "AndroidAPS:BaseWatchFace");
 
-        specW = View.MeasureSpec.makeMeasureSpec(displaySize.x,
-                View.MeasureSpec.EXACTLY);
-        specH = View.MeasureSpec.makeMeasureSpec(displaySize.y,
-                View.MeasureSpec.EXACTLY);
-        sharedPrefs = PreferenceManager
-                .getDefaultSharedPreferences(this);
+        specW = View.MeasureSpec.makeMeasureSpec(displaySize.x, View.MeasureSpec.EXACTLY);
+        if (forceSquareCanvas) {
+            specH = specW;
+        } else {
+            specH = View.MeasureSpec.makeMeasureSpec(displaySize.y, View.MeasureSpec.EXACTLY);
+        }
+        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPrefs.registerOnSharedPreferenceChangeListener(this);
+
+        BaseComplicationProviderService.turnOff();
     }
 
     @Override
     protected void onLayout(WatchShape shape, Rect screenBounds, WindowInsets screenInsets) {
         super.onLayout(shape, screenBounds, screenInsets);
         layoutView.onApplyWindowInsets(screenInsets);
+        bIsRound = screenInsets.isRound();
     }
 
     public void performViewSetup() {
@@ -121,23 +126,44 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
                 mTime = (TextView) stub.findViewById(R.id.watch_time);
+                mDay = (TextView) stub.findViewById(R.id.day);
+                mMonth = (TextView) stub.findViewById(R.id.month);
+                mDate = (LinearLayout) stub.findViewById(R.id.date_time);
+                mLoop = (TextView) stub.findViewById(R.id.loop);
                 mSgv = (TextView) stub.findViewById(R.id.sgv);
                 mDirection = (TextView) stub.findViewById(R.id.direction);
                 mTimestamp = (TextView) stub.findViewById(R.id.timestamp);
+                mIOB1 = (TextView) stub.findViewById(R.id.iob_text);
+                mIOB2 = (TextView) stub.findViewById(R.id.iobView);
+                mCOB1 = (TextView) stub.findViewById(R.id.cob_text);
+                mCOB2 = (TextView) stub.findViewById(R.id.cobView);
+                mBgi =  (TextView) stub.findViewById(R.id.bgiView);
                 mStatus = (TextView) stub.findViewById(R.id.externaltstatus);
+                mBasalRate = (TextView) stub.findViewById(R.id.tmpBasal);
                 mUploaderBattery = (TextView) stub.findViewById(R.id.uploader_battery);
+                mRigBattery = (TextView) stub.findViewById(R.id.rig_battery);
                 mDelta = (TextView) stub.findViewById(R.id.delta);
+                mAvgDelta = (TextView) stub.findViewById(R.id.avgdelta);
+                isAAPSv2 = (TextView) stub.findViewById(R.id.AAPSv2);
+                mHighLight = (TextView) stub.findViewById(R.id.highLight);
+                mLowLight = (TextView) stub.findViewById(R.id.lowLight);
                 mRelativeLayout = (RelativeLayout) stub.findViewById(R.id.main_layout);
                 mLinearLayout = (LinearLayout) stub.findViewById(R.id.secondary_layout);
+                mLinearLayout2 = (LinearLayout) stub.findViewById(R.id.tertiary_layout);
+                mGlucoseDial = (ImageView) stub.findViewById(R.id.glucose_dial);
+                mDeltaGauge = (ImageView) stub.findViewById(R.id.delta_pointer);
+                mHourHand = (ImageView) stub.findViewById(R.id.hour_hand);
+                mMinuteHand = (ImageView) stub.findViewById(R.id.minute_hand);
+                mChartTap = (LinearLayout) stub.findViewById(R.id.chart_zoom_tap);
+                mMainMenuTap = (LinearLayout) stub.findViewById(R.id.main_menu_tap);
                 chart = (LineChartView) stub.findViewById(R.id.chart);
                 layoutSet = true;
-                showAgoRawBattStatus();
-                mRelativeLayout.measure(specW, specH);
-                mRelativeLayout.layout(0, 0, mRelativeLayout.getMeasuredWidth(),
-                        mRelativeLayout.getMeasuredHeight());
+
+                setDataFields();
+                setColor();
+                }
             }
-        });
-        ListenerService.requestData(this);
+        );
         wakeLock.acquire(50);
     }
 
@@ -150,11 +176,11 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
     }
 
     public double timeSince() {
-        return System.currentTimeMillis() - datetime;
+        return System.currentTimeMillis() - rawData.datetime;
     }
 
     public String readingAge(boolean shortString) {
-        if (datetime == 0) { return shortString?"--'":"-- Minute ago"; }
+        if (rawData.datetime == 0) { return shortString?"--'":"-- Minute ago"; }
         int minutesAgo = (int) Math.floor(timeSince()/(1000*60));
         if (minutesAgo == 1) {
             return minutesAgo + (shortString?"'":" Minute ago");
@@ -164,9 +190,10 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
 
     @Override
     public void onDestroy() {
-        if(localBroadcastManager != null && messageReceiver != null){
-            localBroadcastManager.unregisterReceiver(messageReceiver);}
-        if (sharedPrefs != null){
+        if (localBroadcastManager != null && messageReceiver != null) {
+            localBroadcastManager.unregisterReceiver(messageReceiver);
+        }
+        if (sharedPrefs != null) {
             sharedPrefs.unregisterOnSharedPreferenceChangeListener(this);
         }
         super.onDestroy();
@@ -181,8 +208,16 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if(layoutSet) {
-            this.mRelativeLayout.draw(canvas);
+        if (layoutSet) {
+            setupCharts();
+
+            mRelativeLayout.measure(specW, specH);
+            if (forceSquareCanvas) {
+                mRelativeLayout.layout(0, 0, displaySize.x, displaySize.x);  //force a square for Steampunk watch face.
+            } else {
+                mRelativeLayout.layout(0, 0, displaySize.x, displaySize.y);
+            }
+            mRelativeLayout.draw(canvas);
             Log.d("onDraw", "draw");
         }
     }
@@ -191,20 +226,18 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
     protected void onTimeChanged(WatchFaceTime oldTime, WatchFaceTime newTime) {
         if (layoutSet && (newTime.hasHourChanged(oldTime) || newTime.hasMinuteChanged(oldTime))) {
             wakeLock.acquire(50);
-            final java.text.DateFormat timeFormat = DateFormat.getTimeFormat(BaseWatchFace.this);
-            mTime.setText(timeFormat.format(System.currentTimeMillis()));
-            showAgoRawBattStatus();
 
-            if(ageLevel()<=0) {
-                mSgv.setPaintFlags(mSgv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            } else {
-                mSgv.setPaintFlags(mSgv.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
-            }
-
+            setDataFields();
+            setColor();
             missedReadingAlert();
+
             mRelativeLayout.measure(specW, specH);
-            mRelativeLayout.layout(0, 0, mRelativeLayout.getMeasuredWidth(),
-                    mRelativeLayout.getMeasuredHeight());
+            if (forceSquareCanvas) {
+                mRelativeLayout.layout(0, 0, displaySize.x, displaySize.x);  //force a square for Steampunk watch face.
+            } else {
+                mRelativeLayout.layout(0, 0, displaySize.x, displaySize.y);
+            }
+            invalidate();
         }
     }
 
@@ -212,118 +245,262 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            //data
-            Bundle bundle = intent.getBundleExtra("data");
-            if (layoutSet && bundle != null) {
-                DataMap dataMap = DataMap.fromBundle(bundle);
-                wakeLock.acquire(50);
-                sgvLevel = dataMap.getLong("sgvLevel");
-                batteryLevel = dataMap.getInt("batteryLevel");
-                datetime = dataMap.getDouble("timestamp");
-                sgvString = dataMap.getString("sgvString");
-                batteryString = dataMap.getString("battery");
-                mSgv.setText(dataMap.getString("sgvString"));
-
-                if(ageLevel()<=0) {
-                    mSgv.setPaintFlags(mSgv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                } else {
-                    mSgv.setPaintFlags(mSgv.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
-                }
-
-                final java.text.DateFormat timeFormat = DateFormat.getTimeFormat(BaseWatchFace.this);
-                mTime.setText(timeFormat.format(System.currentTimeMillis()));
-
-                mDirection.setText(dataMap.getString("slopeArrow"));
-                avgDelta = dataMap.getString("avgDelta");
-                delta = dataMap.getString("delta");
-
-
-                showAgoRawBattStatus();
-
-
-                if (chart != null) {
-                    addToWatchSet(dataMap);
+            if (layoutSet) {
+                final DataMap dataMap = rawData.updateDataFromMessage(intent, wakeLock);
+                if (chart != null && dataMap != null) {
+                    rawData.addToWatchSet(dataMap);
                     setupCharts();
                 }
-                mRelativeLayout.measure(specW, specH);
-                mRelativeLayout.layout(0, 0, mRelativeLayout.getMeasuredWidth(),
-                        mRelativeLayout.getMeasuredHeight());
-                invalidate();
-                setColor();
+                rawData.updateStatusFromMessage(intent, wakeLock);
             }
-            //status
-            bundle = intent.getBundleExtra("status");
-            if (layoutSet && bundle != null) {
-                DataMap dataMap = DataMap.fromBundle(bundle);
-                wakeLock.acquire(50);
-                externalStatusString = dataMap.getString("externalStatusString");
 
-                showAgoRawBattStatus();
+            setDataFields();
+            setColor();
 
-                mRelativeLayout.measure(specW, specH);
-                mRelativeLayout.layout(0, 0, mRelativeLayout.getMeasuredWidth(),
-                        mRelativeLayout.getMeasuredHeight());
-                invalidate();
-                setColor();
+            if (layoutSet) {
+                rawData.updateBasalsFromMessage(intent, wakeLock);
             }
-            //basals and temps
-            bundle = intent.getBundleExtra("basals");
-            if (layoutSet && bundle != null) {
-                DataMap dataMap = DataMap.fromBundle(bundle);
-                wakeLock.acquire(500);
 
-                loadBasalsAndTemps(dataMap);
+            mRelativeLayout.measure(specW, specH);
+            if (forceSquareCanvas) {
+                mRelativeLayout.layout(0, 0, displaySize.x, displaySize.x);  //force a square for Steampunk watch face.
+            } else {
+                mRelativeLayout.layout(0, 0, displaySize.x, displaySize.y);
+            }
+            invalidate();
+        }
+    }
 
-                mRelativeLayout.measure(specW, specH);
-                mRelativeLayout.layout(0, 0, mRelativeLayout.getMeasuredWidth(),
-                        mRelativeLayout.getMeasuredHeight());
-                invalidate();
-                setColor();
+    public void setDataFields() {
+
+        setDateAndTime();
+
+        if (mSgv != null) {
+            if (sharedPrefs.getBoolean("showBG", true)) {
+                mSgv.setText(rawData.sSgv);
+                mSgv.setVisibility(View.VISIBLE);
+            } else {
+                //leave the textview there but invisible, as a height holder for the empty space above the white line
+                mSgv.setVisibility(View.INVISIBLE);
+                mSgv.setText("");
+            }
+        }
+
+        strikeThroughSgvIfNeeded();
+
+        if (mDirection != null) {
+            if (sharedPrefs.getBoolean("show_direction", true)) {
+                mDirection.setText(rawData.sDirection);
+                mDirection.setVisibility(View.VISIBLE);
+            } else {
+                mDirection.setVisibility(View.GONE);
+            }
+        }
+
+        if (mDelta != null) {
+            if (sharedPrefs.getBoolean("showDelta", true)) {
+                mDelta.setText(rawData.sDelta);
+                mDelta.setVisibility(View.VISIBLE);
+            } else {
+                mDelta.setVisibility(View.GONE);
+            }
+        }
+
+        if (mAvgDelta != null) {
+            if (sharedPrefs.getBoolean("showAvgDelta", true)) {
+                mAvgDelta.setText(rawData.sAvgDelta);
+                mAvgDelta.setVisibility(View.VISIBLE);
+            } else {
+                mAvgDelta.setVisibility(View.GONE);
+            }
+        }
+
+        if (mCOB1 != null && mCOB2 != null) {
+            mCOB2.setText(rawData.sCOB2);
+            if (sharedPrefs.getBoolean("show_cob", true)) {
+                mCOB1.setVisibility(View.VISIBLE);
+                mCOB2.setVisibility(View.VISIBLE);
+            } else {
+                mCOB1.setVisibility(View.GONE);
+                mCOB2.setVisibility(View.GONE);
+            }
+        //deal with cases where there is only the value shown for COB, and not the label
+        } else if (mCOB2 != null) {
+            mCOB2.setText(rawData.sCOB2);
+            if (sharedPrefs.getBoolean("show_cob", true)) {
+                mCOB2.setVisibility(View.VISIBLE);
+            } else {
+                mCOB2.setVisibility(View.GONE);
+            }
+        }
+
+        if (mIOB1 != null && mIOB2 != null) {
+            if (sharedPrefs.getBoolean("show_iob", true)) {
+                mIOB1.setVisibility(View.VISIBLE);
+                mIOB2.setVisibility(View.VISIBLE);
+                if (rawData.detailedIOB) {
+                    mIOB1.setText(rawData.sIOB1);
+                    mIOB2.setText(rawData.sIOB2);
+                } else {
+                    mIOB1.setText(aaps.gs(R.string.activity_IOB));
+                    mIOB2.setText(rawData.sIOB1);
+                }
+            } else {
+                mIOB1.setVisibility(View.GONE);
+                mIOB2.setVisibility(View.GONE);
+            }
+        //deal with cases where there is only the value shown for IOB, and not the label
+        } else if (mIOB2 != null) {
+            if (sharedPrefs.getBoolean("show_iob", true)) {
+                mIOB2.setVisibility(View.VISIBLE);
+                if (rawData.detailedIOB) {
+                    mIOB2.setText(rawData.sIOB2);
+                } else {
+                    mIOB2.setText(rawData.sIOB1);
+                }
+            } else {
+                mIOB2.setText("");
+            }
+        }
+
+        if (mTimestamp != null) {
+            if (sharedPrefs.getBoolean("showAgo", true)) {
+                if (isAAPSv2 != null) {
+                    mTimestamp.setText(readingAge(true));
+                } else {
+                    if (sharedPrefs.getBoolean("showExternalStatus", true)) {
+                        mTimestamp.setText(readingAge(true));
+                    } else {
+                        mTimestamp.setText(readingAge(false));
+                    }
+                }
+                mTimestamp.setVisibility(View.VISIBLE);
+            } else {
+                mTimestamp.setVisibility(View.GONE);
+            }
+        }
+
+        if (mUploaderBattery != null) {
+            if (sharedPrefs.getBoolean("show_uploader_battery", true)) {
+                if (isAAPSv2 != null) {
+                        mUploaderBattery.setText(rawData.sUploaderBattery + "%");
+                        mUploaderBattery.setVisibility(View.VISIBLE);
+                } else {
+                    if (sharedPrefs.getBoolean("showExternalStatus", true)) {
+                        mUploaderBattery.setText("U: " + rawData.sUploaderBattery + "%");
+                    } else {
+                        mUploaderBattery.setText("Uploader: " + rawData.sUploaderBattery + "%");
+                    }
+                }
+            } else {
+                mUploaderBattery.setVisibility(View.GONE);
+            }
+        }
+
+        if (mRigBattery != null) {
+            if (sharedPrefs.getBoolean("show_rig_battery", false)) {
+                mRigBattery.setText(rawData.sRigBattery);
+                mRigBattery.setVisibility(View.VISIBLE);
+            } else {
+                mRigBattery.setVisibility(View.GONE);
+            }
+        }
+
+        if (mBasalRate != null) {
+            if (sharedPrefs.getBoolean("show_temp_basal", true)) {
+                mBasalRate.setText(rawData.sBasalRate);
+                mBasalRate.setVisibility(View.VISIBLE);
+            } else {
+                mBasalRate.setVisibility(View.GONE);
+            }
+        }
+
+        if (mBgi != null) {
+            if (rawData.showBGI) {
+                mBgi.setText(rawData.sBgi);
+                mBgi.setVisibility(View.VISIBLE);
+            } else {
+                mBgi.setVisibility(View.GONE);
+            }
+        }
+        
+        if (mStatus != null) {
+            if (sharedPrefs.getBoolean("showExternalStatus", true)) {
+                mStatus.setText(rawData.externalStatusString);
+                mStatus.setVisibility(View.VISIBLE);
+            } else {
+                mStatus.setVisibility(View.GONE);
+            }
+        }
+
+        if (mLoop != null) {
+            if (sharedPrefs.getBoolean("showExternalStatus", true)) {
+                mLoop.setVisibility(View.VISIBLE);
+                if (rawData.openApsStatus != -1) {
+                    int mins = (int) ((System.currentTimeMillis() - rawData.openApsStatus) / 1000 / 60);
+                    mLoop.setText(mins + "'");
+                    if (mins > 14) {
+                        loopLevel = 0;
+                        mLoop.setBackgroundResource(R.drawable.loop_red_25);
+                    } else {
+                        loopLevel = 1;
+                        mLoop.setBackgroundResource(R.drawable.loop_green_25);
+                    }
+                } else {
+                    mLoop.setText("-'");
+                }
+            } else {
+                mLoop.setVisibility(View.GONE);
             }
         }
     }
 
-    private void showAgoRawBattStatus() {
+    public void setDateAndTime() {
 
-
-        boolean showAvgDelta = sharedPrefs.getBoolean("showAvgDelta", true);
-        mDelta.setText(delta);
-        if(showAvgDelta){
-            mDelta.append("  " + avgDelta);
+        final java.text.DateFormat timeFormat = DateFormat.getTimeFormat(BaseWatchFace.this);
+        if (mTime != null) {
+            mTime.setText(timeFormat.format(System.currentTimeMillis()));
         }
 
+        Date now = new Date();
+        SimpleDateFormat sdfHour = new SimpleDateFormat("HH");
+        SimpleDateFormat sdfMinute = new SimpleDateFormat("mm");
+        sHour = sdfHour.format(now);
+        sMinute = sdfMinute.format(now);
 
-        if( mTimestamp == null || mUploaderBattery == null|| mStatus == null){
-            return;
-        }
-
-        boolean showStatus = sharedPrefs.getBoolean("showExternalStatus", true);
-
-        if(showStatus){
-            //use short forms
-            mTimestamp.setText(readingAge(true));
-            mUploaderBattery.setText("U: " + batteryString + "%");
-        } else {
-            mTimestamp.setText(readingAge(false));
-            mUploaderBattery.setText("Uploader: " + batteryString + "%");
-        }
-
-
-        if (showStatus) {
-            mStatus.setVisibility(View.VISIBLE);
-            mStatus.setText("S: " + externalStatusString);
-        } else {
-            mStatus.setVisibility(View.GONE);
+        if (mDate != null && mDay != null && mMonth != null) {
+            if (sharedPrefs.getBoolean("show_date", false)) {
+                SimpleDateFormat sdfDay = new SimpleDateFormat("dd");
+                SimpleDateFormat sdfMonth = new SimpleDateFormat("MMM");
+                mDay.setText(sdfDay.format(now));
+                mMonth.setText(sdfMonth.format(now));
+                mDate.setVisibility(View.VISIBLE);
+            } else {
+                mDate.setVisibility(View.GONE);
+            }
         }
     }
 
     public void setColor() {
+        dividerMatchesBg = sharedPrefs.getBoolean("match_divider", false);
         if(lowResMode){
             setColorLowRes();
         } else if (sharedPrefs.getBoolean("dark", true)) {
             setColorDark();
         } else {
             setColorBright();
+        }
+    }
+
+    public void strikeThroughSgvIfNeeded() {
+        if (mSgv !=null) {
+            if (sharedPrefs.getBoolean("showBG", true)) {
+                if (ageLevel() <= 0) {
+                    mSgv.setPaintFlags(mSgv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                } else {
+                    mSgv.setPaintFlags(mSgv.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+                }
+            }
         }
     }
 
@@ -339,24 +516,26 @@ public  abstract class BaseWatchFace extends WatchFace implements SharedPreferen
     }
 
     private boolean isLowRes(WatchMode watchMode) {
-        return (watchMode == WatchMode.LOW_BIT) || (watchMode == WatchMode.LOW_BIT_BURN_IN) || (watchMode == WatchMode.LOW_BIT_BURN_IN);
+        return (watchMode == WatchMode.LOW_BIT) || (watchMode == WatchMode.LOW_BIT_BURN_IN); // || (watchMode == WatchMode.LOW_BIT_BURN_IN);
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key){
-        setColor();
+
+        if("delta_granularity".equals(key)){
+            ListenerService.requestData(this);
+        }
+        
         if(layoutSet){
-            showAgoRawBattStatus();
-            mRelativeLayout.measure(specW, specH);
-            mRelativeLayout.layout(0, 0, mRelativeLayout.getMeasuredWidth(),
-                    mRelativeLayout.getMeasuredHeight());
+            setDataFields();
+            setColor();
         }
         invalidate();
     }
-protected abstract void setColorDark();
+
+    protected abstract void setColorDark();
     protected abstract void setColorBright();
     protected abstract void setColorLowRes();
-
 
     public void missedReadingAlert() {
         int minutes_since   = (int) Math.floor(timeSince()/(1000*60));
@@ -365,82 +544,19 @@ protected abstract void setColorDark();
         }
     }
 
-    public void addToWatchSet(DataMap dataMap) {
-
-        ArrayList<DataMap> entries = dataMap.getDataMapArrayList("entries");
-        if (entries != null) {
-            bgDataList = new ArrayList<BgWatchData>();
-            for (DataMap entry : entries) {
-                double sgv = entry.getDouble("sgvDouble");
-                double high = entry.getDouble("high");
-                double low = entry.getDouble("low");
-                double timestamp = entry.getDouble("timestamp");
-                bgDataList.add(new BgWatchData(sgv, high, low, timestamp));
-            }
-        } else {
-            double sgv = dataMap.getDouble("sgvDouble");
-            double high = dataMap.getDouble("high");
-            double low = dataMap.getDouble("low");
-            double timestamp = dataMap.getDouble("timestamp");
-
-            final int size = bgDataList.size();
-            if (size > 0) {
-                if (bgDataList.get(size - 1).timestamp == timestamp)
-                    return; // Ignore duplicates.
-            }
-
-            bgDataList.add(new BgWatchData(sgv, high, low, timestamp));
-        }
-
-        for (int i = 0; i < bgDataList.size(); i++) {
-            if (bgDataList.get(i).timestamp < (new Date().getTime() - (1000 * 60 * 60 * 5))) {
-                bgDataList.remove(i); //Get rid of anything more than 5 hours old
-                break;
-            }
-        }
-    }
-
     public void setupCharts() {
-        if(bgDataList.size() > 0) { //Dont crash things just because we dont have values, people dont like crashy things
+        if(rawData.bgDataList.size() > 0) { //Dont crash things just because we dont have values, people dont like crashy things
             int timeframe = Integer.parseInt(sharedPrefs.getString("chart_timeframe", "3"));
             if (lowResMode) {
-                bgGraphBuilder = new BgGraphBuilder(getApplicationContext(), bgDataList, tempWatchDataList, basalWatchDataList, pointSize, midColor, gridColor, basalBackgroundColor, basalCenterColor, timeframe);
+                bgGraphBuilder = new BgGraphBuilder(getApplicationContext(), rawData, pointSize, midColor, gridColor, basalBackgroundColor, basalCenterColor, bolusColor, Color.GREEN, timeframe);
             } else {
-                bgGraphBuilder = new BgGraphBuilder(getApplicationContext(), bgDataList, tempWatchDataList, basalWatchDataList, pointSize, highColor, lowColor, midColor, gridColor, basalBackgroundColor, basalCenterColor, timeframe);
+                bgGraphBuilder = new BgGraphBuilder(getApplicationContext(), rawData, pointSize, highColor, lowColor, midColor, gridColor, basalBackgroundColor, basalCenterColor, bolusColor, Color.GREEN, timeframe);
             }
 
             chart.setLineChartData(bgGraphBuilder.lineData());
             chart.setViewportCalculationEnabled(true);
             chart.setMaximumViewport(chart.getMaximumViewport());
-        } else {
-            ListenerService.requestData(this);
         }
     }
 
-    private void loadBasalsAndTemps(DataMap dataMap) {
-        ArrayList<DataMap> temps = dataMap.getDataMapArrayList("temps");
-        if (temps != null) {
-            tempWatchDataList = new ArrayList<>();
-            for (DataMap temp : temps) {
-                TempWatchData twd = new TempWatchData();
-                twd.startTime = temp.getLong("starttime");
-                twd.startBasal =  temp.getDouble("startBasal");
-                twd.endTime = temp.getLong("endtime");
-                twd.endBasal = temp.getDouble("endbasal");
-                twd.amount = temp.getDouble("amount");
-                tempWatchDataList.add(twd);
-            }
-        }
-        ArrayList<DataMap> basals = dataMap.getDataMapArrayList("basals");
-        if (basals != null) {
-            basalWatchDataList = new ArrayList<>();
-            for (DataMap basal : basals) {
-                BasalWatchData bwd = new BasalWatchData();
-                bwd.startTime = basal.getLong("starttime");
-                bwd.endTime = basal.getLong("endtime");
-                bwd.amount = basal.getDouble("amount");
-                basalWatchDataList.add(bwd);
-            }
-        }
-    }
 }

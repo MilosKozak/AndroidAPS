@@ -6,30 +6,31 @@ import com.j256.ormlite.table.DatabaseTable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Date;
+import java.util.Objects;
 
 import info.nightscout.androidaps.Constants;
 import info.nightscout.androidaps.MainApp;
-import info.nightscout.androidaps.plugins.TempTargetRange.TempTargetRangePlugin;
-import info.nightscout.utils.DecimalFormatter;
+import info.nightscout.androidaps.R;
+import info.nightscout.androidaps.data.Profile;
+import info.nightscout.androidaps.interfaces.Interval;
+import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.utils.DateUtil;
+import info.nightscout.androidaps.utils.DecimalFormatter;
 
 @DatabaseTable(tableName = DatabaseHelper.DATABASE_TEMPTARGETS)
-public class TempTarget {
-    private static Logger log = LoggerFactory.getLogger(TempTarget.class);
+public class TempTarget implements Interval {
+    private static Logger log = LoggerFactory.getLogger(L.DATABASE);
 
-    public long getTimeIndex() {
-        return timeStart.getTime() - timeStart.getTime() % 1000;
-    }
-
-    public void setTimeIndex(long timeIndex) {
-        this.timeIndex = timeIndex;
-    }
-
-    @DatabaseField(id = true, useGetSet = true)
-    public long timeIndex;
+    @DatabaseField(id = true)
+    public long date;
 
     @DatabaseField
-    public Date timeStart;
+    public boolean isValid = true;
+
+    @DatabaseField
+    public int source = Source.NONE;
+    @DatabaseField
+    public String _id = null; // NS _id
 
     @DatabaseField
     public double low; // in mgdl
@@ -41,14 +42,135 @@ public class TempTarget {
     public String reason;
 
     @DatabaseField
-    public int duration;    // in minutes
+    public int durationInMinutes;
 
-    @DatabaseField
-    public String _id;    // NS _id
-
-    public Date getPlannedTimeEnd() {
-        return new Date(timeStart.getTime() + 60 * 1_000 * duration);
+    public double target() {
+        return (low + high) / 2;
     }
+
+    public boolean isEqual(TempTarget other) {
+        if (date != other.date) {
+            return false;
+        }
+        if (durationInMinutes != other.durationInMinutes)
+            return false;
+        if (low != other.low)
+            return false;
+        if (high != other.high)
+            return false;
+        if (!Objects.equals(reason, other.reason))
+            return false;
+        if (!Objects.equals(_id, other._id))
+            return false;
+        return true;
+    }
+
+    public void copyFrom(TempTarget t) {
+        date = t.date;
+        _id = t._id;
+        durationInMinutes = t.durationInMinutes;
+        low = t.low;
+        high = t.high;
+        reason = t.reason;
+    }
+
+    public TempTarget date(long date) {
+        this.date = date;
+        return this;
+    }
+
+    public TempTarget low(double low) {
+        this.low = low;
+        return this;
+    }
+
+    public TempTarget high(double high) {
+        this.high = high;
+        return this;
+    }
+
+    public TempTarget duration(int duration) {
+        this.durationInMinutes = duration;
+        return this;
+    }
+
+    public TempTarget reason(String reason) {
+        this.reason = reason;
+        return this;
+    }
+
+    public TempTarget _id(String _id) {
+        this._id = _id;
+        return this;
+    }
+
+    public TempTarget source(int source) {
+        this.source = source;
+        return this;
+    }
+
+    // -------- Interval interface ---------
+
+    Long cuttedEnd = null;
+
+    public long durationInMsec() {
+        return durationInMinutes * 60 * 1000L;
+    }
+
+    public long start() {
+        return date;
+    }
+
+    // planned end time at time of creation
+    public long originalEnd() {
+        return date + durationInMinutes * 60 * 1000L;
+    }
+
+    // end time after cut
+    public long end() {
+        if (cuttedEnd != null)
+            return cuttedEnd;
+        return originalEnd();
+    }
+
+    public void cutEndTo(long end) {
+        cuttedEnd = end;
+    }
+
+    public boolean match(long time) {
+        if (start() <= time && end() >= time)
+            return true;
+        return false;
+    }
+
+    public boolean before(long time) {
+        if (end() < time)
+            return true;
+        return false;
+    }
+
+    public boolean after(long time) {
+        if (start() > time)
+            return true;
+        return false;
+    }
+
+    @Override
+    public boolean isInProgress() {
+        return match(System.currentTimeMillis());
+    }
+
+    @Override
+    public boolean isEndingEvent() {
+        return durationInMinutes == 0;
+    }
+
+    @Override
+    public boolean isValid() {
+        return true;
+    }
+
+    // -------- Interval interface end ---------
 
     public String lowValueToUnitsToString(String units) {
         if (units.equals(Constants.MGDL)) return DecimalFormatter.to0Decimal(low);
@@ -60,19 +182,23 @@ public class TempTarget {
         else return DecimalFormatter.to1Decimal(low * Constants.MGDL_TO_MMOLL);
     }
 
-    public boolean isInProgress() {
-        return ((TempTargetRangePlugin) MainApp.getSpecificPlugin(TempTargetRangePlugin.class)).getTempTargetInProgress(new Date().getTime()) == this;
-    }
-
-    public String log() {
-        return "TempTarget{" +
-                "timeIndex=" + timeIndex +
-                ", timeStart=" + timeStart +
-                ", duration=" + duration +
+    public String toString() {
+        return "TemporaryTarget{" +
+                "date=" + date +
+                "date=" + DateUtil.dateAndTimeString(date) +
+                ", isValid=" + isValid +
+                ", duration=" + durationInMinutes +
                 ", reason=" + reason +
                 ", low=" + low +
                 ", high=" + high +
                 '}';
+    }
+
+    public String friendlyDescription(String units) {
+        return Profile.toTargetRangeString(low, high, Constants.MGDL, units) +
+                units +
+                "@" + MainApp.gs(R.string.mins, durationInMinutes) +
+                (reason != null && !reason.equals("") ? "(" + reason + ")" : "");
     }
 
 }
