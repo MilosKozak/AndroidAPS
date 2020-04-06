@@ -18,6 +18,7 @@ import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
 import info.nightscout.androidaps.logging.L;
 import info.nightscout.androidaps.plugins.general.persistentNotification.PersistentNotificationPlugin;
+import info.nightscout.androidaps.utils.SP;
 
 public class AlarmSoundService extends Service {
     private static Logger log = LoggerFactory.getLogger(L.CORE);
@@ -60,9 +61,14 @@ public class AlarmSoundService extends Service {
             player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
             afd.close();
             player.setLooping(true); // Set looping
-            AudioManager manager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
-            if (manager == null || !manager.isMusicActive()) {
-                player.setVolume(100, 100);
+            if (SP.getBoolean(MainApp.gs(R.string.key_override_volume_for_alerts), true)) {
+                AudioManager manager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
+                if (manager == null || !manager.isMusicActive()) {
+                    player.setVolume(100, 100);
+                }
+                player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            } else {
+                player.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
             }
             player.prepare();
             player.start();
