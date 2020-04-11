@@ -276,6 +276,7 @@
     <string name="reloadprofile">Reload profile</string>
     <string name="danar_viewprofile">View profile</string>
     <string name="enacted">Enacted</string>
+    <string name="dexcom_permission_description">Access Dexcom app</string>
     <string name="comment">Comment</string>
     <string name="success">Success</string>
     <string name="percent">Percent</string>

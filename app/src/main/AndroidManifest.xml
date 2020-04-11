@@ -25,6 +25,12 @@
     <uses-permission android:name="com.dexcom.cgm.EXTERNAL_PERMISSION" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 
+    <!-- Required on Android 10, otherwise permission request is neither shown as dialog nor visible in app info -->
+    <permission android:name="com.dexcom.cgm.EXTERNAL_PERMISSION"
+                android:protectionLevel="dangerous"
+                android:description="@string/dexcom_permission_description"
+                android:label="@string/dexcom_permission_description"/>
+
     <uses-permission-sdk-23 android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <!-- To receive data from xdrip. -->
