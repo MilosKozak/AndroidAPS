@@ -135,11 +135,11 @@ class StatusLightHandler @Inject constructor(
         handleAge(age, "", eventType, warnThreshold, urgentThreshold)
 
     fun handleAge(age: TextView?, prefix: String, eventType: String, warnThreshold: Double, urgentThreshold: Double) {
-        val notavailable = "-"
+        val notavailable = if (resourceHelper.shortTextMode()) "-" else resourceHelper.gs(R.string.notavailable)
         val careportalEvent = MainApp.getDbHelper().getLastCareportalEvent(eventType)
         if (careportalEvent != null) {
             age?.setTextColor(determineTextColor(careportalEvent, warnThreshold, urgentThreshold))
-            age?.text = prefix + careportalEvent.age(true)
+            age?.text = prefix + careportalEvent.age(resourceHelper.shortTextMode())
         } else {
             age?.text = notavailable
         }
