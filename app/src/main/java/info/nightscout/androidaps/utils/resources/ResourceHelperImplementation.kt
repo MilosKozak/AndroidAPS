@@ -69,5 +69,5 @@ class ResourceHelperImplementation @Inject constructor(private val context: Cont
         return (dp * scale + 0.5f).toInt()
     }
 
-    override fun shortTextMode() : Boolean = !gb(R.bool.isTablet) && Config.NSCLIENT
+    override fun shortTextMode() : Boolean = !(gb(R.bool.isTablet) && Config.NSCLIENT)
 }
