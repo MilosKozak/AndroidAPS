@@ -346,6 +346,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         calendar.set(Calendar.HOUR_OF_DAY, pumpTime.getHour());
         calendar.set(Calendar.MINUTE, pumpTime.getMinute());
         calendar.set(Calendar.SECOND, pumpTime.getSecond());
+        calendar.set(Calendar.MILLISECOND, 0); // truncate leftover milliseconds from current time
         if (calendar.get(Calendar.HOUR_OF_DAY) != pumpTime.getHour() || Math.abs(calendar.getTimeInMillis() - System.currentTimeMillis()) > 10000) {
             calendar.setTime(new Date());
             pumpTime.setYear(calendar.get(Calendar.YEAR));
@@ -1512,6 +1513,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, second);
+        calendar.set(Calendar.MILLISECOND, 0); // truncate leftover milliseconds from current UTC time
         return calendar.getTimeInMillis();
     }
 
@@ -1541,6 +1543,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
         calendar.set(Calendar.HOUR_OF_DAY, relativeHour);
         calendar.set(Calendar.MINUTE, relativeMinute);
         calendar.set(Calendar.SECOND, relativeSecond);
+        calendar.set(Calendar.MILLISECOND, 0); // truncate leftover milliseconds from current UTC time
         return calendar.getTimeInMillis();
     }
 
