@@ -225,6 +225,15 @@
     <string name="check_preferences_before_import">Проверьте настройки перед импортом:</string>
     <string name="check_preferences_cannot_import">Не удается импортировать настройки!</string>
     <string name="check_preferences_dangerous_import">Не следует импортировать настройки!</string>
+    <string name="check_preferences_details_btn">Объяснить проблемы импорта…</string>
+    <string name="check_preferences_details_title">Сведения о проблемах импорта</string>
+    <string name="check_preferences_import_btn">Импортировать</string>
+    <string name="check_preferences_import_anyway_btn">Импортировать в любом случае (ОПАСНО!)</string>
+    <string name="metadata_warning_different_flavour">Параметры были созданы с другим вариантом AAPS (%1$s) в то время как у вас: %2$s.\n\nНекоторые параметры могут отсутствать или быть недопустимы-после импорта проверьте и обновите параметры.</string>
+    <string name="metadata_warning_different_device">Параметры созданы на другом устройстве. Это нормально, если вы импортируете из старого/другого телефона, но убедитесь, что импортированные параметры - верные!</string>
+    <string name="metadata_warning_outdated_format">Вы используете устаревший формат из старых версий AAPS, который не безопасен! Используйте его только в крайнем случае, если у вас нет экспорта в текущем формате JSON.</string>
+    <string name="metadata_warning_old_export">Импортируемым параметрам уже %1$s дней! Может быть у вас есть более актуальные параметры или вы выбрали неправильный файл? Не забудьте регулярно экспортировать параметры!</string>
+    <string name="metadata_warning_date_format">Недопустимый формат даты и времени!</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">соединение устанавливается</string>
     <string name="connected">соединение установлено</string>
