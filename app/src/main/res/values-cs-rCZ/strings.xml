@@ -43,8 +43,6 @@
     <string name="description_pump_mdi">Ovladač pumpy pro uživatele inzulínových per</string>
     <string name="description_pump_virtual">Ovladač pumpy pro uživatele bez podporované pumpy (Otevřená smyčka)</string>
     <string name="description_sensitivity_aaps">Citlivost je počítána stejným způsobem jako v Oref0, ale je možné specifikovat dobu do minulosti. Minimální absorpce sacharidů je počítána dynamicky z maximální doby absorpce definované v nastavení.</string>
-    <string name="description_sensitivity_oref0">Citlivost je počítána za 24h a sacharidy, pokud nejsou absorbované, jsou oříznuty po čase definovaném v nastavení.</string>
-    <string name="description_sensitivity_oref1">Citlivost je počítána za 8h a sacharidy, pokud nejsou absorbované, jsou oříznuty po čase definovaném v nastavení. Je také zároveň vyhodnocováno UAM (neoznámené jídlo).</string>
     <string name="description_sensitivity_weighted_average">Citlivost je počítána jako vážený průměr z odchylek. Novější mají vyšší prioritu. Minimální absorpce sacharidů je počítána dynamicky z maximální doby absorpce definované v nastavení. Tento algoritmus sleduje nejrychleji změny citlivosti.</string>
     <string name="description_source_eversense">Příjem glykémií z modifikované Eversense aplikace.</string>
     <string name="description_source_glimp">Příjem glykémií z Glimpu.</string>
@@ -164,9 +162,7 @@
     <string name="disableloop">Zakázat smyčku</string>
     <string name="enableloop">Povolit smyčku</string>
     <string name="openloop_newsuggestion">Dostupné nové doporučení</string>
-    <string name="unsupportedclientver">Nepodporovaná verze NSClient</string>
     <string name="unsupportednsversion">Nepodporovaná verze Nightscoutu</string>
-    <string name="nsclientnotinstalled">NSClient není nainstalován. Záznam je ztracen!</string>
     <string name="loopdisabled">SMYČKA ZAKÁZÁNA OMEZENÍM</string>
     <string name="treatments_wizard_basaliob_label">Bazální IOB</string>
     <string name="bolusconstraintapplied">Aplikováno omezení bolusu</string>
@@ -461,10 +457,6 @@
     <string name="openapsama_bolussnooze_dia_divisor_summary">Výchozí hodnota: 2\nToto nastavení říká, po jakou část z hodnoty DIA smyčka po bolusu čeká a nereaguje na změny glykémií (zde 3DIA/2 = 1,5h).</string>
     <string name="openapsama_min_5m_carbimpact_summary">Výchozí hodnota: 3.0 (AMA) nebo 8.0 (SMB) mg/dl/5min. Tato hodnota definuje minimální část strávených sacharidů za každých 5 min. Tato hodnota ovlivňuje výpočet COB.</string>
     <string name="openapsama_link_to_preferncejson_doc_txt">Pozor!\nZa normálních okolností tyto hodnoty nemusíte měnit. Klikněte ZDE, PŘEČTĚTE si informace a UJISTĚTE se, že jim rozumíte dříve, než je začnete měnit.</string>
-    <string name="error_only_numeric_digits_allowed">Povoleny pouze číslice.</string>
-    <string name="error_only_numeric_digits_range_allowed">Povoleny pouze čísla v rozsahu %1$s - %2$s.</string>
-    <string name="error_field_must_not_be_empty">Toto pole nesmí být prázdné</string>
-    <string name="error_phone_not_valid">Neplatné telefonní číslo</string>
     <string name="smscommunicator_invalidphonennumber">Špatné telefonní číslo</string>
     <string name="overview_calibration">Kalibrace</string>
     <string name="send_calibration">Poslat do xDripu kalibraci %1$.1f?</string>
@@ -484,8 +476,6 @@
     <string name="virtualpump_settings">Nastavení virtuální pumpy</string>
     <string name="virtualpump_uploadstatus_title">Nahrávat status do NS</string>
     <string name="wrongpassword">Chybné heslo</string>
-    <string name="settings_password">Heslo do nastavení</string>
-    <string name="unlock_settings">Odemknout nastavení</string>
     <string name="approachingdailylimit">Blíží se denní limit inzulínu</string>
     <string name="nsclientinternal">NSClient</string>
     <string name="nsclientinternal_shortname">NSCl</string>
@@ -989,7 +979,6 @@
     <string name="allow_hardware_pump_text">POZOR: Pokud aktivuje a připojíte skutečnou pumpu, AndroidAPS nakopíruje (a bude udržovat) nastavení bazálu z aktivního profilu do pumpy. Nastavení bazálu v pumpě bude přepsáno. Pokud si nejste jistí nebo nechcete přepsat bazály v pumpě, stiskněte Zrušit a opakujte přepnutí na jinou pumpu později.</string>
     <string name="error_adding_treatment_title">Data ošetření neúplná</string>
     <string name="maintenance_settings">Nastavení údržby</string>
-    <string name="maintenance_email">E-mail</string>
     <string name="maintenance_amount">Počet logů k odeslání</string>
     <string name="maintenance">Údržba</string>
     <string name="maintenance_shortname">ÚDRŽBA</string>
@@ -1015,7 +1004,7 @@
     <string name="speederror">Chyba rychlosti</string>
     <string name="insulinlimitviolation">Překročen limit inzulínu</string>
     <string name="loop_openmode_min_change">Minimální změna pro výzvu [%]</string>
-    <string name="loop_openmode_min_change_summary">Otevřená smyčka vytvoří novou žádost o změnu pouze v případě, že změna je větší než tato hodnota. Výchozí hodnota je 20 %</string>
+    <string name="loop_openmode_min_change_summary" formatted="false">Otevřená smyčka vytvoří novou žádost o změnu pouze v případě, že změna je větší než tato hodnota. Výchozí hodnota je 20 %</string>
     <string name="pairfirst">Spárujte pumpu s telefonem!</string>
     <string name="searching_for_devices">Vyhledávání zařízení…</string>
     <string name="please_wait">Počkejte prosím…</string>
@@ -1454,4 +1443,5 @@
     <string name="loop_tbrrequest_time_label">Čas požadavku dočasného bazálu</string>
     <string name="loop_tbrexecution_time_label">Čas provedení dočasného bazálu</string>
     <string name="insight_alert_notification_channel">Upozornění pumpy Insight</string>
+    <!-- SMS Communicator & OTP Authenticator -->
 </resources>
