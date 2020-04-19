@@ -1191,8 +1191,7 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
             temporaryBasal.isAbsolute = false;
             temporaryBasals.add(temporaryBasal);
         }
-        // order by date and duration to ensure end of previous tbr doesn't override next tbr
-        Collections.sort(temporaryBasals, (o1, o2) -> (int) (o1.date != o2.date ? (o1.date - o2.date) : (o1.durationInMinutes - o2.durationInMinutes)));
+        Collections.sort(temporaryBasals, (o1, o2) -> (int) (o1.date - o2.date));
         for (TemporaryBasal temporaryBasal : temporaryBasals)
             TreatmentsPlugin.getPlugin().addToHistoryTempBasal(temporaryBasal);
     }
