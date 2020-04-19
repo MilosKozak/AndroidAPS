@@ -745,8 +745,11 @@
     <string name="bgsource_upload">Параметры загрузки СК</string>
     <string name="wear_detailed_delta_title">Показать подробно дельту</string>
     <string name="wear_detailed_delta_summary">Показать дельту еще с одним десятичным знаком</string>
+    <string name="smbinterval_summary">Как часто SMB будут подаваться в минутах</string>
     <string name="smbmaxminutes">Максимум минут микроболюса SMB</string>
     <string name="smbmaxminutes_summary">Верхний лимит минут базала на SMB</string>
+    <string name="uamsmbmaxminutes">Максимум минут микроболюса SMB для непредвиденного приема пищи UAM</string>
+    <string name="uamsmbmaxminutes_summary">Максимум минут базала ограничивающего микроболюсы SMB на непредвиденный прием пищи UAM</string>
     <string name="unsupportedfirmware">Неподдерживаемая версия прошивки помпы</string>
     <string name="dexcomg5_xdripupload_title">Отправить данные СК на xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">В xDrip + выберите источник данных 640g/Eversense</string>
