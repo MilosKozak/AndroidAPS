@@ -43,6 +43,7 @@
     <string name="description_pump_mdi">Per le persone in terapia multi-iniettiva</string>
     <string name="description_pump_virtual">Per microinfusori che non hanno ancora alcun driver (Loop aperto)</string>
     <string name="description_sensitivity_aaps">La sensibilità è calcolata allo stesso modo di Oref0, ma puoi specificare l\'intervallo di tempo al passato. L\'assorbimento minimo dei carboidrati è calcolato da \'max tempo assorbimento pasto\' nelle preferenze.</string>
+    <string name="description_sensitivity_oref1">La sensibilità è calcolata dai dati delle ultime 8h o 24h (utilizzando tra i due periodi il più sensibile) e i carboidrati (se non assorbiti) vengono tagliati fuori dopo il tempo specificato nelle preferenze. Il Plugin calcola anche UAM.</string>
     <string name="description_sensitivity_weighted_average">La sensibilità è calcolata come media ponderata dalle deviazioni. Le deviazioni più recenti hanno peso maggiore. L\'assorbimento minimo dei carboidrati è calcolato da \'max tempo assorbimento pasto\' nelle preferenze. Questo algoritmo è il più veloce nel seguire i cambiamenti di sensibilità.</string>
     <string name="description_source_eversense">Ricevi valori glicemia dall\'app Eversense modificata.</string>
     <string name="description_source_glimp">Ricevi valori glicemia da Glimp.</string>
@@ -218,6 +219,9 @@
     <string name="openapsma_maxiob_title">Max IOB da basale a cui limitare OpenAPS [U]</string>
     <string name="openapsma_maxiob_summary">Questo valore è chiamato Max IOB nel contesto OpenAPS\nIndica l\'insulina massima in [U] che APS può erogare in contemporanea.</string>
     <string name="dismiss">RIMUOVI</string>
+    <string name="password_preferences_encrypt_prompt">Ti verrà richiesta la password principale, che verrà utilizzata per crittografare le preferenze esportate.</string>
+    <string name="check_preferences_cannot_import">Le preferenze non possono essere importate!</string>
+    <string name="check_preferences_dangerous_import">Le preferenze non dovrebbero essere importate!</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Connessione</string>
     <string name="connected">Connesso</string>
