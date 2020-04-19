@@ -234,6 +234,10 @@
     <string name="metadata_warning_outdated_format">Вы используете устаревший формат из старых версий AAPS, который не безопасен! Используйте его только в крайнем случае, если у вас нет экспорта в текущем формате JSON.</string>
     <string name="metadata_warning_old_export">Импортируемым параметрам уже %1$s дней! Может быть у вас есть более актуальные параметры или вы выбрали неправильный файл? Не забудьте регулярно экспортировать параметры!</string>
     <string name="metadata_warning_date_format">Недопустимый формат даты и времени!</string>
+    <string name="metadata_label_format">Формат файла</string>
+    <string name="metadata_label_created_at">Дата создания</string>
+    <string name="metadata_label_aaps_version">Версия AAPS</string>
+    <string name="metadata_label_aaps_flavour">Версия сборки</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">соединение устанавливается</string>
     <string name="connected">соединение установлено</string>
