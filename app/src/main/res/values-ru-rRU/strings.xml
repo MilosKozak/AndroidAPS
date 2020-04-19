@@ -255,6 +255,7 @@
     <string name="prefdecrypt_issue_parsing">Ошибка расшифровки, не удалось проанализировать настройки!</string>
     <string name="prefdecrypt_issue_wrong_pass">Ошибка расшифровки, указан недопустимый пароль или файл параметров изменен! Возможно, импортированный файл был экспортирован с использованием другого главного пароля.</string>
     <string name="prefdecrypt_issue_wrong_format">Отсутствует конфигурация шифрования, формат параметров недопустим!</string>
+    <string name="prefdecrypt_issue_wrong_algorithm">Неподдерживаемый или не прописанный алгоритм шифрования!</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">соединение устанавливается</string>
     <string name="connected">соединение установлено</string>
@@ -544,6 +545,9 @@
     <string name="adult">взрослый</string>
     <string name="resistantadult">Инсулинорезистентный взрослый</string>
     <string name="patientage_summary">выберите возраст пациента для определения ограничителей безопасности</string>
+    <string name="patient_name">Имя пациента</string>
+    <string name="patient_name_summary">Укажите имя или псевдоним пациента, чтобы распознавать разные настройки</string>
+    <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Пользователь</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s необходимо включить в белый список оптимизации батареи для корректной работы</string>
     <string name="loopsuspended">ЗЦ остановлен</string>
