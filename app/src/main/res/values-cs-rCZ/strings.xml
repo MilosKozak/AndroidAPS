@@ -232,6 +232,10 @@
     <string name="check_preferences_import_anyway_btn">Přesto importovat (NEBEZPEČNÉ!)</string>
     <string name="metadata_warning_different_flavour">Předvolby byly vytvořeny s jinou variantou AAPS (%1$s) a když máte: %2$s.\n\nNěkterá nastavení mohou chybět nebo mohou být neplatná - po importu zkontrolujte konfiguraci a aktualizujte předvolby.</string>
     <string name="metadata_warning_different_device">Předvolby byly vytvořeny na jiném zařízení. Je to v pořádku, pokud importujete ze staršího/jiného telefonu, ale ujistěte se, že importované předvolby jsou správné!</string>
+    <string name="metadata_warning_outdated_format">Používáte zastaralý formát od starých verzí AAPS, který není zabezpečený! Použijte jej pouze jako poslední možnost, pokud nemáte exporty v aktuálním formátu JSON.</string>
+    <string name="metadata_warning_old_export">Importované předvolby jsou staré již %1$s dní! Možná máte aktualnější export nebo jste vybral špatný soubor? Nezapomeňte předvolby pravidelně exportovat!</string>
+    <string name="metadata_warning_date_format">Neplatný formát datumu!</string>
+    <string name="metadata_label_format">Formát souboru</string>
     <string name="metadata_label_created_at">Vytvořeno</string>
     <string name="metadata_label_aaps_version">Verze AAPS</string>
     <string name="metadata_label_aaps_flavour">Varianta sestavení</string>
@@ -1016,6 +1020,8 @@
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Nižší senzitivita pro dočasné cíle < 5.5]]></string>
     <string name="resistance_lowers_target_title">Rezistence snižuje cíl</string>
     <string name="resistance_lowers_target_summary">Je-li zjištěna rezistence, snížit cílovou hladinu glukózy</string>
+    <string name="sensitivity_raises_target_title">Citlivost zvyšuje cíl</string>
+    <string name="sensitivity_raises_target_summary">Je-li zjištěna vyšší citlivost, zvýší cílovou hladinu glukózy</string>
     <string name="combo_invalid_setup">Chybné nastavení pumpy. Projděte si dokumentaci a přesvědčete se, že menu Quick Info se jmenuje QUICK INFO, za použití 360 configuration software.</string>
     <string name="custom">Volitelný</string>
     <string name="largetimedifftitle">Velký rozdíl v času</string>
@@ -1025,6 +1031,8 @@
     <string name="allow_hardware_pump_text">POZOR: Pokud aktivuje a připojíte skutečnou pumpu, AndroidAPS nakopíruje (a bude udržovat) nastavení bazálu z aktivního profilu do pumpy. Nastavení bazálu v pumpě bude přepsáno. Pokud si nejste jistí nebo nechcete přepsat bazály v pumpě, stiskněte Zrušit a opakujte přepnutí na jinou pumpu později.</string>
     <string name="error_adding_treatment_title">Data ošetření neúplná</string>
     <string name="maintenance_settings">Nastavení údržby</string>
+    <string name="maintenance_email">Příjemce e-mailu</string>
+    <string name="maintenance_encrypt_exported_prefs">Šifrovat exportované nastavení</string>
     <string name="maintenance_amount">Počet logů k odeslání</string>
     <string name="maintenance">Údržba</string>
     <string name="maintenance_shortname">ÚDRŽBA</string>
@@ -1232,6 +1240,8 @@
     <string name="exists">existuje</string>
     <string name="notexists">neexistuje</string>
     <string name="temptargetcompared">Dočasný cíl %1$s</string>
+    <string name="btdevicecompared">Připojení Bluetooth k zařízení %1$s %2$s</string>
+    <string name="btdevice">Připojení k zařízení Bluetooth </string>
     <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
     <string name="autosenscompared">Autosens %1$s %2$s %%</string>
     <string name="autosenslabel">Autosens %</string>
@@ -1286,6 +1296,7 @@
     <string name="medtronic_pump_battery_alkaline">Alkalické (Rozšířené)</string>
     <string name="medtronic_pump_battery_lithium">Lithiové (Rozšířené)</string>
     <string name="medtronic_pump_battery_nizn">NiZn (Rozšířené)</string>
+    <string name="medtronic_pump_battery_nimh">NiMH (Rozšířené)</string>
     <string name="medtronic_bolus_debugging">Bolus/Ošetření ladění</string>
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">VYHLEDAT</string>
@@ -1490,4 +1501,26 @@
     <string name="loop_tbrexecution_time_label">Čas provedení dočasného bazálu</string>
     <string name="insight_alert_notification_channel">Upozornění pumpy Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">z aplikace Authenticator pro: %1$s</string>
+    <string name="smscommunicator_otp_enabled">Povolit Autentikátor</string>
+    <string name="smscommunicator_otp_enabled_summary">Ověření příkazů pomocí jednočasových hesel generovaných Google Authenticator nebo podobných 2FA aplikací.</string>
+    <string name="smscommunicator_otp_pin">Další PIN na konci tokenu</string>
+    <string name="smscommunicator_otp_pin_summary">Další číslice, které by měly být zapamatovány a přidány na konec každého vygenerovaného jednorázového hesla</string>
+    <string name="smscomunicator_tab_otp_label">Nastavení Autentikátoru</string>
+    <string name="smscommunicator_otp_verify_label">OTP pro kontrolu:</string>
+    <string name="smscommunicator_otp_reset_btn">Resetovat autentikátory</string>
+    <string name="smscommunicator_otp_reset_title">Resetovat klíč pro autentikátory</string>
+    <string name="smscommunicator_otp_reset_prompt">Opravdu chcete obnovit ověřovací klíč? Vyresetujete všechny aktuálně nakonfigurované autentikátory a budete je muset znovu nastavit.</string>
+    <string name="smscommunicator_otp_reset_successful">Byl vygenerován nový klíč autentikátoru! Prosím, použijte aktualizovaný QR kód pro nastavení autentikátorů.</string>
+    <string name="smscommunicator_otp_step1_install_header">1. Nainstalujte Autentikátor</string>
+    <string name="smscommunicator_otp_step2_provisioning_header">2. Naskenujte kód pro nastavení kódů OTP AndroidAPS</string>
+    <string name="smscommunicator_otp_step3_test_header">3. Otestujte jednorázové heslo</string>
+    <string name="smscommunicator_otp_reset_header">Resetovat autentikátory</string>
+    <string name="smscommunicator_otp_install_info">Na každém sledovacím telefonu nainstalujte Authentikátor, který podporuje tokeny TOTP RFC 6238. Nejoblíbenější bezplatné aplikace jsou:\n • Authy\n • Google Authenticator\n • LastPass Authenticator\n • FreeOTP Authenticator</string>
+    <string name="smscommunicator_otp_provisioning_warning">Nesdílejí tento kód on-line!\nPoužít pouze k nastavení Authentikátoru na sledujících telefonech.</string>
+    <string name="smscommunicator_otp_reset_warning">Obnovením autentikátoru uděláte všechny již poskytnuté autentikátory neplatné. Budete je muset znovu nastavit!</string>
+    <string name="onconnect">Při připojení</string>
+    <string name="ondisconnect">Při odpojení</string>
+    <string name="overview_show_predictions">Predikce</string>
+    <string name="overview_show_deviationslope">Odchylka sklonu</string>
 </resources>
