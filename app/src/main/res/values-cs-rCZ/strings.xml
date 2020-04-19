@@ -772,6 +772,7 @@
     <string name="ago">zpět</string>
     <string name="format_hours">%1$.2f h</string>
     <string name="format_mins">%1$d min</string>
+    <string name="format_mins_short">%1$dm</string>
     <string name="enablesmbalways">Vždy povolit SMB</string>
     <string name="enablesmbalways_summary">Povolit SMB nezávisle na bolusech. Možno pouze se zdroji glykémií s dobrým filtrováním dat, jako např. G5</string>
     <string name="enablesmbaftercarbs">Povolit SMB po jídle</string>
