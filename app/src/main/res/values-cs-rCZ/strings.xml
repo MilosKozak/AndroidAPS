@@ -43,6 +43,7 @@
     <string name="description_pump_mdi">Ovladač pumpy pro uživatele inzulínových per</string>
     <string name="description_pump_virtual">Ovladač pumpy pro uživatele bez podporované pumpy (Otevřená smyčka)</string>
     <string name="description_sensitivity_aaps">Citlivost je počítána stejným způsobem jako v Oref0, ale je možné specifikovat dobu do minulosti. Minimální absorpce sacharidů je počítána dynamicky z maximální doby absorpce definované v nastavení.</string>
+    <string name="description_sensitivity_oref1">Citlivost je počítána za 8h nebo 24h (použita je vyšší citlivost). Sacharidy, pokud nejsou absorbované, jsou oříznuty po čase definovaném v nastavení. Je také zároveň vyhodnocováno UAM (neoznámené jídlo).</string>
     <string name="description_sensitivity_weighted_average">Citlivost je počítána jako vážený průměr z odchylek. Novější mají vyšší prioritu. Minimální absorpce sacharidů je počítána dynamicky z maximální doby absorpce definované v nastavení. Tento algoritmus sleduje nejrychleji změny citlivosti.</string>
     <string name="description_source_eversense">Příjem glykémií z modifikované Eversense aplikace.</string>
     <string name="description_source_glimp">Příjem glykémií z Glimpu.</string>
@@ -218,6 +219,19 @@
     <string name="openapsma_maxiob_title">Maximální bazální IOB [U]</string>
     <string name="openapsma_maxiob_summary">Tato hodnota je v kontextu OpenAPS nazývána max IOB</string>
     <string name="dismiss">POTVRDIT</string>
+    <string name="password_preferences_encrypt_prompt">Zobrazí se výzva k zadání hlavního hesla, které bude použito k šifrování exportovaných předvoleb.</string>
+    <string name="password_preferences_decrypt_prompt">Zobrazí se výzva k zadání hlavního hesla, které bude použito k dešifrování importovaných předvoleb.</string>
+    <string name="preferences_export_canceled">Export zrušen! Předvolby NEBYLY exportovány!</string>
+    <string name="preferences_import_canceled">Import zrušen! Předvolby NEBYLY importovány!</string>
+    <string name="check_preferences_before_import">Před importem zkontrolujte předvolby:</string>
+    <string name="check_preferences_cannot_import">Předvolby nelze importovat!</string>
+    <string name="check_preferences_dangerous_import">Předvolby by neměly být importovány!</string>
+    <string name="check_preferences_details_btn">Vysvětlení problémy při importu…</string>
+    <string name="check_preferences_details_title">Detaily problémů importu</string>
+    <string name="check_preferences_import_btn">Import</string>
+    <string name="check_preferences_import_anyway_btn">Přesto importovat (NEBEZPEČNÉ!)</string>
+    <string name="metadata_warning_different_flavour">Předvolby byly vytvořeny s jinou variantou AAPS (%1$s) a když máte: %2$s.\n\nNěkterá nastavení mohou chybět nebo mohou být neplatná - po importu zkontrolujte konfiguraci a aktualizujte předvolby.</string>
+    <string name="metadata_warning_different_device">Předvolby byly vytvořeny na jiném zařízení. Je to v pořádku, pokud importujete ze staršího/jiného telefonu, ale ujistěte se, že importované předvolby jsou správné!</string>
     <string name="metadata_label_created_at">Vytvořeno</string>
     <string name="metadata_label_aaps_version">Verze AAPS</string>
     <string name="metadata_label_aaps_flavour">Varianta sestavení</string>
@@ -1000,6 +1014,8 @@
     <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Zvýšení senzitivity pro dočasné cíle >= 5.5]]></string>
     <string name="low_temptarget_lowers_sensitivity_title">Nízký dočasný cíl sníží senzitivitu</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Nižší senzitivita pro dočasné cíle < 5.5]]></string>
+    <string name="resistance_lowers_target_title">Rezistence snižuje cíl</string>
+    <string name="resistance_lowers_target_summary">Je-li zjištěna rezistence, snížit cílovou hladinu glukózy</string>
     <string name="combo_invalid_setup">Chybné nastavení pumpy. Projděte si dokumentaci a přesvědčete se, že menu Quick Info se jmenuje QUICK INFO, za použití 360 configuration software.</string>
     <string name="custom">Volitelný</string>
     <string name="largetimedifftitle">Velký rozdíl v času</string>
