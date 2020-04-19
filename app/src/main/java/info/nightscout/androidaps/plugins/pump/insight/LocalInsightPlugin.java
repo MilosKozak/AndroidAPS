@@ -1301,7 +1301,8 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
 
     private void processStartOfTBREvent(String serial, List<TemporaryBasal> temporaryBasals, StartOfTBREvent event) {
         long timestamp = parseDate(event.getEventYear(), event.getEventMonth(), event.getEventDay(),
-                event.getEventHour(), event.getEventMinute(), event.getEventSecond()) + timeOffset;
+                event.getEventHour(), event.getEventMinute(), event.getEventSecond()) + timeOffset
+                + 500; // make the start of tbr half a second later, to ensure any end of tbr is processed/stored first
         InsightPumpID pumpID = new InsightPumpID();
         pumpID.eventID = event.getEventPosition();
         pumpID.pumpSerial = serial;
@@ -1320,7 +1321,8 @@ public class LocalInsightPlugin extends PluginBase implements PumpInterface, Con
 
     private void processEndOfTBREvent(String serial, List<TemporaryBasal> temporaryBasals, EndOfTBREvent event) {
         long timestamp = parseDate(event.getEventYear(), event.getEventMonth(), event.getEventDay(),
-                event.getEventHour(), event.getEventMinute(), event.getEventSecond()) + timeOffset;
+                event.getEventHour(), event.getEventMinute(), event.getEventSecond()) + timeOffset
+                - 500; // make the end of tbr half a second earlier, to ensure it's processed before the start of a new tbr at the same time
         InsightPumpID pumpID = new InsightPumpID();
         pumpID.eventID = event.getEventPosition();
         pumpID.pumpSerial = serial;
