@@ -246,6 +246,9 @@
     <string name="prefdecrypt_wrong_password">Erro ao desencriptar, a password inserida não pode desencriptar o ficheiro</string>
     <string name="prefdecrypt_issue_missing_file_hash">Ficheiro de verificação (hash) em falta, não é possível verificar a autenticidade de configurações!</string>
     <string name="prefdecrypt_issue_modified">Ficheiro foi modificado após exportação!</string>
+    <string name="prefdecrypt_issue_parsing">Erro Desencriptação, a análise de preferências falhou!</string>
+    <string name="prefdecrypt_issue_wrong_format">Configuração de encriptação ausente, formato de configurações é inválido!</string>
+    <string name="prefdecrypt_issue_wrong_algorithm">Algoritmo de encriptação não suportado ou não especificado!</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Conectando</string>
     <string name="connected">Conectado</string>
@@ -536,6 +539,7 @@
     <string name="resistantadult">Adulto resistente insulina</string>
     <string name="patientage_summary">Por favor seleccione a idade do diabético para definir os limites de segurança</string>
     <string name="patient_name">Nome do Paciente</string>
+    <string name="patient_name_summary">Por favor, forneça nome do paciente ou alcunha para diferenciar entre várias configurações</string>
     <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Utilizador</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s necessita de autorizar a não optimização da bateria para assegurar a performance necessária</string>
@@ -734,10 +738,13 @@
     <string name="bgsource_upload">Configurações de upload de BG</string>
     <string name="wear_detailed_delta_title">Mostrar Delta detalho</string>
     <string name="wear_detailed_delta_summary">Mostrar delta com mais um ponto decimal</string>
+    <string name="smbinterval_summary">Com que frequência em min os SMBs serão dados</string>
     <string name="smbmaxminutes">SMB máx. minutos</string>
     <string name="smbmaxminutes_summary">Limite de minutos de basal para SMB</string>
     <string name="uamsmbmaxminutes">UAM SMB máx minutos</string>
+    <string name="uamsmbmaxminutes_summary">Max minutos de basal para limitar SMB para UAM</string>
     <string name="carbsReqThreshold">Limite Sugestão de Hidratos</string>
+    <string name="carbsReqThreshold_summary">Quando Hidratos são sugeridos, quantos hidratos irá solicitar uma notificação</string>
     <string name="unsupportedfirmware">Firmware bomba não suportado</string>
     <string name="dexcomg5_xdripupload_title">Enviar dados Glic. para xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Seleccionar 640g/Eversense como fonte no xDrip+</string>
@@ -1004,7 +1011,9 @@
     <string name="low_temptarget_lowers_sensitivity_title">Baixo alvotemp baixa sensibilidade</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Baixar sensibilidade para alvostemp < 100]]></string>
     <string name="resistance_lowers_target_title">Resistência reduz alvo</string>
+    <string name="resistance_lowers_target_summary">Quando a resistência for detectada, diminui o alvo de glicose</string>
     <string name="sensitivity_raises_target_title">Sensibilidade aumenta o alvo</string>
+    <string name="sensitivity_raises_target_summary">Quando a sensibilidade é detectada, aumenta o alvo glicose</string>
     <string name="combo_invalid_setup">Configuração da bomba inválida, verifique a documentação e se o menu de informações rápidas está nomeado de QUICK INFO utilizando o programa de configuração 360.</string>
     <string name="custom">Personalizado</string>
     <string name="largetimedifftitle">Grande diferença Horária</string>
