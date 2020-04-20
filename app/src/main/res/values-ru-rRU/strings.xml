@@ -43,6 +43,7 @@
     <string name="description_pump_mdi">Интеграция с помпой для тех, кто делает многочисленные подколки для компенсации диабета</string>
     <string name="description_pump_virtual">Интеграция с помпами, еще не имеющими драйвера (незамкнутый цикл)</string>
     <string name="description_sensitivity_aaps">Чувствительность вычисляется аналогично алгоритму oref0, но можно включить период прошлого. Минимальное усвоение углеводов вычисляется на основе макс усвоения из настроек.</string>
+    <string name="description_sensitivity_oref1">Чувствительность рассчитывается на основе данных за прошедшие 8 часов и (неусвоенные) углеводы не учитываются после времени указанного в настройках. Плагин также вычисляет UAM.</string>
     <string name="description_sensitivity_weighted_average">Чувствительность рассчитывается как средневзвешенное от отклонений (deviations). Более поздние отклонения имеют больший вес. Минимальное усвоение углеводов рассчитывается на основе макс времени усвоения углеводов в настройках. Этот алгоритм быстрее всего отслеживает изменения чувствительности.</string>
     <string name="description_source_eversense">Получать данные гликемии от пропатченного приложения Eversense.</string>
     <string name="description_source_glimp">Получать данные гликемии от Glimp.</string>
@@ -1032,6 +1033,7 @@ Context | Edit Context</string>
     <string name="allow_hardware_pump_text">Внимание: Если вы активируете подключение к невиртуальной помпе, AndroidAPS скопирует настройки базала в профиль помпы, перезаписывая существующие настройки, хранящиеся в ней. Убедитесь, что настройки базала в AndroidAPS корректны. Если вы не уверены или не хотите перезаписать настройки базала на помпу, нажмите отменить и повторите подключение в другое время.</string>
     <string name="error_adding_treatment_title">Данные терапии неполные</string>
     <string name="maintenance_settings">Параметры обслуживания</string>
+    <string name="maintenance_email">Адрес электронной почты</string>
     <string name="maintenance_encrypt_exported_prefs">Зашифровать экспортируемые параметры</string>
     <string name="maintenance_amount">Количество логов для отправки</string>
     <string name="maintenance">Обслуживание</string>
@@ -1516,4 +1518,13 @@ Context | Edit Context</string>
     <string name="smscommunicator_otp_step2_provisioning_header">2. Код сканирования для настройки кодов OTP AndroidAPS</string>
     <string name="smscommunicator_otp_step3_test_header">3. Одноразовый Пароль</string>
     <string name="smscommunicator_otp_reset_header">Сбросить аутентификаторы</string>
+    <string name="smscommunicator_otp_install_info">В каждом отслеживающем телефоне установите приложение Authenticator, поддерживающее маркеры TOTP RFC 6238. Популярные бесплатные приложения: \n Authy\n Google Authenticator\n LastPass Authenticator\n FreeOTP Authenticator</string>
+    <string name="smscommunicator_otp_provisioning_warning">Не переправляйте этот код через интернет!\nИспользуйте его только для настройки приложения Authenticator на отслеживающих телефонах.</string>
+    <string name="smscommunicator_otp_reset_warning">После сброса аутентификатора вы делаете все созданные идентификаторы недействительными. Вам нужно будет снова создать их!</string>
+    <string name="onconnect">При подключении</string>
+    <string name="ondisconnect">При отключении</string>
+    <string name="overview_show_predictions">Прогнозирование</string>
+    <string name="overview_show_deviationslope">Линия отклонения</string>
+    <string name="authorizationfailed">Ошибка авторизации</string>
+    <string name="overview_show_absinsulin">Абсолютный инсулин</string>
 </resources>
