@@ -255,6 +255,8 @@
     <string name="prefdecrypt_issue_modified">Súbor bol po exporte zmenený!</string>
     <string name="prefdecrypt_issue_parsing">Chyba dešifrovania, analýza nastavení zlyhala!</string>
     <string name="prefdecrypt_issue_wrong_pass">Chyba dešifrovania, zadané heslo je neplatné, alebo bol súbor nastavení zmenený! Môže sa stať, že importovaný súbor bol exportovaný s iným hlavným heslom.</string>
+    <string name="prefdecrypt_issue_wrong_format">Chýba konfigurácia šifrovania, formát nastavení je neplatný!</string>
+    <string name="prefdecrypt_issue_wrong_algorithm">Nepodporovaný alebo neurčený šifrovací algoritmus!</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Pripájanie</string>
     <string name="connected">Pripojené</string>
@@ -544,6 +546,9 @@
     <string name="adult">Dospelý</string>
     <string name="resistantadult">Dospelý s nízkou citlivosťou</string>
     <string name="patientage_summary">Vyberte vek pacienta pre nastavenie bezpečnostných limitov</string>
+    <string name="patient_name">Meno pacienta</string>
+    <string name="patient_name_summary">Zadajte meno pacienta, alebo prezývku pre rozlíšenie medzi viacerými nastaveniami</string>
+    <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Používateľ</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s potrebuje vypnúť optimalizáciu batérie pre optimálny výkon</string>
     <string name="loopsuspended">Uzavretý okruh pozastavený</string>
@@ -741,8 +746,13 @@
     <string name="bgsource_upload">Nastavenie nahrávania glykémie</string>
     <string name="wear_detailed_delta_title">Zobrazovať detailné zmeny</string>
     <string name="wear_detailed_delta_summary">Zobrazovať rozdiel s jedným desatinným miestom naviac</string>
+    <string name="smbinterval_summary">Ako často budú SMB podávané (v minutách)</string>
     <string name="smbmaxminutes">SMB max. minút</string>
     <string name="smbmaxminutes_summary">Maximálny počet minút bazálu, ku ktorým se limituje SMB</string>
+    <string name="uamsmbmaxminutes">UAM SMB max. minút</string>
+    <string name="uamsmbmaxminutes_summary">Maximální počet minút bazálu, ku ktorým sa limituje SMB pre UAM</string>
+    <string name="carbsReqThreshold">Prahová hodnota doporučenia sacharidov</string>
+    <string name="carbsReqThreshold_summary">Po navrhnutí sacharidov, aké množstvo sacharidov vyvolá upozornenie</string>
     <string name="unsupportedfirmware">Nepodporovaný firmware v pumpe</string>
     <string name="dexcomg5_xdripupload_title">Odosielať glykémie do xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">V xDrip+ vyberte zdroj dát 640g/Eversense</string>
@@ -809,6 +819,7 @@
     <string name="ago">pred</string>
     <string name="format_hours">%1$.2f h</string>
     <string name="format_mins">%1$d min</string>
+    <string name="format_mins_short">%1$dm</string>
     <string name="enablesmbalways">Vždy povoliť SMB</string>
     <string name="enablesmbalways_summary">Povoliť SMB nezávisle na bolusoch. Možno iba zo zdrojom glykémií s dobrým filtrovaním dát, ako napr. G5</string>
     <string name="enablesmbaftercarbs">Povoliť SMB po jedle</string>
@@ -1007,6 +1018,10 @@
     <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Zvýšenie citlivosti pre dočasné ciele >= 5.5]]></string>
     <string name="low_temptarget_lowers_sensitivity_title">Nízky dočasný cieľ zníži citlivosť</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Nižšia citlivosť pre dočasné ciele < 5.5]]></string>
+    <string name="resistance_lowers_target_title">Rezistancia znižuje cieľ</string>
+    <string name="resistance_lowers_target_summary">Ak je zistená rezistancia, znížiť cieľovú hladinu glykémie</string>
+    <string name="sensitivity_raises_target_title">Citlivosť zvyšuje cieľ</string>
+    <string name="sensitivity_raises_target_summary">Ak je zistená vyššia citlivosť, zvýši cieľovú hladinu glykémie</string>
     <string name="combo_invalid_setup">Chybné nastavenie pumpy. Prejdite si dokumentáciu a presvedčte sa, že menu Quick Info se nazýva QUICK INFO, s použitím 360° Configuration Software.</string>
     <string name="custom">Voliteľný</string>
     <string name="largetimedifftitle">Veľký rozdiel v čase</string>
@@ -1016,6 +1031,8 @@
     <string name="allow_hardware_pump_text">POZOR: Pokiaľ aktivujete a pripojíte skutočnú pumpu, AndroidAPS nakopíruje (a bude udržiavať) nastavenie bazálu z aktívneho profilu do pumpy. Nastavenie bazálu v pumpe bude prepísané. Pokiaľ si nieste istí, alebo nechcete prepísať bazály v pumpe, stlačte Zrušiť a opakujte prepnutie na inú pumpu neskôr.</string>
     <string name="error_adding_treatment_title">Dáta ošetrení neúplné</string>
     <string name="maintenance_settings">Nastavenie údržby</string>
+    <string name="maintenance_email">E-Mail</string>
+    <string name="maintenance_encrypt_exported_prefs">Šifrovať exportované nastavenia</string>
     <string name="maintenance_amount">Počet protokolov na odoslanie</string>
     <string name="maintenance">Údržba</string>
     <string name="maintenance_shortname">Údržba</string>
@@ -1223,6 +1240,8 @@
     <string name="exists">existuje</string>
     <string name="notexists">neexistuje</string>
     <string name="temptargetcompared">Dočasný cieľ %1$s</string>
+    <string name="btdevicecompared">Pripojenie Bluetooth k zariadeniu %1$s %2$s</string>
+    <string name="btdevice">Pripojenie k zariadeniu Bluetooth </string>
     <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
     <string name="autosenscompared">Autosens %1$s %2$s %%</string>
     <string name="autosenslabel">Autosens %</string>
@@ -1277,6 +1296,7 @@
     <string name="medtronic_pump_battery_alkaline">Alkalické (rozšírené zobrazenie)</string>
     <string name="medtronic_pump_battery_lithium">Líthiové (rozšírené zobrazenie)</string>
     <string name="medtronic_pump_battery_nizn">NiZn (Rozšírené)</string>
+    <string name="medtronic_pump_battery_nimh">NiMH (Rozšírené zobrazenie)</string>
     <string name="medtronic_bolus_debugging">Bolus/Ošetrenia ladenie</string>
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">VYHĽADAŤ</string>
@@ -1481,4 +1501,28 @@
     <string name="loop_tbrexecution_time_label">Čas spustenia dočasného bazálu</string>
     <string name="insight_alert_notification_channel">Výstrahy pumpy Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">z aplikácie Authenticator pre: %1$s</string>
+    <string name="smscommunicator_otp_enabled">Povoliť Autentifikátor</string>
+    <string name="smscommunicator_otp_enabled_summary">Autentifikačné príkazy používajú jednorázové heslá generované Google Authenticator, alebo podobnými 2FA aplikáciami.</string>
+    <string name="smscommunicator_otp_pin">Ďalší PIN na konci tokenu</string>
+    <string name="smscommunicator_otp_pin_summary">Ďalšie číslice, ktoré by mali byť zapamätané a pridané na koniec každého vygenerovaného jednorázového hesla</string>
+    <string name="smscomunicator_tab_otp_label">Nastavenie autentifikátora</string>
+    <string name="smscommunicator_otp_verify_label">OTP pre kontrolu:</string>
+    <string name="smscommunicator_otp_reset_btn">Resetovať autentifikátory</string>
+    <string name="smscommunicator_otp_reset_title">Resetovať autentifikačný kľúč</string>
+    <string name="smscommunicator_otp_reset_prompt">Ste si istý, že chcete obnoviť autentifikačný kľúč? Vyresetujete tým všetky aktuálne nakonfigurované autentikátory a budete ich musieť znovu nastaviť.</string>
+    <string name="smscommunicator_otp_reset_successful">Bol vygenerovaný nový autentifikačný kľúč! Prosím, použite aktualizovaný QR kód pre nastavenie autentifikátorov.</string>
+    <string name="smscommunicator_otp_step1_install_header">1. Nainštalujte Autentifikátor</string>
+    <string name="smscommunicator_otp_step2_provisioning_header">2. Naskenujte kód pre nastavenie AndroidAPS OTP kódov</string>
+    <string name="smscommunicator_otp_step3_test_header">3. Odtestujte jednorázové heslo</string>
+    <string name="smscommunicator_otp_reset_header">Resetovať autentifikátory</string>
+    <string name="smscommunicator_otp_install_info">Na každom sledovacom telefóne nainštalujte Autentifikátor, ktorý podporuje tokeny TOTP RFC 6238. Najobľúbenejšie bezplatné aplikácie sú:\n • Authy\n • Google Authenticator\n • LastPass Authenticator\n • FreeOTP Authenticator</string>
+    <string name="smscommunicator_otp_provisioning_warning">NEZDIEĽAJTE tento kód on-line!\nPoužiť iba na nastavenie Autentifikátora na sledujúcich telefónoch.</string>
+    <string name="smscommunicator_otp_reset_warning">Resetovaním autentifikátora budú všetky už poskytnuté autentifikátory neplatné. Budete ich musieť znovu nastaviť!</string>
+    <string name="onconnect">Pri pripojení</string>
+    <string name="ondisconnect">Pri odpojení</string>
+    <string name="overview_show_predictions">Predikcie</string>
+    <string name="overview_show_deviationslope">Odchýlka sklonu</string>
+    <string name="authorizationfailed">Autorizácia zlyhala</string>
+    <string name="overview_show_absinsulin">Celkový inzulín</string>
 </resources>
