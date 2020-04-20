@@ -219,6 +219,9 @@
     <string name="openapsma_maxiob_title">Basal Máxima IOB que OpenAPS pode dar [U]</string>
     <string name="openapsma_maxiob_summary">Este valor é denominado Max IOB em contexto OpenAPS \nEste é o valor máximo de insulina em [U] que APS pode dar de uma vez.</string>
     <string name="dismiss">Dispensar</string>
+    <string name="preferences_export_canceled">Exportação cancelada! Preferências NÃO foram exportadas!</string>
+    <string name="preferences_import_canceled">Importação cancelada! Preferências NÃO foram importadas!</string>
+    <string name="check_preferences_before_import">Por favor, verifique as preferências antes da importação:</string>
     <string name="check_preferences_cannot_import">Preferências não podem ser importadas!</string>
     <string name="check_preferences_dangerous_import">As preferências não devem ser importadas!</string>
     <string name="check_preferences_details_btn">Explicar problemas de importação…</string>
@@ -239,6 +242,9 @@
     <string name="metadata_format_other">Formato de exportação desconhecido</string>
     <string name="prefdecrypt_settings_tampered">Ficheiro de configurações adulterado</string>
     <string name="prefdecrypt_settings_secure">Ficheiro de configurações é seguro</string>
+    <string name="prefdecrypt_wrong_json">Erro de formato JSON, campo necessário ausente (formato, conteúdo, metadados ou segurança)</string>
+    <string name="prefdecrypt_wrong_password">Erro ao desencriptar, a password inserida não pode desencriptar o ficheiro</string>
+    <string name="prefdecrypt_issue_missing_file_hash">Ficheiro de verificação (hash) em falta, não é possível verificar a autenticidade de configurações!</string>
     <string name="prefdecrypt_issue_modified">Ficheiro foi modificado após exportação!</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">A ligar</string>
@@ -1485,6 +1491,7 @@
     <string name="smscommunicator_otp_verify_label">OTP para verificar:</string>
     <string name="smscommunicator_otp_reset_btn">Repor Autenticadores</string>
     <string name="smscommunicator_otp_reset_title">Repor Chave Autenticador</string>
+    <string name="smscommunicator_otp_reset_successful">Nova Chave do Autenticador foi gerada! Por favor, use o QRCode actualizado para os autenticadores.</string>
     <string name="smscommunicator_otp_step1_install_header">1. Instalar Autenticador</string>
     <string name="smscommunicator_otp_step2_provisioning_header">2. Pesquise o código para configurar os códigos OTP do AndroidAPS</string>
     <string name="smscommunicator_otp_step3_test_header">3. Teste Uma-Password-Única</string>
