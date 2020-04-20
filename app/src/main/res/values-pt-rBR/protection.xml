@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="biometric_title">Autenticação necessária</string>
+    <string name="biometric_description">Coloque o dedo sobre o leitor de impressões digitais para verificar a sua identidade</string>
     <string name="settings_protection">Definições Protecção</string>
     <string name="application_protection">Protecção Aplicação</string>
     <string name="bolus_protection">Protecção Bólus</string>
