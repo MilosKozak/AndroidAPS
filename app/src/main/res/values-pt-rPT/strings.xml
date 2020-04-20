@@ -43,6 +43,7 @@
     <string name="description_pump_mdi">Integração para as pessoas que fazem múltiplas injeções diárias para a sua terapia de diabetes</string>
     <string name="description_pump_virtual">Integração para as bombas que não têm qualquer driver ainda (Open Loop)</string>
     <string name="description_sensitivity_aaps">A sensibilidade é calculada da mesma forma que Oref0, mas você pode especificar o período de tempo para o passado. A absorção mínima de hidratos de carbono é calculada a partir do tempo máximo de absorção de hidratos de carbono das preferências.</string>
+    <string name="description_sensitivity_oref1">A sensibilidade é calculada a partir de dados das últimas 8h ou 24h (usando qualquer um que é mais sensível). Hidratos são cortados (se não absorvidos) após o tempo especificado nas preferências. O Plugin também calcula o UAM.</string>
     <string name="description_sensitivity_weighted_average">A sensibilidade é calculada como uma média ponderada de desvios. Desvios mais recentes têm maior peso. A absorção mínima de hidratos de carbono é calculada a partir do tempo máximo de absorção de hidratos de carbono das preferências. Este algoritmo é o mais rápido em seguir as mudanças de sensibilidade.</string>
     <string name="description_source_eversense">Receber valores de Glicose da aplicação Eversense modificada.</string>
     <string name="description_source_glimp">Receber valores Glucose do Glimp.</string>
@@ -222,6 +223,7 @@
     <string name="check_preferences_details_title">Detalhes de problemas de importação</string>
     <string name="check_preferences_import_btn">Importar</string>
     <string name="check_preferences_import_anyway_btn">Importar mesmo assim (PERIGOSO!)</string>
+    <string name="metadata_warning_date_format">Formato de data-hora inválido!</string>
     <string name="metadata_label_format">Formato do ficheiro</string>
     <string name="metadata_label_created_at">Criado em</string>
     <string name="metadata_label_aaps_version">Versão AAPS</string>
@@ -229,6 +231,7 @@
     <string name="metadata_label_encryption">Encriptação do Ficheiro</string>
     <string name="metadata_format_old">Antigo Formato de Exportação</string>
     <string name="metadata_format_new">Novo formato de encriptação</string>
+    <string name="metadata_format_other">Formato de exportação desconhecido</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">A ligar</string>
     <string name="connected">Ligado</string>
@@ -518,6 +521,7 @@
     <string name="adult">Adulto</string>
     <string name="resistantadult">Adulto resistente insulina</string>
     <string name="patientage_summary">Por favor seleccione a idade do diabético para definir os limites de segurança</string>
+    <string name="patient_name">Nome do Paciente</string>
     <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Utilizador</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s necessita de autorizar a não optimização da bateria para assegurar a performance necessária</string>
@@ -718,6 +722,7 @@
     <string name="wear_detailed_delta_summary">Mostrar delta com mais um ponto decimal</string>
     <string name="smbmaxminutes">SMB máx. minutos</string>
     <string name="smbmaxminutes_summary">Limite de minutos de basal para SMB</string>
+    <string name="carbsReqThreshold">Limite Sugestão de Hidratos</string>
     <string name="unsupportedfirmware">Firmware bomba não suportado</string>
     <string name="dexcomg5_xdripupload_title">Enviar dados Glic. para xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Seleccionar 640g/Eversense como fonte no xDrip+</string>
@@ -1459,6 +1464,11 @@
     <string name="loop_tbrexecution_time_label">Hora de execução Basal Temp</string>
     <string name="insight_alert_notification_channel">Alertas Bomba Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_otp_enabled">Activar Autenticador</string>
+    <string name="smscommunicator_otp_pin">PIN adicional no token final</string>
+    <string name="smscommunicator_otp_verify_label">OTP para verificar:</string>
+    <string name="smscommunicator_otp_reset_btn">Repor Autenticadores</string>
+    <string name="smscommunicator_otp_reset_title">Repor Chave Autenticador</string>
     <string name="onconnect">Ao ligar</string>
     <string name="ondisconnect">Ao desligar</string>
     <string name="overview_show_predictions">Previsões</string>
