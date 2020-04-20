@@ -228,9 +228,11 @@
     <string name="metadata_label_created_at">Criado em</string>
     <string name="metadata_label_aaps_version">Versão AAPS</string>
     <string name="metadata_label_aaps_flavour">Variante de Compilação</string>
+    <string name="metadata_label_device_model">A exportar modelo do dispositivo</string>
     <string name="metadata_label_encryption">Encriptação do Ficheiro</string>
     <string name="metadata_format_old">Antigo Formato de Exportação</string>
     <string name="metadata_format_new">Novo formato de encriptação</string>
+    <string name="metadata_format_debug">Novo formato de depuração (não encriptado)</string>
     <string name="metadata_format_other">Formato de exportação desconhecido</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">A ligar</string>
@@ -1205,6 +1207,7 @@
     <string name="exists">existe</string>
     <string name="notexists">não existe</string>
     <string name="temptargetcompared">Alvo Temp %1$s</string>
+    <string name="btdevice">Ligação ao dispositivo Bluetooth </string>
     <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
     <string name="autosenscompared">Autosens %1$s %2$s %%</string>
     <string name="autosenslabel">Autosens %</string>
@@ -1464,12 +1467,23 @@
     <string name="loop_tbrexecution_time_label">Hora de execução Basal Temp</string>
     <string name="insight_alert_notification_channel">Alertas Bomba Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">a partir da app Autenticador para: %1$s</string>
     <string name="smscommunicator_otp_enabled">Activar Autenticador</string>
     <string name="smscommunicator_otp_pin">PIN adicional no token final</string>
+    <string name="smscomunicator_tab_otp_label">Configuração do Autenticador</string>
     <string name="smscommunicator_otp_verify_label">OTP para verificar:</string>
     <string name="smscommunicator_otp_reset_btn">Repor Autenticadores</string>
     <string name="smscommunicator_otp_reset_title">Repor Chave Autenticador</string>
+    <string name="smscommunicator_otp_step1_install_header">1. Instalar Autenticador</string>
+    <string name="smscommunicator_otp_step2_provisioning_header">2. Pesquise o código para configurar os códigos OTP do AndroidAPS</string>
+    <string name="smscommunicator_otp_step3_test_header">3. Teste Uma-Password-Única</string>
+    <string name="smscommunicator_otp_reset_header">Repor Autenticadores</string>
+    <string name="smscommunicator_otp_install_info">Instalar uma app Autenticador que suporte Tokens RFC 6238 TOTP em cada telefone seguidor. Populares aplicativos gratuitos são:\n • Authy\n • o Google Authenticator\n • LastPass Autenticador\n • FreeOTP Autenticador</string>
+    <string name="smscommunicator_otp_provisioning_warning">NÃO PARTILHE este código online!\nUse-o apenas para a instalação da app Autenticador nos telefones seguidores.</string>
+    <string name="smscommunicator_otp_reset_warning">Ao repor o autenticador, torna inválidos todos os autenticadores já provisionados. Precisará de os configurar novamente!</string>
     <string name="onconnect">Ao ligar</string>
     <string name="ondisconnect">Ao desligar</string>
     <string name="overview_show_predictions">Previsões</string>
+    <string name="overview_show_deviationslope">Desvio de inclinação</string>
+    <string name="authorizationfailed">Falha na autorização</string>
 </resources>
