@@ -218,6 +218,16 @@
     <string name="openapsma_maxiob_title">Max IOB basal que OpenAPs puede emitir [U]</string>
     <string name="openapsma_maxiob_summary">Este valor es llamado Max Iob en el OpenAPS\nEsta es la máxima insulina en [U] que APS puede entregar a la vez.</string>
     <string name="dismiss">DESCARTAR</string>
+    <string name="password_preferences_encrypt_prompt">Se le solicitará la contraseña maestra, que se utilizará para cifrar las preferencias exportadas.</string>
+    <string name="password_preferences_decrypt_prompt">Se le solicitará la contraseña maestra, que es necesaria para descifrar las preferencias importadas.</string>
+    <string name="preferences_export_canceled">¡Exportación cancelada! ¡Las preferencias NO se han exportado!</string>
+    <string name="preferences_import_canceled">¡Importación cancelada! ¡Las preferencias NO se han importado!</string>
+    <string name="check_preferences_before_import">Por favor, compruebe las preferencias antes de importar:</string>
+    <string name="check_preferences_cannot_import">¡Las preferencias no se pueden importar!</string>
+    <string name="check_preferences_dangerous_import">¡Las preferencias no se deben importar!</string>
+    <string name="check_preferences_details_btn">Explicar problemas de importación…</string>
+    <string name="check_preferences_import_btn">Importar</string>
+    <string name="check_preferences_import_anyway_btn">Importar de todos modos (¡PELIGROSO!)</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Conectando</string>
     <string name="connected">Conectado</string>
