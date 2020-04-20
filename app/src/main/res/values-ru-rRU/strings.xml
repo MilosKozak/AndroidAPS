@@ -1296,6 +1296,7 @@ Context | Edit Context</string>
     <string name="medtronic_pump_battery_alkaline">Щелочная (Подробный вид)</string>
     <string name="medtronic_pump_battery_lithium">Литиевая (Подробный вид)</string>
     <string name="medtronic_pump_battery_nizn">NiZn (Подробный вид)</string>
+    <string name="medtronic_pump_battery_nimh">Никель-металлогидридная (подробно)</string>
     <string name="medtronic_bolus_debugging">Отладка Болюс/Назначения</string>
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">СКАН</string>
@@ -1500,4 +1501,19 @@ Context | Edit Context</string>
     <string name="loop_tbrexecution_time_label">Время выполнения временной базальной скорости</string>
     <string name="insight_alert_notification_channel">Оповещения помпы Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">из приложения Authenticator на: %1$s</string>
+    <string name="smscommunicator_otp_enabled">Включить аутентификатор</string>
+    <string name="smscommunicator_otp_enabled_summary">Аутентифицировать команды с помощью одноразовых паролей, сгенерированных Google Authenticator или похожими приложениями 2FA.</string>
+    <string name="smscommunicator_otp_pin">Дополнительный PIN-код в конце маркера</string>
+    <string name="smscommunicator_otp_pin_summary">Дополнительные цифры, которые должны быть запомнены и добавлены в конце каждого сгенерированного одноразового пароля</string>
+    <string name="smscomunicator_tab_otp_label">Настройка аутентификации</string>
+    <string name="smscommunicator_otp_verify_label">OTP для проверки:</string>
+    <string name="smscommunicator_otp_reset_btn">Сбросить аутентификаторы</string>
+    <string name="smscommunicator_otp_reset_title">Сбросить ключ идентификации</string>
+    <string name="smscommunicator_otp_reset_prompt">Вы действительно хотите сбросить ключ аутентификации? Все сконфигурированные в настоящее время ключи станут недопустимы, и придется их настроить заново.</string>
+    <string name="smscommunicator_otp_reset_successful">Создан новый ключ аутентификации! Для идентификации используйте обновленный QRCode.</string>
+    <string name="smscommunicator_otp_step1_install_header">1. Установить Аутентификатор</string>
+    <string name="smscommunicator_otp_step2_provisioning_header">2. Код сканирования для настройки кодов OTP AndroidAPS</string>
+    <string name="smscommunicator_otp_step3_test_header">3. Одноразовый Пароль</string>
+    <string name="smscommunicator_otp_reset_header">Сбросить аутентификаторы</string>
 </resources>
