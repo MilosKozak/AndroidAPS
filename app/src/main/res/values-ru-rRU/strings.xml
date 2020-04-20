@@ -750,6 +750,8 @@
     <string name="smbmaxminutes_summary">Верхний лимит минут базала на SMB</string>
     <string name="uamsmbmaxminutes">Максимум минут микроболюса SMB для непредвиденного приема пищи UAM</string>
     <string name="uamsmbmaxminutes_summary">Максимум минут базала ограничивающего микроболюсы SMB на непредвиденный прием пищи UAM</string>
+    <string name="carbsReqThreshold">Порог предлагаемых углеводов</string>
+    <string name="carbsReqThreshold_summary">Когда предлагаются углеводы, какое количество инициирует уведомление</string>
     <string name="unsupportedfirmware">Неподдерживаемая версия прошивки помпы</string>
     <string name="dexcomg5_xdripupload_title">Отправить данные СК на xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">В xDrip + выберите источник данных 640g/Eversense</string>
@@ -816,6 +818,7 @@
     <string name="ago">тому назад</string>
     <string name="format_hours">%1$.2f ч</string>
     <string name="format_mins">%1$d мин</string>
+    <string name="format_mins_short">%1$dm</string>
     <string name="enablesmbalways">Всегда включать супер микро болюс SMB</string>
     <string name="enablesmbalways_summary">Всегда включать супер микро болюс SMB независимо от болюсов. Возможно только для источников СК с хорошей фильтрацией данных вроде G5</string>
     <string name="enablesmbaftercarbs">Активировать супер микро болюс SMB после углеводов</string>
@@ -1016,6 +1019,10 @@ Context | Edit Context</string>
     <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Повысить чувствительность для temptargets > = 100]]></string>
     <string name="low_temptarget_lowers_sensitivity_title">Низкая временная цель temptarget снижает чувствительность</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Понизить чувствительность для temptargets > = 100]]></string>
+    <string name="resistance_lowers_target_title">Сопротивляемость понижает цель</string>
+    <string name="resistance_lowers_target_summary">При обнаружении сопротивляемости целевой уровень гликемии понижается</string>
+    <string name="sensitivity_raises_target_title">Чувствительность поднимает цель</string>
+    <string name="sensitivity_raises_target_summary">При обнаружении чувствительности целевой уровень глюкозы повышается</string>
     <string name="combo_invalid_setup">Недопустимые установки помпы, проверьте документацию и убедитесь, что меню Quick Info называется QUICK INFO, используя приложение 360 для конфигурации помпы.</string>
     <string name="custom">Пользовательские</string>
     <string name="largetimedifftitle">Большая разница во времени</string>
@@ -1025,6 +1032,7 @@ Context | Edit Context</string>
     <string name="allow_hardware_pump_text">Внимание: Если вы активируете подключение к невиртуальной помпе, AndroidAPS скопирует настройки базала в профиль помпы, перезаписывая существующие настройки, хранящиеся в ней. Убедитесь, что настройки базала в AndroidAPS корректны. Если вы не уверены или не хотите перезаписать настройки базала на помпу, нажмите отменить и повторите подключение в другое время.</string>
     <string name="error_adding_treatment_title">Данные терапии неполные</string>
     <string name="maintenance_settings">Параметры обслуживания</string>
+    <string name="maintenance_encrypt_exported_prefs">Зашифровать экспортируемые параметры</string>
     <string name="maintenance_amount">Количество логов для отправки</string>
     <string name="maintenance">Обслуживание</string>
     <string name="maintenance_shortname">ОБСЛУЖ</string>
@@ -1232,6 +1240,8 @@ Context | Edit Context</string>
     <string name="exists">существует</string>
     <string name="notexists">не существует</string>
     <string name="temptargetcompared">Врем цель %1$s</string>
+    <string name="btdevicecompared">Подключение Bluetooth к устройству %1$s %2$s</string>
+    <string name="btdevice">Соединение с устройством Bluetooth </string>
     <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
     <string name="autosenscompared">Автосенс %1$s %2$s %%</string>
     <string name="autosenslabel">Автосенс %</string>
