@@ -1523,4 +1523,5 @@ Unerwartetes Verhalten.</string>
     <string name="ondisconnect">Beim Trennen</string>
     <string name="overview_show_predictions">Predictions (Vorhersagen)</string>
     <string name="overview_show_deviationslope">Steigung der Abweichung</string>
+    <string name="authorizationfailed">Autorisierung fehlgeschlagen</string>
 </resources>
