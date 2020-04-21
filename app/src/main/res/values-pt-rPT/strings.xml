@@ -219,6 +219,8 @@
     <string name="openapsma_maxiob_title">Basal Máxima IOB que OpenAPS pode dar [U]</string>
     <string name="openapsma_maxiob_summary">Este valor é denominado Max IOB em contexto OpenAPS \nEste é o valor máximo de insulina em [U] que APS pode dar de uma vez.</string>
     <string name="dismiss">Dispensar</string>
+    <string name="password_preferences_encrypt_prompt">Será perguntado pela password mestre, que será usada para encriptar preferências exportadas.</string>
+    <string name="password_preferences_decrypt_prompt">Será perguntado pela password mestre, que será necessária para desencriptar preferências importadas.</string>
     <string name="preferences_export_canceled">Exportação cancelada! Preferências NÃO foram exportadas!</string>
     <string name="preferences_import_canceled">Importação cancelada! Preferências NÃO foram importadas!</string>
     <string name="check_preferences_before_import">Por favor, verifique as preferências antes da importação:</string>
@@ -228,6 +230,10 @@
     <string name="check_preferences_details_title">Detalhes de problemas de importação</string>
     <string name="check_preferences_import_btn">Importar</string>
     <string name="check_preferences_import_anyway_btn">Importar mesmo assim (PERIGOSO!)</string>
+    <string name="metadata_warning_different_flavour">As preferências foram criadas com uma variante diferente do AAPS (%1$s) enquanto tem: %2$s.\n\nAlgumas configurações podem estar ausentes ou inválidas - após a importação, por favor verifique e actualize suas preferências.</string>
+    <string name="metadata_warning_different_device">Preferências foram criadas num dispositivo diferente. Não há problema se estiver a importar de telefone diferente/antigo, mas se certifique que as preferências importadas estão corretas!</string>
+    <string name="metadata_warning_outdated_format">Está a usar formato ultrapassado herdado a partir de versões antigas do AAPS, o que não é seguro! Use-o apenas como um último recurso, se não tiver uma exportação no actual no formato JSON.</string>
+    <string name="metadata_warning_old_export">Preferências importadas já são %1$s dias antigas! Talvez tenha preferências mais actualizadas ou escolheu o ficheiro errado? Lembre-se de exportar preferências regularmente!</string>
     <string name="metadata_warning_date_format">Formato de data-hora inválido!</string>
     <string name="metadata_label_format">Formato do ficheiro</string>
     <string name="metadata_label_created_at">Criado em</string>
@@ -242,11 +248,13 @@
     <string name="metadata_format_other">Formato de exportação desconhecido</string>
     <string name="prefdecrypt_settings_tampered">Ficheiro de configurações adulterado</string>
     <string name="prefdecrypt_settings_secure">Ficheiro de configurações é seguro</string>
+    <string name="prefdecrypt_settings_unencrypted">A usar um formato de configurações não seguro e não encriptado</string>
     <string name="prefdecrypt_wrong_json">Erro de formato JSON, campo necessário ausente (formato, conteúdo, metadados ou segurança)</string>
     <string name="prefdecrypt_wrong_password">Erro ao desencriptar, a password inserida não pode desencriptar o ficheiro</string>
     <string name="prefdecrypt_issue_missing_file_hash">Ficheiro de verificação (hash) em falta, não é possível verificar a autenticidade de configurações!</string>
     <string name="prefdecrypt_issue_modified">Ficheiro foi modificado após exportação!</string>
     <string name="prefdecrypt_issue_parsing">Erro Desencriptação, a análise de preferências falhou!</string>
+    <string name="prefdecrypt_issue_wrong_pass">Erro de Desencriptação, a password é inválida ou configurações de arquivo foram modificadas! Pode acontecer que o ficheiro importado foi exportado com uma Password Mestre diferente.</string>
     <string name="prefdecrypt_issue_wrong_format">Configuração de encriptação ausente, formato de configurações é inválido!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Algoritmo de encriptação não suportado ou não especificado!</string>
     <string name="danarpump">DanaR</string>
@@ -1495,11 +1503,14 @@
     <!-- SMS Communicator & OTP Authenticator -->
     <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">a partir da app Autenticador para: %1$s</string>
     <string name="smscommunicator_otp_enabled">Activar Autenticador</string>
+    <string name="smscommunicator_otp_enabled_summary">Autenticar comandos usando Uma-Password-Única que sejam geradas pelo Google Authenticator ou app 2FA similar.</string>
     <string name="smscommunicator_otp_pin">PIN adicional no token final</string>
+    <string name="smscommunicator_otp_pin_summary">Dígitos adicionais que devem ser memorizados e colados no final de cada Uma-Password-Única que seja gerada</string>
     <string name="smscomunicator_tab_otp_label">Configuração do Autenticador</string>
     <string name="smscommunicator_otp_verify_label">OTP para verificar:</string>
     <string name="smscommunicator_otp_reset_btn">Repor Autenticadores</string>
     <string name="smscommunicator_otp_reset_title">Repor Chave Autenticador</string>
+    <string name="smscommunicator_otp_reset_prompt">Tem certeza de redefinir chave Authenticador? Ele tornará todos os Authenticators configurados actualmente como inválidos, e precisará de os configurar novamente.</string>
     <string name="smscommunicator_otp_reset_successful">Nova Chave do Autenticador foi gerada! Por favor, use o QRCode actualizado para os autenticadores.</string>
     <string name="smscommunicator_otp_step1_install_header">1. Instalar Autenticador</string>
     <string name="smscommunicator_otp_step2_provisioning_header">2. Pesquise o código para configurar os códigos OTP do AndroidAPS</string>
