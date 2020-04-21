@@ -1514,4 +1514,7 @@
     <string name="overview_show_deviationslope">Desvio de inclinação</string>
     <string name="authorizationfailed">Falha na autorização</string>
     <string name="overview_show_absinsulin">Insulina absoluta</string>
+    <string name="master_password_summary">Password Mestre é usada para encriptação da cópia de segurança e substituir segurança na aplicação. Lembre-se dela ou guarde-a em um lugar seguro.</string>
+    <string name="passwords_dont_match">As passwords não coincidem</string>
+    <string name="current_master_password">Password Mestre actual</string>
 </resources>
