@@ -1525,4 +1525,7 @@ Unerwartetes Verhalten.</string>
     <string name="overview_show_deviationslope">Steigung der Abweichung</string>
     <string name="authorizationfailed">Autorisierung fehlgeschlagen</string>
     <string name="overview_show_absinsulin">Gesamtinsulin</string>
+    <string name="master_password_summary">Das Master-Passwort wird für die Backup-Verschlüsselung und zur Außerkraftsetzung der Sicherheit in der Anwendung verwendet. Merke es Dir oder bewahre es an einem sicheren Ort auf.</string>
+    <string name="passwords_dont_match">Die Passwörter stimmen nicht überein.</string>
+    <string name="current_master_password">Aktuelles Master-Passwort</string>
 </resources>
