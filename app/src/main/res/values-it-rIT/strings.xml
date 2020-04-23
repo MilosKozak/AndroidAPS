@@ -106,7 +106,6 @@
     <string name="sms_delta">Delta:</string>
     <string name="configbuilder">Configuratore strutturale</string>
     <string name="objectives">Obiettivi</string>
-    <string name="openapsma">OpenAPS MA</string>
     <string name="overview">Panoramica</string>
     <string name="nsprofile">Profilo NS</string>
     <string name="simpleprofile">Profilo semplice</string>
@@ -547,8 +546,6 @@
     <string name="enablesuperbolus">Abilita superbolo nel calcolatore</string>
     <string name="enablesuperbolus_summary">Abilita la funzionalità superbolo nel calcolatore. Non abilitare fino a quando non impari ciò che realmente fa. PUÒ CAUSARE SOVRADOSAGGIO DI INSULINA SE USATO IMPROPRIAMENTE!</string>
     <string name="show_statuslights">Mostra indicatori di stato sulla home</string>
-    <string name="show_statuslights_extended">Mostra indicatori estesi sulla home</string>
-    <string name="show_statuslights_extended_summary">Abilita indicatori di stato estesi per \"età\" cannula, insulina, sensore, serbatoio e livello batteria sulla schermata iniziale.</string>
     <string name="statuslights_res_warning">Soglia di avviso livello serbatoio [U]</string>
     <string name="statuslights_res_critical">Soglia livello serbatoio critico [U]</string>
     <string name="statuslights_bat_warning">Soglia di avviso livello batteria [%]</string>
