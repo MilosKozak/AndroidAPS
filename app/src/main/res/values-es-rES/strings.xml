@@ -105,7 +105,6 @@
     <string name="sms_delta">Variación:</string>
     <string name="configbuilder">Tabla de configuraciones</string>
     <string name="objectives">Objetivos</string>
-    <string name="openapsma">OpenAPS MA</string>
     <string name="overview">Inicio</string>
     <string name="nsprofile">Perfil NS</string>
     <string name="simpleprofile">Perfil simple</string>
@@ -576,8 +575,6 @@
     <string name="enablesuperbolus">Activar superbolo en asistente</string>
     <string name="enablesuperbolus_summary">Activar función superbolo en asistente. No lo actives hasta que hayas aprendido lo que realmente hace. ¡PUEDE CAUSAR SOBREDOSIS DE INSULINA usándolo sin precaución!</string>
     <string name="show_statuslights">Mostrar luces de estado en la pantalla de inicio</string>
-    <string name="show_statuslights_extended">Mostrar luces de estado extendidas en pantalla de inicio</string>
-    <string name="show_statuslights_extended_summary">Habilita luces de estado extendidas para tiempo de cánula, tiempo de insulina, tiempo del sensor, reservorio y nivel de batería en pantalla de inicio.</string>
     <string name="statuslights_res_warning">Umbral de advertencia de nivel de reservorio [U]</string>
     <string name="statuslights_res_critical">Umbral crítico de nivel de reservorio [U]</string>
     <string name="statuslights_bat_warning">Umbral de advertencia de nivel de pila [%]</string>
