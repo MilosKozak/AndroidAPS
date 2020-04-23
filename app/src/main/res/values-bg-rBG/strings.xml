@@ -106,7 +106,6 @@
     <string name="sms_delta">Изменение (делта):</string>
     <string name="configbuilder">Конфигурация</string>
     <string name="objectives">Цели</string>
-    <string name="openapsma">OpenAPS МА</string>
     <string name="overview">Общ</string>
     <string name="nsprofile">NS Профил</string>
     <string name="simpleprofile">Обикновен профил</string>
@@ -544,8 +543,6 @@
     <string name="enablesuperbolus">Разреши използването на Суперболус</string>
     <string name="enablesuperbolus_summary">Разреши функцията суперболус в съветника. Не я разрешавайте докато не научите какво наистина прави. ТОВА МОЖЕ ДА СЪЗДАДЕ ОПАСНОСТ ОТ ПРЕДОЗИРАНЕ С ИНСУЛИН.</string>
     <string name="show_statuslights">Покажи статус светлини на началния екран</string>
-    <string name="show_statuslights_extended">Покажи статус светлини с подробности на началния екран</string>
-    <string name="show_statuslights_extended_summary">Показвай подробни статус светлини за канула, инсулин, сензор, резервоар и батерията на началния екран.</string>
     <string name="statuslights_res_warning">Ниво за аларма за останал инсулин в резервоара [Е]</string>
     <string name="statuslights_res_critical">Критично ниво на останал инсулин в резервоар [Е]</string>
     <string name="statuslights_bat_warning">Аларма при заряд на батерия под [%]</string>
