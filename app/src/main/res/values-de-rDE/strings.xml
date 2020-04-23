@@ -106,7 +106,6 @@
     <string name="sms_delta">Delta:</string>
     <string name="configbuilder">Konfiguration</string>
     <string name="objectives">Zielsetzungen</string>
-    <string name="openapsma">OpenAPS MA</string>
     <string name="overview">Übersicht</string>
     <string name="nsprofile">Nightscout-Profil</string>
     <string name="simpleprofile">Einfaches Profil</string>
@@ -585,8 +584,6 @@
     <string name="enablesuperbolus">Aktiviere Superbolus im Wizard</string>
     <string name="enablesuperbolus_summary">Aktiviere die SuperBolus-Funktion im Wizard. Nicht aktivieren, wenn Du nicht weißt, welche Auswirkungen dieser Bolus hat! ES KANN ZU EINER ÜBERDOSIERUNG AN INSULIN KOMMEN!</string>
     <string name="show_statuslights">Statusanzeige auf Homescreen</string>
-    <string name="show_statuslights_extended">Erweiterte Statusanzeige auf Homescreen</string>
-    <string name="show_statuslights_extended_summary">Erweiterte Statusanzeige für CAGE, IAGE, SAGE, Reservoir- und Batteriestand auf dem Homescreen.</string>
     <string name="statuslights_res_warning">Warnschwelle Reservoirstand [IE]</string>
     <string name="statuslights_res_critical">Warnschwelle kritischer Reservoirstand [IE]</string>
     <string name="statuslights_bat_warning">Warnschwelle Batteriestand [%]</string>
