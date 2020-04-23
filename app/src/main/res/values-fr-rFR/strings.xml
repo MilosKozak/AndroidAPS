@@ -105,7 +105,6 @@
     <string name="sms_delta">Delta:</string>
     <string name="configbuilder">Générateur de configuration</string>
     <string name="objectives">Objectifs</string>
-    <string name="openapsma">OpenAPS MA</string>
     <string name="overview">Aperçu</string>
     <string name="nsprofile">Profil NS</string>
     <string name="simpleprofile">Profil simple</string>
@@ -544,8 +543,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="enablesuperbolus">Activer les Superbolus dans l’Assistant</string>
     <string name="enablesuperbolus_summary">Activer la fonctionnalité SuperBolus dans l’Assistant. Ne pas l’activer avant de bien comprendre comment cela fonctionne réellement. IL PEUT PROVOQUER UNE OVERDOSE D’INSULINE SI UTILISÉ AVEUGLÉMENT !</string>
     <string name="show_statuslights">Afficher les voyants d\'état sur l\'écran d\'accueil</string>
-    <string name="show_statuslights_extended">Afficher les voyants d\'état prolongés sur l\'écran d\'accueil</string>
-    <string name="show_statuslights_extended_summary">Activer les voyants d\'état prolongés pour AgeC, AgeI, AgeS, niveaux du réservoir et de batterie sur l\'écran d\'accueil.</string>
     <string name="statuslights_res_warning">Seuil d\'avertissement de niveau du réservoir [U]</string>
     <string name="statuslights_res_critical">Seuil critique de niveau du réservoir [U]</string>
     <string name="statuslights_bat_warning">Seuil d’avertissement du niveau de batterie [%]</string>
