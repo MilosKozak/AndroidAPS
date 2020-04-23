@@ -106,7 +106,6 @@
     <string name="sms_delta">Delta:</string>
     <string name="configbuilder">Configurador</string>
     <string name="objectives">Objetivos</string>
-    <string name="openapsma">OpenAPS MA</string>
     <string name="overview">Visão geral</string>
     <string name="nsprofile">Perfil NS</string>
     <string name="simpleprofile">Perfil simples</string>
@@ -585,8 +584,6 @@
     <string name="enablesuperbolus">Activar superbólus no assistente</string>
     <string name="enablesuperbolus_summary">Habilite a funcionalidade de superbolus no assistente. Não habilite até que aprenda o funcionamento. PODE CAUSAR OVERDOSE DE INSULINA SE USAR INDISCRIMINADAMENTE!</string>
     <string name="show_statuslights">Mostrar luzes de estado no ecrã principal</string>
-    <string name="show_statuslights_extended">Mostrar luzes de estado estendido no ecrã principal</string>
-    <string name="show_statuslights_extended_summary">Ativar as luzes de status estendida para idade da cânula, insulina, sensor, reservatório e bateria no ecrã inicial.</string>
     <string name="statuslights_res_warning">Limite de aviso de nível de reservatório [U]</string>
     <string name="statuslights_res_critical">Limite crítico de nível de reservatório [U]</string>
     <string name="statuslights_bat_warning">Limite de aviso de nível de bateria [%]</string>
