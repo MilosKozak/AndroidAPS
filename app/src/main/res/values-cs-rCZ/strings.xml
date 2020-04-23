@@ -1520,4 +1520,9 @@
     <string name="ondisconnect">Při odpojení</string>
     <string name="overview_show_predictions">Predikce</string>
     <string name="overview_show_deviationslope">Odchylka sklonu</string>
+    <string name="authorizationfailed">Autorizace selhala</string>
+    <string name="overview_show_absinsulin">Absolutní inzulin</string>
+    <string name="master_password_summary">Hlavní heslo se používá pro šifrování zálohy a pro \"přebití\" zabezpečení v aplikaci. Dobře si ho zapamatujte nebo uložte na bezpečném místě.</string>
+    <string name="passwords_dont_match">Hesla se neshodují</string>
+    <string name="current_master_password">Aktuální hlavní heslo</string>
 </resources>
