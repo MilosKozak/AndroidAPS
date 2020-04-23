@@ -106,7 +106,6 @@
     <string name="sms_delta">дельта:</string>
     <string name="configbuilder">конфигуратор</string>
     <string name="objectives">Цели</string>
-    <string name="openapsma">Помощник болюса OpenAPS MA</string>
     <string name="overview">начало</string>
     <string name="nsprofile">профиль NS</string>
     <string name="simpleprofile">простой профиль</string>
@@ -585,8 +584,6 @@
     <string name="enablesuperbolus">активировать суперболюс</string>
     <string name="enablesuperbolus_summary">активировать возможность суперболюса в мастере. не активируйте если не знаете что это. МОЖЕТ ВЫЗВАТЬ ПЕРЕДОЗИРОВКУ ИНСУЛИНА ЕСЛИ ИСПОЛЬЗУЕТСЯ ВСЛЕПУЮ</string>
     <string name="show_statuslights">Показать индикаторы состояния на главном экране</string>
-    <string name="show_statuslights_extended">Показывать подробные индикаторы состояния на главном экране</string>
-    <string name="show_statuslights_extended_summary">Включить на главном экране подробные индикаторы отработанного времени для канюли помпы, инсулина, сенсора, резервуара, а также уровня заряда батареи.</string>
     <string name="statuslights_res_warning">Порог уровня наполненности резервуара для оповещения [ед.]</string>
     <string name="statuslights_res_critical">Порог критического уровня наполненности резервуара [U]</string>
     <string name="statuslights_bat_warning">Порог предупреждения о разрядке батареи [%]</string>
