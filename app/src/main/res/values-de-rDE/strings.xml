@@ -584,6 +584,14 @@
     <string name="enablesuperbolus">Aktiviere Superbolus im Wizard</string>
     <string name="enablesuperbolus_summary">Aktiviere die SuperBolus-Funktion im Wizard. Nicht aktivieren, wenn Du nicht weißt, welche Auswirkungen dieser Bolus hat! ES KANN ZU EINER ÜBERDOSIERUNG AN INSULIN KOMMEN!</string>
     <string name="show_statuslights">Statusanzeige auf Homescreen</string>
+    <string name="statuslights_cage_warning">Warnschwelle Kanülenalter [h]</string>
+    <string name="statuslights_cage_critical">Warnschwelle kritisches Kanülenalter [h]</string>
+    <string name="statuslights_iage_warning">Warnschwelle Insulinalter [h]</string>
+    <string name="statuslights_iage_critical">Warnschwelle kritisches Insulinalter [h]</string>
+    <string name="statuslights_sage_warning">Warnschwelle Sensoralter [h]</string>
+    <string name="statuslights_sage_critical">Warnschwelle kritisches Sensoralter [h]</string>
+    <string name="statuslights_bage_warning">Warnschwelle Batteriealter [h]</string>
+    <string name="statuslights_bage_critical">Warnschwelle kritisches Batteriealter [h]</string>
     <string name="statuslights_res_warning">Warnschwelle Reservoirstand [IE]</string>
     <string name="statuslights_res_critical">Warnschwelle kritischer Reservoirstand [IE]</string>
     <string name="statuslights_bat_warning">Warnschwelle Batteriestand [%]</string>
@@ -1525,4 +1533,6 @@ Unerwartetes Verhalten.</string>
     <string name="master_password_summary">Das Master-Passwort wird für die Backup-Verschlüsselung und zur Außerkraftsetzung der Sicherheit in der Anwendung verwendet. Merke es Dir oder bewahre es an einem sicheren Ort auf.</string>
     <string name="passwords_dont_match">Die Passwörter stimmen nicht überein.</string>
     <string name="current_master_password">Aktuelles Master-Passwort</string>
+    <string name="statuslights">Statusanzeige</string>
+    <string name="statuslights_copy_ns">Einstellung aus NS kopieren</string>
 </resources>
