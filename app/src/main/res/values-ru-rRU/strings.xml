@@ -584,6 +584,14 @@
     <string name="enablesuperbolus">активировать суперболюс</string>
     <string name="enablesuperbolus_summary">активировать возможность суперболюса в мастере. не активируйте если не знаете что это. МОЖЕТ ВЫЗВАТЬ ПЕРЕДОЗИРОВКУ ИНСУЛИНА ЕСЛИ ИСПОЛЬЗУЕТСЯ ВСЛЕПУЮ</string>
     <string name="show_statuslights">Показать индикаторы состояния на главном экране</string>
+    <string name="statuslights_cage_warning">Порог предупреждения о времени, отработанном катетером [h]</string>
+    <string name="statuslights_cage_critical">Критический порог предупреждения о времени, отработанном катетером [h]</string>
+    <string name="statuslights_iage_warning">Порог предупреждения о времени, отработанном инсулином [h]</string>
+    <string name="statuslights_iage_critical">Критический порог предупреждения о времени, отработанном инсулином [h]</string>
+    <string name="statuslights_sage_warning">Порог предупреждения о времени, отработанном сенсором [h]</string>
+    <string name="statuslights_sage_critical">Критический порог предупреждения о времени, отработанном сенсором [h]</string>
+    <string name="statuslights_bage_warning">Порог предупреждения о разрядке батареи [h]</string>
+    <string name="statuslights_bage_critical">Порог предупреждения о критическом уровне разрядки батареи [h]</string>
     <string name="statuslights_res_warning">Порог уровня наполненности резервуара для оповещения [ед.]</string>
     <string name="statuslights_res_critical">Порог критического уровня наполненности резервуара [U]</string>
     <string name="statuslights_bat_warning">Порог предупреждения о разрядке батареи [%]</string>
@@ -1527,4 +1535,7 @@ Context | Edit Context</string>
     <string name="master_password_summary">Главный пароль используется для шифрования резервных копий и для переопределения защиты в приложении. Запомните его или храните в безопасном месте.</string>
     <string name="passwords_dont_match">Пароли не совпадают</string>
     <string name="current_master_password">Текущий главный пароль</string>
+    <string name="statuslights">Индикаторы состояния</string>
+    <string name="statuslights_copy_ns">Копировать параметры из NS</string>
+    <string name="copyexistingvalues">Копировать настройки NS (если есть)?</string>
 </resources>
