@@ -1535,4 +1535,5 @@ Unerwartetes Verhalten.</string>
     <string name="current_master_password">Aktuelles Master-Passwort</string>
     <string name="statuslights">Statusanzeige</string>
     <string name="statuslights_copy_ns">Einstellung aus NS kopieren</string>
+    <string name="copyexistingvalues">NS-Einstellungen kopieren (falls vorhanden)?</string>
 </resources>
