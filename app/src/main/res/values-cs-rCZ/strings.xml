@@ -1535,5 +1535,4 @@
     <string name="current_master_password">Aktuální hlavní heslo</string>
     <string name="statuslights">Stavové indikátory</string>
     <string name="statuslights_copy_ns">Zkopírovat nastavení z NS</string>
-    <string name="copyexistingvalues">Zkopírovat nastavení NS (existuje-li)?</string>
 </resources>
