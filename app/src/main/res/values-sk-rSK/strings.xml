@@ -584,6 +584,14 @@
     <string name="enablesuperbolus">Povoliť superbolus</string>
     <string name="enablesuperbolus_summary">Povolenie superbolusu v kalkulátore. Nepovoľujte, pokiaľ se nenaučíte, čo to v skutočnosti robí. MÔŽE SPÔSOBIŤ PREDÁVKOVANIE INZULÍNOM PRI NESPRÁVNOM POUŽITÍ!</string>
     <string name="show_statuslights">Zobraziť indikátory stavu na domovskej obrazovke</string>
+    <string name="statuslights_cage_warning">Prah upozornenia na vek kanyly [h]</string>
+    <string name="statuslights_cage_critical">Prah kritického veku kanyly [h]</string>
+    <string name="statuslights_iage_warning">Prah upozornenia na vek inzulínu [h]</string>
+    <string name="statuslights_iage_critical">Prah kritického veku inzulínu [h]</string>
+    <string name="statuslights_sage_warning">Prah upozornenia na vek senzora [h]</string>
+    <string name="statuslights_sage_critical">Prah kritického veku senzora [h]</string>
+    <string name="statuslights_bage_warning">Prah upozornenia na úroveň batérie [h]</string>
+    <string name="statuslights_bage_critical">Prah kritickej úrovne batérie [h]</string>
     <string name="statuslights_res_warning">Prah upozornenia na úroveň hladiny zásobníka [JI]</string>
     <string name="statuslights_res_critical">Prah kritickej úrovne hladiny zásobníka [JI]</string>
     <string name="statuslights_bat_warning">Prah upozornenia na úroveň batérie [%]</string>
@@ -1522,4 +1530,10 @@
     <string name="overview_show_deviationslope">Odchýlka sklonu</string>
     <string name="authorizationfailed">Autorizácia zlyhala</string>
     <string name="overview_show_absinsulin">Celkový inzulín</string>
+    <string name="master_password_summary">Hlavné heslo sa používa na šifrovanie zálohy a na \"prebitie\" zabezpečenia v aplikácii. Dobre si ho zapamätajte, alebo uložte na bezpečnom mieste.</string>
+    <string name="passwords_dont_match">Heslá sa nezhodujú</string>
+    <string name="current_master_password">Aktuálne hlavné heslo</string>
+    <string name="statuslights">Indikátory stavu</string>
+    <string name="statuslights_copy_ns">Kopírovať nastavenia z NS</string>
+    <string name="copyexistingvalues">Skopírovať nastavenia NS (ak existujú)?</string>
 </resources>
