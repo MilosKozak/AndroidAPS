@@ -1317,6 +1317,7 @@
     <string name="rileylink_scanner_scanning">Scansione</string>
     <string name="rileylink_scanner_scanning_finished">Scansione terminata</string>
     <string name="rileylink_scanner_scanning_error">Errore scansione: %1$d</string>
+    <string name="common_never">Mai</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Impostazioni</string>
     <string name="rileylink_settings_tab2">Storico</string>
@@ -1450,6 +1451,7 @@
     <string name="objectives_button_unstart">Cancella avvio</string>
     <string name="timedetection">Rilevazione tempo</string>
     <string name="doyouwantresetstart">Vuoi resettare l\'avvio dell\'obiettivo? Potresti perdere i tuoi progressi.</string>
+    <string name="time_or_timezone_change">Cambio di ora e/o fuso orario sul micro</string>
     <string name="nopumpselected">Nessun micro selezionato</string>
     <string name="setupwizard_units_prompt">Seleziona le unità in cui vuoi visualizzare i valori</string>
     <string name="ns_ploadlocalprofile">Carica modifiche al profilo locale in NS</string>
