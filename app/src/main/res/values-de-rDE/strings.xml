@@ -1317,6 +1317,7 @@ Unerwartetes Verhalten.</string>
     <string name="rileylink_scanner_scanning">Scannt</string>
     <string name="rileylink_scanner_scanning_finished">Scannen abgeschlossen</string>
     <string name="rileylink_scanner_scanning_error">Scanfehler: %1$d</string>
+    <string name="common_never">Nie</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Einstellungen</string>
     <string name="rileylink_settings_tab2">Verlauf</string>
@@ -1450,6 +1451,7 @@ Unerwartetes Verhalten.</string>
     <string name="objectives_button_unstart">Ziel neu starten</string>
     <string name="timedetection">Zeiterkennung</string>
     <string name="doyouwantresetstart">Möchtest Du den Start der Ziele zurücksetzen? Du verlierst Deine Fortschritte.</string>
+    <string name="time_or_timezone_change">Zeit- und/oder Zeitzonenänderung an der Pumpe</string>
     <string name="nopumpselected">Keine Pumpe ausgewählt</string>
     <string name="setupwizard_units_prompt">Wähle die Einheit, in der die Werte angezeigt werden sollen.</string>
     <string name="ns_ploadlocalprofile">Lade die Änderungen des lokalen Profils zu NS hoch.</string>
