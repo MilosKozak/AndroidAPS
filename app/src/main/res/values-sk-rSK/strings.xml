@@ -1317,6 +1317,7 @@
     <string name="rileylink_scanner_scanning">Vyhľadávanie</string>
     <string name="rileylink_scanner_scanning_finished">Vyhľadávanie dokončené</string>
     <string name="rileylink_scanner_scanning_error">Chyba vyhľadávania: %1$d</string>
+    <string name="common_never">Nikdy</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Nastavenia</string>
     <string name="rileylink_settings_tab2">História</string>
@@ -1450,6 +1451,7 @@
     <string name="objectives_button_unstart">Vymazanie začaté</string>
     <string name="timedetection">Detekcia času</string>
     <string name="doyouwantresetstart">Chcete resetovať začiatok cieľa? Môžete prísť o svoj pokrok.</string>
+    <string name="time_or_timezone_change">Zmena času a/alebo časovej zóny na pumpe</string>
     <string name="nopumpselected">Nie je vybraná žiadna pumpa</string>
     <string name="setupwizard_units_prompt">Vyberte jednotky, v ktorých chcete zobraziť hodnoty</string>
     <string name="ns_ploadlocalprofile">Odoslať zmeny lokálneho profilu do NS</string>
