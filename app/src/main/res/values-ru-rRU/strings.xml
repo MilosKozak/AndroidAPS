@@ -1319,6 +1319,7 @@ Context | Edit Context</string>
     <string name="rileylink_scanner_scanning">Сканирование</string>
     <string name="rileylink_scanner_scanning_finished">Сканирование завершено</string>
     <string name="rileylink_scanner_scanning_error">Ошибка сканирования: %1$d</string>
+    <string name="common_never">Никогда</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Настройки</string>
     <string name="rileylink_settings_tab2">История</string>
@@ -1452,6 +1453,7 @@ Context | Edit Context</string>
     <string name="objectives_button_unstart">Очистить начатые</string>
     <string name="timedetection">Определение времени</string>
     <string name="doyouwantresetstart">Хотите сбросить начатую цель? Можете потерять уже достигнутое.</string>
+    <string name="time_or_timezone_change">Изменение времени и/или часового пояса на помпе</string>
     <string name="nopumpselected">Помпа не выбрана</string>
     <string name="setupwizard_units_prompt">Выберите единицы, в которых вы хотите отображать значения</string>
     <string name="ns_ploadlocalprofile">Перенести изменения локального профиля в NS</string>
