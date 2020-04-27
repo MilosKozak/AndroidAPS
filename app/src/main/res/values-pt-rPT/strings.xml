@@ -584,6 +584,14 @@
     <string name="enablesuperbolus">Activar superbólus no assistente</string>
     <string name="enablesuperbolus_summary">Habilite a funcionalidade de superbolus no assistente. Não habilite até que aprenda o funcionamento. PODE CAUSAR OVERDOSE DE INSULINA SE USAR INDISCRIMINADAMENTE!</string>
     <string name="show_statuslights">Mostrar luzes de estado no ecrã principal</string>
+    <string name="statuslights_cage_warning">Limite aviso idade canula [h]</string>
+    <string name="statuslights_cage_critical">Limite Crítico Idade Canula [h]</string>
+    <string name="statuslights_iage_warning">Limite aviso idade insulina [h]</string>
+    <string name="statuslights_iage_critical">Limite crítico idade insulina [h]</string>
+    <string name="statuslights_sage_warning">Limite aviso idade sensor [h]</string>
+    <string name="statuslights_sage_critical">Limite crítico idade sensor [h]</string>
+    <string name="statuslights_bage_warning">Limite de aviso de nível de bateria [h]</string>
+    <string name="statuslights_bage_critical">Limite crítico de nível de bateria [h]</string>
     <string name="statuslights_res_warning">Limite de aviso de nível de reservatório [U]</string>
     <string name="statuslights_res_critical">Limite crítico de nível de reservatório [U]</string>
     <string name="statuslights_bat_warning">Limite de aviso de nível de bateria [%]</string>
