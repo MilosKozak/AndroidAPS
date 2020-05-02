@@ -1317,6 +1317,7 @@
     <string name="rileylink_scanner_scanning">A procurar</string>
     <string name="rileylink_scanner_scanning_finished">Procura terminada</string>
     <string name="rileylink_scanner_scanning_error">Erro de Procura: %1$d</string>
+    <string name="common_never">Nunca</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Definições</string>
     <string name="rileylink_settings_tab2">Histórico</string>
@@ -1450,6 +1451,7 @@
     <string name="objectives_button_unstart">Limpar iniciado</string>
     <string name="timedetection">Detecção de tempo</string>
     <string name="doyouwantresetstart">Deseja reiniciar o objectivo? Pode perder seu progresso.</string>
+    <string name="time_or_timezone_change">Alterar Hora e/ou Fuso Horário na Bomba</string>
     <string name="nopumpselected">Nenhuma bomba seleccionada</string>
     <string name="setupwizard_units_prompt">Seleccione as unidades em que deseja exibir os valores</string>
     <string name="ns_ploadlocalprofile">Carregar as alterações do perfil local para NS</string>
@@ -1533,4 +1535,7 @@
     <string name="master_password_summary">Password Mestre é usada para encriptação da cópia de segurança e substituir segurança na aplicação. Lembre-se dela ou guarde-a em um lugar seguro.</string>
     <string name="passwords_dont_match">As passwords não coincidem</string>
     <string name="current_master_password">Password Mestre actual</string>
+    <string name="statuslights">Luzes de Estado</string>
+    <string name="statuslights_copy_ns">Copiar definições do NS</string>
+    <string name="copyexistingvalues">Copiar definições do NS (se existir)?</string>
 </resources>
