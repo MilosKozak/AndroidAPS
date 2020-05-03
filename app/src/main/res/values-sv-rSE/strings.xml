@@ -1526,4 +1526,13 @@ Eversense-appen.</string>
     <string name="master_password_summary">Huvudlösenordet används för att kryptera backuper och för att åsidosätta vissa säkerhetsfunktioner i applikationen. Kom ihåg det eller förvara det på ett säkert ställe.</string>
     <string name="passwords_dont_match">Lösenorden stämmer inte överens</string>
     <string name="current_master_password">Nuvarande huvudlösenord</string>
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
