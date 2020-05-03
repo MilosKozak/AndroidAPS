@@ -158,9 +158,11 @@
     <string name="apsmode_title">Mode APS</string>
     <string name="closedloop">Boucle Fermée</string>
     <string name="openloop">Boucle Ouverte</string>
+    <string name="lowglucosesuspend">Arrêt Glycémie Basse</string>
     <string name="disabledloop">Boucle désactivée</string>
     <string name="disableloop">Désactiver la Boucle</string>
     <string name="enableloop">Activer la Boucle</string>
+    <string name="lgs">AGB</string>
     <string name="openloop_newsuggestion">Nouvelle recommendation disponible</string>
     <string name="unsupportednsversion">Version incompatible de Nightscout</string>
     <string name="loopdisabled">BOUCLE DÉSACTIVÉE PAR RESTRICTIONS</string>
@@ -1539,4 +1541,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="statuslights">Voyants d\'état</string>
     <string name="statuslights_copy_ns">Copier les paramètres depuis NS</string>
     <string name="copyexistingvalues">Copier les paramètres NS (s\'ils existent)?</string>
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
