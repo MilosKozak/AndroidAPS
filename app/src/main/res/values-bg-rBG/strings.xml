@@ -1442,4 +1442,13 @@
     <string name="loop_tbrrequest_time_label">Диапазон между временни базали</string>
     <string name="loop_tbrexecution_time_label">Продължителност на временни базали</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
