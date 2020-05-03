@@ -1440,4 +1440,13 @@
     <string name="loop_tbrrequest_time_label">임시 Basal 요청시간</string>
     <string name="loop_tbrexecution_time_label">임시 Basal 실행시간</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
