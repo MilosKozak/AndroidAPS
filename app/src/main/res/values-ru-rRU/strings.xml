@@ -158,9 +158,11 @@
     <string name="apsmode_title">режим APS</string>
     <string name="closedloop">замкнутый цикл</string>
     <string name="openloop">открытый цикл</string>
+    <string name="lowglucosesuspend">Приостановка помпы на низкой ГК</string>
     <string name="disabledloop">цикличность неактивирована</string>
     <string name="disableloop">Деактивировать цикличность</string>
     <string name="enableloop">Активировать цикличность</string>
+    <string name="lgs">ППНГК</string>
     <string name="openloop_newsuggestion">есть новое предложение</string>
     <string name="unsupportednsversion">Неподдерживаемая версия Nightscout</string>
     <string name="loopdisabled">ЗЦ ОТМЕНЕН ОГРАНИЧЕНИЯМИ</string>
@@ -1540,4 +1542,13 @@ Context | Edit Context</string>
     <string name="statuslights">Индикаторы состояния</string>
     <string name="statuslights_copy_ns">Копировать параметры из NS</string>
     <string name="copyexistingvalues">Копировать настройки NS (если есть)?</string>
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
