@@ -158,9 +158,11 @@
     <string name="apsmode_title">Modo APS</string>
     <string name="closedloop">Closed Loop</string>
     <string name="openloop">Open Loop</string>
+    <string name="lowglucosesuspend">Suspensão de Glicémia Baixa</string>
     <string name="disabledloop">Loop Desactivado</string>
     <string name="disableloop">Desactivar Loop</string>
     <string name="enableloop">Activar Loop</string>
+    <string name="lgs">SGB</string>
     <string name="openloop_newsuggestion">Disponível nova sugestão</string>
     <string name="unsupportednsversion">Versão sem suporte do Nightscout</string>
     <string name="loopdisabled">LOOP DESATIVADO POR RESTRIÇÕES</string>
@@ -1229,7 +1231,7 @@
     <string name="running_invalid_version">Detectamos que está  a correr uma versão inválida. Loop desactivado!</string>
     <string name="old_version">versão antiga</string>
     <string name="very_old_version">versão muito antiga</string>
-    <string name="new_version_warning">Nova versão para pelo menos %1$d dias disponíveis! Retorno a LGS após %2$d dias, o loop será desactivado após %3$d dias</string>
+    <string name="new_version_warning">Nova versão para pelo menos %1$d dias disponíveis! Retorno a SGB após %2$d dias, o loop será desactivado após %3$d dias</string>
     <string name="twohours">2h</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="dexcom_app_patched">App Dexcom (com patch)</string>
@@ -1538,4 +1540,13 @@
     <string name="statuslights">Luzes de Estado</string>
     <string name="statuslights_copy_ns">Copiar definições do NS</string>
     <string name="copyexistingvalues">Copiar definições do NS (se existir)?</string>
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
