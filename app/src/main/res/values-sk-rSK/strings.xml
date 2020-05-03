@@ -158,9 +158,11 @@
     <string name="apsmode_title">APS mód</string>
     <string name="closedloop">Uzavretý okruh</string>
     <string name="openloop">Otvorený okruh</string>
+    <string name="lowglucosesuspend">Pozastavenie pri nízkej glykémii (LGS)</string>
     <string name="disabledloop">Uzavretý okruh deaktivovaný</string>
     <string name="disableloop">Deaktivovať uzavretý okruh</string>
     <string name="enableloop">Aktivovať uzavretý okruh</string>
+    <string name="lgs">LGS</string>
     <string name="openloop_newsuggestion">Dostupné nové doporučenie</string>
     <string name="unsupportednsversion">Nepodporovaná verzia Nighscoutu</string>
     <string name="loopdisabled">Uzavretý okruh deaktivovaný obmedzením</string>
@@ -1538,4 +1540,13 @@
     <string name="statuslights">Indikátory stavu</string>
     <string name="statuslights_copy_ns">Kopírovať nastavenia z NS</string>
     <string name="copyexistingvalues">Skopírovať nastavenia NS (ak existujú)?</string>
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
