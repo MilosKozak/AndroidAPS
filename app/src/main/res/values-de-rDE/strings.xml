@@ -158,9 +158,11 @@
     <string name="apsmode_title">APS-Modus</string>
     <string name="closedloop">Closed Loop</string>
     <string name="openloop">Open Loop</string>
+    <string name="lowglucosesuspend">Unterbrechung bei niedrigem BZ (LGS)</string>
     <string name="disabledloop">Loop deaktiviert</string>
     <string name="disableloop">Deaktiviere Loop</string>
     <string name="enableloop">Aktiviere Loop</string>
+    <string name="lgs">LGS</string>
     <string name="openloop_newsuggestion">Neue Empfehlung verfügbar</string>
     <string name="unsupportednsversion">Nicht unterstütze Nightscout-Version</string>
     <string name="loopdisabled">LOOP DEAKTIVIERT DURCH BESCHRÄNKUNGEN</string>
@@ -1538,4 +1540,13 @@ Unerwartetes Verhalten.</string>
     <string name="statuslights">Statusanzeige</string>
     <string name="statuslights_copy_ns">Einstellung aus NS kopieren</string>
     <string name="copyexistingvalues">NS-Einstellungen kopieren (falls vorhanden)?</string>
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
