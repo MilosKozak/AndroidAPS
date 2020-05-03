@@ -1322,4 +1322,13 @@
     <string name="unit_minute_short">min</string>
     <string name="format_carbs">%1$dg</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
