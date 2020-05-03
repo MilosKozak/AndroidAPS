@@ -1441,4 +1441,13 @@
     <string name="loop_tbrexecution_time_label">Tijdelijke basaal uitvoering tijd</string>
     <string name="insight_alert_notification_channel">Insight pomp waarschuwingen</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <!-- Omnipod -->
+    <!-- Omnipod - Base -->
+    <!-- Omnipod Configuration -->
+    <!-- Omnipod - Fragment -->
+    <!-- Omnipod - Dialogs -->
+    <!-- Omnipod - Error -->
+    <!-- Omnipod - Pod Mgmt -->
+    <!-- Omnipod Dash -->
+    <!-- Omnipod - Base -->
 </resources>
