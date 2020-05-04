@@ -217,7 +217,6 @@
     <string name="openapsma_maxbasal_summary">Tato hodnota je v kontextu OpenAPS nazývána max basal</string>
     <string name="openapsma_maxiob_title">Maximální bazální IOB [U]</string>
     <string name="openapsma_maxiob_summary">Tato hodnota je v kontextu OpenAPS nazývána max IOB</string>
-    <string name="dismiss">POTVRDIT</string>
     <string name="password_preferences_encrypt_prompt">Zobrazí se výzva k zadání hlavního hesla, které bude použito k šifrování exportovaných předvoleb.</string>
     <string name="password_preferences_decrypt_prompt">Zobrazí se výzva k zadání hlavního hesla, které bude použito k dešifrování importovaných předvoleb.</string>
     <string name="preferences_export_canceled">Export zrušen! Předvolby NEBYLY exportovány!</string>
@@ -1492,7 +1491,6 @@
     <string name="timeformat24h">24h</string>
     <string name="automation_event">Událost automatizace</string>
     <string name="alreadyset">Již nastaveno</string>
-    <string name="message">Zpráva</string>
     <string name="clearqueueconfirm">Vymazat frontu? Všechna data ve frontě budou ztracena!</string>
     <string name="ebstopsloop">Použití funkce prodlouženého bolusu zastaví uzavřenou smyčku po dobu trvání prodlouženého bolusu. Opravdu to chcete?</string>
     <string name="closed_loop_disabled_with_eb">Uzavřená smyčka je zastavena kvůli běžícímu prodlouženému bolusu</string>
