@@ -13,7 +13,7 @@
     <string name="reset_db_confirm">Vuoi davvero resettare i database?</string>
     <string name="nav_exit">Esci</string>
     <string name="danar_useextended_title">Usa boli estesi per &gt;200%%</string>
-    <string name="danar_bt_name_title">Dispositivo Bluetooth DanaR</string>
+    <string name="danar_bt_name_title">Dispositivo DanaR Bluetooth</string>
     <string name="ns_sync_use_absolute_title">Utilizza sempre valori basali assoluti</string>
     <string name="alert_dialog_storage_permission_text">Per favore riavvia il tuo telefono oppure fai ripartire AndroidAPS dalle Impostazioni di Sistema \naltrimenti Android APS non farà il log (è importante monitorare e verificare che gli algoritmi stiano funzionando correttamente)!</string>
     <string name="alert_dialog_permission_battery_optimization_failed">Questo dispositivo non sembra supportare la whitelist dell\'ottimizzazione della batteria: potrebbero verificarsi problemi di prestazioni.</string>
@@ -81,8 +81,8 @@
     <string name="openapsma_run">Esegui ora</string>
     <string name="vitualpump_label">POMPA VIRTUALE</string>
     <string name="pump_basebasalrate_label">Velocità basale originale</string>
-    <string name="pump_tempbasal_label">Basale temporanea</string>
-    <string name="virtualpump_extendedbolus_label">Bolo esteso</string>
+    <string name="pump_tempbasal_label">Basale Temporanea</string>
+    <string name="virtualpump_extendedbolus_label">Bolo Esteso</string>
     <string name="pump_battery_label">Batteria</string>
     <string name="pump_reservoir_label">Serbatoio</string>
     <string name="virtualpump_resultok">OK</string>
@@ -489,7 +489,7 @@
     <string name="danar_model">Modello:%1$02X Protocollo:%2$02X Codice:%3$02X</string>
     <string name="profile">Profilo</string>
     <string name="openapsama_max_daily_safety_multiplier_summary">[Valore predefinito: 3] Questo è un parametro di sicurezza chiave in OpenAPS. Ciò che fa è limitare le tue basali a essere 3 volte, al più, la tua velocità basale massima. Probabilmente non avrai bisogno di cambiare questo valore, ma dovresti essere consapevole di cosa significa il gruppo di parametri \"3x max giornaliera; 4x corrente\" e per quali motivi di sicurezza siano stati impostati tali valori.</string>
-    <string name="openapsama_current_basal_safety_multiplier_summary">[Valore predefinito: 4] Questo è un ulteriore parametro di sicurezza chiave in OpenAPS. La tua basale temporanea, indipendentemente dalla basale massima impostata sulla pompa, non può mai essere più alta di questo valore moltiplicato per tua basale corrente in ogni specifico momento. Questo serve a impedire alle persone di addentrarsi in \"territori pericolosi\" impostando basali massime eccessivamente alte prima di aver capito come funziona l\'algoritmo. Ancora una volta, il valore predefinito è 4x; la maggior parte delle persone non avrà bisogno di modificare questo valore e avrà, invece, maggiori probabilità di dover regolare altre impostazioni se ha la sensazione di \"scontrarsi\" con questo limite di sicurezza.</string>
+    <string name="openapsama_current_basal_safety_multiplier_summary">[Valore predefinito: 4] Questo è un ulteriore parametro di sicurezza chiave in OpenAPS. La tua basale temporanea, indipendentemente dalla basale massima impostata sulla pompa, non può mai essere più alta di questo valore moltiplicato per la tua basale corrente in ogni specifico momento. Questo serve a impedire alle persone di addentrarsi in \"territori pericolosi\" impostando basali massime eccessivamente alte prima di aver capito come funziona l\'algoritmo. Ancora una volta, il valore predefinito è 4x; la maggior parte delle persone non avrà bisogno di modificare questo valore e avrà, invece, maggiori probabilità di dover regolare altre impostazioni se ha la sensazione di \"scontrarsi\" con questo limite di sicurezza.</string>
     <string name="openapsama_autosens_max_summary">[Valore predefinito: 1.2]\nQuesto è un moltiplicatore di sicurezza per autosens (e presto autotune) per impostare un limite massimo del 20%% (col valore predefinito) su quanto alto può essere il rapporto di autosens, che a sua volta determina quanto in alto autosens può regolare le basali, quanto in basso può regolare ISF e quanto in basso può impostare il target glicemico.</string>
     <string name="openapsama_autosens_min_summary">[Valore predefinito: 0.7]\nUn altro limite di sicurezza di autosens, imposta un blocco a quanto in basso autosens può regolare le basali e a quanto in alto può regolare ISF e target glicemici.</string>
     <string name="openapsama_autosens_adjusttargets">Autosens regola anche i target</string>
@@ -623,7 +623,7 @@
     <string name="invalidprofile">Profilo non valido !!!</string>
     <string name="doprofileswitch">Cambia profilo</string>
     <string name="careportal_pbage_label">Età batteria pompa</string>
-    <string name="careportal_pumpbatterychange">Cambio Batteria Pompa</string>
+    <string name="careportal_pumpbatterychange">Cambio Batteria pompa</string>
     <string name="ns_alarmoptions">Opzioni allarme</string>
     <string name="nsalarm_urgenthigh">Molto alto</string>
     <string name="nsalarm_high">Alto</string>
@@ -747,7 +747,7 @@
     <string name="info">INFO</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">BT Watchdog</string>
-    <string name="btwatchdog_summary">Spegne il bluetooth del telefono per qualche secondo se non è possibile alcuna connessione al micro. Questo può essere utile su alcuni telefoni.</string>
+    <string name="btwatchdog_summary">Spegne il bluetooth del telefono per qualche secondo se non è possibile alcuna connessione alla pompa. Questo può essere utile su alcuni telefoni.</string>
     <string name="eversense">Eversense app (modificata)</string>
     <string name="dexcomg5_nsupload_title">Carica dati BG su NS</string>
     <string name="bgsource_upload">Impostazioni caricamento BG</string>
@@ -1288,8 +1288,8 @@
     <string name="medtronic_pump_type">Tipo pompa</string>
     <string name="medtronic_pump_frequency">Frequenza pompa</string>
     <string name="medtronic_pump_bolus_delay">Ritardo prima che il Bolo sia avviato (s)</string>
-    <string name="medtronic_pump_max_bolus">Max bolo su pompa (U)</string>
-    <string name="medtronic_pump_max_basal">Max basale su pompa (U/h)</string>
+    <string name="medtronic_pump_max_bolus">Max Bolo su Pompa (U)</string>
+    <string name="medtronic_pump_max_basal">Max Basale su Pompa (U/h)</string>
     <string name="medtronic_pump_encoding">Codifica Medtronic</string>
     <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
     <string name="medtronic_pump_frequency_worldwide">Globale (868 Mhz)</string>
@@ -1542,14 +1542,24 @@
     <string name="copyexistingvalues">Copiare impostazioni NS (se esiste)?</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Integrazione del microinfusore Omnipod, richiede un dispositivo RileyLink (con almeno il firmware 2.0).</string>
     <!-- Omnipod Configuration -->
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_status">Stato pod</string>
+    <string name="omnipod_reservoir_left">%1$.2f U rimanenti</string>
     <string name="omnipod_reservoir_over50">Oltre 50 U</string>
+    <string name="omnipod_pod_address">Indirizzo pod</string>
+    <string name="omnipod_pod_expiry">Scadenza pod</string>
     <string name="omnipod_pod_name_no_info">No info</string>
+    <string name="omnipod_pod_no_pod_connected">Nessun Pod connesso</string>
     <string name="omnipod_pod_not_initalized">Non inizializzato</string>
+    <string name="omnipod_pod_active_alerts">Attiva Avvisi Pod</string>
+    <string name="omnipod_ack_short">Conferma Avvisi</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">Operazione non possibile.\n\nDevi prima configurare Omnipod.</string>
+    <string name="omnipod_error_pod_not_attached">Nessun pod attivo.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Verifica comando fallita.</string>
     <string name="omnipod_driver_error_unexpected_exception_type">Si è verificato un errore imprevisto. Segnalalo! (%1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Comunicazione fallita: ricevuti parametri di input non validi.</string>
@@ -1559,6 +1569,9 @@
     <string name="omnipod_driver_error_invalid_progress_state">Comunicazione fallita: il Pod è in uno stato non corretto.</string>
     <string name="omnipod_driver_error_invalid_response">Comunicazione fallita: ricevuta una risposta non valida dal Pod.</string>
     <string name="omnipod_driver_error_message_decoding_failed">Comunicazione fallita: non si è riuscito a decodificare il messaggio dal Pod.</string>
+    <string name="omnipod_driver_error_not_enough_data">Comunicazione fallita: non abbastanza dati ricevuti dal Pod.</string>
+    <string name="omnipod_driver_error_pod_fault">È stato rilevato un guasto al Pod (%1$03d %2$s). Disattiva il tuo Pod e avviane uno nuovo.</string>
+    <string name="omnipod_driver_error_pod_returned_error_response">Comunicazione fallita: il Pod ha restituito una risposta di errore.</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_pod_mgmt_title">Gestione Pod</string>
     <string name="omnipod_cmd_init_pod">Inizializza Pod</string>
@@ -1579,6 +1592,7 @@
     <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
     <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, CH=%2$.1f g</string>
     <string name="omnipod_cmd_tbr_value">Tasso: %1$.1f U, Durata: %2$d min</string>
+    <string name="omnipod_cmd_pod_history_na">Storico pod non disponibile al momento.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Riempi il Pod</string>
     <string name="omnipod_init_pod_wizard_step2_title">Caricamento</string>
     <string name="omnipod_init_pod_wizard_step3_title">Collega il Pod</string>
@@ -1593,5 +1607,7 @@
     <string name="omnipod_deactivate_pod_deactivate_pod">Disattiva Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="omnipod_alert_low_reservoir">Livello serbatoio basso</string>
     <string name="omnipod_alert_unknown_alert">Avviso sconosciuto</string>
+    <string name="omnipod_bolus_failed_uncertain">Impossibile verificare che il bolo sia riuscito. Verifica che il tuo Pod stia erogando il bolo oppure cancellalo.</string>
 </resources>
