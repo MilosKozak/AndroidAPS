@@ -1308,10 +1308,6 @@
     <string name="rileylink_scanner_scan_stop">ZATRZYMAJ</string>
     <string name="rileylink_scanner_selected_device">Wybrany</string>
     <string name="rileylink_scanner_title">Skan RileyLink</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy nie obsługiwany.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth nie uruchomiony.</string>
-    <string name="location_not_found_title">Lokalizacja nie jest uruchomiona</string>
-    <string name="location_not_found_message">Aby uruchomić odnajdywanie Bluetooth na nowszych urządzeniach, lokalizacja musi być uruchomiona. AAPS nie śledzi twojej lokalizacji więc można ją wyłączyć po udanym powiązaniu.</string>
     <string name="location_yes">Uruchom</string>
     <string name="location_no">Nie</string>
     <string name="rileylink_scanner_scanning">Skanowanie</string>
