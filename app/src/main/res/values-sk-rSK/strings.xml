@@ -219,7 +219,6 @@
     <string name="openapsma_maxbasal_summary">Táto hodnota je nazývaná v OpenAPS ako \"max basal\"</string>
     <string name="openapsma_maxiob_title">Maximálny bazálny IOB, ktorý OpenAPS môže podať [JI]</string>
     <string name="openapsma_maxiob_summary">Táto hodnota je nazývaná v kontexte OpenAPS ako max IOB, je to maximálne množstvo inzulínu v [JI], ktoré APS môže naraz podať.</string>
-    <string name="dismiss">POTVRDIŤ</string>
     <string name="password_preferences_encrypt_prompt">Budete vyzvaný na zadanie hlavného hesla, ktoré bude použité na dešifrovanie exportovaných nastavení.</string>
     <string name="password_preferences_decrypt_prompt">Budete vyzvaný na zadanie hlavného hesla, ktoré bude použité na dešifrovanie importovaných nastavení.</string>
     <string name="preferences_export_canceled">Export zrušený! Nastavenia neboli exportované!</string>
@@ -1496,7 +1495,6 @@
     <string name="timeformat24h">24h</string>
     <string name="automation_event">Udalosť automatiky</string>
     <string name="alreadyset">Už nastavené</string>
-    <string name="message">Správa</string>
     <string name="clearqueueconfirm">Vymazať frontu? Všetky dáta vo fronte budú stratené!</string>
     <string name="ebstopsloop">Použitie funkcie rozloženého bolusu zastaví uzavretý okruh na dobu trvania rozloženého bolusu. Naozaj to chcete?</string>
     <string name="closed_loop_disabled_with_eb">Uzavretý okruh je zastavený kvôli prebiehajúcemu rozloženému bolusu</string>
