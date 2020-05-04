@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="confirmation">Bekräftelse</string>
+    <string name="message">Meddelande</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Avbryt</string>
+    <string name="dismiss">TA BORT</string>
+</resources>
