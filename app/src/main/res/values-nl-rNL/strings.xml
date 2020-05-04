@@ -216,7 +216,6 @@
     <string name="openapsma_maxbasal_summary">Dit is de maximale waarde waarop het basaal door OpenAPS ingesteld kan worden</string>
     <string name="openapsma_maxiob_title">Maximale basaal IOB, dat OpenAPS kan toedienen [E]</string>
     <string name="openapsma_maxiob_summary">Deze waarde wordt de Max IOB genoemd in OpenAPS context\nDit is de maximale insuline hoeveelheid in [E] dat APS in één keer kan toedienen.</string>
-    <string name="dismiss">NEGEER</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Verbinden</string>
     <string name="connected">Verbonden</string>
@@ -1427,7 +1426,6 @@
     <string name="timeformat24h">24u</string>
     <string name="automation_event">Automation gebeurtenis</string>
     <string name="alreadyset">Al ingesteld</string>
-    <string name="message">Bericht</string>
     <string name="clearqueueconfirm">Wachtrij leegmaken? Alle gegevens in de wachtrij zullen verloren gaan!</string>
     <string name="ebstopsloop">Gebruik van Vertraagde bolus functie zal de closed loop modus stoppen voor de duur van de vertraagde bolus. Wil je dit toch?</string>
     <string name="closed_loop_disabled_with_eb">Closed loop modus uitgeschakeld vanwege afgeven Vertraagde bolus</string>
