@@ -1193,10 +1193,6 @@
     <string name="rileylink_scanner_scan_stop">STOP</string>
     <string name="rileylink_scanner_selected_device">Επιλεγμένο</string>
     <string name="rileylink_scanner_title">RileyLink Scan</string>
-    <string name="rileylink_scanner_ble_not_supported">Χαμηλή ενέργεια Bluetooth δεν υποστηρίζεται.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth μη ενεργοποιημένο.</string>
-    <string name="location_not_found_title">Τοποθεσία μη ενεργοποιημένη</string>
-    <string name="location_not_found_message">Για την εύρεση Bluetooth σε νεότερες συσκευές, η τοποθεσία πρέπει να είναι ενεργοποιημένη. Το AAPS δεν παρακολουθεί την τοποθεσία σας και μπορεί να απενεργοποιηθεί μετά την επιτυχή σύζευξη.</string>
     <string name="location_yes">Ενεργοποίηση</string>
     <string name="location_no">Όχι</string>
     <string name="rileylink_scanner_scanning">Σάρωση</string>
