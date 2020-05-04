@@ -1242,10 +1242,6 @@
     <string name="rileylink_scanner_scan_stop">STOP</string>
     <string name="rileylink_scanner_selected_device">Geselecteerd</string>
     <string name="rileylink_scanner_title">RileyLink Scan</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Lage Energie modus niet ondersteund.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth niet ingeschakeld.</string>
-    <string name="location_not_found_title">Locatie is niet ingeschakeld</string>
-    <string name="location_not_found_message">Om Bluetooth discovery met nieuwere apparaten te laten werken moet locatie worden ingeschakeld. AAPS volgt je locatie niet en locatie kan ook weer worden uitgeschakeld nadat het koppelen is gelukt.</string>
     <string name="location_yes">Inschakelen</string>
     <string name="location_no">Nee</string>
     <string name="rileylink_scanner_scanning">Scannen</string>
