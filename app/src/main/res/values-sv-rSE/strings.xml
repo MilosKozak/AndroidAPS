@@ -159,9 +159,11 @@ Eversense-appen.</string>
     <string name="apsmode_title">APS-läge</string>
     <string name="closedloop">Closed Loop</string>
     <string name="openloop">Open Loop</string>
+    <string name="lowglucosesuspend">Stopp innan lågt</string>
     <string name="disabledloop">Loop avstängd</string>
     <string name="disableloop">Inaktivera loop</string>
     <string name="enableloop">Aktivera loop</string>
+    <string name="lgs">LGS</string>
     <string name="openloop_newsuggestion">Ny rekommendation tillgänglig</string>
     <string name="unsupportednsversion">Versionen av Nightscout stöds inte</string>
     <string name="loopdisabled">LOOP STOPPAD PGA BEGRÄNSNINGAR</string>
@@ -584,6 +586,14 @@ Eversense-appen.</string>
     <string name="enablesuperbolus">Aktivera superbolus i kalkylatorn</string>
     <string name="enablesuperbolus_summary">Aktiverar superbolusfunktionen i kalkylatorn. Aktivera inte innan du förstått hur den fungerar. DEN KAN ORSAKA ÖVERDOSERING AV INSULIN OM INSIKT SAKNAS OM FUNKTIONEN!</string>
     <string name="show_statuslights">Visa \"statuslampor\" på hemskärmen</string>
+    <string name="statuslights_cage_warning">Kanylålder - varning: [h]</string>
+    <string name="statuslights_cage_critical">Kanylålder - akut varning: [h]</string>
+    <string name="statuslights_iage_warning">Insulinålder - varning: [h]</string>
+    <string name="statuslights_iage_critical">Insulinålder - akut varning: [h]</string>
+    <string name="statuslights_sage_warning">Sensorålder - varning: [h]</string>
+    <string name="statuslights_sage_critical">Sensorålder - akut varning: [h]</string>
+    <string name="statuslights_bage_warning">Batteriålder - varning: [h]</string>
+    <string name="statuslights_bage_critical">Batteriålder - akut varning: [h]</string>
     <string name="statuslights_res_warning">Varningsnivå för reservoar [U]</string>
     <string name="statuslights_res_critical">Akut varningsnivå för reservoar [U]</string>
     <string name="statuslights_bat_warning">Varningsnivå för batteri [%]</string>
@@ -1309,6 +1319,7 @@ Eversense-appen.</string>
     <string name="rileylink_scanner_scanning">Söker</string>
     <string name="rileylink_scanner_scanning_finished">Sökning avslutad</string>
     <string name="rileylink_scanner_scanning_error">Fel vid sökning: %1$d</string>
+    <string name="common_never">Aldrig</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Inställningar</string>
     <string name="rileylink_settings_tab2">Historik</string>
@@ -1442,6 +1453,7 @@ Eversense-appen.</string>
     <string name="objectives_button_unstart">Rensa påbörjade</string>
     <string name="timedetection">Tidsdetektering</string>
     <string name="doyouwantresetstart">Vill du starta om målet? Du kan förlora de steg du gjort hittills.</string>
+    <string name="time_or_timezone_change">Tid och/eller tidszonsändring på pump</string>
     <string name="nopumpselected">Ingen pump har valts</string>
     <string name="setupwizard_units_prompt">Välj enheter du vill visa värden i</string>
     <string name="ns_ploadlocalprofile">Överför lokala profiländringar till NS</string>
@@ -1524,13 +1536,62 @@ Eversense-appen.</string>
     <string name="master_password_summary">Huvudlösenordet används för att kryptera backuper och för att åsidosätta vissa säkerhetsfunktioner i applikationen. Kom ihåg det eller förvara det på ett säkert ställe.</string>
     <string name="passwords_dont_match">Lösenorden stämmer inte överens</string>
     <string name="current_master_password">Nuvarande huvudlösenord</string>
+    <string name="statuslights">Statuslampor</string>
+    <string name="statuslights_copy_ns">Kopiera inställningar från NS</string>
+    <string name="copyexistingvalues">Kopiera NS-inställningar (om det finns)?</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Pumpintegrering för Omnipod. Kräver Riley Link med minst v2-firmware.</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Boluspip aktiverade</string>
+    <string name="omnipod_config_beep_basal_enabled">Basalpip aktiverade</string>
+    <string name="omnipod_config_beep_smb_enabled">SMB-pip aktiverade</string>
+    <string name="omnipod_config_beep_tbr_enabled">Tempbasal-pip aktiverade</string>
+    <string name="omnipod_config_pod_debugging_options_enabled">Debug-alternativ aktiverade för pod</string>
+    <string name="omnipod_config_timechange_enabled">Automatisk avkänning av tidszon aktiverad</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">Omnipod</string>
+    <string name="omnipod_pod_status">Pod-status</string>
+    <string name="omnipod_reservoir_left">%1$.2f U återstår</string>
+    <string name="omnipod_reservoir_over50">Över 50 U</string>
+    <string name="omnipod_pod_address">Podadress</string>
+    <string name="omnipod_pod_expiry">Pod går ut</string>
+    <string name="omnipod_pod_name_no_info">Ingen info</string>
+    <string name="omnipod_pod_no_pod_connected">Ingen pod ansluten</string>
+    <string name="omnipod_pod_not_initalized">Inte initierad</string>
+    <string name="omnipod_pod_active_alerts">Aktiva pod-varningar</string>
+    <string name="omnipod_ack_short">Ack-varningar</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">Operationen inte möjlig.\n\n Du måste konfigurera Omnipod innan du kan använda denna funktion.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">Operationen är inte möjlig.\n\n Du måste vänta några minuter, tills AAPS försöker ställa in profilen för första gången.</string>
+    <string name="omnipod_error_illegal_init_action_type">Ogiltig PodInitActionType: %1$s</string>
+    <string name="omnipod_error_pod_not_attached">Ingen aktiv pod.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Kommandoverifikation misslyckades.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Ett oväntat fel uppstod. Vänligen rapportera! (typ: %1$s).</string>
+    <string name="omnipod_driver_error_invalid_parameters">Kommunikationsfel: Emottog ogiltiga indataparametrar.</string>
+    <string name="omnipod_driver_error_communication_failed">Kommunikationsfel.</string>
+    <string name="omnipod_driver_error_crc_mismatch">Kommunikationsfel: Lyckades inte verifiera meddelandet.</string>
+    <string name="omnipod_driver_error_invalid_packet_type">Kommunikationsfel: Mottog ett ogiltigt datapaket från pod.</string>
+    <string name="omnipod_driver_error_invalid_progress_state">Kommunikationsfel: Pod är i fel tillstånd.</string>
+    <string name="omnipod_driver_error_invalid_response">Kommunikationsfel: Mottog ett felaktig svar från pod.</string>
+    <string name="omnipod_driver_error_message_decoding_failed">Kommunikationsfel: Misslyckades avkoda meddelandet från pod.</string>
+    <string name="omnipod_driver_error_nonce_resync_failed">Kommunikationsfel: \"nonce resync\" misslyckades.</string>
+    <string name="omnipod_driver_error_nonce_out_of_sync">Kommunikationsfel: \"nonce\" är inte i synk.</string>
+    <string name="omnipod_driver_error_not_enough_data">Kommunikationsfel: Mottog inte tillräckligt mycket data från pod.</string>
     <!-- Omnipod - Pod Mgmt -->
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="omnipod_alert_expiration">Pod kommer att gå ut inom kort</string>
+    <string name="omnipod_alert_expiration_advisory">Pod kommer att gå ut inom kort</string>
+    <string name="omnipod_alert_shutdown_imminent">Pod kommer snart att stängas av</string>
+    <string name="omnipod_alert_low_reservoir">Låg reservoar</string>
+    <string name="omnipod_alert_unknown_alert">Okänd varning</string>
+    <string name="omnipod_error_set_basal_failed_uncertain">Inställning av basalprofil kan ha misslyckats. Leverans kan avbrytas! Vänligen uppdatera pod-status.</string>
+    <string name="omnipod_error_set_temp_basal_failed_uncertain">Inställning av temp basal kan ha misslyckats. Om det redan var en temp basal igång, kan den ha avbrutits! Vänligen uppdatera pod-status.</string>
+    <string name="omnipod_error_set_time_failed_uncertain">Tidsuppdateringen kan ha misslyckats. Leverans kan avbrytas! Vänligen uppdatera pod-status.</string>
+    <string name="omnipod_bolus_failed_uncertain">Det går inte att verifiera om bolusen är slutförd. Verifiera att din pod leverarar bolus eller avsluta bolus.</string>
+    <string name="omnipod_rl_stats">RL-statistik</string>
+    <string name="omnipod_read_pulse_log_short">Pulslogg</string>
 </resources>
