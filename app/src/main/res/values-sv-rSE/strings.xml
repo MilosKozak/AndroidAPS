@@ -1310,10 +1310,6 @@ Eversense-appen.</string>
     <string name="rileylink_scanner_scan_stop">AVBRYT</string>
     <string name="rileylink_scanner_selected_device">Vald</string>
     <string name="rileylink_scanner_title">Riley Link-sökning</string>
-    <string name="rileylink_scanner_ble_not_supported">Enheten stöder inte BLE.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth avstängt.</string>
-    <string name="location_not_found_title">Platsdata är inte aktiverat</string>
-    <string name="location_not_found_message">För att Bluetooth ska fungera med nyare enheter, måste platsdata vara aktiverat. AAPS sparar inte din plats och det kan stängas av efter att enheten har parkopplats.</string>
     <string name="location_yes">Aktivera</string>
     <string name="location_no">Nej</string>
     <string name="rileylink_scanner_scanning">Söker</string>
