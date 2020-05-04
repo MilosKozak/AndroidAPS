@@ -1190,10 +1190,6 @@
     <string name="rileylink_scanner_scan_stop">STOP</string>
     <string name="rileylink_scanner_selected_device">Selectat</string>
     <string name="rileylink_scanner_title">Scanare RileyLink</string>
-    <string name="rileylink_scanner_ble_not_supported">BLE nu este suportat.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth-ul este dezactivat.</string>
-    <string name="location_not_found_title">Localizarae este dezactivată</string>
-    <string name="location_not_found_message">Pentru a putea căuta dispozitive  Bluetooth noi, trebuie să activați localizarea. AAPS nu folosește datele dumneavoastră de localizare și acestea pot fi dezactivate după stabilirea conexiunii cu pompa.</string>
     <string name="location_yes">Activează</string>
     <string name="location_no">Nu</string>
     <string name="rileylink_scanner_scanning">Scanează</string>
