@@ -1309,10 +1309,6 @@
     <string name="rileylink_scanner_scan_stop">ZASTAVIŤ</string>
     <string name="rileylink_scanner_selected_device">Vybrané</string>
     <string name="rileylink_scanner_title">Vyhľadávanie RileyLinku</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy nie je podporované.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth je aktivovaný.</string>
-    <string name="location_not_found_title">Poloha nie je aktivovaná</string>
-    <string name="location_not_found_message">Pre vyhľadávanie Bluetooth na novších zariadeniach je potrebné zapnúť polohu. AAPS nezaznamenáva vašu polohu a po úspešnom spárovaní sa môže poloha vypnúť.</string>
     <string name="location_yes">Aktivovať</string>
     <string name="location_no">Nie</string>
     <string name="rileylink_scanner_scanning">Vyhľadávanie</string>
