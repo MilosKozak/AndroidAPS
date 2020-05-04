@@ -217,7 +217,6 @@
     <string name="openapsma_maxbasal_summary">Wartość określona jako Maksymalna Baza (max basal) w OpenAPS</string>
     <string name="openapsma_maxiob_title">Maksymalna bazowa IOB, którą OpenAPS może dostarczyć [U]</string>
     <string name="openapsma_maxiob_summary">Ta wartość jest nazywana Max IOB w OpenAPS\nTo jest maksymalna wartość insuliny w [U], którą APS może dostarczyć w danej chwili.</string>
-    <string name="dismiss">ODRZUĆ</string>
     <string name="password_preferences_encrypt_prompt">Zostaniesz poproszony o hasło główne, które będzie użyte do szyfrowania wyeksportowanych preferencji.</string>
     <string name="password_preferences_decrypt_prompt">Zostaniesz poproszony o hasło główne, które jest potrzebne do odszyfrowania zaimportowanych preferencji.</string>
     <string name="preferences_export_canceled">Eksportowanie anulowane! Ustawienia NIE zostały wyeksportowane!</string>
@@ -1495,7 +1494,6 @@
     <string name="timeformat24h">24h</string>
     <string name="automation_event">Zdarzenie automatyzacji</string>
     <string name="alreadyset">Już ustawiono</string>
-    <string name="message">Wiadomość</string>
     <string name="clearqueueconfirm">Wyczyścić kolejkę? Wszystkie dane w kolejce zostaną utracone!</string>
     <string name="ebstopsloop">Użycie funkcji Extended bolus spowoduje zatrzymanie trybu pętli zamkniętej na czas działania przedłużonego bolusa. Czy na pewno tego chcesz?</string>
     <string name="closed_loop_disabled_with_eb">Zamknięta pętla wyłączona, ponieważ działa Extended Bolus (bolus przedłużony)</string>
