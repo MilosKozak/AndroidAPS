@@ -1309,10 +1309,6 @@
     <string name="rileylink_scanner_scan_stop">PARAR</string>
     <string name="rileylink_scanner_selected_device">Seleccionado</string>
     <string name="rileylink_scanner_title">Procura RileyLink</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth de energia baixa (LE) não suportado.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth não está activado.</string>
-    <string name="location_not_found_title">Localização Não Está Activada</string>
-    <string name="location_not_found_message">Para que a procura de Bluetooth funcione em aparelhos mais recentes, a localização tem que ser activada. A app não rastreia a sua localização e pode ser desativada depois de um emparelhamento bem sucedido.</string>
     <string name="location_yes">Activar</string>
     <string name="location_no">Não</string>
     <string name="rileylink_scanner_scanning">A procurar</string>
