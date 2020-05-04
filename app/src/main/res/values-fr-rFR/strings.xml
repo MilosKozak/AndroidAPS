@@ -219,7 +219,6 @@
     <string name="openapsma_maxbasal_summary">Cette valeur est appelée Basal Maximum dans le contexte OpenAPS</string>
     <string name="openapsma_maxiob_title">IA basale max que OpenAPS pourra délivrer [U]</string>
     <string name="openapsma_maxiob_summary">Cette valeur est appelée Max IA (Insuline Active) dans le contexte OpenAPS\nC\'estlle maximum d\'insuline en [U] que APS peut délivrer en une seule fois.</string>
-    <string name="dismiss">FERMER</string>
     <string name="password_preferences_encrypt_prompt">Le mot de passe principal vous sera demandé pour crypter les préférences exportées.</string>
     <string name="password_preferences_decrypt_prompt">Le mot de passe principal vous sera demandé pour décrypter les préférences exportées.</string>
     <string name="preferences_export_canceled">Export annulé ! Les préférences n\'ont PAS été exportées !</string>
@@ -1497,7 +1496,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="timeformat24h">24h</string>
     <string name="automation_event">Evénement d\'automatisation</string>
     <string name="alreadyset">Déjà configuré</string>
-    <string name="message">Message</string>
     <string name="clearqueueconfirm">Effacer la file d\'attente ? Toutes les données en file d\'attente seront perdues !</string>
     <string name="ebstopsloop">L\'utilisation du bolus étendu arrètera la boucle fermée pour la durée d\'exécution du bolus étendu. Voulez-vous vraiment le faire ?</string>
     <string name="closed_loop_disabled_with_eb">Boucle fermée désactivée à cause du bolus étendu</string>
