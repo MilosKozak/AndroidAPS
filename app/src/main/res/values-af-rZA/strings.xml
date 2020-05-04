@@ -210,7 +210,6 @@
     <string name="openapsma_maxbasal_summary">Die waarde word \"maks basal\" genoem in OpenAPS konteks</string>
     <string name="openapsma_maxiob_title">Maksimum basale IAB wat OpenAPS mag lewer [U]</string>
     <string name="openapsma_maxiob_summary">Hierdie waarde word Maks IAB genoem in OpenAPS konteks\nDit is die maksimum insulien in [U] wat APS op een slag kan lewer.</string>
-    <string name="dismiss">DISMISS</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Koppel</string>
     <string name="connected">Gekoppel</string>
