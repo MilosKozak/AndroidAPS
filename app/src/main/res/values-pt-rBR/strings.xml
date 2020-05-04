@@ -219,7 +219,6 @@
     <string name="openapsma_maxbasal_summary">Este valor é chamado max basal no contexto do OpenAPS</string>
     <string name="openapsma_maxiob_title">Basal Máxima IOB que OpenAPS pode dar [U]</string>
     <string name="openapsma_maxiob_summary">Este valor é denominado Max IOB em contexto OpenAPS \nEste é o valor máximo de insulina em [U] que APS pode dar de uma vez.</string>
-    <string name="dismiss">Dispensar</string>
     <string name="password_preferences_encrypt_prompt">Será perguntado pela password mestre, que será usada para encriptar preferências exportadas.</string>
     <string name="password_preferences_decrypt_prompt">Será perguntado pela password mestre, que será necessária para desencriptar preferências importadas.</string>
     <string name="preferences_export_canceled">Exportação cancelada! Preferências NÃO foram exportadas!</string>
@@ -1496,7 +1495,6 @@
     <string name="timeformat24h">24h</string>
     <string name="automation_event">Evento de automação</string>
     <string name="alreadyset">Já definido</string>
-    <string name="message">Mensagem</string>
     <string name="clearqueueconfirm">Limpar fila? Todos os dados na fila serão perdidos!</string>
     <string name="ebstopsloop">O uso do Bólus Estendido irá parar o modo Closed Loop no tempo do bólus estendido. Quer realmente isso?</string>
     <string name="closed_loop_disabled_with_eb">Closed Loop desabilitado por causa da execução do Bólus Estendido</string>
