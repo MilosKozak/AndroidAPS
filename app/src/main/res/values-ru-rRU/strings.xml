@@ -1311,10 +1311,6 @@ Context | Edit Context</string>
     <string name="rileylink_scanner_scan_stop">СТОП</string>
     <string name="rileylink_scanner_selected_device">Выбрано</string>
     <string name="rileylink_scanner_title">Сканирование RileyLink</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy не поддерживается.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth не включен.</string>
-    <string name="location_not_found_title">Геолокация не включена</string>
-    <string name="location_not_found_message">Для обнаружения Bluetooth на новых устройствах необходимо включить геолокацию. AAPS не отслеживает ваше местоположение и может быть отключен после успешного подключения.</string>
     <string name="location_yes">Включить</string>
     <string name="location_no">Нет</string>
     <string name="rileylink_scanner_scanning">Сканирование</string>
