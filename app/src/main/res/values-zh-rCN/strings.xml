@@ -209,7 +209,6 @@
     <string name="openapsma_maxbasal_summary">这个值在 OpenAPS被称为最大基础率</string>
     <string name="openapsma_maxiob_title">OpenAPS通过基础率可以输注的IOB活性胰岛素的最大值[U]</string>
     <string name="openapsma_maxiob_summary">这个值在OpenAPS中被成为最大IOB\n这是APS单次可以输注的胰岛素的最大值[U]</string>
-    <string name="dismiss">忽略</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">正在连接</string>
     <string name="connected">已连接</string>
