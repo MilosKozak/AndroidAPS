@@ -219,7 +219,6 @@
     <string name="openapsma_maxbasal_summary">Dieser Wert wird \"max basal\" in OpenAPS genannt.</string>
     <string name="openapsma_maxiob_title">Maximales Basal-IOB, das OpenAPS abgeben darf [IE]</string>
     <string name="openapsma_maxiob_summary">Maximale Menge von nicht Bolus-IOB, die OpenAPs abgeben kann.</string>
-    <string name="dismiss">VERWERFEN</string>
     <string name="password_preferences_encrypt_prompt">Du wirst nach dem Master-Passwort gefragt. Mit diesem werden die exportierten Einstellungen verschlüsselt.</string>
     <string name="password_preferences_decrypt_prompt">Du wirst nach dem Master-Passwort gefragt. Mit diesem werden die importierten Einstellungen entschlüsselt.</string>
     <string name="preferences_export_canceled">Export abgebrochen! Einstellungen wurden NICHT exportiert!</string>
@@ -1496,7 +1495,6 @@ Unerwartetes Verhalten.</string>
     <string name="timeformat24h">24h</string>
     <string name="automation_event">Automatisierungs-Ereignis</string>
     <string name="alreadyset">Bereits festgelegt</string>
-    <string name="message">Nachricht</string>
     <string name="clearqueueconfirm">Warteschlange löschen? Alle Daten in der Warteschlange gehen verloren!</string>
     <string name="ebstopsloop">Die Verwendung eines Verzögerungsbolus unterbricht dem Closed Loop Modus für die Dauer des Verzögerungsbolus. Willst Du das wirklich?</string>
     <string name="closed_loop_disabled_with_eb">Closed Loop wegen Verzögerungsbolus unterbrochen</string>
