@@ -1294,10 +1294,6 @@
     <string name="rileylink_scanner_scan_stop">STOP</string>
     <string name="rileylink_scanner_selected_device">Parinkta</string>
     <string name="rileylink_scanner_title">RileyLink skanavimas</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy nepalaikoma.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth neįjungta.</string>
-    <string name="location_not_found_title">Vietovės nustatymas neįjungtas</string>
-    <string name="location_not_found_message">Vietos nustatymo paslauga turi būti įjungta, kad Bluetooth aptikimas veiktų naujesniuose įrenginiuose. AAPS neseka Jūsų lokacijos, o vietos nustatymo paslauga gali būti išjungta po sėkmingo įrenginių suporavimo.</string>
     <string name="location_yes">Įjungti</string>
     <string name="location_no">Ne</string>
     <string name="rileylink_scanner_scanning">Skanuojama</string>
