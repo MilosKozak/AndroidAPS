@@ -216,7 +216,6 @@
     <string name="openapsma_maxbasal_summary">Este valor es llamado max basal en OpenAPS</string>
     <string name="openapsma_maxiob_title">Max IOB basal que OpenAPs puede emitir [U]</string>
     <string name="openapsma_maxiob_summary">Este valor es llamado Max Iob en el OpenAPS\nEsta es la máxima insulina en [U] que APS puede entregar a la vez.</string>
-    <string name="dismiss">DESCARTAR</string>
     <string name="password_preferences_encrypt_prompt">Se le solicitará la contraseña maestra, que se utilizará para cifrar las preferencias exportadas.</string>
     <string name="password_preferences_decrypt_prompt">Se le solicitará la contraseña maestra, que es necesaria para descifrar las preferencias importadas.</string>
     <string name="preferences_export_canceled">¡Exportación cancelada! ¡Las preferencias NO se han exportado!</string>
@@ -1469,7 +1468,6 @@
     <string name="timeformat24h">24 h</string>
     <string name="automation_event">Automatización de eventos</string>
     <string name="alreadyset">Set listo</string>
-    <string name="message">Mensaje</string>
     <string name="clearqueueconfirm">¿Borrar cola? ¡Se perderán todos los datos de la cola!</string>
     <string name="ebstopsloop">El uso de la función de bolo extendido detendrá el modo de bucle cerrado durante el tiempo de ejecución del bolo extendido. ¿Realmente quieres esto?</string>
     <string name="closed_loop_disabled_with_eb">Bucle cerrado inhabilitado debido a la ejecución del bolo extendido</string>
