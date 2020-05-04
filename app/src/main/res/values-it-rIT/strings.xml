@@ -13,7 +13,7 @@
     <string name="reset_db_confirm">Vuoi davvero resettare i database?</string>
     <string name="nav_exit">Esci</string>
     <string name="danar_useextended_title">Usa boli estesi per &gt;200%%</string>
-    <string name="danar_bt_name_title">Dispositivo DanaR Bluetooth</string>
+    <string name="danar_bt_name_title">Dispositivo Bluetooth DanaR</string>
     <string name="ns_sync_use_absolute_title">Utilizza sempre valori basali assoluti</string>
     <string name="alert_dialog_storage_permission_text">Per favore riavvia il tuo telefono oppure fai ripartire AndroidAPS dalle Impostazioni di Sistema \naltrimenti Android APS non farà il log (è importante monitorare e verificare che gli algoritmi stiano funzionando correttamente)!</string>
     <string name="alert_dialog_permission_battery_optimization_failed">Questo dispositivo non sembra supportare la whitelist dell\'ottimizzazione della batteria: potrebbero verificarsi problemi di prestazioni.</string>
@@ -219,7 +219,6 @@
     <string name="openapsma_maxbasal_summary">Questo valore è chiamato max basale nel contesto OpenAPS</string>
     <string name="openapsma_maxiob_title">Max IOB da basale a cui limitare OpenAPS [U]</string>
     <string name="openapsma_maxiob_summary">Questo valore è chiamato Max IOB nel contesto OpenAPS\nIndica l\'insulina massima in [U] che APS può erogare in contemporanea.</string>
-    <string name="dismiss">RIMUOVI</string>
     <string name="password_preferences_encrypt_prompt">Ti verrà richiesta la password principale, che verrà utilizzata per crittografare le preferenze esportate.</string>
     <string name="password_preferences_decrypt_prompt">Ti verrà chiesta la password master, che è necessaria per decrittare le preferenze importate.</string>
     <string name="preferences_export_canceled">Esportazione annullata! Le preferenze NON sono state esportate!</string>
@@ -1496,7 +1495,6 @@
     <string name="timeformat24h">24h</string>
     <string name="automation_event">Evento di automazione</string>
     <string name="alreadyset">Già impostato</string>
-    <string name="message">Messaggio</string>
     <string name="clearqueueconfirm">Cancellare la coda? Tutti i dati in coda andranno persi!</string>
     <string name="ebstopsloop">L\'uso della funzione bolo esteso interromperà la modalità loop chiuso per il tempo di esecuzione del bolo esteso. Lo vuoi davvero?</string>
     <string name="closed_loop_disabled_with_eb">Loop chiuso disabilitato a causa dell\'esecuzione di un bolo esteso</string>
