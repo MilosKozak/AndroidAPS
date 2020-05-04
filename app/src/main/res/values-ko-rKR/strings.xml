@@ -216,7 +216,6 @@
     <string name="openapsma_maxbasal_summary">이 값은 OpenAPS에서 Max Basal(최대 Basal)로 설정되는 값입니다</string>
     <string name="openapsma_maxiob_title">OpenAPS가 주입할수 있는 최대 Basal IOB [U]</string>
     <string name="openapsma_maxiob_summary">이 값은 OpenAPS에서 Max IOB라고 부르는 값입니다\n기본값은 0으로 설정되어 있습니다. 몇일 혹은 몇주 정도 사용 후 적절한 값으로 변경할 수 있습니다.</string>
-    <string name="dismiss">무시</string>
     <string name="danarpump">다나R</string>
     <string name="connecting">연결중</string>
     <string name="connected">연결됨</string>
@@ -1427,7 +1426,6 @@
     <string name="timeformat24h">24h</string>
     <string name="automation_event">자동화 이벤트</string>
     <string name="alreadyset">이미 설정됨</string>
-    <string name="message">메시지</string>
     <string name="clearqueueconfirm">대기열을 삭제하시겠습니까? 대기열에 있는 모든 데이터가 삭제됩니다!</string>
     <string name="ebstopsloop">확장 Bolus 기능을 사용하는 동안에는 Closed Loop 모드가 중지됩니다. 정말 원하십니까?</string>
     <string name="closed_loop_disabled_with_eb">확장 Bolus 사용으로 인해 Closed Loop가 비활성화됨</string>
