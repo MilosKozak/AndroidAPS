@@ -1244,10 +1244,6 @@
     <string name="rileylink_scanner_scan_stop">СТОП</string>
     <string name="rileylink_scanner_selected_device">Избрано</string>
     <string name="rileylink_scanner_title">RileyLink скенер</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy не се поддържа.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth не е включен.</string>
-    <string name="location_not_found_title">Локацията не е включена</string>
-    <string name="location_not_found_message">За да работи откриването на нови устройсва чрез Bluetooth, трябва да включите локацията. AAPS не проследява вашето местоположение и ще можете да я изключите след успешното свързване.</string>
     <string name="location_yes">Разреши</string>
     <string name="location_no">Не</string>
     <string name="rileylink_scanner_scanning">Сканиране</string>
