@@ -213,7 +213,6 @@
     <string name="openapsma_maxbasal_summary">Αυτή η τιμή ονομάζεται μέγιστο βασικού ρυθμού στο περιεχόμενο του OpenAPS</string>
     <string name="openapsma_maxiob_title">Μέγιστο βασικής IOB που το OpenAPS μπορεί να δώσει [U]</string>
     <string name="openapsma_maxiob_summary">Αυτή η τιμή ονομάζεται μέγιστο IOB στο OpenAPS \nΑυτή είναι η μέγιστη ινσουλίνη [U] που το APS μπορεί να δώσει με την μία.</string>
-    <string name="dismiss">ΑΠΟΡΡΙΨΗ</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Συνδέεται</string>
     <string name="connected">Συνδέθηκε</string>
