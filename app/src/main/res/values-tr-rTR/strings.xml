@@ -207,7 +207,6 @@
     <string name="openapsma_maxbasal_summary">Bu değer OpenAPS\'te \"max bazal\" olarak adlandırılır</string>
     <string name="openapsma_maxiob_title">OpenAPS\'nin vermesine izin verilen maksimum bazal IOB (Aktif insülin) [U]</string>
     <string name="openapsma_maxiob_summary">Bu değere OpenAPS bağlamında Max IOB denir.\nAPS\'de [U] bir kerede verilen maksimum insülin.</string>
-    <string name="dismiss">İptal et</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Bağlanıyor</string>
     <string name="connected">Bağlanıldı</string>
