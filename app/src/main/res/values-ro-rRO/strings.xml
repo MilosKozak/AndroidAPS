@@ -212,7 +212,6 @@
     <string name="openapsma_maxbasal_summary">Această valoare este denumită bazală maximă în contextul OpenAPS</string>
     <string name="openapsma_maxiob_title">Maximul de bazală IOB pe care o poate livra OpenAPS[U]</string>
     <string name="openapsma_maxiob_summary">Această valoare este denumită Max IOB în contextul OpenAPS\nAceastă valoare este implicit nulă (0). După câteva zile sau săptămâni, în funcție de opțiunea dumneavoastră, puteți ajusta acest număr.</string>
-    <string name="dismiss">RENUNȚĂ</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Se conectează</string>
     <string name="connected">Conectat</string>
