@@ -1309,10 +1309,6 @@
     <string name="rileylink_scanner_scan_stop">STOP</string>
     <string name="rileylink_scanner_selected_device">Selezionato</string>
     <string name="rileylink_scanner_title">Scansione RileyLink</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy non supportato.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth disabilitato.</string>
-    <string name="location_not_found_title">La posizione è disabilitata</string>
-    <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni sui nuovi dispositivi, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'associazione. AAPS non tiene traccia della tua posizione.</string>
     <string name="location_yes">Abilita</string>
     <string name="location_no">No</string>
     <string name="rileylink_scanner_scanning">Scansione</string>
