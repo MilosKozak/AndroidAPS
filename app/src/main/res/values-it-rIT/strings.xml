@@ -21,8 +21,8 @@
     <string name="description_careportal">Inserisci voci di registro avanzate.</string>
     <string name="description_config_builder">Utilizzato per configurare i plugin attivi</string>
     <string name="description_objectives">Programma di apprendimento</string>
-    <string name="description_food">Visualizza l\'elenco dei cibi definiti in Nightscout</string>
-    <string name="description_insulin_rapid">Preset per insulina Humalog e NovoRapid</string>
+    <string name="description_food">Visualizza i preset dei cibi definiti in Nightscout</string>
+    <string name="description_insulin_rapid">Preset per insulina Humalog e NovoRapid / NovoLog</string>
     <string name="description_insulin_ultra_rapid">Preset per insulina Fiasp</string>
     <string name="description_insulin_free_peak">Ti consente di definire il picco di attività dell\'insulina e deve essere utilizzato solo dagli utenti avanzati</string>
     <string name="description_loop">Attiva o disattiva l\'implementazione per la gestione del loop.</string>
@@ -75,7 +75,7 @@
     <string name="treatments_wizard_bg_label">BG</string>
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">CHO</string>
-    <string name="treatments_wizard_correction_label">Correzione</string>
+    <string name="treatments_wizard_correction_label">Corr</string>
     <string name="insulin_unit_shortname">U</string>
     <string name="treatments_wizard_bolusiob_label">IOB da bolo</string>
     <string name="openapsma_run">Esegui ora</string>
