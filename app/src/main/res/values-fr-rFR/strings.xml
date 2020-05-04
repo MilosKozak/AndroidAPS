@@ -1310,10 +1310,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="rileylink_scanner_scan_stop">ARRÊT</string>
     <string name="rileylink_scanner_selected_device">Sélectionné</string>
     <string name="rileylink_scanner_title">Scanner RileyLink</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy non pris en charge.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Le Bluetooth n\'est pas activé.</string>
-    <string name="location_not_found_title">La localisation n\'est pas activée</string>
-    <string name="location_not_found_message">La localisation doit être activée sur les nouveaux appareils pour que la recherche Bluetooth fonctionne. AAPS n\'enregistre pas votre localisation et la localisation peut être désactivée après le succès de l\'appairage.</string>
     <string name="location_yes">Activer</string>
     <string name="location_no">Non</string>
     <string name="rileylink_scanner_scanning">Recherche en cours</string>
