@@ -1309,10 +1309,6 @@
     <string name="rileylink_scanner_scan_stop">PARAR</string>
     <string name="rileylink_scanner_selected_device">Seleccionado</string>
     <string name="rileylink_scanner_title">Procura RileyLink</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth de energia baixa (LE) não suportado.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth não está activado.</string>
-    <string name="location_not_found_title">Localização Não Está Activada</string>
-    <string name="location_not_found_message">Para que a procura de Bluetooth funcione em aparelhos mais recentes, a localização tem que ser activada. A app não rastreia a sua localização e pode ser desativada depois de um emparelhamento bem sucedido.</string>
     <string name="location_yes">Activar</string>
     <string name="location_no">Não</string>
     <string name="rileylink_scanner_scanning">A procurar</string>
@@ -1545,6 +1541,33 @@
     <!-- Omnipod - Dialogs -->
     <!-- Omnipod - Error -->
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_set_time">Definir Hora</string>
+    <string name="omnipod_cmd_configure_alerts">Configurar Alertas</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Reconhecer Alertas</string>
+    <string name="omnipod_cmd_suspend_delivery">Suspender Administração</string>
+    <string name="omnipod_cmd_resume_delivery">Retomar Administração</string>
+    <string name="omnipod_cmd_unknown_entry">Entrada Desconhecida</string>
+    <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, HC=%2$.1f g</string>
+    <string name="omnipod_init_pod_wizard_step3_title">Anexar o Pod</string>
+    <string name="omnipod_init_pod_wizard_step4_title">A inserir canula</string>
+    <string name="omnipod_init_pod_wizard_pod_info_title">Info Pod</string>
+    <string name="omnipod_init_pod_pair_pod">Emparelhar Pod</string>
+    <string name="omnipod_init_pod_prime_pod">Pod Primário</string>
+    <string name="omnipod_init_pod_fill_cannula">Enchimento de Canula</string>
+    <string name="omnipod_init_pod_set_basal_profile">Definir Perfil Basal</string>
+    <string name="omnipod_deactivate_pod_cancel_delivery">Cancelar Administração</string>
+    <string name="omnipod_deactivate_pod_deactivate_pod">Desacitvar Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod_dash">Integração da Bomba para Omnipod Dash.</string>
+    <string name="omnipod_alert_finish_pairing_reminder">Lembrete Concluir Emparelhamento</string>
+    <string name="omnipod_alert_finish_setup_reminder_reminder">Lembrete Terminar Configuração</string>
+    <string name="omnipod_alert_expiration">Pod vai expirar em breve</string>
+    <string name="omnipod_alert_expiration_advisory">Pod vai expirar em breve</string>
+    <string name="omnipod_alert_shutdown_imminent">Encerramento iminente</string>
+    <string name="omnipod_alert_low_reservoir">Reservatório baixo</string>
+    <string name="omnipod_alert_unknown_alert">Alerta desconhecido</string>
+    <string name="omnipod_rl_stats">Estatísticas RL</string>
+    <string name="omnipod_read_pulse_log_short">Registo de Pulse</string>
 </resources>
