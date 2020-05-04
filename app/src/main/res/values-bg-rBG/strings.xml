@@ -217,7 +217,6 @@
     <string name="openapsma_maxbasal_summary">Макс. лимит на временен базал [Е/ч] </string>
     <string name="openapsma_maxiob_title">Максимален IOB</string>
     <string name="openapsma_maxiob_summary">Този параметър се нарича максимален IOB в OpenAPS и подразбиране е 0. След няколко дни или седмици можете да го увеличите.</string>
-    <string name="dismiss">Разбрах</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Свързване</string>
     <string name="connected">Свързана</string>
@@ -1429,7 +1428,6 @@
     <string name="timeformat24h">24ч</string>
     <string name="automation_event">Събитие</string>
     <string name="alreadyset">Вече направено</string>
-    <string name="message">Съобщение</string>
     <string name="clearqueueconfirm">Изтрий опашка? Всички данни ще се загубят!</string>
     <string name="ebstopsloop">Използване на удължен болус ще спре режим затворен цикъл за времето на болуса. Сигурни ли сте?</string>
     <string name="closed_loop_disabled_with_eb">Затворен цикъл е недостъпен поради стартиран Удължен болус</string>
