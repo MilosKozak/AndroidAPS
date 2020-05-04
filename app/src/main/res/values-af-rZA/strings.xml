@@ -1185,10 +1185,6 @@
     <string name="rileylink_scanner_scan_stop">STOP</string>
     <string name="rileylink_scanner_selected_device">Verkose</string>
     <string name="rileylink_scanner_title">RileyLink Skan</string>
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy word nie ondersteun.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth nie aan.</string>
-    <string name="location_not_found_title">Location nie aan</string>
-    <string name="location_not_found_message">Vir Bluetooth ontdek om te werk op nuwer toestelle, lokaliteit moet aan wees. AAPS speur nie jou lokaliteit en kan afgeskakel na paring.</string>
     <string name="location_yes">Aktiveer</string>
     <string name="location_no">Nee</string>
     <string name="rileylink_scanner_scanning">Skandeer</string>
