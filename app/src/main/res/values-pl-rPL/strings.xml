@@ -433,7 +433,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Nadchodzące powiadomienia</string>
     <string name="old_data">NIEAKTUALNE DANE</string>
-    <string name="minago">%1$d min temu</string>
     <string name="sms_minago">%1$dmin temu</string>
     <string name="localprofile">Lokalny Profil</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -537,7 +536,6 @@
     <string name="wear_detailedIOB_title">Pokaż szczegóły IOB</string>
     <string name="wear_detailedIOB_summary">Rozłóż IOB na bolus i IOB bazy na zegarku</string>
     <string name="nosuccess">nie udało się - proszę sprawdzić telefon</string>
-    <string name="notavailable">Niedostępne</string>
     <string name="patientage">Wiek pacjenta</string>
     <string name="child">Dziecko</string>
     <string name="teenage">Nastolatek</string>
@@ -878,7 +876,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Uruchomiona jest wersja dev. Zamknięta pętla jest wyłączona.</string>
     <string name="engineering_mode_enabled">Tryb Inżynierski włączony</string>
     <string name="not_eng_mode_or_release">Tryb inżynierski nie włączony i nie pracuje wersja \"kandydat do wydania\" (RC)</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Wczytuje profil bazowy</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Historia pompy zmieniła się po wykonaniu obliczenia bolusa. Bolus nie został dostarczony. Proszę, przelicz ponownie, jeśli wciąż potrzebujesz bolusa.</string>
     <string name="combo_error_updating_treatment_record">Bolus został pomyślnie dostarczony, ale dodanie wpisu leczenia nie powiodło się. Może się to zdarzyć, jeśli w ciągu ostatnich dwóch minut podano dwa małe bolusy o tej samej wielkości. Sprawdź historię pompy i leczenie i użyj PortaluOpieki, aby dodać brakujące wpisy. Make sure not to add any entries for the exact same minute and same amount.</string>
