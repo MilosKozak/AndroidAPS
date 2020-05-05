@@ -369,7 +369,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Notificare activă</string>
     <string name="old_data">DATE VECHI</string>
-    <string name="minago">%1$d min în urmă</string>
     <string name="sms_minago">acum %1$dmin</string>
     <string name="localprofile">Profil local</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -472,7 +471,6 @@
     <string name="wear_detailedIOB_title">Arată IOB detaliat</string>
     <string name="wear_detailedIOB_summary">Separă IOB în bolus și IOB bazal pe ceas</string>
     <string name="nosuccess">fără succes - verificați telefonul</string>
-    <string name="notavailable">Nu este disponibil</string>
     <string name="patientage">Vârsta pacientului</string>
     <string name="child">Copil</string>
     <string name="teenage">Adolescent</string>
@@ -787,7 +785,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Se folosește versiunea dev. Bucla închisă este dezactivată.</string>
     <string name="engineering_mode_enabled">Mod inginer activat</string>
     <string name="not_eng_mode_or_release">Modul inginer nu este activat și nu este în versiunea lansată</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Se citește profilul bazal</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Istoricul pompei s-a schimbat după calcularea bolusului. Bolusul nu a fost livrat. Recalculați dacă mai este necesar un bolus.</string>
     <string name="combo_error_updating_treatment_record">Bolus livrat, dar nu s-a reușit înregistrarea evenimentului. Aceasta se poate întâmpla când două bolusuri mici de aceeași valoare sunt livrate în mai puțin de două minute. Verificați istoricul pompei și înregistrările tratamentelor și folosiți Careportal pentru adăugarea intrărilor lipsă. Asigurați-vă că nu adăugați intrări duble.</string>
