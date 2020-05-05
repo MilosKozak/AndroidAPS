@@ -5,4 +5,8 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
     <string name="dismiss">DISPENSAR</string>
+    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy não suportado.</string>
+    <string name="rileylink_scanner_ble_not_enabled">Bluetooth não está activado.</string>
+    <string name="location_not_found_title">Localização Não Está Activa</string>
+    <string name="location_not_found_message">Para a Pesquisa Bluetooth funcionar em dispositivos mais recentes, a localização deve ser activada. AAPS não acompanha a sua localização e pode ser desactivada após o emparelhamento bem-sucedido.</string>
 </resources>
