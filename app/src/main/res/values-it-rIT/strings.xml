@@ -162,7 +162,6 @@
     <string name="disabledloop">Loop disabilitato</string>
     <string name="disableloop">Disabilita loop</string>
     <string name="enableloop">Abilita loop</string>
-    <string name="lgs">LGS</string>
     <string name="openloop_newsuggestion">Nuovo suggerimento disponibile</string>
     <string name="unsupportednsversion">Versione non supportata di Nightscout</string>
     <string name="loopdisabled">LOOP DISABILITATO DAI VINCOLI</string>
@@ -435,7 +434,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Notifica persistente</string>
     <string name="old_data">DATI VECCHI</string>
-    <string name="minago">%1$d min fa</string>
     <string name="sms_minago">%1$dmin fa</string>
     <string name="localprofile">Profilo locale</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -539,7 +537,6 @@
     <string name="wear_detailedIOB_title">Mostra IOB dettagliato</string>
     <string name="wear_detailedIOB_summary">Dividi IOB in bolo e basale sulla watchface</string>
     <string name="nosuccess">non riuscito - controlla il telefono</string>
-    <string name="notavailable">Non disponibile</string>
     <string name="patientage">Età del paziente</string>
     <string name="child">Bambino</string>
     <string name="teenage">Adolescente</string>
@@ -879,7 +876,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Versione sviluppatore in esecuzione. Loop chiuso disabilitato.</string>
     <string name="engineering_mode_enabled">Engineering mode abilitata</string>
     <string name="not_eng_mode_or_release">Engineering mode non abilitata e non su \'release branch\'</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Lettura profilo basale</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Lo storico del micro è cambiato dopo il calcolo del bolo. Il bolo non è stato erogato. Ricalcolare se un bolo è ancora necessario.</string>
     <string name="combo_error_updating_treatment_record">Bolo erogato con successo, ma non è possibile aggiungere la voce ai trattamenti. Questo può accadere se due piccoli boli della stessa quantità sono stati somministrati negli ultimi due minuti. Verifica lo storico del micro e le voci della sezione Trattamenti e utilizza la sezione Portale per aggiungere eventuali voci mancanti. Assicurati di non aggiungere voci che si riferiscano al medesimo minuto e alla stessa quantità.</string>
