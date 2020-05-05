@@ -206,7 +206,7 @@
     <string name="overview_extendedbolus_button">Bolus Przedłużony</string>
     <string name="configbuilder_nightscoutversion_label">Wersja Nightscout:</string>
     <string name="missing_carbs">Brakuje %1$dg</string>
-    <string name="exported">Właściwości wyeksportowane</string>
+    <string name="exported">Ustawienia wyeksportowane</string>
     <string name="export_to">Eksportuj ustawienia do</string>
     <string name="import_from">Importuj ustawienia z</string>
     <string name="setting_imported">Ustawienia zaimportowane</string>
@@ -242,7 +242,7 @@
     <string name="metadata_label_encryption">Szyfrowanie pliku</string>
     <string name="metadata_format_old">Stary format eksportu</string>
     <string name="metadata_format_new">Nowy zaszyfrowany format</string>
-    <string name="metadata_format_debug">Nowy format debugowania (niezaszyfrowany)</string>
+    <string name="metadata_format_debug">Nowy format testowy (niezaszyfrowany)</string>
     <string name="metadata_format_other">Nieznany format eksportu</string>
     <string name="prefdecrypt_settings_tampered">Plik ustawień został zmieniony</string>
     <string name="prefdecrypt_settings_secure">Plik ustawień jest bezpieczny</string>
