@@ -394,7 +394,6 @@
     <string name="MM640g">미니메드640g</string>
     <string name="ongoingnotificaction">연속 알림</string>
     <string name="old_data">오래된 데이터</string>
-    <string name="minago">%d분전</string>
     <string name="sms_minago">%dmin ago</string>
     <string name="localprofile">로컬 프로파일</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -498,7 +497,6 @@
     <string name="wear_detailedIOB_title">IOB 자세하게 보여주기</string>
     <string name="wear_detailedIOB_summary">워치페이스에 IOB를 Bolus IOB와 Basal IOB로 나누어서 보여줍니다.</string>
     <string name="nosuccess">성공하지 못했습니다. 폰을 확인하세요</string>
-    <string name="notavailable">알수없음</string>
     <string name="patientage">나이</string>
     <string name="child">어린이</string>
     <string name="teenage">청소년</string>
@@ -821,7 +819,6 @@
     <string name="closed_loop_disabled_on_dev_branch">개발자버전을 실행중입니다. Closed Loop는 비활성화 됩니다.</string>
     <string name="engineering_mode_enabled">전문가 모드 사용</string>
     <string name="not_eng_mode_or_release">전문가 모드가 활성화되어 있지 않고 Release 버전이 실행되고 있지 않습니다.</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Basal 프로파일 읽는중</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Bolus 계산이 수행된 후 펌프 이력이 변경되었습니다. Bolus가 주입되지 않았습니다. Bolus가 여전히 필요하다면 다시 계산하세요.</string>
     <string name="combo_error_updating_treatment_record">Bolus가 성공적으로 주입되었지만, 관리 항목에 추가하지 못했습니다. 이것은 동일한 양의 소량의 2개의 Bolus가 최근 2 분 이내에 주입되는 경우에 발생할 수 있습니다. 펌프 이력과 관리 항목을 확인하고 손실된 항목을 추가하기위해 케어포털을 이용하세요. 동일한 시간과 인슐린양의 항목을 추가하지 마세요.</string>
