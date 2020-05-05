@@ -433,7 +433,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Průběžné oznámení</string>
     <string name="old_data">ZASTARALÉ</string>
-    <string name="minago">před %1$d min</string>
     <string name="sms_minago">před %1$d min</string>
     <string name="localprofile">Místní profil</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -537,7 +536,6 @@
     <string name="wear_detailedIOB_title">Zobrazit detailní IOB</string>
     <string name="wear_detailedIOB_summary">Rozepsat IOB do bolusového a bazálního na hodinkách</string>
     <string name="nosuccess">neúspěšně - zkontrolujte mobil</string>
-    <string name="notavailable">Nedostupný</string>
     <string name="patientage">Stáří pacienta</string>
     <string name="child">Dítě</string>
     <string name="teenage">Dospívající</string>
@@ -877,7 +875,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Běží DEV verze. Uzavřená smyčka je zakázána.</string>
     <string name="engineering_mode_enabled">Expertní mód povolen</string>
     <string name="not_eng_mode_or_release">Expertní mód není povolen a neběží vydaná verze</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Načítám bazální profil</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Historie v pumpě se změnila po spočítání bolusu. Bolus nebyl proveden. Prosím spočítejte ho znovu, pokud je to stále potřeba.</string>
     <string name="combo_error_updating_treatment_record">Bolus úspěšně podán, ale zápis se nezdařil. To se může stát pokud jsou podány bolusy stejné velikosti během 2 minut. Zkontrolujte historii pumpy a zadejte chybějící položky do ošetření. Ujistěte se, že nezadáváte stejnou velikost v rámci 1 minuty.</string>
