@@ -162,7 +162,6 @@
     <string name="disabledloop">Uzavretý okruh deaktivovaný</string>
     <string name="disableloop">Deaktivovať uzavretý okruh</string>
     <string name="enableloop">Aktivovať uzavretý okruh</string>
-    <string name="lgs">LGS</string>
     <string name="openloop_newsuggestion">Dostupné nové doporučenie</string>
     <string name="unsupportednsversion">Nepodporovaná verzia Nighscoutu</string>
     <string name="loopdisabled">Uzavretý okruh deaktivovaný obmedzením</string>
@@ -435,7 +434,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Priebežné notifikácie</string>
     <string name="old_data">ZASTARALÉ DÁTA</string>
-    <string name="minago">pred %1$d min</string>
     <string name="sms_minago">pred %1$d min</string>
     <string name="localprofile">Lokálny profil</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -539,7 +537,6 @@
     <string name="wear_detailedIOB_title">Zobraziť detailný IOB</string>
     <string name="wear_detailedIOB_summary">Rozpísať IOB na hodinkách do bolusového a bazálneho</string>
     <string name="nosuccess">Neúspešné - skontrolujte telefón</string>
-    <string name="notavailable">Nedostupný</string>
     <string name="patientage">Vek pacienta</string>
     <string name="child">Dieťa</string>
     <string name="teenage">Dospievajúci</string>
@@ -879,7 +876,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Bežiaca vývojárska verzia. Uzavretý okruh je zakázaný.</string>
     <string name="engineering_mode_enabled">Vývojársky mód povolený</string>
     <string name="not_eng_mode_or_release">Vývojársky mód nie je povolený a nebeží vydaná verzia</string>
-    <string name="pump_basebasalrate">%1$.2f JI/h</string>
     <string name="combo_actvity_reading_basal_profile">Načítavam bazálny profil</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">História v pumpe sa zmenila po spočítaní bolusu. Bolus nebol podaný. Prosím spočítajte ho znovu, pokiaľ je stále potrebný.</string>
     <string name="combo_error_updating_treatment_record">Bolus úspešne podaný, ale zápis se nepodaril. To sa môže stať, pokiaľ sú podané bolusy rovnakej veľkosti v priebehu 2 minút. Skontrolujte históriu pumpy a zadajte chýbajúce položky do ošetrení. Uistite sa, že nezadávate rovnakú veľkosť v rámci 1 minúty.</string>
