@@ -367,7 +367,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Voortgesette kennisgewing</string>
     <string name="old_data">OU DATA</string>
-    <string name="minago">%1$d min terug</string>
     <string name="sms_minago">%1$d min terug</string>
     <string name="localprofile">Plaaslike profiel</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -470,7 +469,6 @@
     <string name="wear_detailedIOB_title">Wys gedetailleerde IAB</string>
     <string name="wear_detailedIOB_summary">Breek af IAB in bolus en basale IAB op die watchface</string>
     <string name="nosuccess">nie suksesvol - Kontroleer asseblief foon</string>
-    <string name="notavailable">Nie beskikbaar nie</string>
     <string name="patientage">Pasiënt ouderdom</string>
     <string name="child">Kind</string>
     <string name="teenage">Tiener</string>
@@ -784,7 +782,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Veranderende ontwikkelende weergawe. Geslote lus is gedeaktiveerd.</string>
     <string name="engineering_mode_enabled">Ingenieurswese modus geaktiveer</string>
     <string name="not_eng_mode_or_release">Ingenieurswese modus ontsper nie en nie op publike vrylating tak</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Lees basale profiel</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Die pomp geskiedenis het verander nadat die bolus berekening uitgevoer was. Die bolus was nie afgelewer nie. Herbereken asseblief of \'n bolus steeds nodig is.</string>
     <string name="combo_error_updating_treatment_record">Bolus suksesvol afgelewer, maar die behandeling inskrywing het gefaal. Dit kan gebeur as twee klein boluses van dieselfde grootte binne die laaste twee minute toegedien word. Kontroleer die pomp geskiedenis en behandeling inskrywings en gebruik die Careportal om vermiste inskrywings te voeg. Maak seker om nie enige inskrywings vir dieselfde minuut en dieselfde bedrag by te voeg.</string>
