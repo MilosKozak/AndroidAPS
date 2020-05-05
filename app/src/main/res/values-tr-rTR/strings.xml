@@ -344,7 +344,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Sürekli Bildirim</string>
     <string name="old_data">ESKİ VERİ</string>
-    <string name="minago">%1$d dakika önce</string>
     <string name="sms_minago">%1$ddak önce</string>
     <string name="localprofile">Yerel profil</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -445,7 +444,6 @@ Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden d
     <string name="wear_detailedIOB_title">Ayrıntılı IOB göster</string>
     <string name="wear_detailedIOB_summary">Watchface üzerinde IOB\'yi bolus ve bazal IOB\'ye ayırın</string>
     <string name="nosuccess">başarısız - lütfen telefonu kontrol edin</string>
-    <string name="notavailable">Mevcut değil</string>
     <string name="patientage">Hasta yaşı</string>
     <string name="child">Çocuk</string>
     <string name="teenage">Ergen</string>
