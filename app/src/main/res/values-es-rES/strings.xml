@@ -424,7 +424,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Avisos permanentes</string>
     <string name="old_data">DATOS CADUCADOS</string>
-    <string name="minago">%1$d min antes</string>
     <string name="sms_minago">hace %1$d min</string>
     <string name="localprofile">Perfil Local</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -528,7 +527,6 @@
     <string name="wear_detailedIOB_title">Mostrar detalles IOB</string>
     <string name="wear_detailedIOB_summary">Separar IOB en bolo y base en el reloj</string>
     <string name="nosuccess">sin efecto - por favor verificar en móvil</string>
-    <string name="notavailable">No disponible</string>
     <string name="patientage">Edad paciente</string>
     <string name="child">Menor de edad</string>
     <string name="teenage">Adolescente</string>
@@ -858,7 +856,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Ejecutando versión dev. Lazo cerrado no disponible.</string>
     <string name="engineering_mode_enabled">Modo de ingeniería activado</string>
     <string name="not_eng_mode_or_release">Modo de ingeniería no está activado y no disponible en esta rama</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Leyendo perfil basal</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">El historial de la bomba ha cambiado después de que se realizó el cálculo del bolo. El bolo no fue entregado. Por favor, vuelva a calcular si aún se necesita un bolo.</string>
     <string name="combo_error_updating_treatment_record">El bolo se administró con éxito, pero falló la incorporación de la entrada del tratamiento. Esto puede suceder si se administran dos bolos pequeños del mismo tamaño en los últimos dos minutos. Verifique el historial de la bomba y las entradas de tratamiento y use el portal de tratamientos para agregar entradas faltantes. Asegúrese de no agregar ninguna entrada para el mismo minuto exacto y la misma cantidad.</string>
