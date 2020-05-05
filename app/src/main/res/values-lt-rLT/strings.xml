@@ -433,7 +433,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Nuolatinis pranešimas</string>
     <string name="old_data">SENI DUOMENYS</string>
-    <string name="minago">Prieš %1$d min</string>
     <string name="sms_minago">prieš %1$dmin</string>
     <string name="localprofile">Vietinis profilis</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -537,7 +536,6 @@
     <string name="wear_detailedIOB_title">Rodyti AIO detaliai</string>
     <string name="wear_detailedIOB_summary">Rodyti laikrodyje bazės ir bolusų AIO</string>
     <string name="nosuccess">Bandymas nesėkmingas - pasitikrinkite telefoną</string>
-    <string name="notavailable">Negalimas</string>
     <string name="patientage">Paciento amžius</string>
     <string name="child">Vaikas</string>
     <string name="teenage">Paauglys</string>
@@ -869,7 +867,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Naudojama neužbaigta versija. Uždaras ciklas neaktyvus.</string>
     <string name="engineering_mode_enabled">Inžinerinis režimas įjungtas</string>
     <string name="not_eng_mode_or_release">Inžinerinis režimas negalimas vartotojo atšakoje</string>
-    <string name="pump_basebasalrate">%1$.2f vv/val</string>
     <string name="combo_actvity_reading_basal_profile">Nuskaitomas bazės profilis</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Skaičiuojant bolusą pasikeitė pompos istorija. Bolusas nesuleistas. Prašome perskaičiuoti, jei boluso vis dar reikia.</string>
     <string name="combo_error_updating_treatment_record">Bolusas sėkmingai suleistas, tačiau įrašas žurnale neįvestas. Taip gali nutikti, jei du vienodi nedideli bolusai suleisti per pastarąsias 2 min. Patikrinkite pompos istoriją ir įrašų žurnalą bei naudodamiesi Careportal įveskite trūkstamus įrašus. Patikrinkite, ar įvedamas įrašas neturi tokios pat laiko žymos ir insulino kiekio, kaip jau egzistuojantis.</string>
