@@ -370,7 +370,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Συνεχής Ειδοποίηση</string>
     <string name="old_data">Παλιά Δεδομένα</string>
-    <string name="minago">πριν από %1$d λεπτά</string>
     <string name="sms_minago">πριν από %1$d λεπτά</string>
     <string name="localprofile">Τοπικό Προφίλ</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -473,7 +472,6 @@
     <string name="wear_detailedIOB_title">Δείξε αναλυτικά IOB</string>
     <string name="wear_detailedIOB_summary">Χώρισε την IOB σε bolus και βασικό στο ρολόι</string>
     <string name="nosuccess">αποτυχία - ελέγξτε τηλέφωνο</string>
-    <string name="notavailable">Μη διαθέσιμο</string>
     <string name="patientage">Ηλικία χρήστη</string>
     <string name="child">Παιδί</string>
     <string name="teenage">Έφηβος</string>
@@ -790,7 +788,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Εκτελείται έκδοση Dev. Το κλειστό κύκλωμα είναι απενεργοποιημένο.</string>
     <string name="engineering_mode_enabled">Μηχανική λειτουργία ενεργοποιημένη</string>
     <string name="not_eng_mode_or_release">Η μηχανική λειτουργία δεν είναι ενεργοποιημένη και δεν είναι ελευθερωμένη</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Ανάγνωση βασικού προφίλ</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Το ιστορικό της αντλίας έχει αλλάξει μετά την εκτέλεση του υπολογισμού του bolus. Το bolus δεν εκτελέστηκε. Παρακαλούμε να υπολογίσετε ξανά αν είναι ακόμα απαραίτητο.</string>
     <string name="combo_error_updating_treatment_record">Το bolus εκτελέστηκε με επιτυχία, αλλά η καταχώριση στην θεραπεία απέτυχε. Αυτό μπορεί να συμβεί εάν χορηγηθούν δύο bolus ίδιου μεγέθους μέσα σε 2 λεπτά. Ελέγξτε το ιστορικό της αντλίας και το ιστορικό στο μενού Θεραπείες και χρησιμοποιείστε το Careportal για να εισαγάγετε τα στοιχεία που λείπουν. Βεβαιωθείτε ότι δεν εισάγετε το ίδιο μέγεθος στον ακριβώς ίδιο χρόνο.</string>
