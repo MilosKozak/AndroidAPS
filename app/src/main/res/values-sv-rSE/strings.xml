@@ -163,7 +163,6 @@ Eversense-appen.</string>
     <string name="disabledloop">Loop avstängd</string>
     <string name="disableloop">Inaktivera loop</string>
     <string name="enableloop">Aktivera loop</string>
-    <string name="lgs">LGS</string>
     <string name="openloop_newsuggestion">Ny rekommendation tillgänglig</string>
     <string name="unsupportednsversion">Versionen av Nightscout stöds inte</string>
     <string name="loopdisabled">LOOP STOPPAD PGA BEGRÄNSNINGAR</string>
@@ -436,7 +435,6 @@ Eversense-appen.</string>
     <string name="MM640g">Minimed 640G</string>
     <string name="ongoingnotificaction">Konstant avisering i telefonen</string>
     <string name="old_data">Aktuellt BG saknas!</string>
-    <string name="minago">%1$d&#160;min sedan</string>
     <string name="sms_minago">%1$d min sedan</string>
     <string name="localprofile">Lokal profil</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -540,7 +538,6 @@ Eversense-appen.</string>
     <string name="wear_detailedIOB_title">Visa detaljerad IOB</string>
     <string name="wear_detailedIOB_summary">Visa IOB med bolus och basal på klocka</string>
     <string name="nosuccess">misslyckat - kontrollera telefonen</string>
-    <string name="notavailable">Ej tillgängligt</string>
     <string name="patientage">Personens ålder</string>
     <string name="child">Barn</string>
     <string name="teenage">Tonåring</string>
@@ -880,7 +877,6 @@ Eversense-appen.</string>
     <string name="closed_loop_disabled_on_dev_branch">Du kör nu dev-versionen. Closed Loop inte tillåtet.</string>
     <string name="engineering_mode_enabled">Engineering Mode aktiverat</string>
     <string name="not_eng_mode_or_release">Engineering Mode inte aktiverat och appen körs inte som release</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">Läser basalprofil</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Pumphistoriken ändrad efter att boluskalkylen gjordes. Bolusen har inte levererats. Vänligen gör en ny kalkyl vid behov.</string>
     <string name="combo_error_updating_treatment_record">Bolusen levererad, men det gick inte att lägga till den i loggen. Detta kan hända om två små bolusar ges inom två minuter. Vänligen kontrollera pumpens historik och Careportal och lägg till om det saknas. Se till att inte lägga till två bolusar med samma mängd och samma tid.</string>
