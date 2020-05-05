@@ -162,7 +162,6 @@
     <string name="disabledloop">Loop deaktiviert</string>
     <string name="disableloop">Deaktiviere Loop</string>
     <string name="enableloop">Aktiviere Loop</string>
-    <string name="lgs">LGS</string>
     <string name="openloop_newsuggestion">Neue Empfehlung verfügbar</string>
     <string name="unsupportednsversion">Nicht unterstütze Nightscout-Version</string>
     <string name="loopdisabled">LOOP DEAKTIVIERT DURCH BESCHRÄNKUNGEN</string>
@@ -435,7 +434,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Anhaltende Benachrichtigung</string>
     <string name="old_data">VERALTETE DATEN</string>
-    <string name="minago">%1$d min her</string>
     <string name="sms_minago">%1$d\' her</string>
     <string name="localprofile">Lokales Profil</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -539,7 +537,6 @@
     <string name="wear_detailedIOB_title">Zeige detailliertes IOB</string>
     <string name="wear_detailedIOB_summary">Differenziere IOB in Bolus- und Basal-IOB auf dem Watchface</string>
     <string name="nosuccess">Nicht erfolgreich - bitte Telefon prüfen</string>
-    <string name="notavailable">Nicht verfügbar</string>
     <string name="patientage">Patientenalter</string>
     <string name="child">Kind</string>
     <string name="teenage">Teenager</string>
@@ -878,7 +875,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Entwickler-Version, Closed Loop ist nicht verfügbar.</string>
     <string name="engineering_mode_enabled">Entwickler-Modus aktiviert</string>
     <string name="not_eng_mode_or_release">Entwickler-Modus nicht aktiviert und keine Release-Version</string>
-    <string name="pump_basebasalrate">%1$.2f IE/h</string>
     <string name="combo_actvity_reading_basal_profile">Basalratenprofil wird gelesen</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Nach der Berechnung des Bolus hat sich die Pumpenhistorie geändert. Daher wurde kein Bolus abgegeben. Bitte prüfe, ob überhaupt noch ein Bolus benötigt wird.</string>
     <string name="combo_error_updating_treatment_record">Der Bolus wurde erfolgreich abgegeben, aber nicht als Behandlungseintrag gespeichert. Dies kann passieren, wenn zwei kleine, gleich große Boli innerhalb von zwei Minuten verabreicht werden. Bitte überprüfe die Pumpenhistorie und Behandlungseinträge. Verwende das Careportal, um fehlende Einträge hinzuzufügen. Stelle sicher, dass keine Einträge für genau dieselbe Minute und dieselbe Menge hinzugefügt werden.</string>
