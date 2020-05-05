@@ -162,7 +162,6 @@
     <string name="disabledloop">Loop Desactivado</string>
     <string name="disableloop">Desactivar Loop</string>
     <string name="enableloop">Activar Loop</string>
-    <string name="lgs">SGB</string>
     <string name="openloop_newsuggestion">Disponível nova sugestão</string>
     <string name="unsupportednsversion">Versão sem suporte do Nightscout</string>
     <string name="loopdisabled">LOOP DESATIVADO POR RESTRIÇÕES</string>
@@ -223,6 +222,7 @@
     <string name="password_preferences_decrypt_prompt">Será perguntado pela password mestre, que será necessária para desencriptar preferências importadas.</string>
     <string name="preferences_export_canceled">Exportação cancelada! Preferências NÃO foram exportadas!</string>
     <string name="preferences_import_canceled">Importação cancelada! Preferências NÃO foram importadas!</string>
+    <string name="preferences_import_list_title">Seleccione o ficheiro para importação</string>
     <string name="check_preferences_before_import">Por favor, verifique as preferências antes da importação:</string>
     <string name="check_preferences_cannot_import">Preferências não podem ser importadas!</string>
     <string name="check_preferences_dangerous_import">As preferências não devem ser importadas!</string>
@@ -257,6 +257,7 @@
     <string name="prefdecrypt_issue_wrong_pass">Erro de Desencriptação, a password é inválida ou configurações de arquivo foram modificadas! Pode acontecer que o ficheiro importado foi exportado com uma Password Mestre diferente.</string>
     <string name="prefdecrypt_issue_wrong_format">Configuração de encriptação ausente, formato de configurações é inválido!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Algoritmo de encriptação não suportado ou não especificado!</string>
+    <string name="exported_today">exportado hoje</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">A ligar</string>
     <string name="connected">Ligado</string>
@@ -435,7 +436,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Notificação em curso</string>
     <string name="old_data">DADOS ANTIGOS</string>
-    <string name="minago">%1$d min atrás</string>
     <string name="sms_minago">%1$dmin atrás</string>
     <string name="localprofile">Perfil local</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -539,7 +539,6 @@
     <string name="wear_detailedIOB_title">Mostrar IOB detalhada</string>
     <string name="wear_detailedIOB_summary">Dividir IOB entre IOB de bolus e de basal na face do relógio</string>
     <string name="nosuccess">sem efeito - por favor verifique no telemóvel</string>
-    <string name="notavailable">Indisponível</string>
     <string name="patientage">Idade do Paciente</string>
     <string name="child">Criança</string>
     <string name="teenage">Adolescente</string>
@@ -879,7 +878,6 @@
     <string name="closed_loop_disabled_on_dev_branch">A correr a versão dev. O Loop fechado está desabilitado.</string>
     <string name="engineering_mode_enabled">Modo engenheiro activado</string>
     <string name="not_eng_mode_or_release">Modo de engenharia não habilitado e não no na versão mestra</string>
-    <string name="pump_basebasalrate">%1$.2f U/h</string>
     <string name="combo_actvity_reading_basal_profile">A ler perfil basal</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">O histórico da bomba foi alterado após o cálculo do bolo ter sido realizado. O bolus não foi injectado. Por favor, verifique se bolus ainda é necessário.</string>
     <string name="combo_error_updating_treatment_record">O bolus foi injectado, mas não foi possível adicionar ao histórico. Isto é possível se dois bolus do mesmo valor baixo foram administrados nos últimos dois minutos. Por favor verifique o histórico da bomba e use o Careportal para adicionar os dados em falta caso necessário. Cuidado para não adicionar dados com o mesmo valor no mesmo minuto.</string>
@@ -1538,9 +1536,22 @@
     <!-- Omnipod - Base -->
     <!-- Omnipod Configuration -->
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_status">Estado do Pod</string>
+    <string name="omnipod_pod_name_no_info">Sem info</string>
     <!-- Omnipod - Dialogs -->
     <!-- Omnipod - Error -->
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_init_pod">Iniciar Pod</string>
+    <string name="omnipod_cmd_deactivate_pod">Desactivar Pod</string>
+    <string name="omnipod_cmd_reset_pod">Repor Pod</string>
+    <string name="omnipod_cmd_pod_history">Histórico do Pod</string>
+    <string name="omnipod_cmd_set_bolus">Definir Bólus</string>
+    <string name="omnipod_cmd_cancel_bolus">Cancelar Bólus</string>
+    <string name="omnipod_cmd_set_tbr">Definir Basal Temporária</string>
+    <string name="omnipod_cmd_cancel_tbr_forced">Cancelar Basal Temporária (Forçado pelo utilizador)</string>
+    <string name="omnipod_cmd_set_basal_schedule">Definir Programação Basal</string>
+    <string name="omnipod_cmd_get_pod_status">Obter Status do Pod</string>
+    <string name="omnipod_cmd_get_pod_info">Obter Pod Info</string>
     <string name="omnipod_cmd_set_time">Definir Hora</string>
     <string name="omnipod_cmd_configure_alerts">Configurar Alertas</string>
     <string name="omnipod_cmd_acknowledge_alerts">Reconhecer Alertas</string>
@@ -1549,9 +1560,13 @@
     <string name="omnipod_cmd_unknown_entry">Entrada Desconhecida</string>
     <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
     <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, HC=%2$.1f g</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Encher o Pod</string>
+    <string name="omnipod_init_pod_wizard_step2_title">A Purgar</string>
     <string name="omnipod_init_pod_wizard_step3_title">Anexar o Pod</string>
     <string name="omnipod_init_pod_wizard_step4_title">A inserir canula</string>
     <string name="omnipod_init_pod_wizard_pod_info_title">Info Pod</string>
+    <string name="omnipod_remove_pod_wizard_step1_title">Desactivar Pod</string>
+    <string name="omnipod_remove_pod_wizard_step2_title">A Desactivar Pod</string>
     <string name="omnipod_init_pod_pair_pod">Emparelhar Pod</string>
     <string name="omnipod_init_pod_prime_pod">Pod Primário</string>
     <string name="omnipod_init_pod_fill_cannula">Enchimento de Canula</string>
