@@ -394,7 +394,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Permanent bericht</string>
     <string name="old_data">Oude gegevens</string>
-    <string name="minago">%1$d min geleden</string>
     <string name="sms_minago">%1$dmin geleden</string>
     <string name="localprofile">Lokaal profiel</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -498,7 +497,6 @@
     <string name="wear_detailedIOB_title">Toon gedetailleerde IOB</string>
     <string name="wear_detailedIOB_summary">Splits IOB in bolus en basaal op de watchface</string>
     <string name="nosuccess">Niet geslaagd - controleer de telefoon</string>
-    <string name="notavailable">Niet beschikbaar</string>
     <string name="patientage">Leeftijd Patient</string>
     <string name="child">Kind</string>
     <string name="teenage">Tiener</string>
@@ -821,7 +819,6 @@
     <string name="closed_loop_disabled_on_dev_branch">Dev versie actief. Closed loop gedeactiveerd</string>
     <string name="engineering_mode_enabled">Engineering modus is geactiveerd</string>
     <string name="not_eng_mode_or_release">Engineering modus is niet geactiveerd en dit is niet de release branche</string>
-    <string name="pump_basebasalrate">%1$.2f E/uur</string>
     <string name="combo_actvity_reading_basal_profile">Basaal profiel wordt gelezen</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">De pomp historiek is gewijzigd nadat de bolus berekend was. De bolus is Niet toegediend. Programmeer een nieuwe bolus indien nodig.</string>
     <string name="combo_error_updating_treatment_record">Bolus succesvol toegediend, maar toevoegen van de behandeling is gefaald. Dit kan voorvallen wanneer twee kleine bolussen van dezelfde grote gekozen waren gedurende de laatste 2 minuten. Controleer aub de pomphistoriek en de behandelingen, voeg de ontbrekende toe via het Careportal. Let op dat je geen 2 dezelfde hoeveelheden hebt op hetzelfde ogenblik.</string>
