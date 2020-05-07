@@ -1574,9 +1574,7 @@
     <string name="omnipod_error_illegal_init_action_type">Illegal PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Nessun pod attivo.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Verifica comando fallita.</string>
-    <string name="omnipod_driver_error_unexpected_exception_type">Si è verificato un errore imprevisto. Segnalalo! (%1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Comunicazione fallita: ricevuti parametri di input non validi.</string>
-    <string name="omnipod_driver_error_communication_failed">Comunicazione fallita.</string>
     <string name="omnipod_driver_error_crc_mismatch">Comunicazione fallita: verifica dell\'integrità del messaggio fallita.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Comunicazione fallita: ricevuto un pacchetto non valido dal pod.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Comunicazione fallita: il pod è in uno stato non corretto.</string>
