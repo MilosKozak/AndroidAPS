@@ -1574,9 +1574,7 @@ Unerwartetes Verhalten.</string>
     <string name="omnipod_error_illegal_init_action_type">Illegal PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Kein aktiver Pod.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Kommandoprüfung fehlgeschlagen</string>
-    <string name="omnipod_driver_error_unexpected_exception_type">Es ist ein unerwarteter Fehler aufgetreten. Bitte melden! (Typ: %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Kommunikation fehlgeschlagen: Ungültige Eingabeparameter empfangen.</string>
-    <string name="omnipod_driver_error_communication_failed">Kommunikation fehlgeschlagen.</string>
     <string name="omnipod_driver_error_crc_mismatch">Kommunikation fehlgeschlagen: Die Überprüfung der Nachrichtenintegrität ist fehlgeschlagen.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Kommunikation fehlgeschlagen: Es wurde ein ungültiges Paket vom Pod empfangen.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Kommunikation fehlgeschlagen: Der Pod befindet sich in einem falschen Status.</string>
