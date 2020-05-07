@@ -222,6 +222,7 @@
     <string name="password_preferences_decrypt_prompt">Ti verrà chiesta la password master, che è necessaria per decrittare le preferenze importate.</string>
     <string name="preferences_export_canceled">Esportazione annullata! Le preferenze NON sono state esportate!</string>
     <string name="preferences_import_canceled">Importazione annullata! Le preferenze NON sono state importate!</string>
+    <string name="preferences_import_list_title">Seleziona il file da importare</string>
     <string name="check_preferences_before_import">Verifica le preferenze prima dell\'importazione:</string>
     <string name="check_preferences_cannot_import">Le preferenze non possono essere importate!</string>
     <string name="check_preferences_dangerous_import">Le preferenze non dovrebbero essere importate!</string>
@@ -234,6 +235,8 @@
     <string name="metadata_warning_outdated_format">Stai utilizzando il formato precedente (obsoleto) delle vecchie versioni di APPS, che non è sicuro! Utilizzalo solo come ultima risorsa, se non hai un\'esportazione nel corrente formato JSON.</string>
     <string name="metadata_warning_old_export">Le preferenze importate hanno già %1$s giorni! Forse hai preferenze più aggiornate. Hai scelto il file sbagliato? Ricorda di esportare le preferenze regolarmente!</string>
     <string name="metadata_warning_date_format">Formato data-ora non valido!</string>
+    <string name="metadata_warning_different_version">Le preferenze arrivano da una differente versione secondaria dell\'applicazione (minor). Va bene se le stai importando dopo l\'aggiornamento, ma controlla che, dopo l\'importazione, le preferenze siano ancora corrette!</string>
+    <string name="metadata_urgent_different_version">Le preferenze arrivano da una differente versione principale dell\'applicazione (major). Le versioni principali differiscono in modo significativo e potrebbero avere preferenze incompatibili! Assicurati che, dopo l\'importazione, le preferenze siano ancora corrette!</string>
     <string name="metadata_label_format">Formato file</string>
     <string name="metadata_label_created_at">Creato:</string>
     <string name="metadata_label_aaps_version">Versione AAPS</string>
@@ -256,6 +259,11 @@
     <string name="prefdecrypt_issue_wrong_pass">Errore decrittazione, la password fornita è errata o il file delle impostazioni è stato modificato! È possibile che il file importato sia stato esportato con una diversa password master.</string>
     <string name="prefdecrypt_issue_wrong_format">Configurazione crittografia mancante, il formato delle impostazioni non è valido!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Algoritmo di crittografia non supportato o non specificato!</string>
+    <string name="exported_today">esportato oggi</string>
+    <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">esportato %1$s fa</string>
+    <string name="exported_at" comment="at placeholder we add export date">esportato il %1$s</string>
+    <string name="exported_less_than_hour_ago">esportato meno di un\'ora fa</string>
+    <string name="in_directory" comment="placeholder is for exported file path">nella directory: %1$s</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">Connessione</string>
     <string name="connected">Connesso</string>
@@ -434,6 +442,7 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Notifica persistente</string>
     <string name="old_data">DATI VECCHI</string>
+    <string name="minago">%1$dm fa</string>
     <string name="sms_minago">%1$dmin fa</string>
     <string name="localprofile">Profilo locale</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -537,6 +546,7 @@
     <string name="wear_detailedIOB_title">Mostra IOB dettagliato</string>
     <string name="wear_detailedIOB_summary">Dividi IOB in bolo e basale sulla watchface</string>
     <string name="nosuccess">non riuscito - controlla il telefono</string>
+    <string name="notavailable">n/a</string>
     <string name="patientage">Età del paziente</string>
     <string name="child">Bambino</string>
     <string name="teenage">Adolescente</string>
@@ -876,6 +886,7 @@
     <string name="closed_loop_disabled_on_dev_branch">Versione sviluppatore in esecuzione. Loop chiuso disabilitato.</string>
     <string name="engineering_mode_enabled">Engineering mode abilitata</string>
     <string name="not_eng_mode_or_release">Engineering mode non abilitata e non su \'release branch\'</string>
+    <string name="pump_basebasalrate">%1$.2fU/h</string>
     <string name="combo_actvity_reading_basal_profile">Lettura profilo basale</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Lo storico del micro è cambiato dopo il calcolo del bolo. Il bolo non è stato erogato. Ricalcolare se un bolo è ancora necessario.</string>
     <string name="combo_error_updating_treatment_record">Bolo erogato con successo, ma non è possibile aggiungere la voce ai trattamenti. Questo può accadere se due piccoli boli della stessa quantità sono stati somministrati negli ultimi due minuti. Verifica lo storico del micro e le voci della sezione Trattamenti e utilizza la sezione Portale per aggiungere eventuali voci mancanti. Assicurati di non aggiungere voci che si riferiscano al medesimo minuto e alla stessa quantità.</string>
@@ -1530,6 +1541,9 @@
     <string name="statuslights">Indicatori di stato</string>
     <string name="statuslights_copy_ns">Copia impostazioni da NS</string>
     <string name="copyexistingvalues">Copiare impostazioni NS (se esiste)?</string>
+    <string name="classic_desrciption">Tema originale</string>
+    <string name="buttonson_desrciption">I tasti vengono sempre visualizzati nella parte inferiore dello schermo</string>
+    <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod">Integrazione del microinfusore Omnipod, richiede un dispositivo RileyLink (con almeno il firmware 2.0).</string>
