@@ -222,6 +222,7 @@
     <string name="password_preferences_decrypt_prompt">Вам будет предложено ввести главный пароль, необходимый для расшифровки импортированных настроек.</string>
     <string name="preferences_export_canceled">Экспорт отменен! Настройки НЕ экспортированы!</string>
     <string name="preferences_import_canceled">Импорт отменен! Настройки не импортированы!</string>
+    <string name="preferences_import_list_title">Выберите файл для импорта</string>
     <string name="check_preferences_before_import">Проверьте настройки перед импортом:</string>
     <string name="check_preferences_cannot_import">Не удается импортировать настройки!</string>
     <string name="check_preferences_dangerous_import">Не следует импортировать настройки!</string>
@@ -234,6 +235,8 @@
     <string name="metadata_warning_outdated_format">Вы используете устаревший формат из старых версий AAPS, который не безопасен! Используйте его только в крайнем случае, если у вас нет экспорта в текущем формате JSON.</string>
     <string name="metadata_warning_old_export">Импортируемым параметрам уже %1$s дней! Может быть у вас есть более актуальные параметры или вы выбрали неправильный файл? Не забудьте регулярно экспортировать параметры!</string>
     <string name="metadata_warning_date_format">Недопустимый формат даты и времени!</string>
+    <string name="metadata_warning_different_version">Параметры из другой вспомогательной версии приложения. Если импортируете после обновления, это нормально но после импорта проверьте, все ли предпочтения по-прежнему верны!</string>
+    <string name="metadata_urgent_different_version">Параметры из другой основной версии приложения. Основные версии существенно различаются и могут иметь несовместимые настройки! После импорта убедитесь, что параметры все еще верны!</string>
     <string name="metadata_label_format">Формат файла</string>
     <string name="metadata_label_created_at">Дата создания</string>
     <string name="metadata_label_aaps_version">Версия AAPS</string>
@@ -256,6 +259,11 @@
     <string name="prefdecrypt_issue_wrong_pass">Ошибка расшифровки, указан недопустимый пароль или файл параметров изменен! Возможно, импортированный файл был экспортирован с использованием другого главного пароля.</string>
     <string name="prefdecrypt_issue_wrong_format">Отсутствует конфигурация шифрования, формат параметров недопустим!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Неподдерживаемый или не прописанный алгоритм шифрования!</string>
+    <string name="exported_today">экспортировано сегодня</string>
+    <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">экспортировано %1$s назад</string>
+    <string name="exported_at" comment="at placeholder we add export date">экспортировано в %1$s</string>
+    <string name="exported_less_than_hour_ago">экспортировано менее часа назад</string>
+    <string name="in_directory" comment="placeholder is for exported file path">в каталоге: %1$s</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">соединение устанавливается</string>
     <string name="connected">соединение установлено</string>
@@ -434,6 +442,7 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">текущие уведомления</string>
     <string name="old_data">старые данные</string>
+    <string name="minago">%1$d мин. назад</string>
     <string name="sms_minago">%1$d мин. назад</string>
     <string name="localprofile">локальный профиль</string>
     <string name="openapsama">Помощник болюса OpenAPS AMA</string>
@@ -537,6 +546,7 @@
     <string name="wear_detailedIOB_title">показать IOB подробно</string>
     <string name="wear_detailedIOB_summary">разбивка IOB на болюсный и базальный IOB на циферблате смарт-часов</string>
     <string name="nosuccess">неудача - проверьте телефон</string>
+    <string name="notavailable">н/д</string>
     <string name="patientage">Возраст пациента</string>
     <string name="child">ребенок</string>
     <string name="teenage">подросток</string>
@@ -876,6 +886,7 @@
     <string name="closed_loop_disabled_on_dev_branch">Работает версия разработчика. Замкнутый цикл отключен.</string>
     <string name="engineering_mode_enabled">Режим отладки включен</string>
     <string name="not_eng_mode_or_release">Режим отладки не задействован и отсутствует на ветке релиза</string>
+    <string name="pump_basebasalrate">%1$.2f ед/час</string>
     <string name="combo_actvity_reading_basal_profile">Чтение базального профиля</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">История событий помпы изменилась с момента вычисления болюса. Болюс не подан. Пожалуйста пересчитайте потребность в болюсе.</string>
     <string name="combo_error_updating_treatment_record">Болюс подан успешно, но запись о назначении не сделана. Это может быть вызвано тем, что за последние две минуты назначено два болюса одного объема. Пожалуйста проверьте историю событий помпы и записи о назначениях и добавьте пропущенные записи из Портала назначений. Не добавляйте записи с одним и тем же временем и одинаковым объемом.</string>
@@ -1532,6 +1543,9 @@ Context | Edit Context</string>
     <string name="statuslights">Индикаторы состояния</string>
     <string name="statuslights_copy_ns">Копировать параметры из NS</string>
     <string name="copyexistingvalues">Копировать настройки NS (если есть)?</string>
+    <string name="classic_desrciption">Исходная тема оформления</string>
+    <string name="buttonson_desrciption">Кнопки всегда отображаются в нижней части экрана</string>
+    <string name="skin">Тема оформления</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod">Для интеграции с помпой Omnipod требуется устройство RileyLink (с прошивкой 2.0 и выше).</string>
