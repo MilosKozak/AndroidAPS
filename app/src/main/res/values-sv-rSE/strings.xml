@@ -1561,9 +1561,7 @@ Eversense-appen.</string>
     <string name="omnipod_error_illegal_init_action_type">Ogiltig PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Ingen aktiv pod.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Kommandoverifikation misslyckades.</string>
-    <string name="omnipod_driver_error_unexpected_exception_type">Ett oväntat fel uppstod. Vänligen rapportera! (typ: %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Kommunikationsfel: Emottog ogiltiga indataparametrar.</string>
-    <string name="omnipod_driver_error_communication_failed">Kommunikationsfel.</string>
     <string name="omnipod_driver_error_crc_mismatch">Kommunikationsfel: Lyckades inte verifiera meddelandet.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Kommunikationsfel: Mottog ett ogiltigt datapaket från pod.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Kommunikationsfel: Pod är i fel tillstånd.</string>
