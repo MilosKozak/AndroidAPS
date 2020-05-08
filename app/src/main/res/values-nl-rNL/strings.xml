@@ -75,7 +75,6 @@
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">Koolhydraten</string>
     <string name="treatments_wizard_correction_label">Correctie</string>
-    <string name="insulin_unit_shortname">E</string>
     <string name="treatments_wizard_bolusiob_label">Bolus IOB</string>
     <string name="openapsma_run">Nu uitvoeren</string>
     <string name="vitualpump_label">VIRTUELE POMP</string>
@@ -95,11 +94,7 @@
     <string name="result">Resultaat</string>
     <string name="result_insulin_carbs">Resultaat: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Geen BG gegevens beschikbaar</string>
-    <string name="nochangerequested">Geen aanpassing noodzakelijk</string>
     <string name="openapsma_request_label">Voorstel</string>
-    <string name="rate">Dosis</string>
-    <string name="duration">Periode</string>
-    <string name="reason">Reden</string>
     <string name="glucose">Glucose</string>
     <string name="delta">Verschil</string>
     <string name="sms_delta">Verschil:</string>
@@ -122,7 +117,6 @@
     <string name="configbuilder_general">Algemeen</string>
     <string name="configbuilder_general_description">Dit zijn enkele algemene plugins die handig kunnen zijn.</string>
     <string name="configbuilder_constraints_description">Welke beperkingen worden toegepast?</string>
-    <string name="days">dagen</string>
     <string name="constraints">Beperkingen</string>
     <string name="loop">Loop</string>
     <string name="configbuilder_loop">Loop</string>
@@ -166,24 +160,6 @@
     <string name="treatments_wizard_basaliob_label">Basaal IOB</string>
     <string name="bolusconstraintapplied">Bolus limiet ingesteld</string>
     <string name="carbsconstraintapplied">KH limiet ingesteld</string>
-    <string name="careportal_bgcheck">BG Controle</string>
-    <string name="careportal_announcement">Mededeling</string>
-    <string name="careportal_note">Notitie</string>
-    <string name="careportal_question">Vraag</string>
-    <string name="careportal_exercise">Sport</string>
-    <string name="careportal_pumpsitechange">Infuus wissel</string>
-    <string name="careportal_cgmsensorinsert">CGM Sens. ingebracht</string>
-    <string name="careportal_cgmsensorstart">CGM Sens. Start</string>
-    <string name="careportal_insulincartridgechange">Insuline ampul wissel</string>
-    <string name="careportal_profileswitch">Profiel wissel</string>
-    <string name="careportal_snackbolus">Snack bolus</string>
-    <string name="careportal_mealbolus">Maaltijd bolus</string>
-    <string name="careportal_correctionbolus">Correctie bolus</string>
-    <string name="careportal_combobolus">Combinatie-Bolus</string>
-    <string name="careportal_tempbasalstart">Start tijd. basaal</string>
-    <string name="careportal_tempbasalend">Einde tijd. basaal</string>
-    <string name="careportal_carbscorrection">Koolhydraten correctie</string>
-    <string name="careportal_openapsoffline">OpenAPS Offline</string>
     <string name="careportal_newnstreatment_eventtype">Gebeurtenis type</string>
     <string name="careportal_newnstreatment_other">Andere</string>
     <string name="careportal_newnstreatment_meter">Meter</string>
@@ -231,19 +207,11 @@
     <string name="danar_iob_label">Pomp IOB</string>
     <string name="danar_dailyunits">Dag totaal</string>
     <string name="pump_lastbolus_label">Laatste bolus</string>
-    <string name="hoursago">%1$.1fu geleden</string>
     <string name="danar_invalidinput">Verkeerde ingave</string>
     <string name="danar_valuenotsetproperly">Waarde niet correct ingesteld</string>
     <string name="reloadprofile">Herlaad profiel</string>
     <string name="danar_viewprofile">Profiel bekijken</string>
-    <string name="enacted">Uitgevoerd</string>
-    <string name="comment">Commentaar</string>
-    <string name="success">Succes</string>
-    <string name="percent">Procent</string>
-    <string name="absolute">Absoluut</string>
-    <string name="canceltemp">Annuleer tijdelijk basaal</string>
     <string name="smscommunicator">SMS Commando\'s</string>
-    <string name="waitingforpumpresult">Wacht op het resultaat</string>
     <string name="smscommunicator_allowednumbers">Geautoriseerde telefoon nummers</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Om de bolus %1$.2fU toe te dienen antwoord met de code %2$s</string>
@@ -266,11 +234,6 @@
     <string name="smscommunicator_tt_canceled">Tijdelijk streefdoel is geannuleerd</string>
     <string name="bolusdelivering">Toedienen van %1$.2fE</string>
     <string name="smscommunicator_remotecommandsallowed">Sta SMS commando\'s toe</string>
-    <string name="glucosetype_finger">Vingerprik</string>
-    <string name="glucosetype_sensor">Sensor</string>
-    <string name="manual">Manueel</string>
-    <string name="careportal_temporarytarget">Tijdelijk streefdoel</string>
-    <string name="careportal_temporarytargetcancel">Tijdelijk streefdoel annuleren</string>
     <string name="danarprofile">DanaR profiel instellingen</string>
     <string name="danarprofile_dia">DIA [uur]</string>
     <string name="danarprofile_dia_summary">Duur van insuline activiteit</string>
@@ -311,7 +274,6 @@
     <string name="waitingforpump">Wacht op pomp</string>
     <string name="overview_bolusprogress_goingtodeliver">Er worden %1$.2fE toegediend</string>
     <string name="youareonallowedlimit">Limiet bereikt</string>
-    <string name="noprofileselected">Geen profiel geselecteerd</string>
     <string name="smscommunicator_loophasbeendisabled">Loop was uitgeschakeld</string>
     <string name="smscommunicator_loophasbeenenabled">Loop was ingeschakeld</string>
     <string name="smscommunicator_loopisdisabled">Loop is uitgeschakeld</string>
@@ -530,7 +492,6 @@
     <string name="ns_logappstartedevent">Log app start naar NS</string>
     <string name="restartingapp">Sluiten van applicatie om instellingen bij te werken.</string>
     <string name="danarv2pump">DanaRv2</string>
-    <string name="configbuilder_insulin">Insuline</string>
     <string name="configbuilder_insulin_description">Welk soort insuline gebruik je?</string>
     <string name="fastactinginsulin">Snel werkende insuline</string>
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
@@ -564,11 +525,9 @@
     <string name="careportal_sensorage_label">Ouderdom sensor</string>
     <string name="careportal_canulaage_label">Ouderdom infusie set</string>
     <string name="careportal_insulinage_label">Ouderdom insuline</string>
-    <string name="hours">uren</string>
     <string name="invalidprofile">Ongeldig profiel !!!</string>
     <string name="doprofileswitch">Profiel wissel uitvoeren</string>
     <string name="careportal_pbage_label">Ouderdom batterij</string>
-    <string name="careportal_pumpbatterychange">Pomp bat. wissel</string>
     <string name="ns_alarmoptions">Alarm opties</string>
     <string name="nsalarm_urgenthigh">Zeer hoog</string>
     <string name="nsalarm_high">Hoog</string>
@@ -617,7 +576,6 @@
     <string name="careportal_pump_label">POMP</string>
     <string name="careportal_newnstreatment_duration_min_label">Tijdsduur [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">Activeer UAM</string>
     <string name="enablesmb">Activeer SMB</string>
     <string name="enablesmb_summary">SMB in plaats van tijdelijke basalen voor snellere reactie</string>
@@ -664,12 +622,8 @@
     <string name="reuse">Herbruik</string>
     <string name="wearcontrol_title">Bedieningen via horloge</string>
     <string name="wearcontrol_summary">Stel tijdelijke doelen en bolussen in vanop je horloge.</string>
-    <string name="connectiontimedout">Connectie verlopen</string>
     <string name="food">Voeding</string>
     <string name="shortgramm">g</string>
-    <string name="shortminute">m</string>
-    <string name="shorthour">u</string>
-    <string name="shortday">d</string>
     <string name="none"><![CDATA[<geen>]]></string>
     <string name="shortkilojoul">kJ</string>
     <string name="shortenergy">En</string>
@@ -704,8 +658,6 @@
     <string name="dexcomg5_xdripupload_title">Stuur BG data naar xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">In xDrip+ kies 640g/Eversense data bron</string>
     <string name="nsclientbg">NSClient BG</string>
-    <string name="minimalbasalvaluereplaced">Basale waarde vervangen door minimaal ondersteunde waarde; %1$s</string>
-    <string name="maximumbasalvaluereplaced">Basale waarde vervangen door maximale ondersteunde waarde: %1$s</string>
     <string name="overview_editquickwizard_usebg">BG berekening</string>
     <string name="overview_editquickwizard_usebolusiob">Bolus IOB berekening</string>
     <string name="overview_editquickwizard_usebasaliob">Basaal IOB berekening</string>
@@ -723,8 +675,6 @@
     <string name="closedmodeenabled">Closed modus actief</string>
     <string name="maxiobset">Maximum IOB juist ingesteld</string>
     <string name="hasbgdata">BG beschikbaar op gekozen bron</string>
-    <string name="basalprofilenotaligned">Basaalstanden niet ingesteld in hele uren: %1$s</string>
-    <string name="zerovalueinprofile">Ongeldig profiel: %1$s</string>
     <string name="combo_programming_bolus">Bolus in pomp programmeren </string>
     <string name="combo_refresh">Vernieuw</string>
     <string name="combo_pump_state_label">Status</string>
@@ -776,7 +726,6 @@
     <string name="enablesmbwithtemptarget_summary">Gebruik SMB bij een actief tijdelijk streefdoel (eet binnenkort, activiteit)</string>
     <string name="enablesmbwithhightemptarget">Gebruik SMB met een hoog tijdelijk streefdoel</string>
     <string name="enablesmbwithhightemptarget_summary">Gebruik SMB tijdens een verhoogd tijdelijk doel (Inspanningen)</string>
-    <string name="let_temp_basal_run">Laat tijdelijk basaal lopen</string>
     <string name="mute">Geluid dempen</string>
     <string name="overview_insulin_label">Insuline</string>
     <string name="overview_carbs_label">Koolhydraten</string>
@@ -903,7 +852,6 @@
     <string name="virtualpump_type">Virtuele pomp Type</string>
     <string name="virtualpump_definition">Pomp definitie</string>
     <string name="virtualpump_pump_def">Bolus: Stap=%1$s\nExtended Bolus: [Stap=%2$s, Duur=%3$smin-%4$sh]\nBasaal: Stap=%5$s\nTBR: %6$s (by %7$s), Duur=%8$smin-%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* Alleen absolute waardes (geen van-tot bereik) worden ondersteund voor basaal / bolus in virtuele pomp.</string>
     <string name="ns_autobackfill_title">Automatische BG aanvullen</string>
     <string name="wear_wizard_settings">Wizard instellingen</string>
     <string name="wear_wizard_settings_summary">Berekeningen inclusief in het resultaat van de wizard</string>
@@ -1089,7 +1037,6 @@
     <string name="isequalorgreater">is gelijk aan of groter dan</string>
     <string name="isgreater">is groter dan</string>
     <string name="isnotavailable">is niet beschikbaar</string>
-    <string name="unknown">onbekend</string>
     <string name="glucoseisnotavailable">Glucose is niet beschikbaar</string>
     <string name="glucosecomparedmgdl">Glucose %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Glucose %1$s %2$.1f %3$s</string>
@@ -1106,23 +1053,10 @@
     <string name="automation_short">Auto</string>
     <string name="automation">Automatisering</string>
     <string name="profile_total">== ∑  %1$s E</string>
-    <string name="profile_ins_units_per_hour">E/u</string>
-    <string name="profile_carbs_per_unit">g/E</string>
-    <string name="profile_per_unit">/E</string>
     <string name="dexcom_lognssensorchange_title">Noteer sensor wissel in NS</string>
     <string name="dexcom_lognssensorchange_summary">Noteer automatisch \"Sensor Wissel\" in NS bij starten van sensor</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
-    <string name="unit_second">seconde</string>
-    <string name="unit_minute">minuut</string>
-    <string name="unit_hour">uur</string>
-    <string name="unit_day">dag</string>
-    <string name="unit_week">week</string>
-    <string name="unit_seconds">seconden</string>
-    <string name="unit_minutes">minuten</string>
-    <string name="unit_hours">uren</string>
-    <string name="unit_days">dagen</string>
-    <string name="unit_weeks">weken</string>
     <string name="summary_tidepool_username">Uw Tidepool login gebruikersnaam, normaliter uw e-mailadres</string>
     <string name="title_tidepool_username">Inlog gebruikersnaam</string>
     <string name="summary_tidepool_password">Uw Tidepool login wachtwoord</string>
@@ -1401,7 +1335,6 @@
     <string name="nav_survey">Enquête</string>
     <string name="invalidage">Ongeldige leeftijd invoer</string>
     <string name="invalidweight">Ongeldige gewicht invoer</string>
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Laag: <b>%2$02d%%</b> In: <b>%3$02d%%</b> Hoog: <b>%4$02d%%</b>]]></string>
     <string name="average">Gemiddelde</string>
     <string name="tdd">TDD</string>
