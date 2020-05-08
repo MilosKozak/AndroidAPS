@@ -76,7 +76,6 @@
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">Sacharidy</string>
     <string name="treatments_wizard_correction_label">Korekcia</string>
-    <string name="insulin_unit_shortname">JI</string>
     <string name="treatments_wizard_bolusiob_label">Bolusový IOB</string>
     <string name="openapsma_run">Spustiť teraz</string>
     <string name="vitualpump_label">Virtuálna pumpa</string>
@@ -96,11 +95,7 @@
     <string name="result">Výsledok</string>
     <string name="result_insulin_carbs">Výsledok: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Nedostupné dáta o glykémiách</string>
-    <string name="nochangerequested">Nepožadovaná žiadna zmena</string>
     <string name="openapsma_request_label">Požiadavka</string>
-    <string name="rate">Hodnota</string>
-    <string name="duration">Trvanie</string>
-    <string name="reason">Zdôvodnenie</string>
     <string name="glucose">Glykémia</string>
     <string name="delta">Rozdiel</string>
     <string name="sms_delta">Rozdiel:</string>
@@ -123,7 +118,6 @@
     <string name="configbuilder_general">Všeobecné</string>
     <string name="configbuilder_general_description">Toto sú všeobecné moduly, ktoré môžu byť užitočné.</string>
     <string name="configbuilder_constraints_description">Aké obmedzenia sú použité?</string>
-    <string name="days">dní</string>
     <string name="constraints">Obmedzenia</string>
     <string name="loop">Uzavretý okruh</string>
     <string name="configbuilder_loop">Uzavretý okruh</string>
@@ -168,24 +162,6 @@
     <string name="treatments_wizard_basaliob_label">Bazálny IOB</string>
     <string name="bolusconstraintapplied">Aplikované obmedzenie bolusu</string>
     <string name="carbsconstraintapplied">Aplikované obmedzenie sacharidov</string>
-    <string name="careportal_bgcheck">Kontrola glykémie</string>
-    <string name="careportal_announcement">Oznámenie</string>
-    <string name="careportal_note">Poznámka</string>
-    <string name="careportal_question">Otázka</string>
-    <string name="careportal_exercise">Pohyb</string>
-    <string name="careportal_pumpsitechange">Výmena setu</string>
-    <string name="careportal_cgmsensorinsert">Výmena senzora</string>
-    <string name="careportal_cgmsensorstart">Spustenie senzora</string>
-    <string name="careportal_insulincartridgechange">Výmena inzulínu</string>
-    <string name="careportal_profileswitch">Prepnutie profilu</string>
-    <string name="careportal_snackbolus">Bolus na desiatu/olovrant</string>
-    <string name="careportal_mealbolus">Bolus na jedlo</string>
-    <string name="careportal_correctionbolus">Korekčný bolus</string>
-    <string name="careportal_combobolus">Kombinovaný bolus</string>
-    <string name="careportal_tempbasalstart">Začiatok dočasného bazálu</string>
-    <string name="careportal_tempbasalend">Koniec dočasného bazálu</string>
-    <string name="careportal_carbscorrection">Prídavok sacharidov</string>
-    <string name="careportal_openapsoffline">OpenAPS vypnuté</string>
     <string name="careportal_newnstreatment_eventtype">Typ udalosti</string>
     <string name="careportal_newnstreatment_other">Iné</string>
     <string name="careportal_newnstreatment_meter">Glukomer</string>
@@ -271,19 +247,11 @@
     <string name="danar_iob_label">IOB z pumpy</string>
     <string name="danar_dailyunits">Jednotiek za deň</string>
     <string name="pump_lastbolus_label">Posledný bolus</string>
-    <string name="hoursago">pred %1$.1fh</string>
     <string name="danar_invalidinput">Chybné vstupné dáta</string>
     <string name="danar_valuenotsetproperly">Hodnota nenastavená správne</string>
     <string name="reloadprofile">Obnoviť profil</string>
     <string name="danar_viewprofile">Zobraziť profil</string>
-    <string name="enacted">Vykonané</string>
-    <string name="comment">Komentár</string>
-    <string name="success">Úspešne</string>
-    <string name="percent">Percent</string>
-    <string name="absolute">Absolútna</string>
-    <string name="canceltemp">Zrušiť dočasný bazál</string>
     <string name="smscommunicator">SMS komunikátor</string>
-    <string name="waitingforpumpresult">Čakanie na výsledok</string>
     <string name="smscommunicator_allowednumbers">Povolené telefónne čísla</string>
     <string name="smscommunicator_allowednumbers_summary">+421XXXXXXXXX;+421YYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Pre podanie bolusu %1$.2fJI odpovedz SMS kódom %2$s</string>
@@ -306,11 +274,6 @@
     <string name="smscommunicator_tt_canceled">Dočasný cieľ úspešne zrušený</string>
     <string name="bolusdelivering">Podávanie %1$.2fJI</string>
     <string name="smscommunicator_remotecommandsallowed">Povoliť príkazy na diaľku cez SMS</string>
-    <string name="glucosetype_finger">Prst</string>
-    <string name="glucosetype_sensor">Senzor</string>
-    <string name="manual">Iný</string>
-    <string name="careportal_temporarytarget">Dočasný cieľ</string>
-    <string name="careportal_temporarytargetcancel">Zrušiť dočasný cieľ</string>
     <string name="danarprofile">DanaR nastavenie profilu</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Celková doba pôsobenia inzulínu</string>
@@ -351,7 +314,6 @@
     <string name="waitingforpump">Čakám na pumpu</string>
     <string name="overview_bolusprogress_goingtodeliver">Podávanie %1$.2fJ inzulínu</string>
     <string name="youareonallowedlimit">Dosiahnutý limit</string>
-    <string name="noprofileselected">Nebol vybraný žiadny profil</string>
     <string name="smscommunicator_loophasbeendisabled">Uzavretý okruh bol deaktivovaný</string>
     <string name="smscommunicator_loophasbeenenabled">Uzavretý okruh bol aktivovaný</string>
     <string name="smscommunicator_loopisdisabled">Uzavretý okruh je deaktivovaný</string>
@@ -573,7 +535,6 @@
     <string name="ns_logappstartedevent">Zaznamenávať spustenie aplikácie do NS</string>
     <string name="restartingapp">Zatváram aplikáciu, aby sa aplikovali nové nastavenia.</string>
     <string name="danarv2pump">DanaRv2</string>
-    <string name="configbuilder_insulin">Inzulín</string>
     <string name="configbuilder_insulin_description">Aký druh inzulínu používate?</string>
     <string name="fastactinginsulin">Rýchlo pôsobiaci inzulín</string>
     <string name="fastactinginsulincomment">Novorapid, Humalog</string>
@@ -615,11 +576,9 @@
     <string name="careportal_sensorage_label">Vek senzora</string>
     <string name="careportal_canulaage_label">Vek kanyly</string>
     <string name="careportal_insulinage_label">Vek inzulínu</string>
-    <string name="hours">hodín</string>
     <string name="invalidprofile">Chybný profil !!!</string>
     <string name="doprofileswitch">Vykonajte zmenu profilu</string>
     <string name="careportal_pbage_label">Vek batérie v pumpe</string>
-    <string name="careportal_pumpbatterychange">Výmena batérie v pumpe</string>
     <string name="ns_alarmoptions">Nastavenie alarmov</string>
     <string name="nsalarm_urgenthigh">Veľmi vysoká</string>
     <string name="nsalarm_high">Vysoká</string>
@@ -668,7 +627,6 @@
     <string name="careportal_pump_label">PUMPA</string>
     <string name="careportal_newnstreatment_duration_min_label">Trvanie [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">Povoliť UAM</string>
     <string name="enablesmb">Povoliť SMB</string>
     <string name="enablesmb_summary">Použiť Super Mikro Bolusy namiesto dočasných bazálov, pre zrýchleniu účinku</string>
@@ -715,12 +673,8 @@
     <string name="reuse">Znovu použiť</string>
     <string name="wearcontrol_title">Ovládanie z hodiniek</string>
     <string name="wearcontrol_summary">Nastavovanie dočasných cieľov a vkladanie ošetrení hodinkami.</string>
-    <string name="connectiontimedout">Vypršal čas na pripojenie</string>
     <string name="food">Jedlo</string>
     <string name="shortgramm">g</string>
-    <string name="shortminute">m</string>
-    <string name="shorthour">h</string>
-    <string name="shortday">d</string>
     <string name="none"><![CDATA[<prázdne>]]></string>
     <string name="shortkilojoul">kJ</string>
     <string name="shortenergy">En</string>
@@ -760,8 +714,6 @@
     <string name="dexcomg5_xdripupload_title">Odosielať glykémie do xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">V xDrip+ vyberte zdroj dát 640g/Eversense</string>
     <string name="nsclientbg">Glykémie z NS</string>
-    <string name="minimalbasalvaluereplaced">Hodnota bazálu nahradená minimálnou možnou: %1$s</string>
-    <string name="maximumbasalvaluereplaced">Hodnota bazálu nahradená maximálnou možnou: %1$s</string>
     <string name="overview_editquickwizard_usebg">Výpočet glykémie</string>
     <string name="overview_editquickwizard_usebolusiob">Výpočet bolusového IOB</string>
     <string name="overview_editquickwizard_usebasaliob">Výpočet bazálneho IOB</string>
@@ -779,8 +731,6 @@
     <string name="closedmodeenabled">Uzavretý okruh povolený</string>
     <string name="maxiobset">Maximálne IOB nastavené správne</string>
     <string name="hasbgdata">Glykémie dostupné z vybraného zdroja</string>
-    <string name="basalprofilenotaligned">Bazálne hodnoty nie sú zarovnané na celé hodiny: %1$s</string>
-    <string name="zerovalueinprofile">Chybný profil: %1$s</string>
     <string name="combo_programming_bolus">Programovanie pumpy pre bolus</string>
     <string name="combo_refresh">Obnoviť</string>
     <string name="combo_pump_state_label">Stav</string>
@@ -833,7 +783,6 @@
     <string name="enablesmbwithtemptarget_summary">Povoliť SMB, pokiaľ je aktívny dočasný cieľ (aktivita, blížiace sa jedlo)</string>
     <string name="enablesmbwithhightemptarget">Povoliť SMB s vysokými dočasnými cieľmi</string>
     <string name="enablesmbwithhightemptarget_summary">Povoliť SMB, pokiaľ je aktívny vysoký dočasný cieľ (aktivita)</string>
-    <string name="let_temp_basal_run">Nechať bežať aktuálny dočasný bazál</string>
     <string name="mute">Stíšiť</string>
     <string name="overview_insulin_label">Inzulín</string>
     <string name="overview_carbs_label">Sacharidy</string>
@@ -960,7 +909,6 @@
     <string name="virtualpump_type">Typ virtuálnej pumpy</string>
     <string name="virtualpump_definition">Definícia pumpy</string>
     <string name="virtualpump_pump_def">Bolus: Krok =%1$s\nPredl. bolus: [Krok=%2$s, Dĺžka=%3$smin-%4$sh]\nBazál: Krok=%5$s\nDoč. bazál: %6$s (%7$s), Dĺžka=%8$smin-%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* Iba diskrétne hodnoty a nie rozsahy sú podporované pre bazál/bolus vo virtuálnej pumpe.</string>
     <string name="ns_autobackfill_title">Automatické doplňovanie glykémií z NS</string>
     <string name="wear_wizard_settings">Nastavenie wizardu</string>
     <string name="wear_wizard_settings_summary">Kalkulácia použitá vo výsledku wizardu:</string>
@@ -1152,7 +1100,6 @@
     <string name="isequalorgreater">je rovnaká, alebo väčšia ako</string>
     <string name="isgreater">je väčšia ako</string>
     <string name="isnotavailable">nedostupný</string>
-    <string name="unknown">neznámy</string>
     <string name="glucoseisnotavailable">Glykémia nedostupná</string>
     <string name="glucosecomparedmgdl">Glykémia %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Glykémia %1$s %2$.1f %3$s</string>
@@ -1169,23 +1116,10 @@
     <string name="automation_short">Auto</string>
     <string name="automation">Automatika</string>
     <string name="profile_total">== ∑  %1$s JI</string>
-    <string name="profile_ins_units_per_hour">JI/h</string>
-    <string name="profile_carbs_per_unit">g/JI</string>
-    <string name="profile_per_unit">/JI</string>
     <string name="dexcom_lognssensorchange_title">Ulož výmenu senzora do NS</string>
     <string name="dexcom_lognssensorchange_summary">Vytvoriť udalosť \"Výmena senzora\" v NS automaticky pri spustení senzora</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
-    <string name="unit_second">sekunda</string>
-    <string name="unit_minute">minúta</string>
-    <string name="unit_hour">hodina</string>
-    <string name="unit_day">deň</string>
-    <string name="unit_week">týždeň</string>
-    <string name="unit_seconds">sekúnd</string>
-    <string name="unit_minutes">minút</string>
-    <string name="unit_hours">hodín</string>
-    <string name="unit_days">dní</string>
-    <string name="unit_weeks">týždňov</string>
     <string name="summary_tidepool_username">Vaše meno používateľa na Tidepoole, obvykle Vaša E-mailová adresa</string>
     <string name="title_tidepool_username">Meno používateľa</string>
     <string name="summary_tidepool_password">Heslo na Tidepool</string>
@@ -1469,7 +1403,6 @@
     <string name="nav_survey">Prieskum</string>
     <string name="invalidage">Neplatný záznam veku</string>
     <string name="invalidweight">Neplatný záznam váhy</string>
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Baz: <b>%4$.2f</b>]]></string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Pod: <b>%2$02d%%</b> V: <b>%3$02d%%</b> Nad: <b>%4$02d%%</b>]]></string>
     <string name="average">Priemer</string>
     <string name="tdd">CDD</string>
