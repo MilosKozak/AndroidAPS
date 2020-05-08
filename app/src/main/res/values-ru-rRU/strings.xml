@@ -1576,11 +1576,16 @@ Context | Edit Context</string>
     <string name="omnipod_error_illegal_init_action_type">Недопустимый тип инициализации: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Активная помпа не выбрана.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Командная верификация не состоялась.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Произошла непредвиденная ошибка. Пожалуйста, сообщите об ошибке! (сообщить:: %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Ошибка связи: недопустимые входные параметры.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Ошибка связи: время ожидания истекло.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Ошибка связи: возникла непредвиденная ошибка. Пожалуйста, сообщите!</string>
     <string name="omnipod_driver_error_crc_mismatch">Ошибка связи: проверка целостности сообщения завершилась неудачно.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Ошибка связи: недопустимые входные параметры.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Ошибка связи: Pod находится в неверном состоянии.</string>
     <string name="omnipod_driver_error_invalid_response">Ошибка связи: недопустимый ответ от помпы.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Ошибка связи: получено сообщение с недопустимым порядковым номером от Pod.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Ошибка связи: получено сообщение с некорректным адресом от Pod.</string>
     <string name="omnipod_driver_error_message_decoding_failed">Ошибка связи: не удалось декодировать сообщение от Pod.</string>
     <string name="omnipod_driver_error_nonce_resync_failed">Ошибка соединения: не удалось выполнить синхронизацию nonce resync.</string>
     <string name="omnipod_driver_error_nonce_out_of_sync">Ошибка соединения: вне синхронизации.</string>
