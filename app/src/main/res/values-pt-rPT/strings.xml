@@ -211,6 +211,8 @@
     <string name="metadata_warning_outdated_format">Está a usar formato ultrapassado herdado a partir de versões antigas do AAPS, o que não é seguro! Use-o apenas como um último recurso, se não tiver uma exportação no actual no formato JSON.</string>
     <string name="metadata_warning_old_export">Preferências importadas já são %1$s dias antigas! Talvez tenha preferências mais actualizadas ou escolheu o ficheiro errado? Lembre-se de exportar preferências regularmente!</string>
     <string name="metadata_warning_date_format">Formato de data-hora inválido!</string>
+    <string name="metadata_warning_different_version">Preferências de uma versão menor diferente de aplicação. Está OK se você está importando após o upgrade, mas verifique após a importação se as preferências ainda estão corretas!</string>
+    <string name="metadata_urgent_different_version">Preferências de uma versão principal diferente de aplicação. As principais versões diferem significativamente e podem ter preferências incompatíveis! Certifique-se depois de importar que as preferências ainda estão corretas!</string>
     <string name="metadata_label_format">Formato do ficheiro</string>
     <string name="metadata_label_created_at">Criado em</string>
     <string name="metadata_label_aaps_version">Versão AAPS</string>
@@ -234,6 +236,10 @@
     <string name="prefdecrypt_issue_wrong_format">Configuração de encriptação ausente, formato de configurações é inválido!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Algoritmo de encriptação não suportado ou não especificado!</string>
     <string name="exported_today">exportado hoje</string>
+    <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">exportado há %1$s</string>
+    <string name="exported_at" comment="at placeholder we add export date">exportado às %1$s</string>
+    <string name="exported_less_than_hour_ago">exportado há menos de uma hora</string>
+    <string name="in_directory" comment="placeholder is for exported file path">no diretório: %1$s</string>
     <string name="danarpump">DanaR</string>
     <string name="connecting">A ligar</string>
     <string name="connected">Ligado</string>
@@ -501,6 +507,7 @@
     <string name="wear_detailedIOB_title">Mostrar IOB detalhada</string>
     <string name="wear_detailedIOB_summary">Dividir IOB entre IOB de bolus e de basal na face do relógio</string>
     <string name="nosuccess">sem efeito - por favor verifique no telemóvel</string>
+    <string name="notavailable">n/d</string>
     <string name="patientage">Idade do Paciente</string>
     <string name="child">Criança</string>
     <string name="teenage">Adolescente</string>
@@ -827,6 +834,7 @@
     <string name="closed_loop_disabled_on_dev_branch">A correr a versão dev. O Loop fechado está desabilitado.</string>
     <string name="engineering_mode_enabled">Modo engenheiro activado</string>
     <string name="not_eng_mode_or_release">Modo de engenharia não habilitado e não no na versão mestra</string>
+    <string name="pump_basebasalrate">%1$.2fU/h</string>
     <string name="combo_actvity_reading_basal_profile">A ler perfil basal</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">O histórico da bomba foi alterado após o cálculo do bolo ter sido realizado. O bolus não foi injectado. Por favor, verifique se bolus ainda é necessário.</string>
     <string name="combo_error_updating_treatment_record">O bolus foi injectado, mas não foi possível adicionar ao histórico. Isto é possível se dois bolus do mesmo valor baixo foram administrados nos últimos dois minutos. Por favor verifique o histórico da bomba e use o Careportal para adicionar os dados em falta caso necessário. Cuidado para não adicionar dados com o mesmo valor no mesmo minuto.</string>
@@ -1465,14 +1473,26 @@
     <string name="statuslights">Luzes de Estado</string>
     <string name="statuslights_copy_ns">Copiar definições do NS</string>
     <string name="copyexistingvalues">Copiar definições do NS (se existir)?</string>
+    <string name="classic_desrciption">Tema gráfico original</string>
+    <string name="buttonson_desrciption">Os botões são sempre exibidos na parte inferior do ecrã</string>
+    <string name="skin">Tema gráfico</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <!-- Omnipod Configuration -->
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_status">Estado do Pod</string>
+    <string name="omnipod_reservoir_over50">Mais de 50 U</string>
+    <string name="omnipod_pod_address">Endereço do Pod</string>
+    <string name="omnipod_pod_expiry">Pod Expira</string>
     <string name="omnipod_pod_name_no_info">Sem info</string>
+    <string name="omnipod_pod_no_pod_connected">Nenhum Pod ligado</string>
+    <string name="omnipod_pod_not_initalized">Não inicializado</string>
+    <string name="omnipod_pod_active_alerts">Alertas Pod Activos</string>
+    <string name="omnipod_ack_short">Reco Alertas</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_pod_not_attached">Nenhum Pod Activo.</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_cmd_init_pod">Iniciar Pod</string>
     <string name="omnipod_cmd_deactivate_pod">Desactivar Pod</string>
