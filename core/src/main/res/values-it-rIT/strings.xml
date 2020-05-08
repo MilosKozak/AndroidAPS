@@ -54,6 +54,7 @@
     <!--    TDD-->
     <!--    Translator-->
     <string name="careportal_bgcheck">Controllo BG</string>
+    <string name="careportal_announcement">Avviso</string>
     <string name="careportal_note">Nota</string>
     <string name="careportal_question">Domanda</string>
     <string name="careportal_exercise">Esercizio fisico</string>
