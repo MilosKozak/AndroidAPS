@@ -76,7 +76,6 @@
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">углеводы</string>
     <string name="treatments_wizard_correction_label">коррекция</string>
-    <string name="insulin_unit_shortname">ед</string>
     <string name="treatments_wizard_bolusiob_label">болюс IOB</string>
     <string name="openapsma_run">выполнить сейчас</string>
     <string name="vitualpump_label">ВИРТУАЛЬНАЯ ПОМПА</string>
@@ -96,11 +95,7 @@
     <string name="result">результат</string>
     <string name="result_insulin_carbs">Результат: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">данные гликемии недоступны</string>
-    <string name="nochangerequested">изменения не запрошены</string>
     <string name="openapsma_request_label">запрос</string>
-    <string name="rate">Базал</string>
-    <string name="duration">продолжительность</string>
-    <string name="reason">основание</string>
     <string name="glucose">гликемия</string>
     <string name="delta">изменение</string>
     <string name="sms_delta">дельта:</string>
@@ -123,7 +118,6 @@
     <string name="configbuilder_general">Общее</string>
     <string name="configbuilder_general_description">Это некоторые общепринятые плагины которые могут пригодиться.</string>
     <string name="configbuilder_constraints_description">Какие ограничения применяются?</string>
-    <string name="days">дней</string>
     <string name="constraints">ограничения</string>
     <string name="loop">замкнутый цикл</string>
     <string name="configbuilder_loop">замкнутый цикл</string>
@@ -168,24 +162,6 @@
     <string name="treatments_wizard_basaliob_label">базал IOB</string>
     <string name="bolusconstraintapplied">применено ограничение болюса</string>
     <string name="carbsconstraintapplied">применено ограничение углеводов</string>
-    <string name="careportal_bgcheck">проверка СК</string>
-    <string name="careportal_announcement">оповещение</string>
-    <string name="careportal_note">заметка</string>
-    <string name="careportal_question">вопрос</string>
-    <string name="careportal_exercise">нагрузка</string>
-    <string name="careportal_pumpsitechange">смена места катетера помпы</string>
-    <string name="careportal_cgmsensorinsert">Установка сенсора мониторинга глюкозы</string>
-    <string name="careportal_cgmsensorstart">старт сенсора</string>
-    <string name="careportal_insulincartridgechange">замена картриджа инсулина</string>
-    <string name="careportal_profileswitch">Смена профиля</string>
-    <string name="careportal_snackbolus">болюс на перекус</string>
-    <string name="careportal_mealbolus">болюс на еду</string>
-    <string name="careportal_correctionbolus">болюс на коррекцию</string>
-    <string name="careportal_combobolus">комбинированный болюс</string>
-    <string name="careportal_tempbasalstart">начало действия врем базала</string>
-    <string name="careportal_tempbasalend">оконч действия врем базала</string>
-    <string name="careportal_carbscorrection">корректировка углеводов</string>
-    <string name="careportal_openapsoffline">OpenAPS офлайн</string>
     <string name="careportal_newnstreatment_eventtype">тип события</string>
     <string name="careportal_newnstreatment_other">другое</string>
     <string name="careportal_newnstreatment_meter">глюкометр</string>
@@ -279,19 +255,11 @@
     <string name="danar_iob_label">активный инсулин на помпе</string>
     <string name="danar_dailyunits">суточные единицы</string>
     <string name="pump_lastbolus_label">предыдущий болюс</string>
-    <string name="hoursago">%1$.1fч назад</string>
     <string name="danar_invalidinput">введенные данные неверны</string>
     <string name="danar_valuenotsetproperly">величина не задана должным образом</string>
     <string name="reloadprofile">обновить профиль</string>
     <string name="danar_viewprofile">просмотр профиля</string>
-    <string name="enacted">выполнено</string>
-    <string name="comment">комментарий</string>
-    <string name="success">успех</string>
-    <string name="percent">процент</string>
-    <string name="absolute">абсолют</string>
-    <string name="canceltemp">отмена врем базала</string>
     <string name="smscommunicator">SMS коммуникатор</string>
-    <string name="waitingforpumpresult">ожидание результата от помпы</string>
     <string name="smscommunicator_allowednumbers">разрешенные телефонные номера</string>
     <string name="smscommunicator_allowednumbers_summary">+ XXXXXXXXXX; + YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Чтобы подать болюс %1$.2fU ответьте кодом %2$s</string>
@@ -314,11 +282,6 @@
     <string name="smscommunicator_tt_canceled">Временная цель успешно отменена</string>
     <string name="bolusdelivering">Подается болюс %1$.2fед.</string>
     <string name="smscommunicator_remotecommandsallowed">разрешить команды через смс</string>
-    <string name="glucosetype_finger">палец</string>
-    <string name="glucosetype_sensor">сенсор</string>
-    <string name="manual">вручную</string>
-    <string name="careportal_temporarytarget">Временные целевые значения</string>
-    <string name="careportal_temporarytargetcancel">Отмена времнной цели</string>
     <string name="danarprofile">настройки профиля DanaR</string>
     <string name="danarprofile_dia">время действия инсулина (ч.):</string>
     <string name="danarprofile_dia_summary">Продолжительность активности инсулина</string>
@@ -359,7 +322,6 @@
     <string name="waitingforpump">ожидание помпы</string>
     <string name="overview_bolusprogress_goingtodeliver">Начинается подача болюса %1$.2fед.</string>
     <string name="youareonallowedlimit">разрешенный предел достигнут</string>
-    <string name="noprofileselected">профиль не выбран</string>
     <string name="smscommunicator_loophasbeendisabled">зцикл был деактивирован</string>
     <string name="smscommunicator_loophasbeenenabled">зцикл был активирован</string>
     <string name="smscommunicator_loopisdisabled">зцикл не работает</string>
@@ -442,7 +404,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">текущие уведомления</string>
     <string name="old_data">старые данные</string>
-    <string name="minago">%1$d мин. назад</string>
     <string name="sms_minago">%1$d мин. назад</string>
     <string name="localprofile">локальный профиль</string>
     <string name="openapsama">Помощник болюса OpenAPS AMA</string>
@@ -583,7 +544,6 @@
     <string name="ns_logappstartedevent">начать работу с NS</string>
     <string name="restartingapp">выход из приложения для применения настроек</string>
     <string name="danarv2pump">DanaRv2</string>
-    <string name="configbuilder_insulin">инсулин</string>
     <string name="configbuilder_insulin_description">Какой тип инсулина вы используете?</string>
     <string name="fastactinginsulin">быстродействующий инсулин</string>
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
@@ -625,11 +585,9 @@
     <string name="careportal_sensorage_label">сенсор пропаботал</string>
     <string name="careportal_canulaage_label">Катетер помпы проработал</string>
     <string name="careportal_insulinage_label">Инсулин проработал</string>
-    <string name="hours">час</string>
     <string name="invalidprofile">Неверный профиль !!!</string>
     <string name="doprofileswitch">Переключить профиль</string>
     <string name="careportal_pbage_label">Батарея помпы работает</string>
-    <string name="careportal_pumpbatterychange">замена батареи помпы</string>
     <string name="ns_alarmoptions">опции оповещения</string>
     <string name="nsalarm_urgenthigh">Тревога выс</string>
     <string name="nsalarm_high">Высокий</string>
@@ -678,7 +636,6 @@
     <string name="careportal_pump_label">ПОМПА</string>
     <string name="careportal_newnstreatment_duration_min_label">Длительность (мин)</string>
     <string name="openapssmb">Супер микро болюс OpenAPS</string>
-    <string name="smb_shortname">Супер микро болюс SMB</string>
     <string name="enableuam">Включить непредвиденный прием пищи UAM</string>
     <string name="enablesmb">Включить супер микро болюс SMB</string>
     <string name="enablesmb_summary">Для ускорения действия используйте супер микро болюсы SMB вместо временного базала</string>
@@ -725,12 +682,8 @@
     <string name="reuse">повторное использование</string>
     <string name="wearcontrol_title">Контроль с часов</string>
     <string name="wearcontrol_summary">Ставить временные цели и вводить назначения с часов.</string>
-    <string name="connectiontimedout">Истекло время ожидания соединения</string>
     <string name="food">Еда</string>
     <string name="shortgramm">грамм</string>
-    <string name="shortminute">минут</string>
-    <string name="shorthour">ч</string>
-    <string name="shortday">дн</string>
     <string name="none"><![CDATA[<отсутствует>]]></string>
     <string name="shortkilojoul">кДж</string>
     <string name="shortenergy">Энергия</string>
@@ -770,8 +723,6 @@
     <string name="dexcomg5_xdripupload_title">Отправить данные СК на xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">В xDrip + выберите источник данных 640g/Eversense</string>
     <string name="nsclientbg">СК с клиента Nightscout</string>
-    <string name="minimalbasalvaluereplaced">Значение базала заменено минимальной поддерживаемой величиной: %1$s</string>
-    <string name="maximumbasalvaluereplaced">Значение базала заменено максимальной поддерживаемой величиной: %1$s</string>
     <string name="overview_editquickwizard_usebg">Вычисление СК</string>
     <string name="overview_editquickwizard_usebolusiob">Расчет болюсного активного инсулина IOB</string>
     <string name="overview_editquickwizard_usebasaliob">Расчет базального активного инсулина IOB</string>
@@ -789,8 +740,6 @@
     <string name="closedmodeenabled">Режим замкнутого цикла включен</string>
     <string name="maxiobset">Максимум активного инсулина IOB установлен правильно</string>
     <string name="hasbgdata">СК доступны из выбранного источника</string>
-    <string name="basalprofilenotaligned">Базальные значения не выровнены по часам: %1$s</string>
-    <string name="zerovalueinprofile">Недопустимый профиль: %1$s</string>
     <string name="combo_programming_bolus">Помпа программируется для болюса</string>
     <string name="combo_refresh">Обновить</string>
     <string name="combo_pump_state_label">Состояние</string>
@@ -843,7 +792,6 @@
     <string name="enablesmbwithtemptarget_summary">Включить супер микро болюс SMB при активной временной цели (близкий прием пищи, нагрузка)</string>
     <string name="enablesmbwithhightemptarget">Включить супер микро болюс SMB с высокими значениями временных целей</string>
     <string name="enablesmbwithhightemptarget_summary">Включить супер микро болюс SMB при высоком значении действующей временной цели (нагрузка)</string>
-    <string name="let_temp_basal_run">Оставить временный базал работающим</string>
     <string name="mute">Отключить звук</string>
     <string name="overview_insulin_label">Инсулин</string>
     <string name="overview_carbs_label">Кол-во углеводов</string>
@@ -971,7 +919,6 @@
     <string name="virtualpump_type">Тип виртуальной помпы</string>
     <string name="virtualpump_definition">Определение помпы</string>
     <string name="virtualpump_pump_def">Болюс: Шаг =%1$s\nПродленный Болюс: [Шаг =%2$s, Длительность =%3$sмин -%4$sh] \nБазал: Шаг =%5$s\ nTBR: %6$s (на %7$s), Длительность =%8$sмин -%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* В виртуальной помпе поддерживаются только дискретные величины для обработки базала/болюса.</string>
     <string name="ns_autobackfill_title">Автозаполнение пропущенных данных СК</string>
     <string name="wear_wizard_settings">Параметры мастера настройки смарт-часов wear</string>
     <string name="wear_wizard_settings_summary">Расчеты, включены в результат мастера настройки смарт-часов wear:</string>
@@ -1165,7 +1112,6 @@ Context | Edit Context</string>
     <string name="isequalorgreater">равно или больше чем</string>
     <string name="isgreater">больше чем</string>
     <string name="isnotavailable">недоступно</string>
-    <string name="unknown">неизвестно</string>
     <string name="glucoseisnotavailable">ГК недоступна</string>
     <string name="glucosecomparedmgdl">Гк %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Гк %1$s %2$.1f %3$s</string>
@@ -1182,23 +1128,10 @@ Context | Edit Context</string>
     <string name="automation_short">Авто</string>
     <string name="automation">Автоматизация</string>
     <string name="profile_total">== ∑  %1$s ед</string>
-    <string name="profile_ins_units_per_hour">ед/ч</string>
-    <string name="profile_carbs_per_unit">г/ед</string>
-    <string name="profile_per_unit">/ед</string>
     <string name="dexcom_lognssensorchange_title">Внести замену сенсора в лог NS</string>
     <string name="dexcom_lognssensorchange_summary">Автоматически создать событие \"Замена сенсора\" в NS при запуске сенсора</string>
     <string name="tomato">Томато (MiaoMiao)</string>
     <string name="tomato_short">Томато</string>
-    <string name="unit_second">сек</string>
-    <string name="unit_minute">мин</string>
-    <string name="unit_hour">час</string>
-    <string name="unit_day">дн</string>
-    <string name="unit_week">нед</string>
-    <string name="unit_seconds">сек</string>
-    <string name="unit_minutes">мин</string>
-    <string name="unit_hours">час</string>
-    <string name="unit_days">дн</string>
-    <string name="unit_weeks">нед</string>
     <string name="summary_tidepool_username">Имя пользователя Tidepool, обычно ваш адрес электронной почты</string>
     <string name="title_tidepool_username">Имя пользователя</string>
     <string name="summary_tidepool_password">Ваш пароль для входа в Tidepool</string>
@@ -1482,7 +1415,6 @@ Context | Edit Context</string>
     <string name="nav_survey">Опрос</string>
     <string name="invalidage">Некорректное значение возраст</string>
     <string name="invalidweight">Некорректное значение вес</string>
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Низкий: <b>%2$02d%%</b> В целевом диапазоне: <b>%3$02d%%</b> Высокий: <b>%4$02d%%</b>]]></string>
     <string name="average">Средний</string>
     <string name="tdd">TDD/общая суточная доза</string>
