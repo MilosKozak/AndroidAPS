@@ -75,7 +75,6 @@
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">Υδατάνθρακες</string>
     <string name="treatments_wizard_correction_label">Διόρθωση</string>
-    <string name="insulin_unit_shortname">U</string>
     <string name="treatments_wizard_bolusiob_label">Bolus IOB</string>
     <string name="openapsma_run">Έναρξη τώρα</string>
     <string name="vitualpump_label">ΕΙΚΟΝΙΚΗ ΑΝΤΛΙΑ</string>
@@ -95,11 +94,7 @@
     <string name="result">Αποτέλεσμα</string>
     <string name="result_insulin_carbs">Αποτέλεσμα: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Μη διαθέσιμα δεδομένα γλυκόζης</string>
-    <string name="nochangerequested">Δεν απαιτείται αλλαγή</string>
     <string name="openapsma_request_label">Αίτημα</string>
-    <string name="rate">Τιμή</string>
-    <string name="duration">Διάρκεια</string>
-    <string name="reason">Αιτιολογία</string>
     <string name="glucose">Γλυκόζη</string>
     <string name="delta">Διαφορά</string>
     <string name="sms_delta">Διαφορά:</string>
@@ -122,7 +117,6 @@
     <string name="configbuilder_general">Γενικά</string>
     <string name="configbuilder_general_description">Αυτά είναι μερικά πρόσθετα που μπορεί να βρείτε χρήσιμα.</string>
     <string name="configbuilder_constraints_description">Ποιοι περιορισμοί έχουν εφαρμοστεί;</string>
-    <string name="days">ημέρες</string>
     <string name="constraints">Περιορισμοί</string>
     <string name="loop">Κύκλωμα</string>
     <string name="configbuilder_loop">Κύκλωμα</string>
@@ -165,23 +159,6 @@
     <string name="treatments_wizard_basaliob_label">Βασική ΙΟΒ</string>
     <string name="bolusconstraintapplied">Ενεργός Περιορισμός Bolus</string>
     <string name="carbsconstraintapplied">Ενεργός περιορισμός Υδατανθράκων</string>
-    <string name="careportal_bgcheck">Έλεγχος BG</string>
-    <string name="careportal_announcement">Ανακοίνωση</string>
-    <string name="careportal_note">Σημείωση</string>
-    <string name="careportal_question">Ερώτηση</string>
-    <string name="careportal_exercise">Άσκηση</string>
-    <string name="careportal_pumpsitechange">Αντικατάσταση Αντλίας</string>
-    <string name="careportal_cgmsensorinsert">Εισαγωγή Αισθητήρα CGM</string>
-    <string name="careportal_cgmsensorstart">Έναρξη Αισθητήρα CGM</string>
-    <string name="careportal_insulincartridgechange">Αλλαγή Αμπούλας Ινσουλίνης</string>
-    <string name="careportal_snackbolus">Bolus για σνακ</string>
-    <string name="careportal_mealbolus">Bolus Γεύματος</string>
-    <string name="careportal_correctionbolus">Διορθωτικό Bolus</string>
-    <string name="careportal_combobolus">Συνδυαστικό Bolus</string>
-    <string name="careportal_tempbasalstart">Έναρξη Προσ Ρυθμού</string>
-    <string name="careportal_tempbasalend">Τέλος Προσ Ρυθμού</string>
-    <string name="careportal_carbscorrection">Διόρθωση Υδατανθράκων</string>
-    <string name="careportal_openapsoffline">OpenAPS εκτός σύνδεσης</string>
     <string name="careportal_newnstreatment_eventtype">Τύπος Συμβάντος</string>
     <string name="careportal_newnstreatment_other">Άλλο</string>
     <string name="careportal_newnstreatment_meter">Μετρητής</string>
@@ -227,19 +204,11 @@
     <string name="danar_iob_label">IOB αντλίας</string>
     <string name="danar_dailyunits">Μονάδες ανά ημέρα </string>
     <string name="pump_lastbolus_label">Τελευταίο Bolus:</string>
-    <string name="hoursago">%1$.1fώρες πριν</string>
     <string name="danar_invalidinput">Μη έγκυρα δεδομένα</string>
     <string name="danar_valuenotsetproperly">Η τιμή δεν μπήκε σωστά</string>
     <string name="reloadprofile">Ξαναφορτώστε το προφίλ</string>
     <string name="danar_viewprofile">Δείτε το προφίλ</string>
-    <string name="enacted">Ενεργοποιήθηκε</string>
-    <string name="comment">Σχόλιο</string>
-    <string name="success">Επιτυχία</string>
-    <string name="percent">Ποσοστό</string>
-    <string name="absolute">Απόλυτο</string>
-    <string name="canceltemp">Ακύρωση Προσωρινού Ρυθμού</string>
     <string name="smscommunicator">SMS Επικοινωνία</string>
-    <string name="waitingforpumpresult">Περιμένετε για αποτέλεσμα</string>
     <string name="smscommunicator_allowednumbers">Επιτρεπτά τηλεφωνικά νούμερα</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Για έγχυση bolus %1$.2fU στείλτε με κωδικό %2$s</string>
@@ -250,9 +219,6 @@
     <string name="smscommunicator_bolusdelivered">Bolus %1$.2fU δόθηκε επιτυχώς</string>
     <string name="bolusdelivering">Εγχύεται %1$.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Άδεια για απομακρυσμένες εντολές μέσω SMS</string>
-    <string name="glucosetype_finger">Δάκτυλο</string>
-    <string name="glucosetype_sensor">Αισθητήρας</string>
-    <string name="manual">Χειροκίνητα</string>
     <string name="danarprofile">Ρυθμίσεις προφίλ DanaR</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Διάρκεια Δράσης Ινσουλίνης</string>
@@ -293,7 +259,6 @@
     <string name="waitingforpump">Αναμονή για αντλία</string>
     <string name="overview_bolusprogress_goingtodeliver">Προς έγχυση %1$.2fU</string>
     <string name="youareonallowedlimit">Φτάσατε το επιτρεπτό όριο</string>
-    <string name="noprofileselected">Δεν επηλέχθηκε προφίλ</string>
     <string name="smscommunicator_loophasbeendisabled">Το κύκλωμα απενεργοποιήθηκε</string>
     <string name="smscommunicator_loophasbeenenabled">Το κύκλωμα ενεργοποιήθηκε</string>
     <string name="smscommunicator_loopisdisabled">Κύκλωμα απενεργοποιημένο</string>
@@ -505,7 +470,6 @@
     <string name="ns_logappstartedevent">Η εφαρμογή καταγραφής ξεκινά από το NS</string>
     <string name="restartingapp">Έξοδος από το application για την εφαρμογή των ρυθμίσεων</string>
     <string name="danarv2pump">DanaRv2</string>
-    <string name="configbuilder_insulin">Ινσουλίνη</string>
     <string name="configbuilder_insulin_description">Ποιο τύπο ινσουλίνης χρησιμοποιείτε;</string>
     <string name="fastactinginsulin">Γρήγορη Ινσουλίνη</string>
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
@@ -539,10 +503,8 @@
     <string name="careportal_sensorage_label">Χρόνος ζωής Αισθητήρα</string>
     <string name="careportal_canulaage_label">Χρόνος ζωής Κάνουλας</string>
     <string name="careportal_insulinage_label">Χρόνος ζωής Ινσουλίνης</string>
-    <string name="hours">ώρες</string>
     <string name="invalidprofile">Μη έγκυρο προφίλ!!!</string>
     <string name="careportal_pbage_label">Χρόνος ζωής μπαταρίας αντλίας</string>
-    <string name="careportal_pumpbatterychange">Αλλαγή μπαταρίας αντλίας</string>
     <string name="ns_alarmoptions">Επιλογές συναγερμού</string>
     <string name="nsalarm_urgenthigh">Επείγον υψηλό</string>
     <string name="nsalarm_high">Υψηλό</string>
@@ -591,7 +553,6 @@
     <string name="careportal_pump_label">ΑΝΤΛΙΑ</string>
     <string name="careportal_newnstreatment_duration_min_label">Διάρκεια [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">Ενεργοποίηση UAM</string>
     <string name="enablesmb">Ενεργοποίηση SMB</string>
     <string name="enablesmb_summary">Χρησιμοποιήστε Super Micro Boluses αντί προσωρινού ρυθμού για ταχύτερα αποτελέσματα</string>
@@ -637,11 +598,8 @@
     <string name="reuse">επαναχρησιμοποίηση</string>
     <string name="wearcontrol_title">Έλεγχος από ρολόι</string>
     <string name="wearcontrol_summary">Ρυθμίστε Στόχους-Προσ Ρυθμού και βάλτε Θεραπείες από το ρολόι.</string>
-    <string name="connectiontimedout">Ο χρόνος σύνδεσης έληξε</string>
     <string name="food">Γεύμα</string>
     <string name="shortgramm">g</string>
-    <string name="shortminute">m</string>
-    <string name="shorthour">h</string>
     <string name="none"><![CDATA[<κενό>]]></string>
     <string name="shortkilojoul">kj</string>
     <string name="shortenergy">Ενέργεια</string>
@@ -675,8 +633,6 @@
     <string name="dexcomg5_xdripupload_title">Αποστολή δεδομένων BG στο xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Στο xDrip+, επιλέξτε την πηγή δεδομένων 640g / Eversense</string>
     <string name="nsclientbg">NSClient BG</string>
-    <string name="minimalbasalvaluereplaced">Η τιμή του βασικού αντικαταστάθηκε από την ελάχιστη υποστηριζόμενη τιμή: %1$s</string>
-    <string name="maximumbasalvaluereplaced">Η τιμή του βασικού αντικαταστάθηκε από την μέγιστη υποστηριζόμενη τιμή: %1$s</string>
     <string name="overview_editquickwizard_usebg">Υπολογισμός BG</string>
     <string name="overview_editquickwizard_usebolusiob">Υπολογισμός του IOB bolus</string>
     <string name="overview_editquickwizard_usebasaliob">Υπολογισμός βασικού IOB</string>
@@ -694,8 +650,6 @@
     <string name="closedmodeenabled">Ενεργοποιήθηκε η κλειστή λειτουργία</string>
     <string name="maxiobset">Το μέγιστο IOB έχει ρυθμιστεί σωστά</string>
     <string name="hasbgdata">BG διαθέσιμη από επιλεγμένη πηγή</string>
-    <string name="basalprofilenotaligned">Οι τιμές του βασικού ρυθμού δεν αντιστοιχούν σε ώρες: %1$s</string>
-    <string name="zerovalueinprofile">Μη έγκυρο προφίλ: %1$s</string>
     <string name="combo_programming_bolus">Προγραμματισμός της αντλίας για bolus</string>
     <string name="combo_refresh">Ανανέωση</string>
     <string name="combo_pump_state_label">Κατάσταση</string>
@@ -745,7 +699,6 @@
     <string name="enablesmbwithtemptarget_summary">Ενεργοποίηση του SMB όταν υπάρχει ενεργός προσωρινός στόχος (τρώω σύντομα, άσκηση)</string>
     <string name="enablesmbwithhightemptarget">Ενεργοποίηση SMB με υψηλούς προσωρινούς στόχους</string>
     <string name="enablesmbwithhightemptarget_summary">Ενεργοποίηση SMB όταν υπάρχει ενεργός υψηλός προσωρινός στόχος (άσκηση)</string>
-    <string name="let_temp_basal_run">Αφήστε τον προσωρινό ρυθμό ενεργό</string>
     <string name="mute">Σίγαση</string>
     <string name="overview_insulin_label">Ινσουλίνη</string>
     <string name="overview_carbs_label">Υδατάνθρακες</string>
@@ -872,7 +825,6 @@
     <string name="virtualpump_type">Τύπος εικονικής αντλίας</string>
     <string name="virtualpump_definition">Ορισμός Αντλίας</string>
     <string name="virtualpump_pump_def">Bolus: Άμεσο=%1$s\nΕκτεταμένο Bolus: [Άμεσο=%2$s, Διάρκεια=%3$smin-%4$sh]\nΒασικός: Άμεσο=%5$s\nTBR: %6$s (με %7$s), Διάρκεια=%8$smin-%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* Υποστηρίζονται μόνο διακριτές τιμές και όχι εύρος τιμών για βασικό/bolus στην εικονική αντλία.</string>
     <string name="ns_autobackfill_title">Αυτόματη φόρτωση BG</string>
     <string name="wear_wizard_settings">Ρυθμίσεις Γρήγορου Οδηγού</string>
     <string name="wear_wizard_settings_summary">Υπολογισμοί που περιλαμβάνονται στο αποτέλεσμα του γρήγορου οδηγού:</string>
@@ -1053,7 +1005,6 @@
     <string name="isequalorgreater">είναι ίσο ή μεγαλύτερο από</string>
     <string name="isgreater">είναι μεγαλύτερο από</string>
     <string name="isnotavailable">δεν είναι διαθέσιμο</string>
-    <string name="unknown">άγνωστο</string>
     <string name="glucoseisnotavailable">Γλυκόζη δεν είναι διαθέσιμη</string>
     <string name="glucosecomparedmgdl">Γλυκόζη %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Γλυκόζη %1$s %2$.1f %3$s</string>
@@ -1070,23 +1021,10 @@
     <string name="automation_short">Αυτόματο</string>
     <string name="automation">Αυτοματισμός</string>
     <string name="profile_total">== ∑  %1$s U</string>
-    <string name="profile_ins_units_per_hour">U/h</string>
-    <string name="profile_carbs_per_unit">g/U</string>
-    <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">Αλλαγή αρχείου αισθητήρα σε NS</string>
     <string name="dexcom_lognssensorchange_summary">Δημιουργία συμβάντος «Αλλαγή αισθητήρα» στο NS αυτόματα με έναρξη αισθητήρα</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
-    <string name="unit_second">δευτερόλεπτο</string>
-    <string name="unit_minute">λεπτό</string>
-    <string name="unit_hour">ώρα</string>
-    <string name="unit_day">ημέρα</string>
-    <string name="unit_week">εβδομάδα</string>
-    <string name="unit_seconds">δευτερόλεπτα</string>
-    <string name="unit_minutes">λεπτά</string>
-    <string name="unit_hours">ώρες</string>
-    <string name="unit_days">ημέρες</string>
-    <string name="unit_weeks">εβδομάδες</string>
     <string name="summary_tidepool_username">Το όνομα χρήστη του Tidepool, συνήθως το mail σας</string>
     <string name="title_tidepool_username">Όνομα Χρήστη</string>
     <string name="summary_tidepool_password">Το συνθηματικό του Tidepool</string>
