@@ -1509,6 +1509,7 @@
     <string name="omnipod_driver_error_unexpected_exception_type">Si è verificato un errore imprevisto. Segnalalo! (%1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Comunicazione fallita: ricevuti parametri di input non validi.</string>
     <string name="omnipod_driver_error_communication_failed_timeout">Comunicazione fallita: timeout.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Comunicazione fallita: si è verificato un errore imprevisto. Segnalalo!</string>
     <string name="omnipod_driver_error_crc_mismatch">Comunicazione fallita: verifica dell\'integrità del messaggio fallita.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Comunicazione fallita: ricevuto un pacchetto non valido dal pod.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Comunicazione fallita: il pod è in uno stato non corretto.</string>
