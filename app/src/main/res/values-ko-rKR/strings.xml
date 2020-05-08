@@ -75,7 +75,6 @@
     <string name="treatments_wizard_tt_label">임시목표</string>
     <string name="treatments_wizard_carbs_label">탄수화물</string>
     <string name="treatments_wizard_correction_label">교정</string>
-    <string name="insulin_unit_shortname">U</string>
     <string name="treatments_wizard_bolusiob_label">Bolus IOB</string>
     <string name="openapsma_run">지금 실행</string>
     <string name="vitualpump_label">가상 펌프</string>
@@ -95,11 +94,7 @@
     <string name="result">결과</string>
     <string name="result_insulin_carbs">결과: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">혈당 데이터 없음</string>
-    <string name="nochangerequested">변경사항 없음</string>
     <string name="openapsma_request_label">요청</string>
-    <string name="rate">주입량</string>
-    <string name="duration">기간</string>
-    <string name="reason">근거</string>
     <string name="glucose">혈당</string>
     <string name="delta">증분</string>
     <string name="sms_delta">Delta:</string>
@@ -122,7 +117,6 @@
     <string name="configbuilder_general">일반</string>
     <string name="configbuilder_general_description">유용한 여러가지 플러그인</string>
     <string name="configbuilder_constraints_description">어떤 제약을 적용합니까?</string>
-    <string name="days">일</string>
     <string name="constraints">제한</string>
     <string name="loop">Loop</string>
     <string name="configbuilder_loop">Loop</string>
@@ -166,24 +160,6 @@
     <string name="treatments_wizard_basaliob_label">Basal IOB</string>
     <string name="bolusconstraintapplied">Bolus 제한이 적용되었습니다</string>
     <string name="carbsconstraintapplied">탄수화물 제한이 적용되었습니다</string>
-    <string name="careportal_bgcheck">혈당 체크</string>
-    <string name="careportal_announcement">알림</string>
-    <string name="careportal_note">노트</string>
-    <string name="careportal_question">의문</string>
-    <string name="careportal_exercise">운동</string>
-    <string name="careportal_pumpsitechange">펌프 위치 변경</string>
-    <string name="careportal_cgmsensorinsert">CGM 센서 삽입</string>
-    <string name="careportal_cgmsensorstart">CGM 센서 시작</string>
-    <string name="careportal_insulincartridgechange">인슐린 카트리지 교체</string>
-    <string name="careportal_profileswitch">프로파일 변경</string>
-    <string name="careportal_snackbolus">간식Bolus</string>
-    <string name="careportal_mealbolus">Meal Bolus</string>
-    <string name="careportal_correctionbolus">교정Bolus</string>
-    <string name="careportal_combobolus">콤보Bolus</string>
-    <string name="careportal_tempbasalstart">임시Basal 시작</string>
-    <string name="careportal_tempbasalend">임시Basal 종료</string>
-    <string name="careportal_carbscorrection">탄수화물 교정</string>
-    <string name="careportal_openapsoffline">OpenAPS 오프라인</string>
     <string name="careportal_newnstreatment_eventtype">이벤트 종류</string>
     <string name="careportal_newnstreatment_other">기타</string>
     <string name="careportal_newnstreatment_meter">측정기</string>
@@ -231,19 +207,11 @@
     <string name="danar_iob_label">펌프 IOB</string>
     <string name="danar_dailyunits">일 인슐린 총량</string>
     <string name="pump_lastbolus_label">최근 Bolus:</string>
-    <string name="hoursago">%1$.1f시간 전</string>
     <string name="danar_invalidinput">사용할수 없는 입력 데이터</string>
     <string name="danar_valuenotsetproperly">값이 제대로 설정되지 않았습니다</string>
     <string name="reloadprofile">프로파일 새로고침</string>
     <string name="danar_viewprofile">프로파일 보기</string>
-    <string name="enacted">실행</string>
-    <string name="comment">의견</string>
-    <string name="success">성공</string>
-    <string name="percent">퍼센트</string>
-    <string name="absolute">절대값</string>
-    <string name="canceltemp">임시Basal 취소하기</string>
     <string name="smscommunicator">SMS 통신기</string>
-    <string name="waitingforpumpresult">결과 기다리는 중</string>
     <string name="smscommunicator_allowednumbers">허가된 전화번호</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Bolus %1$.2fU 을 주입하려면 %2$s 를 입력하고 답장하세요</string>
@@ -266,11 +234,6 @@
     <string name="smscommunicator_tt_canceled">임시 목표 취소가 완료되었습니다</string>
     <string name="bolusdelivering">%1$.2fU 주입중</string>
     <string name="smscommunicator_remotecommandsallowed">SMS 원격 명령 사용하기</string>
-    <string name="glucosetype_finger">채혈</string>
-    <string name="glucosetype_sensor">센서</string>
-    <string name="manual">수동</string>
-    <string name="careportal_temporarytarget">임시 목표</string>
-    <string name="careportal_temporarytargetcancel">임시 목표 취소</string>
     <string name="danarprofile">DanaR 프로파일 설정</string>
     <string name="danarprofile_dia">인슐린활동시간(DIA) [h]</string>
     <string name="danarprofile_dia_summary">인슐린 활동 기간</string>
@@ -311,7 +274,6 @@
     <string name="waitingforpump">펌프를 기다리는 중</string>
     <string name="overview_bolusprogress_goingtodeliver">%1$.2fU을 주입합니다</string>
     <string name="youareonallowedlimit">허용된 제한값에 도달하였습니다</string>
-    <string name="noprofileselected">프로파일이 선택되지 않았습니다</string>
     <string name="smscommunicator_loophasbeendisabled">Loop가 중지되었습니다.</string>
     <string name="smscommunicator_loophasbeenenabled">Loop가 실행되었습니다.</string>
     <string name="smscommunicator_loopisdisabled">Loop가 중지중입니다.</string>
@@ -530,7 +492,6 @@
     <string name="ns_logappstartedevent">앱시작을 NS에 기록하기</string>
     <string name="restartingapp">설정을 적용하기위해 앱을 종료합니다.</string>
     <string name="danarv2pump">다나R v2</string>
-    <string name="configbuilder_insulin">인슐린</string>
     <string name="configbuilder_insulin_description">어떤 종류의 인슐린을 사용합니까?</string>
     <string name="fastactinginsulin">초속형 인슐린</string>
     <string name="fastactinginsulincomment">노보래피드, 휴마로그, 에피드라</string>
@@ -564,11 +525,9 @@
     <string name="careportal_sensorage_label">센서 사용기간</string>
     <string name="careportal_canulaage_label">캐뉼라 사용기간</string>
     <string name="careportal_insulinage_label">인슐린 사용기간</string>
-    <string name="hours">시간</string>
     <string name="invalidprofile">프로파일이 유효하지 않습니다!!!</string>
     <string name="doprofileswitch">프로파일 변경 실행</string>
     <string name="careportal_pbage_label">펌프배터리사용기간</string>
-    <string name="careportal_pumpbatterychange">펌프 배터리 교체</string>
     <string name="ns_alarmoptions">알람 옵션</string>
     <string name="nsalarm_urgenthigh">위험 고혈당</string>
     <string name="nsalarm_high">고혈당</string>
@@ -617,7 +576,6 @@
     <string name="careportal_pump_label">펌프</string>
     <string name="careportal_newnstreatment_duration_min_label">기간 [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">UAM 활성화하기</string>
     <string name="enablesmb">SMB 활성화하기</string>
     <string name="enablesmb_summary">더 빠른 작용을 위해 임시Basal 대신 Super Micro Bolus 사용</string>
@@ -664,12 +622,8 @@
     <string name="reuse">재사용</string>
     <string name="wearcontrol_title">워치로 제어하기</string>
     <string name="wearcontrol_summary">임시목표와 관리입력을 워치로 설정합니다.</string>
-    <string name="connectiontimedout">연결시간초과</string>
     <string name="food">음식</string>
     <string name="shortgramm">g</string>
-    <string name="shortminute">분</string>
-    <string name="shorthour">시간</string>
-    <string name="shortday">일</string>
     <string name="none"><![CDATA[<none>]]></string>
     <string name="shortkilojoul">kJ</string>
     <string name="shortenergy">En</string>
@@ -704,8 +658,6 @@
     <string name="dexcomg5_xdripupload_title">혈당 데이터를 xDrip+에 전송하기</string>
     <string name="dexcomg5_xdripupload_summary">xDrip+ 데이터 소스에서 640g/Eversense을 선택하세요</string>
     <string name="nsclientbg">NSClient 혈당</string>
-    <string name="minimalbasalvaluereplaced">지원되는 최소값으로 Basal값이 대체되었습니다:%1$s</string>
-    <string name="maximumbasalvaluereplaced">지원되는 최대값으로 Basal값이 대체되었습니다:%1$s</string>
     <string name="overview_editquickwizard_usebg">혈당 계산</string>
     <string name="overview_editquickwizard_usebolusiob">Bolus IOB 계산</string>
     <string name="overview_editquickwizard_usebasaliob">Basal IOB 계산</string>
@@ -723,8 +675,6 @@
     <string name="closedmodeenabled">Closed 모드가 활성화됨</string>
     <string name="maxiobset">최대 IOB가 바르게 설정됨</string>
     <string name="hasbgdata">선택한 소스에서 혈당이 들어옵니다.</string>
-    <string name="basalprofilenotaligned">Basal값이 시간단위로 설정되지 않았습니다: %1$s</string>
-    <string name="zerovalueinprofile">유효하지 않은 프로파일: %1$s</string>
     <string name="combo_programming_bolus">Bolus 주입을 위한 펌프 프로그래밍</string>
     <string name="combo_refresh">새로고침</string>
     <string name="combo_pump_state_label">상태</string>
@@ -776,7 +726,6 @@
     <string name="enablesmbwithtemptarget_summary">활성화된 임시 목표(식사직전, 운동)가 있으면 SMB를 사용합니다.</string>
     <string name="enablesmbwithhightemptarget">높은 임시 목표에서 SMB 사용하기</string>
     <string name="enablesmbwithhightemptarget_summary">활성화된 높은 임시 목표(운동)가 있으면 SMB를 사용합니다.</string>
-    <string name="let_temp_basal_run">임시Basal 허용</string>
     <string name="mute">음소거</string>
     <string name="overview_insulin_label">인슐린</string>
     <string name="overview_carbs_label">탄수화물</string>
@@ -903,7 +852,6 @@
     <string name="virtualpump_type">가성펌프 종류</string>
     <string name="virtualpump_definition">펌프 정의</string>
     <string name="virtualpump_pump_def">Bolus: 스텝=%1$s\n확장Bolus: [Step=%2$s, 기간=%3$s분-%4$s시]\nBasal: 스텝=%5$s\n임시Basal: %6$s (by %7$s), 기간=%8$s분-%9$s시\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* 가상 펌프에서는 Basal/Bolus에 대해 범위로 지정이 될 수 없고, 이산값(discrete values)만 지원 됩니다.</string>
     <string name="ns_autobackfill_title">혈당 자동채움</string>
     <string name="wear_wizard_settings">마법사 설정</string>
     <string name="wear_wizard_settings_summary">마법사 결과에 사용 된 계산:</string>
@@ -1089,7 +1037,6 @@
     <string name="isequalorgreater">같거나 큰</string>
     <string name="isgreater">보다 큰</string>
     <string name="isnotavailable">이용할 수 없음</string>
-    <string name="unknown">알수없음</string>
     <string name="glucoseisnotavailable">혈당을 사용할 수 없습니다.</string>
     <string name="glucosecomparedmgdl">혈당 %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">혈당 %1$s %2$.1f %3$s</string>
@@ -1106,23 +1053,10 @@
     <string name="automation_short">자동</string>
     <string name="automation">자동화</string>
     <string name="profile_total">== ∑  %1$s U</string>
-    <string name="profile_ins_units_per_hour">U/h</string>
-    <string name="profile_carbs_per_unit">g/U</string>
-    <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">센서 교체 NS에 기록하기</string>
     <string name="dexcom_lognssensorchange_summary">센서교체시 NS에 자동으로 \"센서 교체\" 이벤트를 생성합니다.</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
-    <string name="unit_second">초</string>
-    <string name="unit_minute">분</string>
-    <string name="unit_hour">시</string>
-    <string name="unit_day">일</string>
-    <string name="unit_week">주</string>
-    <string name="unit_seconds">초</string>
-    <string name="unit_minutes">분</string>
-    <string name="unit_hours">시</string>
-    <string name="unit_days">일</string>
-    <string name="unit_weeks">주</string>
     <string name="summary_tidepool_username">Tidepool 사용자명, 보통 이메일 주소입니다.</string>
     <string name="title_tidepool_username">로그인 사용자명</string>
     <string name="summary_tidepool_password">Tidepool 로그인 비밀번호</string>
@@ -1401,7 +1335,6 @@
     <string name="nav_survey">조사</string>
     <string name="invalidage">유효하지 않은 나이입니다</string>
     <string name="invalidweight">유효하지 않은 몸무게입니다</string>
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Low: <b>%2$02d%%</b> In: <b>%3$02d%%</b> High: <b>%4$02d%%</b>]]></string>
     <string name="average">평균</string>
     <string name="tdd">TDD</string>
