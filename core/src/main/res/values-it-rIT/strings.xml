@@ -60,6 +60,7 @@
     <string name="careportal_pumpsitechange">Cambio posizione cannula</string>
     <string name="careportal_cgmsensorinsert">Inserimento sensore</string>
     <string name="careportal_cgmsensorstart">Avvio sensore</string>
+    <string name="careportal_insulincartridgechange">Cambio cartuccia insulina</string>
     <string name="careportal_profileswitch">Cambio profilo</string>
     <string name="careportal_snackbolus">Bolo spuntino</string>
     <string name="careportal_mealbolus">Bolo pasto</string>
