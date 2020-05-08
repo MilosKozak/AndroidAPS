@@ -82,6 +82,7 @@
     <!--    PumpEnactResult-->
     <string name="enacted">Attivato</string>
     <string name="comment">Commento</string>
+    <string name="success">OK</string>
     <string name="percent">Percento</string>
     <string name="absolute">Assoluto</string>
     <string name="configbuilder_insulin">Insulina</string>
