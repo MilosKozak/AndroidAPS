@@ -12,14 +12,79 @@
     <string name="location_not_found_title">Localização Não Está Activa</string>
     <string name="location_not_found_message">Para a Pesquisa Bluetooth funcionar em dispositivos mais recentes, a localização deve ser activada. AAPS não acompanha a sua localização e pode ser desactivada após o emparelhamento bem-sucedido.</string>
     <!--    DateUtil-->
+    <string name="minago">%1$dm atrás</string>
+    <string name="hoursago">%1$.1fh atrás</string>
+    <string name="shorthour">h</string>
+    <string name="days">dias</string>
+    <string name="hours">horas</string>
+    <string name="unit_second">segundo</string>
+    <string name="unit_minute">minuto</string>
+    <string name="unit_hour">hora</string>
+    <string name="unit_day">dia</string>
+    <string name="unit_week">semana</string>
+    <string name="unit_seconds">segundos</string>
+    <string name="unit_minutes">minutos</string>
+    <string name="unit_hours">horas</string>
+    <string name="unit_days">dias</string>
+    <string name="unit_weeks">semanas</string>
+    <string name="shortminute">m</string>
+    <string name="shortday">d</string>
     <!--    Profile-->
+    <string name="profile_per_unit">/U</string>
+    <string name="profile_ins_units_per_hour">U/h</string>
+    <string name="profile_carbs_per_unit">g/U</string>
     <!--    ProfileFunction-->
+    <string name="noprofileselected">Nenhum perfil seleccionado</string>
     <!--    PumpType-->
     <!--    APSResult-->
+    <string name="canceltemp">Cancelar Basal Temp</string>
+    <string name="let_temp_basal_run">Permitir Basal Temp Correr</string>
+    <string name="rate">Rácio</string>
+    <string name="duration">Duração</string>
+    <string name="reason">Motivo</string>
+    <string name="nochangerequested">Nenhuma alteração solicitada</string>
     <!--    ProfileSwitch-->
+    <string name="zerovalueinprofile">Perfil inválido: %1$s</string>
     <!--    Temptarget-->
+    <string name="mins">%1$dmin</string>
     <!--    TDD-->
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
     <!--    Translator-->
+    <string name="careportal_bgcheck">Verificar Glic</string>
+    <string name="careportal_announcement">Anúncio</string>
+    <string name="careportal_note">Nota</string>
+    <string name="careportal_question">Pergunta</string>
+    <string name="careportal_exercise">Exercício</string>
+    <string name="careportal_pumpsitechange">Mudança de Cateter</string>
+    <string name="careportal_cgmsensorinsert">Colocação do Sensor CGM</string>
+    <string name="careportal_cgmsensorstart">Início do Sensor CGM</string>
+    <string name="careportal_insulincartridgechange">Mudança de Cartucho de Insulina</string>
+    <string name="careportal_profileswitch">Troca de Perfil</string>
+    <string name="careportal_snackbolus">Bólus Lanche</string>
+    <string name="careportal_mealbolus">Bólus Refeição</string>
+    <string name="careportal_correctionbolus">Bólus Correcção</string>
+    <string name="careportal_combobolus">Bólus Combo</string>
+    <string name="careportal_tempbasalstart">Início Basal Temp</string>
+    <string name="careportal_tempbasalend">Fim Basal Temp</string>
+    <string name="careportal_carbscorrection">Correcção Hidratos</string>
+    <string name="careportal_openapsoffline">OpenAPS Offline</string>
+    <string name="careportal_pumpbatterychange">Troca Bateria Bomba</string>
+    <string name="careportal_temporarytarget">Alvo Temporário</string>
+    <string name="careportal_temporarytargetcancel">Cancelar Alvo Temporário</string>
+    <string name="glucosetype_finger">Dedo</string>
+    <string name="glucosetype_sensor">Sensor</string>
+    <string name="manual">Manual</string>
+    <string name="unknown">desconhecido</string>
     <!--    Command-->
+    <string name="connectiontimedout">Ligação expirou</string>
     <!--    PumpEnactResult-->
+    <string name="enacted">Realizado</string>
+    <string name="comment">Comentário</string>
+    <string name="success">Sucesso</string>
+    <string name="percent">Percentagem</string>
+    <string name="absolute">Absoluto</string>
+    <string name="configbuilder_insulin">Insulina</string>
+    <string name="insulin_unit_shortname">U</string>
+    <string name="waitingforpumpresult">À espera de resultado</string>
+    <string name="smb_shortname">SMB</string>
 </resources>
