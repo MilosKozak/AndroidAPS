@@ -17,8 +17,8 @@
     <string name="shorthour">h</string>
     <string name="days">giorni</string>
     <string name="hours">ore</string>
-    <string name="unit_second">secondi</string>
-    <string name="unit_minute">minuti</string>
+    <string name="unit_second">secondo</string>
+    <string name="unit_minute">minuto</string>
     <string name="unit_hour">ora</string>
     <string name="unit_day">giorno</string>
     <string name="unit_week">settimana</string>
