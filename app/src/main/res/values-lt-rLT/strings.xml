@@ -76,7 +76,6 @@
     <string name="treatments_wizard_tt_label">LT</string>
     <string name="treatments_wizard_carbs_label">AV</string>
     <string name="treatments_wizard_correction_label">Korekcija</string>
-    <string name="insulin_unit_shortname">V</string>
     <string name="treatments_wizard_bolusiob_label">Bolusų AIO</string>
     <string name="openapsma_run">Paleisti dabar</string>
     <string name="vitualpump_label">Virtuali pompa</string>
@@ -96,11 +95,7 @@
     <string name="result">Rezultatas</string>
     <string name="result_insulin_carbs">Rezultatas: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Nėra gliukozės duomenų</string>
-    <string name="nochangerequested">Pakeitimai nereikalingi</string>
     <string name="openapsma_request_label">Užklausa</string>
-    <string name="rate">Vertė</string>
-    <string name="duration">Trukmė</string>
-    <string name="reason">Priežastis</string>
     <string name="glucose">Gliukozė</string>
     <string name="delta">Pokytis</string>
     <string name="sms_delta">Pokytis:</string>
@@ -123,7 +118,6 @@
     <string name="configbuilder_general">Bendrieji</string>
     <string name="configbuilder_general_description">Bendrieji įskiepiai, kurie gali praversti.</string>
     <string name="configbuilder_constraints_description">Kokie apribojimai taikomi?</string>
-    <string name="days">d.</string>
     <string name="constraints">Apribojimai</string>
     <string name="loop">Ciklas</string>
     <string name="configbuilder_loop">Ciklas</string>
@@ -167,24 +161,6 @@
     <string name="treatments_wizard_basaliob_label">Bazės AIO</string>
     <string name="bolusconstraintapplied">Pritaikytas boluso apribojimas</string>
     <string name="carbsconstraintapplied">Pritaikytas AV apribojimas</string>
-    <string name="careportal_bgcheck">KG testas</string>
-    <string name="careportal_announcement">Pranešimas</string>
-    <string name="careportal_note">Pastaba</string>
-    <string name="careportal_question">Klausimas</string>
-    <string name="careportal_exercise">Fizinis aktyvumas</string>
-    <string name="careportal_pumpsitechange">Kateterio keitimas</string>
-    <string name="careportal_cgmsensorinsert">NGJ įvedimas</string>
-    <string name="careportal_cgmsensorstart">NGJ paleidimas</string>
-    <string name="careportal_insulincartridgechange">Rezervuaro keitimas</string>
-    <string name="careportal_profileswitch">Profilio keitimas</string>
-    <string name="careportal_snackbolus">Bolusas užkandžiui</string>
-    <string name="careportal_mealbolus">Bolusas valgiui</string>
-    <string name="careportal_correctionbolus">Bolusas korekcijai</string>
-    <string name="careportal_combobolus">Kombinuotas bolusas</string>
-    <string name="careportal_tempbasalstart">Pradėta laikina bazė</string>
-    <string name="careportal_tempbasalend">Užbaigta laikina bazė</string>
-    <string name="careportal_carbscorrection">AV korekcijai</string>
-    <string name="careportal_openapsoffline">OpenAPS neprisijungus</string>
     <string name="careportal_newnstreatment_eventtype">Įvykio tipas</string>
     <string name="careportal_newnstreatment_other">Kiti</string>
     <string name="careportal_newnstreatment_meter">Matuoklis</string>
@@ -270,19 +246,11 @@
     <string name="danar_iob_label">Pompos AIO</string>
     <string name="danar_dailyunits">Paros insulinas</string>
     <string name="pump_lastbolus_label">Paskutinis bolusas</string>
-    <string name="hoursago">Prieš %1$.1f val.</string>
     <string name="danar_invalidinput">Neteisingai įvesti duomenys</string>
     <string name="danar_valuenotsetproperly">Vertė nėra tinkamai nustatyta</string>
     <string name="reloadprofile">Atnaujinti profilį</string>
     <string name="danar_viewprofile">Peržiūrėti profilį</string>
-    <string name="enacted">Vykdoma</string>
-    <string name="comment">Komentaras</string>
-    <string name="success">Atlikta</string>
-    <string name="percent">Procentai</string>
-    <string name="absolute">Absoliutus</string>
-    <string name="canceltemp">Atšaukti laikiną bazę</string>
     <string name="smscommunicator">SMS komunikatorius</string>
-    <string name="waitingforpumpresult">Laukiama rezultato</string>
     <string name="smscommunicator_allowednumbers">Leidžiami telefono numeriai</string>
     <string name="smscommunicator_allowednumbers_summary">+370XXXXXXXX; +370YYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Norėdami suleisti %1$.2fvv bolusą, atsakykite kodu %2$s</string>
@@ -305,11 +273,6 @@
     <string name="smscommunicator_tt_canceled">Laikinas tikslas atšauktas sėkmingai</string>
     <string name="bolusdelivering">Leidžiama %1$.2fvv</string>
     <string name="smscommunicator_remotecommandsallowed">Leisti nuotolines komandas SMS žinutėmis</string>
-    <string name="glucosetype_finger">Iš piršto</string>
-    <string name="glucosetype_sensor">Iš sensoriaus</string>
-    <string name="manual">Rankiniu būdu</string>
-    <string name="careportal_temporarytarget">Laikinas tikslas</string>
-    <string name="careportal_temporarytargetcancel">Laikino tikslo atšaukimas</string>
     <string name="danarprofile">DanaR profilio nustatymai</string>
     <string name="danarprofile_dia">IVT [h]</string>
     <string name="danarprofile_dia_summary">Insulino veikimo trukmė</string>
@@ -350,7 +313,6 @@
     <string name="waitingforpump">Laukiama ryšio su pompa</string>
     <string name="overview_bolusprogress_goingtodeliver">Bus suleista %1$.2fvv</string>
     <string name="youareonallowedlimit">Pasiekėte leistiną ribą</string>
-    <string name="noprofileselected">Nepasirinktas profilis</string>
     <string name="smscommunicator_loophasbeendisabled">Ciklas buvo išjungtas</string>
     <string name="smscommunicator_loophasbeenenabled">Ciklas buvo įjungtas</string>
     <string name="smscommunicator_loopisdisabled">Ciklas išjungtas</string>
@@ -572,7 +534,6 @@
     <string name="ns_logappstartedevent">Siųsti programos paleidimo žymę į NS</string>
     <string name="restartingapp">Uždarant aplikaciją, taikyti nustatymus.</string>
     <string name="danarv2pump">DanaRv2</string>
-    <string name="configbuilder_insulin">Insulinas</string>
     <string name="configbuilder_insulin_description">Kokio tipo insuliną naudojate?</string>
     <string name="fastactinginsulin">Greito veikimo insulinas</string>
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
@@ -606,11 +567,9 @@
     <string name="careportal_sensorage_label">Sensorius</string>
     <string name="careportal_canulaage_label">Kateteris</string>
     <string name="careportal_insulinage_label">Insulinas</string>
-    <string name="hours">val.</string>
     <string name="invalidprofile">Netinkamas profilis!!!</string>
     <string name="doprofileswitch">Profilio keitimas</string>
     <string name="careportal_pbage_label">Baterija</string>
-    <string name="careportal_pumpbatterychange">Baterijos keitimas</string>
     <string name="ns_alarmoptions">Aliarmų nustatymai</string>
     <string name="nsalarm_urgenthigh">Kritiškai aukštas</string>
     <string name="nsalarm_high">Aukštas</string>
@@ -659,7 +618,6 @@
     <string name="careportal_pump_label">POMPA</string>
     <string name="careportal_newnstreatment_duration_min_label">Trukmė [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">Įjungti NDM</string>
     <string name="enablesmb">Įjungti SMB</string>
     <string name="enablesmb_summary">Naudoti Super Mikro Bolusus vietoj laikinos bazės greitesniam veikimui</string>
@@ -706,12 +664,8 @@
     <string name="reuse">naudoti pakartotinai</string>
     <string name="wearcontrol_title">Laikrodžio valdikliai</string>
     <string name="wearcontrol_summary">Nustatyti Laikinus Tikslus ir įvesti terapinius įrašus iš laikrodžio.</string>
-    <string name="connectiontimedout">Prijungimo laikas baigėsi</string>
     <string name="food">Maistas</string>
     <string name="shortgramm">g</string>
-    <string name="shortminute">min.</string>
-    <string name="shorthour">val</string>
-    <string name="shortday">d</string>
     <string name="none"><![CDATA[<none>]]></string>
     <string name="shortkilojoul">kJ</string>
     <string name="shortenergy">Energ. vertė</string>
@@ -751,8 +705,6 @@
     <string name="dexcomg5_xdripupload_title">Siųsti KG duomenis į xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Xdrip+ pasirinkite 640g/Eversense duomenų šaltinį</string>
     <string name="nsclientbg">NSClient KG</string>
-    <string name="minimalbasalvaluereplaced">Valandinė bazė pakeista mažiausia palaikoma verte: %1$s</string>
-    <string name="maximumbasalvaluereplaced">Valandinė bazė pakeista didžiausia palaikoma verte: %1$s</string>
     <string name="overview_editquickwizard_usebg">KG apskaičiavimas</string>
     <string name="overview_editquickwizard_usebolusiob">Bolusų AIO apskaičiavimas</string>
     <string name="overview_editquickwizard_usebasaliob">Bazės AIO apskaičiavimas</string>
@@ -770,8 +722,6 @@
     <string name="closedmodeenabled">Uždaras ciklas aktyvus</string>
     <string name="maxiobset">Maksimalus AIO nustatytas tinkamai</string>
     <string name="hasbgdata">KG šaltinis pasirinktas teisingai</string>
-    <string name="basalprofilenotaligned">Bazės reikšmės nesuderintos su valandomis: %1$s</string>
-    <string name="zerovalueinprofile">Netinkamas profilis: %1$s</string>
     <string name="combo_programming_bolus">Programuojamas bolusas</string>
     <string name="combo_refresh">Atnaujinti</string>
     <string name="combo_pump_state_label">Būsena</string>
@@ -824,7 +774,6 @@
     <string name="enablesmbwithtemptarget_summary">Įjungti SMB, kai laikinas tikslas aktyvuotas (Netrukus valgysiu, Aktyvumas)</string>
     <string name="enablesmbwithhightemptarget">Įjungti SMB su intensyviais laikinais tikslais</string>
     <string name="enablesmbwithhightemptarget_summary">Įjungti SMB, kai intensyvūs laikini tikslai yra aktyvūs (sportuosite)</string>
-    <string name="let_temp_basal_run">Paleisti laikinąją bazę</string>
     <string name="mute">Nutildyti</string>
     <string name="overview_insulin_label">Insulinas</string>
     <string name="overview_carbs_label">AV</string>
@@ -951,7 +900,6 @@
     <string name="virtualpump_type">Virtualios pompos tipas</string>
     <string name="virtualpump_definition">Pompos nustatymas</string>
     <string name="virtualpump_pump_def">Bolusas: Žingsnis=%1$s\nIštęstinis bolusas: [Žingsnis=%2$s, Trukmė=%3$smin-%4$sh]\nBazė: Žingsnis=%5$s\nLDB: %6$s (iš %7$s), Trukmė=%8$smin -%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* Virtualioje pompoje palaikomos tik atskiros vertės, o ne diapazonas detalumui užtikrinti.</string>
     <string name="ns_autobackfill_title">Automatiškai užpildyti trūkstamus KG duomenis</string>
     <string name="wear_wizard_settings">Išmaniojo laikrodžio nustatymai</string>
     <string name="wear_wizard_settings_summary">Skaičiavimai, įtraukti į Patarėjo rezultatą:</string>
@@ -1141,7 +1089,6 @@
     <string name="isequalorgreater">yra lygus arba didesnis nei</string>
     <string name="isgreater">didesnis nei</string>
     <string name="isnotavailable">negalimas</string>
-    <string name="unknown">nežinoma</string>
     <string name="glucoseisnotavailable">Glikemija nepasiekiama</string>
     <string name="glucosecomparedmgdl">Glikemija %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Glikemija %1$s %2$.1f %3$s</string>
@@ -1158,23 +1105,10 @@
     <string name="automation_short">Auto</string>
     <string name="automation">Automatiškai</string>
     <string name="profile_total">== ∑  %1$s vv</string>
-    <string name="profile_ins_units_per_hour">Vv/val</string>
-    <string name="profile_carbs_per_unit">g/vv</string>
-    <string name="profile_per_unit">/vv</string>
     <string name="dexcom_lognssensorchange_title">Registruoti sensoriaus keitimą NS</string>
     <string name="dexcom_lognssensorchange_summary">Sukurti įvykį \"Sensoriaus keitimas\" NS automatiškai, startavus sensorių</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
-    <string name="unit_second">sekundė</string>
-    <string name="unit_minute">min.</string>
-    <string name="unit_hour">val.</string>
-    <string name="unit_day">d.</string>
-    <string name="unit_week">savaitė</string>
-    <string name="unit_seconds">sekundės</string>
-    <string name="unit_minutes"> min.</string>
-    <string name="unit_hours">val.</string>
-    <string name="unit_days">d.</string>
-    <string name="unit_weeks">savaičių</string>
     <string name="summary_tidepool_username">Jūsų Tidepool vartotojo vardas, įprastai jūsų el. pašto adresas</string>
     <string name="title_tidepool_username">Vartotojo vardas</string>
     <string name="summary_tidepool_password">Jūsų Tidepool prisijungimo slaptažodis</string>
@@ -1453,7 +1387,6 @@
     <string name="nav_survey">Apklausa</string>
     <string name="invalidage">Neteisingas amžiaus įrašas</string>
     <string name="invalidweight">Neteisingas svorio įrašas</string>
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bolusas: <b>%3$.2f</b> Bazinis: <b>%4$.2f</b>]]></string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Žemas: <b>%2$02d%%</b> Norma: <b>%3$02d%%</b> Aukštas: <b>%4$02d%%</b>]]></string>
     <string name="average">Vidutinis</string>
     <string name="tdd">BPD</string>
