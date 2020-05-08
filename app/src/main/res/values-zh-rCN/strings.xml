@@ -73,7 +73,6 @@
     <string name="treatments_wizard_tt_label">临时目标</string>
     <string name="treatments_wizard_carbs_label">碳水化合物</string>
     <string name="treatments_wizard_correction_label">矫正值</string>
-    <string name="insulin_unit_shortname">U</string>
     <string name="treatments_wizard_bolusiob_label">大剂量活性胰岛素IOB</string>
     <string name="openapsma_run">现在运行</string>
     <string name="vitualpump_label">虚拟泵</string>
@@ -92,11 +91,7 @@
     <string name="openapsma_mealdata_label">膳食数据</string>
     <string name="result">结果</string>
     <string name="openapsma_noglucosedata">没有可用的血糖数据</string>
-    <string name="nochangerequested">不需要改变</string>
     <string name="openapsma_request_label">请求</string>
-    <string name="rate">比率</string>
-    <string name="duration">持续时间</string>
-    <string name="reason">原因</string>
     <string name="glucose">血糖</string>
     <string name="delta">增量</string>
     <string name="sms_delta">增量:</string>
@@ -119,7 +114,6 @@
     <string name="configbuilder_general">一般</string>
     <string name="configbuilder_general_description">这些是一些一般的插件, 你可能会觉得有用。</string>
     <string name="configbuilder_constraints_description">应用了哪些约束条件？</string>
-    <string name="days">天</string>
     <string name="constraints">约束条件</string>
     <string name="loop">闭环</string>
     <string name="configbuilder_loop">闭环</string>
@@ -162,23 +156,6 @@
     <string name="treatments_wizard_basaliob_label">基础 IOB</string>
     <string name="bolusconstraintapplied">大剂量约束条件应用了</string>
     <string name="carbsconstraintapplied">碳水化合物约束条件应用了</string>
-    <string name="careportal_bgcheck">指血检查</string>
-    <string name="careportal_announcement">通告</string>
-    <string name="careportal_note">备注</string>
-    <string name="careportal_question">问题</string>
-    <string name="careportal_exercise">运动</string>
-    <string name="careportal_pumpsitechange">泵更换管路</string>
-    <string name="careportal_cgmsensorinsert">CGM 传感器插入</string>
-    <string name="careportal_cgmsensorstart">CGM 传感器启动</string>
-    <string name="careportal_insulincartridgechange">更换储药器</string>
-    <string name="careportal_snackbolus">零食大剂量</string>
-    <string name="careportal_mealbolus">餐时大剂量</string>
-    <string name="careportal_correctionbolus">矫正大剂量</string>
-    <string name="careportal_combobolus">Combo组合大剂量</string>
-    <string name="careportal_tempbasalstart">临时基础率开始</string>
-    <string name="careportal_tempbasalend">临时基础率结束</string>
-    <string name="careportal_carbscorrection">碳水化合物校正</string>
-    <string name="careportal_openapsoffline">OpenAPS 离线</string>
     <string name="careportal_newnstreatment_eventtype">事件类型</string>
     <string name="careportal_newnstreatment_other">其他</string>
     <string name="careportal_newnstreatment_meter">血糖仪</string>
@@ -223,19 +200,11 @@
     <string name="danar_iob_label">泵 IOB</string>
     <string name="danar_dailyunits">每日单位数</string>
     <string name="pump_lastbolus_label">上次大剂量</string>
-    <string name="hoursago">%1$.1f小时前</string>
     <string name="danar_invalidinput">无效的输入数据</string>
     <string name="danar_valuenotsetproperly">数值设定的不正确</string>
     <string name="reloadprofile">重新加载配置文件</string>
     <string name="danar_viewprofile">查看配置文件</string>
-    <string name="enacted">制定</string>
-    <string name="comment">评论</string>
-    <string name="success">成功</string>
-    <string name="percent">百分比</string>
-    <string name="absolute">绝对值</string>
-    <string name="canceltemp">取消临时基础率</string>
     <string name="smscommunicator">SMS短信通讯器</string>
-    <string name="waitingforpumpresult">正在等待结果</string>
     <string name="smscommunicator_allowednumbers">允许的手机号码</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">要输注大剂量胰岛素%1$.2fU 回复如下代码 %2$s</string>
@@ -246,9 +215,6 @@
     <string name="smscommunicator_bolusdelivered">已经成功输注大剂量%1$.2fU</string>
     <string name="bolusdelivering">正在输注 %1$.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">通过SMS短信允许远程命令</string>
-    <string name="glucosetype_finger">手指</string>
-    <string name="glucosetype_sensor">传感器</string>
-    <string name="manual">手动</string>
     <string name="danarprofile">DanaR 配置文件设置</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">胰岛素活性持续时间</string>
@@ -289,7 +255,6 @@
     <string name="waitingforpump">正在等待泵</string>
     <string name="overview_bolusprogress_goingtodeliver">将要输注 %1$.2fU</string>
     <string name="youareonallowedlimit">你达到了允许的极限</string>
-    <string name="noprofileselected">没有选定配置文件</string>
     <string name="smscommunicator_loophasbeendisabled">闭环已经被禁用</string>
     <string name="smscommunicator_loophasbeenenabled">闭环已经被启用</string>
     <string name="smscommunicator_loopisdisabled">闭环被禁用</string>
@@ -499,7 +464,6 @@
     <string name="ns_logappstartedevent">记录app启动事件到NS服务器</string>
     <string name="restartingapp">正在退出应用程序以应用设置。</string>
     <string name="danarv2pump">DanaRv2</string>
-    <string name="configbuilder_insulin">胰岛素</string>
     <string name="configbuilder_insulin_description">你使用哪种类型的胰岛素？</string>
     <string name="fastactinginsulin">速效胰岛素</string>
     <string name="fastactinginsulincomment">诺和锐, 门冬, 优泌乐</string>
@@ -531,10 +495,8 @@
     <string name="careportal_sensorage_label">传感器使用时间</string>
     <string name="careportal_canulaage_label">管路使用时间</string>
     <string name="careportal_insulinage_label">胰岛素使用时间</string>
-    <string name="hours">小时</string>
     <string name="invalidprofile">无效的配置文件!!!</string>
     <string name="careportal_pbage_label">泵电池使用时间</string>
-    <string name="careportal_pumpbatterychange">更换泵电池</string>
     <string name="ns_alarmoptions">报警选项</string>
     <string name="nsalarm_urgenthigh">紧急高</string>
     <string name="nsalarm_high">高</string>
@@ -582,7 +544,6 @@
     <string name="careportal_pump_label">泵</string>
     <string name="careportal_newnstreatment_duration_min_label">持续时间 [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">启用 UAM</string>
     <string name="enablesmb">启用微型大剂量</string>
     <string name="enablesmb_summary">使用微型大剂量代替使用临时基础率，更快的干预</string>
@@ -628,11 +589,8 @@
     <string name="reuse">重复用</string>
     <string name="wearcontrol_title">从手表上控制</string>
     <string name="wearcontrol_summary">设置临时目标并从手表中进行治疗操作。</string>
-    <string name="connectiontimedout">连接超时</string>
     <string name="food">食物</string>
     <string name="shortgramm">克</string>
-    <string name="shortminute">分</string>
-    <string name="shorthour">小时</string>
     <string name="none"><![CDATA[<none>]]></string>
     <string name="shortkilojoul">kJ</string>
     <string name="shortenergy">En</string>
@@ -666,8 +624,6 @@
     <string name="dexcomg5_xdripupload_title">将血糖数据发送到 xDrip +</string>
     <string name="dexcomg5_xdripupload_summary">在 xDrip + 选择640ｇ/Eversense 数据源</string>
     <string name="nsclientbg">NSClient 血糖</string>
-    <string name="minimalbasalvaluereplaced">基础率值被泵支持的最小值: %1$s 替换了</string>
-    <string name="maximumbasalvaluereplaced">基础率值被泵支持的最大值:%1$s 替换了</string>
     <string name="overview_editquickwizard_usebg">血糖计算</string>
     <string name="overview_editquickwizard_usebolusiob">大剂量IOB (活性胰岛素) 计算</string>
     <string name="overview_editquickwizard_usebasaliob">基础率IOB (活性胰岛素) 计算</string>
@@ -685,8 +641,6 @@
     <string name="closedmodeenabled">闭环模式启用了</string>
     <string name="maxiobset">合理地设置最大 IOB</string>
     <string name="hasbgdata">所选的血糖值来源的血糖是可用的</string>
-    <string name="basalprofilenotaligned">基础率值与小时不一致:%1$s</string>
-    <string name="zerovalueinprofile">无效的配置文件：%1$s</string>
     <string name="combo_programming_bolus">正在调用泵上的大剂量输注程序</string>
     <string name="combo_refresh">刷新</string>
     <string name="combo_pump_state_label">状态</string>
@@ -735,7 +689,6 @@
     <string name="enablesmbwithtemptarget_summary">当临时目标处于活动状态时启用 SMB (很快吃饭, 运动)</string>
     <string name="enablesmbwithhightemptarget">启用具有高临时目标的 SMB</string>
     <string name="enablesmbwithhightemptarget_summary">当临时目标处于活动状态（锻炼）时启用SMB</string>
-    <string name="let_temp_basal_run">让临时基础率运行</string>
     <string name="mute">静音</string>
     <string name="overview_insulin_label">胰岛素</string>
     <string name="overview_carbs_label">碳水</string>
@@ -862,7 +815,6 @@
     <string name="virtualpump_type">虚拟泵类型</string>
     <string name="virtualpump_definition">泵定义</string>
     <string name="virtualpump_pump_def">大剂量: Step=%1$s\n扩展大剂量: [Step=%2$s, 持续时间=%3$smin-%4$sh]\n基础率: Step=%5$s\nTBR临时基础率: %6$s (by %7$s), 持续时间=%8$smin-%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">仅支持离散值，不支持范围值</string>
     <string name="ns_autobackfill_title">Autobackfill 血糖</string>
     <string name="wear_wizard_settings">向导设置</string>
     <string name="wear_wizard_settings_summary">包含在向导中的计算结果：</string>
@@ -1018,22 +970,10 @@
     <string name="recovery_duration">恢复持续时间</string>
     <string name="timeout_during_handshake">握手时超时-重启蓝牙</string>
     <string name="profile_total">== ∑  %1$s U</string>
-    <string name="profile_carbs_per_unit">克/U</string>
-    <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">记录传感器更换至NS服务器</string>
     <string name="dexcom_lognssensorchange_summary">在传感器启动时在 NS服务器 自动创建事件 \"传感器更改\"</string>
     <string name="tomato">番茄（喵喵）</string>
     <string name="tomato_short">番茄</string>
-    <string name="unit_second">秒</string>
-    <string name="unit_minute">分钟</string>
-    <string name="unit_hour">小时</string>
-    <string name="unit_day">天</string>
-    <string name="unit_week">周</string>
-    <string name="unit_seconds">秒</string>
-    <string name="unit_minutes">分钟</string>
-    <string name="unit_hours">小时</string>
-    <string name="unit_days">天</string>
-    <string name="unit_weeks">周</string>
     <string name="summary_tidepool_username">你的Tidepool登录用户名，通常是你的邮件地址</string>
     <string name="title_tidepool_username">登录用户名</string>
     <string name="summary_tidepool_password">登录密码</string>
