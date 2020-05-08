@@ -76,7 +76,6 @@
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">Kohlenhydrate</string>
     <string name="treatments_wizard_correction_label">Korr</string>
-    <string name="insulin_unit_shortname">IE</string>
     <string name="treatments_wizard_bolusiob_label">Bolus-IOB</string>
     <string name="openapsma_run">Ausführen</string>
     <string name="vitualpump_label">VIRTUELLE PUMPE</string>
@@ -96,11 +95,7 @@
     <string name="result">Ergebnis</string>
     <string name="result_insulin_carbs">Ergebnis: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Keine BZ-Werte verfügbar</string>
-    <string name="nochangerequested">Keine Anpassung benötigt</string>
     <string name="openapsma_request_label">Anfrage</string>
-    <string name="rate">Rate</string>
-    <string name="duration">Dauer</string>
-    <string name="reason">Grund</string>
     <string name="glucose">Glukose</string>
     <string name="delta">Delta</string>
     <string name="sms_delta">Delta:</string>
@@ -123,7 +118,6 @@
     <string name="configbuilder_general">Allgemein</string>
     <string name="configbuilder_general_description">Dies sind einige generelle Plugins, die Du vielleicht hilfreich findest.</string>
     <string name="configbuilder_constraints_description">Welche Beschränkungen werden angewendet?</string>
-    <string name="days">Tage</string>
     <string name="constraints">Beschränkungen</string>
     <string name="loop">Loop</string>
     <string name="configbuilder_loop">Loop</string>
@@ -168,24 +162,6 @@
     <string name="treatments_wizard_basaliob_label">Basal-IOB</string>
     <string name="bolusconstraintapplied">Bolus-Beschränkung angewendet</string>
     <string name="carbsconstraintapplied">Kohlenhydrat-Beschränkung erreicht</string>
-    <string name="careportal_bgcheck">BZ Test</string>
-    <string name="careportal_announcement">Ankündigung</string>
-    <string name="careportal_note">Notiz</string>
-    <string name="careportal_question">Frage</string>
-    <string name="careportal_exercise">Bewegung</string>
-    <string name="careportal_pumpsitechange">Pumpenkatheter Wechsel</string>
-    <string name="careportal_cgmsensorinsert">CGM-Sensor gesetzt</string>
-    <string name="careportal_cgmsensorstart">CGM-Sensor Start</string>
-    <string name="careportal_insulincartridgechange">Insulinreservoir Wechsel</string>
-    <string name="careportal_profileswitch">Profilwechsel</string>
-    <string name="careportal_snackbolus">Snack Bolus</string>
-    <string name="careportal_mealbolus">Mahlzeiten Bolus</string>
-    <string name="careportal_correctionbolus">Korrektur Bolus</string>
-    <string name="careportal_combobolus">Combo Bolus</string>
-    <string name="careportal_tempbasalstart">TBR Start</string>
-    <string name="careportal_tempbasalend">TBR Ende</string>
-    <string name="careportal_carbscorrection">Kohlenhydrat Korrektur</string>
-    <string name="careportal_openapsoffline">OpenAPS offline</string>
     <string name="careportal_newnstreatment_eventtype">Ereignistyp</string>
     <string name="careportal_newnstreatment_other">Anderes</string>
     <string name="careportal_newnstreatment_meter">Messgerät</string>
@@ -279,19 +255,11 @@
     <string name="danar_iob_label">Pumpen-IOB</string>
     <string name="danar_dailyunits">Tägliche Einheiten</string>
     <string name="pump_lastbolus_label">Letzter Bolus:</string>
-    <string name="hoursago">vor %1$.1f Stunde</string>
     <string name="danar_invalidinput">Ungültige Eingabedaten</string>
     <string name="danar_valuenotsetproperly">Wert nicht korrekt gesetzt</string>
     <string name="reloadprofile">Profil neuladen</string>
     <string name="danar_viewprofile">Profil anzeigen</string>
-    <string name="enacted">Ausgeführt</string>
-    <string name="comment">Kommentar</string>
-    <string name="success">Erfolgreich</string>
-    <string name="percent">Prozent</string>
-    <string name="absolute">Absolut</string>
-    <string name="canceltemp">TBR abbrechen</string>
     <string name="smscommunicator">SMS-Kommunikator</string>
-    <string name="waitingforpumpresult">Auf Pumpenergebnis warten</string>
     <string name="smscommunicator_allowednumbers">Erlaubte Telefonnummern</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
@@ -314,11 +282,6 @@
     <string name="smscommunicator_tt_canceled">Temporäres Ziel wurde erfolgreich abgebrochen</string>
     <string name="bolusdelivering">Gebe %1$.2fIE ab</string>
     <string name="smscommunicator_remotecommandsallowed">Erlaube externe Befehle per SMS</string>
-    <string name="glucosetype_finger">Finger</string>
-    <string name="glucosetype_sensor">Sensor</string>
-    <string name="manual">Manuell</string>
-    <string name="careportal_temporarytarget">Temporäres Ziel</string>
-    <string name="careportal_temporarytargetcancel">Temporäres Ziel abbrechen</string>
     <string name="danarprofile">DanaR Profil-Einstellungen</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Dauer der Insulinwirkung</string>
@@ -359,7 +322,6 @@
     <string name="waitingforpump">Warte auf Pumpe</string>
     <string name="overview_bolusprogress_goingtodeliver">Werde %1$.2fIE abgeben</string>
     <string name="youareonallowedlimit">Limit erreicht</string>
-    <string name="noprofileselected">Kein Profil ausgewählt</string>
     <string name="smscommunicator_loophasbeendisabled">Loop wurde deaktiviert.</string>
     <string name="smscommunicator_loophasbeenenabled">Loop wurde aktiviert</string>
     <string name="smscommunicator_loopisdisabled">Loop ist deaktiviert.</string>
@@ -442,7 +404,6 @@
     <string name="MM640g">MM640g</string>
     <string name="ongoingnotificaction">Anhaltende Benachrichtigung</string>
     <string name="old_data">VERALTETE DATEN</string>
-    <string name="minago">vor %1$d Min.</string>
     <string name="sms_minago">%1$d\' her</string>
     <string name="localprofile">Lokales Profil</string>
     <string name="openapsama">OpenAPS AMA</string>
@@ -583,7 +544,6 @@
     <string name="ns_logappstartedevent">Logge App-Start in Nightscout</string>
     <string name="restartingapp">App wird beendet, um neue Einstellungen zu laden.</string>
     <string name="danarv2pump">DanaRv2</string>
-    <string name="configbuilder_insulin">Insulin</string>
     <string name="configbuilder_insulin_description">Welchen Insulin-Typ verwendest Du?</string>
     <string name="fastactinginsulin">Schnell wirkendes Insulin</string>
     <string name="fastactinginsulincomment">NovoRapid, NovoLog, Humalog</string>
@@ -625,11 +585,9 @@
     <string name="careportal_sensorage_label">Sensoralter</string>
     <string name="careportal_canulaage_label">Katheteralter</string>
     <string name="careportal_insulinage_label">Insulinalter</string>
-    <string name="hours">Stunden</string>
     <string name="invalidprofile">Ungültiges oder defektes Profil!</string>
     <string name="doprofileswitch">Profilwechsel durchführen</string>
     <string name="careportal_pbage_label">Batteriealter</string>
-    <string name="careportal_pumpbatterychange">Pumpenbatterie Wechsel</string>
     <string name="ns_alarmoptions">Alarm-Optionen</string>
     <string name="nsalarm_urgenthigh">Sehr hoch</string>
     <string name="nsalarm_high">Hoch</string>
@@ -678,7 +636,6 @@
     <string name="careportal_pump_label">PUMPE</string>
     <string name="careportal_newnstreatment_duration_min_label">Dauer [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">Aktiviere UAM</string>
     <string name="enablesmb">Aktiviere SMB</string>
     <string name="enablesmb_summary">Benutze Super-Mikro-Boli anstelle von temporären Basalraten, um eine schnellere Wirkung zu erreichen.</string>
@@ -725,12 +682,8 @@
     <string name="reuse">Erneut verwenden</string>
     <string name="wearcontrol_title">Steuerung durch die Uhr</string>
     <string name="wearcontrol_summary">Setze temporäre Ziele und Behandlungen mit der Uhr</string>
-    <string name="connectiontimedout">Zeitüberschreitung der Verbindung</string>
     <string name="food">Essen</string>
     <string name="shortgramm">g</string>
-    <string name="shortminute">min</string>
-    <string name="shorthour">h</string>
-    <string name="shortday">d</string>
     <string name="none"><![CDATA[<nichts>]]></string>
     <string name="shortkilojoul">kJ</string>
     <string name="shortenergy">En</string>
@@ -769,8 +722,6 @@
     <string name="dexcomg5_xdripupload_title">Sende BZ-Werte zu xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Wähle in xDrip+ 640g/Eversense als Daten-Quelle.</string>
     <string name="nsclientbg">Nightscout-Client BZ</string>
-    <string name="minimalbasalvaluereplaced">Basal-Wert wurde durch den kleinst möglichen Wert ersetzt: %1$s</string>
-    <string name="maximumbasalvaluereplaced">Basal-Wert wurde durch größt möglichen Wert ersetzt: %1$s</string>
     <string name="overview_editquickwizard_usebg">BZ Berechnung</string>
     <string name="overview_editquickwizard_usebolusiob">Bolus-IOB Berechnung</string>
     <string name="overview_editquickwizard_usebasaliob">Basal-IOB Berechnung</string>
@@ -788,8 +739,6 @@
     <string name="closedmodeenabled">Closed mode aktiviert</string>
     <string name="maxiobset">Maximales IOB richtig gesetzt</string>
     <string name="hasbgdata">BZ verfügbar von gewählter Quelle</string>
-    <string name="basalprofilenotaligned">Basalraten beginnen nicht zur vollen Stunde: %1$s</string>
-    <string name="zerovalueinprofile">Ungültiges Profil: %1$s</string>
     <string name="combo_programming_bolus">Bolusabgabe wird vorbereitet</string>
     <string name="combo_refresh">Aktualisieren</string>
     <string name="combo_pump_state_label">Status</string>
@@ -842,7 +791,6 @@
     <string name="enablesmbwithtemptarget_summary">Aktiviere SMB, wenn ein temporäres Ziel aktiv ist (bald essen, Aktivität)</string>
     <string name="enablesmbwithhightemptarget">Aktiviere SMB bei temporären Zielen oberhalb des regulären Ziels</string>
     <string name="enablesmbwithhightemptarget_summary">Aktiviere SMB bei temporären Zielen oberhalb des regulären Ziels (Aktivität).</string>
-    <string name="let_temp_basal_run">Temporäre Basalrate aktiv lassen</string>
     <string name="mute">Alarm stoppen</string>
     <string name="overview_insulin_label">Insulin</string>
     <string name="overview_carbs_label">Kohlenhydrate</string>
@@ -970,7 +918,6 @@
     <string name="virtualpump_type">Typ der virtuellen Pumpe</string>
     <string name="virtualpump_definition">Pumpen-Definition</string>
     <string name="virtualpump_pump_def">Bolus: Schritt=%1$s\nVerzögerter Bolus: [Schritt=%2$s, Dauer=%3$smin-%4$sh]\nBasal: Schritt=%5$s\nTBR: %6$s (bei %7$s), Dauer=%8$smin-%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* Bei der virtuellen Pumpe können nur einzelne Werte und keine Bereiche zur Festlegung der Basal/Bolus-Granularität gewählt werden.</string>
     <string name="ns_autobackfill_title">BZ automatisch auffüllen</string>
     <string name="wear_wizard_settings">Wizard-Einstellungen</string>
     <string name="wear_wizard_settings_summary">Berechnungen, die im Assistenten berücksichtigt werden:</string>
@@ -1163,7 +1110,6 @@ Unerwartetes Verhalten.</string>
     <string name="isequalorgreater">ist gleich oder größer als</string>
     <string name="isgreater">ist größer als</string>
     <string name="isnotavailable">ist nicht verfügbar</string>
-    <string name="unknown">unbekannt</string>
     <string name="glucoseisnotavailable">Glukosewert nicht verfügbar</string>
     <string name="glucosecomparedmgdl">Glukosewert %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Glukosewert %1$s %2$.1f %3$s</string>
@@ -1180,23 +1126,10 @@ Unerwartetes Verhalten.</string>
     <string name="automation_short">Auto</string>
     <string name="automation">Automatisierung</string>
     <string name="profile_total">== ∑  %1$s IE</string>
-    <string name="profile_ins_units_per_hour">IE/h</string>
-    <string name="profile_carbs_per_unit">g/IE</string>
-    <string name="profile_per_unit">/IE</string>
     <string name="dexcom_lognssensorchange_title">Speichere Sensor Wechsel in Nightscout</string>
     <string name="dexcom_lognssensorchange_summary">Ereignis \"Sensorwechsel\" bei Sensorstart automatisch in NS erstellen</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
-    <string name="unit_second">Sekunde</string>
-    <string name="unit_minute">Minute</string>
-    <string name="unit_hour">Stunde</string>
-    <string name="unit_day">Tag</string>
-    <string name="unit_week">Woche</string>
-    <string name="unit_seconds">Sekunden</string>
-    <string name="unit_minutes">Minuten</string>
-    <string name="unit_hours">Stunden</string>
-    <string name="unit_days">Tage</string>
-    <string name="unit_weeks">Wochen</string>
     <string name="summary_tidepool_username">Dein Tidepool-Login-Benutzername, normalerweise deine E-Mail-Adresse</string>
     <string name="title_tidepool_username">Login-Benutzername</string>
     <string name="summary_tidepool_password">Dein Tidepool Anmeldekennwort</string>
@@ -1480,7 +1413,6 @@ Unerwartetes Verhalten.</string>
     <string name="nav_survey">Umfrage</string>
     <string name="invalidage">Ungültige Altersangabe</string>
     <string name="invalidweight">Ungültige Gewichtsangabe</string>
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Low: <b>%2$02d%%</b> In: <b>%3$02d%%</b> High: <b>%4$02d%%</b>]]></string>
     <string name="average">Durchschnitt</string>
     <string name="tdd">TDD</string>
