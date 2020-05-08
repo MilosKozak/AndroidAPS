@@ -762,7 +762,7 @@
     <string name="combo_activity_reading_pump_history">Lettura storico micro</string>
     <string name="danar_history">Storico micro</string>
     <string name="combo_activity_setting_basal_profile">Impostazione profilo basale</string>
-    <string name="combo_pump_cartridge_low_warrning">Livello serbatoio basso</string>
+    <string name="combo_pump_cartridge_low_warrning">Livello cartuccia basso</string>
     <string name="combo_pump_battery_low_warrning">Livello batteria basso</string>
     <string name="combo_is_in_error_state">Il micro sta mostrando l\'errore E%1$d: %2$s</string>
     <string name="combo_reservoir_low">Basso</string>
@@ -875,7 +875,7 @@
     <string name="unsafeusage">utilizzo non sicuro</string>
     <string name="readstatusfailed">Lettura stato fallita</string>
     <string name="record_pump_site_change">Registra cambio posizione cannula</string>
-    <string name="record_insulin_cartridge_change">Registra cambio serbatoio insulina</string>
+    <string name="record_insulin_cartridge_change">Registra cambio cartuccia insulina</string>
     <string name="smbalwaysdisabled">Le funzioni \"SMB sempre\" e \"SMB dopo i CHO\" sono disabilitate perché l\'attuale sorgente delle glicemie non supporta il filtraggio avanzato</string>
     <string name="smbnotallowedinopenloopmode">SMB non consentito in modalità loop aperto</string>
     <string name="food_short">Cibo</string>
