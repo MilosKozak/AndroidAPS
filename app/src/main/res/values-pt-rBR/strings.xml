@@ -76,7 +76,6 @@
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">Carbos</string>
     <string name="treatments_wizard_correction_label">Corr</string>
-    <string name="insulin_unit_shortname">U</string>
     <string name="treatments_wizard_bolusiob_label">IOB Bolus</string>
     <string name="openapsma_run">Executar agora</string>
     <string name="vitualpump_label">BOMBA VIRTUAL</string>
@@ -96,11 +95,7 @@
     <string name="result">Resultado</string>
     <string name="result_insulin_carbs">Resultado: %1$s %2$ss</string>
     <string name="openapsma_noglucosedata">Sem dados de glicose disponíveis</string>
-    <string name="nochangerequested">Nenhuma alteração solicitada</string>
     <string name="openapsma_request_label">Solicitar</string>
-    <string name="rate">Rácio</string>
-    <string name="duration">Duração</string>
-    <string name="reason">Motivo</string>
     <string name="glucose">Glicose</string>
     <string name="delta">Delta</string>
     <string name="sms_delta">Delta:</string>
@@ -123,7 +118,6 @@
     <string name="configbuilder_general">Geral</string>
     <string name="configbuilder_general_description">Estes são alguns plugins gerais que pode achar úteis.</string>
     <string name="configbuilder_constraints_description">Que restrições são aplicadas?</string>
-    <string name="days">dias</string>
     <string name="constraints">Restrições</string>
     <string name="loop">Loop</string>
     <string name="configbuilder_loop">Loop</string>
@@ -168,24 +162,6 @@
     <string name="treatments_wizard_basaliob_label">IOB Basal</string>
     <string name="bolusconstraintapplied">Restrição de bólus aplicada</string>
     <string name="carbsconstraintapplied">Restrições de carbs aplicada</string>
-    <string name="careportal_bgcheck">Verificação BG</string>
-    <string name="careportal_announcement">Anúncio</string>
-    <string name="careportal_note">Anotação</string>
-    <string name="careportal_question">Pergunta</string>
-    <string name="careportal_exercise">Exercício</string>
-    <string name="careportal_pumpsitechange">Alteração do local do cateter</string>
-    <string name="careportal_cgmsensorinsert">Colocação do Sensor CGM</string>
-    <string name="careportal_cgmsensorstart">Início do Sensor CGM</string>
-    <string name="careportal_insulincartridgechange">Mudança de Cartucho de Insulina</string>
-    <string name="careportal_profileswitch">Troca de Perfil</string>
-    <string name="careportal_snackbolus">Bólus Lanche</string>
-    <string name="careportal_mealbolus">Bólus Refeição</string>
-    <string name="careportal_correctionbolus">Bólus Correcção</string>
-    <string name="careportal_combobolus">Bólus Combo</string>
-    <string name="careportal_tempbasalstart">Início Basal Temp</string>
-    <string name="careportal_tempbasalend">Fim de Basal Temp</string>
-    <string name="careportal_carbscorrection">Correção Carbos</string>
-    <string name="careportal_openapsoffline">OpenAPS Offline</string>
     <string name="careportal_newnstreatment_eventtype">Tipo de evento</string>
     <string name="careportal_newnstreatment_other">Outro</string>
     <string name="careportal_newnstreatment_meter">Medidor</string>
@@ -273,19 +249,11 @@
     <string name="danar_iob_label">IOB Bomba</string>
     <string name="danar_dailyunits">Unidades diárias</string>
     <string name="pump_lastbolus_label">Último Bolus</string>
-    <string name="hoursago">%1$.1fh atrás</string>
     <string name="danar_invalidinput">Dados de entrada inválidos</string>
     <string name="danar_valuenotsetproperly">Valor não definido corretamente</string>
     <string name="reloadprofile">Recarregar perfil</string>
     <string name="danar_viewprofile">Ver perfil</string>
-    <string name="enacted">Executado</string>
-    <string name="comment">Commentário</string>
-    <string name="success">Sucesso</string>
-    <string name="percent">Percentagem</string>
-    <string name="absolute">Absoluto</string>
-    <string name="canceltemp">Cancelar basal temporária</string>
     <string name="smscommunicator">Comunicador SMS</string>
-    <string name="waitingforpumpresult">Aguardando resultados</string>
     <string name="smscommunicator_allowednumbers">Números de telefone permitidos</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Para dar bolus %1$.2fU responder com código %2$s</string>
@@ -308,11 +276,6 @@
     <string name="smscommunicator_tt_canceled">Alvo Temp cancelado com êxito</string>
     <string name="bolusdelivering">Administrando %1$.2fU</string>
     <string name="smscommunicator_remotecommandsallowed">Permitir comandos remotos via SMS</string>
-    <string name="glucosetype_finger">Dedo</string>
-    <string name="glucosetype_sensor">Sensor</string>
-    <string name="manual">Manual</string>
-    <string name="careportal_temporarytarget">Alvo Temporário</string>
-    <string name="careportal_temporarytargetcancel">Cancelar alvo temporário</string>
     <string name="danarprofile">Definições perfil DanaR</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Duração da Insulina Ativa</string>
@@ -353,7 +316,6 @@
     <string name="waitingforpump">Aguardando a bomba</string>
     <string name="overview_bolusprogress_goingtodeliver">Vão ser administradas %1$.2fU</string>
     <string name="youareonallowedlimit">Atingiu o limite autorizado</string>
-    <string name="noprofileselected">Nenhum perfil selecionado</string>
     <string name="smscommunicator_loophasbeendisabled">Loop foi desativado</string>
     <string name="smscommunicator_loophasbeenenabled">Loop foi ativado</string>
     <string name="smscommunicator_loopisdisabled">Loop Desativado</string>
@@ -575,7 +537,6 @@
     <string name="ns_logappstartedevent">Registar inicio da app no NS</string>
     <string name="restartingapp">A sair da aplicação para aplicar as configurações.</string>
     <string name="danarv2pump">DanaRv2</string>
-    <string name="configbuilder_insulin">Insulina</string>
     <string name="configbuilder_insulin_description">Qual o tipo de insulina que está a utilizar?</string>
     <string name="fastactinginsulin">Insulina de ação rapida</string>
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog</string>
@@ -617,11 +578,9 @@
     <string name="careportal_sensorage_label">Idade do sensor</string>
     <string name="careportal_canulaage_label">Idade da Canula</string>
     <string name="careportal_insulinage_label">Idade de Insulina</string>
-    <string name="hours">horas</string>
     <string name="invalidprofile">Perfil inválido !!!</string>
     <string name="doprofileswitch">Fazer Mudança De Perfil</string>
     <string name="careportal_pbage_label">Idade bateria bomba</string>
-    <string name="careportal_pumpbatterychange">Mudança de Bateria</string>
     <string name="ns_alarmoptions">Opções Alarme</string>
     <string name="nsalarm_urgenthigh">Urgência hiperglicemia</string>
     <string name="nsalarm_high">Alta</string>
@@ -670,7 +629,6 @@
     <string name="careportal_pump_label">BOMBA</string>
     <string name="careportal_newnstreatment_duration_min_label">Duração [min]</string>
     <string name="openapssmb">SMB OpenAPS</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">Activar UAM</string>
     <string name="enablesmb">Activar SMB</string>
     <string name="enablesmb_summary">Use Super Micro Boluses em vez de basal temp para uma acção mais rápida</string>
@@ -717,12 +675,8 @@
     <string name="reuse">reutilizar</string>
     <string name="wearcontrol_title">Controles do Relógio</string>
     <string name="wearcontrol_summary">Definir Alvo-Temp and inserir Tratamentos do relógio.</string>
-    <string name="connectiontimedout">Ligação expirou</string>
     <string name="food">Alimentos</string>
     <string name="shortgramm">g</string>
-    <string name="shortminute">m</string>
-    <string name="shorthour">h</string>
-    <string name="shortday">d</string>
     <string name="none"><![CDATA[<nenhum>]]></string>
     <string name="shortkilojoul">kJ</string>
     <string name="shortenergy">En</string>
@@ -762,8 +716,6 @@
     <string name="dexcomg5_xdripupload_title">Enviar dados Glic. para xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Seleccionar 640g/Eversense como fonte no xDrip+</string>
     <string name="nsclientbg">Glic NSCliente</string>
-    <string name="minimalbasalvaluereplaced">Valor da basal alterado para o valor mínimo suportado: %1$s</string>
-    <string name="maximumbasalvaluereplaced">Valor da basal alterado para o valor máximo suportado: %1$s</string>
     <string name="overview_editquickwizard_usebg">Cálculos Glic</string>
     <string name="overview_editquickwizard_usebolusiob">Cálculo de Bólus IOB</string>
     <string name="overview_editquickwizard_usebasaliob">Cálculo de Basal IOB</string>
@@ -781,8 +733,6 @@
     <string name="closedmodeenabled">Modo fechado ativado</string>
     <string name="maxiobset">IOB máxima definida correctamente</string>
     <string name="hasbgdata">Glicemia disponivel desde a fonte selecionada</string>
-    <string name="basalprofilenotaligned">Valores das basais não definidos por horas: %1$s</string>
-    <string name="zerovalueinprofile">Perfil inválido: %1$s</string>
     <string name="combo_programming_bolus">A programar a bomba para injectar o bolus</string>
     <string name="combo_refresh">Atualizar</string>
     <string name="combo_pump_state_label">Estado</string>
@@ -835,7 +785,6 @@
     <string name="enablesmbwithtemptarget_summary">SMB activo quando há valor alvo temporário activo (exercício, etc)</string>
     <string name="enablesmbwithhightemptarget">SMB activo com alvos temporários elevados</string>
     <string name="enablesmbwithhightemptarget_summary">SMB activo com alvos temporários elevados em curso (exercicio)</string>
-    <string name="let_temp_basal_run">Permitir basal temp correr</string>
     <string name="mute">Silêncio</string>
     <string name="overview_insulin_label">Insulina</string>
     <string name="overview_carbs_label">Carbos</string>
@@ -962,7 +911,6 @@
     <string name="virtualpump_type">Tipo da Bomba Virtual</string>
     <string name="virtualpump_definition">Definição da Bomba</string>
     <string name="virtualpump_pump_def">Bólus: Passo=%1$s\nBólus Estendido: [Passo=%2$s, Duração=%3$smin -%4$sh] \nBasal: Passo=%5$s\ nTBR: %6$s (por %7$s), Duração=%8$smin-%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* Somente valores discretos nos intervalos são suportados como granularidade para basal/bolus na bomba virtual.</string>
     <string name="ns_autobackfill_title">Preenchimentoauto Glicemia</string>
     <string name="wear_wizard_settings">Definições do Assistente Rápido</string>
     <string name="wear_wizard_settings_summary">Resultado cálculos incluídos no Assistente:</string>
@@ -1154,7 +1102,6 @@
     <string name="isequalorgreater">é igual ou maior que</string>
     <string name="isgreater">é maior que</string>
     <string name="isnotavailable">não está disponível</string>
-    <string name="unknown">desconhecido</string>
     <string name="glucoseisnotavailable">Glicose não está disponível</string>
     <string name="glucosecomparedmgdl">Glicose %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">Glicose %1$s %2$.1f %3$s</string>
@@ -1171,23 +1118,10 @@
     <string name="automation_short">Auto</string>
     <string name="automation">Automatização</string>
     <string name="profile_total">== ∑  %1$s U</string>
-    <string name="profile_ins_units_per_hour">U/h</string>
-    <string name="profile_carbs_per_unit">g/U</string>
-    <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">Registar mudança de sensor para NS</string>
     <string name="dexcom_lognssensorchange_summary">Criar evento \"Mudança de Sensor\" automaticamente no NS aquando do início do sensor</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
-    <string name="unit_second">segundo</string>
-    <string name="unit_minute">minuto</string>
-    <string name="unit_hour">hora</string>
-    <string name="unit_day">dia</string>
-    <string name="unit_week">semana</string>
-    <string name="unit_seconds">segundos</string>
-    <string name="unit_minutes">minutos</string>
-    <string name="unit_hours">horas</string>
-    <string name="unit_days">dias</string>
-    <string name="unit_weeks">semanas</string>
     <string name="summary_tidepool_username">Nome de utilizador no Tidepool, normalmente seu endereço de e-mail</string>
     <string name="title_tidepool_username">Nome de Utilizador</string>
     <string name="summary_tidepool_password">Palavra-passe da conta Tidepool</string>
@@ -1471,7 +1405,6 @@
     <string name="nav_survey">Questionário</string>
     <string name="invalidage">Entrada de idade inválida</string>
     <string name="invalidweight">Entrada de peso inválida</string>
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Hipo: <b>%2$02d%%</b> Dentro: <b>%3$02d%%</b> Hiper: <b>%4$02d%%</b>]]></string>
     <string name="average">Média</string>
     <string name="tdd">TDD</string>
