@@ -1506,11 +1506,16 @@ Unerwartetes Verhalten.</string>
     <string name="omnipod_error_illegal_init_action_type">Illegal PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Kein aktiver Pod.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Kommandoprüfung fehlgeschlagen</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Es ist ein unerwarteter Fehler aufgetreten. Bitte melden! (Typ: %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Kommunikation fehlgeschlagen: Ungültige Eingabeparameter empfangen.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Keine Verbindung: Zeitüberschreitung</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Keine Verbindung: Es ist ein unerwarteter Fehler aufgetreten. Bitte melden!</string>
     <string name="omnipod_driver_error_crc_mismatch">Kommunikation fehlgeschlagen: Die Überprüfung der Nachrichtenintegrität ist fehlgeschlagen.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Kommunikation fehlgeschlagen: Es wurde ein ungültiges Paket vom Pod empfangen.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Kommunikation fehlgeschlagen: Der Pod befindet sich in einem falschen Status.</string>
     <string name="omnipod_driver_error_invalid_response">Kommunikation fehlgeschlagen: Es wurde eine ungültige Antwort vom Pod empfangen.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Kommunikation fehlgeschlagen: Ungültige Zeichenfolge vom Pod empfangen.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Kommunikation fehlgeschlagen: Ungültige Adresse vom Pod empfangen.</string>
     <string name="omnipod_driver_error_message_decoding_failed">Kommunikation fehlgeschlagen: Nachricht vom Pod konnte nicht decodiert werden.</string>
     <string name="omnipod_driver_error_nonce_resync_failed">Kommunikation fehlgeschlagen: Nonce resync fehlgeschlagen.</string>
     <string name="omnipod_driver_error_nonce_out_of_sync">Kommunikation fehlgeschlagen: Nonce nicht synchronisiert</string>
