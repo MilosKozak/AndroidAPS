@@ -77,7 +77,6 @@ Eversense-appen.</string>
     <string name="treatments_wizard_tt_label">TT</string>
     <string name="treatments_wizard_carbs_label">KH</string>
     <string name="treatments_wizard_correction_label">Korrektion</string>
-    <string name="insulin_unit_shortname">U</string>
     <string name="treatments_wizard_bolusiob_label">Bolus IOB</string>
     <string name="openapsma_run">Utför nu</string>
     <string name="vitualpump_label">Virtuell pump</string>
@@ -97,11 +96,7 @@ Eversense-appen.</string>
     <string name="result">Resultat</string>
     <string name="result_insulin_carbs">Resultat: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Ingen BG-data tillänglig</string>
-    <string name="nochangerequested">Ingen ändring behövs</string>
     <string name="openapsma_request_label">Beräknat behov</string>
-    <string name="rate">Basaldos</string>
-    <string name="duration">Duration</string>
-    <string name="reason">Orsak</string>
     <string name="glucose">Glukos</string>
     <string name="delta">Delta</string>
     <string name="sms_delta">Delta:</string>
@@ -124,7 +119,6 @@ Eversense-appen.</string>
     <string name="configbuilder_general">Generella inställningar</string>
     <string name="configbuilder_general_description">Dessa är några allmänna insticksprogram som kan vara användbara.</string>
     <string name="configbuilder_constraints_description">Vilka begränsningar ska tillämpas?</string>
-    <string name="days">dagar</string>
     <string name="constraints">Begränsningar</string>
     <string name="loop">Loop</string>
     <string name="configbuilder_loop">Loop</string>
@@ -169,24 +163,6 @@ Eversense-appen.</string>
     <string name="treatments_wizard_basaliob_label">IOB från basal</string>
     <string name="bolusconstraintapplied">Bolusspärr aktiverad</string>
     <string name="carbsconstraintapplied">Kolhydratsspärr aktiverad</string>
-    <string name="careportal_bgcheck">BG-kontroll</string>
-    <string name="careportal_announcement">Meddelande</string>
-    <string name="careportal_note">Anteckning</string>
-    <string name="careportal_question">Fråga</string>
-    <string name="careportal_exercise">Träning</string>
-    <string name="careportal_pumpsitechange">Byte pumpkanyl</string>
-    <string name="careportal_cgmsensorinsert">Byte CGM-sensor</string>
-    <string name="careportal_cgmsensorstart">Start CGM-sensor</string>
-    <string name="careportal_insulincartridgechange">Byte insulinreservoar</string>
-    <string name="careportal_profileswitch">Profilbyte</string>
-    <string name="careportal_snackbolus">Mellanmålsbolus</string>
-    <string name="careportal_mealbolus">Måltidsbolus</string>
-    <string name="careportal_correctionbolus">Korrektionsbolus</string>
-    <string name="careportal_combobolus">Kombi-bolus</string>
-    <string name="careportal_tempbasalstart">Temp basal start</string>
-    <string name="careportal_tempbasalend">Temp basal slut</string>
-    <string name="careportal_carbscorrection">KH-korrektion</string>
-    <string name="careportal_openapsoffline">OpenAPS Offline</string>
     <string name="careportal_newnstreatment_eventtype">Händelsetyp</string>
     <string name="careportal_newnstreatment_other">Annat</string>
     <string name="careportal_newnstreatment_meter">Mätare</string>
@@ -272,19 +248,11 @@ Eversense-appen.</string>
     <string name="danar_iob_label">Pumpens IOB</string>
     <string name="danar_dailyunits">Enheter per dag</string>
     <string name="pump_lastbolus_label">Senaste bolus</string>
-    <string name="hoursago">%1$.1f tim sedan</string>
     <string name="danar_invalidinput">Fel på inmatning</string>
     <string name="danar_valuenotsetproperly">Misslyckades med inställning</string>
     <string name="reloadprofile">Ladda om profil</string>
     <string name="danar_viewprofile">Visa profil</string>
-    <string name="enacted">Utförd</string>
-    <string name="comment">Kommentar</string>
-    <string name="success">Lyckad</string>
-    <string name="percent">Procent</string>
-    <string name="absolute">Absolut</string>
-    <string name="canceltemp">Avbryt temp basal</string>
     <string name="smscommunicator">SMS-tjänst</string>
-    <string name="waitingforpumpresult">Väntar på resultat</string>
     <string name="smscommunicator_allowednumbers">Godkända telefonnummer</string>
     <string name="smscommunicator_allowednumbers_summary">+4670XXXXXXX; +4670YYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">För att ge bolus %1$.2f enheter, svara med kod %2$s</string>
@@ -307,11 +275,6 @@ Eversense-appen.</string>
     <string name="smscommunicator_tt_canceled">Temporärt mål avbrutet</string>
     <string name="bolusdelivering">Levererar %1$.2f enheter</string>
     <string name="smscommunicator_remotecommandsallowed">Tillåt fjärrstyrning via SMS</string>
-    <string name="glucosetype_finger">Finger</string>
-    <string name="glucosetype_sensor">Sensor</string>
-    <string name="manual">Manuell</string>
-    <string name="careportal_temporarytarget">Temp mål</string>
-    <string name="careportal_temporarytargetcancel">Avbryt temp mål</string>
     <string name="danarprofile">Dana R profilinställningar</string>
     <string name="danarprofile_dia">DIA [tim]</string>
     <string name="danarprofile_dia_summary">Insulinets verkningstid</string>
@@ -352,7 +315,6 @@ Eversense-appen.</string>
     <string name="waitingforpump">Väntar på pump</string>
     <string name="overview_bolusprogress_goingtodeliver">Kommer att leverera %1$.2f enheter</string>
     <string name="youareonallowedlimit">Du har nått din tillåtna gräns</string>
-    <string name="noprofileselected">Ingen profil vald</string>
     <string name="smscommunicator_loophasbeendisabled">Loop stängdes av. </string>
     <string name="smscommunicator_loophasbeenenabled">Loop aktiverades</string>
     <string name="smscommunicator_loopisdisabled">Loop är avstängd</string>
@@ -574,7 +536,6 @@ Eversense-appen.</string>
     <string name="ns_logappstartedevent">Rapportera appstart till Nightscout</string>
     <string name="restartingapp">Avslutar appen för att inställningarna ska läsas in.</string>
     <string name="danarv2pump">Dana R v2</string>
-    <string name="configbuilder_insulin">Insulin</string>
     <string name="configbuilder_insulin_description">Vilken typ av insulin använder du?</string>
     <string name="fastactinginsulin">Snabbverkande Insulin</string>
     <string name="fastactinginsulincomment">Novorapid, Novolog, Humalog, Apidra</string>
@@ -616,11 +577,9 @@ Eversense-appen.</string>
     <string name="careportal_sensorage_label">Sensorålder</string>
     <string name="careportal_canulaage_label">Kanylålder</string>
     <string name="careportal_insulinage_label">Insulinålder</string>
-    <string name="hours">timmar</string>
     <string name="invalidprofile">Ogiltig profil!</string>
     <string name="doprofileswitch">Genomför profilbyte</string>
     <string name="careportal_pbage_label">Pumpbatteri ålder</string>
-    <string name="careportal_pumpbatterychange">Byte pumpbatteri</string>
     <string name="ns_alarmoptions">Larminställningar</string>
     <string name="nsalarm_urgenthigh">Akut hög</string>
     <string name="nsalarm_high">Hög</string>
@@ -669,7 +628,6 @@ Eversense-appen.</string>
     <string name="careportal_pump_label">PUMP</string>
     <string name="careportal_newnstreatment_duration_min_label">Duration [min]</string>
     <string name="openapssmb">OpenAPS SMB</string>
-    <string name="smb_shortname">SMB</string>
     <string name="enableuam">Aktivera UAM</string>
     <string name="enablesmb">Aktivera SMB</string>
     <string name="enablesmb_summary">Använd Super Micro Bolusar istället för temp basal för snabbare resultat</string>
@@ -716,12 +674,8 @@ Eversense-appen.</string>
     <string name="reuse">återanvänd</string>
     <string name="wearcontrol_title">Kontrollera från klockan</string>
     <string name="wearcontrol_summary">Sätt temp målvärde och ange behandlingar från klockan.</string>
-    <string name="connectiontimedout">Anslutningen tog för lång tid</string>
     <string name="food">Matdatabas</string>
     <string name="shortgramm">g</string>
-    <string name="shortminute">min</string>
-    <string name="shorthour">h</string>
-    <string name="shortday">d</string>
     <string name="none"><![CDATA[<ingen>]]></string>
     <string name="shortkilojoul">kJ</string>
     <string name="shortenergy">En</string>
@@ -761,8 +715,6 @@ Eversense-appen.</string>
     <string name="dexcomg5_xdripupload_title">Skicka BG-data till xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Välj \"640G/Eversense\" som datakälla i xDrip+</string>
     <string name="nsclientbg">NSClient BG</string>
-    <string name="minimalbasalvaluereplaced">Basalvärdet ersatt med det lägsta tillåtna: %1$s</string>
-    <string name="maximumbasalvaluereplaced">Basalvärdet ersatt med det maximala tillåtna: %1$s</string>
     <string name="overview_editquickwizard_usebg">Använd BG</string>
     <string name="overview_editquickwizard_usebolusiob">Använd bolus-IOB</string>
     <string name="overview_editquickwizard_usebasaliob">Använd basal-IOB</string>
@@ -780,8 +732,6 @@ Eversense-appen.</string>
     <string name="closedmodeenabled">Closed loop aktiverad</string>
     <string name="maxiobset">Max IOB är korrekt angivet</string>
     <string name="hasbgdata">BG tillgängligt från vald källa</string>
-    <string name="basalprofilenotaligned">Profilens basaler är inte satta på hel timme: %1$s</string>
-    <string name="zerovalueinprofile">Ogiltig profil: %1$s</string>
     <string name="combo_programming_bolus">Programmerar bolus i pump</string>
     <string name="combo_refresh">Uppdatera</string>
     <string name="combo_pump_state_label">Läge</string>
@@ -834,7 +784,6 @@ Eversense-appen.</string>
     <string name="enablesmbwithtemptarget_summary">Använd SMB när temp mål är satt, t ex Äta snart eller Träning</string>
     <string name="enablesmbwithhightemptarget">Använd SMB vid högt målvärde</string>
     <string name="enablesmbwithhightemptarget_summary">Använd SMB även när ett högt temp målvärde är satt (över 5,5 mmol)</string>
-    <string name="let_temp_basal_run">Låt temp basalen gå</string>
     <string name="mute">Tysta</string>
     <string name="overview_insulin_label">Insulin</string>
     <string name="overview_carbs_label">Kolhydrater</string>
@@ -961,7 +910,6 @@ Eversense-appen.</string>
     <string name="virtualpump_type">Typ av virtuell pump</string>
     <string name="virtualpump_definition">Pumpdefinition</string>
     <string name="virtualpump_pump_def">Bolus: Steg =%1$s\nFörlängd bolus: [Steg=%2$s, duration =%3$smin -%4$sh] \nBasal: Steg=%5$s\nTempbasal: %6$s (av %7$s), duration =%8$smin -%9$sh\n%10$s</string>
-    <string name="virtualpump_pump_def_extended_note">* Inga spann stöds som granularitet för basal/bolus i den virtuella pumpen. Endast enkla värden.</string>
     <string name="ns_autobackfill_title">Auto Backfill BG</string>
     <string name="wear_wizard_settings">Kalkylatorinställningar</string>
     <string name="wear_wizard_settings_summary">Kalkyler inkluderade i resultatet</string>
@@ -1153,7 +1101,6 @@ Eversense-appen.</string>
     <string name="isequalorgreater">är samma eller större än</string>
     <string name="isgreater">är större än</string>
     <string name="isnotavailable">är inte tillgänglig</string>
-    <string name="unknown">okänd</string>
     <string name="glucoseisnotavailable">BG-data är inte tillgängligt</string>
     <string name="glucosecomparedmgdl">BG %1$s %2$.0f %3$s</string>
     <string name="glucosecomparedmmol">BG %1$s %2$.1f %3$s</string>
@@ -1170,23 +1117,10 @@ Eversense-appen.</string>
     <string name="automation_short">Auto</string>
     <string name="automation">Automation</string>
     <string name="profile_total">== ∑  %1$s U</string>
-    <string name="profile_ins_units_per_hour">U/h</string>
-    <string name="profile_carbs_per_unit">g/U</string>
-    <string name="profile_per_unit">/U</string>
     <string name="dexcom_lognssensorchange_title">Logga sensorbyte till Nightscout</string>
     <string name="dexcom_lognssensorchange_summary">Loggar automatiskt ett sensorbyte i NS när en sensor startas</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
-    <string name="unit_second">sekund</string>
-    <string name="unit_minute">minut</string>
-    <string name="unit_hour">timme</string>
-    <string name="unit_day">day</string>
-    <string name="unit_week">vecka</string>
-    <string name="unit_seconds">sekunder</string>
-    <string name="unit_minutes">minuter</string>
-    <string name="unit_hours">timmar</string>
-    <string name="unit_days">dagar</string>
-    <string name="unit_weeks">veckor</string>
     <string name="summary_tidepool_username">Ditt användarnamn på Tidepool. Normalt din e-postadress</string>
     <string name="title_tidepool_username">Användarnamn</string>
     <string name="summary_tidepool_password">Ditt Tidepool-lösenord</string>
@@ -1470,7 +1404,6 @@ Eversense-appen.</string>
     <string name="nav_survey">Enkät</string>
     <string name="invalidage">Ogiltig inmatning (ålder)</string>
     <string name="invalidweight">Ogiltig inmatning (vikt)</string>
-    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Låg: <b>%2$02d%%</b> Mål: <b>%3$02d%%</b> Hög: <b>%4$02d%%</b>]]></string>
     <string name="average">Medel</string>
     <string name="tdd">TDD</string>
