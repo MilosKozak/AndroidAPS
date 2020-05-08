@@ -1514,6 +1514,8 @@
     <string name="omnipod_driver_error_invalid_packet_type">Comunicazione fallita: ricevuto un pacchetto non valido dal pod.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Comunicazione fallita: il pod è in uno stato non corretto.</string>
     <string name="omnipod_driver_error_invalid_response">Comunicazione fallita: ricevuta una risposta non valida dal pod.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Comunicazione fallita: ricevuto dal pod un messaggio con una sequenza numerica non valida.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Comunicazione fallita: ricevuto dal pod un messaggio con un indirizzo non valido.</string>
     <string name="omnipod_driver_error_message_decoding_failed">Comunicazione fallita: non si è riuscito a decodificare il messaggio dal pod.</string>
     <string name="omnipod_driver_error_nonce_resync_failed">Comunicazione fallita: risincronizzazione \'nonce\' non riuscita.</string>
     <string name="omnipod_driver_error_nonce_out_of_sync">Comunicazione fallita: \'nonce\' non sincronizzato.</string>
