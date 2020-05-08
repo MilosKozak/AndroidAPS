@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    Dialogs-->
     <string name="confirmation">Bestätigung</string>
     <string name="message">Nachricht</string>
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
     <string name="dismiss">VERWERFEN</string>
+    <!--    BlePreCheck-->
     <string name="rileylink_scanner_ble_not_supported">Bluetooth-Low-Energy nicht unterstützt.</string>
     <string name="rileylink_scanner_ble_not_enabled">Bluetooth nicht aktiviert.</string>
     <string name="location_not_found_title">Standortdienst ist nicht aktiviert</string>
     <string name="location_not_found_message">Auf neueren Geräten muss für die Bluetooth-Erkennung der Standortdienst aktiviert sein. AAPS speichert keine Standortdaten und der Dienst kann nach erfolgreichem Pairing wieder deaktiviert werden.</string>
+    <!--    DateUtil-->
+    <!--    Profile-->
+    <!--    ProfileFunction-->
+    <!--    PumpType-->
+    <!--    APSResult-->
+    <!--    ProfileSwitch-->
+    <!--    Temptarget-->
+    <!--    TDD-->
+    <!--    Translator-->
+    <!--    Command-->
+    <!--    PumpEnactResult-->
 </resources>
