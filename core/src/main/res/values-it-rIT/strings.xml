@@ -12,6 +12,15 @@
     <string name="location_not_found_title">La localizzazione non è abilitata</string>
     <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni sui dispositivi più recenti, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'associazione. AAPS non tiene traccia della tua posizione.</string>
     <!--    DateUtil-->
+    <string name="minago">%1$dm fa</string>
+    <string name="hoursago">%1$.1fh fa</string>
+    <string name="shorthour">h</string>
+    <string name="days">giorni</string>
+    <string name="hours">ore</string>
+    <string name="unit_second">secondi</string>
+    <string name="unit_minute">minuti</string>
+    <string name="unit_hour">ora</string>
+    <string name="unit_day">giorno</string>
     <!--    Profile-->
     <!--    ProfileFunction-->
     <!--    PumpType-->
