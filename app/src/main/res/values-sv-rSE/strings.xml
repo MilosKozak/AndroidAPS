@@ -1097,7 +1097,7 @@ Eversense-appen.</string>
     <string name="stoptemptarget">Avbryt temp mål</string>
     <string name="islesser">är mindre än</string>
     <string name="isequalorlesser">är samma eller mindre än</string>
-    <string name="isequal">är samma som</string>
+    <string name="isequal">är lika med</string>
     <string name="isequalorgreater">är samma eller större än</string>
     <string name="isgreater">är större än</string>
     <string name="isnotavailable">är inte tillgänglig</string>
