@@ -10,8 +10,15 @@
     <!--    DateUtil-->
     <!--    Profile-->
     <!--    ProfileFunction-->
+    <string name="noprofileselected">Ingen profil vald</string>
     <!--    PumpType-->
+    <string name="virtualpump_pump_def_extended_note">* Endast fasta värden (inga spann) tillåts för basal/bolus i den virtuella pumpen.</string>
     <!--    APSResult-->
+    <string name="canceltemp">Avbryt temp basal</string>
+    <string name="let_temp_basal_run">Låt temp basalen gå</string>
+    <string name="rate">Basaldos</string>
+    <string name="duration">Duration</string>
+    <string name="reason">Orsak</string>
     <!--    ProfileSwitch-->
     <!--    Temptarget-->
     <!--    TDD-->
