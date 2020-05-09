@@ -199,6 +199,7 @@ Eversense-appen.</string>
     <string name="password_preferences_decrypt_prompt">Du kommer att bli tillfrågad om huvudlösenordet som sedan kommer att användas för att avkryptera importerade inställningar.</string>
     <string name="preferences_export_canceled">Exporten avbröts. Inställningarna har INTE exporterats!</string>
     <string name="preferences_import_canceled">Importen avbröts. Inställningarna har inte importerats!</string>
+    <string name="preferences_import_list_title">Välj fil att importera</string>
     <string name="check_preferences_before_import">Vänligen kontrollera inställningarna innan du importerar:</string>
     <string name="check_preferences_cannot_import">Inställningarna kan inte importeras!</string>
     <string name="check_preferences_dangerous_import">Inställningar bör inte importeras!</string>
@@ -211,6 +212,8 @@ Eversense-appen.</string>
     <string name="metadata_warning_outdated_format">Du använder det gamla formatet (från äldre versioner av AAPS) som inte är säkert. Använd det bara som en sista utväg om du inte har någon export i aktuellt format, JSON.</string>
     <string name="metadata_warning_old_export">Importerade inställningar är %1$s dagar gamla. Du kanske har mer aktuella inställningar eller väljer du fel fil? Kom ihåg att exportera dina inställningar regelbundet!</string>
     <string name="metadata_warning_date_format">Ogiltigt datumformat!</string>
+    <string name="metadata_warning_different_version">Inställningarna är sparade i en annan delversion av appen. Det är OK om du importerar efter uppgradering, men kontrollera att inställningarna fortfarande är korrekta efter import!</string>
+    <string name="metadata_urgent_different_version">Inställningarna är sparade i en annan huvudversion av appen. Olika huvudversioner kan ha helt olika struktur vilket kan göra dem inkompatibla. Kontrollera inställningarna noggrant efter import!</string>
     <string name="metadata_label_format">Filformat</string>
     <string name="metadata_label_created_at">Skapad</string>
     <string name="metadata_label_aaps_version">AAPS-version</string>
@@ -233,6 +236,11 @@ Eversense-appen.</string>
     <string name="prefdecrypt_issue_wrong_pass">Dekrypteringsfel. Det angivna lösenordet är ogiltigt eller så har inställningsfilen ändrats. Filen verkar ha exporterats med ett annat lösenord.</string>
     <string name="prefdecrypt_issue_wrong_format">Krypteringskonfigurationen saknas. Inställningsformatet är ogiltigt!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Ej stödd eller ej angiven krypteringsalgoritm!</string>
+    <string name="exported_today">exporterat idag</string>
+    <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">exporterades för %1$s sedan</string>
+    <string name="exported_at" comment="at placeholder we add export date">exporterades %1$s</string>
+    <string name="exported_less_than_hour_ago">exporterades för mindre än timme sedan</string>
+    <string name="in_directory" comment="placeholder is for exported file path">i mappen: %1$s</string>
     <string name="danarpump">Dana R</string>
     <string name="connecting">Ansluter</string>
     <string name="connected">Ansluten</string>
@@ -387,7 +395,7 @@ Eversense-appen.</string>
     <string name="basal_rate">Basal:</string>
     <string name="profile_set_failed">Lyckades inte sätta basalprofilen</string>
     <string name="profile_set_ok">Basalprofilen uppdaterad i pumpen</string>
-    <string name="danar_disableeasymode">Avaktivera EasyUI-läget i pumpen</string>
+    <string name="danar_disableeasymode">Inaktivera Easy UI-läget i pumpen</string>
     <string name="danar_enableextendedbolus">Aktivera förlängd bolus i pumpen</string>
     <string name="danar_switchtouhmode">Ändra inställningen från E/d till E/tim i pumpen</string>
     <string name="basalvaluebelowminimum">Basal understiger miniminivå. Profilen sattes inte.</string>
@@ -500,6 +508,7 @@ Eversense-appen.</string>
     <string name="wear_detailedIOB_title">Visa detaljerad IOB</string>
     <string name="wear_detailedIOB_summary">Visa IOB med bolus och basal på klocka</string>
     <string name="nosuccess">misslyckat - kontrollera telefonen</string>
+    <string name="notavailable">-</string>
     <string name="patientage">Personens ålder</string>
     <string name="child">Barn</string>
     <string name="teenage">Tonåring</string>
@@ -826,6 +835,7 @@ Eversense-appen.</string>
     <string name="closed_loop_disabled_on_dev_branch">Du kör nu dev-versionen. Closed Loop inte tillåtet.</string>
     <string name="engineering_mode_enabled">Engineering Mode aktiverat</string>
     <string name="not_eng_mode_or_release">Engineering Mode inte aktiverat och appen körs inte som release</string>
+    <string name="pump_basebasalrate">%1$.2fU/h</string>
     <string name="combo_actvity_reading_basal_profile">Läser basalprofil</string>
     <string name="combo_bolus_rejected_due_to_pump_history_change">Pumphistoriken ändrad efter att boluskalkylen gjordes. Bolusen har inte levererats. Vänligen gör en ny kalkyl vid behov.</string>
     <string name="combo_error_updating_treatment_record">Bolusen levererad, men det gick inte att lägga till den i loggen. Detta kan hända om två små bolusar ges inom två minuter. Vänligen kontrollera pumpens historik och Careportal och lägg till om det saknas. Se till att inte lägga till två bolusar med samma mängd och samma tid.</string>
@@ -1464,6 +1474,9 @@ Eversense-appen.</string>
     <string name="statuslights">Statuslampor</string>
     <string name="statuslights_copy_ns">Kopiera inställningar från NS</string>
     <string name="copyexistingvalues">Kopiera NS-inställningar (om det finns)?</string>
+    <string name="classic_desrciption">Ursprungligt tema</string>
+    <string name="buttonson_desrciption">Knappar visas alltid längst ned på skärmen</string>
+    <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod">Pumpintegrering för Omnipod. Kräver Riley Link med minst v2-firmware.</string>
@@ -1494,20 +1507,73 @@ Eversense-appen.</string>
     <string name="omnipod_error_illegal_init_action_type">Ogiltig PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Ingen aktiv pod.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Kommandoverifikation misslyckades.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Ett oväntat fel uppstod. Vänligen rapportera! (typ: %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Kommunikationsfel: Emottog ogiltiga indataparametrar.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Kommunikationsfel: Timeout.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Kommunikationsfel: Ett oväntat fel inträffade. Rapportera!</string>
     <string name="omnipod_driver_error_crc_mismatch">Kommunikationsfel: Lyckades inte verifiera meddelandet.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Kommunikationsfel: Mottog ett ogiltigt datapaket från pod.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Kommunikationsfel: Pod är i fel tillstånd.</string>
     <string name="omnipod_driver_error_invalid_response">Kommunikationsfel: Mottog ett felaktig svar från pod.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Kommunikationsfel: Tog emot ett meddelande med ett ogiltigt sekvensnummer från podden.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Kommunikationsfel: Tog emot ett meddelande med en ogiltig adress från podden.</string>
     <string name="omnipod_driver_error_message_decoding_failed">Kommunikationsfel: Misslyckades avkoda meddelandet från pod.</string>
     <string name="omnipod_driver_error_nonce_resync_failed">Kommunikationsfel: \"nonce resync\" misslyckades.</string>
     <string name="omnipod_driver_error_nonce_out_of_sync">Kommunikationsfel: \"nonce\" är inte i synk.</string>
     <string name="omnipod_driver_error_not_enough_data">Kommunikationsfel: Mottog inte tillräckligt mycket data från pod.</string>
+    <string name="omnipod_driver_error_pod_fault">Ett pod-fel (%1$03d %2$s) har upptäckts. Vänligen inaktivera din pod och starta en ny.</string>
+    <string name="omnipod_driver_error_pod_returned_error_response">Kommunikationsfel: Pod returnerade ett fel.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_pod_mgmt_title">Podhantering</string>
+    <string name="omnipod_cmd_init_pod">Initiera pod</string>
+    <string name="omnipod_cmd_deactivate_pod">Inaktivera pod</string>
+    <string name="omnipod_cmd_reset_pod">Återställ pod</string>
+    <string name="omnipod_cmd_pod_history">Pod-historik</string>
+    <string name="omnipod_cmd_set_bolus">Leverera bolus</string>
+    <string name="omnipod_cmd_cancel_bolus">Avbryt Bolus</string>
+    <string name="omnipod_cmd_set_tbr">Sätt temp basal</string>
+    <string name="omnipod_cmd_cancel_tbr">Avbryt temp basal (internt av drivrutinen)</string>
+    <string name="omnipod_cmd_cancel_tbr_forced">Avbryt temp basal (tvingat av användaren)</string>
+    <string name="omnipod_cmd_set_basal_schedule">Ange basaldoser</string>
+    <string name="omnipod_cmd_get_pod_status">Uppdatera pod-status</string>
+    <string name="omnipod_cmd_get_pod_info">Hämta Pod-information</string>
+    <string name="omnipod_cmd_set_time">Ställ in tid</string>
+    <string name="omnipod_cmd_configure_alerts">Konfigurera varningar</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Bekräfta varningar</string>
+    <string name="omnipod_cmd_suspend_delivery">Pausa insulintillförsel</string>
+    <string name="omnipod_cmd_resume_delivery">Återuppta insulintillförsel</string>
+    <string name="omnipod_cmd_unknown_entry">Okänd post</string>
+    <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, KH=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Dos: %1$.1f U, Duration: %2$d min</string>
+    <string name="omnipod_cmd_reset_pod_desc">Om du trycker på <b>OK</b>, kommer poddstatus att tvångsåterställas och du kommer inte att kunna kommunicera med podden längre. Gör det här bara om du inte kan kommunicera med podden. Om du fortfarande kan kommunicera med den, använd alternativet <b>Inaktivera pod</b>.</string>
+    <string name="omnipod_cmd_pod_history_na">Pod-historik är inte tillgänglig för tillfället.</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Fyll pod</string>
+    <string name="omnipod_init_pod_wizard_step1_desc">\nFyll den nya podden med tillräckligt med insulin för 3 dagar.\n\nLyssna efter två pip under påfyllningsprocessen. Dessa anger att minimimängden 85U har nåtts. Var noga med att helt tömma påfyllningssprutan, även efter att ha hört de två pipen.\n\nNär påfyllningen är klar, tryck <b>Nästa</b>.\n\n<b>Notera:</b> Ta inte bort nålskyddet ännu.</string>
+    <string name="omnipod_init_pod_wizard_step2_title">Förfyllning</string>
+    <string name="omnipod_init_pod_wizard_step2_action_header">Försöker parkoppla den nya podden och förfylla den.\n\nNär alla steg är sluförda, kan du trycka på <b>Nästa</b>.\n\n<b>Notera:</b> Håll din riley link väldigt nära podden.</string>
+    <string name="omnipod_init_pod_wizard_step3_title">Fäst podden</string>
+    <string name="omnipod_init_pod_wizard_step3_desc">\nFörbered infusionsplatsen. Ta bort poddens nålskydd och fäst podden på infusionsplatsen.\n\nOm kanylen sticker ut, tryck på <b>Avbryt</b> och kasta din pod.\n\nTryck <b>Nästa</b> för att skjuta in kanylen och påbörja basaldoseringen.</string>
+    <string name="omnipod_init_pod_wizard_step4_title">Skjuter in kanylen</string>
+    <string name="omnipod_init_pod_wizard_step4_action_header">Försöker att ställa in basaldoser och skjuta in kanylen.\n\nNär alla steg är slutförda, kan du trycka på <b>Nästa</b>.</string>
+    <string name="omnipod_init_pod_wizard_pod_info_title">Pod-info</string>
     <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nPodden är nu aktiverad.\n\nDina basaldoser har programmerats och kanylen har skjutits in in.\n\nKontrollera att kanylen sitter på rätt sätt och byt pod om den inte gjort det.</string>
     <string name="omnipod_remove_pod_wizard_step1_title">Inaktivera pod</string>
+    <string name="omnipod_remove_pod_wizard_step1_desc">\nTryck på <b>Nästa</b> för att inaktivera podden.\n\n<b>OBS!</b> Det här stoppar all insulintillförsel och inaktiverar podden.</string>
+    <string name="omnipod_remove_pod_wizard_step2_title">Inaktiverar pod</string>
+    <string name="omnipod_remove_pod_wizard_step2_action_header">Inaktivering av pod\n\nNär alla steg är slutförda, kan du trycka på <b>Nästa</b>.\n\n<b>Notera:</b> Om inaktivering misslyckas ofta, tryck på <b>Avbryt</b> och använd alternativet <b>Återställ pod</b> för att tvångsåterställa podden.</string>
+    <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod inaktiverad.\n\nTa bort podden och kasta den.</string>
+    <string name="omnipod_init_pod_pair_pod">Parkoppla pod</string>
+    <string name="omnipod_init_pod_prime_pod">Förfyll pod</string>
+    <string name="omnipod_init_pod_fill_cannula">Fyll kanyl</string>
+    <string name="omnipod_init_pod_set_basal_profile">Sätt basalprofil</string>
+    <string name="omnipod_deactivate_pod_cancel_delivery">Avbryt leverans</string>
+    <string name="omnipod_deactivate_pod_deactivate_pod">Inaktivera pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod_dash">Pumpintegration för Omnipod Dash.</string>
+    <string name="omnipod_alert_finish_pairing_reminder">Påminnelse att slutföra parkoppling</string>
+    <string name="omnipod_alert_finish_setup_reminder_reminder">Påminnelse att slutföra installation</string>
     <string name="omnipod_alert_expiration">Pod kommer att gå ut inom kort</string>
     <string name="omnipod_alert_expiration_advisory">Pod kommer att gå ut inom kort</string>
     <string name="omnipod_alert_shutdown_imminent">Pod kommer snart att stängas av</string>
