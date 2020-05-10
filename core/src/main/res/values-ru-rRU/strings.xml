@@ -25,17 +25,70 @@
     <string name="unit_seconds">сек</string>
     <string name="unit_minutes">мин</string>
     <string name="unit_hours">час</string>
+    <string name="unit_days">дн</string>
+    <string name="unit_weeks">нед</string>
+    <string name="shortminute">мин</string>
+    <string name="shortday">дн</string>
     <!--    Profile-->
+    <string name="basalprofilenotaligned">Базальные значения не выровнены по часам: %1$s</string>
+    <string name="minimalbasalvaluereplaced">Значение базала заменено минимальной поддерживаемой величиной: %1$s</string>
+    <string name="maximumbasalvaluereplaced">Значение базала заменено максимальной поддерживаемой величиной: %1$s</string>
+    <string name="profile_per_unit">/ед</string>
+    <string name="profile_ins_units_per_hour">ед/ч</string>
+    <string name="profile_carbs_per_unit">г/ед</string>
     <!--    ProfileFunction-->
+    <string name="noprofileselected">профиль не выбран</string>
     <!--    PumpType-->
+    <string name="virtualpump_pump_def_extended_note">* В виртуальной помпе поддерживаются только дискретные величины для обработки базала/болюса.</string>
     <!--    APSResult-->
+    <string name="canceltemp">отмена врем базала</string>
+    <string name="let_temp_basal_run">Оставить временный базал работающим</string>
+    <string name="rate">Скорость</string>
+    <string name="duration">Продолжительность</string>
+    <string name="reason">Основание</string>
+    <string name="nochangerequested">Именения не запрошены</string>
     <!--    ProfileSwitch-->
+    <string name="zerovalueinprofile">Недопустимый профиль: %1$s</string>
     <!--    Temptarget-->
+    <string name="mins">%1$d мин</string>
     <!--    TDD-->
+    <string name="tddformat"><![CDATA[<b>%1$s</b>∑:<b>%2$.2f</b>Бол:<b>%3$.2f</b>Баз:<b>%4$.2f</b>]]></string>
     <!--    Translator-->
+    <string name="careportal_bgcheck">Проверка ГК</string>
+    <string name="careportal_announcement">Оовещение</string>
+    <string name="careportal_note">Примечание</string>
+    <string name="careportal_question">Вопрос</string>
+    <string name="careportal_exercise">Нгрузка</string>
+    <string name="careportal_pumpsitechange">Сена места катетера помпы</string>
+    <string name="careportal_cgmsensorinsert">Установка сенсора мониторинга глюкозы</string>
+    <string name="careportal_cgmsensorstart">Сарт сенсора</string>
+    <string name="careportal_insulincartridgechange">Замена картриджа инсулина</string>
+    <string name="careportal_profileswitch">Смена профиля</string>
     <string name="careportal_snackbolus">Болюс на перекус</string>
     <string name="careportal_mealbolus">Болюс на еду</string>
     <string name="careportal_correctionbolus">Болюс на коррекцию</string>
+    <string name="careportal_combobolus">Комбинированный болюс</string>
+    <string name="careportal_tempbasalstart">Начало действия врем базала</string>
+    <string name="careportal_tempbasalend">Оконч действия врем базала</string>
+    <string name="careportal_carbscorrection">Коррекция углеводов</string>
+    <string name="careportal_openapsoffline">OpenAPS в автономном режиме</string>
+    <string name="careportal_pumpbatterychange">Замена батареи помпы</string>
+    <string name="careportal_temporarytarget">Временная цель</string>
+    <string name="careportal_temporarytargetcancel">Отмена временной цели</string>
+    <string name="glucosetype_finger">Палец</string>
+    <string name="glucosetype_sensor">Сенсор</string>
+    <string name="manual">Вручную</string>
+    <string name="unknown">неизвестно</string>
     <!--    Command-->
+    <string name="connectiontimedout">Истекло время ожидания соединения</string>
     <!--    PumpEnactResult-->
+    <string name="enacted">Выполнено</string>
+    <string name="comment">Комментарий</string>
+    <string name="success">Успешно</string>
+    <string name="percent">Процент</string>
+    <string name="absolute">Абсолютный</string>
+    <string name="configbuilder_insulin">Инсулин</string>
+    <string name="insulin_unit_shortname">Ед</string>
+    <string name="waitingforpumpresult">Ожидание результата</string>
+    <string name="smb_shortname">Супер микро болюс SMB</string>
 </resources>
