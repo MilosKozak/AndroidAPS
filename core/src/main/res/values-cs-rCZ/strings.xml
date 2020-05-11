@@ -70,11 +70,55 @@
     <!--    ProfileSwitch-->
     <string name="zerovalueinprofile">Chybný profil: %1$s</string>
     <!--    Temptarget-->
+    <string name="mins">%1$d minut</string>
     <!--    TDD-->
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Baz: <b>%4$.2f</b>]]></string>
     <!--    Translator-->
+    <string name="careportal_bgcheck">Kontrola glykémie</string>
+    <string name="careportal_announcement">Oznámení</string>
+    <string name="careportal_note">Poznámka</string>
+    <string name="careportal_question">Otázka</string>
+    <string name="careportal_exercise">Cvičení</string>
+    <string name="careportal_pumpsitechange">Výměna setu</string>
+    <string name="careportal_cgmsensorinsert">Výměna senzoru</string>
+    <string name="careportal_cgmsensorstart">Znovu spuštění senzoru</string>
+    <string name="careportal_insulincartridgechange">Výměna inzulínu</string>
+    <string name="careportal_profileswitch">Přepnutí profilu</string>
+    <string name="careportal_snackbolus">Bolus na svačinu</string>
+    <string name="careportal_mealbolus">Bolus na jídlo</string>
+    <string name="careportal_correctionbolus">Korekční bolus</string>
+    <string name="careportal_combobolus">Kombinovaný bolus</string>
+    <string name="careportal_tempbasalstart">Dočasný bazál začátek</string>
+    <string name="careportal_tempbasalend">Dočasný bazál konec</string>
+    <string name="careportal_carbscorrection">Přídavek sacharidů</string>
+    <string name="careportal_openapsoffline">OpenAPS vypnuto</string>
+    <string name="careportal_pumpbatterychange">Výměna baterie pumpy</string>
+    <string name="careportal_temporarytarget">Dočasný cíl</string>
+    <string name="careportal_temporarytargetcancel">Dočasný cíl konec</string>
+    <string name="glucosetype_finger">Glukoměr</string>
+    <string name="glucosetype_sensor">Senzor</string>
+    <string name="manual">Ručně</string>
+    <string name="unknown">neznámý</string>
     <!--    Command-->
+    <string name="connectiontimedout">Vypršel čas připojování</string>
     <!--    PumpEnactResult-->
+    <string name="enacted">Provedeno</string>
+    <string name="comment">Komentář</string>
+    <string name="success">Úspěch</string>
+    <string name="percent">Procenta</string>
+    <string name="absolute">Absolutní</string>
+    <string name="configbuilder_insulin">Inzulín</string>
+    <string name="insulin_unit_shortname">U</string>
+    <string name="waitingforpumpresult">Čekání na výsledek</string>
+    <string name="smb_shortname">SMB</string>
     <!--    TDDStatsActivity-->
     <string name="stats">Statistiky</string>
+    <string name="cumulative_tdd">Kumulativní CDD</string>
+    <string name="expweight">Exponenciálně vážená CDD</string>
+    <string name="basalrate">Bazál</string>
+    <string name="bolus">Bolus</string>
+    <string name="tdd">CDD</string>
+    <string name="ratio">Koef</string>
+    <string name="amount_days">Dní</string>
     <!--    Ntp-->
 </resources>
