@@ -1323,7 +1323,7 @@
     <string name="omnipod_remove_pod_wizard_step1_title">Desactivar Pod</string>
     <string name="omnipod_remove_pod_wizard_step2_title">A Desactivar Pod</string>
     <string name="omnipod_init_pod_pair_pod">Emparelhar Pod</string>
-    <string name="omnipod_init_pod_prime_pod">Pod Primário</string>
+    <string name="omnipod_init_pod_prime_pod">Purgar Pod</string>
     <string name="omnipod_init_pod_fill_cannula">Enchimento de Canula</string>
     <string name="omnipod_init_pod_set_basal_profile">Definir Perfil Basal</string>
     <string name="omnipod_deactivate_pod_cancel_delivery">Cancelar Administração</string>
