@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    General-->
+    <!--    Constraints-->
     <!--    Dialogs-->
     <string name="confirmation">Potvrzení</string>
     <string name="message">Zpráva</string>
@@ -7,8 +9,6 @@
     <string name="cancel">Zrušit</string>
     <string name="dismiss">ODMÍTNOUT</string>
     <!--    BlePreCheck-->
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy nepodporováno.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth není povoleno.</string>
     <string name="location_not_found_title">Zjišťování polohy není povoleno</string>
     <string name="location_not_found_message">Pro vyhledání Bluetooth zařízení na novějších telefonech musí být povoleno zjišťování polohy. AAPS vás nesleduje a po provedení párování můžete tuto volbu opět zakázat.</string>
     <!--    DateUtil-->
@@ -22,4 +22,6 @@
     <!--    Translator-->
     <!--    Command-->
     <!--    PumpEnactResult-->
+    <!--    TDDStatsActivity-->
+    <!--    Ntp-->
 </resources>
