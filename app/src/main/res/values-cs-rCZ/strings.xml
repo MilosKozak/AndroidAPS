@@ -130,6 +130,7 @@
     <string name="apsmode_title">Typ smyčky</string>
     <string name="closedloop">Uzavřená smyčka</string>
     <string name="openloop">Otevřená smyčka</string>
+    <string name="lowglucosesuspend">Ochrana před nízkou glykémií</string>
     <string name="disabledloop">Smyčka zakázána</string>
     <string name="disableloop">Zakázat smyčku</string>
     <string name="enableloop">Povolit smyčku</string>
@@ -213,6 +214,9 @@
     <string name="prefdecrypt_issue_wrong_algorithm">Nepodporovaný nebo neurčený šifrovací algoritmus!</string>
     <string name="exported_today">exportováno dnes</string>
     <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">exportováno před %1$s</string>
+    <string name="exported_at" comment="at placeholder we add export date">exportováno v %1$s</string>
+    <string name="exported_less_than_hour_ago">exportováno před méně než hodinou</string>
+    <string name="in_directory" comment="placeholder is for exported file path">v adresáři: %1$s</string>
     <string name="end_user_license_agreement">Licenční ujednání</string>
     <string name="end_user_license_agreement_text">MUST NOT BE USED TO MAKE MEDICAL DECISIONS. THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</string>
     <string name="end_user_license_agreement_i_understand">ROZUMÍM A POTVRZUJI</string>
@@ -389,6 +393,7 @@
     <string name="wear_detailedIOB_title">Zobrazit detailní IOB</string>
     <string name="wear_detailedIOB_summary">Rozepsat IOB do bolusového a bazálního na hodinkách</string>
     <string name="nosuccess">neúspěšně - zkontrolujte mobil</string>
+    <string name="notavailable">n/a</string>
     <string name="patientage">Stáří pacienta</string>
     <string name="child">Dítě</string>
     <string name="teenage">Dospívající</string>
@@ -1058,6 +1063,7 @@
     <string name="rileylink_scanner_scanning">Vyhledávání</string>
     <string name="rileylink_scanner_scanning_finished">Vyhledávání dokončeno</string>
     <string name="rileylink_scanner_scanning_error">Chyba při vyhledávání: %1$d</string>
+    <string name="common_never">Nikdy</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Nastavení</string>
     <string name="rileylink_settings_tab2">Historie</string>
@@ -1187,6 +1193,7 @@
     <string name="objectives_button_unfinish">Vymazat dokončeno</string>
     <string name="objectives_button_unstart">Vymazat start</string>
     <string name="doyouwantresetstart">Chcete resetovat začátek cíle? Můžete přijít o svůj pokrok.</string>
+    <string name="time_or_timezone_change">Změna času a/nebo časové zóny pumpy</string>
     <string name="nopumpselected">Nevybrána žádná pumpa</string>
     <string name="setupwizard_units_prompt">Vyberte jednotky, ve kterých chcete zobrazit hodnoty</string>
     <string name="ns_ploadlocalprofile">Odeslat změny lokálního profilu do NS</string>
@@ -1268,13 +1275,81 @@
     <string name="statuslights">Stavové indikátory</string>
     <string name="statuslights_copy_ns">Zkopírovat nastavení z NS</string>
     <string name="copyexistingvalues">Zkopírovat nastavení NS (existuje-li)?</string>
+    <string name="classic_desrciption">Původní vzhled</string>
+    <string name="buttonson_desrciption">Tlačítka jsou vždy zobrazena v dolní části obrazovky</string>
+    <string name="skin">Vzhled</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Integrace pumpy pro Omnipod, vyžaduje zařízení RileyLink (s firmwarem alespoň 2.0).</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Pípnutí při bolusu povoleno</string>
+    <string name="omnipod_config_beep_basal_enabled">Pípnutí při bazálu povoleno</string>
+    <string name="omnipod_config_beep_smb_enabled">Pípnutí při SMB povoleno</string>
+    <string name="omnipod_config_beep_tbr_enabled">Pípnutí při TBR povoleno</string>
+    <string name="omnipod_config_pod_debugging_options_enabled">Možnosti ladění podu povoleny</string>
+    <string name="omnipod_config_timechange_enabled">Letní čas / Detekce časového pásma povoleny</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">Správa Podu</string>
+    <string name="omnipod_pod_status">Stav Podu</string>
+    <string name="omnipod_reservoir_left">Zbývá %1$.2f U</string>
+    <string name="omnipod_reservoir_over50">Více než 50 U</string>
+    <string name="omnipod_pod_address">Adresa Podu</string>
+    <string name="omnipod_pod_expiry">Expirace Podu</string>
+    <string name="omnipod_pod_name_no_info">Žádné info</string>
+    <string name="omnipod_pod_no_pod_connected">Žádný Pod není připojen</string>
+    <string name="omnipod_pod_not_initalized">Není inicializován</string>
+    <string name="omnipod_pod_active_alerts">Výstrahy aktivního Podu</string>
+    <string name="omnipod_ack_short">Potrvdit upozornění</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433,91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">Operace není možná.\n\nNejdříve je nutné nakonfigurovat Omnipod, než bude možné tuto funkci použít.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">Operace není možná.\n\n Je třeba několik minut počkat, dokud se AAPS nepokusí poprvé nastavit profil.</string>
+    <string name="omnipod_error_illegal_init_action_type">Neplatný atribut PodInitActionType: %1$s</string>
+    <string name="omnipod_error_pod_not_attached">Žádný aktivní Pod.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Ověření příkazu se nezdařilo.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Došlo k neočekávané chybě. Nahlaste ji! (typ: %1$s).</string>
+    <string name="omnipod_driver_error_invalid_parameters">Komunikace selhala: byly přijaty neplatné vstupní parametry.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Komunikace selhala: časový limit vypršel.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Komunikace se nezdařila: došlo k neočekávané chybě. Prosím nahlašte!</string>
+    <string name="omnipod_driver_error_crc_mismatch">Komunikace selhala: ověření integrity zprávy se nezdařilo.</string>
+    <string name="omnipod_driver_error_invalid_packet_type">Komunikace selhala: byly přijaty neplatné pakety z podu.</string>
+    <string name="omnipod_driver_error_invalid_progress_state">Komunikace selhala: Pod je v chybném stavu.</string>
+    <string name="omnipod_driver_error_invalid_response">Komunikace selhala: byla přijata neplatná odezva z Podu.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Komunikace selhala: od Podu byla přijata zpráva s neplatným pořadovým číslem.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Komunikace selhala: od Podu byla přijata zpráva s neplatnou adresou.</string>
+    <string name="omnipod_driver_error_message_decoding_failed">Komunikace selhala: nepodařilo se dekódovat zprávu z Podu.</string>
+    <string name="omnipod_driver_error_nonce_resync_failed">Komunikace selhala: opaková synchronizace hodnoty Nonce se nezdařila.</string>
+    <string name="omnipod_driver_error_nonce_out_of_sync">Komunikace selhala: hodnota Nonce nebyla synchronizována.</string>
+    <string name="omnipod_driver_error_not_enough_data">Komunikace selhala: nedostatek dat přijatých z Podu.</string>
+    <string name="omnipod_driver_error_pod_fault">Byla zjištěna chyba Podu (%1$03d %2$s). Deaktivujte Pod a spusťte nový.</string>
+    <string name="omnipod_driver_error_pod_returned_error_response">Komunikace selhala: Pod vrátil chybovou odezvu.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_pod_mgmt_title">Správa Podu</string>
+    <string name="omnipod_cmd_init_pod">Inicializovat Pod</string>
+    <string name="omnipod_cmd_deactivate_pod">Deaktivovat Pod</string>
+    <string name="omnipod_cmd_reset_pod">Resetovat Pod</string>
+    <string name="omnipod_cmd_pod_history">Historie Podu</string>
+    <string name="omnipod_cmd_set_bolus">Nastavit bolsu</string>
+    <string name="omnipod_cmd_cancel_bolus">Zrušit bolus</string>
+    <string name="omnipod_cmd_set_tbr">Nastavit dočasný bazál</string>
+    <string name="omnipod_cmd_cancel_tbr">Zrušit dočasný bazál (interně ovladačem)</string>
+    <string name="omnipod_cmd_cancel_tbr_forced">Zrušit dočasný bazál (nuceně uživatelem)</string>
+    <string name="omnipod_cmd_set_basal_schedule">Nastavit plán bazálu</string>
+    <string name="omnipod_cmd_get_pod_status">Zjistit stav Podu</string>
+    <string name="omnipod_cmd_get_pod_info">Zjistit informace o Podu</string>
+    <string name="omnipod_cmd_set_time">Nastavit čas</string>
+    <string name="omnipod_cmd_configure_alerts">Konfigurovat výstrahy</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Potvrdit výstrahy</string>
+    <string name="omnipod_cmd_suspend_delivery">Pozastavit dodávání inzulínu</string>
+    <string name="omnipod_cmd_resume_delivery">Obnovit dodávání inzulínu</string>
+    <string name="omnipod_cmd_unknown_entry">Neznámá položka</string>
+    <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, Sach=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Rychlost: %1$.1f U, doba trvání: %2$d min</string>
+    <string name="omnipod_remove_pod_wizard_step1_title">Deaktivovat Pod</string>
+    <string name="omnipod_init_pod_set_basal_profile">Nastavit bazální profil</string>
+    <string name="omnipod_deactivate_pod_deactivate_pod">Deaktivovat Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
 </resources>
