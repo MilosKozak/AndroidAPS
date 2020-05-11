@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pairing">Párování</string>
     <!--    General-->
+    <string name="error">Chyba</string>
+    <string name="not_set_short">Nenastaveno</string>
+    <string name="failedupdatebasalprofile">Chyba při nastavení bazálního pprofilu</string>
+    <string name="profile_set_ok">Bazální profil aktualizován</string>
+    <string name="invalidinput">Chybná vstupní data</string>
+    <string name="tempbasaldeliveryerror">Chyba nastavování dočasného bazálu</string>
+    <string name="goingtodeliver">Podávání %1$.2fU inzulínu</string>
+    <string name="waitingforpump">Čekání na pumpu</string>
+    <string name="connectingfor">Připojování %1$d sec</string>
+    <string name="bolusdelivering">Aplikováno %1$.2fU</string>
+    <string name="handshaking">Navazování spojení</string>
+    <string name="connecting">Připojuji</string>
+    <string name="connected">Připojeno</string>
+    <string name="disconnected">Odpojeno</string>
+    <string name="disconnecting">Odpojuji</string>
+    <string name="androidaps_start">AndroidAPS restartován</string>
+    <string name="formatinsulinunits">%1$.2fU</string>
+    <string name="reservoirvalue">%1$.0f / %2$d U</string>
+    <string name="pump_basebasalrate">%1$.2fU/h</string>
+    <string name="format_hours">%1$.2f h</string>
+    <string name="format_mins">%1$d min</string>
+    <string name="format_mins_short">%1$dm</string>
+    <string name="pumpbusy">Pumpa je zaneprázdněna</string>
+    <string name="connectionerror">Chyba připojování pumpy</string>
+    <string name="youareonallowedlimit">Dosaženo limitu</string>
+    <string name="objectives">Cíle</string>
+    <string name="close">Zavřít</string>
+    <string name="please_wait">Počkejte prosím…</string>
+    <string name="mute">Ztlumit</string>
+    <string name="reload">Znovu načíst</string>
+    <string name="stoppressed">STISKNUTO STOP</string>
+    <string name="stop">Stop</string>
+    <string name="carbs">Sacharidy</string>
+    <string name="invalidprofile">Chybný profil !!!</string>
+    <string name="noprofileset">ŽÁDNÝ PROFIL NENASTAVEN</string>
+    <string name="date">Datum</string>
+    <string name="units_label">Jednotky</string>
+    <string name="dia_label">Doba působnosti inzulínu</string>
+    <string name="ic_label">Inzulínosacharidový poměr</string>
+    <string name="isf_label">Citlivost</string>
+    <string name="basal_label">Bazál</string>
+    <string name="target_label">Cíl</string>
+    <string name="initializing">Inicializuji ...</string>
+    <string name="serialnumber">Sériové číslo</string>
+    <string name="battery_label">Baterie</string>
+    <string name="lastconnection_label">Poslední spojení</string>
+    <string name="lastbolus_label">Poslední bolus</string>
+    <string name="dailyunits">Jednotek za den</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <string name="confirmation">Potvrzení</string>
@@ -16,12 +65,16 @@
     <!--    ProfileFunction-->
     <!--    PumpType-->
     <!--    APSResult-->
+    <string name="reason">Zdůvodnění</string>
+    <string name="nochangerequested">Změna nepožadována</string>
     <!--    ProfileSwitch-->
+    <string name="zerovalueinprofile">Chybný profil: %1$s</string>
     <!--    Temptarget-->
     <!--    TDD-->
     <!--    Translator-->
     <!--    Command-->
     <!--    PumpEnactResult-->
     <!--    TDDStatsActivity-->
+    <string name="stats">Statistiky</string>
     <!--    Ntp-->
 </resources>
