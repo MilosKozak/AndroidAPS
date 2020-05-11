@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="key_danars_password">danars_password</string>
     <string name="danars_pairing">Сопряжение</string>
     <string name="danars_nodeviceavailable">Устройства пока не найдены</string>
     <string name="danars_pairingok">Соединение OK</string>
