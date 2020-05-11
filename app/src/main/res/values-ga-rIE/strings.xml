@@ -11,11 +11,7 @@
     <string name="description_source_mm640g">Luachanna BG a fháil ón 600SeriesAndroidUploader.</string>
     <string name="description_source_ns_client">Sonraí a íoslódáil ó Nightscout</string>
     <string name="description_source_xdrip">Luachanna BG a fháil ó xDrip.</string>
-    <string name="nsprofileview_target_label">Cuspóir</string>
-    <string name="mgdl">mg/dL</string>
-    <string name="mmol">mmol/l</string>
     <string name="MM640g">MM640g</string>
-    <string name="danar_stats_tbb2">TBB * 2</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
     <string name="careportal_pbage_label_short">PBAGE</string>
