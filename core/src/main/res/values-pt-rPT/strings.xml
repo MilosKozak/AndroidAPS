@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    General-->
+    <!--    Constraints-->
     <!--    Dialogs-->
     <string name="confirmation">Confirmação</string>
     <string name="message">Mensagem</string>
@@ -7,8 +9,6 @@
     <string name="cancel">Cancelar</string>
     <string name="dismiss">DISPENSAR</string>
     <!--    BlePreCheck-->
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy não suportado.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth não está activado.</string>
     <string name="location_not_found_title">Localização Não Está Activa</string>
     <string name="location_not_found_message">Para a Pesquisa Bluetooth funcionar em dispositivos mais recentes, a localização deve ser activada. AAPS não acompanha a sua localização e pode ser desactivada após o emparelhamento bem-sucedido.</string>
     <!--    DateUtil-->
@@ -87,4 +87,6 @@
     <string name="insulin_unit_shortname">U</string>
     <string name="waitingforpumpresult">À espera de resultado</string>
     <string name="smb_shortname">SMB</string>
+    <!--    TDDStatsActivity-->
+    <!--    Ntp-->
 </resources>
