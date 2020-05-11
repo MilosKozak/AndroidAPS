@@ -157,7 +157,7 @@
     <string name="careportal_newnstreatment_glucosetype">Tipo de glicose</string>
     <string name="noprofile">Sem perfil carregado do NS</string>
     <string name="overview_tempbasal_button">BasalTemp</string>
-    <string name="overview_extendedbolus_button">Bólus estendido</string>
+    <string name="overview_extendedbolus_button">Bólus Prolongado</string>
     <string name="configbuilder_nightscoutversion_label">Versão Nightscout:</string>
     <string name="missing_carbs">Falta %1$dg</string>
     <string name="exported">Preferências exportadas</string>
@@ -260,17 +260,17 @@
     <string name="smscommunicator_remotebolusnotallowed">O bólus remoto não está disponível. Tente novamente mais tarde.</string>
     <string name="smscommunicator_basalreplywithcode">Para começar a basal %1$.2fU/h durante %2$d min responda com o código %3$s</string>
     <string name="smscommunicator_profilereplywithcode">Para mudar o perfil para %1$s %2$d%% responda com o código %3$s</string>
-    <string name="smscommunicator_extendedreplywithcode">Para começar o bólus estendido %1$.2fU/h para %2$d min responda com o código %3$s</string>
+    <string name="smscommunicator_extendedreplywithcode">Para começar o bólus prolongado %1$.2fU/h para %2$d min responda com o código %3$s</string>
     <string name="smscommunicator_carbsreplywithcode">Para inserir %1$dg em %2$s responda com código %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">Para começar a basal %1$d%% U/h durante %2$d min responda com o código %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">Para suspender o loop por %1$d minutos resposta com código %2$s</string>
     <string name="smscommunicator_tempbasalset">Basal temporária %1$.2fU/h para %2$d min iniciada com êxito</string>
-    <string name="smscommunicator_extendedset">Bólus estendido %1$.2fU/h para %2$d min iniciado com êxito</string>
+    <string name="smscommunicator_extendedset">Bólus prolongado %1$.2fU/h para %2$d min iniciado com êxito</string>
     <string name="smscommunicator_carbsset">Hidratos %1$dg inseridos com sucesso</string>
     <string name="smscommunicator_carbsfailed">Introdução de %1$dg de hidratos falhou</string>
     <string name="smscommunicator_tempbasalset_percent">Basal temporária %1$d%% U/h durante%2$d min iniciada com êxito</string>
     <string name="smscommunicator_tempbasalfailed">Início basal temp falhou </string>
-    <string name="smscommunicator_extendedfailed">Falha ao iniciar o bólus estendido</string>
+    <string name="smscommunicator_extendedfailed">Falha ao iniciar o bólus prolongado</string>
     <string name="smscommunicator_basalstopreplywithcode">Para parar a basal temporária responda com o código %1$s</string>
     <string name="smscommunicator_extendedstopreplywithcode">Para parar o bólus temporário responda com o código %1$s</string>
     <string name="smscommunicator_tempbasalcanceled">Basal temp cancelada</string>
@@ -1281,8 +1281,15 @@
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Beep Bólus Activado</string>
+    <string name="omnipod_config_beep_basal_enabled">Beep Basal Activado</string>
+    <string name="omnipod_config_beep_smb_enabled">Beep SMB Activado</string>
+    <string name="omnipod_config_beep_tbr_enabled">Beep DBT Activado</string>
+    <string name="omnipod_config_timechange_enabled">Detecção de DST/Fuso Horário Activado</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">Gestão Pod</string>
     <string name="omnipod_pod_status">Estado do Pod</string>
+    <string name="omnipod_reservoir_left">%1$.2f U restante</string>
     <string name="omnipod_reservoir_over50">Mais de 50 U</string>
     <string name="omnipod_pod_address">Endereço do Pod</string>
     <string name="omnipod_pod_expiry">Pod Expira</string>
@@ -1295,7 +1302,9 @@
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
     <string name="omnipod_error_pod_not_attached">Nenhum Pod Activo.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">A verificação do comando falhou.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_pod_mgmt_title">Gestão Pod</string>
     <string name="omnipod_cmd_init_pod">Iniciar Pod</string>
     <string name="omnipod_cmd_deactivate_pod">Desactivar Pod</string>
     <string name="omnipod_cmd_reset_pod">Repor Pod</string>
@@ -1303,6 +1312,7 @@
     <string name="omnipod_cmd_set_bolus">Definir Bólus</string>
     <string name="omnipod_cmd_cancel_bolus">Cancelar Bólus</string>
     <string name="omnipod_cmd_set_tbr">Definir Basal Temporária</string>
+    <string name="omnipod_cmd_cancel_tbr">Cancelar Basal Temporária (Forçado pelo controlador)</string>
     <string name="omnipod_cmd_cancel_tbr_forced">Cancelar Basal Temporária (Forçado pelo utilizador)</string>
     <string name="omnipod_cmd_set_basal_schedule">Definir Programação Basal</string>
     <string name="omnipod_cmd_get_pod_status">Obter Status do Pod</string>
@@ -1315,6 +1325,7 @@
     <string name="omnipod_cmd_unknown_entry">Entrada Desconhecida</string>
     <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
     <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, HC=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Taxa: %1$.1f U, Duração: %2$d min</string>
     <string name="omnipod_init_pod_wizard_step1_title">Encher o Pod</string>
     <string name="omnipod_init_pod_wizard_step2_title">A Purgar</string>
     <string name="omnipod_init_pod_wizard_step3_title">Anexar o Pod</string>
