@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    General-->
+    <!--    Constraints-->
     <!--    Dialogs-->
     <!--    BlePreCheck-->
     <!--    DateUtil-->
@@ -13,4 +15,6 @@
     <!--    Translator-->
     <!--    Command-->
     <!--    PumpEnactResult-->
+    <!--    TDDStatsActivity-->
+    <!--    Ntp-->
 </resources>
