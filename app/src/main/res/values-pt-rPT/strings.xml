@@ -8,12 +8,12 @@
     <string name="treatmentssafety_maxbolus_title">Max bolus permitido [U]</string>
     <string name="treatmentssafety_maxcarbs_title">Max hidratos permitidos [g]</string>
     <string name="nav_preferences">Preferências</string>
-    <string name="nav_refreshtreatments">Atualizar tratamentos do NS</string>
+    <string name="nav_refreshtreatments">Actualizar tratamentos do NS</string>
     <string name="nav_resetdb">Reinicializar base de dados</string>
     <string name="reset_db_confirm">Quer realmente reiniciar a base de dados?</string>
     <string name="nav_exit">Sair</string>
     <string name="ns_sync_use_absolute_title">Usar sempre valores absolutos de basal</string>
-    <string name="alert_dialog_storage_permission_text">Por favor, reinicie o seu telefone ou reinicie o AndroidAPS a partir das Configurações do Sistema \ncaso contrário, o AndroidAPS não terá registro (importante para controlar e verificar se os algoritmos estão a funcionar corretamente)!</string>
+    <string name="alert_dialog_storage_permission_text">Por favor, reinicie o telefone ou reinicie o AndroidAPS a partir das Configurações do Sistema \ncaso contrário, o AndroidAPS não terá registo (importante para controlar e verificar se os algoritmos estão a funcionar correctamente)!</string>
     <string name="alert_dialog_permission_battery_optimization_failed">Este dispositivo não parece suportar a optimização de bateria na lista de permissões - pode ter problemas de desempenho.</string>
     <string name="description_actions">Alguns botões para aceder rapidamente a funções comuns</string>
     <string name="description_config_builder">Usado para configurar os plugins ativos</string>
@@ -48,7 +48,7 @@
     <string name="description_xdrip_status_line">Mostrar informações sobre o loop no watchface do xDrip+.</string>
     <string name="description_sms_communicator">Controlar remotamente o AndroidAPS usando comandos SMS.</string>
     <string name="treatments_insulin_label_string">Insulina:</string>
-    <string name="treatments_carbs_label_string">Hidratos de Carbono:</string>
+    <string name="treatments_carbs_label_string">Hidratos:</string>
     <string name="treatments_iob_label_string">IOB:</string>
     <string name="sms_iob">IOB:</string>
     <string name="treatments_iobtotal_label_string">IOB Total:</string>
@@ -272,11 +272,11 @@
     <string name="smscommunicator_tempbasalfailed">Início basal temp falhou </string>
     <string name="smscommunicator_extendedfailed">Falha ao iniciar o bólus prolongado</string>
     <string name="smscommunicator_basalstopreplywithcode">Para parar a basal temporária responda com o código %1$s</string>
-    <string name="smscommunicator_extendedstopreplywithcode">Para parar o bólus temporário responda com o código %1$s</string>
+    <string name="smscommunicator_extendedstopreplywithcode">Para parar o bólus prolongado responda com o código %1$s</string>
     <string name="smscommunicator_tempbasalcanceled">Basal temp cancelada</string>
-    <string name="smscommunicator_extendedcanceled">Bólus estendido cancelado</string>
+    <string name="smscommunicator_extendedcanceled">Bólus prolongado cancelado</string>
     <string name="smscommunicator_tempbasalcancelfailed">Não foi possivel cancelar a basal temp</string>
-    <string name="smscommunicator_extendedcancelfailed">Falhou o cancelamento do bolus extendido</string>
+    <string name="smscommunicator_extendedcancelfailed">Falhou a cancelar bólus prolongado</string>
     <string name="smscommunicator_unknowncommand">Comando desconhecido ou resposta errada</string>
     <string name="quickwizard">Assistente Rápido</string>
     <string name="quickwizardsettings">Definições do Assistente Rápido</string>
@@ -461,7 +461,7 @@
     <string name="wear_showbgi_summary">Adicionar BGI à linha de status</string>
     <string name="ns_noupload">Sem envio para NS</string>
     <string name="ns_noupload_summary">Todos os dados enviados para NS são descartados. AAPS está conectado ao NS, mas não é feita nenhuma alteração no NS</string>
-    <string name="overview_extendedbolus_cancel_button">Cancelar Bólus Estendido</string>
+    <string name="overview_extendedbolus_cancel_button">Cancelar Bólus Prolongado</string>
     <string name="careportal_sensorage_label">Idade Sensor</string>
     <string name="careportal_canulaage_label">Idade Canula</string>
     <string name="careportal_insulinage_label">Idade Insulina</string>
@@ -497,7 +497,7 @@
     <string name="openaps_short">OAPS</string>
     <string name="uploader_short">UPLD</string>
     <string name="basal_short">BAS</string>
-    <string name="virtualpump_extendedbolus_label_short">EST</string>
+    <string name="virtualpump_extendedbolus_label_short">PROL</string>
     <string name="keep_screen_on_title">Manter ecrã ligado</string>
     <string name="keep_screen_on_summary">Impedir Android de desligar o ecrã. Isto irá consumir muita bateria quando não ligado ao carregador.</string>
     <string name="sensitivity_warning">Ao activar a função Autosense lembre-se de introduzir todos os hidratos de carbono (carbs) que comeu. Caso contra contrário os desvios de carbs serão erroneamente identificados como uma variação da sensibilidade!!</string>
@@ -603,7 +603,7 @@
     <string name="combo_pump_action_bolusing">Injectando (%1$.1f U)</string>
     <string name="combo_pump_action_refreshing">A actualizar</string>
     <string name="combo_pump_unsupported_operation">Operação solicitada não suportada pela bomba</string>
-    <string name="combo_low_suspend_forced_notification">Ultilização nao segura: bolus estendudos ou multionda estão activos. Modo do loop foi alterado para apenas suspender em limite inferior por 6h. Apenas são suportados bolus normais em modo loop</string>
+    <string name="combo_low_suspend_forced_notification">Utilização não segura: bólus prolongados ou multi-onda estão activos. Modo do loop foi alterado para apenas suspender em limite inferior por 6h. Apenas são suportados bólus normais em modo loop</string>
     <string name="combo_force_disabled_notification">Utilização insegura: A bomba utiliza uma perfil de basal diferente do primeiro. O loop foi desactivado. Seleccionar o primeiro perfil da bomba e reinicie.</string>
     <string name="bolus_frequency_exceeded">Um bolus com o mesmo valor foi introduzido nos 2 últimos minutos. Para evitar introduções acidentais e segurança contra bugs existentes o bolus foi cancelado.</string>
     <string name="combo_pump_connected_now">Agora</string>
@@ -623,7 +623,7 @@
     <string name="combo_error_partial_bolus_delivered">Apenas %1$.2f U do bolus de %2$.2f U foi injectado de devido a um erro. Por favor verifique a bomba e tome as medidas necessárias.</string>
     <string name="combo_error_bolus_verification_failed">A injeção do bolus e a verificação do histórico da bomba falharam, por favor verifique a bomba. Se o bolus foi injetado será adicionado ao histórico de tratamentos durante a próxima conexão com a bomba.</string>
     <string name="combo_reservoir_level_insufficient_for_bolus">Não há insulina suficiente no reservatório para bolus</string>
-    <string name="extendedbolusdeliveryerror">Erro na entrega Bólus Estendido</string>
+    <string name="extendedbolusdeliveryerror">Erro na administração Bólus Prolongado</string>
     <string name="insightpump_shortname">Visão</string>
     <string name="ago">atrás</string>
     <string name="enablesmbalways">SMB sempre activado</string>
@@ -703,7 +703,7 @@
     <string name="maxdailybasalmultiplier">multiplicador de basal máx diária</string>
     <string name="smb_frequency_exceeded">Um bolus foi injectado nos últimos 3 minutos, saltando SMB</string>
     <string name="basal_set_correctly">Basal correctamente definida</string>
-    <string name="limitingextendedbolus">A limitar bólus estendido para %1$.1f U porque %2$s</string>
+    <string name="limitingextendedbolus">A limitar bólus prolongado para %1$.1f U porque %2$s</string>
     <string name="limitingmaxiob">A limitar IOB máx. para %1$.1f U porque %2$s</string>
     <string name="limitingcarbs">A limitar hidratos para %1$d g porque %2$s</string>
     <string name="limitingiob">A limitar IOB para %1$.1f U porque %2$s</string>
@@ -753,7 +753,7 @@
     <string name="value_unavailable_short">n/a</string>
     <string name="virtualpump_type">Tipo da Bomba Virtual</string>
     <string name="virtualpump_definition">Definição da Bomba</string>
-    <string name="virtualpump_pump_def">Bólus: Passo=%1$s\nBólus Estendido: [Passo=%2$s, Duração=%3$smin -%4$sh] \nBasal: Passo=%5$s\ nDBT: %6$s (por %7$s), Duração=%8$smin-%9$sh\n%10$s</string>
+    <string name="virtualpump_pump_def">Bólus: Passo=%1$s\nBólus Prolongado: [Passo=%2$s, Duração=%3$smin -%4$sh] \nBasal: Passo=%5$s\ nDBT: %6$s (por %7$s), Duração=%8$smin-%9$sh\n%10$s</string>
     <string name="ns_autobackfill_title">Preenchimentoauto Glicemia</string>
     <string name="wear_wizard_settings">Definições do Assistente Rápido</string>
     <string name="wear_wizard_settings_summary">Resultado cálculos incluídos no Assistente:</string>
@@ -877,7 +877,7 @@
     <string name="started">Iniciado</string>
     <string name="stopped">Parado</string>
     <string name="tbr_formatter">%1$d%% para %2$d / %3$d min</string>
-    <string name="extended_bolus">Bólus estendido</string>
+    <string name="extended_bolus">Bólus Prolongado</string>
     <string name="multiwave_bolus">Bólus Multi-Onda</string>
     <string name="eb_formatter">%1$.2f / %2$.2f U por %3$d min</string>
     <string name="enable_tbr_over_notification">Activar notificação do fim da basal temporária\n(configuração da bomba)</string>
@@ -887,7 +887,7 @@
     <string name="not_inserted">Não inserido</string>
     <string name="short_status_last_connected">Última ligação:%1$d minutos atrás</string>
     <string name="short_status_tbr">DBT: %1$d%% para %2$d / %3$d minutos</string>
-    <string name="short_status_extended">Estendido: %1$.2f / %2$.2f U por %3$d min</string>
+    <string name="short_status_extended">Prolongado: %1$.2f / %2$.2f U por %3$d min</string>
     <string name="short_status_multiwave">Multionda: %1$.2f / %2$.2f U por %3$d min</string>
     <string name="short_status_tdd">TDD: %1$.2f</string>
     <string name="short_status_reservoir">Reser:%1$.2fU</string>
@@ -1049,7 +1049,7 @@
     <string name="medtronic_pump_battery_select">Tipo de Bateria (Visão Detalhada)</string>
     <string name="medtronic_pump_battery_no">Não seleccionado (Visão simples)</string>
     <string name="medtronic_pump_battery_alkaline">Alcalina (Visão estendida)</string>
-    <string name="medtronic_pump_battery_lithium">Lithium (visão estendida)</string>
+    <string name="medtronic_pump_battery_lithium">Lithium (Visão estendida)</string>
     <string name="medtronic_pump_battery_nizn">NiZn (Vista Estendida)</string>
     <string name="medtronic_pump_battery_nimh">NiMH (Visualização estendida)</string>
     <string name="medtronic_bolus_debugging">Depuração de Bólus/Tratamentos</string>
@@ -1233,9 +1233,9 @@
     <string name="automation_event">Evento de automação</string>
     <string name="alreadyset">Já definido</string>
     <string name="clearqueueconfirm">Limpar fila? Todos os dados na fila serão perdidos!</string>
-    <string name="ebstopsloop">O uso do Bólus Estendido irá parar o modo Closed Loop no tempo do bólus estendido. Quer realmente isso?</string>
-    <string name="closed_loop_disabled_with_eb">Closed Loop desabilitado por causa da execução do Bólus Estendido</string>
-    <string name="extended_bolus_short">BE</string>
+    <string name="ebstopsloop">O uso do Bólus Prolongado irá parar o modo Closed Loop no tempo do bólus prolongado. Quer realmente isso?</string>
+    <string name="closed_loop_disabled_with_eb">Closed Loop desabilitado por causa da execução do Bólus Prolongado</string>
+    <string name="extended_bolus_short">BP</string>
     <string name="phonechecker">\"VerificadorTelefone\"</string>
     <string name="chartmenu">Menu do Gráfico</string>
     <string name="sensitivity_short">AS</string>
