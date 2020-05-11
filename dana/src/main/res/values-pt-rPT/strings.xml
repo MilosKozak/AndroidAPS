@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="key_danars_password">danars_password</string>
     <string name="danars_pairing">A Emparelhar</string>
     <string name="danars_nodeviceavailable">Nenhum dispositivo encontrado até agora</string>
     <string name="danars_pairingok">Emparelhamento OK</string>
@@ -16,7 +17,7 @@
     <string name="danar_valuenotsetproperly">Valor não definido corretamente</string>
     <string name="danar_setbasalstep001">Coloque o incremento da basal em 0.01 U/h</string>
     <string name="processinghistory">A processar acção</string>
-    <string name="danar_enableextendedbolus">Habilitar bólus estendido na bomba</string>
+    <string name="danar_enableextendedbolus">Habilitar bólus prolongado na bomba</string>
     <string name="overview_bolusprogress_delivered">Administrado</string>
     <string name="overview_bolusprogress_stoped">Parado</string>
     <string name="unsupportedfirmware">Firmware bomba não suportado</string>
@@ -44,6 +45,23 @@
     <string name="stoppingtempbasal">A parar basal temp</string>
     <string name="settingextendedbolus">A configurar bólus prolongado</string>
     <string name="stoppingextendedbolus">A parar bólus prolongado</string>
+    <string name="updatingbasalrates">A actualizar taxas das basais</string>
+    <string name="settingtempbasal">Definindo basal temp</string>
+    <string name="waitingfortimesynchronization">À espera da sincronização da hora (%1$d sec)</string>
+    <string name="wrongpassword">Senha incorrecta</string>
+    <string name="wrongpumppassword">Senha da bomba incorrecta!</string>
+    <string name="danar_history_alarm">Alarmes</string>
+    <string name="danar_history_basalhours">Horas de Basal</string>
+    <string name="danar_history_bolus">Bólus</string>
+    <string name="danar_history_carbohydrates">Hidratos de Carbono</string>
+    <string name="danar_history_dailyinsulin">Insulina diária</string>
+    <string name="danar_history_errors">Erros</string>
+    <string name="danar_history_glucose">Glicose</string>
+    <string name="danar_history_refill">Encher</string>
+    <string name="danar_history_syspend">Suspender</string>
+    <string name="danar_history_prime">Purgar</string>
+    <string name="danar_useroptions">Opções do utilizador</string>
+    <string name="danar_timedisplay">Formato hora</string>
     <string name="danar_useextended_title">Usar bólus prolongado por &gt;200%%</string>
     <string name="danar_visualizeextendedaspercentage_title">Visualizar bólus prolongado como %%</string>
 </resources>
