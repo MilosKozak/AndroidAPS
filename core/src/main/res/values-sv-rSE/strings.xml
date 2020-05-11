@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    General-->
+    <!--    Constraints-->
     <!--    Dialogs-->
     <string name="confirmation">Bekräftelse</string>
     <string name="message">Meddelande</string>
@@ -7,8 +9,6 @@
     <string name="cancel">Avbryt</string>
     <string name="dismiss">TA BORT</string>
     <!--    BlePreCheck-->
-    <string name="rileylink_scanner_ble_not_supported">Enheten stöder inte BLE.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth är avstängt.</string>
     <string name="location_not_found_title">Platsdata är inte aktiverat</string>
     <string name="location_not_found_message">För att Bluetooth ska fungera med nyare enheter, måste platsdata vara aktiverat. AAPS sparar inte din plats och det kan stängas av efter att enheten har parkopplats.</string>
     <!--    DateUtil-->
@@ -39,7 +39,6 @@
     <!--    ProfileFunction-->
     <string name="noprofileselected">Ingen profil vald</string>
     <!--    PumpType-->
-    <string name="virtualpump_pump_def_extended_note">* Endast fasta värden (inga spann) tillåts för basal/bolus i den virtuella pumpen.</string>
     <!--    APSResult-->
     <string name="canceltemp">Avbryt temp basal</string>
     <string name="let_temp_basal_run">Låt temp basalen gå</string>
@@ -91,4 +90,6 @@
     <string name="insulin_unit_shortname">U</string>
     <string name="waitingforpumpresult">Väntar på resultat</string>
     <string name="smb_shortname">SMB</string>
+    <!--    TDDStatsActivity-->
+    <!--    Ntp-->
 </resources>
