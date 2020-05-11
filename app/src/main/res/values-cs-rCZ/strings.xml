@@ -174,6 +174,7 @@
     <string name="password_preferences_decrypt_prompt">Zobrazí se výzva k zadání hlavního hesla, které bude použito k dešifrování importovaných předvoleb.</string>
     <string name="preferences_export_canceled">Export zrušen! Předvolby NEBYLY exportovány!</string>
     <string name="preferences_import_canceled">Import zrušen! Předvolby NEBYLY importovány!</string>
+    <string name="preferences_import_list_title">Vyberte soubor, který chcete importovat</string>
     <string name="check_preferences_before_import">Před importem zkontrolujte předvolby:</string>
     <string name="check_preferences_cannot_import">Předvolby nelze importovat!</string>
     <string name="check_preferences_dangerous_import">Předvolby by neměly být importovány!</string>
@@ -186,6 +187,8 @@
     <string name="metadata_warning_outdated_format">Používáte zastaralý formát od starých verzí AAPS, který není zabezpečený! Použijte jej pouze jako poslední možnost, pokud nemáte exporty v aktuálním formátu JSON.</string>
     <string name="metadata_warning_old_export">Importované předvolby jsou staré již %1$s dní! Možná máte aktualnější export nebo jste vybral špatný soubor? Nezapomeňte předvolby pravidelně exportovat!</string>
     <string name="metadata_warning_date_format">Neplatný formát datumu!</string>
+    <string name="metadata_warning_different_version">Nastavení z odlišné nižší verze aplikace. Je to v pořádku, pokud importujete po aktualizaci, po importu však zkontrolujte, zda jsou nastavení stálé správná!</string>
+    <string name="metadata_urgent_different_version">Nastavení z odlišné hlavní verze aplikace. Hlavní verze se výrazně liší a nemusejí mít kompatibilní nastavení. Po importu zkontrolujte, zda jsou nastavení stálé správná!</string>
     <string name="metadata_label_format">Formát souboru</string>
     <string name="metadata_label_created_at">Vytvořeno</string>
     <string name="metadata_label_aaps_version">Verze AAPS</string>
@@ -208,6 +211,8 @@
     <string name="prefdecrypt_issue_wrong_pass">Chyba dešifrování, zadané heslo je neplatné, nebo byl soubor nastavení změněn! Může se stát, že importovaný soubor byl exportován s jiným hlavním heslem.</string>
     <string name="prefdecrypt_issue_wrong_format">Chybí konfigurace šifrování, formát nastavení je neplatný!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Nepodporovaný nebo neurčený šifrovací algoritmus!</string>
+    <string name="exported_today">exportováno dnes</string>
+    <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">exportováno před %1$s</string>
     <string name="end_user_license_agreement">Licenční ujednání</string>
     <string name="end_user_license_agreement_text">MUST NOT BE USED TO MAKE MEDICAL DECISIONS. THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</string>
     <string name="end_user_license_agreement_i_understand">ROZUMÍM A POTVRZUJI</string>
