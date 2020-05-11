@@ -295,7 +295,7 @@
     <string name="primefill">Purgar/Preencher</string>
     <string name="fillwarning">Por favor certifique-se que o valor corresponde ao especificado para o seu conjunto de infusão!</string>
     <string name="othersettings_title">Outro</string>
-    <string name="fillbolus_title">Purgar/Preencher os valores standard.</string>
+    <string name="fillbolus_title">Valor Padrão Insulina Purgar/Preencher.</string>
     <string name="button1">Botão 1</string>
     <string name="button2">Botão 2</string>
     <string name="button3">Botão 3</string>
@@ -588,7 +588,7 @@
     <string name="closedmodeenabled">Modo fechado ativado</string>
     <string name="maxiobset">IOB máxima definida correctamente</string>
     <string name="hasbgdata">Glicemia disponivel desde a fonte selecionada</string>
-    <string name="combo_programming_bolus">A programar a bomba para injectar o bolus</string>
+    <string name="combo_programming_bolus">A programar bomba para administrar bólus</string>
     <string name="combo_refresh">Actualizar</string>
     <string name="combo_pump_state_label">Estado</string>
     <string name="combo_pump_activity_label">Actividade</string>
@@ -1323,7 +1323,7 @@
     <string name="omnipod_remove_pod_wizard_step1_title">Desactivar Pod</string>
     <string name="omnipod_remove_pod_wizard_step2_title">A Desactivar Pod</string>
     <string name="omnipod_init_pod_pair_pod">Emparelhar Pod</string>
-    <string name="omnipod_init_pod_prime_pod">Pod Primário</string>
+    <string name="omnipod_init_pod_prime_pod">Purgar Pod</string>
     <string name="omnipod_init_pod_fill_cannula">Enchimento de Canula</string>
     <string name="omnipod_init_pod_set_basal_profile">Definir Perfil Basal</string>
     <string name="omnipod_deactivate_pod_cancel_delivery">Cancelar Administração</string>
