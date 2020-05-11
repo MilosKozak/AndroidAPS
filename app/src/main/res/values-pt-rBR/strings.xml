@@ -1233,9 +1233,9 @@
     <string name="automation_event">Evento de automação</string>
     <string name="alreadyset">Já definido</string>
     <string name="clearqueueconfirm">Limpar fila? Todos os dados na fila serão perdidos!</string>
-    <string name="ebstopsloop">O uso do Bólus Estendido irá parar o modo Closed Loop no tempo do bólus estendido. Quer realmente isso?</string>
-    <string name="closed_loop_disabled_with_eb">Closed Loop desabilitado por causa da execução do Bólus Estendido</string>
-    <string name="extended_bolus_short">BE</string>
+    <string name="ebstopsloop">O uso do Bólus Prolongado irá parar o modo Closed Loop no tempo do bólus prolongado. Quer realmente isso?</string>
+    <string name="closed_loop_disabled_with_eb">Closed Loop desabilitado por causa da execução do Bólus Prolongado</string>
+    <string name="extended_bolus_short">BP</string>
     <string name="phonechecker">\"VerificadorTelefone\"</string>
     <string name="chartmenu">Menu do Gráfico</string>
     <string name="sensitivity_short">AS</string>
@@ -1281,8 +1281,15 @@
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Beep Bólus Activado</string>
+    <string name="omnipod_config_beep_basal_enabled">Beep Basal Activado</string>
+    <string name="omnipod_config_beep_smb_enabled">Beep SMB Activado</string>
+    <string name="omnipod_config_beep_tbr_enabled">Beep DBT Activado</string>
+    <string name="omnipod_config_timechange_enabled">Detecção de DST/Fuso Horário Activado</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">Gestão Pod</string>
     <string name="omnipod_pod_status">Estado do Pod</string>
+    <string name="omnipod_reservoir_left">%1$.2f U restante</string>
     <string name="omnipod_reservoir_over50">Mais de 50 U</string>
     <string name="omnipod_pod_address">Endereço do Pod</string>
     <string name="omnipod_pod_expiry">Pod Expira</string>
@@ -1295,7 +1302,9 @@
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
     <string name="omnipod_error_pod_not_attached">Nenhum Pod Activo.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">A verificação do comando falhou.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_pod_mgmt_title">Gestão Pod</string>
     <string name="omnipod_cmd_init_pod">Iniciar Pod</string>
     <string name="omnipod_cmd_deactivate_pod">Desactivar Pod</string>
     <string name="omnipod_cmd_reset_pod">Repor Pod</string>
@@ -1303,6 +1312,7 @@
     <string name="omnipod_cmd_set_bolus">Definir Bólus</string>
     <string name="omnipod_cmd_cancel_bolus">Cancelar Bólus</string>
     <string name="omnipod_cmd_set_tbr">Definir Basal Temporária</string>
+    <string name="omnipod_cmd_cancel_tbr">Cancelar Basal Temporária (Forçado pelo controlador)</string>
     <string name="omnipod_cmd_cancel_tbr_forced">Cancelar Basal Temporária (Forçado pelo utilizador)</string>
     <string name="omnipod_cmd_set_basal_schedule">Definir Programação Basal</string>
     <string name="omnipod_cmd_get_pod_status">Obter Status do Pod</string>
@@ -1315,6 +1325,7 @@
     <string name="omnipod_cmd_unknown_entry">Entrada Desconhecida</string>
     <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
     <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, HC=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Taxa: %1$.1f U, Duração: %2$d min</string>
     <string name="omnipod_init_pod_wizard_step1_title">Encher o Pod</string>
     <string name="omnipod_init_pod_wizard_step2_title">A Purgar</string>
     <string name="omnipod_init_pod_wizard_step3_title">Anexar o Pod</string>
