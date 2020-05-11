@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    General-->
+    <!--    Constraints-->
     <!--    Dialogs-->
     <string name="confirmation">Conferma</string>
     <string name="message">Messaggio</string>
@@ -7,8 +9,6 @@
     <string name="cancel">Annulla</string>
     <string name="dismiss">RIMUOVI</string>
     <!--    BlePreCheck-->
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth Low Energy non supportato.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth non abilitato.</string>
     <string name="location_not_found_title">La localizzazione non è abilitata</string>
     <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni sui dispositivi più recenti, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'associazione. AAPS non tiene traccia della tua posizione.</string>
     <!--    DateUtil-->
@@ -39,7 +39,6 @@
     <!--    ProfileFunction-->
     <string name="noprofileselected">Nessun profilo selezionato</string>
     <!--    PumpType-->
-    <string name="virtualpump_pump_def_extended_note">* Sono supportati solo valori discreti, non intervalli di valori, come incrementi per basale/bolo nel micro virtuale.</string>
     <!--    APSResult-->
     <string name="canceltemp">Cancella basale temporanea</string>
     <string name="let_temp_basal_run">Lascia eseguire la basale temporanea</string>
@@ -91,4 +90,6 @@
     <string name="insulin_unit_shortname">U</string>
     <string name="waitingforpumpresult">In attesa del risultato</string>
     <string name="smb_shortname">SMB</string>
+    <!--    TDDStatsActivity-->
+    <!--    Ntp-->
 </resources>
