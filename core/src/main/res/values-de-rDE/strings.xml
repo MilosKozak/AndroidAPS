@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    General-->
+    <!--    Constraints-->
     <!--    Dialogs-->
     <string name="confirmation">Bestätigung</string>
     <string name="message">Nachricht</string>
@@ -7,8 +9,6 @@
     <string name="cancel">Abbrechen</string>
     <string name="dismiss">VERWERFEN</string>
     <!--    BlePreCheck-->
-    <string name="rileylink_scanner_ble_not_supported">Bluetooth-Low-Energy nicht unterstützt.</string>
-    <string name="rileylink_scanner_ble_not_enabled">Bluetooth nicht aktiviert.</string>
     <string name="location_not_found_title">Standortdienst ist nicht aktiviert</string>
     <string name="location_not_found_message">Auf neueren Geräten muss für die Bluetooth-Erkennung der Standortdienst aktiviert sein. AAPS speichert keine Standortdaten und der Dienst kann nach erfolgreichem Pairing wieder deaktiviert werden.</string>
     <!--    DateUtil-->
@@ -39,7 +39,6 @@
     <!--    ProfileFunction-->
     <string name="noprofileselected">Kein Profil ausgewählt</string>
     <!--    PumpType-->
-    <string name="virtualpump_pump_def_extended_note">* Bei der virtuellen Pumpe können nur einzelne Werte und keine Bereiche zur Festlegung der Basal/Bolus-Granularität gewählt werden.</string>
     <!--    APSResult-->
     <string name="canceltemp">TBR abbrechen</string>
     <string name="let_temp_basal_run">Temporäre Basalrate aktiv lassen</string>
@@ -91,4 +90,6 @@
     <string name="insulin_unit_shortname">IE</string>
     <string name="waitingforpumpresult">Auf Pumpenergebnis warten</string>
     <string name="smb_shortname">SMB</string>
+    <!--    TDDStatsActivity-->
+    <!--    Ntp-->
 </resources>
