@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="key_danars_password">danars_password</string>
     <string name="danars_pairing">A Emparelhar</string>
     <string name="danars_nodeviceavailable">Nenhum dispositivo encontrado até agora</string>
     <string name="danars_pairingok">Emparelhamento OK</string>
