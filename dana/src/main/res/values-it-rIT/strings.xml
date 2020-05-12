@@ -74,7 +74,7 @@
     <string name="danar_screentimeout">LCD attivo [seconds]</string>
     <string name="danar_backlight">Retroilluminazione attiva [seconds]</string>
     <string name="danar_glucoseunits">Unità glicemia</string>
-    <string name="danar_shutdown">Spegnimento [hours]</string>
+    <string name="danar_shutdown">Arresto [hours]</string>
     <string name="danar_lowreservoir">Livello serbatoio basso [Units]</string>
     <string name="danar_saveuseroptions">Salva opzioni nel micro</string>
     <string name="description_pump_dana_r">Integrazione del microinfusore DANA Diabecare R</string>
