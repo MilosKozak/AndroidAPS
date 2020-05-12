@@ -15,6 +15,8 @@
     <string name="boluserrorcode">Chiesto: %1$.2fU Erogato: %2$.2fU Codice errore: %3$s</string>
     <string name="danar_valuenotsetproperly">Valore non impostato correttamente</string>
     <string name="danar_setbasalstep001">Imposta incremento basale a 0.01 U/h</string>
+    <string name="resetpairing">Resettare le informazioni di associazione?</string>
+    <string name="dana_model">%1$s\nModello: %2$02X\nProtocollo: %3$02X\nCodice: %4$02X</string>
     <string name="processinghistory">Elaborazione</string>
     <string name="danar_enableextendedbolus">Abilita bolo esteso sul micro</string>
     <string name="overview_bolusprogress_delivered">Erogato</string>
@@ -70,6 +72,7 @@
     <string name="danar_saveuseroptions">Salva opzioni nel micro</string>
     <string name="description_pump_dana_r">Integrazione del microinfusore DANA Diabecare R</string>
     <string name="description_pump_dana_r_v2">Integrazione del microinfusore DANA Diabecare R con firmware aggiornato</string>
+    <string name="danarpump_shortname">DANA</string>
     <string name="nobtadapter">Nessun adattatore bluetooth trovato</string>
     <string name="danars_password_title">Password micro (solo v1)</string>
     <string name="rs_loginsulinchange_title">Registra cambio serbatorio</string>
