@@ -65,7 +65,7 @@
     <string name="danar_history_prime">Caricamento</string>
     <string name="danar_useroptions">Opzioni utente</string>
     <string name="danar_timedisplay">Formato dell\'ora</string>
-    <string name="danar_buttonscroll">Tasto di scorrimento</string>
+    <string name="danar_buttonscroll">Scorrimento (tasto)</string>
     <string name="danar_beep">Suono alla pressione del tasto</string>
     <string name="danar_pumpalarm">Allarme</string>
     <string name="danar_pumpalarm_sound">Suono</string>
