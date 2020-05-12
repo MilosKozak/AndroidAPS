@@ -388,7 +388,7 @@
     <string name="status">Estado:</string>
     <string name="paused">Em pausa</string>
     <string name="clearlog">Limpar Registo</string>
-    <string name="nowritepermission">Cliente NS sem permissões para alterar dados. Tem a senha API correta?</string>
+    <string name="nowritepermission">NSCliente sem permissões para alterar dados. Tem a senha API correta?</string>
     <string name="wear_settings">Definições Wear</string>
     <string name="wear_detailedIOB_title">Mostrar IOB detalhada</string>
     <string name="wear_detailedIOB_summary">Dividir IOB entre IOB de bolus e de basal na face do relógio</string>
@@ -558,7 +558,7 @@
     <string name="info">INFO</string>
     <string name="eversense">Aplicação Eversense (com patch)</string>
     <string name="dexcomg5_nsupload_title">Enviar dados Glic. para NS</string>
-    <string name="bgsource_upload">Configurações de upload de BG</string>
+    <string name="bgsource_upload">Configurações de upload de Glic</string>
     <string name="wear_detailed_delta_title">Mostrar Delta detalho</string>
     <string name="wear_detailed_delta_summary">Mostrar delta com mais um ponto decimal</string>
     <string name="smbinterval_summary">Com que frequência em min os SMBs serão dados</string>
@@ -757,8 +757,8 @@
     <string name="ns_autobackfill_title">Preenchimentoauto Glicemia</string>
     <string name="wear_wizard_settings">Definições do Assistente Rápido</string>
     <string name="wear_wizard_settings_summary">Resultado cálculos incluídos no Assistente:</string>
-    <string name="wear_display_settings">Mostrar Configurações</string>
-    <string name="wear_general_settings">Configurações gerais</string>
+    <string name="wear_display_settings">Configurações Ecrã</string>
+    <string name="wear_general_settings">Configurações Gerais</string>
     <string name="enable_nsclient">Activar NSCliente</string>
     <string name="welcometosetupwizard">Bem-vindo ao assistente de configuração. Vai guiá-lo(a) através do processo de instalação\n</string>
     <string name="pumpsetup">Configurações da bomba</string>
