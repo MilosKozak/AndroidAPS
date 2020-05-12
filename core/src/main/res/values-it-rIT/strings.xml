@@ -36,6 +36,28 @@
     <string name="date">Data</string>
     <string name="units_label">Unità</string>
     <string name="dia_label">DIA</string>
+    <string name="ic_label">IC</string>
+    <string name="isf_label">ISF</string>
+    <string name="basal_label">Basale</string>
+    <string name="target_label">Target</string>
+    <string name="initializing">Inizializzazione...</string>
+    <string name="serialnumber">Numero seriale</string>
+    <string name="battery_label">Batteria</string>
+    <string name="lastconnection_label">Ultima connessione</string>
+    <string name="lastbolus_label">Ultimo bolo</string>
+    <string name="dailyunits">Unità giornaliere</string>
+    <string name="basebasalrate_label">Velocità basale originale</string>
+    <string name="tempbasal_label">Basale temporanea</string>
+    <string name="virtualpump_extendedbolus_label">Bolo Esteso</string>
+    <string name="reservoir_label">Serbatoio</string>
+    <string name="pumphistory">Storico micro</string>
+    <string name="viewprofile">Visualizza profilo</string>
+    <string name="eventtype">Tipo evento</string>
+    <string name="mgdl">mg/dl</string>
+    <string name="mmol">mmol/l</string>
+    <string name="advancedsettings_title">Impostazioni avanzate</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="btwatchdog_title">BT Watchdog</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <string name="confirmation">Conferma</string>
@@ -127,5 +149,17 @@
     <string name="smb_shortname">SMB</string>
     <!--    TDDStatsActivity-->
     <string name="stats">Statistiche</string>
+    <string name="expweight">TDD esponenzialmente ponderato</string>
+    <string name="basalrate">Basale</string>
+    <string name="bolus">Bolo</string>
+    <string name="tdd">TDD</string>
+    <string name="ratio">Rapporto</string>
+    <string name="amount_days"># Giorni</string>
+    <string name="weight">Peso</string>
+    <string name="warning_Message">Probabilmente inaccurato se per il caricamento/riempimento si usano i boli al posto dell\'apposita funzione!</string>
+    <string name="olddata_Message">Dati vecchi, premi \"RICARICA\"</string>
+    <string name="tbb">Basale originale totale</string>
+    <string name="tbb2">TBB * 2</string>
     <!--    Ntp-->
+    <string name="timedetection">Rilevamento tempo</string>
 </resources>
