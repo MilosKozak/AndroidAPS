@@ -1350,13 +1350,20 @@
     <string name="omnipod_cmd_reset_pod_desc">Se pressionar <b>OK</b>, o estado do Pod vai ser forçado a redefinir e você não será capaz de comunicar mais com o Pod. Faça isso somente se você não pode comunicar mais com o Pod. Se ainda pode comunicar com o Pod, por favor, use o <b>Desactivar Pod</b> opção.</string>
     <string name="omnipod_cmd_pod_history_na">Histórico do Pod não disponível no momento.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Encher o Pod</string>
+    <string name="omnipod_init_pod_wizard_step1_desc">\nPreencher o novo Pod com insulina suficiente para 3 dias.\n\nOuvir dois sinais sonoros a partir do Pod durante o processo de enchimento. Isso indica que a quantidade mínima de 85U foi inserida. Certifique-se de esvaziar completamente a seringa, mesmo depois de ouvir dois sinais sonoros.\n\nDepois de preencher o Pod, por favor, pressione <b>Próximo</b>.\n\n<b>Nota:</b> não remova a tampa da agulha do Pod neste momento.</string>
     <string name="omnipod_init_pod_wizard_step2_title">A Purgar</string>
+    <string name="omnipod_init_pod_wizard_step2_action_header">A tentar emparelhar com o novo Pod e purgá-lo.\n\nQuando todos os itens forem verificados, pode pressionar <b>Próximo</b>.\n\n<b>Nota:</b> por favor, mantenha o Pod muito perto do RileyLink neste momento.</string>
     <string name="omnipod_init_pod_wizard_step3_title">Anexar o Pod</string>
+    <string name="omnipod_init_pod_wizard_step3_desc">\nPrepare o local de infusão. Remova a tampa da agulha do Pod e o adesivo e fixe o Pod no local de infusão.\n\nSe a canula sair, por favor, pressione <b>Cancelar</b> e descarte o seu Pod.\n\nPressione <b>Próximo</b> para inserir a canula e começar a administração da basal.</string>
     <string name="omnipod_init_pod_wizard_step4_title">A inserir canula</string>
+    <string name="omnipod_init_pod_wizard_step4_action_header">A tentar definir um plano da basal inicial e inserir canula.\n\nQuando todos os itens estiverem verificados, pode pressionar <b>Próximo</b>.</string>
     <string name="omnipod_init_pod_wizard_pod_info_title">Info Pod</string>
+    <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nO Pod está agora activo.\n\nO seu plano de basal foi programado e a canula foi inserida.\n\nPor favor, verifique se a canula foi inserida correctamente e substitua o seu Pod se você se sente que não.</string>
     <string name="omnipod_remove_pod_wizard_step1_title">Desactivar Pod</string>
     <string name="omnipod_remove_pod_wizard_step1_desc">\nPressione <b>Próximo</b> para desactivar o Pod.\n\n<b>Nota:</b> Isto irá suspender toda a administração de insulina e desactivar o Pod.</string>
     <string name="omnipod_remove_pod_wizard_step2_title">A Desactivar Pod</string>
+    <string name="omnipod_remove_pod_wizard_step2_action_header">A desactivar o Pod.\n\nQuando todos os itens forem verificados, pode pressionar <b>Próximo</b>.\n\n<b>Nota:</b> Se desactivar falhar continuamente, por favor, pressione <b>Cancelar</b> e use o <b>Repor Pod</b> opção para forçar a repor o estado do Pod.</string>
+    <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod desactivado.\n\nPor favor, remova o Pod do seu corpo e descarte-o.</string>
     <string name="omnipod_init_pod_pair_pod">Emparelhar Pod</string>
     <string name="omnipod_init_pod_prime_pod">Purgar Pod</string>
     <string name="omnipod_init_pod_fill_cannula">Enchimento de Canula</string>
@@ -1373,6 +1380,10 @@
     <string name="omnipod_alert_shutdown_imminent">Encerramento iminente</string>
     <string name="omnipod_alert_low_reservoir">Reservatório baixo</string>
     <string name="omnipod_alert_unknown_alert">Alerta desconhecido</string>
+    <string name="omnipod_error_set_basal_failed_uncertain">Pode ter falhado ao definir perfil da basal. A administração pode estar suspensa! Por favor, actualize o estado do Pod.</string>
+    <string name="omnipod_error_set_temp_basal_failed_uncertain">Pode ter falhado ao definir basal temporária. Se houve uma basal temporária já em execução, pode ter sido cancelada! Por favor, actualize o estado do Pod.</string>
+    <string name="omnipod_error_set_time_failed_uncertain">Pode ter falhado ao definir a hora. A administração pode estar suspensa! Por favor, actualize o estado do Pod.</string>
+    <string name="omnipod_bolus_failed_uncertain">Não é possível verificar se o bólus foi bem-sucedido. Por favor, verifique se o Pod está administrar ou cancelar o bólus.</string>
     <string name="omnipod_rl_stats">Estatísticas RL</string>
     <string name="omnipod_read_pulse_log_short">Registo de Pulse</string>
 </resources>
