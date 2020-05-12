@@ -843,7 +843,7 @@
     <string name="confirm">Confirmar</string>
     <string name="mute_alert">Silêncio</string>
     <string name="pump_alert">Alerta da Bomba</string>
-    <string name="log_site_changes">Registar alterações de local</string>
+    <string name="log_site_changes">Registar mudanças de local</string>
     <string name="log_reservoir_changes">Número de unidades do reservatório alteradas</string>
     <string name="log_tube_changes">Registar alterações de tubo</string>
     <string name="log_battery_changes">Registar mudanças de bateria</string>
@@ -1280,6 +1280,7 @@
     <string name="skin">Tema gráfico</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Integração de bomba para Omnipod, requer RileyLink (com pelo menos firmware 2.0) dispositivo.</string>
     <!-- Omnipod Configuration -->
     <string name="omnipod_config_beep_bolus_enabled">Sinal Bólus Activado</string>
     <string name="omnipod_config_beep_basal_enabled">Sinal Basal Activado</string>
@@ -1302,9 +1303,12 @@
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">A operação não é possível.\n\nPrecisa configurar o Omnipod primeiro, antes de pode usar esta operação.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">A operação não é possível.\n\n Precisa de esperar alguns minutos, até que AAPS tente definir o perfil para a primeira vez.</string>
     <string name="omnipod_error_illegal_init_action_type">PodInitActionType Ilegal: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Nenhum Pod Activo.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">A verificação do comando falhou.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Ocorreu um erro inesperado. Por favor reporte! (digite: %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Falha na comunicação: foram recebidos parâmetros de entrada inválidos.</string>
     <string name="omnipod_driver_error_communication_failed_timeout">Falha na comunicação: tempo limite.</string>
     <string name="omnipod_driver_error_communication_failed_unexpected_exception">Falha na comunicação: ocorreu um erro inesperado. Por favor, reporte!</string>
@@ -1343,6 +1347,8 @@
     <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
     <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, HC=%2$.1f g</string>
     <string name="omnipod_cmd_tbr_value">Taxa: %1$.1f U, Duração: %2$d min</string>
+    <string name="omnipod_cmd_reset_pod_desc">Se pressionar <b>OK</b>, o estado do Pod vai ser forçado a redefinir e você não será capaz de comunicar mais com o Pod. Faça isso somente se você não pode comunicar mais com o Pod. Se ainda pode comunicar com o Pod, por favor, use o <b>Desactivar Pod</b> opção.</string>
+    <string name="omnipod_cmd_pod_history_na">Histórico do Pod não disponível no momento.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Encher o Pod</string>
     <string name="omnipod_init_pod_wizard_step2_title">A Purgar</string>
     <string name="omnipod_init_pod_wizard_step3_title">Anexar o Pod</string>
@@ -1356,7 +1362,7 @@
     <string name="omnipod_init_pod_fill_cannula">Enchimento de Canula</string>
     <string name="omnipod_init_pod_set_basal_profile">Definir Perfil Basal</string>
     <string name="omnipod_deactivate_pod_cancel_delivery">Cancelar Administração</string>
-    <string name="omnipod_deactivate_pod_deactivate_pod">Desacitvar Pod</string>
+    <string name="omnipod_deactivate_pod_deactivate_pod">Desactivar Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod_dash">Integração da Bomba para Omnipod Dash.</string>
