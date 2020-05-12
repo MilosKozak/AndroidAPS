@@ -711,7 +711,7 @@
     <string name="hardlimit">limite rígido</string>
     <string name="unsafeusage">uso não seguro</string>
     <string name="readstatusfailed">Erro na leitura de estado</string>
-    <string name="record_pump_site_change">Registar mudança de local</string>
+    <string name="record_pump_site_change">Registar mudança local bomba</string>
     <string name="record_insulin_cartridge_change">Registar mudança cartucho</string>
     <string name="smbalwaysdisabled">SMB sempre e depois dos hidratos desactivado por fonte da Glicemia activa não suportar filtro avançado</string>
     <string name="smbnotallowedinopenloopmode">SMB não permitido no modo open loop</string>
