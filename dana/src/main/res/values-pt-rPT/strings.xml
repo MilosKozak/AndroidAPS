@@ -15,6 +15,8 @@
     <string name="boluserrorcode">Pedido: %1$.2fU Entregue: %2$.2fU Código Erro: %3$s</string>
     <string name="danar_valuenotsetproperly">Valor não definido corretamente</string>
     <string name="danar_setbasalstep001">Coloque o incremento da basal em 0.01 U/h</string>
+    <string name="resetpairing">Repor as informações de emparelhamento?</string>
+    <string name="dana_model">%1$s\nModelo: %2$02X\nProtocolo: %3$02X\nCódigo: %4$02X</string>
     <string name="processinghistory">A processar acção</string>
     <string name="danar_enableextendedbolus">Habilitar bólus prolongado na bomba</string>
     <string name="overview_bolusprogress_delivered">Administrado</string>
@@ -22,6 +24,7 @@
     <string name="unsupportedfirmware">Firmware bomba não suportado</string>
     <string name="pumperror">Erro Bomba</string>
     <string name="lowbattery">Bateria fraca</string>
+    <string name="basalcompare">A administrar menos que a taxa de base predefinida</string>
     <string name="pumpshutdown">Encerrar Bomba</string>
     <string name="batterydischarged">Bateria da Bomba Descarregada</string>
     <string name="occlusion">Oclusão</string>
@@ -29,6 +32,7 @@
     <string name="bloodsugarmeasurementalert">Alerta medição da glicemia</string>
     <string name="remaininsulinalert">Nível de insulina restante</string>
     <string name="missedbolus">Bólus não administrado</string>
+    <string name="invalidpairing">Informações de emparelhamento inválidas. A solicitar novo emparelhamento</string>
     <string name="gettingpumpstatus">A obter estado bomba</string>
     <string name="gettingextendedbolusstatus">A procurar o estado do bólus prolongado</string>
     <string name="gettingbolusstatus">A obter estado bólus</string>
@@ -61,6 +65,14 @@
     <string name="danar_history_prime">Purgar</string>
     <string name="danar_useroptions">Opções do utilizador</string>
     <string name="danar_timedisplay">Formato hora</string>
+    <string name="danar_buttonscroll">Botão rolamento</string>
+    <string name="danar_beep">Sinal ao pressionar botão</string>
+    <string name="danar_pumpalarm">Alarme</string>
+    <string name="danar_pumpalarm_sound">Som</string>
+    <string name="danar_pumpalarm_vibrate">Vibrar</string>
+    <string name="danar_pumpalarm_both">Ambos</string>
+    <string name="danar_screentimeout">LCD na hora [segundos]</string>
+    <string name="danar_backlight">Luz de fundo na hora [segundos]</string>
     <string name="danar_glucoseunits">Unidades de Glicose</string>
     <string name="danar_shutdown">Desligar [horas]</string>
     <string name="danar_lowreservoir">Reservatório baixo [Unidades]</string>
@@ -96,6 +108,7 @@
     <string name="bolusspeed">Velocidade Bólus</string>
     <string name="selectedpump">Bomba seleccionada</string>
     <string name="rs_loginsulinchange_title">Registar mudança de reservatório</string>
+    <string name="rs_loginsulinchange_summary">Adicionar evento \"Mudança de Insulina\" ao careportal quando detectado no histórico</string>
     <string name="rs_logcanulachange_title">Registar mudança de canula</string>
     <string name="pin1">PIN1</string>
     <string name="pin2">PIN2</string>
