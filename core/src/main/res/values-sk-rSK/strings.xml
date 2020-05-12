@@ -112,13 +112,59 @@
     <string name="def_extended_note">* Iba diskrétne hodnoty a nie rozsahy sú podporované pre bazál/bolus vo virtuálnej pumpe.</string>
     <!--    APSResult-->
     <string name="canceltemp">Zrušiť dočasný bazál</string>
+    <string name="let_temp_basal_run">Nechať bežať aktuálny dočasný bazál</string>
+    <string name="rate">Hodnota</string>
+    <string name="duration">Trvanie</string>
+    <string name="reason">Zdôvodnenie</string>
+    <string name="nochangerequested">Nepožadovaná žiadna zmena</string>
     <!--    ProfileSwitch-->
+    <string name="zerovalueinprofile">Chybný profil: %1$s</string>
     <!--    Temptarget-->
+    <string name="mins">%1$dmin</string>
     <!--    TDD-->
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Baz: <b>%4$.2f</b>]]></string>
     <!--    Translator-->
+    <string name="careportal_bgcheck">Kontrola glykémie</string>
+    <string name="careportal_announcement">Oznámenie</string>
+    <string name="careportal_note">Poznámka</string>
+    <string name="careportal_question">Otázka</string>
+    <string name="careportal_exercise">Pohyb</string>
+    <string name="careportal_pumpsitechange">Výmena setu</string>
+    <string name="careportal_cgmsensorinsert">Výmena senzora</string>
+    <string name="careportal_cgmsensorstart">Spustenie senzora</string>
+    <string name="careportal_insulincartridgechange">Výmena inzulínu</string>
+    <string name="careportal_profileswitch">Prepnutie profilu</string>
+    <string name="careportal_snackbolus">Bolus na desiatu/olovrant</string>
+    <string name="careportal_mealbolus">Bolus na jedlo</string>
+    <string name="careportal_correctionbolus">Korekčný bolus</string>
+    <string name="careportal_combobolus">Kombinovaný bolus</string>
+    <string name="careportal_tempbasalstart">Začiatok dočasného bazálu</string>
+    <string name="careportal_tempbasalend">Koniec dočasného bazálu</string>
+    <string name="careportal_carbscorrection">Prídavok sacharidov</string>
+    <string name="careportal_openapsoffline">OpenAPS vypnuté</string>
+    <string name="careportal_pumpbatterychange">Výmena batérie v pumpe</string>
+    <string name="careportal_temporarytarget">Dočasný cieľ</string>
+    <string name="careportal_temporarytargetcancel">Zrušiť dočasný cieľ</string>
+    <string name="glucosetype_finger">Prst</string>
+    <string name="glucosetype_sensor">Senzor</string>
+    <string name="manual">Iný</string>
+    <string name="unknown">neznámy</string>
     <!--    Command-->
+    <string name="connectiontimedout">Vypršal čas na pripojenie</string>
     <!--    PumpEnactResult-->
+    <string name="enacted">Vykonané</string>
+    <string name="comment">Komentár</string>
+    <string name="success">Úspešne</string>
+    <string name="percent">Percent</string>
+    <string name="absolute">Absolútna</string>
+    <string name="configbuilder_insulin">Inzulín</string>
+    <string name="insulin_unit_shortname">JI</string>
+    <string name="waitingforpumpresult">Čakanie na výsledok</string>
+    <string name="smb_shortname">SMB</string>
     <!--    TDDStatsActivity-->
+    <string name="stats">Štatistiky</string>
+    <string name="cumulative_tdd">Kumulatívny TDD</string>
+    <string name="expweight">Exponenciálne vážený TDD</string>
     <string name="basalrate">Bazál</string>
     <string name="bolus">Bolus</string>
     <string name="tdd">CDD</string>
