@@ -5,14 +5,18 @@
     <string name="error">Errore</string>
     <string name="not_set_short">Non impostato</string>
     <string name="failedupdatebasalprofile">Impossibile aggiornare il profilo basale</string>
+    <string name="profile_set_ok">Profilo basale aggiornato nel micro</string>
     <string name="invalidinput">Dati di input non validi</string>
     <string name="tempbasaldeliveryerror">Errore erogazione basale temporanea</string>
     <string name="goingtodeliver">Sto per erogare %1$.2fU</string>
     <string name="waitingforpump">In attesa del micro</string>
     <string name="connectingfor">In connessione per %1$d s</string>
+    <string name="bolusdelivering">Erogazione di %1$.2fU</string>
     <string name="handshaking">Connessione</string>
+    <string name="connecting">Connessione</string>
     <string name="connected">Connesso</string>
     <string name="disconnected">Disconnesso</string>
+    <string name="disconnecting">Disconnessione</string>
     <string name="androidaps_start">AndroidAPS avviato</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
@@ -58,7 +62,14 @@
     <string name="advancedsettings_title">Impostazioni avanzate</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">BT Watchdog</string>
+    <string name="btwatchdog_summary">Spegne il bluetooth del telefono per qualche secondo se non è possibile alcuna connessione al micro. Questo può essere utile su alcuni telefoni.</string>
     <!--    Constraints-->
+    <string name="limitingbasalratio">Limitazione max velocità basale a %1$.2f U/h a causa di: %2$s</string>
+    <string name="pumplimit">limite micro</string>
+    <string name="limitingpercentrate">Limitazione max tasso percentuale a %1$d%% a causa di: %2$s</string>
+    <string name="itmustbepositivevalue">deve essere un valore positivo</string>
+    <string name="limitingbolus">Limitazione bolo a %1$.1f U a causa di: %2$s</string>
+    <string name="pumpNotInitializedProfileNotSet">Micro non inizializzato, profilo non impostato!</string>
     <!--    Dialogs-->
     <string name="confirmation">Conferma</string>
     <string name="message">Messaggio</string>
@@ -66,6 +77,8 @@
     <string name="cancel">Annulla</string>
     <string name="dismiss">RIMUOVI</string>
     <!--    BlePreCheck-->
+    <string name="ble_not_supported">Bluetooth Low Energy non supportato.</string>
+    <string name="ble_not_enabled">Bluetooth non abilitato.</string>
     <string name="location_not_found_title">La localizzazione non è abilitata</string>
     <string name="location_not_found_message">Affinché la ricerca bluetooth funzioni sui dispositivi più recenti, la localizzazione deve essere abilitata, ma può essere disabilitata dopo l\'associazione. AAPS non tiene traccia della tua posizione.</string>
     <!--    DateUtil-->
@@ -96,6 +109,7 @@
     <!--    ProfileFunction-->
     <string name="noprofileselected">Nessun profilo selezionato</string>
     <!--    PumpType-->
+    <string name="def_extended_note">* Sono supportati solo valori discreti, non intervalli di valori, come incrementi per basale/bolo nel micro virtuale.</string>
     <!--    APSResult-->
     <string name="canceltemp">Cancella basale temporanea</string>
     <string name="let_temp_basal_run">Lascia eseguire la basale temporanea</string>
@@ -149,6 +163,7 @@
     <string name="smb_shortname">SMB</string>
     <!--    TDDStatsActivity-->
     <string name="stats">Statistiche</string>
+    <string name="cumulative_tdd">TDD cumulativo</string>
     <string name="expweight">TDD esponenzialmente ponderato</string>
     <string name="basalrate">Basale</string>
     <string name="bolus">Bolo</string>
