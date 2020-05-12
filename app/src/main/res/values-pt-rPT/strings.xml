@@ -101,7 +101,7 @@
     <string name="constraints">Restrições</string>
     <string name="loop">Loop</string>
     <string name="configbuilder_loop">Loop</string>
-    <string name="configbuilder_loop_description">Utilize isto para ativar a integração loop do AndroidAPS.</string>
+    <string name="configbuilder_loop_description">Utilize isto para activar a integração loop do AndroidAPS.</string>
     <string name="loop_aps_label">APS</string>
     <string name="loop_constraintsprocessed_label">Depois das restrições processadas</string>
     <string name="loop_tbrsetbypump_label">Basal temporária definida pela bomba</string>
@@ -500,7 +500,7 @@
     <string name="virtualpump_extendedbolus_label_short">PROL</string>
     <string name="keep_screen_on_title">Manter ecrã ligado</string>
     <string name="keep_screen_on_summary">Impedir Android de desligar o ecrã. Isto irá consumir muita bateria quando não ligado ao carregador.</string>
-    <string name="sensitivity_warning">Ao activar a função Autosense lembre-se de introduzir todos os hidratos de carbono (carbs) que comeu. Caso contra contrário os desvios de carbs serão erroneamente identificados como uma variação da sensibilidade!!</string>
+    <string name="sensitivity_warning">Ao activar a função Autosense lembre-se de introduzir todos os hidratos de carbono (carbs) que comeu. Caso contra contrário os desvios de hidratos serão erroneamente identificados como uma variação da sensibilidade !!</string>
     <string name="sensitivityweightedaverage">Média ponderada da Sensibilidade</string>
     <string name="mdtp_ok">OK</string>
     <string name="mdtp_cancel">Cancelar</string>
@@ -711,7 +711,7 @@
     <string name="hardlimit">limite rígido</string>
     <string name="unsafeusage">uso não seguro</string>
     <string name="readstatusfailed">Erro na leitura de estado</string>
-    <string name="record_pump_site_change">Registar mudança de sítio</string>
+    <string name="record_pump_site_change">Registar mudança de local</string>
     <string name="record_insulin_cartridge_change">Registar mudança cartucho</string>
     <string name="smbalwaysdisabled">SMB sempre e depois dos hidratos desactivado por fonte da Glicemia activa não suportar filtro avançado</string>
     <string name="smbnotallowedinopenloopmode">SMB não permitido no modo open loop</string>
