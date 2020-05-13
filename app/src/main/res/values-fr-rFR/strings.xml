@@ -169,7 +169,7 @@
     <string name="nav_import">Importer les paramètres</string>
     <string name="openapsma_maxbasal_title">Max U/h pour le débit de Basal Temp</string>
     <string name="openapsma_maxbasal_summary">Cette valeur est appelée Basal Maximum dans le contexte OpenAPS</string>
-    <string name="openapsma_maxiob_title">IA basale max que OpenAPS pourra délivrer [U]</string>
+    <string name="openapsma_maxiob_title">IA Basal max que OpenAPS pourra délivrer [U]</string>
     <string name="openapsma_maxiob_summary">Cette valeur est appelée Max IA (Insuline Active) dans le contexte OpenAPS\nC\'estlle maximum d\'insuline en [U] que APS peut délivrer en une seule fois.</string>
     <string name="password_preferences_encrypt_prompt">Le mot de passe principal vous sera demandé pour crypter les préférences exportées.</string>
     <string name="password_preferences_decrypt_prompt">Le mot de passe principal vous sera demandé pour décrypter les préférences exportées.</string>
