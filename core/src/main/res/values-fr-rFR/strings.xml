@@ -1,12 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pairing">Appairage</string>
     <!--    General-->
+    <string name="error">Erreur</string>
+    <string name="not_set_short">Non configuré</string>
+    <string name="failedupdatebasalprofile">La mise à jour du profil basal a échouée</string>
+    <string name="profile_set_ok">Profil Basal mise à jour dans la pompe</string>
+    <string name="invalidinput">Données saisies invalides</string>
+    <string name="tempbasaldeliveryerror">Erreur injection basal temporaire</string>
+    <string name="goingtodeliver">%1$.2fU vont être injectées</string>
+    <string name="waitingforpump">Attente connection pompe</string>
+    <string name="connectingfor">Connexion à %1$s en cours</string>
+    <string name="bolusdelivering">Injection en cours %1$.2fU</string>
+    <string name="connecting">Connection en cours</string>
+    <string name="connected">Connectée</string>
+    <string name="disconnected">Déconnectée</string>
+    <string name="disconnecting">Déconnexion en cours</string>
+    <string name="androidaps_start">AndroidAPS est lancé</string>
+    <string name="formatinsulinunits">%1$.2fU</string>
+    <string name="reservoirvalue">%1$.0f / %2$d U</string>
+    <string name="pump_basebasalrate">%1$.2fU/h</string>
+    <string name="format_hours">%1$.2f h</string>
+    <string name="format_mins">%1$d min</string>
+    <string name="format_mins_short">%1$dm</string>
+    <string name="pumpbusy">Pompe occupée</string>
+    <string name="connectionerror">Erreur connection pompe</string>
+    <string name="youareonallowedlimit">Vous avez atteint la limite maximale</string>
+    <string name="objectives">Objectifs</string>
+    <string name="close">Fermer</string>
+    <string name="please_wait">Merci de patienter...</string>
+    <string name="reload">Actualiser</string>
+    <string name="stoppressed">ARRÊT APPUYÉ</string>
+    <string name="stop">Arrêt</string>
+    <string name="carbs">Glucides</string>
+    <string name="invalidprofile">Profil incorrect !!!</string>
+    <string name="noprofileset">PAS DE PROFIL DÉFINI</string>
+    <string name="date"> Date</string>
+    <string name="units_label">Unités</string>
+    <string name="dia_label">DAI</string>
+    <string name="ic_label">G/I</string>
+    <string name="isf_label">SI</string>
+    <string name="basal_label">Basal</string>
+    <string name="target_label">Cible</string>
+    <string name="initializing">En cours d\'initialisation...</string>
+    <string name="serialnumber">Numéro de série</string>
+    <string name="battery_label">Niveau batterie</string>
+    <string name="lastconnection_label">Dernière connexion</string>
+    <string name="lastbolus_label">Dernier bolus</string>
+    <string name="dailyunits">Unités quotidiennes</string>
+    <string name="basebasalrate_label">Débit de Basal</string>
+    <string name="tempbasal_label">Basal temporaire</string>
+    <string name="virtualpump_extendedbolus_label">Bolus étendu</string>
+    <string name="reservoir_label">Réservoir</string>
+    <string name="pumphistory">Historique pompe</string>
+    <string name="viewprofile">Consulter le profil</string>
+    <string name="eventtype">Type d\'évènement</string>
+    <string name="mgdl">mg/dl</string>
+    <string name="mmol">mmol/l</string>
+    <string name="advancedsettings_title">Paramètres Avancés</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="btwatchdog_title">BT Watchdog</string>
     <!--    Constraints-->
     <!--    Dialogs-->
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
+    <string name="dismiss">REJETER</string>
     <!--    BlePreCheck-->
+    <string name="ble_not_supported">Bluetooth Low Energy non pris en charge.</string>
+    <string name="ble_not_enabled">Bluetooth désactivé.</string>
+    <string name="location_not_found_title">Localisation désactivée</string>
     <!--    DateUtil-->
     <!--    Profile-->
+    <string name="maximumbasalvaluereplaced">Valeur de basal remplacée par la valeur maximale autorisée : %1$s</string>
+    <string name="profile_per_unit">/U</string>
+    <string name="profile_ins_units_per_hour">U/h</string>
+    <string name="profile_carbs_per_unit">g/U</string>
     <!--    ProfileFunction-->
+    <string name="noprofileselected">Aucun profil séléctionné</string>
     <!--    PumpType-->
     <!--    APSResult-->
     <!--    ProfileSwitch-->
