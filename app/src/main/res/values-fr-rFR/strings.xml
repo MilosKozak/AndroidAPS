@@ -1330,8 +1330,17 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_cmd_get_pod_status">État du Pod</string>
     <string name="omnipod_cmd_get_pod_info">Infos du Pod</string>
     <string name="omnipod_cmd_set_time">Régler L\'heure</string>
+    <string name="omnipod_cmd_suspend_delivery">Suspendre l\'injection</string>
+    <string name="omnipod_cmd_resume_delivery">Pousuivre l\'injection</string>
+    <string name="omnipod_cmd_unknown_entry">Entrée inconnue</string>
     <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, Gluc=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Débit : %1$.1f U, Durée : %2$d min</string>
     <string name="omnipod_cmd_reset_pod_desc">Si vous appuyez sur <b>OK</b>, le Pod sera réinitialisé et vous ne pourrez plus communiquer avec lui. Ne le faite que si vous ne pouvez plus communiquer avec le Pod. Si vous pouvez toujours communiquer avec lui, veuillez utiliser l\'option <b>Désactiver Pod</b>.</string>
+    <string name="omnipod_cmd_pod_history_na">Historique Pod non disponible pour le moment.</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Remplir le Pod</string>
+    <string name="omnipod_init_pod_wizard_step1_desc">\nRemplir le nouveau Pod avec suffisamment d\'insuline pendant 3 jours.\n\nÉcoutez les deux bips du Pod pendant le processus de remplissage. Ils indiquent que la quantité minimale de 85U a été ajouté. Assurez-vous de vider complètement la seringue de remplissage, même après avoir entendu les deux bips.\n\nAprès avoir rempli le Pod, veuillez appuyer sur <b>Suivant</b>.\n\n<b>Note:</b> Ne retirez pas la protection de l\'aiguille du Pod pour le moment.</string>
+    <string name="omnipod_init_pod_wizard_step2_title">Amorçage</string>
     <string name="omnipod_init_pod_wizard_step4_title">Insertion canule</string>
     <string name="omnipod_init_pod_wizard_step4_action_header">Tentative de définir le schéma de basal et d\'insertion de la canule.\n\nQuand tous les items sont cochés, appuyez sur <b>Suivant</b>.</string>
     <string name="omnipod_init_pod_wizard_pod_info_title">Infos Pod</string>
