@@ -15,6 +15,8 @@
     <string name="boluserrorcode">Angivet: %1$.2f enheter. Levererat: %2$.2f enheter. Felkod: %3$s</string>
     <string name="danar_valuenotsetproperly">Misslyckades med inställning</string>
     <string name="danar_setbasalstep001">Sätt basalsteg till 0.01 enheter per timme</string>
+    <string name="resetpairing">Återställ parkopplingen?</string>
+    <string name="dana_model">%1$s\nModell: %2$02X\nProtokoll: %3$02X\nKod: %4$02X</string>
     <string name="processinghistory">Behandlar</string>
     <string name="danar_enableextendedbolus">Aktivera förlängd bolus i pumpen</string>
     <string name="overview_bolusprogress_delivered">Levererad</string>
@@ -22,12 +24,15 @@
     <string name="unsupportedfirmware">Pumpens firmware stöds inte</string>
     <string name="pumperror">Pumpfel</string>
     <string name="lowbattery">Låg batterinivå</string>
+    <string name="basalcompare">Levererar mindre än inställd basaldos</string>
     <string name="pumpshutdown">Pump avstängd</string>
     <string name="batterydischarged">Pumpbatteri urladdat</string>
     <string name="occlusion">Ocklusion</string>
     <string name="emptyreservoir">Tom reservoar</string>
     <string name="bloodsugarmeasurementalert">Varning om blodsockermätning</string>
     <string name="remaininsulinalert">Återstående mängd insulin </string>
+    <string name="missedbolus">Missad bolus</string>
+    <string name="invalidpairing">Ogiltig parkopplingsinformation. Begär ny parkoppling</string>
     <string name="gettingpumpstatus">Hämtar pumpstatus</string>
     <string name="gettingextendedbolusstatus">Hämtar status för förlängd bolus</string>
     <string name="gettingbolusstatus">Hämtar status för bolus</string>
@@ -96,9 +101,20 @@
     <string name="option_on">På</string>
     <string name="option_off">Av</string>
     <string name="danar_bt_name_title">Dana R Bluetooth Pump</string>
+    <string name="danars_password_title">Pumplösenord (endast v1)</string>
     <string name="danar_password_title">Pumplösenord</string>
     <string name="danar_useextended_title">Använd förlängd bolus för &gt;200%% temp basal</string>
     <string name="danar_visualizeextendedaspercentage_title">Visa förlängd bolus som %%</string>
     <string name="bolusspeed">Bolushastighet</string>
     <string name="selectedpump">Vald pump</string>
+    <string name="rs_loginsulinchange_title">Logga reservoarbyten</string>
+    <string name="rs_loginsulinchange_summary">Logga reservoarbyte automatiskt när det upptäcks i historiken</string>
+    <string name="rs_logcanulachange_title">Logga kanylbyten</string>
+    <string name="rs_logcanulachange_summary">Logga kanylbyte automatiskt när det upptäcks i historiken</string>
+    <string name="pin1">PIN1</string>
+    <string name="pin2">PIN2</string>
+    <string name="press_ok_on_the_pump">Tryck på OK på pumpen och skriv in de två\nnycklarna som visas på pumpens skärm.\n
+\nFör att förhindra att skärmen släcks, tryck\npå minus (-) tills du skrivit in nycklarna.</string>
+    <string name="num1pin">1: (12 tecken)</string>
+    <string name="num2pin">2: (8 tecken)</string>
 </resources>
