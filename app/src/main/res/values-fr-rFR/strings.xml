@@ -1281,20 +1281,39 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="skin">Thème</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">L\'intégration de la pompe Omnipod nécessite un boitier RileyLink (avec au minimum un firmware 2.0).</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Bip Bolus Activé</string>
+    <string name="omnipod_config_beep_basal_enabled">Bip Basal Activé</string>
+    <string name="omnipod_config_beep_smb_enabled">Bip SMB activé</string>
+    <string name="omnipod_config_beep_tbr_enabled">Bip DBT Activé</string>
+    <string name="omnipod_config_pod_debugging_options_enabled">Options de débogage Pod activées</string>
+    <string name="omnipod_config_timechange_enabled">Changement de Zone/Heure Activé</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_status">État du Pod</string>
+    <string name="omnipod_reservoir_left">%1$.2f U restantes</string>
+    <string name="omnipod_reservoir_over50">Plus de 50 U</string>
+    <string name="omnipod_pod_address">Adresse du Pod</string>
+    <string name="omnipod_pod_expiry">Pod Expiré</string>
     <string name="omnipod_pod_name_no_info">Pas d\'infos</string>
     <string name="omnipod_pod_no_pod_connected">Pas de Pod Connecté</string>
     <string name="omnipod_pod_not_initalized">Non initialisé</string>
+    <string name="omnipod_pod_active_alerts">Activer Alertes Pod</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">Operation impossible.\n\nVous devez d\'abord configurer l\'Omnipod pour pouvoir faire cette operation.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">Operation impossible.\n\nVous devez attendre quelques minutes, jusqu\'à ce que AAPS tente de définir le profil pour la première fois.</string>
     <string name="omnipod_error_pod_not_attached">Pas de Pod Actif.</string>
     <string name="omnipod_driver_error_invalid_parameters">Échec de communication : paramètres d\'entrées reçus invalides.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Échec de communication : délai expiré.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Échec de communication : Erreur inconnue. Veuillez signaler!</string>
     <string name="omnipod_driver_error_crc_mismatch">Échec de communication : vérification de l\'intégrité du message échouée.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Échec de communication : paquet reçu du Pod invalide.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Échec de communication : état du Pod incorrect.</string>
     <string name="omnipod_driver_error_invalid_response">Échec de communication : réponse invalide reçue du Pod.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Échec de communication : message reçu du Pod avec un numéro de séquence invalide.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Échec de communication : message reçu du Pod avec une adresse invalide.</string>
     <string name="omnipod_driver_error_message_decoding_failed">Échec de communication : échec du décodage du message reçu du Pod.</string>
     <string name="omnipod_driver_error_not_enough_data">Échec de communication : pas assez de données reçues du Pod.</string>
     <string name="omnipod_driver_error_pod_fault">Un défaut du Pod a été détecté (%1$03d %2$s). Veuillez désactiver votre Pod et en démarrer un nouveau.</string>
