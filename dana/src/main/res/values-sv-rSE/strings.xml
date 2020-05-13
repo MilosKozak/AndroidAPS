@@ -48,4 +48,17 @@
     <string name="waitingfortimesynchronization">Väntar på tidssynkronisering (%1$d sek)</string>
     <string name="wrongpassword">Fel lösenord</string>
     <string name="wrongpumppassword">Fel lösenord för pump</string>
+    <string name="danar_history_alarm">Larm</string>
+    <string name="danar_history_basalhours">Basaltimmar</string>
+    <string name="danar_history_bolus">Bolusar</string>
+    <string name="danar_history_carbohydrates">Kolhydrater</string>
+    <string name="danar_history_dailyinsulin">Daglig insulinmängd</string>
+    <string name="danar_history_errors">Fel</string>
+    <string name="danar_history_glucose">BG</string>
+    <string name="danar_history_refill">Påfyllningar</string>
+    <string name="danar_history_syspend">Pauser</string>
+    <string name="danar_history_prime">Förfyllningar</string>
+    <string name="danar_useroptions">Användaralternativ</string>
+    <string name="danar_timedisplay">Format för tidsvisning</string>
+    <string name="selectedpump">Vald pump</string>
 </resources>
