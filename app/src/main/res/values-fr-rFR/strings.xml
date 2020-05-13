@@ -1299,6 +1299,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_pod_no_pod_connected">Pas de Pod Connecté</string>
     <string name="omnipod_pod_not_initalized">Non initialisé</string>
     <string name="omnipod_pod_active_alerts">Activer Alertes Pod</string>
+    <string name="omnipod_ack_short">Valid Alert</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
@@ -1335,6 +1336,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_cmd_get_pod_info">Infos du Pod</string>
     <string name="omnipod_cmd_set_time">Régler L\'heure</string>
     <string name="omnipod_cmd_configure_alerts">Configurer les alertes</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Valider les Alertes</string>
     <string name="omnipod_cmd_suspend_delivery">Suspendre l\'injection</string>
     <string name="omnipod_cmd_resume_delivery">Pousuivre l\'injection</string>
     <string name="omnipod_cmd_unknown_entry">Entrée inconnue</string>
@@ -1376,6 +1378,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_alert_unknown_alert">Alerte inconnue</string>
     <string name="omnipod_error_set_basal_failed_uncertain">Le paramétrage du profil basal a peut-être échoué. L\'injection pourrait être suspendue ! Veuillez actualiser l\'état du pod.</string>
     <string name="omnipod_error_set_temp_basal_failed_uncertain">Le réglage de la basal temp a peut-être échoué. S\'il y avait déjà un DBT en cours, cela a peut-être été annulé ! Veuillez actualiser le statut du pod.</string>
+    <string name="omnipod_error_set_time_failed_uncertain">Le paramétrage de l\'heure a peut-être échoué. L\'injection pourrait être suspendue ! Veuillez actualiser l\'état du pod.</string>
     <string name="omnipod_bolus_failed_uncertain">Impossible de vérifier si le bolus a réussi. Vérifiez que votre Pod délivre le bolus ou annulez le bolus.</string>
     <string name="omnipod_rl_stats">État RL</string>
 </resources>
