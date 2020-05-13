@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    General-->
+    <string name="format_mins">%1$d min.</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <string name="confirmation">Bestätigung</string>
