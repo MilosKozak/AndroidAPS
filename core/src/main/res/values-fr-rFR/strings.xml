@@ -66,7 +66,13 @@
     <!--    Constraints-->
     <string name="limitingbasalratio">Limiter le débit de basal max à %1$.2f U/h à cause de %2$s</string>
     <string name="pumplimit">Limite de la pompe</string>
+    <string name="limitingpercentrate">Limiter le pourcentage max à %1$d%% à cause de %2$s</string>
+    <string name="itmustbepositivevalue">la valeur doit être positive</string>
+    <string name="limitingbolus">Limiter le Bolus à %1$.1f U à cause de %2$s</string>
+    <string name="pumpNotInitializedProfileNotSet">Pompe non initialisée, profil non défini !</string>
     <!--    Dialogs-->
+    <string name="confirmation">Confirmation</string>
+    <string name="message">Message</string>
     <string name="ok">OK</string>
     <string name="cancel">Annuler</string>
     <string name="dismiss">REJETER</string>
@@ -103,11 +109,26 @@
     <!--    ProfileFunction-->
     <string name="noprofileselected">Aucun profil séléctionné</string>
     <!--    PumpType-->
+    <string name="def_extended_note">* Uniquement les valeurs unitaires sont acceptées. Les plages pour les basal/bolus ne sont pas supportées par les pompes virtuelles.</string>
     <!--    APSResult-->
+    <string name="canceltemp">Annuler Basal Temp</string>
+    <string name="let_temp_basal_run">Laisser démarrer le Basal Temp</string>
+    <string name="rate">Débit</string>
+    <string name="duration">Durée</string>
+    <string name="reason">Raison</string>
+    <string name="nochangerequested">Pas de changement demandé</string>
     <!--    ProfileSwitch-->
+    <string name="zerovalueinprofile">Profil incorrect : %1$s</string>
     <!--    Temptarget-->
+    <string name="mins">%1$dmin</string>
     <!--    TDD-->
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bol: <b>%3$.2f</b> Bas: <b>%4$.2f</b>]]></string>
     <!--    Translator-->
+    <string name="careportal_bgcheck">Contrôle Glycémie</string>
+    <string name="careportal_announcement">Notification</string>
+    <string name="careportal_note">Remarque</string>
+    <string name="careportal_question">Question</string>
+    <string name="careportal_exercise">Activité Physique</string>
     <!--    Command-->
     <!--    PumpEnactResult-->
     <string name="percent">Pourcentage</string>
