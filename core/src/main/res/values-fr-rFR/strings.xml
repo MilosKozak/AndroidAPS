@@ -12,6 +12,7 @@
     <string name="waitingforpump">Attente connection pompe</string>
     <string name="connectingfor">Connexion à %1$s en cours</string>
     <string name="bolusdelivering">Injection en cours %1$.2fU</string>
+    <string name="handshaking">Connexion</string>
     <string name="connecting">Connection en cours</string>
     <string name="connected">Connectée</string>
     <string name="disconnected">Déconnectée</string>
@@ -29,6 +30,7 @@
     <string name="objectives">Objectifs</string>
     <string name="close">Fermer</string>
     <string name="please_wait">Merci de patienter...</string>
+    <string name="mute">Muet</string>
     <string name="reload">Actualiser</string>
     <string name="stoppressed">ARRÊT APPUYÉ</string>
     <string name="stop">Arrêt</string>
@@ -60,7 +62,10 @@
     <string name="advancedsettings_title">Paramètres Avancés</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">BT Watchdog</string>
+    <string name="btwatchdog_summary">Coupe le Bluetooth du téléphone une seconde si la connexion pompe n’est pas possible. Cela peut aider pour les téléphones dont la connexion Bluetooth se bloque.</string>
     <!--    Constraints-->
+    <string name="limitingbasalratio">Limiter le débit de basal max à %1$.2f U/h à cause de %2$s</string>
+    <string name="pumplimit">Limite de la pompe</string>
     <!--    Dialogs-->
     <string name="ok">OK</string>
     <string name="cancel">Annuler</string>
@@ -69,8 +74,28 @@
     <string name="ble_not_supported">Bluetooth Low Energy non pris en charge.</string>
     <string name="ble_not_enabled">Bluetooth désactivé.</string>
     <string name="location_not_found_title">Localisation désactivée</string>
+    <string name="location_not_found_message">La localisation doit être activée sur les nouveaux appareils pour que la recherche Bluetooth fonctionne. AAPS n\'enregistre pas votre localisation et la localisation peut être désactivée après l\'appairage.</string>
     <!--    DateUtil-->
+    <string name="minago">il y a %1$dm</string>
+    <string name="hoursago">il y a %1$.1fh</string>
+    <string name="shorthour">h</string>
+    <string name="days">jours</string>
+    <string name="hours">heures</string>
+    <string name="unit_second">seconde</string>
+    <string name="unit_minute">minute</string>
+    <string name="unit_hour">heure</string>
+    <string name="unit_day">jour</string>
+    <string name="unit_week">semaine</string>
+    <string name="unit_seconds">secondes</string>
+    <string name="unit_minutes">minutes</string>
+    <string name="unit_hours">heures</string>
+    <string name="unit_days">jours</string>
+    <string name="unit_weeks">semaines</string>
+    <string name="shortminute">m</string>
+    <string name="shortday">j</string>
     <!--    Profile-->
+    <string name="basalprofilenotaligned">Valeurs des débits de basal non alignées sur des heures: %1$s</string>
+    <string name="minimalbasalvaluereplaced">Valeur de basal remplacée par la valeur minimale autorisée : %1$s</string>
     <string name="maximumbasalvaluereplaced">Valeur de basal remplacée par la valeur maximale autorisée : %1$s</string>
     <string name="profile_per_unit">/U</string>
     <string name="profile_ins_units_per_hour">U/h</string>
@@ -85,6 +110,26 @@
     <!--    Translator-->
     <!--    Command-->
     <!--    PumpEnactResult-->
+    <string name="percent">Pourcentage</string>
+    <string name="absolute">Absolu</string>
+    <string name="configbuilder_insulin">Insuline</string>
+    <string name="insulin_unit_shortname">U</string>
+    <string name="waitingforpumpresult">Attente de résultat</string>
+    <string name="smb_shortname">SMB</string>
     <!--    TDDStatsActivity-->
+    <string name="stats">Stats</string>
+    <string name="cumulative_tdd">DTI cumulé</string>
+    <string name="expweight">DTI avec Pondération Exponentielle</string>
+    <string name="basalrate">Basal</string>
+    <string name="bolus">Bolus</string>
+    <string name="tdd">DTI</string>
+    <string name="ratio">Ratio</string>
+    <string name="amount_days">Nb Jours</string>
+    <string name="weight">Pondération</string>
+    <string name="warning_Message">Peut être inexact si des bolus sont utilisés pour l’amorçage et le remplissage !</string>
+    <string name="olddata_Message">Données anciennes, appuyez sur \"Actualiser\"</string>
+    <string name="tbb">Basal Totale (TBB)</string>
+    <string name="tbb2">DTB*2</string>
     <!--    Ntp-->
+    <string name="timedetection">Détection de temps</string>
 </resources>
