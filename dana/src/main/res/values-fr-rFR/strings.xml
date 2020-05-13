@@ -11,7 +11,9 @@
     <string name="maxbolusviolation">Violation bolus Max</string>
     <string name="commanderror">Erreur de commande</string>
     <string name="speederror">Erreur de vitesse</string>
+    <string name="insulinlimitviolation">Violation limite d\'insuline</string>
     <string name="boluserrorcode">Demandé : %1$.2fU Injecté : %2$.2fU code d’erreur : %3$s</string>
+    <string name="danar_valuenotsetproperly">Valeur incorrecte définie</string>
     <string name="danar_setbasalstep001">Régler incrément basal à 0,01 U/h</string>
     <string name="resetpairing">Réinitialiser l\'appairage ?</string>
     <string name="dana_model">%1$s\nModèle : %2$02X\nProtocole : %3$02X\nCode : %4$02X</string>
@@ -40,6 +42,7 @@
     <string name="largetimedifftitle">Différence horaire importante</string>
     <string name="largetimediff">Différence horaire importante:\nL\'heure de la pompe est en écart de plus d\'une heure et demi.\nMerci d\'ajuster manuellement l\'heure de la pompe et assurez-vous que la lecture de l\'historique de la pompe ne cause pas de dysfonctionnements.\nSi possible, effacez l\'historique de la pompe avant de modifier l\'heure ou désactivez la Boucle Fermée pour une DAI après la dernière entrée erronée de l\'historique et au minimum une DAI à partir de maintenant.</string>
     <string name="pairfirst">Veuillez appairer votre pompe avec votre téléphone !</string>
+    <string name="approachingdailylimit">Limite quotidienne d\'insuline proche</string>
     <string name="startingbolus">Injection du bolus démarrée</string>
     <string name="waitingforestimatedbolusend">Bolus en cours. %1$d sec. restantes.</string>
     <string name="stoppingtempbasal">Arrêter basal temp</string>
@@ -80,6 +83,7 @@
     <string name="danarpump_shortname">DANA</string>
     <string name="nobtadapter">Adaptateur bluetooth introuvable</string>
     <string name="devicenotfound">Appareil sélectionné introuvable</string>
+    <string name="danar_switchtouhmode">Changer le mode de U/j vers U/h sur la pompe</string>
     <string name="danarkoreanpump">DanaR Coréenne</string>
     <string name="danarpump">DanaR</string>
     <string name="pumpdrivercorrected">Pilote pompe corrigé</string>
