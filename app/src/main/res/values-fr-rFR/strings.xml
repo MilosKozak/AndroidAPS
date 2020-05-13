@@ -1305,6 +1305,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_error_operation_not_possible_no_configuration">Operation impossible.\n\nVous devez d\'abord configurer l\'Omnipod pour pouvoir faire cette operation.</string>
     <string name="omnipod_error_operation_not_possible_no_profile">Operation impossible.\n\nVous devez attendre quelques minutes, jusqu\'à ce que AAPS tente de définir le profil pour la première fois.</string>
     <string name="omnipod_error_pod_not_attached">Pas de Pod Actif.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Erreur inconnue. Veuillez signaler ! (type : %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Échec de communication : paramètres d\'entrées reçus invalides.</string>
     <string name="omnipod_driver_error_communication_failed_timeout">Échec de communication : délai expiré.</string>
     <string name="omnipod_driver_error_communication_failed_unexpected_exception">Échec de communication : Erreur inconnue. Veuillez signaler !</string>
@@ -1327,9 +1328,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_cmd_set_bolus">Définir Bolus</string>
     <string name="omnipod_cmd_cancel_bolus">Annuler Bolus</string>
     <string name="omnipod_cmd_set_tbr">Définir le Basal Temporaire</string>
+    <string name="omnipod_cmd_cancel_tbr">Basal Temp Annulée (en interne par le pilote)</string>
+    <string name="omnipod_cmd_cancel_tbr_forced">Basal Temp Annulée (par l\'utilisateur)</string>
+    <string name="omnipod_cmd_set_basal_schedule">Définir le schéma de basal</string>
     <string name="omnipod_cmd_get_pod_status">État du Pod</string>
     <string name="omnipod_cmd_get_pod_info">Infos du Pod</string>
     <string name="omnipod_cmd_set_time">Régler L\'heure</string>
+    <string name="omnipod_cmd_configure_alerts">Configurer les alertes</string>
     <string name="omnipod_cmd_suspend_delivery">Suspendre l\'injection</string>
     <string name="omnipod_cmd_resume_delivery">Pousuivre l\'injection</string>
     <string name="omnipod_cmd_unknown_entry">Entrée inconnue</string>
@@ -1339,8 +1344,9 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_cmd_reset_pod_desc">Si vous appuyez sur <b>OK</b>, le Pod sera réinitialisé et vous ne pourrez plus communiquer avec lui. Ne le faite que si vous ne pouvez plus communiquer avec le Pod. Si vous pouvez toujours communiquer avec lui, veuillez utiliser l\'option <b>Désactiver Pod</b>.</string>
     <string name="omnipod_cmd_pod_history_na">Historique Pod non disponible pour le moment.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Remplir le Pod</string>
-    <string name="omnipod_init_pod_wizard_step1_desc">\nRemplir le nouveau Pod avec suffisamment d\'insuline pendant 3 jours.\n\nÉcoutez les deux bips du Pod pendant le processus de remplissage. Ils indiquent que la quantité minimale de 85U a été ajouté. Assurez-vous de vider complètement la seringue de remplissage, même après avoir entendu les deux bips.\n\nAprès avoir rempli le Pod, veuillez appuyer sur <b>Suivant</b>.\n\n<b>Note:</b> Ne retirez pas la protection de l\'aiguille du Pod pour le moment.</string>
+    <string name="omnipod_init_pod_wizard_step1_desc">\nRemplir le nouveau Pod avec suffisamment d\'insuline pendant 3 jours.\n\nÉcoutez les deux bips du Pod pendant le processus de remplissage. Ils indiquent que la quantité minimale de 85U a été ajouté. Assurez-vous de vider complètement la seringue de remplissage, même après avoir entendu les deux bips.\n\nAprès avoir rempli le Pod, veuillez appuyer sur <b>Suivant</b>.\n\n<b>Remarque :</b> Ne retirez pas la protection de l\'aiguille du Pod pour le moment.</string>
     <string name="omnipod_init_pod_wizard_step2_title">Amorçage</string>
+    <string name="omnipod_init_pod_wizard_step2_action_header">Tentative d\'appairage et d\'amorçage du nouveau Pod.\n\nQuand tous les items sont cochées, appuyez sur <b>Suivant</b>.\n\n<b>Remarque :</b> Veuillez maintenir le Pod tout près du RileyLink en ce moment.</string>
     <string name="omnipod_init_pod_wizard_step3_title">Collez le Pod</string>
     <string name="omnipod_init_pod_wizard_step3_desc">\nPréparez le site d\'injection. Enlevez la protection de l\'aiguille et le support adhésif et collez le Pod sur le site d\'injection.\n\nSi la canule se colle, appuyez sur <b>Annuler</b> et jetez votre Pod.\n\nAppuyez sur <b>Suivant</b> pour insérer la canule et démarrer l\'injection de la basal.</string>
     <string name="omnipod_init_pod_wizard_step4_title">Insertion canule</string>
@@ -1348,9 +1354,9 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_init_pod_wizard_pod_info_title">Infos Pod</string>
     <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nLe Pod est maintenant actif.\n\nVos débits de basal ont été programmés et la canule a été insérée.\n\nVeuillez verifier que la canule a été insérée correctement et remplacez votre Pod si vous pensez que ce n\'est pas le cas.</string>
     <string name="omnipod_remove_pod_wizard_step1_title">Désactiver Pod</string>
-    <string name="omnipod_remove_pod_wizard_step1_desc">\nAppuyez sur <b>Suivant</b> pour désactiver le Pod.\n\n<b>Note :</b> Cela suspendra l\'injection de l\'insuline et désactivera le Pod.</string>
+    <string name="omnipod_remove_pod_wizard_step1_desc">\nAppuyez sur <b>Suivant</b> pour désactiver le Pod.\n\n<b>Remarque :</b> Cela suspendra l\'injection de l\'insuline et désactivera le Pod.</string>
     <string name="omnipod_remove_pod_wizard_step2_title">Désactivation du Pod</string>
-    <string name="omnipod_remove_pod_wizard_step2_action_header">Désactivation du Pod.\n\nQuand tous les items sont cochés, appuyez sur <b>Suivant</b>.\n\n<b>Note :</b> Si la désactivation échoue en permanence, appuyez sur <b>Annuler</b> et utilisez l\'option <b>Réinit. Pod</b> pour réinitialiser l\'état du Pod.</string>
+    <string name="omnipod_remove_pod_wizard_step2_action_header">Désactivation du Pod.\n\nQuand tous les items sont cochés, appuyez sur <b>Suivant</b>.\n\n<b>Remarque :</b> Si la désactivation échoue en permanence, appuyez sur <b>Annuler</b> et utilisez l\'option <b>Réinit. Pod</b> pour réinitialiser l\'état du Pod.</string>
     <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod désactivé.\n\nVeuillez enlever le Pod de votre corps et le jeter.</string>
     <string name="omnipod_init_pod_pair_pod">Appairer le Pod</string>
     <string name="omnipod_init_pod_prime_pod">Amorcer le Pod</string>
