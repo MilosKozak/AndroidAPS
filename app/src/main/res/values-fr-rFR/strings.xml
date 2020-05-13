@@ -1307,7 +1307,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_error_pod_not_attached">Pas de Pod Actif.</string>
     <string name="omnipod_driver_error_invalid_parameters">Échec de communication : paramètres d\'entrées reçus invalides.</string>
     <string name="omnipod_driver_error_communication_failed_timeout">Échec de communication : délai expiré.</string>
-    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Échec de communication : Erreur inconnue. Veuillez signaler!</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Échec de communication : Erreur inconnue. Veuillez signaler !</string>
     <string name="omnipod_driver_error_crc_mismatch">Échec de communication : vérification de l\'intégrité du message échouée.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Échec de communication : paquet reçu du Pod invalide.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Échec de communication : état du Pod incorrect.</string>
@@ -1341,6 +1341,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_init_pod_wizard_step1_title">Remplir le Pod</string>
     <string name="omnipod_init_pod_wizard_step1_desc">\nRemplir le nouveau Pod avec suffisamment d\'insuline pendant 3 jours.\n\nÉcoutez les deux bips du Pod pendant le processus de remplissage. Ils indiquent que la quantité minimale de 85U a été ajouté. Assurez-vous de vider complètement la seringue de remplissage, même après avoir entendu les deux bips.\n\nAprès avoir rempli le Pod, veuillez appuyer sur <b>Suivant</b>.\n\n<b>Note:</b> Ne retirez pas la protection de l\'aiguille du Pod pour le moment.</string>
     <string name="omnipod_init_pod_wizard_step2_title">Amorçage</string>
+    <string name="omnipod_init_pod_wizard_step3_title">Collez le Pod</string>
+    <string name="omnipod_init_pod_wizard_step3_desc">\nPréparez le site d\'injection. Enlevez la protection de l\'aiguille et le support adhésif et collez le Pod sur le site d\'injection.\n\nSi la canule se colle, appuyez sur <b>Annuler</b> et jetez votre Pod.\n\nAppuyez sur <b>Suivant</b> pour insérer la canule et démarrer l\'injection de la basal.</string>
     <string name="omnipod_init_pod_wizard_step4_title">Insertion canule</string>
     <string name="omnipod_init_pod_wizard_step4_action_header">Tentative de définir le schéma de basal et d\'insertion de la canule.\n\nQuand tous les items sont cochés, appuyez sur <b>Suivant</b>.</string>
     <string name="omnipod_init_pod_wizard_pod_info_title">Infos Pod</string>
@@ -1350,6 +1352,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_remove_pod_wizard_step2_title">Désactivation du Pod</string>
     <string name="omnipod_remove_pod_wizard_step2_action_header">Désactivation du Pod.\n\nQuand tous les items sont cochés, appuyez sur <b>Suivant</b>.\n\n<b>Note :</b> Si la désactivation échoue en permanence, appuyez sur <b>Annuler</b> et utilisez l\'option <b>Réinit. Pod</b> pour réinitialiser l\'état du Pod.</string>
     <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod désactivé.\n\nVeuillez enlever le Pod de votre corps et le jeter.</string>
+    <string name="omnipod_init_pod_pair_pod">Appairer le Pod</string>
+    <string name="omnipod_init_pod_prime_pod">Amorcer le Pod</string>
     <string name="omnipod_init_pod_fill_cannula">Remplir tubulure</string>
     <string name="omnipod_init_pod_set_basal_profile">Définir profil de basal</string>
     <string name="omnipod_deactivate_pod_cancel_delivery">Annuler l\'injection</string>
@@ -1364,5 +1368,8 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_alert_shutdown_imminent">Arrêt imminent</string>
     <string name="omnipod_alert_low_reservoir">Réservoir bas</string>
     <string name="omnipod_alert_unknown_alert">Alerte inconnue</string>
+    <string name="omnipod_error_set_basal_failed_uncertain">Le paramétrage du profil basal a peut-être échoué. L\'injection pourrait être suspendue ! Veuillez actualiser l\'état du pod.</string>
+    <string name="omnipod_error_set_temp_basal_failed_uncertain">Le réglage de la basal temp a peut-être échoué. S\'il y avait déjà un DBT en cours, cela a peut-être été annulé ! Veuillez actualiser le statut du pod.</string>
+    <string name="omnipod_bolus_failed_uncertain">Impossible de vérifier si le bolus a réussi. Vérifiez que votre Pod délivre le bolus ou annulez le bolus.</string>
     <string name="omnipod_rl_stats">État RL</string>
 </resources>
