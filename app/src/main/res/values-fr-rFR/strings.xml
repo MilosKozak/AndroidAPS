@@ -1321,6 +1321,20 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_remove_pod_wizard_step1_desc">\nAppuyez sur <b>Suivant</b> pour désactiver le Pod.\n\n<b>Note :</b> Cela suspendra l\'injection de l\'insuline et désactivera le Pod.</string>
     <string name="omnipod_remove_pod_wizard_step2_title">Désactivation du Pod</string>
     <string name="omnipod_remove_pod_wizard_step2_action_header">Désactivation du Pod.\n\nQuand tous les items sont cochés, appuyez sur <b>Suivant</b>.\n\n<b>Note :</b> Si la désactivation échoue en permanence, appuyez sur <b>Annuler</b> et utilisez l\'option <b>Réinit. Pod</b> pour réinitialiser l\'état du Pod.</string>
+    <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod désactivé.\n\nVeuillez enlever le Pod de votre corps et le jeter.</string>
+    <string name="omnipod_init_pod_fill_cannula">Remplir tubulure</string>
+    <string name="omnipod_init_pod_set_basal_profile">Définir profil de basal</string>
+    <string name="omnipod_deactivate_pod_cancel_delivery">Annuler l\'injection</string>
+    <string name="omnipod_deactivate_pod_deactivate_pod">Désactiver Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod_dash">Intégration de la pompe Omnipod Dash.</string>
+    <string name="omnipod_alert_finish_pairing_reminder">Rappel fin d\'appairage</string>
+    <string name="omnipod_alert_finish_setup_reminder_reminder">Rappel fin de configuration</string>
+    <string name="omnipod_alert_expiration">Le Pod expire bientôt</string>
+    <string name="omnipod_alert_expiration_advisory">Le Pod expire bientôt</string>
+    <string name="omnipod_alert_shutdown_imminent">Arrêt imminent</string>
+    <string name="omnipod_alert_low_reservoir">Réservoir bas</string>
+    <string name="omnipod_alert_unknown_alert">Alerte inconnue</string>
+    <string name="omnipod_rl_stats">État RL</string>
 </resources>
