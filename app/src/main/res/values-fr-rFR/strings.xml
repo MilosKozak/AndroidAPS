@@ -1306,6 +1306,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="omnipod_error_operation_not_possible_no_configuration">Operation impossible.\n\nVous devez d\'abord configurer l\'Omnipod pour pouvoir faire cette operation.</string>
     <string name="omnipod_error_operation_not_possible_no_profile">Operation impossible.\n\nVous devez attendre quelques minutes, jusqu\'à ce que AAPS tente de définir le profil pour la première fois.</string>
     <string name="omnipod_error_pod_not_attached">Pas de Pod Actif.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Échec de vérification de la commande.</string>
     <string name="omnipod_driver_error_unexpected_exception_type">Erreur inconnue. Veuillez signaler ! (type : %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Échec de communication : paramètres d\'entrées reçus invalides.</string>
     <string name="omnipod_driver_error_communication_failed_timeout">Échec de communication : délai expiré.</string>
