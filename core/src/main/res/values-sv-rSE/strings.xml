@@ -64,11 +64,12 @@
     <string name="btwatchdog_title">Bluetooth-övervakare</string>
     <string name="btwatchdog_summary">Startar om bluetooth på telefonen om anslutning till pumpen misslyckas. Detta hjälper på en del telefoner där bluetooth ibland hänger sig.</string>
     <!--    Constraints-->
-    <string name="limitingbasalratio">Begränsar max basal till %1$.2f E/h pga %2$s</string>
+    <string name="limitingbasalratio">Max basal: %1$.2f E/h pga %2$s</string>
     <string name="pumplimit">pumpbegränsning</string>
     <string name="limitingpercentrate">Begränsar max procent hastighet till %1$d%% pga %2$s</string>
     <string name="itmustbepositivevalue">det måste vara ett positivt värde</string>
-    <string name="limitingbolus">Begränsar bolus till %1$.1f enheter pga %2$s</string>
+    <string name="limitingbolus">Max bolus: %1$.1f U pga %2$s</string>
+    <string name="pumpNotInitializedProfileNotSet">Pump inte initierad, ingen profil vald.</string>
     <!--    Dialogs-->
     <string name="confirmation">Bekräftelse</string>
     <string name="message">Meddelande</string>
@@ -76,6 +77,8 @@
     <string name="cancel">Avbryt</string>
     <string name="dismiss">TA BORT</string>
     <!--    BlePreCheck-->
+    <string name="ble_not_supported">Enheten stöder inte BLE.</string>
+    <string name="ble_not_enabled">Bluetooth är avstängt.</string>
     <string name="location_not_found_title">Platsdata är inte aktiverat</string>
     <string name="location_not_found_message">För att Bluetooth ska fungera med nyare enheter, måste platsdata vara aktiverat. AAPS sparar inte din plats och det kan stängas av efter att enheten har parkopplats.</string>
     <!--    DateUtil-->
@@ -106,6 +109,7 @@
     <!--    ProfileFunction-->
     <string name="noprofileselected">Ingen profil vald</string>
     <!--    PumpType-->
+    <string name="def_extended_note">* Inga spann stöds som granularitet för basal/bolus i den virtuella pumpen. Endast enkla värden.</string>
     <!--    APSResult-->
     <string name="canceltemp">Avbryt temp basal</string>
     <string name="let_temp_basal_run">Låt temp basalen gå</string>
@@ -158,5 +162,19 @@
     <string name="waitingforpumpresult">Väntar på resultat</string>
     <string name="smb_shortname">SMB</string>
     <!--    TDDStatsActivity-->
+    <string name="stats">Statistik</string>
+    <string name="cumulative_tdd">Kumulativ TDD</string>
+    <string name="expweight">Exponentiellt viktad TDD</string>
+    <string name="basalrate">Basal</string>
+    <string name="bolus">Bolus</string>
+    <string name="tdd">TDD</string>
+    <string name="ratio">Kvot</string>
+    <string name="amount_days">Antal dagar</string>
+    <string name="weight">Vikt</string>
+    <string name="warning_Message">Kan visa fel om man använder bolus för förfyllning!</string>
+    <string name="olddata_Message">Gammalt data. Tryck på Hämta</string>
+    <string name="tbb">Total grundbasal</string>
+    <string name="tbb2">TDB * 2</string>
     <!--    Ntp-->
+    <string name="timedetection">Tidsdetektering</string>
 </resources>
