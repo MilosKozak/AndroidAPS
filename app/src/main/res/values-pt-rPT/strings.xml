@@ -143,7 +143,7 @@
     <string name="careportal_newnstreatment_other">Outro</string>
     <string name="careportal_newnstreatment_meter">Medidor</string>
     <string name="careportal_newnstreatment_sensor">Sensor</string>
-    <string name="careportal_newnstreatment_carbs_label">Hidratos de Carbono</string>
+    <string name="careportal_newnstreatment_carbs_label">Hidratos</string>
     <string name="careportal_newnstreatment_insulin_label">Insulina</string>
     <string name="careportal_newnstreatment_carbtime_label">Tempo Hidratos</string>
     <string name="careportal_newnstreatment_split_label">Dividir</string>
