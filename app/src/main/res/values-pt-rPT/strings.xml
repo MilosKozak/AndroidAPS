@@ -370,7 +370,7 @@
     <string name="executing">A Executar</string>
     <string name="virtualpump_settings">Definições da bomba virtual</string>
     <string name="virtualpump_uploadstatus_title">Enviar estado para NS</string>
-    <string name="nsclientinternal">NSCliente</string>
+    <string name="nsclientinternal">ClienteNS</string>
     <string name="nsclientinternal_shortname">NSCI</string>
     <string name="nsclientinternal_url">URL:</string>
     <string name="nsclientinternal_autoscroll">Rolar automático</string>
