@@ -251,7 +251,7 @@ Eversense-appen.</string>
     <string name="uploading">Laddar upp</string>
     <string name="bolusstopped">Bolus avbruten</string>
     <string name="bolusstopping">Avbryter bolus</string>
-    <string name="smscommunicator_loophasbeendisabled">Loop stängdes av. </string>
+    <string name="smscommunicator_loophasbeendisabled">Loop stoppad.</string>
     <string name="smscommunicator_loophasbeenenabled">Loop aktiverades</string>
     <string name="smscommunicator_loopisdisabled">Loop är avstängd</string>
     <string name="smscommunicator_loopisenabled">Loop är aktiverad</string>
