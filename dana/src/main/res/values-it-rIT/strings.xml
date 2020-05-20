@@ -29,6 +29,7 @@
     <string name="batterydischarged">Batteria del micro scarica</string>
     <string name="occlusion">Occlusione</string>
     <string name="emptyreservoir">Serbatoio vuoto</string>
+    <string name="checkshaft">Controlla asta</string>
     <string name="basalmax">Max basale</string>
     <string name="dailymax">Max giornaliero</string>
     <string name="bloodsugarmeasurementalert">Avviso misurazione glicemia</string>
