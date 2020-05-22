@@ -757,7 +757,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
         overview_uploader?.setOnClickListener { activity?.let { OKDialog.show(it, resourceHelper.gs(R.string.uploader), nsDeviceStatus.extendedUploaderStatus) } }
 
         // Sensitivity
-        if (sp.getBoolean(R.string.key_openapsama_useautosens, false)) {
+        if (sp.getBoolean(R.string.key_openapsama_useautosens, false) && constraintChecker.isAutosensModeEnabled().value()) {
             overview_sensitivity_icon.setImageResource(R.drawable.ic_swap_vert_black_48dp_green)
         }else {
             overview_sensitivity_icon.setImageResource(R.drawable.ic_x_swap_vert_48px_green)
@@ -771,7 +771,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
         // ****** GRAPH *******
         GlobalScope.launch(Dispatchers.Main) {
             overview_bggraph ?: return@launch
-            val graphData = GraphData(injector, overview_bggraph, iobCobCalculatorPlugin)
+            val graphData = GraphData(injector, overview_bggraph, iobCobCalculatorPlugin, treatmentsPlugin)
             val secondaryGraphsData: ArrayList<GraphData> = ArrayList()
 
             // do preparation in different thread
@@ -834,7 +834,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
 
                 // ------------------ 2nd graph
                 for (g in 0 until secondaryGraphs.size) {
-                    val secondGraphData = GraphData(injector, secondaryGraphs[g], iobCobCalculatorPlugin)
+                    val secondGraphData = GraphData(injector, secondaryGraphs[g], iobCobCalculatorPlugin, treatmentsPlugin)
                     var useIobForScale = false
                     var useCobForScale = false
                     var useDevForScale = false
