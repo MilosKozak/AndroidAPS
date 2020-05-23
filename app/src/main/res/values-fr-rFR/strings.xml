@@ -469,12 +469,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="doprofileswitch">Changer de profil</string>
     <string name="careportal_pbage_label">Age batterie pompe</string>
     <string name="ns_alarmoptions">Options d\'alarme</string>
-    <string name="nsalarm_urgenthigh">Haute urgent</string>
-    <string name="nsalarm_high">Haute</string>
-    <string name="nsalarm_low">Basse</string>
-    <string name="nsalarm_urgentlow">Basse urgent</string>
-    <string name="nsalarm_staledata">Données obsolètes</string>
-    <string name="nsalarm_urgentstaledata">Urgent données obsolètes</string>
     <string name="nsalarm_staledatavalue_label">Seuil sans nouvelle donnée Glyc. [min]</string>
     <string name="nsalarm_urgent_staledatavalue_label">Seuil d\'urgence pour les données obsolètes [min]</string>
     <string name="openapsama_autosens_period">Plage pour Autosens [h]</string>
