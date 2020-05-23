@@ -468,12 +468,6 @@
     <string name="doprofileswitch">Cambia profilo</string>
     <string name="careportal_pbage_label">Età batteria micro</string>
     <string name="ns_alarmoptions">Opzioni allarme</string>
-    <string name="nsalarm_urgenthigh">Molto alto</string>
-    <string name="nsalarm_high">Alto</string>
-    <string name="nsalarm_low">Basso</string>
-    <string name="nsalarm_urgentlow">Molto basso</string>
-    <string name="nsalarm_staledata">Dati non aggiornati</string>
-    <string name="nsalarm_urgentstaledata">Dati non aggiornati da molto tempo</string>
     <string name="nsalarm_staledatavalue_label">Soglia dati non aggiornati [min]</string>
     <string name="nsalarm_urgent_staledatavalue_label">Soglia dati non aggiornati da molto tempo [min]</string>
     <string name="openapsama_autosens_period">Intervallo per autosens [h]</string>
