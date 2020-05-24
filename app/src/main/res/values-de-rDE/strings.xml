@@ -185,7 +185,7 @@
     <string name="check_preferences_import_anyway_btn">Trotzdem importieren (GEFÄHRLICH!)</string>
     <string name="metadata_warning_different_flavour">Einstellungen wurden mit einer anderen Variante von AAPS erstellt (%1$s). Du nutzt: %2$s.\n\nEinige Einstellungen können fehlen oder ungültig sein - überprüfe und aktualisiere Deine Einstellungen nach dem Import .</string>
     <string name="metadata_warning_different_device">Einstellungen wurden auf einem anderen Gerät erstellt. Das ist OK, wenn Du von einem älteren/anderen Handy importierst. Stelle aber sicher, dass die importierten Einstellungen korrekt sind!</string>
-    <string name="metadata_warning_outdated_format">Du verwendest das veraltete Format einer alten AAPS-Version das nicht sicher ist! Verwende dieses nur als letzte Möglichkeit, wenn Du keinen Export im aktuellen JSON-Format hast.</string>
+    <string name="metadata_warning_outdated_format">Du verwendest das veraltete Format einer alten AAPS-Version, das nicht sicher ist! Verwende dieses nur als letzte Möglichkeit, wenn Du keinen Export im aktuellen JSON-Format hast.</string>
     <string name="metadata_warning_old_export">Die importierten Einstellungen sind bereits %1$s Tage alt! Hast Du aktuellere Einstellungen oder evtl. die falsche Datei gewählt? Denke daran, die Einstellungen regelmäßig zu exportieren.</string>
     <string name="metadata_warning_date_format">Ungültiges Datums-/Zeitformat!</string>
     <string name="metadata_warning_different_version">Einstellungen stammen aus einer Vorgängerversion (Nebenversion). Du kannst diese importieren, prüfe aber unbedingt nach dem Import, ob diese noch korrekt sind!</string>
