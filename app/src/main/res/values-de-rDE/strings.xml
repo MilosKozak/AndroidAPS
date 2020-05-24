@@ -38,15 +38,15 @@
     <string name="description_sensitivity_aaps">Die Sensitivität wird genauso wie bei Oref0 berechnet, aber Du kannst dafür ein Zeitfenster bestimmen. Die minimale Kohlenhydrat-Absorptionsrate wird aus der maximalen Absorptionsdauer aus den Einstellungen abgeleitet.</string>
     <string name="description_sensitivity_oref1">Die Sensitivität wird aus den Daten der letzten 8 Stunden berechnet und Kohlenhydrate (falls nicht bereits absorbiert) werden nach der in den Einstellungen angegebenen Zeit als absorbiert betrachtet. Das Plugin bezieht Zeiträume, in denen UAM annimmt, dass Kohlenhydrate aktiv waren, nicht mit in die Berechnung ein.</string>
     <string name="description_sensitivity_weighted_average">Die Sensitivität wird aus den Abweichungen errechnet. Dabei werden neuere Abweichungen stärker gewichtet als ältere. Die minimale Kohlenhydrat-Aufnahme wird aus der in den Präferenzen angegebenen maximalen Kohlenhydrat-Resorptionszeit abgeleitet. Dieser Algorithmus reagiert am schnellsten auf Änderungen der Empfindlichkeit.</string>
-    <string name="description_source_eversense">Empfange BZ-Werte von der gepatchten Eversense App.</string>
-    <string name="description_source_glimp">Empfange Blutzucker-Werte von Glimp.</string>
-    <string name="description_source_mm640g">Empfange Blutzucker-Werte vom 600SeriesAndroidUploader.</string>
-    <string name="description_source_ns_client">Lade Blutzucker-Daten von Nightscout</string>
-    <string name="description_source_xdrip">Empfange Blutzucker-Werte von xDrip.</string>
+    <string name="description_source_eversense">Empfange BZ-Werte von der gepatchten Eversense-App.</string>
+    <string name="description_source_glimp">Empfange Blutzuckerwerte von Glimp.</string>
+    <string name="description_source_mm640g">Empfange Blutzuckerwerte vom 600SeriesAndroidUploader.</string>
+    <string name="description_source_ns_client">Lade Blutzuckerdaten von Nightscout</string>
+    <string name="description_source_xdrip">Empfange Blutzuckerwerte von xDrip.</string>
     <string name="description_treatments">Speichert alle eingegebenen Behandlungen</string>
     <string name="description_wear">Überwache und steuere AndroidAPS mit Deiner WearOS-Smartwatch.</string>
     <string name="description_xdrip_status_line">Zeige Loop-Informationen auf Deinem xDrip+-Watchface.</string>
-    <string name="description_sms_communicator">Steuere AndroiAPS fern mittels SMS-Anweisungen.</string>
+    <string name="description_sms_communicator">AndroidAPS mit SMS-Befehlen fernsteuern.</string>
     <string name="treatments_insulin_label_string">Insulin:</string>
     <string name="treatments_carbs_label_string">Kohlenhydrate:</string>
     <string name="treatments_iob_label_string">IOB:</string>
@@ -72,7 +72,7 @@
     <string name="openapsma_currenttemp_label">Aktuelle TBR</string>
     <string name="openapsma_iobdata_label">IOB-Daten</string>
     <string name="openapsma_profile_label">Profil</string>
-    <string name="openapsma_mealdata_label">Mahlzeiten-Daten</string>
+    <string name="openapsma_mealdata_label">Mahlzeitendaten</string>
     <string name="result">Ergebnis</string>
     <string name="result_insulin_carbs">Ergebnis: %1$s %2$s</string>
     <string name="openapsma_noglucosedata">Keine BZ-Werte verfügbar</string>
@@ -94,7 +94,7 @@
     <string name="configbuilder_profile">Profil</string>
     <string name="configbuilder_profile_description">Welches Profil soll AndroidAPS nutzen?</string>
     <string name="configbuilder_aps">APS</string>
-    <string name="configbuilder_aps_description">Welcher APS-Algorithmus soll Therapie-Anpassungen vornehmen?</string>
+    <string name="configbuilder_aps_description">Welcher APS-Algorithmus soll Therapieanpassungen vornehmen?</string>
     <string name="configbuilder_general">Allgemein</string>
     <string name="configbuilder_general_description">Dies sind einige generelle Plugins, die Du vielleicht hilfreich findest.</string>
     <string name="configbuilder_constraints_description">Welche Beschränkungen werden angewendet?</string>
@@ -117,7 +117,7 @@
     <string name="setbasalquestion">Akzeptiere neue TBR:</string>
     <string name="overview_treatment_label">Bolus</string>
     <string name="overview_calculator_label">Rechner</string>
-    <string name="constraintapllied">Beschränkungen angewendet!</string>
+    <string name="constraintapllied">Beschränkung angewendet!</string>
     <string name="confirmation">Bestätigung</string>
     <string name="bolus">Bolus</string>
     <string name="sms_bolus">Bolus:</string>
@@ -135,7 +135,7 @@
     <string name="disableloop">Deaktiviere Loop</string>
     <string name="enableloop">Aktiviere Loop</string>
     <string name="openloop_newsuggestion">Neue Empfehlung verfügbar</string>
-    <string name="unsupportednsversion">Nicht unterstütze Nightscout-Version</string>
+    <string name="unsupportednsversion">Nicht unterstützte Nightscout-Version</string>
     <string name="loopdisabled">LOOP DEAKTIVIERT DURCH BESCHRÄNKUNGEN</string>
     <string name="treatments_wizard_basaliob_label">Basal-IOB</string>
     <string name="bolusconstraintapplied">Bolus-Beschränkung angewendet</string>
@@ -151,10 +151,10 @@
     <string name="careportal_newnstreatment_percent_label">Prozent</string>
     <string name="careportal_newnstreatment_absolute_label">Absolut</string>
     <string name="careportal_newnstreatment_notes_label">Notiz</string>
-    <string name="event_time_label">Ereignis-Zeit</string>
+    <string name="event_time_label">Ereigniszeit</string>
     <string name="careportal_newnstreatment_profile_label">Profil</string>
     <string name="careportal_newnstreatment_enteredby_title">Eingegeben durch</string>
-    <string name="careportal_newnstreatment_glucosetype">Glukose-Art</string>
+    <string name="careportal_newnstreatment_glucosetype">Glukoseart</string>
     <string name="noprofile">Bisher noch kein Profil von Nightscout geladen</string>
     <string name="overview_tempbasal_button">TBR</string>
     <string name="overview_extendedbolus_button">Verzögerter Bolus</string>
@@ -167,10 +167,10 @@
     <string name="filenotfound">Datei nicht gefunden</string>
     <string name="nav_export">Einstellungen exportieren</string>
     <string name="nav_import">Einstellungen importieren</string>
-    <string name="openapsma_maxbasal_title">Max IE/h, die als TBR gesetzt werden können</string>
+    <string name="openapsma_maxbasal_title">Max. IE/h, die als TBR gesetzt werden können</string>
     <string name="openapsma_maxbasal_summary">Dieser Wert wird \"max basal\" in OpenAPS genannt.</string>
     <string name="openapsma_maxiob_title">Maximales Basal-IOB, das OpenAPS abgeben darf [IE]</string>
-    <string name="openapsma_maxiob_summary">Maximale Menge von nicht Bolus-IOB, die OpenAPs abgeben kann.</string>
+    <string name="openapsma_maxiob_summary">Maximale Menge von Nicht-Bolus-IOB, die OpenAPS abgeben kann.</string>
     <string name="password_preferences_encrypt_prompt">Du wirst nach dem Master-Passwort gefragt. Mit diesem werden die exportierten Einstellungen verschlüsselt.</string>
     <string name="password_preferences_decrypt_prompt">Du wirst nach dem Master-Passwort gefragt. Mit diesem werden die importierten Einstellungen entschlüsselt.</string>
     <string name="preferences_export_canceled">Export abgebrochen! Einstellungen wurden NICHT exportiert!</string>
@@ -201,7 +201,7 @@
     <string name="metadata_format_new">Neues verschlüsseltes Format</string>
     <string name="metadata_format_debug">Neues Debugformat (unverschlüsselt)</string>
     <string name="metadata_format_other">Unbekanntes Export-Format</string>
-    <string name="prefdecrypt_settings_tampered">Einstellungen-Datei wurde manipuliert.</string>
+    <string name="prefdecrypt_settings_tampered">Konfigurationsdatei wurde manipuliert.</string>
     <string name="prefdecrypt_settings_secure">Einstellungsdatei ist sicher.</string>
     <string name="prefdecrypt_settings_unencrypted">Nicht sicheres, unverschlüsseltes Einstellungsformat verwenden</string>
     <string name="prefdecrypt_wrong_json">Fehler im JSON-Format, fehlendes erforderliches Feld (Format, Inhalt, Metadaten oder Sicherheit)</string>
@@ -218,7 +218,7 @@
     <string name="exported_less_than_hour_ago">vor weniger als einer Stunde exportiert</string>
     <string name="in_directory" comment="placeholder is for exported file path">in Verzeichnis: %1$s</string>
     <string name="end_user_license_agreement">Endbenutzervereinbarung</string>
-    <string name="end_user_license_agreement_text">DAS PROGRAMM DARF NICHT FÜR MEDIZINISCHE ENTSCHEIDUNGEN BENUTZT WERDEN. ES GIBT IN DIESEM PROJEKT KEINE GEWÄHRLEISTUNG ODER GARANTIERTE UNTERSTÜTZUNG IN IRGENDEINER ART. WENN DU DICH ENTSCHEIDEST, ES ZU NUTZEN, HÄNGT DIE QUALITÄT UND LEISTUNGSFÄHIGKEIT DIESES PROJEKTES VON DIR SELBST AB. ES WIRD \"WIE BESEHEN\" ZUR VERFÜGUNG GESTELLT. SOLLTE SICH DAS PROGRAMM ALS FEHLERHAFT ERWEISEN, ÜBERNEHMEN SIE ALLE NOTWENDIGEN KRANKHEITSKOSTEN, SERVICELEISTUNGEN, REPARATUREN ODER KORREKTUREN.</string>
+    <string name="end_user_license_agreement_text">DAS PROGRAMM DARF NICHT FÜR MEDIZINISCHE ENTSCHEIDUNGEN BENUTZT WERDEN. ES GIBT IN DIESEM PROJEKT KEINE GEWÄHRLEISTUNG ODER GARANTIERTE UNTERSTÜTZUNG IN IRGENDEINER ART. WENN DU DICH ENTSCHEIDEST, ES ZU NUTZEN, HÄNGT DIE QUALITÄT UND LEISTUNGSFÄHIGKEIT DIESES PROJEKTES VON DIR SELBST AB. ES WIRD \"WIE BESEHEN\" ZUR VERFÜGUNG GESTELLT. SOLLTE SICH DAS PROGRAMM ALS FEHLERHAFT ERWEISEN, ÜBERNIMMST DU ALLE NOTWENDIGEN KRANKHEITSKOSTEN, SERVICELEISTUNGEN, REPARATUREN ODER KORREKTUREN.</string>
     <string name="end_user_license_agreement_i_understand">Ich verstehe und stimme zu.</string>
     <string name="save">Speichern</string>
     <string name="reloadprofile">Profil neuladen</string>
@@ -227,7 +227,7 @@
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit dem Code %2$s.</string>
     <string name="smscommunicator_mealbolusreplywithcode">Um einen Mahlzeitenbolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
-    <string name="smscommunicator_temptargetwithcode">Um ein Temp Target von %1$s zu setzen, antworte mit dem Code %2$s</string>
+    <string name="smscommunicator_temptargetwithcode">Um ein temporäres Ziel von %1$s zu setzen, antworte mit dem Code %2$s</string>
     <string name="smscommunicator_temptargetcancel">Um das temporäre Ziel zu stoppen, antworte mit dem Code %1$s</string>
     <string name="smscommunicator_stopsmswithcode">Um den SMS Remote Service zu deaktivieren, antworte mit dem Code %1$s.\n\nBeachte, dass Du diesen nur am AAPS Master Smartphone wieder aktivieren kannst.</string>
     <string name="smscommunicator_stoppedsms">SMS Remote Service gestoppt. Verwende das AAPS Master, um ihn wieder zu aktivieren.</string>
