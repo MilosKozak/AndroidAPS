@@ -18,7 +18,7 @@
     <string name="description_actions">Einige Schaltflächen, um auf häufig verwendete Funktionen zugreifen zu können.</string>
     <string name="description_config_builder">Dient zum Konfigurieren der aktiven Plugins</string>
     <string name="description_objectives">Das Programm kennenlernen</string>
-    <string name="description_food">Zeigt die Essens-Vorlagen aus Nightscout an</string>
+    <string name="description_food">Zeigt die Essensvorlagen aus Nightscout an</string>
     <string name="description_insulin_rapid">Insulinprofil für Humalog und NovoRapid / NovoLog</string>
     <string name="description_insulin_ultra_rapid">Insulinprofil für Fiasp</string>
     <string name="description_insulin_free_peak">Erlaubt dir, das Wirkmaximum der Insulinaktivität zu definieren, und sollte nur von erfahrenen Anwendern genutzt werden</string>
@@ -27,14 +27,14 @@
     <string name="description_ma">Stand des Algorithmus in 2016</string>
     <string name="description_ama">Stand des Algorithmus in 2017</string>
     <string name="description_smb">Der aktuellste Algorithmus für erfahrene Nutzer</string>
-    <string name="description_overview">Zeigt den aktuellen Status deines Loops und Knöpfe für die geläufigsten Aktionen an</string>
+    <string name="description_overview">Zeigt den aktuellen Status deines Loops und Schaltflächen für die geläufigsten Aktionen an</string>
     <string name="description_persistent_notification">Zeigt eine fortlaufende Benachrichtigung mit einer kurzen Übersicht darüber, was dein Loop derzeit tut</string>
     <string name="description_profile_local">Definiere ein Profil, was auch offline verfügbar ist.</string>
     <string name="description_profile_nightscout">Stellt das Profil zur Verfügung, das in Nightscout definiert ist</string>
     <string name="description_profile_simple">Definiere ein Profil mit nur einem Zeitblock.</string>
     <string name="description_pump_combo">Pumpen-Integration für Accu-Chek Combo Pumpen; erfordert, dass ruffy installiert ist</string>
-    <string name="description_pump_mdi">Pumpen-Integration für Personen, die täglich mehrere Injektionen für ihre Diabetestherapie vornehmen</string>
-    <string name="description_pump_virtual">Pumpen-Integration für Pumpen, die noch nicht über einen Treiber verfügen (Open Loop)</string>
+    <string name="description_pump_mdi">Pumpenintegration für Personen, die täglich mehrere Injektionen für ihre Diabetestherapie vornehmen</string>
+    <string name="description_pump_virtual">Pumpenintegration für Pumpen, die noch nicht über einen Treiber verfügen (Open Loop)</string>
     <string name="description_sensitivity_aaps">Die Sensitivität wird genauso wie bei Oref0 berechnet, aber Du kannst dafür ein Zeitfenster bestimmen. Die minimale Kohlenhydrat-Absorptionsrate wird aus der maximalen Absorptionsdauer aus den Einstellungen abgeleitet.</string>
     <string name="description_sensitivity_oref1">Die Sensitivität wird aus den Daten der letzten 8 Stunden berechnet und Kohlenhydrate (falls nicht bereits absorbiert) werden nach der in den Einstellungen angegebenen Zeit als absorbiert betrachtet. Das Plugin bezieht Zeiträume, in denen UAM annimmt, dass Kohlenhydrate aktiv waren, nicht mit in die Berechnung ein.</string>
     <string name="description_sensitivity_weighted_average">Die Sensitivität wird aus den Abweichungen errechnet. Dabei werden neuere Abweichungen stärker gewichtet als ältere. Die minimale Kohlenhydrat-Aufnahme wird aus der in den Präferenzen angegebenen maximalen Kohlenhydrat-Resorptionszeit abgeleitet. Dieser Algorithmus reagiert am schnellsten auf Änderungen der Empfindlichkeit.</string>
@@ -225,7 +225,7 @@
     <string name="smscommunicator">SMS-Kommunikator</string>
     <string name="smscommunicator_allowednumbers">Erlaubte Telefonnummern</string>
     <string name="smscommunicator_allowednumbers_summary">+XXXXXXXXXX;+YYYYYYYYYY</string>
-    <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
+    <string name="smscommunicator_bolusreplywithcode">Um einen Bolus von %1$.2f IE abzugeben, antworte mit dem Code %2$s.</string>
     <string name="smscommunicator_mealbolusreplywithcode">Um einen Mahlzeitenbolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
     <string name="smscommunicator_temptargetwithcode">Um ein Temp Target von %1$s zu setzen, antworte mit dem Code %2$s</string>
     <string name="smscommunicator_temptargetcancel">Um das temporäre Ziel zu stoppen, antworte mit dem Code %1$s</string>
