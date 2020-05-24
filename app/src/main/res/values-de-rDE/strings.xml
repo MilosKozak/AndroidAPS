@@ -468,6 +468,8 @@
     <string name="doprofileswitch">Profilwechsel durchführen</string>
     <string name="careportal_pbage_label">Batteriealter</string>
     <string name="ns_alarmoptions">Alarm-Optionen</string>
+    <string name="ns_alarms">Benachrichtigungen über NS-Alarme</string>
+    <string name="ns_announcements">Benachrichtigungen über NS-Ankündigungen</string>
     <string name="nsalarm_staledatavalue_label">Veraltete Daten seit [min]</string>
     <string name="nsalarm_urgent_staledatavalue_label">Stark veraltete Daten seit [min]</string>
     <string name="openapsama_autosens_period">Intervall für Autosens [h]</string>
