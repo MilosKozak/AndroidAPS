@@ -229,12 +229,12 @@
     <string name="smscommunicator_mealbolusreplywithcode">Um einen Mahlzeitenbolus von %1$.2f IE abzugeben, antworte mit  dem Code %2$s.</string>
     <string name="smscommunicator_temptargetwithcode">Um ein temporäres Ziel von %1$s zu setzen, antworte mit dem Code %2$s</string>
     <string name="smscommunicator_temptargetcancel">Um das temporäre Ziel zu stoppen, antworte mit dem Code %1$s</string>
-    <string name="smscommunicator_stopsmswithcode">Um den SMS Remote Service zu deaktivieren, antworte mit dem Code %1$s.\n\nBeachte, dass Du diesen nur am AAPS Master Smartphone wieder aktivieren kannst.</string>
-    <string name="smscommunicator_stoppedsms">SMS Remote Service gestoppt. Verwende das AAPS Master, um ihn wieder zu aktivieren.</string>
+    <string name="smscommunicator_stopsmswithcode">Um die SMS-Fernsteuerung zu deaktivieren, antworte mit dem Code %1$s\n\nBeachte, dass Du diesen nur am AAPS-Master-Smartphone wieder aktivieren kannst.</string>
+    <string name="smscommunicator_stoppedsms">SMS-Fernsteuerung gestoppt. Verwende das AAPS-Master-Smartphone, um sie wieder zu aktivieren.</string>
     <string name="smscommunicator_calibrationreplywithcode">Um die Kalibrierung %1$.2f zu senden, antworte mit dem Code %2$s.</string>
     <string name="smscommunicator_bolusfailed">Bolus fehlgeschlagen</string>
-    <string name="smscommunicator_remotebolusmindistance_summary">Minimale Dauer in Minuten, die nach einem Remote Bolus verstrichen sein muss, bevor ein neuer abgegeben werden kann.</string>
-    <string name="smscommunicator_remotebolusmindistance">Anzahl Minuten, die mindestens zwischen zwei Bolusgaben liegen müssen.</string>
+    <string name="smscommunicator_remotebolusmindistance_summary">Minimale Dauer in Minuten, die nach einem Remote-Bolus verstrichen sein muss, bevor ein neuer abgegeben werden kann.</string>
+    <string name="smscommunicator_remotebolusmindistance">Anzahl der Minuten, die mindestens zwischen zwei Remote-Bolusabgaben liegen müssen.</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">Aus Sicherheitsgründen musst Du mindestens zwei Telefonnummern eintragen, um diese Voreinstellung zu ändern.</string>
     <string name="bolusdelivered">Bolus %1$.2fIE erfolgreich abgegeben</string>
     <string name="bolusrequested">Werde %1$.2fIE abgeben</string>
@@ -243,7 +243,7 @@
     <string name="smscommunicator_mealbolusdelivered_tt">Ziel %1$s für %2$d Minuten</string>
     <string name="smscommunicator_tt_set">Ziel %1$s für %2$d Minuten erfolgreich gesetzt.</string>
     <string name="smscommunicator_tt_canceled">Temporäres Ziel wurde erfolgreich abgebrochen</string>
-    <string name="smscommunicator_remotecommandsallowed">Erlaube externe Befehle per SMS</string>
+    <string name="smscommunicator_remotecommandsallowed">Erlaube Fernsteuerung per SMS</string>
     <string name="danarprofile">DanaR Profil-Einstellungen</string>
     <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Dauer der Insulinwirkung</string>
