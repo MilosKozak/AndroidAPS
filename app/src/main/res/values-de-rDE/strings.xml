@@ -1379,7 +1379,6 @@ Mache das nur, wenn AAPS nicht mehr mit dem Pod kommunizieren kann. Wenn dies no
     <string name="description_pump_omnipod_dash">Integration für Omnipod Dash.</string>
     <string name="omnipod_alert_finish_pairing_reminder">Erinnerung Kopplung beendet</string>
     <string name="omnipod_alert_finish_setup_reminder_reminder">Erinnerung Setup beendet</string>
-    <string name="omnipod_alert_expiration">Pod läuft in Kürze ab</string>
     <string name="omnipod_alert_expiration_advisory">Pod läuft in Kürze ab</string>
     <string name="omnipod_alert_shutdown_imminent">Herunterfahren steht unmittelbar bevor</string>
     <string name="omnipod_alert_low_reservoir">Niedriger Reservoirstand</string>
