@@ -279,7 +279,7 @@
     <string name="smscommunicator_tempbasalcanceled">TBR abgebrochen</string>
     <string name="smscommunicator_extendedcanceled">Die Abgabe des erweiterten Bolus wurde abgebrochen.</string>
     <string name="smscommunicator_tempbasalcancelfailed">Das Abbrechen der TBR ist fehlgeschlagen.</string>
-    <string name="smscommunicator_extendedcancelfailed">Der Abbruch des erweiterten Bolus ist fehlgeschlagen</string>
+    <string name="smscommunicator_extendedcancelfailed">Der Abbruch des erweiterten Bolus ist fehlgeschlagen.</string>
     <string name="smscommunicator_unknowncommand">Unbekannter Befehl oder falsche Antwort</string>
     <string name="quickwizard">QuickWizard</string>
     <string name="quickwizardsettings">QuickWizard-Einstellungen</string>
@@ -355,7 +355,7 @@
     <string name="profile">Profil</string>
     <string name="openapsama_max_daily_safety_multiplier_summary">Standardwert: 3\nDies ist eine wichtige Sicherheitseinstellung. Sie begrenzt das maximale Basal-IOB auf die dreifache Menge (im Standardfall) deiner größten Basalrate. In der Regel solltest Du diesen Wert nicht ändern. Aber Du solltest wissen, was \"3x max daily, 4x current\" als Sicherheitseinstellung bedeutet.</string>
     <string name="openapsama_current_basal_safety_multiplier_summary">Standardwert: 4\nDies ist die andere wichtige Sicherheitseinstellung, die zweite Hälfte von \"3x max daily, 4x current\". Diese Grenze beschränkt das Basal-IOB auf die (im Standardfall) vierfache Menge der aktuellen Basalrate. Dies ist wichtig, um Nutzer davor zu bewahren, zuviel Basal-Insulin zu verabreichen. Nochmals, der Standardwert ist 4x. Die meisten Nutzer werden niemals diese Einstellung verändern, sondern andere Einstellungen anpassen, um sich nicht dieser Sicherheitsgrenze zu nähern.</string>
-    <string name="openapsama_autosens_max_summary">Standardwert: 1.2\nDies ist eine Sicherheitsgrenze für Autosens (und bald auch Autotune), die besagt, wie hoch Autosens Basalraten anpassen darf und wie niedrig der ISF (Insulin-Sensitivitäts-Faktor) und der BZ-Zielwert eingestellt werden können. 1.2 ist dabei der Multiplikationsfaktor und erlaubt eine Anpassung um 20%%.</string>
+    <string name="openapsama_autosens_max_summary">Standardwert: 1.2\nDies ist eine Sicherheitsgrenze für Autosens (und bald auch Autotune), die besagt, wie stark Autosens Basalraten erhöhen darf und wie niedrig der ISF (Insulin-Sensitivitäts-Faktor) und der BZ-Zielwert eingestellt werden können. 1.2 ist dabei der Multiplikationsfaktor und erlaubt eine Anpassung um 20%%.</string>
     <string name="openapsama_autosens_min_summary">Standardwert: 0.7\nDies ist die andere Sicherheitsgrenze für autosens. Sie beschränkt, wie weit Basalraten abgesenkt und wie sehr ISF und BZ-Zielwerte erhöht werden können.</string>
     <string name="openapsama_autosens_adjusttargets">Autosens passt Zielwerte ebenfalls an</string>
     <string name="openapsama_autosens_adjusttargets_summary">Vorgabe: erlaubt.\nErlaubt Autosens den Ziel-BZ-Bereich in Verbindung mit ISF und Basal anzupassen.</string>
@@ -404,7 +404,7 @@
     <string name="resistantadult">Insulinresistenter Erwachsener</string>
     <string name="patientage_summary">Bitte wähle das Patientenalter, um die Sicherheits-Limits festzulegen</string>
     <string name="patient_name">Name des Patienten</string>
-    <string name="patient_name_summary">Gib den Namen des Patienten oder einen Spitznamen für die Unterscheidung zwischen mehreren Setups an.</string>
+    <string name="patient_name_summary">Bitte gib den Namen des Patienten oder einen Spitznamen an, um mehrere Setups unterscheiden zu können.</string>
     <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Nutzer</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s benötigt eine deaktivierte Akku-Leistungsoptimierung, um korrekt arbeiten zu können.</string>
@@ -505,7 +505,7 @@
     <string name="mdtp_cancel">Abbrechen</string>
     <string name="notloadedplugins">Es sind nicht alle Profile geladen!</string>
     <string name="valuesnotstored">Werte nicht gespeichert!</string>
-    <string name="ns_localbroadcasts">Aktiviere die Datenübertragung zu anderen Apps (z.B. xDrip). Nicht aktivieren falls Du mehr als eine Instanz von AAPS oder NSClient installiert hast!</string>
+    <string name="ns_localbroadcasts">Aktiviere die Datenübertragung zu anderen Apps (z.B. xDrip). Nicht aktivieren, falls Du mehr als eine Instanz von AAPS oder NSClient installiert hast!</string>
     <string name="ns_localbroadcasts_title">Aktiviere lokale Broadcasts</string>
     <string name="careportal_activity_label">AKTIVITÄT &amp; FEEDBACK</string>
     <string name="careportal_carbsandbolus_label">CARBS &amp; BOLUS</string>
@@ -560,10 +560,10 @@
     <string name="bgsource_upload">BZ Upload Einstellungen</string>
     <string name="wear_detailed_delta_title">Zeige detailliertes Delta</string>
     <string name="wear_detailed_delta_summary">Delta wird mit Dezimalstelle angezeigt.</string>
-    <string name="smbinterval_summary">Wie häufig SMBs angegeben werden (in Min.)</string>
+    <string name="smbinterval_summary">Wie häufig SMBs abgegeben werden (in Min.)</string>
     <string name="smbmaxminutes">SMB max. Minuten</string>
     <string name="smbmaxminutes_summary">SMB Basal-Limit in Minuten</string>
-    <string name="uamsmbmaxminutes">UAM SMB max minutes</string>
+    <string name="uamsmbmaxminutes">UAM SMB max. Minuten</string>
     <string name="uamsmbmaxminutes_summary">SMB Basal-Limit in Minuten für UAM</string>
     <string name="carbsReqThreshold">Schwellenwert für KH-Empfehlung</string>
     <string name="dexcomg5_xdripupload_title">Sende BZ-Werte zu xDrip+</string>
