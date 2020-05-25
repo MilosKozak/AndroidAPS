@@ -1378,6 +1378,7 @@
     <string name="description_pump_omnipod_dash">Integrace pumpy pro Omnipod Dash.</string>
     <string name="omnipod_alert_finish_pairing_reminder">Upomínka dokončení párování</string>
     <string name="omnipod_alert_finish_setup_reminder_reminder">Upomínka dokončení nastavení</string>
+    <string name="omnipod_alert_expiration">Pod brzy vyprší</string>
     <string name="omnipod_alert_expiration_advisory">Pod brzy vyprší</string>
     <string name="omnipod_alert_shutdown_imminent">Blíží se vypnutí</string>
     <string name="omnipod_alert_low_reservoir">Nízký stav zásobníku</string>
