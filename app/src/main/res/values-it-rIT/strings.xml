@@ -1375,7 +1375,6 @@
     <string name="description_pump_omnipod_dash">Integrazione del microinfusore Omnipod Dash.</string>
     <string name="omnipod_alert_finish_pairing_reminder">Fine promemoria associazione</string>
     <string name="omnipod_alert_finish_setup_reminder_reminder">Fine promemoria configurazione</string>
-    <string name="omnipod_alert_expiration">Il pod scadrà presto</string>
     <string name="omnipod_alert_expiration_advisory">Il pod scadrà presto</string>
     <string name="omnipod_alert_shutdown_imminent">L\'arresto è imminente</string>
     <string name="omnipod_alert_low_reservoir">Livello serbatoio basso</string>
