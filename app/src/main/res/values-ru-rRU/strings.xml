@@ -1375,7 +1375,6 @@ Context | Edit Context</string>
     <string name="description_pump_omnipod_dash">Интеграция с помпой Omnompod Dash.</string>
     <string name="omnipod_alert_finish_pairing_reminder">Напоминание о завершении сопряжения</string>
     <string name="omnipod_alert_finish_setup_reminder_reminder">Напоминание о завершении настройки</string>
-    <string name="omnipod_alert_expiration">Срок Pod\'a истекает в ближайшее время</string>
     <string name="omnipod_alert_expiration_advisory">Срок Pod\'a истекает в ближайшее время</string>
     <string name="omnipod_alert_shutdown_imminent">Остановка неизбежна</string>
     <string name="omnipod_alert_low_reservoir">В резервуаре мало инсулина</string>
