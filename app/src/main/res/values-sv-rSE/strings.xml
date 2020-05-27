@@ -265,6 +265,9 @@ Eversense-appen.</string>
     <string name="smscommunicator_carbsreplywithcode">Om du vill ange %1$dg kl. %2$s, svara med kod %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">För att starta temp basal %1$d%% i %2$d min, svara med kod %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">För att pausa loop i %1$d minuter, svara med kod %2$s</string>
+    <string name="smscommunicator_loopresumereplywithcode">För att återuppta loopen, svara med kod %1$s</string>
+    <string name="smscommunicator_loopenablereplywithcode">För att aktivera loopen, svara med kod %1$s</string>
+    <string name="smscommunicator_loopdisablereplywithcode">För att inaktivera loopen, svara med kod %1$s</string>
     <string name="smscommunicator_tempbasalset">Temp basal %1$.2f enheter/tim i %2$d min startad</string>
     <string name="smscommunicator_extendedset">Förlängd bolus %1$.2f enheter över %2$d min har startats</string>
     <string name="smscommunicator_carbsset">%1$dg kolhydrater registrerat</string>
@@ -469,6 +472,8 @@ Eversense-appen.</string>
     <string name="doprofileswitch">Genomför profilbyte</string>
     <string name="careportal_pbage_label">Pumpbatteri ålder</string>
     <string name="ns_alarmoptions">Larminställningar</string>
+    <string name="ns_alarms">Skapa aviseringar från NS-larm</string>
+    <string name="ns_announcements">Skapa aviseringar från NS-meddelanden</string>
     <string name="nsalarm_staledatavalue_label">Första varning efter [min]</string>
     <string name="nsalarm_urgent_staledatavalue_label">Akut varning efter [min]</string>
     <string name="openapsama_autosens_period">Intervall för autosens [tim]</string>
@@ -846,6 +851,10 @@ Eversense-appen.</string>
     <string name="log_alerts">Logga varningar</string>
     <string name="enable_tbr_emulation">Aktivera emulering av temp basal</string>
     <string name="enable_tbr_emulation_summary">Använda förlängda bolusar istället för temp basaler för att kringgå 250%%-begränsningen</string>
+    <string name="disable_vibration">Inaktivera vibration för manuell bolus</string>
+    <string name="disable_vibration_summary">För bolus och förlängd bolus (endast tillgängligt med Insight firmware 3.x)</string>
+    <string name="disable_vibration_auto">Inaktivera vibration för automatisk bolus</string>
+    <string name="disable_vibration_auto_summary">För SMB och temp basal med TBR-emulering (endast tillgängligt med Insight firmware 3.x)</string>
     <string name="disconnect_delay">Fördröjning av frånkoppling [s]</string>
     <string name="serial_number">Serienummer</string>
     <string name="release_software_version">Mjukvaruversion Release</string>
@@ -1370,6 +1379,7 @@ Eversense-appen.</string>
     <string name="description_pump_omnipod_dash">Pumpintegration för Omnipod Dash.</string>
     <string name="omnipod_alert_finish_pairing_reminder">Påminnelse att slutföra parkoppling</string>
     <string name="omnipod_alert_finish_setup_reminder_reminder">Påminnelse att slutföra installation</string>
+    <string name="omnipod_alert_expiration">Pod löper snart ut</string>
     <string name="omnipod_alert_expiration_advisory">Pod kommer att gå ut inom kort</string>
     <string name="omnipod_alert_shutdown_imminent">Pod kommer snart att stängas av</string>
     <string name="omnipod_alert_low_reservoir">Låg reservoar</string>
