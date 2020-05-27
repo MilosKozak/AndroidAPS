@@ -282,8 +282,8 @@ Eversense-appen.</string>
     <string name="smscommunicator_tempbasalcancelfailed">Misslyckades med att avbryta temp basal</string>
     <string name="smscommunicator_extendedcancelfailed">Avbryter förlängd bolus</string>
     <string name="smscommunicator_unknowncommand">Okänt kommando eller fel svar</string>
-    <string name="quickwizard">Kalkylator</string>
-    <string name="quickwizardsettings">Kalkylatorinställningar</string>
+    <string name="quickwizard">Snabbsteg</string>
+    <string name="quickwizardsettings">Inställningar för snabbsteg</string>
     <string name="overview_editquickwizard_buttontext">Knapptext:</string>
     <string name="overview_editquickwizard_carbs">KH:</string>
     <string name="overview_editquickwizard_valid">Giltig:</string>
