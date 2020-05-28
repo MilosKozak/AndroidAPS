@@ -625,6 +625,8 @@
     <string name="extendedbolusdeliveryerror">Chyba spuštění extended bolusu</string>
     <string name="insightpump_shortname">Insight</string>
     <string name="ago">zpět</string>
+    <string name="set_neutral_temps_title">Nastavit neutrální dočasný bazál</string>
+    <string name="set_neutral_temps_summary">Je-li povoleno, zastaví dočasný bazál před koncem každé hodiny. To může u některých pump pomoci zastavit pípání/vibrace v celou hodinu.</string>
     <string name="enablesmbalways">Vždy povolit SMB</string>
     <string name="enablesmbalways_summary">Povolit SMB nezávisle na bolusech. Možno pouze se zdroji glykémií s dobrým filtrováním dat, jako např. G5</string>
     <string name="enablesmbaftercarbs">Povolit SMB po jídle</string>
