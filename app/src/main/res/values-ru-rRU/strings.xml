@@ -625,6 +625,8 @@
     <string name="extendedbolusdeliveryerror">Подача пролонгированного болюса не состоялась</string>
     <string name="insightpump_shortname">Поле обзора</string>
     <string name="ago">тому назад</string>
+    <string name="set_neutral_temps_title">Установить нейтральные временные базалы</string>
+    <string name="set_neutral_temps_summary">Если эта опция включена, то она отменяет временный базал до конца каждого часа. Такой метод помогает прекратить почасовую вибрацию некоторых помп.</string>
     <string name="enablesmbalways">Всегда включать супер микро болюс SMB</string>
     <string name="enablesmbalways_summary">Всегда включать супер микро болюс SMB независимо от болюсов. Возможно только для источников СК с хорошей фильтрацией данных вроде G5</string>
     <string name="enablesmbaftercarbs">Активировать супер микро болюс SMB после углеводов</string>
