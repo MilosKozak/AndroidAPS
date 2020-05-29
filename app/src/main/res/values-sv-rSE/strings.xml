@@ -626,6 +626,8 @@ Eversense-appen.</string>
     <string name="extendedbolusdeliveryerror">Förlängd bolus misslyckad</string>
     <string name="insightpump_shortname">Sight</string>
     <string name="ago">sedan</string>
+    <string name="set_neutral_temps_title">Sätt neutrala temp basaler</string>
+    <string name="set_neutral_temps_summary">Om aktiverad, kommer en eventuell temporär basal automatiskt avbrytas före utgången av varje timme. Denna metod kan förhindra att vissa pumpar piper/vibrerar.</string>
     <string name="enablesmbalways">Använd alltid SMB</string>
     <string name="enablesmbalways_summary">Använd alltid SMB oberoende av bolus. Endast möjligt med en bra filtrerad BG-källa, t ex Dexcom G5.</string>
     <string name="enablesmbaftercarbs">Använd SMB efter kolhydrater</string>
