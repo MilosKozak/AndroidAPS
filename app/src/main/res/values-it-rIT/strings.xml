@@ -1280,8 +1280,6 @@
     <string name="statuslights">Indicatori di stato</string>
     <string name="statuslights_copy_ns">Copia impostazioni da NS</string>
     <string name="copyexistingvalues">Copiare impostazioni NS (se esiste)?</string>
-    <string name="classic_desrciption">Tema originale</string>
-    <string name="buttonson_desrciption">I tasti vengono sempre visualizzati nella parte inferiore dello schermo</string>
     <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
