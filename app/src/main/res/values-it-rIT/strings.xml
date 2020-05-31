@@ -452,8 +452,12 @@
     <string name="statuslights_res_critical">Soglia livello serbatoio critico [U]</string>
     <string name="statuslights_bat_warning">Soglia di avviso livello batteria [%]</string>
     <string name="statuslights_bat_critical">Soglia livello batteria critico [%]</string>
+    <string name="prediction_shortname">PRED</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
+    <string name="basal_shortname">BAS</string>
+    <string name="deviation_shortname">DEV</string>
+    <string name="activity_shortname">ATT</string>
     <string name="nav_about">Informazioni su</string>
     <string name="smscommunicator_missingsmspermission">Autorizzazione SMS mancante</string>
     <string name="smscommunicator_missingphonestatepermission">Autorizzazione stato telefono mancante</string>
@@ -1280,6 +1284,8 @@
     <string name="statuslights">Indicatori di stato</string>
     <string name="statuslights_copy_ns">Copia impostazioni da NS</string>
     <string name="copyexistingvalues">Copiare impostazioni NS (se esiste)?</string>
+    <string name="classic_description">Tema originale</string>
+    <string name="buttonson_description">I tasti vengono sempre visualizzati nella parte inferiore dello schermo</string>
     <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
