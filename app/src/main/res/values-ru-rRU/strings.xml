@@ -452,8 +452,12 @@
     <string name="statuslights_res_critical">Порог критического уровня наполненности резервуара [U]</string>
     <string name="statuslights_bat_warning">Порог предупреждения о разрядке батареи [%]</string>
     <string name="statuslights_bat_critical">Порог предупреждения о критическом уровне разрядки батареи [%]</string>
+    <string name="prediction_shortname">ОЖИД</string>
     <string name="iob">IOB акт инс</string>
     <string name="cob">акт углев</string>
+    <string name="basal_shortname">БАЗ</string>
+    <string name="deviation_shortname">ОТКЛН</string>
+    <string name="activity_shortname">НАГР</string>
     <string name="abs_insulin_shortname">НАДО</string>
     <string name="devslope_shortname">ЛИНОТКЛН</string>
     <string name="nav_about">о приложении</string>
