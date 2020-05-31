@@ -452,8 +452,14 @@
     <string name="statuslights_res_critical">Warnschwelle kritischer Reservoirstand [IE]</string>
     <string name="statuslights_bat_warning">Warnschwelle Batteriestand [%]</string>
     <string name="statuslights_bat_critical">Warnschwelle kritischer Batteriestand [%]</string>
+    <string name="prediction_shortname">PRED</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
+    <string name="basal_shortname">BAS</string>
+    <string name="deviation_shortname">DEV</string>
+    <string name="activity_shortname">ACT</string>
+    <string name="abs_insulin_shortname">ABS</string>
+    <string name="devslope_shortname">DEVSLOPE</string>
     <string name="nav_about">Über</string>
     <string name="smscommunicator_missingsmspermission">SMS-Steuerung nicht erlaubt</string>
     <string name="smscommunicator_missingphonestatepermission">Fehlende Berechtigung für den Zugriff auf den Telefonstatus</string>
