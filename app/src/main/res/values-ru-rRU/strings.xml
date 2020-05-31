@@ -454,6 +454,8 @@
     <string name="statuslights_bat_critical">Порог предупреждения о критическом уровне разрядки батареи [%]</string>
     <string name="iob">IOB акт инс</string>
     <string name="cob">акт углев</string>
+    <string name="abs_insulin_shortname">НАДО</string>
+    <string name="devslope_shortname">ЛИНОТКЛН</string>
     <string name="nav_about">о приложении</string>
     <string name="smscommunicator_missingsmspermission">отсутствует смс подтверждение</string>
     <string name="smscommunicator_missingphonestatepermission">Отсутствует разрешение телефона</string>
