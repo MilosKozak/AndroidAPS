@@ -333,6 +333,35 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
                     if (pref != null) pref.isEnabled = true
         }
 
+        if (p.getKey() == resourceHelper.gs(R.string.key_smbinterval) ) {
+            val pref: Preference? = findPreference(resourceHelper.gs(R.string.key_smbinterval))
+            val c =  constraintChecker.isSMBModeEnabled()
+            if (!c.value())
+                if (pref != null) pref.isEnabled = false
+                else
+                    if (pref != null) pref.isEnabled = true
+        }
+
+        if (p.getKey() == resourceHelper.gs(R.string.key_smbmaxminutes) ) {
+            val pref: Preference? = findPreference(resourceHelper.gs(R.string.key_smbmaxminutes))
+            val c =  constraintChecker.isSMBModeEnabled()
+            if (!c.value())
+                if (pref != null) pref.isEnabled = false
+                else
+                    if (pref != null) pref.isEnabled = true
+        }
+
+        if (p.getKey() == resourceHelper.gs(R.string.key_uamsmbmaxminutes) ) {
+            val pref: Preference? = findPreference(resourceHelper.gs(R.string.key_uamsmbmaxminutes))
+            val c =  constraintChecker.isSMBModeEnabled()
+            if (!c.value())
+                if (pref != null) pref.isEnabled = false
+                else
+                    if (pref != null) pref.isEnabled = true
+        }
+
+
+
     }
 
     // We use Preference and custom editor instead of EditTextPreference
