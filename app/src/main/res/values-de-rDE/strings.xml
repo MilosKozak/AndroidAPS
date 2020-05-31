@@ -1286,8 +1286,6 @@ Unerwartetes Verhalten.</string>
     <string name="statuslights">Statusanzeige</string>
     <string name="statuslights_copy_ns">Einstellung aus NS kopieren</string>
     <string name="copyexistingvalues">NS-Einstellungen kopieren (falls vorhanden)?</string>
-    <string name="classic_desrciption">Ursprüngliches Erscheinungsbild</string>
-    <string name="buttonson_desrciption">Schaltflächen werden immer am unteren Rand des Bildschirms angezeigt</string>
     <string name="skin">Erscheinungsbild</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
