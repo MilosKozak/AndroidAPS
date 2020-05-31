@@ -1280,8 +1280,6 @@
     <string name="statuslights">Indikátory stavu</string>
     <string name="statuslights_copy_ns">Kopírovať nastavenia z NS</string>
     <string name="copyexistingvalues">Skopírovať nastavenia NS (ak existujú)?</string>
-    <string name="classic_desrciption">Pôvodný vzhľad</string>
-    <string name="buttonson_desrciption">Tlačidlá sú vždy zobrazené v spodnej časti obrazovky</string>
     <string name="skin">Vzhľad</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
