@@ -1281,8 +1281,6 @@ Eversense-appen.</string>
     <string name="statuslights">Statuslampor</string>
     <string name="statuslights_copy_ns">Kopiera inställningar från NS</string>
     <string name="copyexistingvalues">Kopiera NS-inställningar (om det finns)?</string>
-    <string name="classic_desrciption">Ursprungligt tema</string>
-    <string name="buttonson_desrciption">Knappar visas alltid längst ned på skärmen</string>
     <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
