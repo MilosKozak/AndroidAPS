@@ -1288,6 +1288,7 @@
     <string name="copyexistingvalues">Copiare impostazioni NS (se esiste)?</string>
     <string name="classic_description">Tema originale</string>
     <string name="buttonson_description">I tasti vengono sempre visualizzati nella parte inferiore dello schermo</string>
+    <string name="largedisplay_description">Visualizzazione ampia</string>
     <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
