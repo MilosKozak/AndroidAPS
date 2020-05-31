@@ -1288,8 +1288,6 @@ Context | Edit Context</string>
     <string name="statuslights">Индикаторы состояния</string>
     <string name="statuslights_copy_ns">Копировать параметры из NS</string>
     <string name="copyexistingvalues">Копировать настройки NS (если есть)?</string>
-    <string name="classic_desrciption">Исходная тема оформления</string>
-    <string name="buttonson_desrciption">Кнопки всегда отображаются в нижней части экрана</string>
     <string name="skin">Тема оформления</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
