@@ -1175,12 +1175,54 @@
     <string name="loop_tbrrequest_time_label">Диапазон между временни базали</string>
     <string name="loop_tbrexecution_time_label">Продължителност на временни базали</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_otp_reset_successful">Генериран е нов ключ! Моля, използвайте актуализирания QRCode.</string>
+    <string name="smscommunicator_otp_step1_install_header">1. Инсталиране на удостоверител</string>
+    <string name="smscommunicator_otp_step2_provisioning_header">2. Сканиране на кода за настройка на AndroidAPS OTP </string>
+    <string name="smscommunicator_otp_step3_test_header">3. Тест на еднократна парола</string>
+    <string name="smscommunicator_otp_reset_header">Нулиране на удостоверители</string>
+    <string name="smscommunicator_otp_install_info">На всеки следящ телефона инсталирайте приложение Аутентификатор, който поддържа RFC 6238 ТОТР токени. Популярни безплатни приложения:\n • Authy\n • Google Authenticator\n • LastPass Authenticator\n • FreeOTP Authenticator</string>
+    <string name="smscommunicator_otp_provisioning_warning">Не давайте този код е онлайн!\nИзползвайте го само за сканиране на телефони последовател.</string>
+    <string name="smscommunicator_otp_reset_warning">При нулиране на на удостоверителя, всички вече използвани удостоверения са невалидни. Ще трябва да ги настроите отново!</string>
+    <string name="onconnect">При свързване</string>
+    <string name="ondisconnect">При изключване</string>
     <string name="overview_show_predictions">Прогнозни КЗ</string>
+    <string name="overview_show_deviationslope">Наклон на отклонението</string>
+    <string name="authorizationfailed">Удостоверяването неуспешно</string>
+    <string name="overview_show_absinsulin">Абсолютен инсулин</string>
+    <string name="master_password_summary">Главната парола се използва за архивиране на настройки и за подмяна на защитата в приложението. Запомни я или я пази на сигурно място.</string>
+    <string name="passwords_dont_match">Паролите не съвпадат</string>
+    <string name="current_master_password">Сегашна главна парола</string>
+    <string name="statuslights">Индикатори</string>
+    <string name="statuslights_copy_ns">Копиране на настройки от NS</string>
+    <string name="copyexistingvalues">Копиране на профил от NS (ако има)?</string>
+    <string name="classic_description">Оригинален изглед</string>
+    <string name="buttonson_description">Бутоните винаги се показват на дъното на екрана.</string>
+    <string name="largedisplay_description">Голям екран</string>
+    <string name="skin">Тема</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Интеграция на помпата Omnipod, изисква RileyLink устройство (с фърмуер минимум 2.0 ) .</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Звук при болус активен</string>
+    <string name="omnipod_config_beep_basal_enabled">Звук при базал активен</string>
+    <string name="omnipod_config_beep_smb_enabled">Звук при SMB активен</string>
+    <string name="omnipod_config_beep_tbr_enabled">Звук при временен базал активен</string>
+    <string name="omnipod_config_pod_debugging_options_enabled">Опции за отстраняване на грешки в под активирани</string>
+    <string name="omnipod_config_timechange_enabled">Разрешено е DST/Timezone</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">Под Mgmt</string>
+    <string name="omnipod_pod_status">Статус на под</string>
+    <string name="omnipod_reservoir_left">%1$.2f Е остават</string>
+    <string name="omnipod_reservoir_over50">Над 50 Е</string>
+    <string name="omnipod_pod_address">Адрес на под</string>
+    <string name="omnipod_pod_expiry">Срокът на пода изтича</string>
+    <string name="omnipod_pod_name_no_info">Няма информация.</string>
+    <string name="omnipod_pod_no_pod_connected">Няма активен под</string>
+    <string name="omnipod_pod_not_initalized">Под не е инициализиран</string>
+    <string name="omnipod_pod_active_alerts">Сигнали за активен под</string>
+    <string name="omnipod_ack_short">Ack Предупреждения</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_cmd_set_bolus">Стартирай болус</string>
