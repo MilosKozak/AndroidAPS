@@ -19,8 +19,10 @@
     <string name="androidaps_start">Стартиран AndroidAPS</string>
     <string name="formatinsulinunits">%1$.2fЕ</string>
     <string name="reservoirvalue">%1$.0f / %2$d Е</string>
+    <string name="pump_basebasalrate">%1$.2f Е/ч</string>
     <string name="format_hours">%1$.2f ч</string>
     <string name="format_mins">%1$d мин</string>
+    <string name="format_mins_short">%1$dm</string>
     <string name="pumpbusy">Помпата е заета</string>
     <string name="connectionerror">Грешка при връзка с помпата</string>
     <string name="youareonallowedlimit">Достигнахте лимита</string>
@@ -49,16 +51,19 @@
     <!--    Dialogs-->
     <!--    BlePreCheck-->
     <!--    DateUtil-->
+    <string name="minago">преди %1$d мин</string>
     <!--    Profile-->
     <!--    ProfileFunction-->
     <!--    PumpType-->
     <!--    APSResult-->
     <!--    ProfileSwitch-->
     <!--    Temptarget-->
+    <string name="mins">%1$dмин</string>
     <!--    TDD-->
     <!--    Translator-->
     <!--    Command-->
     <!--    PumpEnactResult-->
     <!--    TDDStatsActivity-->
+    <string name="stats">Статистика</string>
     <!--    Ntp-->
 </resources>
