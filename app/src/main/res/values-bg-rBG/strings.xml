@@ -403,6 +403,9 @@
     <string name="adult">Възрастен</string>
     <string name="resistantadult">Възрастни с голяма инсулинова резистентност</string>
     <string name="patientage_summary">Изберете възраст за определяне лимитите на безопасност</string>
+    <string name="patient_name">Име на пациента</string>
+    <string name="patient_name_summary">Моля, посочете име на пациента или измислено име, за да се различават</string>
+    <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Потребител</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s се нуждае от изключване от списъка за оптимизиране на батерията за пълна функционалност</string>
     <string name="loopsuspended">Loop изключен</string>
@@ -437,12 +440,26 @@
     <string name="enablesuperbolus">Разреши използването на Суперболус</string>
     <string name="enablesuperbolus_summary">Разреши функцията суперболус в съветника. Не я разрешавайте докато не научите какво наистина прави. ТОВА МОЖЕ ДА СЪЗДАДЕ ОПАСНОСТ ОТ ПРЕДОЗИРАНЕ С ИНСУЛИН.</string>
     <string name="show_statuslights">Покажи статус светлини на началния екран</string>
+    <string name="statuslights_cage_warning">Праг за възраст на канюла [часа]</string>
+    <string name="statuslights_cage_critical">Праг за критична възраст на канюла [часа]</string>
+    <string name="statuslights_iage_warning">Праг за инсулинова възраст [часа]</string>
+    <string name="statuslights_iage_critical">Праг за критична инсулинова възраст [часа]</string>
+    <string name="statuslights_sage_warning">Праг за възраст на сензор [часа]</string>
+    <string name="statuslights_sage_critical">Праг за критична възраст на сензор [часа]</string>
+    <string name="statuslights_bage_warning">Аларма при възраст на батерия над [часа]</string>
+    <string name="statuslights_bage_critical">Праг за критична възраст на батерията над [часа]</string>
     <string name="statuslights_res_warning">Ниво за аларма за останал инсулин в резервоара [Е]</string>
     <string name="statuslights_res_critical">Критично ниво на останал инсулин в резервоар [Е]</string>
     <string name="statuslights_bat_warning">Аларма при заряд на батерия под [%]</string>
     <string name="statuslights_bat_critical">Критично ниво на батерията под [%]</string>
+    <string name="prediction_shortname">Предв</string>
     <string name="iob">IOB</string>
     <string name="cob">СОВ</string>
+    <string name="basal_shortname">БАЗА</string>
+    <string name="deviation_shortname">Откл</string>
+    <string name="activity_shortname">АКТ</string>
+    <string name="abs_insulin_shortname">АБС</string>
+    <string name="devslope_shortname">ОТК.НАКЛ</string>
     <string name="nav_about">За приложението</string>
     <string name="smscommunicator_missingsmspermission">SMS команда забранена</string>
     <string name="smscommunicator_missingphonestatepermission">Липсва разрешение до данни от телефона</string>
@@ -460,6 +477,8 @@
     <string name="doprofileswitch">Смени профил</string>
     <string name="careportal_pbage_label">Възраст на батерията на помпата</string>
     <string name="ns_alarmoptions">Опции за аларми</string>
+    <string name="ns_alarms">Известяване при NS аларми</string>
+    <string name="ns_announcements">Създаване на известия от NS съобщения</string>
     <string name="nsalarm_staledatavalue_label">Когато няма данни повече от [мин]</string>
     <string name="nsalarm_urgent_staledatavalue_label">Много стари данни при повече от [мин]</string>
     <string name="openapsama_autosens_period">Интервал за autosens [ч]</string>
@@ -547,8 +566,13 @@
     <string name="bgsource_upload">Настройки при качване на КЗ към Nightscout</string>
     <string name="wear_detailed_delta_title">Показвай подробна делта</string>
     <string name="wear_detailed_delta_summary">Показвай делта с още един десетичен знак</string>
+    <string name="smbinterval_summary">Интервал между SMB в минути</string>
     <string name="smbmaxminutes">Максимум минути СМБ</string>
     <string name="smbmaxminutes_summary">Максимални минути за ограничаване на базала от SMB</string>
+    <string name="uamsmbmaxminutes">Максимум минути за отчитане на необявени хранения UAM</string>
+    <string name="uamsmbmaxminutes_summary">Максимални минути за ограничаване на базала при SMB за UAM</string>
+    <string name="carbsReqThreshold">Праг на предложение за въгл.</string>
+    <string name="carbsReqThreshold_summary">Когато се предлагат въгл., при колко да се покаже уведомление</string>
     <string name="dexcomg5_xdripupload_title">Изпращай данни за КЗ към xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">В xDrip+ изберете 640g/Eversense за източник на данни</string>
     <string name="nsclientbg">КЗ от NS</string>
@@ -607,6 +631,8 @@
     <string name="extendedbolusdeliveryerror">Грешка при доставяне на удължен болус</string>
     <string name="insightpump_shortname">Sight</string>
     <string name="ago">преди</string>
+    <string name="set_neutral_temps_title">Прилагане на неутрални временни базали</string>
+    <string name="set_neutral_temps_summary">Ако е вкл, то ще анулира временен базал на всеки час. Това може да помогне за спиране на  звук/вибрация от някой помпи на всеки час.</string>
     <string name="enablesmbalways">Разреши SMB постоянно</string>
     <string name="enablesmbalways_summary">Разрешава SMB постоянно и независимо от болусите. Възможно само с източник на КЗ с добра филтрация като G5  </string>
     <string name="enablesmbaftercarbs">Разреши SMB след въглехидрати</string>
@@ -778,6 +804,8 @@
     <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Да вдигам ли чувствителността при цели над 5.6]]></string>
     <string name="low_temptarget_lowers_sensitivity_title">Ниските цели да свалят ли чувствителността ?</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Да се понижава ли чувствителността при цели < 5.6 ммол/л?]]></string>
+    <string name="resistance_lowers_target_title">Съпротивление намалява целта</string>
+    <string name="resistance_lowers_target_summary">Когато се установи резистентност, намалява целевата глюкоза.</string>
     <string name="combo_invalid_setup">Невалидни настройки на помпата, проверете wiki и се уверете че меню Quick Info се казва QUICK INFO, с помощта на 360 софтуера.</string>
     <string name="custom">По избор</string>
     <string name="careportal_removestartedevents"> AndroidAPS стартира</string>
@@ -1216,6 +1244,7 @@
     <string name="loop_tbrrequest_time_label">Диапазон между временни базали</string>
     <string name="loop_tbrexecution_time_label">Продължителност на временни базали</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_otp_enabled_summary">Удостоверяване чрез еднократна парола, генерирана с Google Authenticator или подобна програма за 2-факторна оторизация.</string>
     <string name="smscommunicator_otp_reset_successful">Генериран е нов ключ! Моля, използвайте актуализирания QRCode.</string>
     <string name="smscommunicator_otp_step1_install_header">1. Инсталиране на удостоверител</string>
     <string name="smscommunicator_otp_step2_provisioning_header">2. Сканиране на кода за настройка на AndroidAPS OTP </string>
