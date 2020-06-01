@@ -453,8 +453,14 @@ Eversense-appen.</string>
     <string name="statuslights_res_critical">Akut varningsnivå för reservoar [U]</string>
     <string name="statuslights_bat_warning">Varningsnivå för batteri [%]</string>
     <string name="statuslights_bat_critical">Akut varningsnivå för batteri [%]</string>
+    <string name="prediction_shortname">Prog</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
+    <string name="basal_shortname">Bas</string>
+    <string name="deviation_shortname">Dev</string>
+    <string name="activity_shortname">Akt</string>
+    <string name="abs_insulin_shortname">Abs</string>
+    <string name="devslope_shortname">Devslope</string>
     <string name="nav_about">Om</string>
     <string name="smscommunicator_missingsmspermission">Saknar behörighet att skicka SMS</string>
     <string name="smscommunicator_missingphonestatepermission">Behörighet saknas</string>
@@ -653,7 +659,7 @@ Eversense-appen.</string>
     <string name="ns_create_announcements_from_errors_title">Skapa notiser vid fel</string>
     <string name="ns_create_announcements_from_errors_summary">Skapa notiser i Nightscout vid fel eller lokala meddelanden (även synliga i Careportal/Behandlingar)</string>
     <string name="wear_predictions_summary">Visa BG-prognos på klockan.</string>
-    <string name="wear_predictions_title">Prognos</string>
+    <string name="wear_predictions_title">BG-prognos</string>
     <string name="data_choices">Dataval</string>
     <string name="fabric_upload">Uppladdning till Fabric</string>
     <string name="allow_automated_crash_reporting">Tillåt automatisk rapportering av appkrascher och användningsinformation till utvecklarna via fabric.io-tjänsten.</string>
@@ -1271,7 +1277,7 @@ Eversense-appen.</string>
     <string name="smscommunicator_otp_reset_warning">Genom att återställa autentiseringsfunktionen kommer alla redan driftsatta autentiserare bli ogiltiga. Du kommer behöva sätta upp dem igen!</string>
     <string name="onconnect">Vid anslutning</string>
     <string name="ondisconnect">Vid frånkoppling</string>
-    <string name="overview_show_predictions">Beräknade resultat</string>
+    <string name="overview_show_predictions">BG-prognos</string>
     <string name="overview_show_deviationslope">Avvikelsekurva</string>
     <string name="authorizationfailed">Behörighetskontroll misslyckades</string>
     <string name="overview_show_absinsulin">Absolut insulinmängd</string>
@@ -1281,6 +1287,9 @@ Eversense-appen.</string>
     <string name="statuslights">Statuslampor</string>
     <string name="statuslights_copy_ns">Kopiera inställningar från NS</string>
     <string name="copyexistingvalues">Kopiera NS-inställningar (om det finns)?</string>
+    <string name="classic_description">Ursprungligt tema</string>
+    <string name="buttonson_description">Knappar visas alltid längst ned på skärmen</string>
+    <string name="largedisplay_description">Stor skärm</string>
     <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
