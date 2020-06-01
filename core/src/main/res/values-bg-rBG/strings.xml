@@ -31,6 +31,20 @@
     <string name="reload">Презареди</string>
     <string name="stoppressed">Натиснат е СТОП!</string>
     <string name="stop">Стоп</string>
+    <string name="carbs">въглехидрати</string>
+    <string name="invalidprofile">Грешен профил !!!</string>
+    <string name="noprofileset">НЕ Е АКТИВИРАН ПРОФИЛ</string>
+    <string name="date">Дата</string>
+    <string name="units_label">Единици</string>
+    <string name="dia_label">DIA (Време на действие на инсулина):</string>
+    <string name="ic_label">IC (Инсулин/въглехидр.):</string>
+    <string name="isf_label">ISF (Инс.чувствителност):</string>
+    <string name="basal_label">Базал</string>
+    <string name="target_label">Целeва КЗ:</string>
+    <string name="initializing">Инициализация ...</string>
+    <string name="serialnumber">Сериен номер</string>
+    <string name="battery_label">Батерия</string>
+    <string name="lastconnection_label">Последна връзка</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <!--    BlePreCheck-->
