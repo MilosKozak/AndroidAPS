@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    General-->
+    <string name="error">Грешка</string>
+    <string name="not_set_short">Не е зададен</string>
+    <string name="failedupdatebasalprofile">Неуспешно обновяване на базалния профил</string>
+    <string name="profile_set_ok">Профила на помпата е обновен</string>
+    <string name="invalidinput">Грешни данни</string>
+    <string name="tempbasaldeliveryerror">Грешка при подаване на временен базал</string>
+    <string name="goingtodeliver">Ще стартира %1$.2fЕ болус</string>
+    <string name="waitingforpump">Чакаме помпата</string>
+    <string name="connectingfor">Свързване %1$d сек</string>
+    <string name="bolusdelivering">Пускам %1$.2fЕ</string>
+    <string name="handshaking">Сдвояване</string>
+    <string name="connecting">Свързване</string>
+    <string name="connected">Свързана</string>
+    <string name="disconnected">Не е сврзана</string>
+    <string name="disconnecting">Разкачане</string>
+    <string name="androidaps_start">Стартиран AndroidAPS</string>
+    <string name="formatinsulinunits">%1$.2fЕ</string>
+    <string name="reservoirvalue">%1$.0f / %2$d Е</string>
+    <string name="format_hours">%1$.2f ч</string>
+    <string name="format_mins">%1$d мин</string>
+    <string name="pumpbusy">Помпата е заета</string>
+    <string name="connectionerror">Грешка при връзка с помпата</string>
+    <string name="youareonallowedlimit">Достигнахте лимита</string>
+    <string name="objectives">Цели</string>
+    <string name="close">Затвори</string>
+    <string name="please_wait">Моля изчакайте...</string>
+    <string name="mute">Заглушаване</string>
+    <string name="reload">Презареди</string>
+    <string name="stoppressed">Натиснат е СТОП!</string>
+    <string name="stop">Стоп</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <!--    BlePreCheck-->
