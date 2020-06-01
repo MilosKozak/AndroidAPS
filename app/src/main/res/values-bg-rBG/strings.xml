@@ -130,6 +130,7 @@
     <string name="apsmode_title">APS режим</string>
     <string name="closedloop">Затворен кръг</string>
     <string name="openloop">Отворен кръг</string>
+    <string name="lowglucosesuspend">Спиране на базал при ниска КЗ</string>
     <string name="disabledloop">Loop изключен</string>
     <string name="disableloop">Изключи Loop</string>
     <string name="enableloop">Включи Loop</string>
@@ -170,6 +171,14 @@
     <string name="openapsma_maxbasal_summary">Макс. лимит на временен базал [Е/ч] </string>
     <string name="openapsma_maxiob_title">Максимален IOB</string>
     <string name="openapsma_maxiob_summary">Този параметър се нарича максимален IOB в OpenAPS и подразбиране е 0. След няколко дни или седмици можете да го увеличите.</string>
+    <string name="password_preferences_encrypt_prompt">Главна парола, която ще бъде използвана за криптиране на експортирани настройки.</string>
+    <string name="password_preferences_decrypt_prompt">Парола, която е била използвана за криптиране на експортираните настройки.</string>
+    <string name="preferences_export_canceled">Експорт неуспешен! Настройките не са експортирани!</string>
+    <string name="preferences_import_canceled">Импорт неуспешен! Настройките не са импортирани!</string>
+    <string name="preferences_import_list_title">Изберете файл</string>
+    <string name="check_preferences_before_import">Моля, проверете насстройките преди импортирането:</string>
+    <string name="check_preferences_cannot_import">Настройите не могат да бъдат импортирани!</string>
+    <string name="check_preferences_dangerous_import">Настройите не трябва да бъдат импортирани! (опасни)</string>
     <string name="end_user_license_agreement">Лицензионно споразумение с краен потребител</string>
     <string name="end_user_license_agreement_text">НЕ ТРЯБВА ДА СЕ ИЗПОЛЗВА ЗА ВЗЕМАНЕ НА МЕДИЦИНСКИ РЕШЕНИЯ. НЯМА ГАРАНЦИЯ ЗА ПРОГРАМАТА, ДО СТЕПЕНТА, ПОЗВОЛЕНА ОТ ПРИЛОЖИМОТО ПРАВО. ОСВЕН КОГАТО Е ПОСОЧЕНО ДРУГО В ПИСМЕН ВИД, ПРИТЕЖАТЕЛИТЕ НА АВТОРСКОТО ПРАВО И/ИЛИ ДРУГИ СТРАНИ ПРЕДОСТАВЯТ ПРОГРАМАТА \"КАКТО Е\", БЕЗ ГАРАНЦИИ ОТ ВСЯКАКЪВ ВИД,  ИЗРАЗЕНИ ИЛИ ПОДРАЗБИРАЩИ СЕ, ВКЛЮЧИТЕЛНО, НО НЕ САМО, ПОДРАЗБИРАЩИ СЕ ГАРАНЦИИ ЗА ПРОДАВАЕМОСТ И ПРИГОДНОСТ ЗА  КОНКРЕТНА ЦЕЛ. ЦЕЛИЯ РИСК ПО ОТНОШЕНИЕ НА КАЧЕСТВОТО И ЕФЕКТИВНОСТТА НА ПРОГРАМАТА Е САМО ВАШ. АКО ПРОГРАМАТА НЕ СРАБОТИ, ВИЕ ПОЕМАТЕ  ВСИЧКИ НЕОБХОДИМИ РАЗХОДИ ЗА ОБСЛУЖВАНЕ, РЕМОНТ ИЛИ КОРЕКЦИЯ.</string>
     <string name="end_user_license_agreement_i_understand">Разбирам и приемам</string>
