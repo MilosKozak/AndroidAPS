@@ -1276,6 +1276,10 @@
     <!-- Omnipod - Dialogs -->
     <!-- Omnipod - Error -->
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_set_bolus">Podanie bolusa</string>
+    <string name="omnipod_cmd_cancel_bolus">Anulowanie bolusa</string>
+    <string name="omnipod_cmd_set_tbr">Ustaw tymczasową dawkę bazową</string>
+    <string name="omnipod_init_pod_set_basal_profile">Ustaw profil dawki bazowej</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
 </resources>
