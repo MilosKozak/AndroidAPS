@@ -24,7 +24,6 @@ import info.nightscout.androidaps.plugins.bus.RxBusWrapper
 import info.nightscout.androidaps.plugins.configBuilder.PluginStore
 import info.nightscout.androidaps.interfaces.ProfileFunction
 import info.nightscout.androidaps.plugins.constraints.safety.SafetyPlugin
-import info.nightscout.androidaps.plugins.configBuilder.ConstraintChecker
 import info.nightscout.androidaps.plugins.general.automation.AutomationPlugin
 import info.nightscout.androidaps.plugins.general.maintenance.MaintenancePlugin
 import info.nightscout.androidaps.plugins.general.nsclient.NSClientPlugin
@@ -67,8 +66,6 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
     @Inject lateinit var profileFunction: ProfileFunction
     @Inject lateinit var pluginStore: PluginStore
     @Inject lateinit var config: Config
-
-    @Inject lateinit var constraintChecker: ConstraintChecker
 
     @Inject lateinit var automationPlugin: AutomationPlugin
     @Inject lateinit var danaRPlugin: DanaRPlugin
@@ -315,53 +312,6 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
         } else {
             updatePrefSummary(p)
         }
-        if (p.getKey() == resourceHelper.gs(R.string.key_use_smb) ) {
-            val pref: Preference? = findPreference(resourceHelper.gs(R.string.key_use_smb))
-            val c =  constraintChecker.isSMBModeEnabled()
-            if (!c.value())
-                if (pref != null) pref.isEnabled = false
-                else
-                    if (pref != null) pref.isEnabled = true
-        }
-
-        if (p.getKey() == resourceHelper.gs(R.string.key_openapsama_useautosens) ) {
-            val pref: Preference? = findPreference(resourceHelper.gs(R.string.key_openapsama_useautosens))
-            val c =  constraintChecker.isAutosensModeEnabled()
-            if (!c.value())
-                if (pref != null) pref.isEnabled = false
-                else
-                    if (pref != null) pref.isEnabled = true
-        }
-
-        if (p.getKey() == resourceHelper.gs(R.string.key_smbinterval) ) {
-            val pref: Preference? = findPreference(resourceHelper.gs(R.string.key_smbinterval))
-            val c =  constraintChecker.isSMBModeEnabled()
-            if (!c.value())
-                if (pref != null) pref.isEnabled = false
-                else
-                    if (pref != null) pref.isEnabled = true
-        }
-
-        if (p.getKey() == resourceHelper.gs(R.string.key_smbmaxminutes) ) {
-            val pref: Preference? = findPreference(resourceHelper.gs(R.string.key_smbmaxminutes))
-            val c =  constraintChecker.isSMBModeEnabled()
-            if (!c.value())
-                if (pref != null) pref.isEnabled = false
-                else
-                    if (pref != null) pref.isEnabled = true
-        }
-
-        if (p.getKey() == resourceHelper.gs(R.string.key_uamsmbmaxminutes) ) {
-            val pref: Preference? = findPreference(resourceHelper.gs(R.string.key_uamsmbmaxminutes))
-            val c =  constraintChecker.isSMBModeEnabled()
-            if (!c.value())
-                if (pref != null) pref.isEnabled = false
-                else
-                    if (pref != null) pref.isEnabled = true
-        }
-
-
-
     }
 
     // We use Preference and custom editor instead of EditTextPreference
