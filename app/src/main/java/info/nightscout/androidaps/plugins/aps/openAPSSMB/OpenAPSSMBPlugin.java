@@ -149,7 +149,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface, Constr
         Constraint<Boolean> cSMB = constraintChecker.isSMBModeEnabled();
         Constraint<Boolean> cAMA = constraintChecker.isAMAModeEnabled();
 
-        for (int i=0; i<=3; i++) {
+        for (int i=0; i<=7; i++) {
             Preference pref = preferenceFragment.findPreference(resourceHelper.gs(smbprefkeys[i]));
             if (!cSMB.value())
                 if (pref != null) pref.setEnabled(false);
