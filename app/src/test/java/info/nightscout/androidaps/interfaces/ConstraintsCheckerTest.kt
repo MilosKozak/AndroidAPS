@@ -91,7 +91,6 @@ class ConstraintsCheckerTest : TestBaseWithProfile() {
         `when`(resourceHelper.gs(R.string.objectivenotstarted)).thenReturn("Objective %d not started")
         `when`(resourceHelper.gs(R.string.novalidbasalrate)).thenReturn("No valid basal rate read from pump")
         `when`(resourceHelper.gs(R.string.autosensdisabledinpreferences)).thenReturn("Autosens disabled in preferences")
-        `when`(resourceHelper.gs(R.string.smbdisabledinpreferences)).thenReturn("SMB disabled in preferences")
         `when`(resourceHelper.gs(R.string.pumplimit)).thenReturn("pump limit")
         `when`(resourceHelper.gs(R.string.itmustbepositivevalue)).thenReturn("it must be positive value")
         `when`(resourceHelper.gs(R.string.maxvalueinpreferences)).thenReturn("max value in preferences")
