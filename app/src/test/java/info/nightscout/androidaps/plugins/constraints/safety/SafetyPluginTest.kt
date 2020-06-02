@@ -60,6 +60,7 @@ class SafetyPluginTest : TestBaseWithProfile() {
         `when`(resourceHelper.gs(R.string.limitingpercentrate)).thenReturn("Limiting max percent rate to %1\$d%% because of %2\$s")
         `when`(resourceHelper.gs(R.string.pumpisnottempbasalcapable)).thenReturn("Pump is not temp basal capable")
         `when`(resourceHelper.gs(R.string.increasingmaxbasal)).thenReturn("Increasing max basal value because setting is lower than your max basal in profile")
+        `when`(resourceHelper.gs(R.string.smbdisabledinpreferences)).thenReturn("SMB disabled in preferences")
         `when`(resourceHelper.gs(R.string.closedmodedisabledinpreferences)).thenReturn("Closed loop mode disabled in preferences")
         `when`(resourceHelper.gs(R.string.closed_loop_disabled_on_dev_branch)).thenReturn("Running dev version. Closed loop is disabled.")
         `when`(resourceHelper.gs(R.string.itmustbepositivevalue)).thenReturn("it must be positive value")
