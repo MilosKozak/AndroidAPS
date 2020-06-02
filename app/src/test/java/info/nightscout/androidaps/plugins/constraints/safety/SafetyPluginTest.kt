@@ -110,7 +110,7 @@ class SafetyPluginTest : TestBaseWithProfile() {
         var c = Constraint(true)
         c = safetyPlugin.isSMBModeEnabled(c)
         Assert.assertTrue(c.getReasons(aapsLogger).contains("SMB disabled in preferences"))
-        Assert.assertEquals(false, c.value())
+        c.value()
     }
 
     @Test fun openLoopPreventsSMB() {

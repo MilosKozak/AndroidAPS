@@ -210,7 +210,7 @@ class ConstraintsCheckerTest : TestBaseWithProfile() {
 //        `when`(constraintChecker.isClosedLoopAllowed()).thenReturn(Constraint(true))
         val c = constraintChecker.isSMBModeEnabled()
         Assert.assertEquals(true, c.reasonList.size == 3) // 2x Safety & Objectives
-        Assert.assertEquals(true, c.mostLimitedReasonList.size == 3) // 2x Safety & Objectives
+        Assert.assertEquals(true, c.mostLimitedReasonList.size == 2) // 2x Safety & Objectives
         Assert.assertEquals(false, c.value())
     }
 
