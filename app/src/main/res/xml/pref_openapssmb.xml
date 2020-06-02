@@ -75,6 +75,7 @@
 
         <info.nightscout.androidaps.utils.textValidator.ValidatingEditTextPreference
             android:defaultValue="3"
+            android:dependency="@string/key_use_smb"
             android:digits="0123456789"
             android:inputType="number"
             android:key="@string/key_smbinterval"
@@ -88,6 +89,7 @@
 
         <info.nightscout.androidaps.utils.textValidator.ValidatingEditTextPreference
             android:defaultValue="30"
+            android:dependency="@string/key_use_smb"
             android:entries="@array/smbMaxMinutes"
             android:entryValues="@array/smbMaxMinutes"
             android:key="@string/key_smbmaxminutes"
@@ -95,6 +97,7 @@
 
         <info.nightscout.androidaps.utils.textValidator.ValidatingEditTextPreference
             android:defaultValue="30"
+            android:dependency="@string/key_use_smb"
             android:dialogMessage="@string/uamsmbmaxminutes"
             android:digits="0123456789"
             android:inputType="number"
