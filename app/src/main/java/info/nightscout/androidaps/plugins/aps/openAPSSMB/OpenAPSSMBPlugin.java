@@ -146,7 +146,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface, Constr
                 R.string.key_enableSMB_after_carbs
         };
 
-        Constraint<Boolean> cSMB = constraintChecker.isSMBModeEnabled();
+        Constraint<Boolean> cSMB = constraintChecker.isSMBModeAllowed();
         Constraint<Boolean> cAMA = constraintChecker.isAMAModeEnabled();
 
         for (int i=0; i<=7; i++) {

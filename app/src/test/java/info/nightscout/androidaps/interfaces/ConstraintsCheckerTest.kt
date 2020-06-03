@@ -209,7 +209,19 @@ class ConstraintsCheckerTest : TestBaseWithProfile() {
         `when`(sp.getString(R.string.key_aps_mode, "open")).thenReturn("open")
 //        `when`(constraintChecker.isClosedLoopAllowed()).thenReturn(Constraint(true))
         val c = constraintChecker.isSMBModeEnabled()
-        Assert.assertEquals(true, c.reasonList.size == 3) // 2x Safety & Objectives
+        Assert.assertEquals(true, c.reasonList.size == 3) // 3x Safety & Objectives
+        Assert.assertEquals(true, c.mostLimitedReasonList.size == 3) // 3x Safety & Objectives
+        Assert.assertEquals(false, c.value())
+    }
+
+    // Safety & Objectives
+    @Test
+    fun isSMBModeAllowedTest() {
+        objectivesPlugin.objectives[ObjectivesPlugin.SMB_OBJECTIVE].startedOn = 0
+        `when`(sp.getBoolean(R.string.key_use_smb, false)).thenReturn(false)
+        `when`(sp.getString(R.string.key_aps_mode, "open")).thenReturn("open")
+        val c = constraintChecker.isSMBModeAllowed()
+        Assert.assertEquals(true, c.reasonList.size == 2) // 2x Safety & Objectives
         Assert.assertEquals(true, c.mostLimitedReasonList.size == 2) // 2x Safety & Objectives
         Assert.assertEquals(false, c.value())
     }

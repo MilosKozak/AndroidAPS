@@ -33,6 +33,11 @@ interface ConstraintsInterface {
     }
 
     @JvmDefault
+    fun isSMBModeAllowed(value: Constraint<Boolean>): Constraint<Boolean> {
+        return value
+    }
+
+    @JvmDefault
     fun isUAMEnabled(value: Constraint<Boolean>): Constraint<Boolean> {
         return value
     }

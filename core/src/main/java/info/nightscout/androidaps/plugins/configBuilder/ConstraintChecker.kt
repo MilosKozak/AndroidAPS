@@ -27,6 +27,9 @@ class ConstraintChecker @Inject constructor(private val activePlugin: ActivePlug
     fun isSMBModeEnabled(): Constraint<Boolean> =
         isSMBModeEnabled(Constraint(true))
 
+    fun isSMBModeAllowed(): Constraint<Boolean> =
+        isSMBModeAllowed(Constraint(true))
+
     fun isUAMEnabled(): Constraint<Boolean> =
         isUAMEnabled(Constraint(true))
 
@@ -103,6 +106,16 @@ class ConstraintChecker @Inject constructor(private val activePlugin: ActivePlug
             val constraint = p as ConstraintsInterface
             if (!p.isEnabled(PluginType.CONSTRAINTS)) continue
             constraint.isSMBModeEnabled(value)
+        }
+        return value
+    }
+
+    override fun isSMBModeAllowed(value: Constraint<Boolean>): Constraint<Boolean> {
+        val constraintsPlugins = activePlugin.getSpecificPluginsListByInterface(ConstraintsInterface::class.java)
+        for (p in constraintsPlugins) {
+            val constraint = p as ConstraintsInterface
+            if (!p.isEnabled(PluginType.CONSTRAINTS)) continue
+            constraint.isSMBModeAllowed(value)
         }
         return value
     }
