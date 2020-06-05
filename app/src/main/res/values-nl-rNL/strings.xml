@@ -1170,6 +1170,7 @@
     <!-- Omnipod - Dialogs -->
     <!-- Omnipod - Error -->
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_set_bolus">Bolus instellen</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
 </resources>
