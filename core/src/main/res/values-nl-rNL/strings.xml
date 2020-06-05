@@ -10,14 +10,62 @@
     <string name="tempbasaldeliveryerror">Storing toedienen tijdelijk basaal</string>
     <string name="goingtodeliver">Er worden %1$.2fE toegediend</string>
     <string name="waitingforpump">Wacht op pomp</string>
+    <string name="connectingfor">Verbinding maken gedurende %1$d s</string>
+    <string name="bolusdelivering">Toedienen van %1$.2fE</string>
+    <string name="handshaking">Handshaking</string>
+    <string name="connecting">Verbining maken</string>
+    <string name="connected">Verbonden</string>
+    <string name="disconnected">Verbinding verbroken</string>
+    <string name="disconnecting">Verbinding aan het verbreken</string>
+    <string name="androidaps_start">AndroidAPS gestart</string>
+    <string name="formatinsulinunits">%1$.2fE</string>
+    <string name="reservoirvalue">%1$.0f / %2$d E</string>
+    <string name="pump_basebasalrate">%1$.2f E/uur</string>
+    <string name="format_hours">%1$.2f u</string>
+    <string name="format_mins">%1$d minuten</string>
+    <string name="pumpbusy">Pomp is bezig</string>
+    <string name="connectionerror">Pomp verbindingsstoring</string>
+    <string name="youareonallowedlimit">Limiet bereikt</string>
+    <string name="objectives">Doelen</string>
+    <string name="close">Sluiten</string>
+    <string name="please_wait">Even geduld a.u.b.…</string>
+    <string name="mute">Geluid dempen</string>
+    <string name="reload">Vernieuw</string>
+    <string name="stoppressed">STOP INGEDRUKT</string>
+    <string name="stop">Stop</string>
+    <string name="carbs">Koolhydraten</string>
+    <string name="invalidprofile">Ongeldig profiel !!!</string>
+    <string name="noprofileset">Geen profiel ingesteld</string>
+    <string name="date">Datum</string>
+    <string name="units_label">Eenheden</string>
+    <string name="dia_label">DIA</string>
+    <string name="ic_label">KH ratio</string>
+    <string name="isf_label">ISF</string>
+    <string name="basal_label">Basaal</string>
+    <string name="target_label">Streefdoel</string>
+    <string name="initializing">Initialiseren...</string>
+    <string name="serialnumber">Serie nummer</string>
+    <string name="battery_label">Batterij</string>
+    <string name="lastconnection_label">Laatste verbinding</string>
+    <string name="lastbolus_label">Laatste bolus</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <!--    BlePreCheck-->
     <!--    DateUtil-->
     <!--    Profile-->
+    <string name="profile_per_unit">/E</string>
+    <string name="profile_ins_units_per_hour">E/u</string>
+    <string name="profile_carbs_per_unit">g/E</string>
     <!--    ProfileFunction-->
+    <string name="noprofileselected">Geen profiel geselecteerd</string>
     <!--    PumpType-->
+    <string name="def_extended_note">* Alleen absolute waardes (geen van-tot bereik) worden ondersteund voor basaal / bolus in virtuele pomp.</string>
     <!--    APSResult-->
+    <string name="canceltemp">Annuleer tijdelijk basaal</string>
+    <string name="let_temp_basal_run">Laat tijdelijk basaal lopen</string>
+    <string name="rate">Dosis</string>
+    <string name="duration">Tijdsduur</string>
+    <string name="reason">Reden</string>
     <!--    ProfileSwitch-->
     <!--    Temptarget-->
     <!--    TDD-->
