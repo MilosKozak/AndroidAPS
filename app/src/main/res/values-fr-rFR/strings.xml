@@ -447,12 +447,12 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="statuslights_iage_critical">Seuil critique âge insuline [h]</string>
     <string name="statuslights_sage_warning">Seuil d\'alerte âge capteur [h]</string>
     <string name="statuslights_sage_critical">Seuil critique âge capteur [h]</string>
-    <string name="statuslights_bage_warning">Seuil d\'alerte niveau pile [h]</string>
-    <string name="statuslights_bage_critical">Seuil critique niveau pile [h]</string>
-    <string name="statuslights_res_warning">Seuil d\'avertissement de niveau du réservoir [U]</string>
-    <string name="statuslights_res_critical">Seuil critique de niveau du réservoir [U]</string>
-    <string name="statuslights_bat_warning">Seuil d’avertissement du niveau de batterie [%]</string>
-    <string name="statuslights_bat_critical">Seuil critique du niveau de la batterie [%]</string>
+    <string name="statuslights_bage_warning">Seuil d\'alerte âge pile [h]</string>
+    <string name="statuslights_bage_critical">Seuil critique âge pile [h]</string>
+    <string name="statuslights_res_warning">Seuil d\'alerte niveau réservoir [U]</string>
+    <string name="statuslights_res_critical">Seuil critique de niveau réservoir [U]</string>
+    <string name="statuslights_bat_warning">Seuil d’alerte niveau pile [%]</string>
+    <string name="statuslights_bat_critical">Seuil critique niveau pile [%]</string>
     <string name="prediction_shortname">PRED</string>
     <string name="iob">IA</string>
     <string name="cob">GA</string>
@@ -559,7 +559,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="localalertsettings_title">Alertes locales</string>
     <string name="enable_missed_bg_readings_alert">Alerte pas nouvelle donnée glycémique</string>
     <string name="enable_pump_unreachable_alert">Alerte si la pompe est hors de portée</string>
-    <string name="pump_unreachable_threshold">Seuil alerte pompe hors de portée [min]</string>
+    <string name="pump_unreachable_threshold">Seuil d\'alerte pompe hors de portée [min]</string>
     <string name="urgent_alarm">Alarme d\'urgence</string>
     <string name="info">INFO</string>
     <string name="eversense">App Eversense (patché)</string>
