@@ -174,6 +174,12 @@ class ObjectivesPlugin @Inject constructor(
         return value
     }
 
+    override fun isAutosensModeAllowed(value: Constraint<Boolean>): Constraint<Boolean> {
+        if (!objectives[AUTOSENS_OBJECTIVE].isStarted)
+            value.set(aapsLogger, false, String.format(resourceHelper.gs(R.string.objectivenotstarted), AUTOSENS_OBJECTIVE + 1), this)
+        return value
+    }
+
     override fun isAMAModeEnabled(value: Constraint<Boolean>): Constraint<Boolean> {
         if (!objectives[AMA_OBJECTIVE].isStarted)
             value.set(aapsLogger, false, String.format(resourceHelper.gs(R.string.objectivenotstarted), AMA_OBJECTIVE + 1), this)

@@ -21,6 +21,9 @@ class ConstraintChecker @Inject constructor(private val activePlugin: ActivePlug
     fun isAutosensModeEnabled(): Constraint<Boolean> =
         isAutosensModeEnabled(Constraint(true))
 
+    fun isAutosensModeAllowed(): Constraint<Boolean> =
+        isAutosensModeAllowed(Constraint(true))
+
     fun isAMAModeEnabled(): Constraint<Boolean> =
         isAMAModeEnabled(Constraint(true))
 
@@ -86,6 +89,17 @@ class ConstraintChecker @Inject constructor(private val activePlugin: ActivePlug
             val constraint = p as ConstraintsInterface
             if (!p.isEnabled(PluginType.CONSTRAINTS)) continue
             constraint.isAutosensModeEnabled(value)
+        }
+        return value
+    }
+
+
+    override fun isAutosensModeAllowed(value: Constraint<Boolean>): Constraint<Boolean> {
+        val constraintsPlugins = activePlugin.getSpecificPluginsListByInterface(ConstraintsInterface::class.java)
+        for (p in constraintsPlugins) {
+            val constraint = p as ConstraintsInterface
+            if (!p.isEnabled(PluginType.CONSTRAINTS)) continue
+            constraint.isAutosensModeAllowed(value)
         }
         return value
     }

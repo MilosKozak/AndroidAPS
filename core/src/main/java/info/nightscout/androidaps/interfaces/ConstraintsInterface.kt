@@ -23,6 +23,11 @@ interface ConstraintsInterface {
     }
 
     @JvmDefault
+    fun isAutosensModeAllowed(value: Constraint<Boolean>): Constraint<Boolean> {
+        return value
+    }
+
+    @JvmDefault
     fun isAMAModeEnabled(value: Constraint<Boolean>): Constraint<Boolean> {
         return value
     }
