@@ -147,7 +147,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface, Constr
         };
 
         Constraint<Boolean> cSMB = constraintChecker.isSMBModeAllowed();
-        Constraint<Boolean> cAMA = constraintChecker.isAMAModeEnabled();
+        Constraint<Boolean> cAS = constraintChecker.isAutosensModeAllowed();
 
         for (int i=0; i<smbprefkeys.length; i++) {
             Preference pref = preferenceFragment.findPreference(resourceHelper.gs(smbprefkeys[i]));
@@ -159,7 +159,7 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface, Constr
         }
 
         Preference pref = preferenceFragment.findPreference(resourceHelper.gs(R.string.key_openapsama_useautosens));
-        if (!cAMA.value()) {
+        if (!cAS.value()) {
             if (pref != null) pref.setEnabled(false);
         } else {
             if (pref != null) pref.setEnabled(true);
