@@ -256,6 +256,9 @@
     <string name="smscommunicator_loopisenabled">Smyčka je povolena</string>
     <string name="valuelimitedto">%1$.2f omezeno na %2$.2f</string>
     <string name="valueoutofrange">Hodnota %1$s je mimo přednastavený rozsah</string>
+    <string name="smscommunicator_pumpconnectfail">Připojení k pumpě selhalo</string>
+    <string name="smscommunicator_pumpdisconnected">Pumpa odpojena</string>
+    <string name="smscommunicator_reconnect">Pumpa byla znovu připojena</string>
     <string name="smscommunicator_remotecommandnotallowed">Vzdálený příkaz není povolen</string>
     <string name="smscommunicator_remotebolusnotallowed">Vzdálený bolus není momentálně povolen. Zkuste to později.</string>
     <string name="smscommunicator_basalreplywithcode">Pro spuštění bazálu %1$.2fU/h na %2$d min odpovězte SMS s kódem %3$s</string>
