@@ -135,6 +135,7 @@
     <string name="disableloop">Zakázat smyčku</string>
     <string name="enableloop">Povolit smyčku</string>
     <string name="openloop_newsuggestion">Dostupné nové doporučení</string>
+    <string name="carbssuggestion">Návrh sacharidů</string>
     <string name="unsupportednsversion">Nepodporovaná verze Nightscoutu</string>
     <string name="loopdisabled">SMYČKA ZAKÁZÁNA OMEZENÍM</string>
     <string name="treatments_wizard_basaliob_label">Bazální IOB</string>
@@ -256,7 +257,9 @@
     <string name="smscommunicator_loopisenabled">Smyčka je povolena</string>
     <string name="valuelimitedto">%1$.2f omezeno na %2$.2f</string>
     <string name="valueoutofrange">Hodnota %1$s je mimo přednastavený rozsah</string>
+    <string name="smscommunicator_pumpconnectwithcode">Chcete-li připojit pumpu, odpovězte pomocí SMS s kódem %1$s</string>
     <string name="smscommunicator_pumpconnectfail">Připojení k pumpě selhalo</string>
+    <string name="smscommunicator_pumpdisconnectwithcode">Chcete-li odpojit pumpu na %1d minut, odpovězte pomocí SMS s kódem %2$s</string>
     <string name="smscommunicator_pumpdisconnected">Pumpa odpojena</string>
     <string name="smscommunicator_reconnect">Pumpa byla znovu připojena</string>
     <string name="smscommunicator_remotecommandnotallowed">Vzdálený příkaz není povolen</string>
@@ -562,6 +565,7 @@
     <string name="enable_missed_bg_readings_alert">Výstraha při nedostupných glykémiích</string>
     <string name="enable_pump_unreachable_alert">Výstraha při nedostupné pumpě</string>
     <string name="pump_unreachable_threshold">Limit pro nedostupnost pumpy [min]</string>
+    <string name="enable_carbs_req_alert">Výstraha, jsou-li vyžadovány sacharidy</string>
     <string name="urgent_alarm">Urgentní alarm</string>
     <string name="info">INFO</string>
     <string name="eversense">Eversense aplikace (upravená)</string>
@@ -574,6 +578,8 @@
     <string name="smbmaxminutes_summary">Maximální počet minut bazálu, ke kterým se limituje SMB</string>
     <string name="uamsmbmaxminutes">UAM SMB max. minut</string>
     <string name="uamsmbmaxminutes_summary">Maximální počet minut bazálu, ke kterým se limituje SMB pro UAM</string>
+    <string name="carbsReqThreshold">Minimální množství sacharidů potřebných pro návrh</string>
+    <string name="carbsReqThreshold_summary">Minimální množství sacharidů v gramech, které spustí upozornění návrhu sacharidů. Množství sacharidů pod touto hodnotou nespustí oznámení.</string>
     <string name="dexcomg5_xdripupload_title">Odesílat data do xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">V xDrip+ vyberte zdroj dat 640g/Eversense</string>
     <string name="nsclientbg">Glykémie z NS</string>
@@ -653,11 +659,17 @@
     <string name="insulin_increment_button_message">Množství inzulínu přidané po stisknutí tlačítka</string>
     <string name="error_starting_cgm">Nelze spustit aplikace CGM. Ujistěte se, že je nainstalovaná.</string>
     <string name="overview_cgm">CGM</string>
+    <string name="ignore5m">Ignorovat 5 m</string>
+    <string name="ignore15m">Ignorovat 15 m</string>
+    <string name="ignore30m">Ignorovat 30 m</string>
+    <string name="required">pož.</string>
     <string name="nav_historybrowser">Prohlížeč historie</string>
     <string name="wear_notifysmb_title">Oznámení při SMB</string>
     <string name="wear_notifysmb_summary">Ukazovat SMB na hodinkách jako normální bolus.</string>
     <string name="ns_create_announcements_from_errors_title">Vytvořit oznámení pro chyby</string>
+    <string name="ns_create_announcements_from_carbs_req_title">Vytvořit oznámení z výstrahy vyžadovaných sacharidů</string>
     <string name="ns_create_announcements_from_errors_summary">Vytvořit oznámení v NS pro chyby a místní výstrahy (zobrazitelné v Péči pod Ošetřením)</string>
+    <string name="ns_create_announcements_from_carbs_req_summary">Pro výstrahy vyžadovaných sacharidů vytvořit oznámení v Nightscoutu</string>
     <string name="wear_predictions_summary">Zobrazovat predikce na hodinkách.</string>
     <string name="wear_predictions_title">Predikce</string>
     <string name="data_choices">Možnosti dat</string>
