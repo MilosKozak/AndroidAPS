@@ -106,8 +106,6 @@
     <string name="loop_constraintsprocessed_label">Beschränkungen angewendet</string>
     <string name="loop_tbrsetbypump_label">TBR der Pumpe</string>
     <string name="openapsma_lastenact_label">Zuletzt abgegeben</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Abbrechen</string>
     <string name="noapsselected">KEIN APS AUSGEWÄHLT ODER KEIN ERGEBNIS VORHANDEN</string>
     <string name="safety">Sicherheit</string>
     <string name="openapsma_disabled">Plugin ist deaktiviert</string>
@@ -118,8 +116,6 @@
     <string name="overview_treatment_label">Bolus</string>
     <string name="overview_calculator_label">Rechner</string>
     <string name="constraintapllied">Beschränkung angewendet!</string>
-    <string name="confirmation">Bestätigung</string>
-    <string name="bolus">Bolus</string>
     <string name="sms_bolus">Bolus:</string>
     <string name="basal">Basal</string>
     <string name="sms_basal">Basal:</string>
@@ -991,7 +987,6 @@ Unerwartetes Verhalten.</string>
     <string name="recurringTime">Wiederholungszeit</string>
     <string name="every">Jeder/jede/jedes</string>
     <string name="never">Nie</string>
-    <string name="mins">%1$d Minuten</string>
     <string name="condition">Bedingung:</string>
     <string name="action">Aktion:</string>
     <string name="iob_u">IOB [IE]:</string>
@@ -1235,7 +1230,6 @@ Unerwartetes Verhalten.</string>
     <string name="high_mark_comment">Oberer Wert des Zielbereichs (nur Anzeige)</string>
     <string name="reorder_label">Umsortieren</string>
     <string name="age">Alter:</string>
-    <string name="weight">Gewicht:</string>
     <string name="id">ID:</string>
     <string name="submit">Senden</string>
     <string name="mostcommonprofile">Meistgenutztes Profil:</string>
@@ -1245,7 +1239,6 @@ Unerwartetes Verhalten.</string>
     <string name="invalidweight">Ungültige Gewichtsangabe</string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Low: <b>%2$02d%%</b> In: <b>%3$02d%%</b> High: <b>%4$02d%%</b>]]></string>
     <string name="average">Durchschnitt</string>
-    <string name="tdd">TDD</string>
     <string name="tir">TIR</string>
     <string name="activitymonitor">Aktivitätsmonitor</string>
     <string name="doyouwantresetstats">Willst Du die Aktivitätsstatistik zurücksetzen?</string>
