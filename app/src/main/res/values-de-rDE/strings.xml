@@ -1230,6 +1230,7 @@ Unerwartetes Verhalten.</string>
     <string name="high_mark_comment">Oberer Wert des Zielbereichs (nur Anzeige)</string>
     <string name="reorder_label">Umsortieren</string>
     <string name="age">Alter:</string>
+    <string name="weight_label">Gewicht:</string>
     <string name="id">ID:</string>
     <string name="submit">Senden</string>
     <string name="mostcommonprofile">Meistgenutztes Profil:</string>
