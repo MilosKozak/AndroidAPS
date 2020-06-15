@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dia_whatmeansdia">Cosa è vero riguardo DIA?</string>
+    <string name="dia_label_exam">Argomento: durata dell\'azione dell\'insulina</string>
     <string name="dia_minimumis3h">Il valore minimo è 3 ore.</string>
     <string name="dia_minimumis5h">Il valore minimo è 5 ore.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html?#insulin</string>
