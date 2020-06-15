@@ -107,8 +107,6 @@ Eversense-appen.</string>
     <string name="loop_constraintsprocessed_label">Efter begränsningar</string>
     <string name="loop_tbrsetbypump_label">Temp basal satt i pump</string>
     <string name="openapsma_lastenact_label">Senaste justering</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Avbryt</string>
     <string name="noapsselected">INGEN APS VALD</string>
     <string name="safety">Säkerhet</string>
     <string name="openapsma_disabled">Insticksprogram inaktiverat</string>
@@ -119,8 +117,6 @@ Eversense-appen.</string>
     <string name="overview_treatment_label">Behandling</string>
     <string name="overview_calculator_label">Kalkylator</string>
     <string name="constraintapllied">Begränsning nådd</string>
-    <string name="confirmation">Bekräfta</string>
-    <string name="bolus">Bolus</string>
     <string name="sms_bolus">Bolus:</string>
     <string name="basal">Basal</string>
     <string name="sms_basal">Basal:</string>
@@ -991,7 +987,6 @@ Eversense-appen.</string>
     <string name="recurringTime">Återkommande tid</string>
     <string name="every">Varje</string>
     <string name="never">Aldrig</string>
-    <string name="mins">%1$d min</string>
     <string name="condition">Villkor:</string>
     <string name="action">Åtgärd:</string>
     <string name="iob_u">IOB [U]:</string>
@@ -1235,7 +1230,6 @@ Eversense-appen.</string>
     <string name="high_mark_comment">Övre värdet för målområde (endast visning)</string>
     <string name="reorder_label">Ändra ordning</string>
     <string name="age">Ålder:</string>
-    <string name="weight">Vikt:</string>
     <string name="id">ID:</string>
     <string name="submit">Spara</string>
     <string name="mostcommonprofile">Den vanligaste profilen:</string>
@@ -1245,7 +1239,6 @@ Eversense-appen.</string>
     <string name="invalidweight">Ogiltig inmatning (vikt)</string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Låg: <b>%2$02d%%</b> Mål: <b>%3$02d%%</b> Hög: <b>%4$02d%%</b>]]></string>
     <string name="average">Medel</string>
-    <string name="tdd">TDD</string>
     <string name="tir">TIR</string>
     <string name="activitymonitor">Aktivitetsövervakare</string>
     <string name="doyouwantresetstats">Vill du återställa aktivitetsstatistiken?</string>
