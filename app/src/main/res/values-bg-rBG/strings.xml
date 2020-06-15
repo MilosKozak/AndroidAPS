@@ -106,8 +106,6 @@
     <string name="loop_constraintsprocessed_label">След ограничения</string>
     <string name="loop_tbrsetbypump_label">Временният базал зададен от помпата</string>
     <string name="openapsma_lastenact_label">Последно зададено</string>
-    <string name="ok">ОК</string>
-    <string name="cancel">Откажи</string>
     <string name="noapsselected">НЕ Е ИЗБРАН APS ИЛИ НЯМА РЕЗУЛТАТ ОТ НЕГО</string>
     <string name="safety">Сигурност</string>
     <string name="openapsma_disabled">Модула е изключен</string>
@@ -118,8 +116,6 @@
     <string name="overview_treatment_label">Болус</string>
     <string name="overview_calculator_label">Калкулатор</string>
     <string name="constraintapllied">Приложено ограничение!</string>
-    <string name="confirmation">Потвърждение</string>
-    <string name="bolus">Болус</string>
     <string name="sms_bolus">Болус:</string>
     <string name="basal">Базал</string>
     <string name="sms_basal">Базал:</string>
@@ -980,7 +976,6 @@
     <string name="recurringTime">Повтарящо се време</string>
     <string name="every">Всеки</string>
     <string name="never">Никога</string>
-    <string name="mins">%1$dмин</string>
     <string name="condition">Условие:</string>
     <string name="action">Действие:</string>
     <string name="iob_u">IOB [Ед]:</string>
@@ -1224,7 +1219,6 @@
     <string name="high_mark_comment">Високата граница на диапазона (графика)</string>
     <string name="reorder_label">Подреди</string>
     <string name="age">Възраст:</string>
-    <string name="weight">Тегло:</string>
     <string name="id">Номер:</string>
     <string name="submit">Изпрати</string>
     <string name="mostcommonprofile">Най-често използван профил:</string>
@@ -1234,7 +1228,6 @@
     <string name="invalidweight">Невалидно тегло</string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Ниски: <b>%2$02d%%</b> В: <b>%3$02d%%</b> Вис: <b>%4$02d%%</b>]]></string>
     <string name="average">Средно</string>
-    <string name="tdd">ТДД</string>
     <string name="tir">Време в границите</string>
     <string name="activitymonitor">Мониторинг на активност</string>
     <string name="doyouwantresetstats">Искате да нулирате статистиката?</string>
