@@ -1229,6 +1229,7 @@
     <string name="high_mark_comment">Horní hodnota oblasti v rozsahu (pouze zobrazování)</string>
     <string name="reorder_label">Změna pořadí</string>
     <string name="age">Věk:</string>
+    <string name="weight_label">Hmotnost:</string>
     <string name="id">ID:</string>
     <string name="submit">Odeslat</string>
     <string name="mostcommonprofile">Nejběžnější profil:</string>
