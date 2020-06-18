@@ -131,6 +131,7 @@
     <string name="disableloop">Deaktivovať uzavretý okruh</string>
     <string name="enableloop">Aktivovať uzavretý okruh</string>
     <string name="openloop_newsuggestion">Dostupné nové doporučenie</string>
+    <string name="carbssuggestion">Návrh sacharidov</string>
     <string name="unsupportednsversion">Nepodporovaná verzia Nighscoutu</string>
     <string name="loopdisabled">Uzavretý okruh deaktivovaný obmedzením</string>
     <string name="treatments_wizard_basaliob_label">Bazálny IOB</string>
@@ -252,6 +253,11 @@
     <string name="smscommunicator_loopisenabled">Uzavretý okruh je aktivovaný</string>
     <string name="valuelimitedto">%1$.2f obmedzené na %2$.2f</string>
     <string name="valueoutofrange">Hodnota %1$s je mimo prednastavený rozsah</string>
+    <string name="smscommunicator_pumpconnectwithcode">Ak chcete pripojiť pumpu, odpovedzte pomocou SMS s kódom %1$s</string>
+    <string name="smscommunicator_pumpconnectfail">Pripojenie k pumpe zlyhalo</string>
+    <string name="smscommunicator_pumpdisconnectwithcode">Ak chcete odpojiť pumpu na %1d minút, odpovedzte pomocou SMS s kódom %2$s</string>
+    <string name="smscommunicator_pumpdisconnected">Pumpa odpojená</string>
+    <string name="smscommunicator_reconnect">Pumpa bola znovu pripojená</string>
     <string name="smscommunicator_remotecommandnotallowed">Príkazy na diaľku nie sú povolené</string>
     <string name="smscommunicator_remotebolusnotallowed">Diaľkovo ovládaný bolus nie je momentálne povolený. Skúste to neskôr.</string>
     <string name="smscommunicator_basalreplywithcode">Pre spustenie bazálu %1$.2fJI/h na %2$d min odpovedzte SMS s kódom %3$s</string>
@@ -555,6 +561,7 @@
     <string name="enable_missed_bg_readings_alert">Výstraha pri nedostupných hodnotách glykémie</string>
     <string name="enable_pump_unreachable_alert">Výstraha pri nedostupnej pumpe</string>
     <string name="pump_unreachable_threshold">Limit pre nedostupnosť pumpy [min]</string>
+    <string name="enable_carbs_req_alert">Výstraha, ak sú požadované sacharidy</string>
     <string name="urgent_alarm">Urgentný alarm</string>
     <string name="info">INFO</string>
     <string name="eversense">Eversense aplikácia (upravená)</string>
@@ -567,6 +574,8 @@
     <string name="smbmaxminutes_summary">Maximálny počet minút bazálu, ku ktorým se limituje SMB</string>
     <string name="uamsmbmaxminutes">UAM SMB max. minút</string>
     <string name="uamsmbmaxminutes_summary">Maximální počet minút bazálu, ku ktorým sa limituje SMB pre UAM</string>
+    <string name="carbsReqThreshold">Minimálne množstvo sacharidov potrebných pre návrh</string>
+    <string name="carbsReqThreshold_summary">Minimálne množstvo sacharidov v gramoch, ktoré spustí upozornenie návrhu sacharidov. Množstvo sacharidov pod touto hodnotou nespustí oznámenie.</string>
     <string name="dexcomg5_xdripupload_title">Odosielať glykémie do xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">V xDrip+ vyberte zdroj dát 640g/Eversense</string>
     <string name="nsclientbg">Glykémie z NS</string>
@@ -646,11 +655,17 @@
     <string name="insulin_increment_button_message">Množstvo inzulínu, ktoré má byť pridané po stlačení tlačidla</string>
     <string name="error_starting_cgm">Nie je možné spustiť aplikáciu CGM. Uistite sa, že je nainštalovaná.</string>
     <string name="overview_cgm">CGM</string>
+    <string name="ignore5m">Ignorovať 5m</string>
+    <string name="ignore15m">Ignorovať 15m</string>
+    <string name="ignore30m">Ignorovať 30m</string>
+    <string name="required">pož.</string>
     <string name="nav_historybrowser">Prehliadač histórie</string>
     <string name="wear_notifysmb_title">Oznámenie pri SMB</string>
     <string name="wear_notifysmb_summary">Ukazovať SMB na hodinkách ako normálny bolus.</string>
     <string name="ns_create_announcements_from_errors_title">Vytvárať z chýb oznámenia</string>
+    <string name="ns_create_announcements_from_carbs_req_title">Vytvoriť oznámenie z výstrahy požadovaných sacharidov</string>
     <string name="ns_create_announcements_from_errors_summary">Vytvárať oznámenia pre chyby a lokálne výstrahy v NS (zobraziteľné v starostlivosti pod ošetrením)</string>
+    <string name="ns_create_announcements_from_carbs_req_summary">Pre výstrahy požadovaných sacharidov vytvoriť oznámenie v Nightscoute</string>
     <string name="wear_predictions_summary">Zobrazovať predikcie na hodinkách.</string>
     <string name="wear_predictions_title">Predikcia</string>
     <string name="data_choices">Možnosti dát</string>
@@ -1214,6 +1229,7 @@
     <string name="high_mark_comment">Horná hodnota v oblasti cieľového rozsahu (iba zobrazovanie)</string>
     <string name="reorder_label">Zmena poradia</string>
     <string name="age">Vek:</string>
+    <string name="weight_label">Váha:</string>
     <string name="id">ID:</string>
     <string name="submit">Odoslať</string>
     <string name="mostcommonprofile">Najčastejšie používaný profil:</string>
