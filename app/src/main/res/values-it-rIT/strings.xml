@@ -158,8 +158,8 @@
     <string name="configbuilder_nightscoutversion_label">Versione Nightscout:</string>
     <string name="missing_carbs">Mancanti %1$dg</string>
     <string name="exported">Preferenze esportate</string>
-    <string name="export_to">Esporta impostazioni su</string>
-    <string name="import_from">Importa impostazioni da</string>
+    <string name="export_to">Esportare impostazioni su</string>
+    <string name="import_from">Importare impostazioni da</string>
     <string name="setting_imported">Impostazioni importate</string>
     <string name="filenotfound">File non trovato</string>
     <string name="nav_export">Esporta impostazioni</string>
