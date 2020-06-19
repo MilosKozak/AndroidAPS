@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="resetpairing">Нулиране на сдвояването?</string>
-    <string name="dana_model">Модел: %1$02X Протокол: %2$02X Код: %3$02X</string>
+    <string name="dana_model">%1$s\nМодел: %2$02X\nПротокол: %3$02X\nКод: %4$02X</string>
     <string name="basalcompare">Доставяне на по-малко от предварително зададена базал</string>
     <string name="checkshaft">Проверете вал</string>
     <string name="basalmax">Базал макс</string>
