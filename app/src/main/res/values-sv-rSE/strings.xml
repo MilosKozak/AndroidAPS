@@ -1230,6 +1230,7 @@ Eversense-appen.</string>
     <string name="high_mark_comment">Övre värdet för målområde (endast visning)</string>
     <string name="reorder_label">Ändra ordning</string>
     <string name="age">Ålder:</string>
+    <string name="weight_label">Vikt:</string>
     <string name="id">ID:</string>
     <string name="submit">Spara</string>
     <string name="mostcommonprofile">Den vanligaste profilen:</string>
