@@ -140,11 +140,43 @@
     <string name="careportal_combobolus">Комбиниран болус</string>
     <string name="careportal_tempbasalstart">Старт на временен базал</string>
     <string name="careportal_tempbasalend">Край на временен базал</string>
+    <string name="careportal_carbscorrection">Корекция с въглехидрати</string>
+    <string name="careportal_openapsoffline">OpenAPS спрян</string>
+    <string name="careportal_pumpbatterychange">Смяна на батерия</string>
+    <string name="careportal_temporarytarget">Временна цел</string>
+    <string name="careportal_temporarytargetcancel">Откажи временна цел</string>
+    <string name="glucosetype_finger">Пръст</string>
+    <string name="glucosetype_sensor">Сензор</string>
+    <string name="manual">Друго</string>
+    <string name="unknown">неизвестно</string>
     <!--    Command-->
+    <string name="connectiontimedout">Времето за връзка изтече</string>
     <!--    PumpEnactResult-->
+    <string name="enacted">Приложено</string>
+    <string name="comment">Коментар</string>
+    <string name="success">Успешен</string>
+    <string name="percent">Процент</string>
+    <string name="absolute">Абсолютна</string>
+    <string name="configbuilder_insulin">Инсулин (ед.):</string>
+    <string name="insulin_unit_shortname">Ед.</string>
+    <string name="waitingforpumpresult">Изчаква резултат от помпата</string>
+    <string name="smb_shortname">SMB</string>
     <!--    CarbsReq-->
     <string name="carbsreq">%dгр допълнителни въглехидрати ще са необходими до %d минути</string>
     <!--    TDDStatsActivity-->
     <string name="stats">Статистика</string>
+    <string name="cumulative_tdd">Комулативна TDD</string>
+    <string name="expweight">Експоненциално претеглена TDD</string>
+    <string name="basalrate">Базал</string>
+    <string name="bolus">Болус</string>
+    <string name="tdd">ОДД</string>
+    <string name="ratio">Коефициент</string>
+    <string name="amount_days"># дни</string>
+    <string name="weight">Тегло</string>
+    <string name="warning_Message">Възможна неточност, ако сте използвали болус за презареждане!</string>
+    <string name="olddata_Message">Стари данни - натиснете \"ПРЕЗАРЕДИ\"</string>
+    <string name="tbb">Общо базален инсулин</string>
+    <string name="tbb2">ОБИ * 2</string>
     <!--    Ntp-->
+    <string name="timedetection">Засичане на времето</string>
 </resources>
