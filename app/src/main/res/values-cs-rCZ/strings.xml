@@ -814,9 +814,9 @@
     <string name="low_temptarget_lowers_sensitivity_title">Nízký dočasný cíl sníží senzitivitu</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Nižší senzitivita pro dočasné cíle < 5.5]]></string>
     <string name="resistance_lowers_target_title">Rezistence snižuje cíl</string>
-    <string name="resistance_lowers_target_summary">Je-li zjištěna rezistence, snížit cílovou hladinu glukózy</string>
+    <string name="resistance_lowers_target_summary">Je-li zjištěna rezistence, sníží nastavenou cílovou glykémii</string>
     <string name="sensitivity_raises_target_title">Citlivost zvyšuje cíl</string>
-    <string name="sensitivity_raises_target_summary">Je-li zjištěna vyšší citlivost, zvýší cílovou hladinu glukózy</string>
+    <string name="sensitivity_raises_target_summary">Je-li zjištěna vyšší citlivost, zvýší nastavenou cílovou glykémii</string>
     <string name="combo_invalid_setup">Chybné nastavení pumpy. Projděte si dokumentaci a přesvědčete se, že menu Quick Info se jmenuje QUICK INFO, za použití 360 configuration software.</string>
     <string name="custom">Volitelný</string>
     <string name="careportal_removestartedevents">Vyčistit události \"AndroidAPS restartován\"</string>
