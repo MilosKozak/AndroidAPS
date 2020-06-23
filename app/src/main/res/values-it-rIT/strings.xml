@@ -164,6 +164,7 @@
     <string name="filenotfound">File non trovato</string>
     <string name="nav_export">Esporta impostazioni</string>
     <string name="nav_import">Importa impostazioni</string>
+    <string name="openapsma_maxbasal_title">Max U/h a cui limitare una basale temporanea</string>
     <string name="openapsma_maxbasal_summary">Questo valore è chiamato max basale nel contesto OpenAPS</string>
     <string name="openapsma_maxiob_title">Max IOB da basale a cui limitare OpenAPS [U]</string>
     <string name="openapsma_maxiob_summary">Questo valore è chiamato Max IOB nel contesto OpenAPS\nIndica l\'insulina massima in [U] che APS può erogare in contemporanea.</string>
@@ -299,6 +300,7 @@
     <string name="primefill">Carica/Riempi</string>
     <string name="fillwarning">Assicurati che la quantità corrisponda alla specifica del tuo set di infusione!</string>
     <string name="othersettings_title">Altro</string>
+    <string name="fillbolus_title">Quantità standard di insulina per Carica/Riempi</string>
     <string name="button1">Tasto 1</string>
     <string name="button2">Tasto 2</string>
     <string name="button3">Tasto 3</string>
