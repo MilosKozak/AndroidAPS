@@ -20,6 +20,9 @@
     <string name="careportal_pbage_label_short">PBAGE</string>
     <string name="openaps_short">OAPS</string>
     <string name="smb_shortname">SMB</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Luachanna BG a fháil ó DiaBox.</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->

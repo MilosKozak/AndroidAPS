@@ -1455,4 +1455,7 @@ Eversense-appen.</string>
     <string name="loop_tbrrequest_time_label">Basalförändring begärd</string>
     <string name="loop_tbrexecution_time_label">Basalförändring utförd</string>
     <string name="insight_alert_notification_channel">Pumpvarningar Insight</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Ta emot BG-data från DiaBox.</string>
 </resources>

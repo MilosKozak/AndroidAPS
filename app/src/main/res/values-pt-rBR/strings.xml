@@ -1454,4 +1454,7 @@
     <string name="loop_tbrrequest_time_label">Hora de solicitação Basal Temp</string>
     <string name="loop_tbrexecution_time_label">Hora de execução Basal Temp</string>
     <string name="insight_alert_notification_channel">Alertas Bomba Insight</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Receber valores BG de DiaBox.</string>
 </resources>

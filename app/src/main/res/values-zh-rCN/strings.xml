@@ -1078,6 +1078,9 @@
     <string name="dexcom_app_patched">德康app（补丁版）</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">从补丁版的德康APP收到血糖值</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">从 DiaBox 接收血糖值。</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->

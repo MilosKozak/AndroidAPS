@@ -46,4 +46,11 @@ public interface Intents {
 
     String POCTECH_BG = "com.china.poctech.data";
     String TOMATO_BG = "com.fanqies.tomatofn.BgEstimate";
+
+
+    String DIABOX_ACTION_NEW_BG_ESTIMATE = "com.outshineiot.diabox.BgEstimate";
+    String DIABOX_EXTRA_BG_ESTIMATE = "com.outshineiot.diabox.Extras.BgEstimate";
+    String DIABOX_EXTRA_BG_SLOPE_NAME = "com.outshineiot.diabox.Extras.BgSlopeName";
+    String DIABOX_EXTRA_TIMESTAMP = "com.outshineiot.diabox.Extras.Time";
+    String DIABOX_EXTRA_RAW = "com.outshineiot.diabox.Extras.Raw";
 }

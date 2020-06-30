@@ -1445,4 +1445,7 @@
     <string name="ebstopsloop">Ištęsto boluso funkcija sustabdys uždaro ciklo režimą ištęsto boluso veikimo metu. Ar tikrai norite patvirtinti savo pasirinkimą?</string>
     <string name="closed_loop_disabled_with_eb">Uždara ciklas išjungtas dėl ištęsto boluso veikimo</string>
     <string name="extended_bolus_short">IB (Ištęstas bolusas)</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Gauti kraujo gliukozės vertes iš DiaBox</string>
 </resources>

@@ -1443,4 +1443,7 @@
     <string name="alreadyset">Już ustawiono</string>
     <string name="message">Wiadomość</string>
     <string name="clearqueueconfirm">Wyczyścić kolejkę? Wszystkie dane w kolejce zostaną utracone!</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Pobieraj wartości BG z DiaBox.</string>
 </resources>

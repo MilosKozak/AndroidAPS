@@ -80,6 +80,7 @@ import info.nightscout.androidaps.plugins.sensitivity.SensitivityOref1Plugin;
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityWeightedAveragePlugin;
 import info.nightscout.androidaps.plugins.source.RandomBgPlugin;
 import info.nightscout.androidaps.plugins.source.SourceDexcomPlugin;
+import info.nightscout.androidaps.plugins.source.SourceDiaboxPlugin;
 import info.nightscout.androidaps.plugins.source.SourceEversensePlugin;
 import info.nightscout.androidaps.plugins.source.SourceGlimpPlugin;
 import info.nightscout.androidaps.plugins.source.SourceMM640gPlugin;
@@ -209,6 +210,7 @@ public class MainApp extends Application {
             if (Config.APS) pluginsList.add(SignatureVerifierPlugin.getPlugin());
             if (Config.APS) pluginsList.add(ObjectivesPlugin.INSTANCE);
             pluginsList.add(SourceXdripPlugin.getPlugin());
+            pluginsList.add(SourceDiaboxPlugin.getPlugin());
             pluginsList.add(SourceNSClientPlugin.getPlugin());
             pluginsList.add(SourceMM640gPlugin.getPlugin());
             pluginsList.add(SourceGlimpPlugin.getPlugin());

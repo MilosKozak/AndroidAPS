@@ -1454,4 +1454,7 @@
     <string name="loop_tbrrequest_time_label">Čas požiadavky dočasného bazálu</string>
     <string name="loop_tbrexecution_time_label">Čas spustenia dočasného bazálu</string>
     <string name="insight_alert_notification_channel">Výstrahy pumpy Insight</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Získavať hodnoty glykémií z DiaBox.</string>
 </resources>

@@ -1456,4 +1456,7 @@ Context | Edit Context</string>
     <string name="loop_tbrrequest_time_label">Время запроса временной базальной скорости</string>
     <string name="loop_tbrexecution_time_label">Время выполнения временной базальной скорости</string>
     <string name="insight_alert_notification_channel">Оповещения помпы Insight</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Получать данные гликемии от DiaBox.</string>
 </resources>

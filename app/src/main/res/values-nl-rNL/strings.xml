@@ -1454,4 +1454,7 @@
     <string name="loop_tbrrequest_time_label">Tijdelijk basaal aanvraag tijd</string>
     <string name="loop_tbrexecution_time_label">Tijdelijke basaal uitvoering tijd</string>
     <string name="insight_alert_notification_channel">Insight pomp waarschuwingen</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Ontvang BG waardes van DiaBox.</string>
 </resources>

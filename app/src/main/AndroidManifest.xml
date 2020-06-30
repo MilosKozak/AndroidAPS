@@ -87,6 +87,8 @@
             <intent-filter>
                 <!-- Receiver from xDrip -->
                 <action android:name="com.eveningoutpost.dexdrip.BgEstimate"/>
+                <!-- Receiver DiaBox xDrip -->
+                <action android:name="com.outshineiot.diabox.BgEstimate"/>
                 <!-- Receiver from 640g uploader -->
                 <action android:name="com.eveningoutpost.dexdrip.NS_EMULATOR"/>
                 <!-- Receiver from glimp -->

@@ -28,6 +28,7 @@ import info.nightscout.androidaps.plugins.general.smsCommunicator.SmsCommunicato
 import info.nightscout.androidaps.plugins.profile.ns.NSProfilePlugin;
 import info.nightscout.androidaps.plugins.pump.danaR.activities.DanaRNSHistorySync;
 import info.nightscout.androidaps.plugins.source.SourceDexcomPlugin;
+import info.nightscout.androidaps.plugins.source.SourceDiaboxPlugin;
 import info.nightscout.androidaps.plugins.source.SourceEversensePlugin;
 import info.nightscout.androidaps.plugins.source.SourceGlimpPlugin;
 import info.nightscout.androidaps.plugins.source.SourceMM640gPlugin;
@@ -60,6 +61,8 @@ public class DataService extends IntentService {
         final String action = intent.getAction();
         if (Intents.ACTION_NEW_BG_ESTIMATE.equals(action)) {
             SourceXdripPlugin.getPlugin().handleNewData(intent);
+        }else if (Intents.DIABOX_ACTION_NEW_BG_ESTIMATE.equals(action)) {
+            SourceDiaboxPlugin.getPlugin().handleNewData(intent);
         } else if (Intents.NS_EMULATOR.equals(action)) {
             SourceMM640gPlugin.getPlugin().handleNewData(intent);
         } else if (Intents.GLIMP_BG.equals(action)) {

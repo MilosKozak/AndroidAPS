@@ -1453,4 +1453,7 @@
     <string name="loop_smbexecution_time_label">SMB 실행시간</string>
     <string name="loop_tbrrequest_time_label">임시 Basal 요청시간</string>
     <string name="loop_tbrexecution_time_label">임시 Basal 실행시간</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">DiaBox에서 혈당값 받기</string>
 </resources>

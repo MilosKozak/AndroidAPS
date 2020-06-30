@@ -1454,4 +1454,7 @@
     <string name="loop_tbrrequest_time_label">Richiesta basale temporanea (momento)</string>
     <string name="loop_tbrexecution_time_label">Esecuzione basale temporanea (momento)</string>
     <string name="insight_alert_notification_channel">Avvisi micro Insight</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Ricevi valori glicemia da DiaBox.</string>
 </resources>

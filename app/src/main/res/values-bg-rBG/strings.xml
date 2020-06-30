@@ -1453,4 +1453,7 @@
     <string name="loop_smbexecution_time_label">Макс. време за изпълнение за SMB</string>
     <string name="loop_tbrrequest_time_label">Диапазон между временни базали</string>
     <string name="loop_tbrexecution_time_label">Продължителност на временни базали</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Получава данни за КЗ от DiaBox.</string>
 </resources>

@@ -1338,4 +1338,7 @@
     <string name="boluswizard">Οδηγός Bolus</string>
     <string name="unit_minute_short">min</string>
     <string name="format_carbs">%1$dg</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Λάβετε τις τιμές BG από το DiaBox.</string>
 </resources>

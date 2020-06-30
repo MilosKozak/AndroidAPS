@@ -932,6 +932,9 @@ Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden d
     <string name="profile_per_unit">/U</string>
     <string name="tomato">Tomato (MiaoMiao)</string>
     <string name="tomato_short">Tomato</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">DiaBox+\'ten KŞ değerlerini alır.</string>
     <!-- Pump Abstract -->
     <!-- Medtronic (MDT) - Base -->
     <!-- MDT Configuration -->

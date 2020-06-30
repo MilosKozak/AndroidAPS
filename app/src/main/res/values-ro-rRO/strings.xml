@@ -1335,4 +1335,7 @@
     <string name="boluswizard">Asistent bolusare</string>
     <string name="unit_minute_short">min</string>
     <string name="format_carbs">%1$dg</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Primește valorile glicemiei din DiaBox.</string>
 </resources>

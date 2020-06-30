@@ -1321,4 +1321,7 @@
     <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Bolus slimjan</string>
     <string name="unit_minute_short">min</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Ontvang BG waardes vana DiaBox.</string>
 </resources>

@@ -1700,4 +1700,7 @@
     <string name="loop_tbrexecution_time_label">Temp basal execution time</string>
     <string name="insight_alert_notification_channel">Insight Pump Alerts</string>
 
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Receive BG values from DiaBox.</string>
+
 </resources>

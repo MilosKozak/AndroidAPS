@@ -1455,4 +1455,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="loop_tbrrequest_time_label">Heure de demande basal temp</string>
     <string name="loop_tbrexecution_time_label">Heure d\'exécution basal temp</string>
     <string name="insight_alert_notification_channel">Alertes Pompe Insight</string>
+
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Recevoir les glycémies depuis DiaBox.</string>
 </resources>
