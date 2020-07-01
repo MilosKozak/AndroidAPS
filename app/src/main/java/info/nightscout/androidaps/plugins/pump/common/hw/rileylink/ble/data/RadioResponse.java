@@ -75,7 +75,7 @@ public class RadioResponse {
         byte[] encodedPayload;
 
         if (RileyLinkFirmwareVersion.isSameVersion(RileyLinkUtil.getRileyLinkServiceData().versionCC110,
-            RileyLinkFirmwareVersion.Version2)) {
+            RileyLinkFirmwareVersion.Version2AndHigher)) {
             encodedPayload = ByteUtil.substring(rxData, 3, rxData.length - 3);
             rssi = rxData[1];
             responseNumber = rxData[2];
