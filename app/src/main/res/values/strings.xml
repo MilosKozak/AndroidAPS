@@ -1709,4 +1709,7 @@
     <string name="omnipod_rl_stats">RL Stats</string>
     <string name="omnipod_read_pulse_log_short">Pulse Log</string>
 
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Receive BG values from DiaBox.</string>
+
 </resources>

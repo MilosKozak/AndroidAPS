@@ -44,11 +44,7 @@ import info.nightscout.androidaps.plugins.pump.virtual.VirtualPumpPlugin
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityAAPSPlugin
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityOref1Plugin
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityWeightedAveragePlugin
-import info.nightscout.androidaps.plugins.source.DexcomPlugin
-import info.nightscout.androidaps.plugins.source.EversensePlugin
-import info.nightscout.androidaps.plugins.source.GlimpPlugin
-import info.nightscout.androidaps.plugins.source.PoctechPlugin
-import info.nightscout.androidaps.plugins.source.TomatoPlugin
+import info.nightscout.androidaps.plugins.source.*
 import info.nightscout.androidaps.utils.SafeParse
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog.show
 import info.nightscout.androidaps.utils.protection.PasswordCheck
@@ -95,6 +91,7 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
     @Inject lateinit var virtualPumpPlugin: VirtualPumpPlugin
     @Inject lateinit var wearPlugin: WearPlugin
     @Inject lateinit var maintenancePlugin: MaintenancePlugin
+    @Inject lateinit var diaboxPlugin: DiaBoxPlugin
 
     @Inject lateinit var passwordCheck: PasswordCheck
     @Inject lateinit var nsSettingStatus: NSSettingsStatus
@@ -159,6 +156,7 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
             addPreferencesFromResourceIfEnabled(tomatoPlugin, rootKey)
             addPreferencesFromResourceIfEnabled(poctechPlugin, rootKey)
             addPreferencesFromResourceIfEnabled(glimpPlugin, rootKey)
+            addPreferencesFromResourceIfEnabled(diaboxPlugin, rootKey)
             addPreferencesFromResourceIfEnabled(loopPlugin, rootKey, config.APS)
             addPreferencesFromResourceIfEnabled(openAPSAMAPlugin, rootKey, config.APS)
             addPreferencesFromResourceIfEnabled(openAPSSMBPlugin, rootKey, config.APS)
