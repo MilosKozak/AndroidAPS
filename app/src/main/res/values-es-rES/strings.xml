@@ -1261,23 +1261,29 @@
     <string name="onconnect">Al conectar</string>
     <string name="ondisconnect">Al desconectar</string>
     <string name="overview_show_predictions">Predicciones</string>
+    <string name="overview_show_deviationslope">Pendiente de desviación</string>
     <string name="authorizationfailed">Ha fallado la autorización</string>
     <string name="overview_show_absinsulin">Insulina en total</string>
+    <string name="master_password_summary">La contraseña maestra se usa para cifrar la copia de seguridad y para sustituir la seguridad en la aplicación. Recordar o almacenar en sitio seguro.</string>
     <string name="passwords_dont_match">Contraseñas no coinciden</string>
     <string name="current_master_password">Contraseña maestra actual</string>
     <string name="statuslights">Luces de estado</string>
     <string name="statuslights_copy_ns">Copiar ajustes de NS</string>
     <string name="copyexistingvalues">¿Copiar los ajustes de NS (si existe)?</string>
     <string name="classic_description">Tema original</string>
+    <string name="buttonson_description">Los botones siempre se muestran en la parte inferior de la pantalla</string>
     <string name="largedisplay_description">Pantalla grande</string>
     <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">La integración de la bomba para Omnipod requiere el dispositivo RileyLink (con al menos 2,0 firmware).</string>
     <!-- Omnipod Configuration -->
     <string name="omnipod_config_beep_bolus_enabled">Aviso de bolo activado</string>
     <string name="omnipod_config_beep_basal_enabled">Aviso de basal activado</string>
     <string name="omnipod_config_beep_smb_enabled">Aviso de SMB activado</string>
     <string name="omnipod_config_beep_tbr_enabled">Aviso de TBT activado</string>
+    <string name="omnipod_config_pod_debugging_options_enabled">Opciones de depuración de Pod habilitadas</string>
+    <string name="omnipod_config_timechange_enabled">Detección de DST/Timezone habilitada</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_mgmt">Pod Mgmt</string>
     <string name="omnipod_pod_status">Estado de Pod</string>
@@ -1293,12 +1299,18 @@
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">La operación no es posible.\n\nDebe configurar Omnipod primero, antes de poder usar esta operación.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">La operación no es posible.\n\n Necesitas esperar unos minutos, hasta que AAPS intente establecer el perfil por primera vez.</string>
+    <string name="omnipod_error_illegal_init_action_type">Ilegal PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Ningún pod activo.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Falló la verificación del comando.</string>
     <string name="omnipod_driver_error_unexpected_exception_type">Error inesperado. Por favor, informe! (tipo: %1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Comunicación fallida: se han recibido parámetros de entrada inválidos.</string>
     <string name="omnipod_driver_error_communication_failed_timeout">Comunicación fallida: tiempo de espera.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">La comunicación ha fallado: error inesperado. ¡Por favor, Informe!</string>
     <string name="omnipod_driver_error_crc_mismatch">Comunicación fallida: falló la verificación de integridad del mensaje.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Ha fallado la comunicación: se ha recibido un mensaje con un número de secuencia no válido del Pod.</string>
+    <string name="omnipod_driver_error_invalid_message_address">La comunicación ha fallado: se ha recibido un mensaje con una dirección no válida desde el Pod.</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_cmd_set_bolus">Establecer Bolo</string>
     <string name="omnipod_cmd_cancel_bolus">Cancelar Bolus</string>
