@@ -1,2 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="danars_pairing">Emparejando</string>
+    <string name="danars_nodeviceavailable">Aparato no encontrado</string>
+    <string name="danars_pairingok">Conexión OK</string>
+    <string name="danars_pairingtimedout">Tiempo de Vinculación agotado</string>
+    <string name="danars_waitingforpairing">Esperando para conectar con bomba</string>
+    <string name="danarspump">DanaRS</string>
+    <string name="danarspump_shortname">Dana</string>
+    <string name="description_pump_dana_rs">Integración de bombas de insulina de DANA Diabecare RS</string>
+    <string name="maxbolusviolation">Violación de bolo Max</string>
+    <string name="commanderror">Error de comando</string>
+    <string name="speederror">Error de velocidad</string>
+    <string name="insulinlimitviolation">Límite de insulina sobrepasado</string>
+    <string name="boluserrorcode">Solicitado: %1$.2fU Entregado: %2$.2fU Código de error: %3$s</string>
+    <string name="danar_valuenotsetproperly">Valor no establecido correctamente</string>
+    <string name="danar_setbasalstep001">Ajustar paso basal a 0.01 U/h</string>
+    <string name="processinghistory">Procesando evento</string>
+    <string name="danar_enableextendedbolus">Habilitar bolos extendidos en bomba</string>
+    <string name="overview_bolusprogress_delivered">Entregado</string>
+    <string name="overview_bolusprogress_stoped">Detenido</string>
+    <string name="unsupportedfirmware">Firmware de la bomba no soportado</string>
+    <string name="pumperror">Error de bomba</string>
+    <string name="lowbattery">Batería Baja</string>
+    <string name="batterydischarged">Batería de la bomba descargada</string>
+    <string name="occlusion">Oclusión</string>
+    <string name="emptyreservoir">Reservorio vacío</string>
+    <string name="basalmax">Basal max</string>
+    <string name="dailymax">Máximo diario</string>
+    <string name="bloodsugarmeasurementalert">Alerta de control de BG</string>
+    <string name="remaininsulinalert">Insulina restante en reservorio</string>
+    <string name="gettingpumpstatus">Recibir estado de bomba</string>
+    <string name="gettingextendedbolusstatus">Recibiendo estado de bolo extendido</string>
+    <string name="gettingbolusstatus">Recibiendo estado bolo</string>
+    <string name="gettingtempbasalstatus">Recibiendo estado basal temporal</string>
+    <string name="gettingpumpsettings">Recibiendo configuración de la bomba</string>
+    <string name="gettingpumptime">Recibiendo hora bomba</string>
+    <string name="largetimedifftitle">Diferencia de tiempo grande</string>
+    <string name="pairfirst">Por favor, empareje su bomba con su teléfono!</string>
+    <string name="approachingdailylimit">Alcanzando el limite de insulina diario</string>
+    <string name="startingbolus">Iniciando bolo</string>
+    <string name="waitingforestimatedbolusend">Esperando finalización del bolo. Faltan %1$d seg.</string>
+    <string name="stoppingtempbasal">Parando basal temporal</string>
+    <string name="settingextendedbolus">Iniciando bolo extendido</string>
+    <string name="stoppingextendedbolus">Parando bolo extendido</string>
+    <string name="updatingbasalrates">Actualizando dosis basales</string>
+</resources>
