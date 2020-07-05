@@ -1332,15 +1332,62 @@
     <string name="omnipod_driver_error_communication_failed_timeout">Comunicación fallida: tiempo de espera.</string>
     <string name="omnipod_driver_error_communication_failed_unexpected_exception">La comunicación ha fallado: error inesperado. ¡Por favor, Informe!</string>
     <string name="omnipod_driver_error_crc_mismatch">Comunicación fallida: falló la verificación de integridad del mensaje.</string>
+    <string name="omnipod_driver_error_invalid_packet_type">La comunicación ha fallado: se ha recibido un paquete no válido del Pod.</string>
+    <string name="omnipod_driver_error_invalid_progress_state">La comunicación ha fallado: el Pod está en un estado incorrecto.</string>
+    <string name="omnipod_driver_error_invalid_response">La comunicación ha fallado: se ha recibido una respuesta no válida del Pod.</string>
     <string name="omnipod_driver_error_invalid_message_sequence_number">Ha fallado la comunicación: se ha recibido un mensaje con un número de secuencia no válido del Pod.</string>
     <string name="omnipod_driver_error_invalid_message_address">La comunicación ha fallado: se ha recibido un mensaje con una dirección no válida desde el Pod.</string>
+    <string name="omnipod_driver_error_message_decoding_failed">La comunicación ha fallado: no se ha podido descodificar el mensaje del Pod.</string>
+    <string name="omnipod_driver_error_nonce_resync_failed">La comunicación ha fallado: nonce resync ha fallado.</string>
+    <string name="omnipod_driver_error_not_enough_data">La comunicación ha fallado: no se han recibido suficientes datos del Pod.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_pod_mgmt_title">Administración de Pod</string>
+    <string name="omnipod_cmd_init_pod">Iniciar Pod</string>
+    <string name="omnipod_cmd_deactivate_pod">Desactivar Pod</string>
+    <string name="omnipod_cmd_reset_pod">Restablecer Pod</string>
+    <string name="omnipod_cmd_pod_history">Historial de Pod</string>
     <string name="omnipod_cmd_set_bolus">Establecer Bolo</string>
     <string name="omnipod_cmd_cancel_bolus">Cancelar Bolus</string>
     <string name="omnipod_cmd_set_tbr">Establecer la basal temporal</string>
+    <string name="omnipod_cmd_cancel_tbr">Cancelar Basal Temporal (Internamente por controlador)</string>
+    <string name="omnipod_cmd_cancel_tbr_forced">Cancelar Basal Temporal (forzado por el usuario)</string>
+    <string name="omnipod_cmd_set_basal_schedule">Establecer Planificación Basal</string>
+    <string name="omnipod_cmd_get_pod_status">Obtener estado de Pod</string>
+    <string name="omnipod_cmd_get_pod_info">Obtener información de Pod</string>
+    <string name="omnipod_cmd_set_time">Establecer hora</string>
+    <string name="omnipod_cmd_configure_alerts">Configurar alertas</string>
+    <string name="omnipod_cmd_suspend_delivery">Suspender la entrega</string>
+    <string name="omnipod_cmd_resume_delivery">Reanudar la entrega</string>
+    <string name="omnipod_cmd_unknown_entry">Entrada desconocida</string>
+    <string name="omnipod_cmd_bolus_value">%1$.1fU</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, CH=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Tasa: %1$.1f U, Duración: %2$d min</string>
+    <string name="omnipod_cmd_pod_history_na">Historial del Pod no disponible en el momento.</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Llenar el Pod</string>
+    <string name="omnipod_init_pod_wizard_step2_title">Cebado</string>
+    <string name="omnipod_init_pod_wizard_step3_title">Adherir el Pod</string>
+    <string name="omnipod_init_pod_wizard_step4_title">Insertar cánula</string>
+    <string name="omnipod_init_pod_wizard_pod_info_title">Pod Info</string>
+    <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nEl Pod ahora está activo.\n\nSu horario basal ha sido programado y la cánula ha sido insertada.\n\nPor favor, verifique que la cánula ha sido insertada correctamente y reemplace su Pod si usted siente que no lo ha hecho.</string>
+    <string name="omnipod_remove_pod_wizard_step1_title">Desactivar Pod</string>
+    <string name="omnipod_remove_pod_wizard_step1_desc">\nPulsa <b>Siguiente</b> para desactivar el Pod.\n\n<b>Nota:</b> Esto suspenderá toda la entrega insulina y desactivará el Pod.</string>
+    <string name="omnipod_remove_pod_wizard_step2_title">Desactivando el Pod</string>
+    <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod desactivado.\n\nPor favor, retire el Pod de su cuerpo y desecharlo.</string>
+    <string name="omnipod_init_pod_pair_pod">Emparejar Pod</string>
+    <string name="omnipod_init_pod_prime_pod">Llenado de cánula del Pod</string>
+    <string name="omnipod_init_pod_fill_cannula">Llenar cánula</string>
     <string name="omnipod_init_pod_set_basal_profile">Establecer el perfil basal</string>
+    <string name="omnipod_deactivate_pod_cancel_delivery">Cancelar entrega</string>
+    <string name="omnipod_deactivate_pod_deactivate_pod">Desactivar Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod_dash">Integración de la bomba para Omnipod Dash.</string>
+    <string name="omnipod_alert_finish_pairing_reminder">Finalizar recordatorio de emparejamiento</string>
+    <string name="omnipod_alert_finish_setup_reminder_reminder">Recordatorio de configuración finalizado</string>
     <string name="omnipod_alert_expiration">Pod a punto de caducar</string>
+    <string name="omnipod_alert_expiration_advisory">Pod a punto de caducar</string>
+    <string name="omnipod_alert_shutdown_imminent">El apagado es inminente</string>
     <string name="omnipod_alert_low_reservoir">Reservorio bajo</string>
+    <string name="omnipod_alert_unknown_alert">Alerta desconocida</string>
+    <string name="omnipod_rl_stats">Estadísticas del RL</string>
 </resources>
