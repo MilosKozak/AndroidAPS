@@ -1331,9 +1331,32 @@
     <string name="omnipod_driver_error_invalid_parameters">Ryšio klaida: gauti neteisingi įvesties parametrai.</string>
     <string name="omnipod_driver_error_communication_failed_timeout">Ryšio klaida: skirtas laikas baigėsi.</string>
     <string name="omnipod_driver_error_communication_failed_unexpected_exception">Ryšio klaida: įvyko netikėta klaida. Prašome pranešti!</string>
+    <string name="omnipod_driver_error_crc_mismatch">Ryšio klaida: pranešimo vientisumo patikra nepavyko.</string>
+    <string name="omnipod_driver_error_invalid_packet_type">Ryšio klaida: netinkami įvesties iš POD parametrai.</string>
+    <string name="omnipod_driver_error_invalid_progress_state">Ryšio klaida: Pod būklė yra netinkama.</string>
+    <string name="omnipod_driver_error_invalid_response">Ryšio klaida: gautas netinkamas atsakymas iš POD.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Ryšio klaida: iš POD gautas pranešimas su negaliojančiu serijos numeriu.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Ryšio klaida: iš POD gautas pranešimas su netinkamu adresu.</string>
+    <string name="omnipod_driver_error_message_decoding_failed">Ryšio klaida: nepavyko iššifruoti pranešimo iš POD.</string>
+    <string name="omnipod_driver_error_nonce_resync_failed">Ryšio klaida: nepavyko iš naujo sinchronizuoti Nonce.</string>
+    <string name="omnipod_driver_error_nonce_out_of_sync">Ryšio klaida: Nonce nebuvo sinchronizuota.</string>
+    <string name="omnipod_driver_error_not_enough_data">Ryšio klaida: nepakankamai duomenų gauta iš POD.</string>
+    <string name="omnipod_driver_error_pod_fault">Aptikta POD klaida (%1$03d %2$s). Išjunkite POD ir pradėkite naują.</string>
+    <string name="omnipod_driver_error_pod_returned_error_response">Ryšio klaida: POD pateikė klaidos atsakymą.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_pod_mgmt_title">POD valdymas</string>
+    <string name="omnipod_cmd_init_pod">Inicijuoti POD</string>
+    <string name="omnipod_cmd_deactivate_pod">Išjungti POD</string>
+    <string name="omnipod_cmd_reset_pod">Atstatyti POD</string>
+    <string name="omnipod_cmd_pod_history">POD istorija</string>
     <string name="omnipod_cmd_set_bolus">Nustatyti bolusą</string>
+    <string name="omnipod_cmd_cancel_bolus">Atšaukti bolusą</string>
     <string name="omnipod_cmd_set_tbr">Nustatyti laikiną bazę</string>
+    <string name="omnipod_cmd_cancel_tbr">Atšaukti laikiną bazę (vidinis valdiklis)</string>
+    <string name="omnipod_cmd_cancel_tbr_forced">Atšaukti laikiną bazę (Inicijuota vartotojo)</string>
+    <string name="omnipod_cmd_set_basal_schedule">Nustatyti bazės tvarkaraštį</string>
+    <string name="omnipod_cmd_get_pod_status">Gauti POD būklę</string>
+    <string name="omnipod_cmd_get_pod_info">Gauti POD informaciją</string>
     <string name="omnipod_cmd_set_time">Nustatyti laiką</string>
     <string name="omnipod_cmd_configure_alerts">Konfigūruoti perspėjimus</string>
     <string name="omnipod_cmd_acknowledge_alerts">Patvirtinti perspėjimus</string>
@@ -1343,6 +1366,10 @@
     <string name="omnipod_cmd_bolus_value">%1$.1f vv</string>
     <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f vv, AV=%2$.1f g</string>
     <string name="omnipod_cmd_tbr_value">Kiekis: %1$.1f vv, Trukmė: %2$d min</string>
+    <string name="omnipod_cmd_reset_pod_desc">Jei spustelėsite <b>OK</b>, ryšys su POD bus priverstinai nutrauktas ir nebegalėsite prie jo prisijungti. Atlikite tai tik tada, kai AAPS nebegali bendrauti su POD. Jei ryšys su POD vis tiek veikia, naudokite parinktį <b>Išjungti POD</b>.</string>
+    <string name="omnipod_cmd_pod_history_na">POD istorija šiuo metu nėra prieinama.</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Užpildyti POD</string>
+    <string name="omnipod_init_pod_wizard_step1_desc">\nUžpildykite naują POD insulinu, kurio pakaktų 3 dienas.\n\nTaip pat atkreipkite dėmesį į du pyptelėjimus iš POD, kai pildote. Tai rodo, kad rezervuaras buvo užpildytas mažiausiai 85vv. Visiškai ištuštinkite švirkštą, net jei girdėjote du pyptelėjimus.\n\nUžpildę POD, spustelėkite <b>Kitas</b>.\n\n <b>Pastaba:</b> vykdant šiuos veiksmus, nenuimkite POD adatos apsauginio dangtelio.</string>
     <string name="omnipod_init_pod_wizard_step4_title">Įvedama kaniulė</string>
     <string name="omnipod_init_pod_set_basal_profile">Nustatyti bazės profilį</string>
     <!-- Omnipod Dash -->
