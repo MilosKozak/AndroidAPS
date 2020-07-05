@@ -816,6 +816,7 @@
     <string name="resistance_lowers_target_title">Rezistencija mažina tikslą</string>
     <string name="resistance_lowers_target_summary">Kai nustatoma rezistencija, tikslinė gliukozės vertė sumažinama</string>
     <string name="sensitivity_raises_target_title">Jautrumas didina tikslą</string>
+    <string name="sensitivity_raises_target_summary">Kai aptinkamas padidėjęs jautrumas insulinui, tikslinis gliukozės lygis padidinamas</string>
     <string name="combo_invalid_setup">Netinkami pompos nustatymai, patikrinkite dokumentaciją ir įsitikinkite, kad Quick info meniu yra pavadintas QUICK INFO, naudojant 360 configuration software.</string>
     <string name="custom">Pasirinktinis</string>
     <string name="careportal_removestartedevents">Ištrinti \"AndroidAPS paleista\" įrašus</string>
@@ -824,6 +825,7 @@
     <string name="error_adding_treatment_title">Terapijos duomenys nepilni</string>
     <string name="maintenance_settings">Serviso nustatymai</string>
     <string name="maintenance_email">Gavėjo el. paštas</string>
+    <string name="maintenance_encrypt_exported_prefs">Užšifruoti eksportuotus parametrus</string>
     <string name="maintenance_amount">Siunčiamų įrašų skaičius</string>
     <string name="maintenance">Servisas</string>
     <string name="maintenance_shortname">Serv</string>
@@ -865,6 +867,10 @@
     <string name="log_alerts">Įrašyti įspėjimus</string>
     <string name="enable_tbr_emulation">Aktyvuoti LBD emuliaciją</string>
     <string name="enable_tbr_emulation_summary">Naudoti ištęstinius bolusus vietoj laikinos bazės, kai viršijama 250%% riba</string>
+    <string name="disable_vibration">Išjungti vibracijas rankinio boluso suleidimo metu</string>
+    <string name="disable_vibration_summary">Bolusui ir ištęstam bolusui (tik su Insight programinės įrangos 3.x versija)</string>
+    <string name="disable_vibration_auto">Išjungti vibracijas automatinio boluso suleidimo metu</string>
+    <string name="disable_vibration_auto_summary">SMB ir laikinai valandinei bazei su TBR emuliacija (tik Insight su programinės įrangos versija 3.x)</string>
     <string name="disconnect_delay">Atjungimo vėlavimas [s]</string>
     <string name="serial_number">Serijos numeris</string>
     <string name="release_software_version">Išleistos programinės įrangos versija</string>
@@ -1008,6 +1014,8 @@
     <string name="exists">egzistuoja</string>
     <string name="notexists">neegzistuoja</string>
     <string name="temptargetcompared">Laikinas tikslas %1$s</string>
+    <string name="btdevicecompared">Bluetooth ryšys su įrenginiu %1$s %2$s</string>
+    <string name="btdevice">Ryšys su Bluetooth įrenginiu </string>
     <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
     <string name="autosenscompared">Autosens %1$s %2$s %%</string>
     <string name="autosenslabel">Autosens %</string>
@@ -1062,6 +1070,7 @@
     <string name="medtronic_pump_battery_alkaline">Šarminė (išplėstinis vaizdas)</string>
     <string name="medtronic_pump_battery_lithium">Ličio (išplėstinis vaizdas)</string>
     <string name="medtronic_pump_battery_nizn">Šarminė (išplėstinis vaizdas)</string>
+    <string name="medtronic_pump_battery_nimh">NiMH (išplėstinis vaizdas)</string>
     <string name="medtronic_bolus_debugging">Boluso/Terapijos Derinimas</string>
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">SKENAVIMAS</string>
@@ -1073,6 +1082,7 @@
     <string name="rileylink_scanner_scanning">Skanuojama</string>
     <string name="rileylink_scanner_scanning_finished">Skanavimas baigtas</string>
     <string name="rileylink_scanner_scanning_error">Skanavimo klaida: %1$d</string>
+    <string name="common_never">Niekada</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Parametrai</string>
     <string name="rileylink_settings_tab2">Istorija</string>
@@ -1202,6 +1212,7 @@
     <string name="objectives_button_unfinish">Išvalyti užbaigtus</string>
     <string name="objectives_button_unstart">Išvalyti pradėtus</string>
     <string name="doyouwantresetstart">Ar norite iš naujo nustatyti tikslų pradžią? Jūs galite prarasti jau pasiektus.</string>
+    <string name="time_or_timezone_change">Laiko ir/ar laiko zonos pakeitimas pompoje</string>
     <string name="nopumpselected">Pompa nepasirinkta</string>
     <string name="setupwizard_units_prompt">Pasirinkite vienetus, kurių vertes norite parodyti</string>
     <string name="ns_ploadlocalprofile">Įkelti vietinio profilio pakeitimus į NS</string>
@@ -1218,6 +1229,7 @@
     <string name="high_mark_comment">Didžiausia tikslinės srities vertė (tik rodymui)</string>
     <string name="reorder_label">Pertvarkyti</string>
     <string name="age">Amžius:</string>
+    <string name="weight_label">Svoris:</string>
     <string name="id">ID:</string>
     <string name="submit">Pateikti</string>
     <string name="mostcommonprofile">Dažniausiai naudojamas profilis:</string>
@@ -1251,6 +1263,13 @@
     <string name="loop_tbrexecution_time_label">Laikinos bazės įvykdymo laikas</string>
     <string name="insight_alert_notification_channel">Insight pompos aliarmai</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">iš tapatybės nustatymo programos: %1$s</string>
+    <string name="smscommunicator_otp_enabled">Įgalinti tapatybės nustatymo funkciją</string>
+    <string name="smscommunicator_otp_enabled_summary">Autentifikuokite komandas naudodami vienkartinius slaptažodžius, sugeneruotus Google Authenticator ar panašiose 2FA programose.</string>
+    <string name="smscommunicator_otp_pin">Papildomas PIN kodas žymeklio gale</string>
+    <string name="smscommunicator_otp_pin_summary">Papildomi skaitmenys, kuriuos reikia atsiminti ir pridėti kiekvieno sugeneruoto slaptažodžio pabaigoje</string>
+    <string name="smscomunicator_tab_otp_label">Autentifikavimo sąrankos nustatymas</string>
+    <string name="smscommunicator_otp_verify_label">OTP tikrinimas:</string>
     <string name="smscommunicator_otp_step1_install_header">1. Įdiegti Authenticator</string>
     <string name="smscommunicator_otp_step2_provisioning_header">2. Nuskanuoti kodą AndroidAPS OTP kodų nustatymyu</string>
     <string name="smscommunicator_otp_step3_test_header">3. Patikrinti vienkartinį slaptažodį</string>
