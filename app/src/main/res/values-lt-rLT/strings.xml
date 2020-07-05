@@ -1270,30 +1270,82 @@
     <string name="smscommunicator_otp_pin_summary">Papildomi skaitmenys, kuriuos reikia atsiminti ir pridėti kiekvieno sugeneruoto slaptažodžio pabaigoje</string>
     <string name="smscomunicator_tab_otp_label">Autentifikavimo sąrankos nustatymas</string>
     <string name="smscommunicator_otp_verify_label">OTP tikrinimas:</string>
+    <string name="smscommunicator_otp_reset_btn">Atstatyti tapatybės nustatymą</string>
+    <string name="smscommunicator_otp_reset_title">Atstatyti autentifikatoriaus kodą</string>
+    <string name="smscommunicator_otp_reset_prompt">Ar tikrai norite iš naujo nustatyti autentifikatoriaus raktą? Dėl to visi šiuo metu konfigūruojami autentifikatoriai negalios, ir jums reikės juos nustatyti dar kartą.</string>
+    <string name="smscommunicator_otp_reset_successful">Sukurtas naujas autentifikavimo raktas! Autentifikatoriams pateikti naudokite atnaujintą QR kodą.</string>
     <string name="smscommunicator_otp_step1_install_header">1. Įdiegti Authenticator</string>
     <string name="smscommunicator_otp_step2_provisioning_header">2. Nuskanuoti kodą AndroidAPS OTP kodų nustatymyu</string>
     <string name="smscommunicator_otp_step3_test_header">3. Patikrinti vienkartinį slaptažodį</string>
+    <string name="smscommunicator_otp_reset_header">Atstatyti tapatybės nustatymą</string>
+    <string name="smscommunicator_otp_install_info">Kiekviename telefone, palaikančiame RFC 6238 TOTP prieigos raktus, įdiekite autentifikavimo programą. Populiariausios nemokamos programos yra:\n • Authy\n • Google Authenticator\n • LastPass Authenticator\n • FreeOTP Authenticator</string>
+    <string name="smscommunicator_otp_provisioning_warning">NESIDALINKITE šiuo kodu internete!\nNaudokite tik nustatydami Authenticator programą sekėjų telefonuose.</string>
+    <string name="smscommunicator_otp_reset_warning">Jei iš naujo nustatysite autentifikavimo priemonę, visi esami autentifikatoriai taps negaliojantys. Tada turėsite juos vėl nustatyti!</string>
     <string name="onconnect">Sujungimo metu</string>
     <string name="ondisconnect">Išjungimo metu</string>
+    <string name="overview_show_predictions">Prognozė</string>
+    <string name="overview_show_deviationslope">Nukrypimo koeficientas</string>
     <string name="authorizationfailed">Autorizacija nepavyko</string>
     <string name="overview_show_absinsulin">Insulinas absoliučiais vienetais</string>
+    <string name="master_password_summary">Pagrindinis slaptažodis naudojamas atsarginiam šifravimui ir programos saugumo ignoravimui. Atsiminkite jį arba laikykite užsirašę saugioje vietoje.</string>
     <string name="passwords_dont_match">Slaptažodžiai nesutampa</string>
     <string name="current_master_password">Dabartinis pagrindinis slaptažodis</string>
+    <string name="statuslights">Būklės indikatoriai</string>
     <string name="statuslights_copy_ns">Kopijuoti nustatymus iš NS</string>
     <string name="copyexistingvalues">Kopijuoti NS nustatymus (jei yra)?</string>
     <string name="classic_description">Originali išvaizda</string>
     <string name="buttonson_description">Mygtukai visada rodomi ekrano apačioje</string>
+    <string name="largedisplay_description">Didelis ekranas</string>
     <string name="skin">Išvaizda</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Omnipod pompos integracijai reikalingas RileyLink (programinės įrangos versija ne mažiau 2.0).</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Boluso signalas įjungtas</string>
+    <string name="omnipod_config_beep_basal_enabled">Bazės signalas įjungtas</string>
+    <string name="omnipod_config_beep_smb_enabled">SMB signalas įjungtas</string>
+    <string name="omnipod_config_beep_tbr_enabled">Laikinos bazės signalas įjungtas</string>
+    <string name="omnipod_config_pod_debugging_options_enabled">Įgalintos POD derinimo galimybės</string>
+    <string name="omnipod_config_timechange_enabled">Vasaros laiko/laiko juostos aptikimas įgalintas</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">POD valdymas</string>
+    <string name="omnipod_pod_status">POD būklė</string>
     <string name="omnipod_reservoir_left">liko %1$.2f U</string>
     <string name="omnipod_reservoir_over50">Daugiau nei 50 U</string>
+    <string name="omnipod_pod_address">POD adresas</string>
+    <string name="omnipod_pod_expiry">POD laikas pasibaigs</string>
     <string name="omnipod_pod_name_no_info">Nėra informacijos</string>
+    <string name="omnipod_pod_no_pod_connected">POD neprijungta</string>
+    <string name="omnipod_pod_not_initalized">Nepavyko paleisti</string>
+    <string name="omnipod_pod_active_alerts">Aktyvaus POD signalai</string>
+    <string name="omnipod_ack_short">Priimti pranešimus</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">Operacija negalima.\n\n Pirmiausia turite sukonfigūruoti Omnipod pompą prieš atliekant šią operaciją.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">Operacija negalima.\n\n Jūs turite palaukti kelias minutes, kol AAPS bando nustatyti profilį pirmą kartą.</string>
+    <string name="omnipod_error_illegal_init_action_type">Neteisingas inicijavimo tipas:%1$s</string>
+    <string name="omnipod_error_pod_not_attached">Nėra aktyvaus POD.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Komandos patikra nepavyko.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Įvyko netikėta klaida. Prašome pranešti! (tipas: %1$s).</string>
+    <string name="omnipod_driver_error_invalid_parameters">Ryšio klaida: gauti neteisingi įvesties parametrai.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Ryšio klaida: skirtas laikas baigėsi.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Ryšio klaida: įvyko netikėta klaida. Prašome pranešti!</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_set_bolus">Nustatyti bolusą</string>
+    <string name="omnipod_cmd_set_tbr">Nustatyti laikiną bazę</string>
+    <string name="omnipod_cmd_set_time">Nustatyti laiką</string>
+    <string name="omnipod_cmd_configure_alerts">Konfigūruoti perspėjimus</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Patvirtinti perspėjimus</string>
+    <string name="omnipod_cmd_suspend_delivery">Sustabdyti suleidimą</string>
+    <string name="omnipod_cmd_resume_delivery">Atnaujinti suleidimą</string>
+    <string name="omnipod_cmd_unknown_entry">Nežinomas Įrašas</string>
+    <string name="omnipod_cmd_bolus_value">%1$.1f vv</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f vv, AV=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Kiekis: %1$.1f vv, Trukmė: %2$d min</string>
+    <string name="omnipod_init_pod_wizard_step4_title">Įvedama kaniulė</string>
+    <string name="omnipod_init_pod_set_basal_profile">Nustatyti bazės profilį</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="omnipod_alert_low_reservoir">Žemas rezervuaro lygis</string>
 </resources>
