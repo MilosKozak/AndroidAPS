@@ -36,6 +36,7 @@
     <string name="description_pump_mdi">Integración de bomba de insulina para personas que usan varias inyecciones diarias para su terapia de diabetes</string>
     <string name="description_pump_virtual">Integración para bombas de insulina que aún no tienen ningún controlador/driver (lazo abierto)</string>
     <string name="description_sensitivity_aaps">Sensibilidad calculada de la misma manera que Oref0, pero puede especificarse el rango de tiempo. Absorción de carbohidratos mínima se calcula con el máximo tiempo de absorción de carbohidratos en preferencias.</string>
+    <string name="description_sensitivity_oref1">La sensibilidad se calcula con las últimas 8 h y los carbohidratos (si no son absorbidos) se anulan después del tiempo indicado en preferencias. El complemento también calcula UAM.</string>
     <string name="description_sensitivity_weighted_average">La sensibilidad se calcula como un promedio ampliado de las desviaciones. Desviaciones más recientes tienen mayor impacto. Absorción de carbohidratos mínima se calcula desde el tiempo de absorción de carbohidratos máximo en preferencias. Este algoritmo es el más rápido siguiendo los cambios de sensibilidad.</string>
     <string name="description_source_eversense">Recibir los valores de glucosa de la aplicación Eversense parcheada.</string>
     <string name="description_source_glimp">Recibir valores de glucosa de Glimp.</string>
@@ -129,6 +130,7 @@
     <string name="disableloop">Desactivar lazo</string>
     <string name="enableloop">Activar lazo</string>
     <string name="openloop_newsuggestion">Nueva propuesta disponible</string>
+    <string name="carbssuggestion">Sugerencia de carbohidratos</string>
     <string name="unsupportednsversion">Versión no aceptada de Nightscout</string>
     <string name="loopdisabled">LOOP DESACTIVADO POR RESTRICCIONES</string>
     <string name="treatments_wizard_basaliob_label">Basal IOB</string>
@@ -168,6 +170,7 @@
     <string name="password_preferences_decrypt_prompt">Se le solicitará la contraseña maestra, que es necesaria para descifrar las preferencias importadas.</string>
     <string name="preferences_export_canceled">¡Exportación cancelada! ¡Las preferencias NO se han exportado!</string>
     <string name="preferences_import_canceled">¡Importación cancelada! ¡Las preferencias NO se han importado!</string>
+    <string name="preferences_import_list_title">Seleccionar fichero para importar</string>
     <string name="check_preferences_before_import">Por favor, compruebe las preferencias antes de importar:</string>
     <string name="check_preferences_cannot_import">¡Las preferencias no se pueden importar!</string>
     <string name="check_preferences_dangerous_import">¡Las preferencias no se deben importar!</string>
@@ -193,7 +196,12 @@
     <string name="prefdecrypt_wrong_password">Error de descifrado, la contraseña proporcionada no puede descifrar el archivo</string>
     <string name="prefdecrypt_issue_modified">¡El archivo se ha modificado tras la exportación!</string>
     <string name="prefdecrypt_issue_parsing">Error de descifrado, ¡el análisis de las preferencias ha fallado!</string>
+    <string name="prefdecrypt_issue_wrong_pass">Error de descifrado, ¡la contraseña proporcionada no es válida o se ha modificado el archivo de ajustes! Puede suceder que el archivo importado se haya exportado con una contraseña maestra distinta.</string>
     <string name="prefdecrypt_issue_wrong_algorithm">¡Algoritmo de cifrado no soportado o no especificado!</string>
+    <string name="exported_today">exportado hoy</string>
+    <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">exportado hace %1$s</string>
+    <string name="exported_at" comment="at placeholder we add export date">exportado en %1$s</string>
+    <string name="exported_less_than_hour_ago">exportado hace menos de una hora</string>
     <string name="end_user_license_agreement">Acuerdo de licencia de usuario final</string>
     <string name="end_user_license_agreement_text">NO DEBE UTILIZARSE PARA TOMAR DECISIONES MÉDICAS. NO HAY NINGUNA GARANTÍA PARA EL PROGRAMA, EN LA MEDIDA PERMITIDA POR LA LEY APLICABLE. EXCEPTO CUANDO SE INDIQUE LO CONTRARIO POR ESCRITO, LOS TITULARES DE LOS DERECHOS DE AUTOR Y/O OTRAS PARTES PROPORCIONAN EL PROGRAMA \"TAL CUAL\" SIN GARANTÍA DE NINGÚN TIPO, YA SEA EXPRESA O IMPLÍCITA, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS IMPLÍCITAS DE COMERCIABILIDAD Y ADECUACIÓN PARA UN PROPÓSITO EN PARTICULAR. TODO EL RIESGO EN CUANTO A LA CALIDAD Y EL RENDIMIENTO DEL PROGRAMA ES SUYA. SI EL PROGRAMA TUVIERA UN ERROR, USTED ASUME EL COSTE DE TODO SERVICIO, REPARACIÓN O CORRECCIÓN NECESARIOS.</string>
     <string name="end_user_license_agreement_i_understand">ENTIENDO Y ACEPTO</string>
@@ -233,6 +241,10 @@
     <string name="smscommunicator_loopisenabled">Lazo activo</string>
     <string name="valuelimitedto">%1$.2f limitado a %2$.2f</string>
     <string name="valueoutofrange">El valor %1$s está fuera de límites</string>
+    <string name="smscommunicator_pumpconnectfail">Error al conectar a la bomba</string>
+    <string name="smscommunicator_pumpdisconnectwithcode">Para desconectar la bomba durante %1dminutos responde con el código %2$s</string>
+    <string name="smscommunicator_pumpdisconnected">Bomba desconectada</string>
+    <string name="smscommunicator_reconnect">Bomba reconectada</string>
     <string name="smscommunicator_remotecommandnotallowed">Comando remoto no permitido</string>
     <string name="smscommunicator_remotebolusnotallowed">El bolo remoto no está disponible. Inténtalo de nuevo más tarde.</string>
     <string name="smscommunicator_basalreplywithcode">Para iniciar una basal de %1$.2fU/h durante %2$d min, responder con el código %3$s</string>
@@ -272,6 +284,7 @@
     <string name="primefill">Rellenar/Llenar</string>
     <string name="fillwarning">¡Por favor asegurar que la cantidad coincide con la especificación del set de infusión!</string>
     <string name="othersettings_title">Otros</string>
+    <string name="fillbolus_title">Llenar/Rellenar cantidad de insulina estándar</string>
     <string name="button1">Botón 1</string>
     <string name="button2">Botón 2</string>
     <string name="button3">Botón 3</string>
@@ -330,6 +343,7 @@
     <string name="openapsama_current_basal_safety_multiplier_summary">Ajuste pro defecto: 4 Esto es la otra mitad de los ajustes de seguridad de OpenAPS y la otra mitad de la protección de seguridad de \"3x max diaria, 4x actual\". Esto significa, que tu basal, independientemente de tu máxima basal ajustada en la bomba, no puede ser mas alta que este número de veces el actual nivel de basal. Esto es para evitar que las personas se encuentren en situaciones peligrosas por aumentar mucho la basal sin entender como trabaja el algoritmo. El ajuste por defecto es 4x; la mayoría de las personas nunca tendrá que cambiar estos ajustes, sino que debe modificar otros ajustes en la terapia si se encuentran cerca de este límite de seguridad.</string>
     <string name="openapsama_autosens_max_summary">Valor por defecto: 1.2\nEste es un límite multiplicador para autosens (y pronto autotune) para establecer un límite máximo de 20%% en cuanto puede ser la ratio de autosens, lo que determina a su vez cuán alto puede ajustar las basales autosens, cuán bajo puede ajustar ISF, y cuán bajo puede establecer el objetivo BG.</string>
     <string name="openapsama_autosens_min_summary">Ajuste por defecto: 0.7\nEl otro lado de los límites de seguridad de autosens, limitando a cuanto puede autosens bajar la basal y a cuanto puede subir ISF y objetivo de glucosa en sangre (BG).</string>
+    <string name="openapsama_autosens_adjusttargets">Autosens también ajusta los objetivos</string>
     <string name="openapsama_autosens_adjusttargets_summary">Ajuste por defecto: true\nEsto se usa para permitir a autosens el ajuste de objetivos BG además de ISF y bases.</string>
     <string name="openapsama_bolussnooze_dia_divisor_summary">Ajuste por defecto: 2 \nEl retardo del bolo se realiza después de suministrar un bolo de comida, por lo que el lazo no se contrarrestará con bajas temporales cuando acaba de comer. Con el valor predeterminado de 2 y siendo DIA de 3 horas, el retardo del del bolo se realizará gradualmente durante 1,5 horas (3 DIA / 2).</string>
     <string name="openapsama_min_5m_carbimpact_summary">Valor por defecto: 3.0 (AMA) o 8.0 (SMB). Este es un escenario de impacto de absorción de carbohidratos por defecto por 5 minutos. El valor predeterminado es un esperado 3mg/dl / 5min. Esto afecta la rapidez con la que los COB decaen, y cuánta absorción de carbohidratos se supone en el cálculo de futuras BG, cuando BG está cayendo más que esperado, o no aumento tanto como esperaba.</string>
@@ -368,6 +382,7 @@
     <string name="wear_detailedIOB_title">Mostrar detalles IOB</string>
     <string name="wear_detailedIOB_summary">Separar IOB en bolo y base en el reloj</string>
     <string name="nosuccess">sin efecto - por favor verificar en móvil</string>
+    <string name="notavailable">n/a</string>
     <string name="patientage">Edad paciente</string>
     <string name="child">Menor de edad</string>
     <string name="teenage">Adolescente</string>
@@ -411,6 +426,13 @@
     <string name="enablesuperbolus">Activar superbolo en asistente</string>
     <string name="enablesuperbolus_summary">Activar función superbolo en asistente. No lo actives hasta que hayas aprendido lo que realmente hace. ¡PUEDE CAUSAR SOBREDOSIS DE INSULINA usándolo sin precaución!</string>
     <string name="show_statuslights">Mostrar luces de estado en la pantalla de inicio</string>
+    <string name="statuslights_cage_warning">Umbral de advertencia de la edad de la cánula [h]</string>
+    <string name="statuslights_cage_critical">Umbral crítico de la edad de la cánula [h]</string>
+    <string name="statuslights_iage_warning">Umbral de advertencia de la edad de la insulina [h]</string>
+    <string name="statuslights_iage_critical">Umbral crítico de la edad de la insulina [h]</string>
+    <string name="statuslights_sage_warning">Umbral de advertencia de la edad del sensor [h]</string>
+    <string name="statuslights_sage_critical">Umbral crítico de la edad del sensor [h]</string>
+    <string name="statuslights_bage_critical">Umbral crítico de nivel de batería [h]</string>
     <string name="statuslights_res_warning">Umbral de advertencia de nivel de reservorio [U]</string>
     <string name="statuslights_res_critical">Umbral crítico de nivel de reservorio [U]</string>
     <string name="statuslights_bat_warning">Umbral de advertencia de nivel de pila [%]</string>
