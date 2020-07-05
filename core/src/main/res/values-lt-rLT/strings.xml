@@ -48,6 +48,17 @@
     <string name="serialnumber">Serijos numeris</string>
     <string name="battery_label">Baterija</string>
     <string name="lastconnection_label">Paskutinis prisijungimas</string>
+    <string name="lastbolus_label">Paskutinis bolusas</string>
+    <string name="dailyunits">Paros insulinas</string>
+    <string name="basebasalrate_label">Pagrindinis bazės dydis</string>
+    <string name="tempbasal_label">Laikina bazė</string>
+    <string name="virtualpump_extendedbolus_label">Ištęstas bolusas</string>
+    <string name="reservoir_label">Rezervuaras</string>
+    <string name="pumphistory">Pompos istorija</string>
+    <string name="viewprofile">Peržiūrėti profilį</string>
+    <string name="eventtype">Įvykio tipas</string>
+    <string name="mgdl">mg/dl</string>
+    <string name="mmol">mmol/l</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <!--    BlePreCheck-->
