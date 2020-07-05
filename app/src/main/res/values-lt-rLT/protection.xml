@@ -15,6 +15,8 @@
     <string name="noprotection">Apsaugos nėra</string>
     <string name="protection">Apsauga</string>
     <string name="master_password_missing">Pagrindinis slaptažodis nėra nustatytas!\n\nPrašome nustatyti savo pagrindinį slaptažodį Nustatymuose(%1$s &#8594; %2$s)</string>
+    <string name="unsecure_fallback_biometric">Nesaugus atsarginis įrašas</string>
+    <string name="unsecure_fallback_descriotion_biometric">Saugumui užtikrinti, biometrinei apsaugai reikia pagrindinio slaptažodžio atsarginiam įrašui.\n\nĮveskite pagrindinį slaptažodį!</string>
     <string name="password_set">Slaptažodis nustatytas!</string>
     <string name="password_not_set">Slaptažodis nenustatytas</string>
     <string name="password_not_changed">Slaptažodis nepakeistas</string>
