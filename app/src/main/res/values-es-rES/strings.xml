@@ -193,6 +193,7 @@
     <string name="metadata_format_other">Formato de exportación desconocido</string>
     <string name="prefdecrypt_settings_tampered">Archivo de configuración alterado</string>
     <string name="prefdecrypt_settings_secure">El archivo de configuración es seguro</string>
+    <string name="prefdecrypt_wrong_json">Error de formato JSON, falta campo necesario (formato, contenido, metadatos o seguridad)</string>
     <string name="prefdecrypt_wrong_password">Error de descifrado, la contraseña proporcionada no puede descifrar el archivo</string>
     <string name="prefdecrypt_issue_modified">¡El archivo se ha modificado tras la exportación!</string>
     <string name="prefdecrypt_issue_parsing">Error de descifrado, ¡el análisis de las preferencias ha fallado!</string>
