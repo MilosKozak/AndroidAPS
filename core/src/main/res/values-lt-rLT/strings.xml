@@ -59,10 +59,42 @@
     <string name="eventtype">Įvykio tipas</string>
     <string name="mgdl">mg/dl</string>
     <string name="mmol">mmol/l</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="btwatchdog_title">BT Watchdog</string>
     <!--    Constraints-->
+    <string name="limitingbasalratio">Ribojamas maksimalus bazės dydis%1$.2f vv/val dėl %2$s</string>
+    <string name="pumplimit">pompos limitas</string>
+    <string name="itmustbepositivevalue">reikšmė turi būti teigiama</string>
+    <string name="limitingbolus">Bolusas ribojamas iki %1$.1f vv dėl %2$s</string>
+    <string name="pumpNotInitializedProfileNotSet">Pompa neprijungta, profilis nepasirinktas!</string>
     <!--    Dialogs-->
+    <string name="confirmation">Patvirtinimas</string>
+    <string name="message">Pranešimas</string>
+    <string name="ok">Gerai</string>
+    <string name="cancel">Atšaukti</string>
+    <string name="dismiss">ATMESTI</string>
     <!--    BlePreCheck-->
+    <string name="ble_not_supported">Bluetooth Low Energy nepalaikoma.</string>
+    <string name="ble_not_enabled">Bluetooth neįjungta.</string>
+    <string name="location_not_found_title">Vietovės nustatymas neįjungtas</string>
+    <string name="location_not_found_message">Vietos nustatymo paslauga turi būti įjungta, kad Bluetooth aptikimas veiktų naujesniuose įrenginiuose. AAPS neseka Jūsų lokacijos, o vietos nustatymo paslauga gali būti išjungta po sėkmingo įrenginių suporavimo.</string>
     <!--    DateUtil-->
+    <string name="hoursago">Prieš %1$.1f val.</string>
+    <string name="shorthour">val</string>
+    <string name="days">d.</string>
+    <string name="hours">val.</string>
+    <string name="unit_second">sek.</string>
+    <string name="unit_minute">min.</string>
+    <string name="unit_hour">val.</string>
+    <string name="unit_day">d.</string>
+    <string name="unit_week">savaitė</string>
+    <string name="unit_seconds">sekundės</string>
+    <string name="unit_minutes"> min.</string>
+    <string name="unit_hours">val.</string>
+    <string name="unit_days">d.</string>
+    <string name="unit_weeks">savaičių</string>
+    <string name="shortminute">min.</string>
+    <string name="shortday">d</string>
     <!--    Profile-->
     <!--    ProfileFunction-->
     <!--    PumpType-->
@@ -73,6 +105,11 @@
     <!--    Translator-->
     <!--    Command-->
     <!--    PumpEnactResult-->
+    <string name="percent">Procentai</string>
+    <string name="absolute">Absoliutus</string>
+    <string name="configbuilder_insulin">Insulinas</string>
+    <string name="waitingforpumpresult">Laukiama rezultato</string>
+    <string name="smb_shortname">SMB</string>
     <!--    CarbsReq-->
     <!--    TDDStatsActivity-->
     <!--    Ntp-->
