@@ -126,6 +126,7 @@
     <string name="apsmode_title">Modo APS</string>
     <string name="closedloop">Lazo cerrado</string>
     <string name="openloop">Lazo abierto</string>
+    <string name="lowglucosesuspend">Suspensión por glucosa baja</string>
     <string name="disabledloop">Lazo Inactivo</string>
     <string name="disableloop">Desactivar lazo</string>
     <string name="enableloop">Activar lazo</string>
@@ -163,6 +164,7 @@
     <string name="filenotfound">Archivo no encontrado</string>
     <string name="nav_export">Exportar ajustes</string>
     <string name="nav_import">Importar ajustes</string>
+    <string name="openapsma_maxbasal_title">Max U/h para la basal temporal</string>
     <string name="openapsma_maxbasal_summary">Este valor es llamado max basal en OpenAPS</string>
     <string name="openapsma_maxiob_title">Max IOB basal que OpenAPs puede emitir [U]</string>
     <string name="openapsma_maxiob_summary">Este valor es llamado Max Iob en el OpenAPS\nEsta es la máxima insulina en [U] que APS puede entregar a la vez.</string>
@@ -175,6 +177,7 @@
     <string name="check_preferences_cannot_import">¡Las preferencias no se pueden importar!</string>
     <string name="check_preferences_dangerous_import">¡Las preferencias no se deben importar!</string>
     <string name="check_preferences_details_btn">Explicar problemas de importación…</string>
+    <string name="check_preferences_details_title">Importar Detalles del problema</string>
     <string name="check_preferences_import_btn">Importar</string>
     <string name="check_preferences_import_anyway_btn">Importar de todos modos (¡PELIGROSO!)</string>
     <string name="metadata_warning_different_device">Las preferencias se han creado en un dispositivo distinto. Está bien si va a importar desde un teléfono más antiguo/diferente, pero ¡asegúrese de que las preferencias importadas son correctas!</string>
@@ -203,6 +206,7 @@
     <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">exportado hace %1$s</string>
     <string name="exported_at" comment="at placeholder we add export date">exportado en %1$s</string>
     <string name="exported_less_than_hour_ago">exportado hace menos de una hora</string>
+    <string name="in_directory" comment="placeholder is for exported file path">en el directorio: %1$s</string>
     <string name="end_user_license_agreement">Acuerdo de licencia de usuario final</string>
     <string name="end_user_license_agreement_text">NO DEBE UTILIZARSE PARA TOMAR DECISIONES MÉDICAS. NO HAY NINGUNA GARANTÍA PARA EL PROGRAMA, EN LA MEDIDA PERMITIDA POR LA LEY APLICABLE. EXCEPTO CUANDO SE INDIQUE LO CONTRARIO POR ESCRITO, LOS TITULARES DE LOS DERECHOS DE AUTOR Y/O OTRAS PARTES PROPORCIONAN EL PROGRAMA \"TAL CUAL\" SIN GARANTÍA DE NINGÚN TIPO, YA SEA EXPRESA O IMPLÍCITA, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS IMPLÍCITAS DE COMERCIABILIDAD Y ADECUACIÓN PARA UN PROPÓSITO EN PARTICULAR. TODO EL RIESGO EN CUANTO A LA CALIDAD Y EL RENDIMIENTO DEL PROGRAMA ES SUYA. SI EL PROGRAMA TUVIERA UN ERROR, USTED ASUME EL COSTE DE TODO SERVICIO, REPARACIÓN O CORRECCIÓN NECESARIOS.</string>
     <string name="end_user_license_agreement_i_understand">ENTIENDO Y ACEPTO</string>
@@ -242,6 +246,7 @@
     <string name="smscommunicator_loopisenabled">Lazo activo</string>
     <string name="valuelimitedto">%1$.2f limitado a %2$.2f</string>
     <string name="valueoutofrange">El valor %1$s está fuera de límites</string>
+    <string name="smscommunicator_pumpconnectwithcode">Para conectar la infusora responder con el código %1$s</string>
     <string name="smscommunicator_pumpconnectfail">Error al conectar a la bomba</string>
     <string name="smscommunicator_pumpdisconnectwithcode">Para desconectar la bomba durante %1dminutos responde con el código %2$s</string>
     <string name="smscommunicator_pumpdisconnected">Bomba desconectada</string>
@@ -254,6 +259,9 @@
     <string name="smscommunicator_carbsreplywithcode">Para introducir %1$dg en %2$s responder con código %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">Para iniciar una basal de %1$d%% durante %2$d min, responder con el código %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">Para cancelar lazo por %1$d minutos responde con código %2$s</string>
+    <string name="smscommunicator_loopresumereplywithcode">Para retomar el lazo responder con código %1$s</string>
+    <string name="smscommunicator_loopenablereplywithcode">Para activar el lazo responder con código %1$s</string>
+    <string name="smscommunicator_loopdisablereplywithcode">Para desactivar el lazo responder con código %1$s</string>
     <string name="smscommunicator_tempbasalset">Basal temporal %1$.2fU/h para %2$d min iniciada correctamente</string>
     <string name="smscommunicator_extendedset">Bolo ampliado de %1$.2fU durante %2$d min se inició correctamente</string>
     <string name="smscommunicator_carbsset">Los carbohidratos %1$dg introducidos con éxito</string>
@@ -433,13 +441,20 @@
     <string name="statuslights_iage_critical">Umbral crítico de la edad de la insulina [h]</string>
     <string name="statuslights_sage_warning">Umbral de advertencia de la edad del sensor [h]</string>
     <string name="statuslights_sage_critical">Umbral crítico de la edad del sensor [h]</string>
+    <string name="statuslights_bage_warning">Umbral de advertencia de nivel de pila [h]</string>
     <string name="statuslights_bage_critical">Umbral crítico de nivel de batería [h]</string>
     <string name="statuslights_res_warning">Umbral de advertencia de nivel de reservorio [U]</string>
     <string name="statuslights_res_critical">Umbral crítico de nivel de reservorio [U]</string>
     <string name="statuslights_bat_warning">Umbral de advertencia de nivel de pila [%]</string>
     <string name="statuslights_bat_critical">Umbral crítico de nivel de batería [%]</string>
+    <string name="prediction_shortname">PRED</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
+    <string name="basal_shortname">BAS</string>
+    <string name="deviation_shortname">DEV</string>
+    <string name="activity_shortname">ACT</string>
+    <string name="abs_insulin_shortname">ABS</string>
+    <string name="devslope_shortname">DEVSLOPE</string>
     <string name="nav_about">Acerca de</string>
     <string name="smscommunicator_missingsmspermission">Falta permiso SMS</string>
     <string name="smscommunicator_missingphonestatepermission">Falta permiso de estado del teléfono</string>
@@ -457,6 +472,8 @@
     <string name="doprofileswitch">Cambio de perfil</string>
     <string name="careportal_pbage_label">Edad batería bomba</string>
     <string name="ns_alarmoptions">Opciones alarma</string>
+    <string name="ns_alarms">Crear notificaciones de alarmas NS</string>
+    <string name="ns_announcements">Crear notificaciones de avisos de NS</string>
     <string name="nsalarm_staledatavalue_label">Datos antiguos limite [min]</string>
     <string name="nsalarm_urgent_staledatavalue_label">Datos antiguos urgentes limite [min]</string>
     <string name="openapsama_autosens_period">Intervalo para autosens [h]</string>
@@ -537,6 +554,7 @@
     <string name="enable_missed_bg_readings_alert">Alarma si no llegan datos BG</string>
     <string name="enable_pump_unreachable_alert">Alarma si bomba no es alcanzable</string>
     <string name="pump_unreachable_threshold">Bomba no alcanzable durante [min]</string>
+    <string name="enable_carbs_req_alert">Alerta si se necesitan carbohidratos</string>
     <string name="urgent_alarm">Alarma urgente</string>
     <string name="info">INFO</string>
     <string name="eversense">Eversense App (parcheada)</string>
@@ -549,6 +567,7 @@
     <string name="smbmaxminutes_summary">Minutos máximos de basal para limitar SMB</string>
     <string name="uamsmbmaxminutes">Minutos máximos de UAM SMB</string>
     <string name="uamsmbmaxminutes_summary">Minutos máximos de basal para limitar SMB para UAM</string>
+    <string name="carbsReqThreshold">Carbohidratos mínimos necesarios para la sugerencia</string>
     <string name="dexcomg5_xdripupload_title">Mandar datos BG a xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">En xDrip+ elige 640g/Eversense como fuente de datos</string>
     <string name="nsclientbg">NSClient BG</string>
@@ -607,6 +626,7 @@
     <string name="extendedbolusdeliveryerror">Error al emitir bolo extendido</string>
     <string name="insightpump_shortname">Sight</string>
     <string name="ago">hace</string>
+    <string name="set_neutral_temps_title">Establecer basales temporales neutras</string>
     <string name="enablesmbalways">Habilitar SMB siempre</string>
     <string name="enablesmbalways_summary">Habilitar SMB siempre de forma independiente a los Bolos. Solo posible con fuente BG con buen filtrado de datos como G5</string>
     <string name="enablesmbaftercarbs">Habilitar SMB después de Carbohidratos</string>
@@ -626,11 +646,17 @@
     <string name="insulin_increment_button_message">Cantidad de insulina que se agrega cuando se presiona el botón</string>
     <string name="error_starting_cgm">No se pudo iniciar la aplicación CGM. Asegúrate de que está instalada.</string>
     <string name="overview_cgm">CGM</string>
+    <string name="ignore5m">Ignorar 5m</string>
+    <string name="ignore15m">Ignorar 15m</string>
+    <string name="ignore30m">Ignorar 30m</string>
+    <string name="required">req</string>
     <string name="nav_historybrowser">Historial</string>
     <string name="wear_notifysmb_title">Notificar SMB</string>
     <string name="wear_notifysmb_summary">Mostrar SMB en el reloj como un bolo estándar.</string>
     <string name="ns_create_announcements_from_errors_title">Crear notificaciones de los errores</string>
+    <string name="ns_create_announcements_from_carbs_req_title">Crear mensajes de alertas de carbohidratos necesarios</string>
     <string name="ns_create_announcements_from_errors_summary">Crear notificaciones en Nightscout para diálogos de error y alertas locales (también visibles en Careportal en Tratamientos)</string>
+    <string name="ns_create_announcements_from_carbs_req_summary">Crear mensajes de Nightscout para las alertas de carbohidratos necesarios</string>
     <string name="wear_predictions_summary">Mostrar predicciones en el reloj</string>
     <string name="wear_predictions_title">Predicciones</string>
     <string name="data_choices">Opciones de datos</string>
@@ -776,7 +802,10 @@
     <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Aumentar la sensibilidad para objetivos temporales >= 100]]></string>
     <string name="low_temptarget_lowers_sensitivity_title">Objetivo temporal bajo reduce sensibilidad</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Reduce la sensibilidad para objetivos temporales < 100]]></string>
+    <string name="resistance_lowers_target_title">Resistencia baja objetivo</string>
+    <string name="resistance_lowers_target_summary">Cuando se detecta resistencia, se baja el objetivo de glucosa</string>
     <string name="sensitivity_raises_target_title">Sensibilidad aumenta objetivo</string>
+    <string name="sensitivity_raises_target_summary">Cuando se detecta sensibilidad a insulina, aumenta el objetivo de glucosa</string>
     <string name="combo_invalid_setup">Configuración de la bomba incorrecta, leer la documentación y comprobar que el menú de Quick Info se llama QUICK INFO usando el software de configuración 360.</string>
     <string name="custom">Personalizado</string>
     <string name="careportal_removestartedevents">Limpiar eventos AndroidAPS iniciado</string>
@@ -827,6 +856,9 @@
     <string name="log_alerts">Registro de alarmas</string>
     <string name="enable_tbr_emulation">Activar emulación de dosis basal temporal</string>
     <string name="enable_tbr_emulation_summary">Usa bolos extendidos en lugar de TBRs para pasar por alto el límite de 250%%</string>
+    <string name="disable_vibration">Desactivar vibraciones en la administración manual del bolo</string>
+    <string name="disable_vibration_summary">Para bolo y bolo extendido (sólo disponible con el firmware de Insight 3.x)</string>
+    <string name="disable_vibration_auto">Desactivar vibraciones en la administración automática del bolo</string>
     <string name="disconnect_delay">Desconectar el retraso [s]</string>
     <string name="serial_number">Número de serie</string>
     <string name="release_software_version">Versión de software</string>
@@ -1038,6 +1070,7 @@
     <string name="rileylink_scanner_scanning">Buscando</string>
     <string name="rileylink_scanner_scanning_finished">Búsqueda Finalizada</string>
     <string name="rileylink_scanner_scanning_error">Error de escaneo: %1$d</string>
+    <string name="common_never">Nunca</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Configuración</string>
     <string name="rileylink_settings_tab2">Historico</string>
@@ -1167,6 +1200,7 @@
     <string name="objectives_button_unfinish">Limpieza finalizada</string>
     <string name="objectives_button_unstart">Limpieza iniciada</string>
     <string name="doyouwantresetstart">¿Desea reiniciar el objetivo? Puedes perder tu progreso.</string>
+    <string name="time_or_timezone_change">Cambio de hora y/o huso horario en la bomba</string>
     <string name="nopumpselected">Ninguna bomba seleccionada</string>
     <string name="setupwizard_units_prompt">Seleccione las unidades en las que desea visualizar los valores</string>
     <string name="ns_ploadlocalprofile">Subir cambios de perfil local a NS</string>
@@ -1183,6 +1217,7 @@
     <string name="high_mark_comment">Valor superior al área de rango (sólo visualización)</string>
     <string name="reorder_label">Repetir</string>
     <string name="age">Edad:</string>
+    <string name="weight_label">Peso:</string>
     <string name="id">ID:</string>
     <string name="submit">Enviar</string>
     <string name="mostcommonprofile">Perfil más común:</string>
@@ -1207,6 +1242,7 @@
     <string name="ebstopsloop">El uso de la función de bolo extendido detendrá el modo de bucle cerrado durante el tiempo de ejecución del bolo extendido. ¿Realmente quieres esto?</string>
     <string name="closed_loop_disabled_with_eb">Bucle cerrado inhabilitado debido a la ejecución del bolo extendido</string>
     <string name="extended_bolus_short">EB</string>
+    <string name="phonechecker">\"Verificación de teléfono\"</string>
     <string name="chartmenu">Menú gráfico</string>
     <string name="sensitivity_short">AS</string>
     <string name="loop_smbrequest_time_label">Tiempo requerido de SMB</string>
@@ -1214,6 +1250,7 @@
     <!-- SMS Communicator & OTP Authenticator -->
     <string name="smscommunicator_otp_enabled">Habilitar autentificador</string>
     <string name="smscomunicator_tab_otp_label">Configuración de autentificación</string>
+    <string name="smscommunicator_otp_reset_title">Restablecer clave de autentificación</string>
     <string name="smscommunicator_otp_reset_prompt">¿Está seguro de que desea restablecer la clave del autenticador? Los autenticadores configurados actualmente no seran válidos, y tendrá que volver a configurarlos.</string>
     <string name="smscommunicator_otp_reset_successful">¡Se ha generado una clave de autenticador nueva! Utilice QRCode actualizado para suministrar autenticadores.</string>
     <string name="smscommunicator_otp_step1_install_header">1. Instalar autenticador</string>
@@ -1222,9 +1259,20 @@
     <string name="onconnect">Al conectar</string>
     <string name="ondisconnect">Al desconectar</string>
     <string name="overview_show_predictions">Predicciones</string>
+    <string name="authorizationfailed">Ha fallado la autorización</string>
+    <string name="overview_show_absinsulin">Insulina en total</string>
+    <string name="passwords_dont_match">Contraseñas no coinciden</string>
+    <string name="current_master_password">Contraseña maestra actual</string>
+    <string name="statuslights">Luces de estado</string>
+    <string name="statuslights_copy_ns">Copiar ajustes de NS</string>
+    <string name="copyexistingvalues">¿Copiar los ajustes de NS (si existe)?</string>
+    <string name="classic_description">Tema original</string>
+    <string name="largedisplay_description">Pantalla grande</string>
+    <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Aviso de bolo activado</string>
     <!-- Omnipod - Fragment -->
     <!-- Omnipod - Dialogs -->
     <!-- Omnipod - Error -->
