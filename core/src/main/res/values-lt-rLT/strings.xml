@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pairing">Sujungiama</string>
     <!--    General-->
+    <string name="error">Klaida</string>
+    <string name="not_set_short">Nenustatyta</string>
+    <string name="failedupdatebasalprofile">Nepavyko atnaujinti bazės profilio</string>
+    <string name="profile_set_ok">Bazės profilis pompoje atnaujintas</string>
+    <string name="invalidinput">Neteisingai įvesti duomenys</string>
+    <string name="tempbasaldeliveryerror">Laikinos bazės suleidimo klaida</string>
+    <string name="goingtodeliver">Bus suleista %1$.2fvv</string>
+    <string name="waitingforpump">Laukiama ryšio su pompa</string>
+    <string name="connectingfor">Jungiamasi %1$d s</string>
+    <string name="bolusdelivering">Leidžiama %1$.2fvv</string>
+    <string name="handshaking">Ryšio užmezgimas</string>
+    <string name="connecting">Jungiamasi</string>
+    <string name="connected">Prisijungta</string>
+    <string name="disconnected">Atsijungta</string>
+    <string name="disconnecting">Atsijungiama</string>
+    <string name="androidaps_start">AndroidAPS paleista</string>
+    <string name="formatinsulinunits">%1$.2fvv</string>
+    <string name="reservoirvalue">%1$.0f / %2$d vv</string>
+    <string name="pump_basebasalrate">%1$.2fvv/val</string>
+    <string name="format_hours">%1$.2f val.</string>
+    <string name="format_mins">%1$d min.</string>
+    <string name="format_mins_short">%1$dm</string>
+    <string name="pumpbusy">Pompa šiuo metu veikia</string>
+    <string name="connectionerror">Pompos prisijungimo klaida</string>
+    <string name="youareonallowedlimit">Pasiekėte leistiną ribą</string>
+    <string name="objectives">Tikslai</string>
+    <string name="close">Uždaryti</string>
+    <string name="please_wait">Palaukite…</string>
+    <string name="mute">Nutildyti</string>
+    <string name="reload">Atnaujinti</string>
+    <string name="stoppressed">Paspausta STOP</string>
+    <string name="stop">Stop</string>
+    <string name="carbs">AV</string>
+    <string name="invalidprofile">Netinkamas profilis!!!</string>
+    <string name="noprofileset">Nenustatytas profilis</string>
+    <string name="date">Data</string>
+    <string name="units_label">Vienetai</string>
+    <string name="dia_label">IVT</string>
+    <string name="ic_label">IA</string>
+    <string name="isf_label">JIF</string>
+    <string name="basal_label">VB</string>
+    <string name="target_label">Tikslas</string>
+    <string name="initializing">Inicijuojama ...</string>
+    <string name="serialnumber">Serijos numeris</string>
+    <string name="battery_label">Baterija</string>
+    <string name="lastconnection_label">Paskutinis prisijungimas</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <!--    BlePreCheck-->
