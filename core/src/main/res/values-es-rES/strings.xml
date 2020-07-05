@@ -62,8 +62,11 @@
     <string name="advancedsettings_title">Ajustes avanzados</string>
     <string name="bluetooth">Bluetooth</string>
     <!--    Constraints-->
+    <string name="limitingbasalratio">Limitando max basal rate a %1$.2f U/h debido a %2$s</string>
     <string name="pumplimit">límite de la bomba</string>
+    <string name="limitingpercentrate">Limitando porcentaje máximo de dosis a %1$d%% debido a %2$s</string>
     <string name="itmustbepositivevalue">tiene que ser un valor positivo</string>
+    <string name="limitingbolus">Limitando el bolo a %1$.1f U debido a %2$s</string>
     <string name="pumpNotInitializedProfileNotSet">Bomba no iniciada, ¡perfil establecido!</string>
     <!--    Dialogs-->
     <string name="confirmation">Confirmación</string>
@@ -94,6 +97,7 @@
     <string name="shortminute">m</string>
     <string name="shortday">d</string>
     <!--    Profile-->
+    <string name="basalprofilenotaligned">Valores basales no alineados a las horas: %1$s</string>
     <string name="maximumbasalvaluereplaced">Valor basal reemplazado por el valor máximo soportado: %1$s</string>
     <string name="profile_per_unit">/U</string>
     <string name="profile_ins_units_per_hour">U/h</string>
@@ -103,6 +107,7 @@
     <!--    PumpType-->
     <!--    APSResult-->
     <string name="canceltemp">Cancelar basal temporal</string>
+    <string name="let_temp_basal_run">Deja ejecutar basal temporal</string>
     <string name="rate">Dosis</string>
     <string name="duration">Duración</string>
     <string name="reason">Motivo</string>
@@ -130,9 +135,39 @@
     <string name="careportal_tempbasalstart">Inicio Basal Temp</string>
     <string name="careportal_tempbasalend">Fin Basal Temp</string>
     <string name="careportal_openapsoffline">OpenAPS sin conexión</string>
+    <string name="careportal_pumpbatterychange">Cambio batería bomba</string>
+    <string name="careportal_temporarytarget">Objetivo temporal</string>
+    <string name="careportal_temporarytargetcancel">Cancelar Objetivo temporal</string>
+    <string name="glucosetype_finger">Dedo</string>
+    <string name="glucosetype_sensor">Sensor</string>
+    <string name="manual">Manualmente</string>
+    <string name="unknown">desconocido</string>
     <!--    Command-->
+    <string name="connectiontimedout">Tiempo de conexión agotado</string>
     <!--    PumpEnactResult-->
+    <string name="enacted">Establecido</string>
+    <string name="comment">Comentario</string>
+    <string name="success">Exito</string>
+    <string name="percent">Porcentaje</string>
+    <string name="absolute">Absoluto</string>
+    <string name="configbuilder_insulin">Insulina</string>
+    <string name="insulin_unit_shortname">U</string>
+    <string name="waitingforpumpresult">Esperando resultado</string>
+    <string name="smb_shortname">SMB</string>
     <!--    CarbsReq-->
+    <string name="carbsreq">%dg Carbohidratos adicionales son necesarios dentro de %d minutos</string>
     <!--    TDDStatsActivity-->
+    <string name="stats">Estadísticas</string>
+    <string name="cumulative_tdd">TDD acumulativa</string>
+    <string name="basalrate">Dosis Basal</string>
+    <string name="bolus">Bolo</string>
+    <string name="tdd">Dosis diaria</string>
+    <string name="ratio">Ratio</string>
+    <string name="amount_days"># Días</string>
+    <string name="weight">Peso</string>
+    <string name="warning_Message">Probablemente impreciso si se usan bolos para llenar/rellenar!</string>
+    <string name="olddata_Message">Datos caducados por favor pulsa RELOAD</string>
+    <string name="tbb">Basal total</string>
+    <string name="tbb2">Basal diaria *2</string>
     <!--    Ntp-->
 </resources>
