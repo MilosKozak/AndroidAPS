@@ -1254,7 +1254,9 @@
     <string name="smscommunicator_otp_reset_prompt">¿Está seguro de que desea restablecer la clave del autenticador? Los autenticadores configurados actualmente no seran válidos, y tendrá que volver a configurarlos.</string>
     <string name="smscommunicator_otp_reset_successful">¡Se ha generado una clave de autenticador nueva! Utilice QRCode actualizado para suministrar autenticadores.</string>
     <string name="smscommunicator_otp_step1_install_header">1. Instalar autenticador</string>
+    <string name="smscommunicator_otp_step2_provisioning_header">2. Escanea el código para instalar códigos AndroidAPS OTP</string>
     <string name="smscommunicator_otp_reset_header">Restablecer autentificadores</string>
+    <string name="smscommunicator_otp_provisioning_warning">NO COMPARTA este código en línea!\nUsa sólo para la instalación de la Aplicación google Authenticator en teléfonos seguidores.</string>
     <string name="smscommunicator_otp_reset_warning">Al resetear el autenticador haces que todos los autenticadores ya provistos no sean válidos. ¡Necesitarás configurarlos de nuevo!</string>
     <string name="onconnect">Al conectar</string>
     <string name="ondisconnect">Al desconectar</string>
@@ -1273,10 +1275,37 @@
     <!-- Omnipod - Base -->
     <!-- Omnipod Configuration -->
     <string name="omnipod_config_beep_bolus_enabled">Aviso de bolo activado</string>
+    <string name="omnipod_config_beep_basal_enabled">Aviso de basal activado</string>
+    <string name="omnipod_config_beep_smb_enabled">Aviso de SMB activado</string>
+    <string name="omnipod_config_beep_tbr_enabled">Aviso de TBT activado</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">Pod Mgmt</string>
+    <string name="omnipod_pod_status">Estado de Pod</string>
+    <string name="omnipod_reservoir_left">%1$.2f U restantes</string>
+    <string name="omnipod_reservoir_over50">Más De 50 U</string>
+    <string name="omnipod_pod_address">Dirección de Pod</string>
+    <string name="omnipod_pod_expiry">Pod Caduca</string>
+    <string name="omnipod_pod_name_no_info">Sin info</string>
+    <string name="omnipod_pod_no_pod_connected">Sin Pod conectado</string>
+    <string name="omnipod_pod_not_initalized">No Inicializado</string>
+    <string name="omnipod_pod_active_alerts">Alertas de Pod activas</string>
+    <string name="omnipod_ack_short">Alertas Ack</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_pod_not_attached">Ningún pod activo.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Falló la verificación del comando.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Error inesperado. Por favor, informe! (tipo: %1$s).</string>
+    <string name="omnipod_driver_error_invalid_parameters">Comunicación fallida: se han recibido parámetros de entrada inválidos.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Comunicación fallida: tiempo de espera.</string>
+    <string name="omnipod_driver_error_crc_mismatch">Comunicación fallida: falló la verificación de integridad del mensaje.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_set_bolus">Establecer Bolo</string>
+    <string name="omnipod_cmd_cancel_bolus">Cancelar Bolus</string>
+    <string name="omnipod_cmd_set_tbr">Establecer la basal temporal</string>
+    <string name="omnipod_init_pod_set_basal_profile">Establecer el perfil basal</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="omnipod_alert_expiration">Pod a punto de caducar</string>
+    <string name="omnipod_alert_low_reservoir">Reservorio bajo</string>
 </resources>
