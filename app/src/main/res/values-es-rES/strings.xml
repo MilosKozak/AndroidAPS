@@ -180,10 +180,13 @@
     <string name="check_preferences_details_title">Importar Detalles del problema</string>
     <string name="check_preferences_import_btn">Importar</string>
     <string name="check_preferences_import_anyway_btn">Importar de todos modos (¡PELIGROSO!)</string>
+    <string name="metadata_warning_different_flavour">Las preferencias se han creado con distinta versión de AAPS (%1$s), la versión instalada es: %2$s.\n\nAlgunos valores pueden faltar o no ser válidos después de importar, por favor, compruebe y actualice sus preferencias.</string>
     <string name="metadata_warning_different_device">Las preferencias se han creado en un dispositivo distinto. Está bien si va a importar desde un teléfono más antiguo/diferente, pero ¡asegúrese de que las preferencias importadas son correctas!</string>
     <string name="metadata_warning_outdated_format">¡Estás usando el obsoleto formato heredado de versiones antiguas de AAPS, que no es seguro! Únicamente utilizarlo como último recurso, si no tiene una exportación en formato JSON actual.</string>
     <string name="metadata_warning_old_export">Las preferencias importadas ya tienen %1$s días! ¿Tal vez tengas preferencias más actualizadas o eligiste el archivo equivocado? ¡Recuerda exportar las preferencias regularmente!</string>
     <string name="metadata_warning_date_format">¡Formato de fecha no válido!</string>
+    <string name="metadata_warning_different_version">Preferencias de una versión menor de la aplicación. Está bien si va a importar después de la actualización, pero ¡compruebe después de la importación si las preferencias siguen siendo correctas!</string>
+    <string name="metadata_urgent_different_version">Preferencias de la versión principal distinta de la aplicación. ¡Las versiones principales difieren significativamente y pueden tener preferencias incompatibles! ¡Asegúrese de que, después de importar, las preferencias siguen siendo correctas!</string>
     <string name="metadata_label_format">Formato del archivo</string>
     <string name="metadata_label_created_at">Creado el</string>
     <string name="metadata_label_aaps_version">Versión de AAPS</string>
@@ -1262,6 +1265,7 @@
     <!-- SMS Communicator & OTP Authenticator -->
     <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">de app de Autentificación a: %1$s</string>
     <string name="smscommunicator_otp_enabled">Habilitar autentificador</string>
+    <string name="smscommunicator_otp_enabled_summary">Comandos de autentificación usando One Time Password de Google Autenticator o apps 2FA similar.</string>
     <string name="smscommunicator_otp_pin">PIN adicional en token final</string>
     <string name="smscommunicator_otp_pin_summary">Los dígitos adicionales se deben memorizar y pegar al final de cada una de las contraseñas generadas por One Time Password</string>
     <string name="smscomunicator_tab_otp_label">Configuración de autentificación</string>
