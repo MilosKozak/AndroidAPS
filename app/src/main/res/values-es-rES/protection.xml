@@ -15,8 +15,8 @@
     <string name="noprotection">Sin protección</string>
     <string name="protection">Protección</string>
     <string name="master_password_missing">¡La contraseña maestra no está configurada!\n\nPor favor, configure su contraseña maestra en Preferencias (%1$s &#8594; %2$s)</string>
-    <string name="unsecure_fallback_biometric">Fallback inseguro</string>
-    <string name="unsecure_fallback_descriotion_biometric">Para ser eficaz, la protección biométrica necesita una contraseña maestra establecida para la reserva.\n\nPor favor, establezca una contraseña maestra!</string>
+    <string name="unsecure_fallback_biometric">No es seguro volver atrás</string>
+    <string name="unsecure_fallback_descriotion_biometric">Para ser eficaz, la protección biométrica necesita una contraseña maestra establecida para el respaldo.\n\nPor favor, establezca una contraseña maestra!</string>
     <string name="password_set">¡Contraseña establecida!</string>
     <string name="password_not_set">Contraseña no establecida</string>
     <string name="password_not_changed">Contraseña no cambiada</string>
