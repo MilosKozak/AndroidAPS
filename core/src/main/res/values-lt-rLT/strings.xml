@@ -59,11 +59,14 @@
     <string name="eventtype">Įvykio tipas</string>
     <string name="mgdl">mg/dl</string>
     <string name="mmol">mmol/l</string>
+    <string name="advancedsettings_title">Papildomi nustatymai</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">BT Watchdog</string>
+    <string name="btwatchdog_summary">Vienai sekundei išjungia telefono bluetooth, jei ryšys su pompa nutrūksta. Gali būti veiksminga kai kuriems telefonų modeliams, turintiems BT problemų.</string>
     <!--    Constraints-->
     <string name="limitingbasalratio">Ribojamas maksimalus bazės dydis%1$.2f vv/val dėl %2$s</string>
     <string name="pumplimit">pompos limitas</string>
+    <string name="limitingpercentrate">Ribojamas maks procentų skaičius %1$d%%, nes %2$s</string>
     <string name="itmustbepositivevalue">reikšmė turi būti teigiama</string>
     <string name="limitingbolus">Bolusas ribojamas iki %1$.1f vv dėl %2$s</string>
     <string name="pumpNotInitializedProfileNotSet">Pompa neprijungta, profilis nepasirinktas!</string>
@@ -79,6 +82,7 @@
     <string name="location_not_found_title">Vietovės nustatymas neįjungtas</string>
     <string name="location_not_found_message">Vietos nustatymo paslauga turi būti įjungta, kad Bluetooth aptikimas veiktų naujesniuose įrenginiuose. AAPS neseka Jūsų lokacijos, o vietos nustatymo paslauga gali būti išjungta po sėkmingo įrenginių suporavimo.</string>
     <!--    DateUtil-->
+    <string name="minago">prieš %1$d min</string>
     <string name="hoursago">Prieš %1$.1f val.</string>
     <string name="shorthour">val</string>
     <string name="days">d.</string>
@@ -96,21 +100,69 @@
     <string name="shortminute">min.</string>
     <string name="shortday">d</string>
     <!--    Profile-->
+    <string name="basalprofilenotaligned">Bazės reikšmės nesuderintos su valandomis: %1$s</string>
+    <string name="minimalbasalvaluereplaced">Valandinė bazė pakeista mažiausia palaikoma verte: %1$s</string>
+    <string name="maximumbasalvaluereplaced">Valandinė bazė pakeista didžiausia palaikoma verte: %1$s</string>
+    <string name="profile_per_unit">/vv</string>
+    <string name="profile_ins_units_per_hour">Vv/val</string>
+    <string name="profile_carbs_per_unit">g/vv</string>
     <!--    ProfileFunction-->
+    <string name="noprofileselected">Nepasirinktas profilis</string>
     <!--    PumpType-->
+    <string name="def_extended_note">* Virtualioje pompoje palaikomos tik atskiros vertės, o ne diapazonas detalumui užtikrinti.</string>
     <!--    APSResult-->
+    <string name="canceltemp">Atšaukti laikiną bazę</string>
+    <string name="let_temp_basal_run">Paleisti laikinąją bazę</string>
+    <string name="rate">Vertė</string>
+    <string name="duration">Trukmė</string>
+    <string name="reason">Priežastis</string>
+    <string name="nochangerequested">Pakeitimai nereikalingi</string>
     <!--    ProfileSwitch-->
+    <string name="zerovalueinprofile">Netinkamas profilis: %1$s</string>
     <!--    Temptarget-->
+    <string name="mins">%1$dmin</string>
     <!--    TDD-->
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2f</b> Bolusas: <b>%3$.2f</b> Bazė: <b>%4$.2f</b>]]></string>
     <!--    Translator-->
+    <string name="careportal_bgcheck">KG testas</string>
+    <string name="careportal_announcement">Pranešimas</string>
+    <string name="careportal_note">Pastaba</string>
+    <string name="careportal_question">Klausimas</string>
+    <string name="careportal_exercise">Aktyvumas</string>
+    <string name="careportal_pumpsitechange">Kateterio keitimas</string>
+    <string name="careportal_cgmsensorinsert">NGJ įvedimas</string>
+    <string name="careportal_cgmsensorstart">NGJ paleidimas</string>
+    <string name="careportal_insulincartridgechange">Rezervuaro keitimas</string>
+    <string name="careportal_profileswitch">Profilio keitimas</string>
+    <string name="careportal_snackbolus">Bolusas užkandžiui</string>
+    <string name="careportal_mealbolus">Bolusas valgiui</string>
+    <string name="careportal_correctionbolus">Bolusas korekcijai</string>
+    <string name="careportal_combobolus">Kombinuotas bolusas</string>
+    <string name="careportal_tempbasalstart">Pradėta laikina bazė</string>
+    <string name="careportal_tempbasalend">Užbaigta laikina bazė</string>
+    <string name="careportal_carbscorrection">AV korekcijai</string>
+    <string name="careportal_openapsoffline">OpenAPS neprisijungus</string>
+    <string name="careportal_pumpbatterychange">Baterijos keitimas</string>
+    <string name="careportal_temporarytarget">Laikinas tikslas</string>
+    <string name="careportal_temporarytargetcancel">Laikino tikslo atšaukimas</string>
+    <string name="glucosetype_finger">Iš piršto</string>
+    <string name="glucosetype_sensor">Iš sensoriaus</string>
+    <string name="manual">Rankiniu būdu</string>
+    <string name="unknown">nežinoma</string>
     <!--    Command-->
+    <string name="connectiontimedout">Prijungimo laikas baigėsi</string>
     <!--    PumpEnactResult-->
+    <string name="enacted">Vykdoma</string>
+    <string name="comment">Komentaras</string>
+    <string name="success">Atlikta</string>
     <string name="percent">Procentai</string>
     <string name="absolute">Absoliutus</string>
     <string name="configbuilder_insulin">Insulinas</string>
+    <string name="insulin_unit_shortname">vv</string>
     <string name="waitingforpumpresult">Laukiama rezultato</string>
     <string name="smb_shortname">SMB</string>
     <!--    CarbsReq-->
+    <string name="carbsreq">Būtini %dg papildomų AV per %d min</string>
     <!--    TDDStatsActivity-->
     <!--    Ntp-->
 </resources>
