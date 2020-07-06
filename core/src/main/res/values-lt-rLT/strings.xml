@@ -164,5 +164,19 @@
     <!--    CarbsReq-->
     <string name="carbsreq">Būtini %dg papildomų AV per %d min</string>
     <!--    TDDStatsActivity-->
+    <string name="stats">Statistika</string>
+    <string name="cumulative_tdd">BPD viso</string>
+    <string name="expweight">Eksponentiškai svertinė BPD</string>
+    <string name="basalrate">Valandinė bazė</string>
+    <string name="bolus">Bolusas</string>
+    <string name="tdd">BPD</string>
+    <string name="ratio">Vertė</string>
+    <string name="amount_days"># d.</string>
+    <string name="weight">Svoris</string>
+    <string name="warning_Message">Duomenys netikslūs, jei bolusai naudojami kateterių užpildymui!</string>
+    <string name="olddata_Message">Duomenys seni, spauskite \"ATNAUJINTI\"</string>
+    <string name="tbb">Pagrindinė bazė (PB)</string>
+    <string name="tbb2">PB * 2</string>
     <!--    Ntp-->
+    <string name="timedetection">Laiko nustatymas</string>
 </resources>
