@@ -36,6 +36,7 @@
     <string name="description_pump_mdi">Pomp integratie voor mensen met pen-therapie (meerdere dagelijkse injecties)</string>
     <string name="description_pump_virtual">Pomp integratie voor pompen, waar nog geen driver voor is (Open Loop)</string>
     <string name="description_sensitivity_aaps">Gevoeligheid wordt berekend op dezelfde manier als Oref0, maar je kunt een tijdframe naar het verleden specificeren. Minimale koolhydraat absorptie is berekend op basis van max koolhydraat absorptie tijd zoals in jouw instellingen.</string>
+    <string name="description_sensitivity_oref1">Gevoeligheid wordt berekend met gegevens van de afgelopen 8 of 24 uur (de meest gevoelige van die twee) en koolhydraten (indien niet geabsorbeerd) worden hiervan afgehaald, na de duur die is opgegeven in de instellingen. Berekend ook UAM.</string>
     <string name="description_sensitivity_weighted_average">Gevoeligheid wordt berekend als een gewogen gemiddelde van afwijkingen. Nieuwere afwijkingen wegen hierbij zwaarder. Minimale koolhydraat absorptie is berekend op basis van de max koolhydraat absorptie tijd uit jouw instellingen. Dit algoritme is de snelste in het volgen van wijzigingen van de gevoeligheid.</string>
     <string name="description_source_eversense">Ontvang BG waardes van de aangepaste Eversense app.</string>
     <string name="description_source_glimp">Ontvang BG waardes van Glimp.</string>
@@ -125,10 +126,12 @@
     <string name="apsmode_title">APS Mode</string>
     <string name="closedloop">Closed loop</string>
     <string name="openloop">Open loop</string>
+    <string name="lowglucosesuspend">Stop bij laag</string>
     <string name="disabledloop">Loop gedeactiveerd</string>
     <string name="disableloop">Loop deactiveren</string>
     <string name="enableloop">Activeer Loop</string>
     <string name="openloop_newsuggestion">Nieuw voorstel beschikbaar</string>
+    <string name="carbssuggestion">Koolhydraten Voorstel</string>
     <string name="unsupportednsversion">Niet ondersteunde versie van Nightscout</string>
     <string name="loopdisabled">Loop gedeactiveerd door doelen tab</string>
     <string name="treatments_wizard_basaliob_label">Basaal IOB</string>
