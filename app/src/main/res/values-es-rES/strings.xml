@@ -1339,7 +1339,10 @@
     <string name="omnipod_driver_error_invalid_message_address">La comunicación ha fallado: se ha recibido un mensaje con una dirección no válida desde el Pod.</string>
     <string name="omnipod_driver_error_message_decoding_failed">La comunicación ha fallado: no se ha podido descodificar el mensaje del Pod.</string>
     <string name="omnipod_driver_error_nonce_resync_failed">La comunicación ha fallado: nonce resync ha fallado.</string>
+    <string name="omnipod_driver_error_nonce_out_of_sync">Comunicación fallida: nonce no sincronizada.</string>
     <string name="omnipod_driver_error_not_enough_data">La comunicación ha fallado: no se han recibido suficientes datos del Pod.</string>
+    <string name="omnipod_driver_error_pod_fault">Un error de Pod (%1$03d %2$s) se ha detectado. Por favor, desactive su Pod e inicie uno nuevo.</string>
+    <string name="omnipod_driver_error_pod_returned_error_response">La comunicación ha fallado: el Pod ha devuelto una respuesta de error.</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_pod_mgmt_title">Administración de Pod</string>
     <string name="omnipod_cmd_init_pod">Iniciar Pod</string>
@@ -1356,6 +1359,7 @@
     <string name="omnipod_cmd_get_pod_info">Obtener información de Pod</string>
     <string name="omnipod_cmd_set_time">Establecer hora</string>
     <string name="omnipod_cmd_configure_alerts">Configurar alertas</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Confirmar Alertas</string>
     <string name="omnipod_cmd_suspend_delivery">Suspender la entrega</string>
     <string name="omnipod_cmd_resume_delivery">Reanudar la entrega</string>
     <string name="omnipod_cmd_unknown_entry">Entrada desconocida</string>
