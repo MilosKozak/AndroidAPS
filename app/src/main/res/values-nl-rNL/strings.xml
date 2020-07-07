@@ -870,6 +870,7 @@
     <string name="disable_vibration">Trillen uitschakelen bij handmatige bolus toediening</string>
     <string name="disable_vibration_summary">Voor bolus en verlengde bolus (alleen mogelijk voor Insight firmware 3.x)</string>
     <string name="disable_vibration_auto">Trillen uitschakelen bij automatische bolus toediening</string>
+    <string name="disable_vibration_auto_summary">Voor SMB en tijdelijke basalen met TBR emulatie (alleen mogelijk voor Insight firmware 3.x)</string>
     <string name="disconnect_delay">Verbindingsvertraging [s]</string>
     <string name="serial_number">Serienummer</string>
     <string name="release_software_version">Release softwareversie</string>
@@ -1013,6 +1014,8 @@
     <string name="exists">bestaand</string>
     <string name="notexists">niet bestaand</string>
     <string name="temptargetcompared">Tijdelijk streefdoel %1$s</string>
+    <string name="btdevicecompared">Bluetooth verbinding met apparaat %1$s %2$s</string>
+    <string name="btdevice">Verbinding met Bluetooth apparaat </string>
     <string name="wifissidcompared">WiFi SSID %1$s %2$s</string>
     <string name="autosenscompared">Gevoeligheid %1$s %2$s %%</string>
     <string name="autosenslabel">Gevoeligheid %</string>
@@ -1067,6 +1070,7 @@
     <string name="medtronic_pump_battery_alkaline">Alkaline (uitgebreide weergave)</string>
     <string name="medtronic_pump_battery_lithium">Lithium (uitgebreide weergave)</string>
     <string name="medtronic_pump_battery_nizn">NiZn (uitgebreide weergave)</string>
+    <string name="medtronic_pump_battery_nimh">NiMH (Uitgebreide weergave)</string>
     <string name="medtronic_bolus_debugging">Bolus/Behandelingen Debuggen</string>
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">SCAN</string>
@@ -1078,6 +1082,7 @@
     <string name="rileylink_scanner_scanning">Scannen</string>
     <string name="rileylink_scanner_scanning_finished">Scannen voltooid</string>
     <string name="rileylink_scanner_scanning_error">Scanfout: %1$d</string>
+    <string name="common_never">Nooit</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Instellingen</string>
     <string name="rileylink_settings_tab2">Geschiedenis</string>
@@ -1207,6 +1212,7 @@
     <string name="objectives_button_unfinish">Voltooiing wissen</string>
     <string name="objectives_button_unstart">Wissen gestart</string>
     <string name="doyouwantresetstart">Wil je dit leerdoel opnieuw starten? Je kunt je voortgang verliezen.</string>
+    <string name="time_or_timezone_change">Tijd en/of tijdzone wijzigen op de pomp</string>
     <string name="nopumpselected">Geen pomp geselecteerd</string>
     <string name="setupwizard_units_prompt">Selecteer eenheden waarin je waarden wilt weergeven</string>
     <string name="ns_ploadlocalprofile">Upload lokale profielwijzigingen naar NS</string>
@@ -1223,6 +1229,7 @@
     <string name="high_mark_comment">Hoogste waarde in bereik (alleen weergave)</string>
     <string name="reorder_label">Sorteren</string>
     <string name="age">Leeftijd:</string>
+    <string name="weight_label">Gewicht:</string>
     <string name="id">ID:</string>
     <string name="submit">Verzenden</string>
     <string name="mostcommonprofile">Meest voorkomende profiel:</string>
@@ -1256,10 +1263,53 @@
     <string name="loop_tbrexecution_time_label">Tijdelijke basaal uitvoering tijd</string>
     <string name="insight_alert_notification_channel">Insight pomp waarschuwingen</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">van authentificatie app voor: %1$s</string>
+    <string name="smscommunicator_otp_enabled">Authentificatie inschakelen</string>
+    <string name="smscommunicator_otp_enabled_summary">Authentificeer SMS commando\'s met behulp van One Time Passwords (OTPs, eenmalige wachtwoorden) gegenereerd door Google Authenticator of soortgelijke 2FA apps.</string>
+    <string name="smscommunicator_otp_pin">Extra PIN aan einde van token</string>
+    <string name="smscommunicator_otp_pin_summary">Extra cijfers die je moet onthouden, en aan het eind van elk gegenereerd eenmalig wachtwoord moet toevoegen.</string>
+    <string name="smscomunicator_tab_otp_label">Authentificatie instellingen</string>
+    <string name="smscommunicator_otp_verify_label">Te controleren OTP:</string>
+    <string name="smscommunicator_otp_reset_btn">Reset Authentificatie</string>
+    <string name="smscommunicator_otp_reset_title">Reset Authentificatie-sleutel</string>
+    <string name="smscommunicator_otp_reset_prompt">Weet je zeker dat je de Autentificatie-sleutel wilt resetten? Met deze actie maak je alle Authentificatie instellingen van verbonden telefoons ongeldig, en je zult ze opnieuw moeten instellen.</string>
+    <string name="smscommunicator_otp_reset_successful">Er is een nieuwe Authentificatie-sleutel gegenereerd! Gebruik de nieuwe QR-Code voor het instellen van geautoriseerde telefoons.</string>
+    <string name="smscommunicator_otp_step1_install_header">1. Installeer Authenticator app</string>
+    <string name="smscommunicator_otp_step2_provisioning_header">2. Scan code om AndroidAPS OTP codes in te stellen</string>
+    <string name="smscommunicator_otp_step3_test_header">3. Test eenmalig wachtwoord (One Time Password)</string>
+    <string name="smscommunicator_otp_reset_header">Reset Authentificatie</string>
+    <string name="smscommunicator_otp_install_info">Installeer de Authenticator-app op elke volger telefoon die RFC 6238 TOTP tokens ondersteunt. Populaire gratis apps zijn:\n • Authy\n • Google Authenticator\n • LastPass Authenticator\n • FreeOTP Authenticator</string>
+    <string name="smscommunicator_otp_provisioning_warning">DEEL deze code met NIEMAND ANDERS!\nGebruik hem alleen om de Authenticator-app in te stellen op telefoons van volgers.</string>
+    <string name="smscommunicator_otp_reset_warning">Door de Athentificator te resetten, maak je alle Authentificatie-instellingen van reeds verbonden telefoons ongeldig! Je zult ze opnieuw moeten instellen!</string>
+    <string name="onconnect">Bij verbinden</string>
+    <string name="ondisconnect">Bij verbinding verbreken</string>
+    <string name="overview_show_predictions">Voorspellingen</string>
+    <string name="overview_show_deviationslope">Richtingscoëfficiënt afwijking</string>
+    <string name="authorizationfailed">Authorisatie mislukt</string>
+    <string name="overview_show_absinsulin">Absolute insuline</string>
+    <string name="master_password_summary">Het masterwachtwoord wordt gebruikt voor het versleutelen van backups en om de app-beveiligingen te kunnen overschrijven. Onthoud het goed of bewaar het op een veilige plaats.</string>
+    <string name="passwords_dont_match">Wachtwoorden komen niet overeen</string>
+    <string name="current_master_password">Huidig masterwachtwoord</string>
+    <string name="statuslights">Statusindicatoren</string>
+    <string name="statuslights_copy_ns">Kopieer instellingen van NS</string>
+    <string name="copyexistingvalues">NS instellingen kopiëren (indien aanwezig)?</string>
+    <string name="classic_description">Klassiek weergave thema</string>
+    <string name="buttonson_description">Knoppen worden altijd weergegeven aan de onderkant van het scherm</string>
+    <string name="largedisplay_description">Groot scherm</string>
+    <string name="skin">Skin</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Pomp integratie voor Omnipod, vereist RileyLink (met firmware 2.0 of hoger).</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Bolus pieptoon ingeschakeld</string>
+    <string name="omnipod_config_beep_basal_enabled">Basaal pieptoon ingeschakeld</string>
+    <string name="omnipod_config_beep_smb_enabled">SMB pieptoon ingeschakeld</string>
+    <string name="omnipod_config_beep_tbr_enabled">Tijdelijk basaal pieptoon ingeschakeld</string>
+    <string name="omnipod_config_pod_debugging_options_enabled">Pod debugging opties ingeschakeld</string>
+    <string name="omnipod_config_timechange_enabled">DST/tijdzone detectie ingeschakeld</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">Pod Beheer</string>
+    <string name="omnipod_pod_status">Pod Status</string>
     <string name="omnipod_reservoir_left">%1$.2f E over</string>
     <string name="omnipod_reservoir_over50">Meer dan 50 E</string>
     <string name="omnipod_pod_address">Pod adres</string>
@@ -1314,6 +1364,11 @@
     <string name="omnipod_cmd_resume_delivery">Hervat toediening</string>
     <string name="omnipod_cmd_unknown_entry">Onbekende invoer</string>
     <string name="omnipod_cmd_bolus_value">%1$.1f E</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f E, KH=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Basaal: %1$.1f E, Duur: %2$d min</string>
+    <string name="omnipod_cmd_reset_pod_desc">Als je op <b>OK</b> klikt, zal de Pod gedwongen worden gereset en kun je niet meer communiceren met de Pod. Doe dit alleen als je al niet meer met de Pod kunt communiceren. Als je nog wel kunt communiceren met de Pod, gebruik dan de optie <b>Deactiveer Pod</b>.</string>
+    <string name="omnipod_cmd_pod_history_na">Pod Historie momenteel niet beschikbaar.</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Vul de Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
 </resources>
