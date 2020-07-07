@@ -196,7 +196,7 @@
     <string name="metadata_label_encryption">Криптиране</string>
     <string name="metadata_format_old">Стар формат</string>
     <string name="metadata_format_new">Нов формат</string>
-    <string name="metadata_format_debug">Нов формат (некриптирани)</string>
+    <string name="metadata_format_debug">Нов формат (незащитен)</string>
     <string name="metadata_format_other">Непознат формат</string>
     <string name="prefdecrypt_settings_tampered">Файлът с настройки е преправян</string>
     <string name="prefdecrypt_settings_secure">Файлът с настройки е сигурен</string>
@@ -230,8 +230,8 @@
     <string name="smscommunicator_stoppedsms">Отдалечен SMS контрол е изключен. Можете да го включите от AndroidAPS телефона.</string>
     <string name="smscommunicator_calibrationreplywithcode">За да изпратите калибрация %1$.2f отговорете с код %2$s</string>
     <string name="smscommunicator_bolusfailed">Болус отказан</string>
-    <string name="smscommunicator_remotebolusmindistance_summary">Минимален брой минути, в които трябва да мине между един отдалечен болус и следващия</string>
-    <string name="smscommunicator_remotebolusmindistance">Колко най-малко минути трябва да минат два болуса</string>
+    <string name="smscommunicator_remotebolusmindistance_summary">Минимално време в минути, което трябва да е изминало след отдалечен болус, преди да може да бъде доставен следващият</string>
+    <string name="smscommunicator_remotebolusmindistance">Колко най-малко минути трябва да минат между доставката на два болуса</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">За вашата сигурност, променете тази настройка, трябва да добавите най-малко 2 телефонни номера.</string>
     <string name="bolusdelivered">Болус от %1$.2fЕ доставен успешно</string>
     <string name="bolusrequested">Ще стартира %1$.2fЕ болус</string>
@@ -451,7 +451,7 @@
     <string name="statuslights_bage_warning">Аларма при възраст на батерия над [часа]</string>
     <string name="statuslights_bage_critical">Праг за критична възраст на батерията над [часа]</string>
     <string name="statuslights_res_warning">Ниво за аларма за останал инсулин в резервоара [Е]</string>
-    <string name="statuslights_res_critical">Критично ниво на останал инсулин в резервоар [Е]</string>
+    <string name="statuslights_res_critical">Предупреждение за критично ниво на останал инсулин в резервоар [Е]</string>
     <string name="statuslights_bat_warning">Аларма при заряд на батерия под [%]</string>
     <string name="statuslights_bat_critical">Критично ниво на батерията под [%]</string>
     <string name="prediction_shortname">Предв</string>
@@ -513,7 +513,7 @@
     <string name="mdtp_cancel">Откажи</string>
     <string name="notloadedplugins">Не всички профили са заредени!</string>
     <string name="valuesnotstored">Стойностите не са запазени!</string>
-    <string name="ns_localbroadcasts">Включете излъчване към други приложения (като xDrip). Не включвайте, ако имате повече от един AAPS или имате инсталиран NSClient!</string>
+    <string name="ns_localbroadcasts">Активирайте предаване на данни към други приложения (като xDrip). Не активирайте, ако имате повече от един AAPS или имате инсталиран NSClient!</string>
     <string name="ns_localbroadcasts_title">Разреши локално предаване на данни</string>
     <string name="careportal_activity_label">АКТИВНОСТ И ОБРАТНА ВРЪЗКА</string>
     <string name="careportal_carbsandbolus_label">ХРАНА И БОЛУС</string>
