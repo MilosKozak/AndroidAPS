@@ -256,6 +256,8 @@
     <string name="smscommunicator_pumpconnectwithcode">Om verbinding te maken met pomp antwoord met code %1$s</string>
     <string name="smscommunicator_pumpconnectfail">Verbinding maken met pomp is mislukt</string>
     <string name="smscommunicator_pumpdisconnectwithcode">Om verbinding te verbreken met pomp gedurende %1d minuten antwoord met code %2$s</string>
+    <string name="smscommunicator_pumpdisconnected">Pomp verbinding verbroken</string>
+    <string name="smscommunicator_reconnect">Pomp opnieuw verbonden</string>
     <string name="smscommunicator_remotecommandnotallowed">Commando\'s op afstand zijn niet toegestaan</string>
     <string name="smscommunicator_remotebolusnotallowed">Bolus op afstand niet beschikbaar. Probeer het later opnieuw.</string>
     <string name="smscommunicator_basalreplywithcode">Om een basaal van %1$.2fE/u voor %2$d min te starten antwoord met code %3$s</string>
@@ -264,6 +266,9 @@
     <string name="smscommunicator_carbsreplywithcode">Antwoord met code %3$s om %1$dg in te voeren op %2$s</string>
     <string name="smscommunicator_basalpctreplywithcode">Om een basaal van %1$d%% voor %2$d min te starten antwoord met code %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">Om de loop te onderbreken voor %1$d minuten antwoord met de code %2$s</string>
+    <string name="smscommunicator_loopresumereplywithcode">Om loop te hervatten antwoord met code %1$s</string>
+    <string name="smscommunicator_loopenablereplywithcode">Om loop in te schakelen antwoord met code %1$s</string>
+    <string name="smscommunicator_loopdisablereplywithcode">Om loop uit te schakelen antwoord met code %1$s</string>
     <string name="smscommunicator_tempbasalset">Tijdelijk basaal %1$.2fE/u voor %2$d minuten succesvol gestart</string>
     <string name="smscommunicator_extendedset">Vertraagde bolus %1$.2fE voor %2$d minuten succesvol gestart</string>
     <string name="smscommunicator_carbsset">Koolhydraten %1$dg succesvol ingevoerd</string>
@@ -295,6 +300,7 @@
     <string name="primefill">Ontlucht/vul</string>
     <string name="fillwarning">Verzeker u dat de vulhoeveelheid overeenkomt met de infusieset!</string>
     <string name="othersettings_title">Andere</string>
+    <string name="fillbolus_title">Vul/Prime standaard insuline hoeveelheden</string>
     <string name="button1">Knop 1</string>
     <string name="button2">Knop 2</string>
     <string name="button3">Knop 3</string>
@@ -392,12 +398,16 @@
     <string name="wear_detailedIOB_title">Toon gedetailleerde IOB</string>
     <string name="wear_detailedIOB_summary">Splits IOB in bolus en basaal op de watchface</string>
     <string name="nosuccess">Niet geslaagd - controleer de telefoon</string>
+    <string name="notavailable">n.v.t.</string>
     <string name="patientage">Leeftijd Patient</string>
     <string name="child">Kind</string>
     <string name="teenage">Tiener</string>
     <string name="adult">Volwassene</string>
     <string name="resistantadult">insuline resistente volwassene</string>
     <string name="patientage_summary">Kies leeftijd van de patient voor veiligheids limieten</string>
+    <string name="patient_name">Naam patiënt</string>
+    <string name="patient_name_summary">Geef de naam of roepnaam van de patiënt op om onderscheid te maken tussen meerdere setups</string>
+    <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Gebruiker</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">Voor een goede werking van %1$s moeten de accubesparing-opties zijn uitgeschakeld in de telefooninstellingen</string>
     <string name="loopsuspended">Loop pauzeren</string>
@@ -432,12 +442,26 @@
     <string name="enablesuperbolus">Activeer superbolus in de wizard</string>
     <string name="enablesuperbolus_summary">Activeer de superbolus functie in de wizard. Activeer deze niet tot je begrijpt wat dit doet. OVERDOSIS IS MOGELIJK BIJ BLINDELINGS GEBRUIK!</string>
     <string name="show_statuslights">Toon statusindicatoren op startscherm</string>
+    <string name="statuslights_cage_warning">Drempel waarschuwing infuus leeftijd [h]</string>
+    <string name="statuslights_cage_critical">Drempel alarm infuus leeftijd [h]</string>
+    <string name="statuslights_iage_warning">Drempel waarschuwing insuline leeftijd [h]</string>
+    <string name="statuslights_iage_critical">Drempel alarm insuline leeftijd [h]</string>
+    <string name="statuslights_sage_warning">Drempel waarschuwing sensor leeftijd [h]</string>
+    <string name="statuslights_sage_critical">Drempel alarm sensor leeftijd [h]</string>
+    <string name="statuslights_bage_warning">Drempel waarschuwing batterij leeftijd [h]</string>
+    <string name="statuslights_bage_critical">Drempel alarm batterij niveau [h]</string>
     <string name="statuslights_res_warning">Drempel waarschuwing reservoir niveau [E]</string>
     <string name="statuslights_res_critical">Drempel alarm reservoir niveau [E]</string>
     <string name="statuslights_bat_warning">Drempel waarschuwing batterij niveau [%]</string>
     <string name="statuslights_bat_critical">Drempel alarm batterij niveau [%]</string>
+    <string name="prediction_shortname">PRED</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
+    <string name="basal_shortname">BAS</string>
+    <string name="deviation_shortname">DEV</string>
+    <string name="activity_shortname">ACT</string>
+    <string name="abs_insulin_shortname">ABS</string>
+    <string name="devslope_shortname">DEVSLOPE</string>
     <string name="nav_about">Over</string>
     <string name="smscommunicator_missingsmspermission">Geen SMS bevoegdheid</string>
     <string name="smscommunicator_missingphonestatepermission">Machtiging ontbreekt voor telefoon gebruik</string>
@@ -455,6 +479,8 @@
     <string name="doprofileswitch">Profiel wissel uitvoeren</string>
     <string name="careportal_pbage_label">Ouderdom batterij</string>
     <string name="ns_alarmoptions">Alarm opties</string>
+    <string name="ns_alarms">Maak meldingen van NS alarmen</string>
+    <string name="ns_announcements">Maak meldingen van NS aankondigingen</string>
     <string name="nsalarm_staledatavalue_label">Oude gegevens sinds [min]</string>
     <string name="nsalarm_urgent_staledatavalue_label">Alarm oude gegevens sinds [min]</string>
     <string name="openapsama_autosens_period">Interval voor autosens [uur]</string>
@@ -535,6 +561,7 @@
     <string name="enable_missed_bg_readings_alert">Alarm als er geen BG gegevens ontvangen zijn</string>
     <string name="enable_pump_unreachable_alert">Waarschuwing bij niet bereikbare pomp</string>
     <string name="pump_unreachable_threshold">Pomp niet beschikbaar sinds [min]</string>
+    <string name="enable_carbs_req_alert">Waarschuwen als koolhydraten nodig zijn</string>
     <string name="urgent_alarm">Dringend alarm</string>
     <string name="info">INFO</string>
     <string name="eversense">Eversense App (aangepast)</string>
@@ -542,8 +569,13 @@
     <string name="bgsource_upload">BG upload instellingen</string>
     <string name="wear_detailed_delta_title">Toon gedetailleerde delta</string>
     <string name="wear_detailed_delta_summary">Toon delta met een extra decimaal punt</string>
+    <string name="smbinterval_summary">Tijdsinterval in minuten tussen afgeven van SMBs</string>
     <string name="smbmaxminutes">SMB max minuten</string>
     <string name="smbmaxminutes_summary">Max minuten basaal om SMB tot te limiteren</string>
+    <string name="uamsmbmaxminutes">UAM SMB max minuten</string>
+    <string name="uamsmbmaxminutes_summary">Max minuten basaal om SMB tot te limiteren voor UAM</string>
+    <string name="carbsReqThreshold">Minimaal benodigde koolhydraten voor waarschuwing</string>
+    <string name="carbsReqThreshold_summary">Minimum gram benodigde koolhydraten waarbij een waarschuwing wordt gegeven. Wanneer er minder koolhydraten nodig zijn dan dit getal, wordt er geen waarschuwing gegeven.</string>
     <string name="dexcomg5_xdripupload_title">Stuur BG data naar xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">In xDrip+ kies 640g/Eversense data bron</string>
     <string name="nsclientbg">NSClient BG</string>
@@ -602,6 +634,8 @@
     <string name="extendedbolusdeliveryerror">Vertraagde bolus toedieningsfout</string>
     <string name="insightpump_shortname">Insight</string>
     <string name="ago">voorbij</string>
+    <string name="set_neutral_temps_title">Stel neutraal tijdelijk basaal in</string>
+    <string name="set_neutral_temps_summary">Als deze optie is ingeschakeld, wordt een tijdelijk basaal geannuleerd vlak voor het einde van elk uur. Handige optie voor sommige pompen die elk uur piepen/vibreren zolang een tijdelijk basaal actief is.</string>
     <string name="enablesmbalways">Activeer SMB altijd</string>
     <string name="enablesmbalways_summary">SMB altijd aan onafhankelijk van bolussen. Enkel mogelijk met een BG bron met goed gefilterde data zoals de G5</string>
     <string name="enablesmbaftercarbs">Activeer SMB na koolhydraten</string>
@@ -621,11 +655,17 @@
     <string name="insulin_increment_button_message">Hoeveelheid insuline dat wordt toegevoegd wanneer er op de knop gedrukt wordt</string>
     <string name="error_starting_cgm">Kon de CGM applicatie niet starten. Zorg dat deze geïnstalleerd is.</string>
     <string name="overview_cgm">CGM</string>
+    <string name="ignore5m">Negeer 5m</string>
+    <string name="ignore15m">Negeer 15m</string>
+    <string name="ignore30m">Negeer 30m</string>
+    <string name="required">nodig</string>
     <string name="nav_historybrowser">Historiek venster</string>
     <string name="wear_notifysmb_title">Waarschuw bij SMB</string>
     <string name="wear_notifysmb_summary">Toon SMB op horloge zoals gewone bolussen.</string>
     <string name="ns_create_announcements_from_errors_title">Creëer een melding bij storingen</string>
+    <string name="ns_create_announcements_from_carbs_req_title">Maak melding bij waarschuwingen voor benodigde koolhydraten</string>
     <string name="ns_create_announcements_from_errors_summary">Creëer een Nightscout melding voor storingen en lokale waarschuwingen (ook zichtbaar in het Careportal en Behandelingen)</string>
+    <string name="ns_create_announcements_from_carbs_req_summary">Maak Nightscout melding bij waarschuwingen voor benodigde koolhydraten</string>
     <string name="wear_predictions_summary">Toon de voorspellingen op het horloge.</string>
     <string name="wear_predictions_title">Voorspellingen</string>
     <string name="data_choices">Data Keuzes</string>
@@ -755,6 +795,7 @@
     <string name="permission">Toestemming</string>
     <string name="askforpermission">Vragen om toestemming</string>
     <string name="needsystemwindowpermission">Toepassing vereist systeemvenstermachtiging voor meldingen</string>
+    <string name="needlocationpermission">App heeft locatie toestemming nodig voor Bluetooth scan en WiFi identificatie</string>
     <string name="needstoragepermission">Applicatie heeft toestemming nodig om log bestanden op te kunnen slaan</string>
     <string name="request">Verzoek</string>
     <string name="insulinsourcesetup">Gevoeligheid plugin configureren</string>
@@ -772,6 +813,10 @@
     <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Verhogen van de gevoeligheid voor temptargets > = 100]]></string>
     <string name="low_temptarget_lowers_sensitivity_title">Laag tijdelijk streefdoel verlaagt gevoeligheid</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Lagere gevoeligheid voor temptargets < 100]]></string>
+    <string name="resistance_lowers_target_title">Resistentie verlaagt het doel</string>
+    <string name="resistance_lowers_target_summary">Wanneer insulineresistentie wordt gedetecteerd, wordt het BG streefdoel verlaagd</string>
+    <string name="sensitivity_raises_target_title">Gevoeligheid verhoogt het doel</string>
+    <string name="sensitivity_raises_target_summary">Wanneer insulinegevoeligheid wordt gedetecteerd, wordt het BG streefdoel verhoogd</string>
     <string name="combo_invalid_setup">Ongeldige pompinstellingen, controleer de documenten en controleer of het Quick Info-menu QUICK INFO wordt genoemd met behulp van de 360-configuratiesoftware.</string>
     <string name="custom">Aangepast</string>
     <string name="careportal_removestartedevents">Verwijder AndroidAPS start-meldingen</string>
@@ -779,6 +824,8 @@
     <string name="allow_hardware_pump_text">Let op: als u activeert en verbinding maakt met een hardwarepomp, kopieert AndroidAPS de basale instellingen van het profiel naar de pomp en overschrijft de bestaande basaal snelheid die op de pomp is opgeslagen. Zorg ervoor dat u de juiste basaal instelling hebt in AndroidAPS. Als u niet zeker weet of niet wilt dat de basaal instellingen op uw pomp worden overschreven, drukt u op Annuleren en herhaalt u het overschakelen naar de pomp op een later tijdstip.</string>
     <string name="error_adding_treatment_title">Behandelingen data incompleet</string>
     <string name="maintenance_settings">Onderhoudsinstellingen</string>
+    <string name="maintenance_email">E-mail</string>
+    <string name="maintenance_encrypt_exported_prefs">Geëxporteerde instellingen versleutelen</string>
     <string name="maintenance_amount">Aantal Logs om te verzenden</string>
     <string name="maintenance">Onderhoud</string>
     <string name="maintenance_shortname">ONDH</string>
@@ -820,6 +867,9 @@
     <string name="log_alerts">Alarmen noteren</string>
     <string name="enable_tbr_emulation">TBR-emulatie inschakelen</string>
     <string name="enable_tbr_emulation_summary">Gebruik vertraagde bolus ipv TBRs om de limiet van 250%% te omzeilen</string>
+    <string name="disable_vibration">Trillen uitschakelen bij handmatige bolus toediening</string>
+    <string name="disable_vibration_summary">Voor bolus en verlengde bolus (alleen mogelijk voor Insight firmware 3.x)</string>
+    <string name="disable_vibration_auto">Trillen uitschakelen bij automatische bolus toediening</string>
     <string name="disconnect_delay">Verbindingsvertraging [s]</string>
     <string name="serial_number">Serienummer</string>
     <string name="release_software_version">Release softwareversie</string>
@@ -1210,6 +1260,15 @@
     <!-- Omnipod - Base -->
     <!-- Omnipod Configuration -->
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_reservoir_left">%1$.2f E over</string>
+    <string name="omnipod_reservoir_over50">Meer dan 50 E</string>
+    <string name="omnipod_pod_address">Pod adres</string>
+    <string name="omnipod_pod_expiry">Pod verloopt</string>
+    <string name="omnipod_pod_name_no_info">Geen info</string>
+    <string name="omnipod_pod_no_pod_connected">Geen pod verbonden</string>
+    <string name="omnipod_pod_not_initalized">Niet geïnitialiseerd</string>
+    <string name="omnipod_pod_active_alerts">Actieve pod alarmen</string>
+    <string name="omnipod_ack_short">Alarmen bevestigen</string>
     <!-- Omnipod - Dialogs -->
     <!-- Omnipod - Error -->
     <!-- Omnipod - Pod Mgmt -->
