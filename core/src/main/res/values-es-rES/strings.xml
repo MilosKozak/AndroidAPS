@@ -61,6 +61,7 @@
     <string name="mmol">mmol/l</string>
     <string name="advancedsettings_title">Ajustes avanzados</string>
     <string name="bluetooth">Bluetooth</string>
+    <string name="btwatchdog_title">Vigilante de BT</string>
     <string name="btwatchdog_summary">Apaga el bluetooth del móvil por un segundo si no hay conexión con la bomba. Esto ayuda con algunos móviles con problemas para establecer conexión bluetooth estable.</string>
     <!--    Constraints-->
     <string name="limitingbasalratio">Limitando max basal rate a %1$.2f U/h debido a %2$s</string>
