@@ -29,6 +29,7 @@
     <string name="batterydischarged">Batería de la bomba descargada</string>
     <string name="occlusion">Oclusión</string>
     <string name="emptyreservoir">Reservorio vacío</string>
+    <string name="checkshaft">Comprobar eje</string>
     <string name="basalmax">Basal max</string>
     <string name="dailymax">Máximo diario</string>
     <string name="bloodsugarmeasurementalert">Alerta de control de BG</string>
