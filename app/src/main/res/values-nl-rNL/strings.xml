@@ -35,8 +35,8 @@
     <string name="description_pump_combo">Pomp integratie voor Accu-Chek Combo pompen, vereist dat ruffy geïnstalleerd is</string>
     <string name="description_pump_mdi">Pomp integratie voor mensen met pen-therapie (meerdere dagelijkse injecties)</string>
     <string name="description_pump_virtual">Pomp integratie voor pompen, waar nog geen driver voor is (Open Loop)</string>
-    <string name="description_sensitivity_aaps">Gevoeligheid wordt berekend op dezelfde manier als Oref0, maar u kunt een tijdframe naar het verleden specificeren. Minimale koolhydraat absorptie is berekend op basis van max koolhydraat absorptie tijd van de voorkeursinstellingen.</string>
-    <string name="description_sensitivity_weighted_average">Gevoeligheid wordt berekend als een gewogen gemiddelde van afwijkingen. Nieuwere afwijkingen wegen hierbij zwaarder. Minimale koolhydraat absorptie is berekend op basis van de max koolhydraat absorptie tijd uit de voorkeursinstellingen. Dit algoritme is de snelste in het volgen van wijzigingen van de gevoeligheid.</string>
+    <string name="description_sensitivity_aaps">Gevoeligheid wordt berekend op dezelfde manier als Oref0, maar je kunt een tijdframe naar het verleden specificeren. Minimale koolhydraat absorptie is berekend op basis van max koolhydraat absorptie tijd zoals in jouw instellingen.</string>
+    <string name="description_sensitivity_weighted_average">Gevoeligheid wordt berekend als een gewogen gemiddelde van afwijkingen. Nieuwere afwijkingen wegen hierbij zwaarder. Minimale koolhydraat absorptie is berekend op basis van de max koolhydraat absorptie tijd uit jouw instellingen. Dit algoritme is de snelste in het volgen van wijzigingen van de gevoeligheid.</string>
     <string name="description_source_eversense">Ontvang BG waardes van de aangepaste Eversense app.</string>
     <string name="description_source_glimp">Ontvang BG waardes van Glimp.</string>
     <string name="description_source_mm640g">Ontvang BG waardes van 600SeriesAndroidUploader.</string>
@@ -154,7 +154,7 @@
     <string name="overview_extendedbolus_button">Vertraagde bolus</string>
     <string name="configbuilder_nightscoutversion_label">Nightscout versie:</string>
     <string name="missing_carbs">Ontbrekend %1$dg</string>
-    <string name="exported">Voorkeuren geëxporteerd</string>
+    <string name="exported">Instellingen geëxporteerd</string>
     <string name="export_to">Exporteer instellingen naar</string>
     <string name="import_from">Importeer instellingen van</string>
     <string name="setting_imported">Instellingen geïmporteerd</string>
@@ -300,6 +300,7 @@
     <string name="openapsama_current_basal_safety_multiplier_summary">Standaard waarde: 4 Dit is een combinatie van enerzijds het OpenAPS veiligheid limieten en anderzijds van “3 x max dagelijks basaal; 4x actueel”. Dit betekent dat het basaal niet hoger kan ingesteld worden dan het ingestelde nummer keer het actueel basaal waarbij de limiet in de pomp geen invloed heeft. Dit is een veiligheidsmaatregel om te voorkomen dat patiënten in gevaarlijke laag bereik komen zonder te snappen hoe het algoritme werkt. Nogmaals de standaard waarde is 4x; de meeste zullen deze waarde nooit moeten aanpassen maar zullen eerder andere waardes moeten aanpassen als ze tegen een limiet aanstoten.</string>
     <string name="openapsama_autosens_max_summary">Standaard waarde: 1.2\nDit is een vermenigvuldigingsfactor voor autosense (en binnenkort autotune) die zorgt dat de autosens ratio maximaal 20%% kan zijn. Dit maximum bepaalt in hoeverre je basaal kan worden verhoogd, en hoeveel je ISF en BG doel verlaagd kunnen worden.</string>
     <string name="openapsama_autosens_min_summary">Standaard waarde: 0.7\nDit is de andere kan van de autosens veiligheid limiet. Dit zet een limiet op hoe laag het basaal kan aangepast worden, en hoe hoog het ISF en het streef BG.</string>
+    <string name="openapsama_autosens_adjusttargets">Autosens past ook de streefwaardes aan</string>
     <string name="openapsama_autosens_adjusttargets_summary">Standaardwaarde: waar Dit wordt gebruikt om autosens de bevoegdheid te geven BG doelen aan te passen alsook ISF en basalen</string>
     <string name="openapsama_bolussnooze_dia_divisor_summary">Standaard waarde: 2\nBolus snooze is actief nadat je een maaltijd bolus toegediend hebt, zodat de loop geen tegenvoorstel met een verlaagd tijdelijk basaal doet nadat je gegeten hebt. Het voorbeeld hier van van standaard 2; dus een 3 u DIA betekent dat de bolus snooze gemiddeld 1.5u actief is (3DIA/2).</string>
     <string name="openapsama_min_5m_carbimpact_summary">Standaardwaarde: 3,0 (AMA) of 8,0 (SMB). Dit is een instelling voor de standaard koolhydraten absorptie-impact per 5 minuten. De standaard is een verwachte 3mg / dl / 5min. Dit is van invloed op hoe snel COB zijn opgenomen en hoeveel koolhydraten absorptie wordt verwacht, bij het voorspellen van toekomstige BG, wanneer BG meer dan verwacht daalt of niet zoveel stijgt als verwacht.</string>
@@ -616,10 +617,10 @@
     <string name="combo_tbr_count">Aantal TBR</string>
     <string name="pumpisnottempbasalcapable">Pomp kan geen tijdelijk basaal aanvaarden</string>
     <string name="novalidbasalrate">Geen correcte basale snelheid van pomp kunnen lezen</string>
-    <string name="closedmodedisabledinpreferences">Closed Loop modus gedeactiveerd in de voorkeuren</string>
-    <string name="autosensdisabledinpreferences">Autosens gedeactiveerd in de voorkeuren</string>
-    <string name="smbdisabledinpreferences">SMB gedeactiveerd in de voorkeuren</string>
-    <string name="uamdisabledinpreferences">UAM gedeactiveerd in configuratie</string>
+    <string name="closedmodedisabledinpreferences">Closed Loop modus gedeactiveerd in de instellingen</string>
+    <string name="autosensdisabledinpreferences">Autosens gedeactiveerd in de instellingen</string>
+    <string name="smbdisabledinpreferences">SMB gedeactiveerd in de instellingen</string>
+    <string name="uamdisabledinpreferences">UAM gedeactiveerd in de instellingen</string>
     <string name="uamdisabledoref1notselected">UAM gedeactiveerd omdat het Oref1 gevoeligheid plugin nodig heeft</string>
     <string name="maxbasalmultiplier">Max basaal vermenigvuldiger</string>
     <string name="maxdailybasalmultiplier">Max dagelijks basaal vermenigvuldiger</string>
@@ -629,7 +630,7 @@
     <string name="limitingmaxiob">Max IOB wordt beperkt tot %1$.1f E doordat %2$s</string>
     <string name="limitingcarbs">Koolhydraten worden beperkt tot %1$d gr doordat %2$s</string>
     <string name="limitingiob">IOB gelimiteerd tot %1$.1f E doordat %2$s</string>
-    <string name="maxvalueinpreferences">Maximum waarde in voorkeuren</string>
+    <string name="maxvalueinpreferences">Maximum waarde in instellingen</string>
     <string name="hardlimit">max limiet (SC)</string>
     <string name="unsafeusage">Onveilig gebruik</string>
     <string name="readstatusfailed">Lezen van status mislukt</string>
@@ -707,7 +708,7 @@
     <string name="exit">Afsluiten</string>
     <string name="open_navigation">Open navigatie</string>
     <string name="close_navigation">Sluit navigatie</string>
-    <string name="nav_plugin_preferences">Plugin voorkeuren</string>
+    <string name="nav_plugin_preferences">Plugin instellingen</string>
     <string name="completed_well_done">Voltooid, goed gedaan!</string>
     <string name="not_completed_yet">Nog niet voltooid</string>
     <string name="time_elapsed">Verstreken tijd</string>
