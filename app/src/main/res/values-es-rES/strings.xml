@@ -1400,5 +1400,9 @@
     <string name="omnipod_alert_low_reservoir">Reservorio bajo</string>
     <string name="omnipod_alert_unknown_alert">Alerta desconocida</string>
     <string name="omnipod_error_set_basal_failed_uncertain">La configuración del perfil basal podría haber fallado. ¡La entrega podría ser suspendida! Por favor, actualiza el estado de Pod.</string>
+    <string name="omnipod_error_set_temp_basal_failed_uncertain">La configuración de basal temporal podría haber fallado. Si ya se está ejecutando una basal temporal, ¡puede que haya sido cancelada! Por favor, actualice el estado del pod.</string>
+    <string name="omnipod_error_set_time_failed_uncertain">Ajuste de la hora puede ser que haya fallado. La entrega puede ser suspendido! Por favor, actualizar estado de Pod.</string>
+    <string name="omnipod_bolus_failed_uncertain">No se puede verificar si el bolo ha sido exitoso. Por favor verifique que su Pod está poniendo bolo o cancele el bolo.</string>
     <string name="omnipod_rl_stats">Estadísticas del RL</string>
+    <string name="omnipod_read_pulse_log_short">Registro de pulso</string>
 </resources>
