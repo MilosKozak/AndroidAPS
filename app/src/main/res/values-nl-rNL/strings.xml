@@ -164,9 +164,17 @@
     <string name="filenotfound">Bestand niet gevonden</string>
     <string name="nav_export">Exporteer instellingen</string>
     <string name="nav_import">Importeer instellingen</string>
+    <string name="openapsma_maxbasal_title">Maximaal instelbaar basaal Eh/u</string>
     <string name="openapsma_maxbasal_summary">Dit is de maximale waarde waarop het basaal door OpenAPS ingesteld kan worden</string>
     <string name="openapsma_maxiob_title">Maximale basaal IOB, dat OpenAPS kan toedienen [E]</string>
     <string name="openapsma_maxiob_summary">Deze waarde wordt de Max IOB genoemd in OpenAPS context\nDit is de maximale insuline hoeveelheid in [E] dat APS in één keer kan toedienen.</string>
+    <string name="password_preferences_encrypt_prompt">Je wordt gevraagd om een masterwachtwoord. Daarmee worden geëxporteerde instellingen versleuteld.</string>
+    <string name="password_preferences_decrypt_prompt">Je wordt gevraagd om een masterwachtwoord. Daarmee worden geïmporteerde instellingen ontsleuteld.</string>
+    <string name="preferences_export_canceled">Exporteren geannuleerd! Instellingen zijn NIET geëxporteerd!</string>
+    <string name="preferences_import_canceled">Importeren geannuleerd! Instellingen zijn NIET geïmporteerd!</string>
+    <string name="preferences_import_list_title">Kies bestand om te importeren</string>
+    <string name="check_preferences_before_import">Controleer instellingen voor het importeren:</string>
+    <string name="check_preferences_cannot_import">Instellingen kunnen niet worden geïmporteerd!</string>
     <string name="end_user_license_agreement">Eind gebruiker overeenkomst</string>
     <string name="end_user_license_agreement_text">MUST NOT BE USED TO MAKE MEDICAL DECISIONS. THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</string>
     <string name="end_user_license_agreement_i_understand">Begrepen en goedgekeurd</string>
