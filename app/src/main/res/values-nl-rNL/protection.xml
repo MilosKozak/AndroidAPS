@@ -7,6 +7,7 @@
     <string name="unlock_settings">Instellingen ontgrendelen</string>
     <string name="biometric">Biometrisch</string>
     <string name="custom_password">Aangepast wachtwoord</string>
+    <string name="unsecure_fallback_biometric">Niet beveiligde fallback</string>
     <string name="password_set">Wachtwoord ingesteld!</string>
     <string name="password_not_set">Wachtwoord niet ingesteld</string>
     <string name="password_not_changed">Wachtwoord niet gewijzigd</string>
