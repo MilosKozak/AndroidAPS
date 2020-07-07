@@ -1402,4 +1402,7 @@
     <string name="omnipod_error_set_basal_failed_uncertain">Het instellen van basaal profiel is mogelijk mislukt. De toediening is misschien gestopt! Vernieuw de status van Pod.</string>
     <string name="omnipod_error_set_temp_basal_failed_uncertain">Het instellen van tijdelijk basaal is mogelijk mislukt. Als er al een tijdelijk basaal actief was, is dat misschien geannuleerd! Vernieuw de status van de Pod.</string>
     <string name="omnipod_error_set_time_failed_uncertain">Het instellen van de tijd is mogelijk mislukt. De toediening is misschien gestopt! Vernieuw de status van Pod.</string>
+    <string name="omnipod_bolus_failed_uncertain">Kan niet controleren of de bolus is geslaagd. Controleer of de Pod de bolus aan het toedienen is of annuleer de bolus.</string>
+    <string name="omnipod_rl_stats">RL Statistieken</string>
+    <string name="omnipod_read_pulse_log_short">Pulsen Log</string>
 </resources>
