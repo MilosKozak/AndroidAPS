@@ -1270,9 +1270,50 @@
     <string name="omnipod_pod_active_alerts">Actieve pod alarmen</string>
     <string name="omnipod_ack_short">Alarmen bevestigen</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433,91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">Bewerking is niet mogelijk.\n\nJe moet eerst Omnipod ingesteld hebben, voordat je deze bewerking kunt gebruiken.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">Bewerking is niet mogelijk.\n\nJe moet enkele minuten wachten, totdat AAPS voor de eerste keer probeert om het profiel in te stellen.</string>
+    <string name="omnipod_error_illegal_init_action_type">Ongeldig PodInitActionType: %1$s</string>
+    <string name="omnipod_error_pod_not_attached">Geen actieve pod.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Opdracht verificatie is mislukt.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Er is een onverwachte fout opgetreden. Rapporteer dit alsjeblieft! (type: %1$s).</string>
+    <string name="omnipod_driver_error_invalid_parameters">Communicatie mislukt: ongeldige invoerparameters ontvangen.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Communicatie mislukt: timeout.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Communicatie mislukt: er is een onvoorziene fout opgetreden. Rapporteer dit alsjeblieft!</string>
+    <string name="omnipod_driver_error_crc_mismatch">Communicatie mislukt: berichtintegriteit kon niet worden geverifieerd.</string>
+    <string name="omnipod_driver_error_invalid_packet_type">Communicatie mislukt: ongeldige gegevens ontvangen van de Pod.</string>
+    <string name="omnipod_driver_error_invalid_progress_state">Communicatie mislukt: de Pod bevindt zich in een verkeerde staat.</string>
+    <string name="omnipod_driver_error_invalid_response">Communicatie mislukt: ongeldig antwoord ontvangen van de Pod.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Communicatie mislukt: bericht met ongeldig volgnummer ontvangen van de Pod.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Communicatie mislukt: bericht met ongeldig adres ontvangen van de Pod.</string>
+    <string name="omnipod_driver_error_message_decoding_failed">Communicatie is mislukt: kon bericht van de Pod niet decoderen.</string>
+    <string name="omnipod_driver_error_nonce_resync_failed">Communicatie mislukt: nonce resync is mislukt.</string>
+    <string name="omnipod_driver_error_nonce_out_of_sync">Communicatie mislukt: nonce out of sync.</string>
+    <string name="omnipod_driver_error_not_enough_data">Communicatie mislukt: onvoldoende gegevens ontvangen van de Pod.</string>
+    <string name="omnipod_driver_error_pod_fault">Een pod-fout (%1$03d %2$s) is gedetecteerd. Deactiveer je Pod en start een nieuwe.</string>
+    <string name="omnipod_driver_error_pod_returned_error_response">Communicatie mislukt: de Pod heeft een foutrespons gegeven.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_pod_mgmt_title">Pod Beheer</string>
+    <string name="omnipod_cmd_init_pod">Initialiseer Pod</string>
+    <string name="omnipod_cmd_deactivate_pod">Deactiveer Pod</string>
+    <string name="omnipod_cmd_reset_pod">Reset Pod</string>
+    <string name="omnipod_cmd_pod_history">Pod Historie</string>
     <string name="omnipod_cmd_set_bolus">Bolus instellen</string>
+    <string name="omnipod_cmd_cancel_bolus">Annuleer Bolus</string>
+    <string name="omnipod_cmd_set_tbr">Instellen Tijdelijke Basaal</string>
+    <string name="omnipod_cmd_cancel_tbr">Annuleer Tijdelijk Basaal (Intern door stuurprogramma)</string>
+    <string name="omnipod_cmd_cancel_tbr_forced">Annuleer Tijdelijk Basaal (Geforceerd door gebruiker)</string>
+    <string name="omnipod_cmd_set_basal_schedule">Basaalprofiel instellen</string>
+    <string name="omnipod_cmd_get_pod_status">Pod status ophalen</string>
+    <string name="omnipod_cmd_get_pod_info">Pod info ophalen</string>
+    <string name="omnipod_cmd_set_time">Tijd instellen</string>
+    <string name="omnipod_cmd_configure_alerts">Configureer alarmen</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Bevestig alarmen</string>
+    <string name="omnipod_cmd_suspend_delivery">Onderbreek toediening</string>
+    <string name="omnipod_cmd_resume_delivery">Hervat toediening</string>
+    <string name="omnipod_cmd_unknown_entry">Onbekende invoer</string>
+    <string name="omnipod_cmd_bolus_value">%1$.1f E</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
 </resources>
