@@ -1405,4 +1405,6 @@
     <string name="omnipod_bolus_failed_uncertain">Не може да се провери статус на болус. Моля, уверете се, че вашият под е стартирал болус или го отменете.</string>
     <string name="omnipod_rl_stats">Статистика на RL</string>
     <string name="omnipod_read_pulse_log_short">Pulse лог</string>
+    <string name="comapareprofile">Сравни с текущия профил</string>
+    <string name="nav_profilehelper">Профил съветник</string>
 </resources>
