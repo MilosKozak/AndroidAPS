@@ -233,6 +233,8 @@
     <string name="smscommunicator_loopisenabled">Bucla este activată</string>
     <string name="valuelimitedto">%1$.2f este limitată la %2$.2f</string>
     <string name="valueoutofrange">Valoarea %1$s este mai mare decât limita stabilită</string>
+    <string name="smscommunicator_pumpdisconnected">Pompă deconectată</string>
+    <string name="smscommunicator_reconnect">Pompă reconectată</string>
     <string name="smscommunicator_remotecommandnotallowed">Comanda de la distanță nu este permisă</string>
     <string name="smscommunicator_remotebolusnotallowed">Bolus de la distanță nu este disponibil. Încearcă din nou mai târziu.</string>
     <string name="smscommunicator_basalreplywithcode">Pentru a iniția bazala de %1$.2fU/h pentru %2$d min trimiteți codul %3$s</string>
@@ -367,6 +369,7 @@
     <string name="adult">Adult</string>
     <string name="resistantadult">Adult rezistent la insulină</string>
     <string name="patientage_summary">Vă rog să selectați vârsta pacientului în vederea stabilirii valorilor maxime admise de siguranță</string>
+    <string name="patient_name">Numele pacientului</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s necesită excluderea din lista de optimizare a bateriei pentru o funcționare corespunzătoare</string>
     <string name="loopsuspended">Buclă suspendată</string>
@@ -1102,6 +1105,7 @@
     <string name="format_carbs">%1$dg</string>
     <string name="common_on">Pornit</string>
     <string name="common_off">Oprit</string>
+    <string name="deletecurrentprofile">Ştergeţi profilul curent?</string>
     <string name="age">Vârstă:</string>
     <string name="weight_label">Greutate:</string>
     <string name="randombg_short">Glicemie</string>
@@ -1111,9 +1115,19 @@
     <!-- Omnipod - Base -->
     <!-- Omnipod Configuration -->
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_pod_mgmt">Pod Mgmt</string>
+    <string name="omnipod_reservoir_left">%1$.2f U rămase</string>
+    <string name="omnipod_reservoir_over50">Peste 50 U</string>
     <!-- Omnipod - Dialogs -->
     <!-- Omnipod - Error -->
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_init_pod">Inițializare Pod</string>
+    <string name="omnipod_cmd_deactivate_pod">Dezactivare Pod</string>
+    <string name="omnipod_cmd_reset_pod">Resetare Pod</string>
+    <string name="omnipod_cmd_pod_history">Istoric Pod</string>
+    <string name="omnipod_cmd_configure_alerts">Configurare alerte</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Confirmare alerte</string>
+    <string name="omnipod_init_pod_wizard_step2_title">Amorsare</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
 </resources>
