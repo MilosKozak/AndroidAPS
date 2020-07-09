@@ -36,6 +36,7 @@
     <string name="description_pump_mdi">Integrare cu pompă virtuală, pentru persoanele ce folosesc terapia cu pen</string>
     <string name="description_pump_virtual">Integrare cu pompele ce nu au încă un driver software disponibil (Buclă Deschisă)</string>
     <string name="description_sensitivity_aaps">Sensibilitatea este calculată la fel ca în algoritmul Oref0, dar se poate specifica un interval de timp în trecut. Absorbția minimă de carbohidrați este calculată din parametrul echivalent, stabilit în preferințe.</string>
+    <string name="description_sensitivity_oref1">Sensibilitatea este calculată folosind datele din ultimele 8 sau 24 ore (se alege cea mai mare din ele), iar carbohidrații (când nu sunt absorbiți) sunt ignorați după timpul specificat în preferințe. Plugin-ul calculează și UAM.</string>
     <string name="description_sensitivity_weighted_average">Sensibilitatea este calculată ca o medie ponderată a deviațiilor. Deviațiile noi au o importanță mai mare. Absorbția minimă de carbohidrați este calculată în funcție de parametrul absorbție maximă de carbohidrați, stabilit în preferințe. Acest algoritm este cel mai rapid atunci când sensibilitatea la insulină este fluctuantă.</string>
     <string name="description_source_eversense">Primește valorile glicemiei din aplicația Eversense modificată.</string>
     <string name="description_source_glimp">Primește valorile glicemiei din aplicația Glimp.</string>
@@ -163,15 +164,20 @@
     <string name="filenotfound">Nu am găsit fișierul</string>
     <string name="nav_export">Exportă setările</string>
     <string name="nav_import">Importă setările</string>
+    <string name="openapsma_maxbasal_title">Valoarea maximă în U/ora a unei rate bazale temporare poate fi setată la</string>
     <string name="openapsma_maxbasal_summary">Această valoare este denumită bazală maximă în contextul OpenAPS</string>
     <string name="openapsma_maxiob_title">Maximul de bazală IOB pe care o poate livra OpenAPS[U]</string>
     <string name="openapsma_maxiob_summary">Această valoare este denumită Max IOB în contextul OpenAPS\nAceastă valoare este implicit nulă (0). După câteva zile sau săptămâni, în funcție de opțiunea dumneavoastră, puteți ajusta acest număr.</string>
+    <string name="password_preferences_encrypt_prompt">Vi se va solicita parola principală, care va fi utilizată pentru criptare la exportarea setărilor.</string>
+    <string name="password_preferences_decrypt_prompt">Vi se va solicita parola principală, care este necesară pentru a decripta setările importate.</string>
     <string name="preferences_export_canceled">Exportarea a eșuat! Preferințele NU au fost exportate!</string>
     <string name="preferences_import_canceled">Importarea a eșuat! Preferințele NU au fost importate!</string>
     <string name="preferences_import_list_title">Selectați fișierul pentru import</string>
     <string name="check_preferences_before_import">Verificați preferințele înainte de a le importa:</string>
     <string name="check_preferences_cannot_import">Preferințele nu pot fi importate!</string>
     <string name="check_preferences_dangerous_import">Preferințele nu ar trebui importate!</string>
+    <string name="check_preferences_details_btn">Explicații problemele de import…</string>
+    <string name="check_preferences_details_title">Detalii probleme de import</string>
     <string name="check_preferences_import_btn">Importă</string>
     <string name="check_preferences_import_anyway_btn">Importă oricum (PERICOL!)</string>
     <string name="metadata_warning_different_flavour">Preferințele au fost create folosind o alta versiune de AAPS (%1$s) în timp ce versiunea curentă este: %2$s.\n\nCâteva setări pot lipsi sau pot fi invalide - după import verificați și actualizați preferințele.</string>
@@ -179,11 +185,27 @@
     <string name="metadata_warning_outdated_format">Folosiți un format neactualizat dintr-o versiune veche de AAPS care nu este securizat! Folosiți acest format în ultima instanța, doar dacă nu aveți un export în formatul curent de JSON.</string>
     <string name="metadata_warning_old_export">Preferințele importate sunt vechi de %1$s zile deja! Poate aveți preferințe mai recente sau ați ales un fișier greșit? Amintiți-vă să exportați preferințele în mod regulat!</string>
     <string name="metadata_warning_date_format">Format dată invalid!</string>
+    <string name="metadata_warning_different_version">Preferințe dintr-o versiune minoră diferită a aplicației. Este OK dacă importați după upgrade, dar verificați după import că preferințele sunt corecte!</string>
     <string name="metadata_label_format">Formatul fișierului</string>
     <string name="metadata_label_created_at">Creat la</string>
     <string name="metadata_label_aaps_version">Versiune AAPS</string>
     <string name="metadata_label_aaps_flavour">Versiune de build</string>
+    <string name="metadata_label_device_name">Exporta numele dispozitivului pacientului</string>
     <string name="metadata_label_device_model">Exportarea modelului dispozitivului</string>
+    <string name="metadata_label_encryption">Criptarea fișierului</string>
+    <string name="metadata_format_old">Format vechi de export</string>
+    <string name="metadata_format_new">Format nou criptat</string>
+    <string name="metadata_format_debug">Format nou pentru debug (necriptat)</string>
+    <string name="metadata_format_other">Format de export necunoscut</string>
+    <string name="prefdecrypt_settings_tampered">Fişier de setări modificat</string>
+    <string name="prefdecrypt_settings_secure">Fișierul de setări este securizat</string>
+    <string name="prefdecrypt_settings_unencrypted">Folosirea formatului nesecurizat, necriptat pentru setări</string>
+    <string name="prefdecrypt_wrong_json">Eroare format JSON, lipsește un câmp necesar (format, conținut, metadate sau securitate)</string>
+    <string name="prefdecrypt_wrong_password">Eroare la decriptare, parola dată nu poate decripta fişierul</string>
+    <string name="prefdecrypt_issue_missing_file_hash">Suma de control a fişierului (hash) lipseşte, nu se poate verifica autenticitatea setărilor!</string>
+    <string name="prefdecrypt_issue_modified">Fişierul a fost modificat după export!</string>
+    <string name="prefdecrypt_issue_parsing">Eroare la decriptare, parsarea preferinţelor a eşuat!</string>
+    <string name="prefdecrypt_issue_wrong_pass">Eroare la decriptare, parola furnizată este invalidă sau fişierul de setări a fost modificat! Se poate întâmpla ca fişierul importat să fi fost exportat cu o parolă master diferită.</string>
     <string name="end_user_license_agreement">Licență utilizator final</string>
     <string name="end_user_license_agreement_text">NU FOLOSIȚI PENTRU LUAREA DE DECIZII MEDICALE. NU EXISTĂ RĂSPUNDERE LEGALĂ SAU GARANȚIE PENTRU ACEST PROGRAM, ÎN LIMITA APLICABILĂ A LEGII. CU EXCEPTIA CAZURILOR SPECIAL MENȚIONATE, AUTORUL ȘI/SAU ALTE PERSOANE IMPLICATE PUN LA DISPOZIȚIE ACEST PROGRAM FĂRĂ NICIO GARANȚIE, IMPLICITĂ SAU EXPLICITĂ, INCLUZÂND, DAR FĂRĂ A SE LIMITA LA, GARANȚIILE LEGATE DE VĂNZAREA SAU POTRIVIREA PENTRU UN ANUME SCOP. ÎNTREGUL RISC LEGAT DE CALITATEA ȘI PERFORMANȚA ACESTUI PROGRAM CAD ÎN RESPONSABILITATEA DUMNEAVOASTRĂ. DACĂ PROGRAMUL SE DOVEDEȘTE A FI DEFECT, DUMNEAVOASTRĂ VĂ ASUMAȚI ÎNTREAGA RĂSPUNDERE, PRECUM ȘI TOATE COSTURILE LEGATE DE SERVICE, REPARAȚII SAU CORECȚII.</string>
     <string name="end_user_license_agreement_i_understand">ÎNȚELEG ȘI SUNT DE ACORD</string>
@@ -914,6 +936,8 @@
     <string name="longitude_short">Long:</string>
     <string name="distance_short">Dist [m]:</string>
     <string name="name_short">Nume:</string>
+    <string name="locationis">%1$s %2$s</string>
+    <string name="location_mode">Când </string>
     <string name="lastboluslabel">Ultimul bolus</string>
     <string name="lastboluscompared">Ultimul bolus acum %1$s %2$s min</string>
     <string name="triggercoblabel">COB</string>
@@ -1074,7 +1098,14 @@
     <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Asistent bolusare</string>
     <string name="unit_minute_short">min</string>
+    <string name="unitsnosemicolon">Unități</string>
     <string name="format_carbs">%1$dg</string>
+    <string name="common_on">Pornit</string>
+    <string name="common_off">Oprit</string>
+    <string name="age">Vârstă:</string>
+    <string name="weight_label">Greutate:</string>
+    <string name="randombg_short">Glicemie</string>
+    <string name="tools">Instrumente</string>
     <!-- SMS Communicator & OTP Authenticator -->
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
