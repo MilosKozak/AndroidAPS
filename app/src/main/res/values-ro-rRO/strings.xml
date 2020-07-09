@@ -173,6 +173,17 @@
     <string name="check_preferences_cannot_import">Preferințele nu pot fi importate!</string>
     <string name="check_preferences_dangerous_import">Preferințele nu ar trebui importate!</string>
     <string name="check_preferences_import_btn">Importă</string>
+    <string name="check_preferences_import_anyway_btn">Importă oricum (PERICOL!)</string>
+    <string name="metadata_warning_different_flavour">Preferințele au fost create folosind o alta versiune de AAPS (%1$s) în timp ce versiunea curentă este: %2$s.\n\nCâteva setări pot lipsi sau pot fi invalide - după import verificați și actualizați preferințele.</string>
+    <string name="metadata_warning_different_device">Preferințele au fost create pe un dispozitiv diferit. Este în regulă să le importați de pe un alt telefon, dar asigurați-vă că sunt corecte!</string>
+    <string name="metadata_warning_outdated_format">Folosiți un format neactualizat dintr-o versiune veche de AAPS care nu este securizat! Folosiți acest format în ultima instanța, doar dacă nu aveți un export în formatul curent de JSON.</string>
+    <string name="metadata_warning_old_export">Preferințele importate sunt vechi de %1$s zile deja! Poate aveți preferințe mai recente sau ați ales un fișier greșit? Amintiți-vă să exportați preferințele în mod regulat!</string>
+    <string name="metadata_warning_date_format">Format dată invalid!</string>
+    <string name="metadata_label_format">Formatul fișierului</string>
+    <string name="metadata_label_created_at">Creat la</string>
+    <string name="metadata_label_aaps_version">Versiune AAPS</string>
+    <string name="metadata_label_aaps_flavour">Versiune de build</string>
+    <string name="metadata_label_device_model">Exportarea modelului dispozitivului</string>
     <string name="end_user_license_agreement">Licență utilizator final</string>
     <string name="end_user_license_agreement_text">NU FOLOSIȚI PENTRU LUAREA DE DECIZII MEDICALE. NU EXISTĂ RĂSPUNDERE LEGALĂ SAU GARANȚIE PENTRU ACEST PROGRAM, ÎN LIMITA APLICABILĂ A LEGII. CU EXCEPTIA CAZURILOR SPECIAL MENȚIONATE, AUTORUL ȘI/SAU ALTE PERSOANE IMPLICATE PUN LA DISPOZIȚIE ACEST PROGRAM FĂRĂ NICIO GARANȚIE, IMPLICITĂ SAU EXPLICITĂ, INCLUZÂND, DAR FĂRĂ A SE LIMITA LA, GARANȚIILE LEGATE DE VĂNZAREA SAU POTRIVIREA PENTRU UN ANUME SCOP. ÎNTREGUL RISC LEGAT DE CALITATEA ȘI PERFORMANȚA ACESTUI PROGRAM CAD ÎN RESPONSABILITATEA DUMNEAVOASTRĂ. DACĂ PROGRAMUL SE DOVEDEȘTE A FI DEFECT, DUMNEAVOASTRĂ VĂ ASUMAȚI ÎNTREAGA RĂSPUNDERE, PRECUM ȘI TOATE COSTURILE LEGATE DE SERVICE, REPARAȚII SAU CORECȚII.</string>
     <string name="end_user_license_agreement_i_understand">ÎNȚELEG ȘI SUNT DE ACORD</string>
