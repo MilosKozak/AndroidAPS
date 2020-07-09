@@ -33,6 +33,7 @@
     <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/ExportImportSettings.html</string>
     <string name="objectives_hint2">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#what-emergency-equipment-is-recommended-to-take-with-me</string>
     <string name="noisycgm_label">Subiect: Citiri zgomotoase ale glicemiei</string>
+    <string name="noisycgm_whattodo">Ce ar trebui făcut dacă valorile CGM sunt nesigure?</string>
     <string name="nothing">Nimic, AAPS se va descurca.</string>
     <string name="noisycgm_pause">Dezactivați bucla închisă pentru a evita supra-dozarea.</string>
     <string name="noisycgm_replacesensor">Se va înlocui senzorul CGM.</string>
@@ -73,4 +74,17 @@
     <string name="prerequisites_supportedcgm">Un sistem de senzori CGM compatibil.</string>
     <string name="update_label">Subiect: Actualizarea AndroidAPS</string>
     <string name="whatistrue">Ce este adevărat?</string>
+    <string name="update_keys">Ar trebui sa folosiți aceleași chei de semnare.</string>
+    <string name="update_neverupdate">Nu actualizați niciodată dacă sistemul funcționează corect.</string>
+    <string name="update_askfriend">Cereți unui prieten noul APK.</string>
+    <string name="update_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#update-to-a-new-version-or-branch</string>
+    <string name="troubleshooting_wheretoask">Unde căutați ajutor?</string>
+    <string name="troubleshooting_fb">Alăturaţi-vă grupului de Facebook AndroidAPS.</string>
+    <string name="troubleshooting_wiki">Citiți documentația AndroidAPS.</string>
+    <string name="troubleshooting_googlesupport">Vizitați AndroidAPS Google support</string>
+    <string name="troubleshooting_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#troubleshooting</string>
+    <string name="troubleshooting_hint2">https://www.facebook.com/groups/AndroidAPSUsers/</string>
+    <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
+    <string name="insulin_label">Subiect: Plugin-uri pentru Insulină</string>
+    <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
 </resources>
