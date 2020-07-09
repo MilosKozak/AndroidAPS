@@ -42,6 +42,7 @@
     <string name="noisycgm_checksmoothing">Verificați dacă aplicația de senzor normalizează valorile glicemiei.</string>
     <string name="exercise_label">Subiect: Exerciții fizice</string>
     <string name="exercise_whattodo">Cum puteți ajuta sistemul să facă față exercițiilor fizice?</string>
+    <string name="exercise_setactivitytt">Folosirea funcționalității de țintă temporară.</string>
     <string name="exercise_switchprofilebelow100">Se va face un schimb de profil de sub 100%.</string>
     <string name="exercise_switchprofileabove100">Se va face o schimbare de profil de peste 100%.</string>
     <string name="exercise_stoploop">Se va opri bucla.</string>
@@ -101,6 +102,35 @@
     <string name="sensitivity_label">Subiect: Plugin-uri pentru sensibilitate</string>
     <string name="sensitivity_which">Ce algoritm de sensibilitate are un interval de timp configurabil?</string>
     <string name="sensitivity_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Sensitivity-detection-and-COB.html</string>
+    <string name="sensitivityuam_which">Ce plugin de sensibilitate trebuie folosit pentru funcționalitatea UAM?</string>
+    <string name="wrongcarbs_label">Subiect: Erori la introducerea carbohidraților</string>
+    <string name="wrongcarbs_whattodo">Ce ar trebui sa faceți dacă ați introdus o cantitate de carbohidrați greșită?</string>
+    <string name="wrongcarbs_treatmentstab">În secțiunea Tratamente, ștergeți intrarea greșită. Introduceți din nou cantitatea de carbohidrați.</string>
+    <string name="wrongcarbs_addfakeinsulin">Adăugați unități false de insulina folosind funcția de Reîncărcare</string>
+    <string name="extendedcarbs_label">Subiect: Alimente cu Lipide și Proteine</string>
+    <string name="extendedcarbs_handling">Cum procedați atunci când mâncarea conține o cantitate mare de lipide și\/sau proteine?</string>
+    <string name="extendedcarbs_useextendedcarbs">Convertiți lipidele și proteinele în carbohidrați și folosiți funcționalitatea de \"Carbohidrați extinși\".</string>
+    <string name="extendedcarbs_add">Convertiți lipidele și proteinele în carbohidrați și adăugați-i la calcularea bolusului.</string>
+    <string name="extendedcarbs_useextendedbolus">Folosiți bolusul extins pentru a acoperi lipidele și proteinele.</string>
+    <string name="extendedcarbs_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Extended-Carbs.html</string>
+    <string name="nsclient_label">Subiect: Monitorizarea la distanţă</string>
+    <string name="nsclient_howcanyou">Cum puteți monitoriza AAPS-ul copilului dumneavoastră de la distanță?</string>
+    <string name="nsclient_nightscout">Folosind un site Nightscout.</string>
+    <string name="nsclient_dexcomfollow">Aplicația Dexcom Flollow dacă folosiți aplicația Dexcom originală (doar valorile glicemiei).</string>
+    <string name="nsclient_dexcomfollowxdrip">Dexcom Follow dacă folosiți aplicația xDrip.</string>
+    <string name="nsclient_xdripfollower">Aplicația xDrip în modul \"follower\".</string>
+    <string name="nsclient_looponiphone">Aplicația Loop pe iPhone.</string>
+    <string name="nsclient_spikeiphone">Aplicația Spike pe iPhone.</string>
+    <string name="nsclient_hint1">https://androidaps.readthedocs.io/en/latest/EN/Children/Children.html</string>
+    <string name="isf_label_exam">Subiect: Factorul de Sensibilitate la Insulină (ISF)</string>
+    <string name="isf_increasingvalue">Valorile ISF mai mari determina livrarea unor cantități mai mici de insulina atunci când AAPS corectează hiperglicemiile.</string>
+    <string name="isf_decreasingvalue">Valorile ISF mai mici determina livrarea unor cantități mai mici de insulina atunci când AAPS corectează hiperglicemiile.</string>
+    <string name="isf_noeffect">Modificările ISF nu au nicio influență asupra cantităților de insulina livrate atunci când AAPS corectează hiperglicemiile.</string>
+    <string name="isf_preferences">Trebuie sa setați ISF in Preferințe.</string>
+    <string name="isf_profile">Schimbarea valorii ISF în profil este suficientă pentru a produce efecte.</string>
+    <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
+    <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html</string>
+    <string name="ic_label_exam">Subiect: Rația insulină-carbohidrați (IC)</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Subiect: Schimbarea de profil</string>
     <string name="profileswitch_pctwillchange"> Atunci când se specifică 90% la schimbarea de profil…</string>
@@ -121,7 +151,10 @@
     <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
     <string name="basalhelp_label">Subiect: Ajutor pentru ratele bazale</string>
     <string name="basalhelp_where">Unde căutați ajutor pentru a seta ratele bazale etc.</string>
+    <string name="basalhelp_diabetesteam">Medicul dumneavoastră diabetolog</string>
     <string name="basalhelp_google">Google</string>
     <string name="basalhelp_facebook">Facebook</string>
     <string name="other_medication_label">Alte tratamente</string>
+    <string name="other_medication_text">AAPS reduce ratele bazale pentru a crește glicemia. Medicamentele din grupa inhibitorilor SGLT2 (gliflozins) pot împiedica această creștere a glicemiei si, prin urmare, pot mări riscul de cetoacidoza diabetica (DKA).
+\nBranduri comune sunt: Invokana®, Forxiga®, Jardiance®, Steglatro®, Suglat®, Apleway®, Deberza®, Synjardy®, Vokanamet®, Xigduo®.\n\nDeclar pe propria răspundere că nu voi lua asemenea medicamente cât folosesc AAPS sau că voi dezactiva bucla închisă înainte de le folosi.</string>
 </resources>
