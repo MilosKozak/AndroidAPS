@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    General-->
+    <string name="error">Eroare</string>
+    <string name="connecting">Se conectează</string>
+    <string name="connected">Conectat</string>
+    <string name="disconnected">Deconectat</string>
+    <string name="disconnecting">Se deconectează</string>
+    <string name="formatinsulinunits">%1$.2fU</string>
+    <string name="reservoirvalue">%1$.0f / %2$d U</string>
+    <string name="close">Închide</string>
+    <string name="please_wait">Așteptați…</string>
+    <string name="reload">Reîncărcare</string>
+    <string name="stop">Stop</string>
     <!--    Constraints-->
     <!--    Dialogs-->
     <!--    BlePreCheck-->
