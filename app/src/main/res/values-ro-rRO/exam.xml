@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dia_whatmeansdia">Care afirmații despre DIA sunt adevărate?</string>
+    <string name="dia_label_exam">Subiect: Durata de acțiune a insulinei</string>
     <string name="dia_minimumis3h">Valoarea minimă este de 3 ore.</string>
     <string name="dia_minimumis5h">Valoarea minimă este de 5 ore.</string>
     <string name="dia_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html?#insulin</string>
@@ -19,28 +20,43 @@
     <string name="pumpdisconnect_whattodo">Ce trebuie să faceți atunci când deconectați pompa?</string>
     <string name="pumpdisconnect_letknow">Apăsați ‘Deconectează pompa’ astfel încât AAPS să știe că nu se va putea livra insulină.</string>
     <string name="pumpdisconnect_suspend">Apăsați ‘Suspendă bucla’ astfel încât AAPS să dezactiveze bucla atâta timp cât pompa este deconectată.</string>
+    <string name="pumpdisconnect_dontchnage">Nu modificați nimic în AAPS, doar deconectați pompa.</string>
     <string name="pumpdisconnect_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#other-settings</string>
     <string name="objectives_label">Subiect: Setări AndroidAPS</string>
     <string name="objectives_howtosave">Care sunt cele mai bune metode de a păstra o copie de siguranță a setărilor AndroidAPS?</string>
     <string name="objectives_exportsettings">Export pe un mediu de stocare local folosind meniul Mentenanță.</string>
     <string name="objectives_storeelsewhere">Stocarea fișierului exportat într-un alt loc, precum email, Dropbox, Google drive…</string>
     <string name="objectives_doexportonstart">Exportarea imedia după instalarea AAPS.</string>
+    <string name="objectives_doexportafterchange">Exportați-le după ce modificați setările.</string>
+    <string name="objectives_doexportafterobjective">Exportaţi-le după finalizarea unui obiectiv.</string>
     <string name="objectives_doexportafterfirtssettings">Exportarea atunci când ați terminat setarea inițială.</string>
     <string name="objectives_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/ExportImportSettings.html</string>
     <string name="objectives_hint2">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#what-emergency-equipment-is-recommended-to-take-with-me</string>
     <string name="noisycgm_label">Subiect: Citiri zgomotoase ale glicemiei</string>
+    <string name="nothing">Nimic, AAPS se va descurca.</string>
+    <string name="noisycgm_pause">Dezactivați bucla închisă pentru a evita supra-dozarea.</string>
     <string name="noisycgm_replacesensor">Se va înlocui senzorul CGM.</string>
     <string name="noisycgm_turnoffphone">Se va opri telefonul.</string>
     <string name="noisycgm_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Smoothing-Blood-Glucose-Data-in-xDrip.html#smoothing-blood-glucose-data</string>
+    <string name="noisycgm_checksmoothing">Verificați dacă aplicația de senzor normalizează valorile glicemiei.</string>
     <string name="exercise_label">Subiect: Exerciții fizice</string>
     <string name="exercise_whattodo">Cum puteți ajuta sistemul să facă față exercițiilor fizice?</string>
     <string name="exercise_switchprofilebelow100">Se va face un schimb de profil de sub 100%.</string>
     <string name="exercise_switchprofileabove100">Se va face o schimbare de profil de peste 100%.</string>
     <string name="exercise_stoploop">Se va opri bucla.</string>
+    <string name="exercise_doitbeforestart">Setați o valoare-țintă temporară de activitate înainte de a începe exercițiul fizic.</string>
     <string name="exercise_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html#activity-temp-target</string>
+    <string name="suspendloop_label">Subiect: Dezactivarea/Suspendarea buclei închise</string>
+    <string name="suspendloop_doigetinsulin">Primesc insulina atunci când bucla închisă este dezactivata/suspendata?</string>
+    <string name="suspendloop_yes">Da, insulina bazală este livrată în continuare.</string>
     <string name="suspendloop_no">Nu, livrarea de insulină este oprită.</string>
     <string name="basaltest_label">Subiect: Bazală, ISF și testare IC</string>
     <string name="basaltest_when">Când ar trebui să validez bazalele, ISF și valorile IC?</string>
     <string name="basaltest_beforeloop">Înainte de pornirea buclei.</string>
+    <string name="basaltest_havingregularhypo">Atunci când hipoglicemiile apar frecvent.</string>
+    <string name="basaltest_havingregularhyper">Atunci când hiperglicemiile apar frecvent.</string>
     <string name="basaltest_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#androidaps-settings</string>
+    <string name="prerequisites_label">Subiect: Cerințe preliminare</string>
+    <string name="prerequisites_what">Ce am nevoie?</string>
+    <string name="prerequisites_determinedcorrectprofile">Profil validat (ratele bazale, IC, ISF, DIA).</string>
 </resources>
