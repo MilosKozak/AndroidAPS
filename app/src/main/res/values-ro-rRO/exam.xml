@@ -59,4 +59,18 @@
     <string name="prerequisites_label">Subiect: Cerințe preliminare</string>
     <string name="prerequisites_what">Ce am nevoie?</string>
     <string name="prerequisites_determinedcorrectprofile">Profil validat (ratele bazale, IC, ISF, DIA).</string>
+    <string name="prerequisites_computer">Un calculator pentru a crea APK-ul.</string>
+    <string name="prerequisites_phone">Un telefon compatibil.</string>
+    <string name="prerequisites_car">O mașină.</string>
+    <string name="prerequisites_nightscout">Nightscout pentru a finaliza obiectivele.</string>
+    <string name="prerequisites_tidepoolaccount">Un cont Tidepool.</string>
+    <string name="prerequisites_googleaccount">Un cont de Google.</string>
+    <string name="prerequisites_githubaccount">Un cont de Github.</string>
+    <string name="prerequisites_beanandroiddeveloper">Experiență în dezvoltarea Android.</string>
+    <string name="prerequisites_own670g">O pompă MiniMed 670G.</string>
+    <string name="prerequisites_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html</string>
+    <string name="prerequisites_smartwatch">Un ceas inteligent.</string>
+    <string name="prerequisites_supportedcgm">Un sistem de senzori CGM compatibil.</string>
+    <string name="update_label">Subiect: Actualizarea AndroidAPS</string>
+    <string name="whatistrue">Ce este adevărat?</string>
 </resources>
