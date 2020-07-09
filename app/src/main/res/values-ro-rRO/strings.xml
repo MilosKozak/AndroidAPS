@@ -220,6 +220,7 @@
     <string name="bolusdelivered">Bolusul de %1$.2fU a fost livrat cu succes</string>
     <string name="bolusrequested">Se va livra un bolus de %1$.2fU</string>
     <string name="smscommunicator_bolusdelivered">Bolusul de %1$.2fU a fost livrat cu succes</string>
+    <string name="smscommunicator_mealbolusdelivered_tt">Țintă %1$s pentru %2$d minute</string>
     <string name="smscommunicator_remotecommandsallowed">Permite comenzi de la distanță, prin SMS</string>
     <string name="danarprofile">Setări de profil DanaR</string>
     <string name="danarprofile_dia">DIA [o]</string>
