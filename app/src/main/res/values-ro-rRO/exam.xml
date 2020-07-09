@@ -46,6 +46,7 @@
     <string name="exercise_switchprofileabove100">Se va face o schimbare de profil de peste 100%.</string>
     <string name="exercise_stoploop">Se va opri bucla.</string>
     <string name="exercise_doitbeforestart">Setați o valoare-țintă temporară de activitate înainte de a începe exercițiul fizic.</string>
+    <string name="exercise_afterstart">Setarea unei valori-țintă temporare pentru activitate după ce exercițiul fizic a început generează rezultate mai proaste decât dacă ar fi fost setată înainte.</string>
     <string name="exercise_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/temptarget.html#activity-temp-target</string>
     <string name="suspendloop_label">Subiect: Dezactivarea/Suspendarea buclei închise</string>
     <string name="suspendloop_doigetinsulin">Primesc insulina atunci când bucla închisă este dezactivata/suspendata?</string>
@@ -74,6 +75,8 @@
     <string name="prerequisites_supportedcgm">Un sistem de senzori CGM compatibil.</string>
     <string name="update_label">Subiect: Actualizarea AndroidAPS</string>
     <string name="whatistrue">Ce este adevărat?</string>
+    <string name="update_git">Aveți nevoie de Git instalat.</string>
+    <string name="update_asap">Actualizați când o versiune noua este lansată și aveți timp să o instalați.</string>
     <string name="update_keys">Ar trebui sa folosiți aceleași chei de semnare.</string>
     <string name="update_neverupdate">Nu actualizați niciodată dacă sistemul funcționează corect.</string>
     <string name="update_askfriend">Cereți unui prieten noul APK.</string>
@@ -89,6 +92,15 @@
     <string name="troubleshooting_hint2">https://www.facebook.com/groups/AndroidAPSUsers/</string>
     <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
     <string name="insulin_label">Subiect: Plugin-uri pentru Insulină</string>
+    <string name="insulin_ultrarapid">Ce brand de insulină poate fi folosit cu plugin-ul ‘Ultra-Rapid-Oref’?</string>
+    <string name="insulin_fiasp">Fiasp®</string>
+    <string name="insulin_novorapid">NovoRapid®</string>
+    <string name="insulin_humalog">Humalog®</string>
+    <string name="insulin_actrapid">Actrapid®</string>
+    <string name="insulin_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Config-Builder.html#insulin</string>
+    <string name="sensitivity_label">Subiect: Plugin-uri pentru sensibilitate</string>
+    <string name="sensitivity_which">Ce algoritm de sensibilitate are un interval de timp configurabil?</string>
+    <string name="sensitivity_hint1">https://androidaps.readthedocs.io/en/latest/EN/Configuration/Sensitivity-detection-and-COB.html</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Subiect: Schimbarea de profil</string>
     <string name="profileswitch_pctwillchange"> Atunci când se specifică 90% la schimbarea de profil…</string>
@@ -101,4 +113,15 @@
     <string name="profileswitch_overall">Veți primi în total cam cu 10% mai puțină insulină.</string>
     <string name="profileswitch_hint1" formatted="false">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
     <string name="profileswitchtime_iwant">Dacă va treziți cu o ora mai devreme decât de obicei, cum veți anunța AAPS de schimbarea din programul dumneavoastră?</string>
+    <string name="profileswitchtime_1">Inițiați o schimbare de profil cu decalaj de timp de 1</string>
+    <string name="profileswitchtime__1">Inițiați o schimbare de profil cu decalaj de timp de -1</string>
+    <string name="profileswitchtime_hint1">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#timeshift</string>
+    <string name="profileswitchtime_60">Inițiați o schimbare de profil cu decalaj de timp de 60</string>
+    <string name="profileswitchtime__60">Inițiați o schimbare de profil cu decalaj de timp de -60</string>
+    <string name="basalhelp_hint1">https://androidaps.readthedocs.io/en/latest/EN/Module/module.html#good-individual-dosage-algorithm-for-your-diabetes-therapy</string>
+    <string name="basalhelp_label">Subiect: Ajutor pentru ratele bazale</string>
+    <string name="basalhelp_where">Unde căutați ajutor pentru a seta ratele bazale etc.</string>
+    <string name="basalhelp_google">Google</string>
+    <string name="basalhelp_facebook">Facebook</string>
+    <string name="other_medication_label">Alte tratamente</string>
 </resources>
