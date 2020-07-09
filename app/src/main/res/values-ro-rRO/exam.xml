@@ -78,13 +78,27 @@
     <string name="update_neverupdate">Nu actualizați niciodată dacă sistemul funcționează corect.</string>
     <string name="update_askfriend">Cereți unui prieten noul APK.</string>
     <string name="update_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#update-to-a-new-version-or-branch</string>
+    <string name="troubleshooting_label">Subiect: Rezolvarea Problemelor</string>
     <string name="troubleshooting_wheretoask">Unde căutați ajutor?</string>
     <string name="troubleshooting_fb">Alăturaţi-vă grupului de Facebook AndroidAPS.</string>
     <string name="troubleshooting_wiki">Citiți documentația AndroidAPS.</string>
+    <string name="troubleshooting_gitter">Vizitați canalul AndroidAPS pe Gitter.</string>
     <string name="troubleshooting_googlesupport">Vizitați AndroidAPS Google support</string>
+    <string name="troubleshooting_yourendo">Vă consultați cu diabetologul.</string>
     <string name="troubleshooting_hint1">https://androidaps.readthedocs.io/en/latest/EN/Installing-AndroidAPS/Update-to-new-version.html#troubleshooting</string>
     <string name="troubleshooting_hint2">https://www.facebook.com/groups/AndroidAPSUsers/</string>
     <string name="troubleshooting_hint3">https://gitter.im/MilosKozak/AndroidAPS</string>
     <string name="insulin_label">Subiect: Plugin-uri pentru Insulină</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
+    <string name="profileswitch_label">Subiect: Schimbarea de profil</string>
+    <string name="profileswitch_pctwillchange"> Atunci când se specifică 90% la schimbarea de profil…</string>
+    <string name="profileswitch_basalhigher">Ratele bazale vor fi cu 10% mai mari.</string>
+    <string name="profileswitch_basallower">Ratele bazale vor fi cu 10% mai mici.</string>
+    <string name="profileswitch_ichigher">Valoarea IC va fi cu 10% mai mare.</string>
+    <string name="profileswitch_iclower">Valoarea IC va fi cu 10% mai mica.</string>
+    <string name="profileswitch_isfhigher">Valoarea ISF va fi cu 10% mai mare.</string>
+    <string name="profileswitch_isflower">Valoarea ISF va fi cu 10% mai mică.</string>
+    <string name="profileswitch_overall">Veți primi în total cam cu 10% mai puțină insulină.</string>
+    <string name="profileswitch_hint1" formatted="false">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
+    <string name="profileswitchtime_iwant">Dacă va treziți cu o ora mai devreme decât de obicei, cum veți anunța AAPS de schimbarea din programul dumneavoastră?</string>
 </resources>
