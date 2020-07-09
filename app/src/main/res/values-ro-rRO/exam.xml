@@ -131,6 +131,11 @@
     <string name="isf_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#insulin-sensitivity-factor-isf-mmol-l-u-or-mg-dl-u</string>
     <string name="isf_hint2">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html</string>
     <string name="ic_label_exam">Subiect: Rația insulină-carbohidrați (IC)</string>
+    <string name="ic_increasingvalue">Valorile IC mai mari determină o cantitate mai mică de insulină livrată pentru o cantitate dată de carbohidrați.</string>
+    <string name="ic_decreasingvalue">Valorile IC mai mici determină o cantitate mai mică de insulină livrată pentru o cantitate dată de carbohidrați.</string>
+    <string name="ic_noeffect">Dacă aveți 0 CoB (carbohidrați activi), schimbarea IC va determina modificarea cantității de insulină livrată pentru a corecta glicemia.</string>
+    <string name="ic_different">Valoarea IC va fi diferita dacă considerați 1BE (unitate de pâine) ca 10g sau 12g glucide.</string>
+    <string name="ic_meaning">IC înseamnă: Câte unități de pâine sunt acoperite de 1 unitate de insulină.</string>
     <string name="ic_hint1">https://androidaps.readthedocs.io/en/latest/EN/Getting-Started/FAQ.html#carbohydrate-to-insulin-ratio-cr-g-u</string>
     <string name="profileswitch_label">Subiect: Schimbarea de profil</string>
     <string name="profileswitch_pctwillchange"> Atunci când se specifică 90% la schimbarea de profil…</string>
@@ -141,6 +146,9 @@
     <string name="profileswitch_isfhigher">Valoarea ISF va fi cu 10% mai mare.</string>
     <string name="profileswitch_isflower">Valoarea ISF va fi cu 10% mai mică.</string>
     <string name="profileswitch_overall">Veți primi în total cam cu 10% mai puțină insulină.</string>
+    <string name="profileswitch_targethigher">Intervalul-ţintă va fi cu 10% mai mare.</string>
+    <string name="profileswitch_targetlower">Intervalul-ţintă va fi cu 10% mai mic.</string>
+    <string name="profileswitch_targetbottom">Doar valoarea-ţintă inferioară va fi cu 10% mai mică.</string>
     <string name="profileswitch_hint1" formatted="false">https://androidaps.readthedocs.io/en/latest/EN/Usage/Profiles.html?highlight=profile%20switch#profile-switch</string>
     <string name="profileswitchtime_iwant">Dacă va treziți cu o ora mai devreme decât de obicei, cum veți anunța AAPS de schimbarea din programul dumneavoastră?</string>
     <string name="profileswitchtime_1">Inițiați o schimbare de profil cu decalaj de timp de 1</string>
