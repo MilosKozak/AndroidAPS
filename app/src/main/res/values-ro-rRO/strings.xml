@@ -1212,9 +1212,39 @@
     <!-- SMS Communicator & OTP Authenticator -->
     <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">de la aplicația Authenticator pentru: %1$s</string>
     <string name="smscommunicator_otp_enabled">Activare Authenticator</string>
+    <string name="smscommunicator_otp_enabled_summary">Autentificați comenzile folosind o parolă unica generată de Google Authenticator sau alte aplicații 2FA similare.</string>
+    <string name="smscommunicator_otp_pin">PIN adițional la sfârșitul token-ului</string>
+    <string name="smscommunicator_otp_pin_summary">Cifre suplimentare care ar trebui să fie memorate și adăugate la sfârșitul fiecărei parole unice generate</string>
+    <string name="smscomunicator_tab_otp_label">Setare Authenticator</string>
+    <string name="smscommunicator_otp_verify_label">Parola unică pentru verificare:</string>
+    <string name="smscommunicator_otp_reset_title">Resetați cheia pentru Authenticator</string>
+    <string name="smscommunicator_otp_reset_prompt">Sunteți sigur că vreți sa resetați cheia pentru Authenticator? Acest lucru va invalida toți Authenticatorii configurați și va trebui să ii setați din nou.</string>
+    <string name="smscommunicator_otp_step1_install_header">1. Instalați Authenticator</string>
+    <string name="smscommunicator_otp_step2_provisioning_header">2. Scanați codul pentru a seta codurile unice pentru AndroidAPS</string>
+    <string name="smscommunicator_otp_step3_test_header">3. Testați o parolă unică</string>
+    <string name="smscommunicator_otp_install_info">Pe fiecare telefon urmăritor instalați o aplicație de tip Authenticator care suporta tokens RFC 6238 TOTP. Asemenea aplicații gratuite populare sunt:\n • Authy\n • Google Authenticator\n • LastPass Authenticator\n • FreeOTP Authenticator</string>
+    <string name="smscommunicator_otp_provisioning_warning">NU DISTRIBUIȚI acest cod online!\nUtilizaţi-l doar pentru a seta aplicația Authenticator pe telefoanele urmăritoare.</string>
+    <string name="smscommunicator_otp_reset_warning">Prin resetarea autentificatorului invalidați toți autentificatorii existenți. Va trebui să îi configurați din nou!</string>
+    <string name="onconnect">La conectare</string>
+    <string name="ondisconnect">La deconectare</string>
+    <string name="overview_show_predictions">Predicții</string>
+    <string name="overview_show_deviationslope">Panta deviaţiei</string>
+    <string name="authorizationfailed">Autorizarea a eșuat</string>
+    <string name="overview_show_absinsulin">Insulină totală</string>
+    <string name="master_password_summary">Parola master (principală) este folosită pentru criptarea copiilor de rezervă și pentru a suprascrie securitatea în aplicație. Rețineți-o sau păstrați-o într-un loc sigur.</string>
+    <string name="passwords_dont_match">Parolele nu coincid</string>
+    <string name="current_master_password">Parola principală curentă</string>
+    <string name="statuslights">Lumini de stare</string>
+    <string name="statuslights_copy_ns">Copiați setările din NS</string>
+    <string name="copyexistingvalues">Copiaţi setările NS (dacă există)?</string>
+    <string name="buttonson_description">Butoanele sunt afișate întotdeauna în partea de jos a ecranului</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Integrare pompa pentru Omnipod, necesită dispozitivul RileyLink (cu versiune firmware de cel puțin 2.0).</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_beep_bolus_enabled">Bip pentru Bolus Activat</string>
+    <string name="omnipod_config_beep_basal_enabled">Bip pentru Bazală Activat</string>
+    <string name="omnipod_config_beep_smb_enabled">Bip pentru SMB Activat</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_mgmt">Pod Mgmt</string>
     <string name="omnipod_reservoir_left">%1$.2f U rămase</string>
@@ -1226,9 +1256,22 @@
     <string name="omnipod_cmd_deactivate_pod">Dezactivare Pod</string>
     <string name="omnipod_cmd_reset_pod">Resetare Pod</string>
     <string name="omnipod_cmd_pod_history">Istoric Pod</string>
+    <string name="omnipod_cmd_get_pod_info">Obțineți Informații Pod</string>
+    <string name="omnipod_cmd_set_time">Setare timp</string>
     <string name="omnipod_cmd_configure_alerts">Configurare alerte</string>
     <string name="omnipod_cmd_acknowledge_alerts">Confirmare alerte</string>
+    <string name="omnipod_cmd_suspend_delivery">Suspendați Livrarea</string>
+    <string name="omnipod_cmd_resume_delivery">Reluați livrarea</string>
+    <string name="omnipod_cmd_unknown_entry">Intrare necunoscută</string>
+    <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, CH=%2$.1f g</string>
+    <string name="omnipod_cmd_reset_pod_desc">Dacă apăsați <b>OK</b>, statusul Pod-ului va fi resetat forțat şi nu veți mai putea comunica cu Pod-ul. Faceți acest lucru numai dacă nu mai puteți comunica deloc cu Pod-ul. Daca mai puteți comunica cu Pod-ul, va rugam sa folosiți opțiunea <b>Dezactivare Pod</b>.</string>
+    <string name="omnipod_cmd_pod_history_na">Istoricul Pod-ului nu este disponibil momentan.</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Umpleţi Pod-ul</string>
     <string name="omnipod_init_pod_wizard_step2_title">Amorsare</string>
+    <string name="omnipod_init_pod_wizard_step2_action_header">Încercare de împerechere cu noul Pod și amorsare.\n\nAtunci când toate etapele sunt gata, puteți apăsa <b>Următorul</b>.\n\n<b>Notă:</b> vă rugăm să țineți Pod-ul foarte aproape de RileyLink în timpul procesului.</string>
+    <string name="omnipod_init_pod_wizard_step3_title">Atașați Pod-ul</string>
+    <string name="omnipod_init_pod_wizard_step4_title">Inserare canulă</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
 </resources>
