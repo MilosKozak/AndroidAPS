@@ -1208,6 +1208,9 @@
     <string name="chartmenu">Meniu diagramă</string>
     <string name="sensitivity_short">AS</string>
     <string name="loop_smbrequest_time_label">Timp solicitare SMB</string>
+    <string name="loop_smbexecution_time_label">Timp de execuţie SMB</string>
+    <string name="loop_tbrrequest_time_label">Timp solicitare bazală temporară</string>
+    <string name="loop_tbrexecution_time_label">Timpul de execuție al bazalei temporare</string>
     <string name="insight_alert_notification_channel">Alerte pompă Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
     <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">de la aplicația Authenticator pentru: %1$s</string>
@@ -1217,11 +1220,14 @@
     <string name="smscommunicator_otp_pin_summary">Cifre suplimentare care ar trebui să fie memorate și adăugate la sfârșitul fiecărei parole unice generate</string>
     <string name="smscomunicator_tab_otp_label">Setare Authenticator</string>
     <string name="smscommunicator_otp_verify_label">Parola unică pentru verificare:</string>
+    <string name="smscommunicator_otp_reset_btn">Resetați Authenticatori</string>
     <string name="smscommunicator_otp_reset_title">Resetați cheia pentru Authenticator</string>
     <string name="smscommunicator_otp_reset_prompt">Sunteți sigur că vreți sa resetați cheia pentru Authenticator? Acest lucru va invalida toți Authenticatorii configurați și va trebui să ii setați din nou.</string>
+    <string name="smscommunicator_otp_reset_successful">S-a generat o nouă cheie pentru Authenticator! Vă rugăm să utilizați QRCode actualizat pentru a configura autentificatori.</string>
     <string name="smscommunicator_otp_step1_install_header">1. Instalați Authenticator</string>
     <string name="smscommunicator_otp_step2_provisioning_header">2. Scanați codul pentru a seta codurile unice pentru AndroidAPS</string>
     <string name="smscommunicator_otp_step3_test_header">3. Testați o parolă unică</string>
+    <string name="smscommunicator_otp_reset_header">Resetați Authenticatori</string>
     <string name="smscommunicator_otp_install_info">Pe fiecare telefon urmăritor instalați o aplicație de tip Authenticator care suporta tokens RFC 6238 TOTP. Asemenea aplicații gratuite populare sunt:\n • Authy\n • Google Authenticator\n • LastPass Authenticator\n • FreeOTP Authenticator</string>
     <string name="smscommunicator_otp_provisioning_warning">NU DISTRIBUIȚI acest cod online!\nUtilizaţi-l doar pentru a seta aplicația Authenticator pe telefoanele urmăritoare.</string>
     <string name="smscommunicator_otp_reset_warning">Prin resetarea autentificatorului invalidați toți autentificatorii existenți. Va trebui să îi configurați din nou!</string>
@@ -1272,6 +1278,8 @@
     <string name="omnipod_init_pod_wizard_step2_action_header">Încercare de împerechere cu noul Pod și amorsare.\n\nAtunci când toate etapele sunt gata, puteți apăsa <b>Următorul</b>.\n\n<b>Notă:</b> vă rugăm să țineți Pod-ul foarte aproape de RileyLink în timpul procesului.</string>
     <string name="omnipod_init_pod_wizard_step3_title">Atașați Pod-ul</string>
     <string name="omnipod_init_pod_wizard_step4_title">Inserare canulă</string>
+    <string name="omnipod_init_pod_wizard_pod_info_title">Informații Pod</string>
+    <string name="omnipod_remove_pod_wizard_step1_title">Dezactivare Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
 </resources>
