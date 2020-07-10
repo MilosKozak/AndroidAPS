@@ -210,6 +210,7 @@
     <string name="prefdecrypt_issue_wrong_format">Lipseşte configuraţia de criptare, formatul setărilor este invalid!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Algoritm de criptare nesuportat sau nespecificat!</string>
     <string name="exported_today">exportat azi</string>
+    <string name="exported_ago" comment="at placeholder we add pluralized number of hours/minutes">exportat cu %1$s în urmă</string>
     <string name="exported_at" comment="at placeholder we add export date">exportat în data de %1$s</string>
     <string name="exported_less_than_hour_ago">exportat acum mai puțin de o ora</string>
     <string name="in_directory" comment="placeholder is for exported file path">în folderul: %1$s</string>
@@ -222,13 +223,23 @@
     <string name="smscommunicator_allowednumbers">Numere de telefon permise</string>
     <string name="smscommunicator_allowednumbers_summary">+ XXXXXXXXXX; + YYYYYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">Pentru a livra un bolus de %1$.2fU răspundeți cu codul %2$s</string>
+    <string name="smscommunicator_mealbolusreplywithcode">Pentru a livra un bolus de %1$.2fU raspundeți cu: %2$s</string>
+    <string name="smscommunicator_temptargetwithcode">Pentru a seta tinta temporara %1$s raspundeti cu: %2$s</string>
+    <string name="smscommunicator_temptargetcancel">Pentru a anula tinta temporara raspundeți cu: %1$s</string>
+    <string name="smscommunicator_stopsmswithcode">Pentru a dezactiva serviciul SMS la distanta raspundeti cu: %1$s.\n\nRetineti ca o sa il puteti reactiva doar direct de pe smartphone-ul master AAPS.</string>
+    <string name="smscommunicator_stoppedsms">Serviciul SMS la distanta s-a oprit. Pentru a il reactiva, utilizati AAPS de pe smartphone-ul master.</string>
     <string name="smscommunicator_calibrationreplywithcode">Pentru a trimite calibrarea cu %1$.2f răspundeți cu codul %2$s</string>
     <string name="smscommunicator_bolusfailed">Bolusare eșuată</string>
+    <string name="smscommunicator_remotebolusmindistance_summary">Numarul minim de minute care trebuie sa treaca intre un bolus la distanta si urmatorul</string>
+    <string name="smscommunicator_remotebolusmindistance">Cate minute trebuie sa treaca, cel puţin, intre un bolus si următorul</string>
+    <string name="smscommunicator_remotebolusmindistance_caveat">Pentru siguranta dumneavoastra, pentru a edita aceasta preferinta trebuie sa adaugati cel putin 2 numere de telefon.</string>
     <string name="bolusdelivered">Bolusul de %1$.2fU a fost livrat cu succes</string>
     <string name="bolusrequested">Se va livra un bolus de %1$.2fU</string>
     <string name="smscommunicator_bolusdelivered">Bolusul de %1$.2fU a fost livrat cu succes</string>
     <string name="smscommunicator_mealbolusdelivered">Bolusul de %1$.2fU a fost livrat cu succes</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Țintă %1$s pentru %2$d minute</string>
+    <string name="smscommunicator_tt_set">Tinta %1$s pentru %2$d minute este setata cu succes</string>
+    <string name="smscommunicator_tt_canceled">Tinta temporara anulata cu succes</string>
     <string name="smscommunicator_remotecommandsallowed">Permite comenzi de la distanță, prin SMS</string>
     <string name="danarprofile">Setări de profil DanaR</string>
     <string name="danarprofile_dia">DIA [o]</string>
@@ -242,6 +253,9 @@
     <string name="smscommunicator_loopisenabled">Bucla este activată</string>
     <string name="valuelimitedto">%1$.2f este limitată la %2$.2f</string>
     <string name="valueoutofrange">Valoarea %1$s este mai mare decât limita stabilită</string>
+    <string name="smscommunicator_pumpconnectwithcode">Pentru a conecta pompa raspundeti cu codul %1$s</string>
+    <string name="smscommunicator_pumpconnectfail">Conectarea cu pompa a esuat</string>
+    <string name="smscommunicator_pumpdisconnectwithcode">Pentru a deconecta pompa timp de %1d minute, raspundeti cu: %2$s</string>
     <string name="smscommunicator_pumpdisconnected">Pompă deconectată</string>
     <string name="smscommunicator_reconnect">Pompă reconectată</string>
     <string name="smscommunicator_remotecommandnotallowed">Comanda de la distanță nu este permisă</string>
@@ -249,10 +263,16 @@
     <string name="smscommunicator_basalreplywithcode">Pentru a iniția bazala de %1$.2fU/h pentru %2$d min trimiteți codul %3$s</string>
     <string name="smscommunicator_profilereplywithcode">Pentru a schimba profilul în %1$s %2$d%% trimiteți codul %3$s</string>
     <string name="smscommunicator_extendedreplywithcode">Pentru a stabili bazala de %1$.2fU/h pentru %2$d min trimiteți codul %3$s</string>
+    <string name="smscommunicator_carbsreplywithcode">Pentru a introduce %1$dg la %2$s, raspundeti cu: %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">Pentru a iniția bazala de %1$d%% pentru %2$d min trimiteți codul %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">Pentru suspendarea buclei pentru %1$d minute trimiteți codul %2$s</string>
+    <string name="smscommunicator_loopresumereplywithcode">Pentru a reactiva bucla inchisa, raspundeti cu %1$s</string>
+    <string name="smscommunicator_loopenablereplywithcode">Pentru a activa bucla inchisa, raspundeti cu %1$s</string>
+    <string name="smscommunicator_loopdisablereplywithcode">Pentru a dezactiva bucla inchisa, raspundeti cu %1$s</string>
     <string name="smscommunicator_tempbasalset">Bazala temporară %1$.2fU/h pentru %2$d minute a fost trimisă cu succes</string>
     <string name="smscommunicator_extendedset">Bolusul extins de %1$.2fU pentru %2$d min a fost inițiat</string>
+    <string name="smscommunicator_carbsset">%1$dg carbohidrati introdusi cu succes</string>
+    <string name="smscommunicator_carbsfailed">Introducerea a %1$dg de carbohidrati a esuat</string>
     <string name="smscommunicator_tempbasalset_percent">Bazala temporară %1$d%% pentru %2$d minute a fost stabilită cu succes</string>
     <string name="smscommunicator_tempbasalfailed">Trimiterea bazalei temporare a eșuat</string>
     <string name="smscommunicator_extendedfailed">Pornirea bolusului extins a eșuat</string>
@@ -283,6 +303,9 @@
     <string name="button1">Buton 1</string>
     <string name="button2">Buton 2</string>
     <string name="button3">Buton 3</string>
+    <string name="units_colon">Unități:</string>
+    <string name="units">Unități</string>
+    <string name="dia">DIA</string>
     <string name="target_range">Intervalul țintă:</string>
     <string name="prefs_range_title">Intervalul pentru vizualizare</string>
     <string name="prefs_range_summary">Valoarea maximă și minimă pentru graficele din vizualizare și pentru smartwatch</string>
@@ -313,6 +336,7 @@
     <string name="eatingsoon">Masă în curând</string>
     <string name="hypo">Hipo</string>
     <string name="activity">Activitate</string>
+    <string name="removerecord">Șterge înregistrarea</string>
     <string name="actions_shortname">ACT</string>
     <string name="configbuilder_shortname">CONF</string>
     <string name="loop_shortname">BUCL</string>
@@ -334,6 +358,7 @@
     <string name="openapsama_current_basal_safety_multiplier_summary">Valoare implicită: 4\nAceasta este cealaltă jumătate a cheii de siguranță a OpenAPS și cealaltă jumătate a \"3x max zilnic; 4x curent\" al setărilor de siguranță.Aceasta înseamnă că bazala dumneavoastră, indiferent de bazala maximă configurată în pompă, nu poate fi mai mare de acest număr înmulțit cu nivelul curent al bazalei active. Această limitare este impusă pentru a evita posibilitatea de a intra pe un teritoriu periculos prin setarea unei bazale maxime excesiv de mari înainte de a înțelege funcționarea algoritmului. Din nou, valoarea implictă este 4x; majoritatea oamenilor nu vor trebui să ajusteze această valoare și vor modifica, mai degrabă, alte valori dacă vor simți că această valoare le stă în cale.</string>
     <string name="openapsama_autosens_max_summary">Valoare implicită: 1.2\nAceasta este valoarea limită de multiplicare pentru autosens (și pentru autotune, în curând) pentru a seta o limită maximă de 20%% din cât de mare poate fi raportul autosens, care, la rândul ei, determină cât de mult poate autosens să modifice bazalele, cât de jos poate modifica ISF și cât de jos poate pune ținta glicemiei.</string>
     <string name="openapsama_autosens_min_summary">Valoare implicită: 0.7\nCealaltă parte a limitelor autosens, care limitează cât de jos poate ajusta bazalele și cât de mult poate mări ISF și țintele de glicemie.</string>
+    <string name="openapsama_autosens_adjusttargets">Autosens ajustează si target-urile</string>
     <string name="openapsama_autosens_adjusttargets_summary">Valoare implicită: adevărat\nAceasta se folosește pentru a permite autosens să ajusteze țintele de glicemie, pe lângă modificările asupra ISF și bazalelor.</string>
     <string name="openapsama_bolussnooze_dia_divisor_summary">Valoare implicită: 2\nAmânarea bolusului este aplicată după ce ați făcut un bolus de masă, astfel încât bucla să nu reacționeze cu ținte bazale temporare scăzute atunci când tocmai ați mâncat. Exemplul de față și valoarea implicită sunt 2; astfel o durată de acțiune a insulinei (DIA) de 3 ore duce la o eliminare treptată a întârzierii setării bazalelor temporare după 1.5 ore (3DIA/2).</string>
     <string name="openapsama_min_5m_carbimpact_summary">Valoarea implicită: 3.0 (AMA) sau 8.0 (SMB). Aceasta este o setare pentru impactul implicit al carbohidraţilor pe 5 minute. Valoarea implicită este 3mg/dl la 5min. Aceasta influenţează rapiditatea cu care se scade COB şi modul în care se ia în calcul absorbţia carbohidraţilor în calcularea valorilor estimate ale glicemiei, atunci când glicemia este în scădere mai mare decât se aştepta sau nu creşte atât de repede pe cât se aştepta.</string>
@@ -372,6 +397,7 @@
     <string name="wear_detailedIOB_title">Arată IOB detaliat</string>
     <string name="wear_detailedIOB_summary">Separă IOB în bolus și IOB bazal pe ceas</string>
     <string name="nosuccess">fără succes - verificați telefonul</string>
+    <string name="notavailable">indisponibil</string>
     <string name="patientage">Vârsta pacientului</string>
     <string name="child">Copil</string>
     <string name="teenage">Adolescent</string>
@@ -379,6 +405,7 @@
     <string name="resistantadult">Adult rezistent la insulină</string>
     <string name="patientage_summary">Vă rog să selectați vârsta pacientului în vederea stabilirii valorilor maxime admise de siguranță</string>
     <string name="patient_name">Numele pacientului</string>
+    <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Utilizator</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s necesită excluderea din lista de optimizare a bateriei pentru o funcționare corespunzătoare</string>
     <string name="loopsuspended">Buclă suspendată</string>
@@ -413,6 +440,10 @@
     <string name="enablesuperbolus">Activează superbolus în asistent</string>
     <string name="enablesuperbolus_summary">Activează funcționalitatea de superbolus în asistentul de buclă. Nu activați până nu înțelegeți ce face cu adevărat. DACĂ ESTE FOLOSIT ÎN NECUNOȘTINȚĂ DE CAUZĂ POATE DUCE LA SUPRADOZĂ DE INSULINĂ!</string>
     <string name="show_statuslights">Afișați indicatorii luminoși ai pompei pe ecranul de start</string>
+    <string name="statuslights_iage_warning">Prag de avertizare vechime insulină [h]</string>
+    <string name="statuslights_iage_critical">Prag critic vechime insulină [h]</string>
+    <string name="statuslights_bage_warning">Prag de avertizare nivel baterie [h]</string>
+    <string name="statuslights_bage_critical">Prag critic nivel baterie [h]</string>
     <string name="statuslights_res_warning">Pragul de avertisment pentru insulina din rezervor [U]</string>
     <string name="statuslights_res_critical">Pragul critic al nivelului insulinei în rezervor [U]</string>
     <string name="iob">IOB</string>
