@@ -405,6 +405,7 @@
     <string name="resistantadult">Adult rezistent la insulină</string>
     <string name="patientage_summary">Vă rog să selectați vârsta pacientului în vederea stabilirii valorilor maxime admise de siguranță</string>
     <string name="patient_name">Numele pacientului</string>
+    <string name="patient_name_summary">Vă rugăm să furnizați numele sau porecla pacientului pentru a diferenția între configurări</string>
     <string name="patient_name_default" comment="This is default patient display name, when user does not provide real one">Utilizator</string>
     <string name="Glimp">Glimp</string>
     <string name="needwhitelisting">%1$s necesită excluderea din lista de optimizare a bateriei pentru o funcționare corespunzătoare</string>
@@ -440,14 +441,26 @@
     <string name="enablesuperbolus">Activează superbolus în asistent</string>
     <string name="enablesuperbolus_summary">Activează funcționalitatea de superbolus în asistentul de buclă. Nu activați până nu înțelegeți ce face cu adevărat. DACĂ ESTE FOLOSIT ÎN NECUNOȘTINȚĂ DE CAUZĂ POATE DUCE LA SUPRADOZĂ DE INSULINĂ!</string>
     <string name="show_statuslights">Afișați indicatorii luminoși ai pompei pe ecranul de start</string>
+    <string name="statuslights_cage_warning">Prag de avertizare timp de utilizare canulă [h]</string>
+    <string name="statuslights_cage_critical">Prag critic timp de utilizare canulă [h]</string>
     <string name="statuslights_iage_warning">Prag de avertizare vechime insulină [h]</string>
     <string name="statuslights_iage_critical">Prag critic vechime insulină [h]</string>
+    <string name="statuslights_sage_warning">Prag de avertizare vechime senzor [h]</string>
+    <string name="statuslights_sage_critical">Prag critic vechime senzor [h]</string>
     <string name="statuslights_bage_warning">Prag de avertizare nivel baterie [h]</string>
     <string name="statuslights_bage_critical">Prag critic nivel baterie [h]</string>
     <string name="statuslights_res_warning">Pragul de avertisment pentru insulina din rezervor [U]</string>
     <string name="statuslights_res_critical">Pragul critic al nivelului insulinei în rezervor [U]</string>
+    <string name="statuslights_bat_warning">Pragul de avertizare nivel baterie [%]</string>
+    <string name="statuslights_bat_critical">Pragul critic al nivelului baterie [%]</string>
+    <string name="prediction_shortname">PRED</string>
     <string name="iob">IOB</string>
     <string name="cob">COB</string>
+    <string name="basal_shortname">R_BAZ</string>
+    <string name="deviation_shortname">DEV</string>
+    <string name="activity_shortname">ACT</string>
+    <string name="abs_insulin_shortname">ABS</string>
+    <string name="devslope_shortname">DEVSLOPE</string>
     <string name="nav_about">Despre</string>
     <string name="smscommunicator_missingsmspermission">Lipsesc permisiunile de SMS</string>
     <string name="smscommunicator_missingphonestatepermission">Nu este acordată permisiunea de citire a stării telefonului</string>
@@ -462,8 +475,11 @@
     <string name="careportal_sensorage_label">Vechime senzor</string>
     <string name="careportal_canulaage_label">Vechime canulă</string>
     <string name="careportal_insulinage_label">Vechime insulină</string>
+    <string name="doprofileswitch">Schimbă profilul</string>
     <string name="careportal_pbage_label">Vechime baterie pompă</string>
     <string name="ns_alarmoptions">Opțiuni alarmare</string>
+    <string name="ns_alarms">Creare notificări din alarmele NS</string>
+    <string name="ns_announcements">Creare notificări din anunţurile NS</string>
     <string name="nsalarm_staledatavalue_label">Prag vechime date [min]</string>
     <string name="nsalarm_urgent_staledatavalue_label">Prag date mult prea vechi [min]</string>
     <string name="openapsama_autosens_period">Interval pentru autosens [o]</string>
@@ -544,6 +560,7 @@
     <string name="enable_missed_bg_readings_alert">Alarmează dacă nu se primesc glicemii</string>
     <string name="enable_pump_unreachable_alert">Se alertează dacă pompa este indisponibilă</string>
     <string name="pump_unreachable_threshold">Prag pompă indisponibilă [min]</string>
+    <string name="enable_carbs_req_alert">Alertează dacă sunt necesari carbohidrați</string>
     <string name="urgent_alarm">Alarmă urgentă</string>
     <string name="info">INFO</string>
     <string name="eversense">Aplicația Eversense (modificată)</string>
@@ -551,7 +568,13 @@
     <string name="bgsource_upload">Setări înregistrare glicemie</string>
     <string name="wear_detailed_delta_title">Arată variație detaliată</string>
     <string name="wear_detailed_delta_summary">Arată variație cu încă o zecimală</string>
+    <string name="smbinterval_summary">Cât de des se vor administra SMB în min</string>
+    <string name="smbmaxminutes">SMB maxim minute</string>
     <string name="smbmaxminutes_summary">Max minute de bazală la care să se limiteze SMB</string>
+    <string name="uamsmbmaxminutes">UAM SMB maxim minute</string>
+    <string name="uamsmbmaxminutes_summary">Durata maxima (în minute) a bazalei pentru a limita SMB în cazul UAM</string>
+    <string name="carbsReqThreshold">Numărul minim de carbohidrați solicitați în Sugestii</string>
+    <string name="carbsReqThreshold_summary">Numărul minim de carbohidrați pentru a afișa o alertă-sugestie. Sugestiile de carbohidrați mai jos acest număr nu vor declanșa o notificare.</string>
     <string name="dexcomg5_xdripupload_title">Trimite date glicemie la xDrip+</string>
     <string name="dexcomg5_xdripupload_summary">Selectați 640g/Eversense ca sursă de date în xDrip+</string>
     <string name="nsclientbg">Glicemie NSClient</string>
@@ -610,6 +633,8 @@
     <string name="extendedbolusdeliveryerror">Eroare de livrare a bolusului extins</string>
     <string name="insightpump_shortname">Obiectiv</string>
     <string name="ago">în trecut</string>
+    <string name="set_neutral_temps_title">Setați bazale temporare neutre</string>
+    <string name="set_neutral_temps_summary">Dacă este activată, va anula o bazală temporară înainte de sfârșitul fiecărei ore. Aceasta metoda poate ajuta la oprirea vibrațiilor/bipurilor orare pe anumite pompe.</string>
     <string name="enablesmbalways">Activează SMB întotdeauna</string>
     <string name="enablesmbalways_summary">Activează SMB întotdeauna independent de bolusuri. Este posibil doar în cazul unei surse de glicemii filtrate, cum ar fi G5</string>
     <string name="enablesmbaftercarbs">Activează SMB după carbohidrați</string>
@@ -629,11 +654,16 @@
     <string name="insulin_increment_button_message">Cantitatea de insulină de adăugat când se apasă butonul</string>
     <string name="error_starting_cgm">Nu s-a putut deschide aplicația CGM. Asigurați-vă că este instalată.</string>
     <string name="overview_cgm">CGM</string>
+    <string name="ignore5m">Ignorați 5min</string>
+    <string name="ignore15m">Ignorați 15min</string>
+    <string name="ignore30m">Ignorați 30min</string>
     <string name="nav_historybrowser">Vizualizare istoric</string>
     <string name="wear_notifysmb_title">Notifică despre SMB</string>
     <string name="wear_notifysmb_summary">Arată SMB pe ceas ca și un bolus standard.</string>
     <string name="ns_create_announcements_from_errors_title">Crează anunțuri pentru erori</string>
+    <string name="ns_create_announcements_from_carbs_req_title">Crează anunțuri din alertele de cerere carbohidrați</string>
     <string name="ns_create_announcements_from_errors_summary">Crează anunțuri în Nightscout pentru dialoguri de erori și alerte locale (vizibile și în Careportal - Tratamente)</string>
+    <string name="ns_create_announcements_from_carbs_req_summary">Creează anunțuri Nightscout din alertele de cerere carbohidrați</string>
     <string name="wear_predictions_summary">Arată previziunile pe ceas.</string>
     <string name="wear_predictions_title">Predicții</string>
     <string name="data_choices">Alegeri date</string>
@@ -762,6 +792,8 @@
     <string name="startobjective">Începeți primul obiectiv</string>
     <string name="permission">Permisiune</string>
     <string name="askforpermission">Solicitați permisiunea</string>
+    <string name="needsystemwindowpermission">Aplicația are nevoie de permisiune la fereastra sistemului pentru a afișa notificări</string>
+    <string name="needlocationpermission">Aplicația are nevoie sa acceseze locația pentru scanare Bluetooth și identificare WiFi</string>
     <string name="needstoragepermission">Aplicația necesită permisiune de acces la mediul de stocare pentru a putea înregistra jurnalele</string>
     <string name="request">Cerință</string>
     <string name="insulinsourcesetup">Configurați plugin insulină</string>
@@ -779,6 +811,8 @@
     <string name="high_temptarget_raises_sensitivity_summary"><![CDATA[Creșterea sensibilității pentru ținte temporare >= 100]]></string>
     <string name="low_temptarget_lowers_sensitivity_title">Țintele temporare joase scad sensibilitatea</string>
     <string name="low_temptarget_lowers_sensitivity_summary"><![CDATA[Sensibilitate scăzută pentru ținte temporare < 100]]></string>
+    <string name="resistance_lowers_target_title">Rezistența la insulină poate coborî targetul</string>
+    <string name="resistance_lowers_target_summary">Când e detectata rezistență la insulină, coboară targetul</string>
     <string name="combo_invalid_setup">Setare pompă invalidă, verificați documentația și asigurați-vă că meniul Quick Info este denumit QUICK INFO, folosind aplicația 360 Configuration Software.</string>
     <string name="custom">Personalizat</string>
     <string name="careportal_removestartedevents">AndroidAPS pornit curat</string>
@@ -1024,6 +1058,7 @@
     <string name="rileylink_scanner_scanning">Scanează</string>
     <string name="rileylink_scanner_scanning_finished">Scanare terminată</string>
     <string name="rileylink_scanner_scanning_error">Eroare la scanare: %1$d</string>
+    <string name="common_never">Niciodată</string>
     <!-- RL Status Page -->
     <string name="rileylink_settings_tab1">Setări</string>
     <string name="rileylink_settings_tab2">Istoric</string>
@@ -1141,15 +1176,23 @@
     <string name="format_percent">%1$d%%</string>
     <string name="boluswizard">Asistent bolusare</string>
     <string name="unit_minute_short">min</string>
+    <string name="selected_profile">Selectat:</string>
     <string name="unitsnosemicolon">Unități</string>
     <string name="format_carbs">%1$dg</string>
     <string name="common_on">Pornit</string>
     <string name="common_off">Oprit</string>
+    <string name="dia_short">DIA</string>
+    <string name="ic_short">IC</string>
+    <string name="isf_short">ISF</string>
+    <string name="target_short">TARG</string>
     <string name="deletecurrentprofile">Ştergeţi profilul curent?</string>
     <string name="age">Vârstă:</string>
     <string name="weight_label">Greutate:</string>
+    <string name="statistics">Statistici</string>
     <string name="randombg_short">Glicemie</string>
     <string name="tools">Instrumente</string>
+    <string name="sensitivity_short">AS</string>
+    <string name="insight_alert_notification_channel">Alerte pompă Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
