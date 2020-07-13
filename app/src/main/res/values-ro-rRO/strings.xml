@@ -242,7 +242,7 @@
     <string name="smscommunicator_tt_canceled">Tinta temporara anulata cu succes</string>
     <string name="smscommunicator_remotecommandsallowed">Permite comenzi de la distanță, prin SMS</string>
     <string name="danarprofile">Setări de profil DanaR</string>
-    <string name="danarprofile_dia">DIA [o]</string>
+    <string name="danarprofile_dia">DIA [h]</string>
     <string name="danarprofile_dia_summary">Durata de Acțiune a Insulinei (DIA)</string>
     <string name="uploading">Se trimite</string>
     <string name="bolusstopped">Bolus oprit</string>
@@ -738,7 +738,7 @@
     <string name="pump_stopped">Pompă oprită</string>
     <string name="pump_started">Pompă pornită</string>
     <string name="pump_paused">Pompă în pauză</string>
-    <string name="absorption_cutoff_title">Timpul maxim de absorbție a mesei [o]</string>
+    <string name="absorption_cutoff_title">Timpul maxim de absorbție a mesei [h]</string>
     <string name="absorption_cutoff_summary">Timpul în care orice mâncare se consideră absorbită. Carbohidrații rămași vor fi ignorați.</string>
     <string name="time">Timp</string>
     <string name="overview_show_notes_field_in_dialogs_title">Afișează câmp pentru note în dialogurile de tratamente</string>
@@ -994,7 +994,7 @@
     <string name="running_invalid_version">S-a detectat rularea unei versiuni invalide. Buclă dezactivată!</string>
     <string name="old_version">versiune veche</string>
     <string name="very_old_version">versiune foarte veche</string>
-    <string name="twohours">2o</string>
+    <string name="twohours">2h</string>
     <string name="dexcom_app_patched">Aplicația Dexcom (modificată)</string>
     <string name="dexcom_short">DXCM</string>
     <string name="description_source_dexcom">Primește valori glicemie de la aplicația Dexcom modificată.</string>
@@ -1042,7 +1042,7 @@
     <string name="medtronic_pump_frequency">Frecvență pompă</string>
     <string name="medtronic_pump_bolus_delay">Întârziere până la pornirea bolusului (s)</string>
     <string name="medtronic_pump_max_bolus">Bolusul maxim în pompă (U)</string>
-    <string name="medtronic_pump_max_basal">Bazală maximă în pompă (U/o)</string>
+    <string name="medtronic_pump_max_basal">Bazală maximă în pompă (U/h)</string>
     <string name="medtronic_pump_encoding">Criptare Medtronic</string>
     <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
     <string name="medtronic_pump_frequency_worldwide">Globală (868 Mhz)</string>
