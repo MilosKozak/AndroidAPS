@@ -2,10 +2,17 @@
 <resources>
     <!--    General-->
     <string name="error">Eroare</string>
+    <string name="not_set_short">Nesetată</string>
+    <string name="profile_set_ok">Profilul bazalei a fost modificat în pompă</string>
+    <string name="invalidinput">Date de intrare incorecte</string>
+    <string name="waitingforpump">Se așteaptă pompa</string>
+    <string name="connectingfor">Conectat de %1$d s</string>
+    <string name="bolusdelivering">Se livrează %1$.2fU</string>
     <string name="connecting">Se conectează</string>
     <string name="connected">Conectat</string>
     <string name="disconnected">Deconectat</string>
     <string name="disconnecting">Se deconectează</string>
+    <string name="androidaps_start">AndroidAPS a pornit</string>
     <string name="formatinsulinunits">%1$.2fU</string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
     <string name="close">Închide</string>
