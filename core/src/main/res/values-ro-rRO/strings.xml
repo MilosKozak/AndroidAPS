@@ -65,8 +65,12 @@
     <string name="cancel">Renunță</string>
     <string name="dismiss">RENUNȚĂ</string>
     <!--    BlePreCheck-->
+    <string name="ble_not_enabled">Bluetooth-ul este dezactivat.</string>
+    <string name="location_not_found_title">Localizarea este dezactivată</string>
     <!--    DateUtil-->
     <string name="minago">acum %1$dmin</string>
+    <string name="hoursago">%1$.1f h în urmă</string>
+    <string name="shorthour">h</string>
     <string name="days">zile</string>
     <string name="hours">ore</string>
     <string name="unit_second">secundă</string>
@@ -83,6 +87,7 @@
     <string name="shortday">z</string>
     <!--    Profile-->
     <string name="profile_per_unit">/U</string>
+    <string name="profile_ins_units_per_hour">U/h</string>
     <string name="profile_carbs_per_unit">g/U</string>
     <!--    ProfileFunction-->
     <string name="noprofileselected">Niciun profil selectat</string>
