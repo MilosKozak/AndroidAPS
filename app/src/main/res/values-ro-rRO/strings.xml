@@ -1055,6 +1055,8 @@
     <string name="medtronic_pump_battery_no">Fără selecție (Afișare simplificată)</string>
     <string name="medtronic_pump_battery_alkaline">Alcalină (Afișare extinsă)</string>
     <string name="medtronic_pump_battery_lithium">Litiu (Afișare extinsă)</string>
+    <string name="medtronic_pump_battery_nizn">NiZn (Afișare extinsă)</string>
+    <string name="medtronic_pump_battery_nimh">NiMH (Afișare extinsă)</string>
     <!-- RL BLE Scanning -->
     <string name="rileylink_scanner_scan_scan">SCAN</string>
     <string name="rileylink_scanner_scan_stop">STOP</string>
@@ -1189,12 +1191,14 @@
     <string name="format_carbs">%1$dg</string>
     <string name="common_on">Pornit</string>
     <string name="common_off">Oprit</string>
+    <string name="nopumpselected">Nicio pompă selectată</string>
     <string name="dia_short">DIA</string>
     <string name="ic_short">IC</string>
     <string name="isf_short">ISF</string>
     <string name="target_short">TARG</string>
     <string name="clone_label">Clonează</string>
     <string name="deletecurrentprofile">Ştergeţi profilul curent?</string>
+    <string name="reorder_label">Reordonează</string>
     <string name="age">Vârstă:</string>
     <string name="weight_label">Greutate:</string>
     <string name="id">ID:</string>
@@ -1252,7 +1256,10 @@
     <string name="statuslights">Lumini de stare</string>
     <string name="statuslights_copy_ns">Copiați setările din NS</string>
     <string name="copyexistingvalues">Copiaţi setările NS (dacă există)?</string>
+    <string name="classic_description">Tema originală</string>
     <string name="buttonson_description">Butoanele sunt afișate întotdeauna în partea de jos a ecranului</string>
+    <string name="largedisplay_description">Display mare</string>
+    <string name="skin">Tema</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod">Integrare pompa pentru Omnipod, necesită dispozitivul RileyLink (cu versiune firmware de cel puțin 2.0).</string>
@@ -1262,20 +1269,30 @@
     <string name="omnipod_config_beep_smb_enabled">Bip pentru SMB Activat</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_mgmt">Pod Mgmt</string>
+    <string name="omnipod_pod_status">Status Pod</string>
     <string name="omnipod_reservoir_left">%1$.2f U rămase</string>
     <string name="omnipod_reservoir_over50">Peste 50 U</string>
+    <string name="omnipod_pod_address">Adresă Pod</string>
+    <string name="omnipod_pod_expiry">Pod-ul expiră</string>
     <string name="omnipod_pod_name_no_info">Nu există informații</string>
     <string name="omnipod_pod_no_pod_connected">Niciun Pod conectat</string>
     <string name="omnipod_pod_not_initalized">Neiniţializat</string>
+    <string name="omnipod_ack_short">Alerte de confirmare</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
     <string name="omnipod_error_pod_not_attached">Niciun Pod activ.</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Verificarea comenzii a eşuat.</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_pod_mgmt_title">Gestionare Pod</string>
     <string name="omnipod_cmd_init_pod">Inițializare Pod</string>
     <string name="omnipod_cmd_deactivate_pod">Dezactivare Pod</string>
     <string name="omnipod_cmd_reset_pod">Resetare Pod</string>
     <string name="omnipod_cmd_pod_history">Istoric Pod</string>
+    <string name="omnipod_cmd_set_bolus">Setează bolusul</string>
+    <string name="omnipod_cmd_cancel_bolus">Anulați Bolus</string>
+    <string name="omnipod_cmd_set_tbr">Setează bazala temporară</string>
+    <string name="omnipod_cmd_get_pod_status">Obțineți Status Pod</string>
     <string name="omnipod_cmd_get_pod_info">Obțineți Informații Pod</string>
     <string name="omnipod_cmd_set_time">Setare timp</string>
     <string name="omnipod_cmd_configure_alerts">Configurare alerte</string>
@@ -1285,15 +1302,33 @@
     <string name="omnipod_cmd_unknown_entry">Intrare necunoscută</string>
     <string name="omnipod_cmd_bolus_value">%1$.1f U</string>
     <string name="omnipod_cmd_bolus_value_with_carbs">%1$.1f U, CH=%2$.1f g</string>
+    <string name="omnipod_cmd_tbr_value">Rata: %1$.1f U, Durata: %2$d min</string>
     <string name="omnipod_cmd_reset_pod_desc">Dacă apăsați <b>OK</b>, statusul Pod-ului va fi resetat forțat şi nu veți mai putea comunica cu Pod-ul. Faceți acest lucru numai dacă nu mai puteți comunica deloc cu Pod-ul. Daca mai puteți comunica cu Pod-ul, va rugam sa folosiți opțiunea <b>Dezactivare Pod</b>.</string>
     <string name="omnipod_cmd_pod_history_na">Istoricul Pod-ului nu este disponibil momentan.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Umpleţi Pod-ul</string>
+    <string name="omnipod_init_pod_wizard_step1_desc">\nUmpleți noul Pod cu suficientă insulină pentru 3 zile.\n\nAr trebui sa auziți două bipuri de la Pod în timpul procesului de umplere. Acestea indică faptul că, cantitatea minimă de 85U a fost introdusă. Asigurați-vă ca ați golit complet seringa de umplere, chiar și după ce ați auzit două bipuri.\n\nDupă umplerea Pod-ului, vă rugăm să apăsați <b>Următorul</b>.\n\n<b>Notă:</b> Nu scoateți capacul transparent al acului in acest moment.</string>
     <string name="omnipod_init_pod_wizard_step2_title">Amorsare</string>
     <string name="omnipod_init_pod_wizard_step2_action_header">Încercare de împerechere cu noul Pod și amorsare.\n\nAtunci când toate etapele sunt gata, puteți apăsa <b>Următorul</b>.\n\n<b>Notă:</b> vă rugăm să țineți Pod-ul foarte aproape de RileyLink în timpul procesului.</string>
     <string name="omnipod_init_pod_wizard_step3_title">Atașați Pod-ul</string>
+    <string name="omnipod_init_pod_wizard_step3_desc">\nPregătiți setul de infuzie. Scoateți capacul acului și suport adeziv și atașați Pod-ul la locul de infuzie.\n\nDacă, canula pare in neregulă, apăsați <b>Anulare</b> și aruncați Pod-ul.\n\nApăsați <b>Următorul</b> pentru a introduce canula și a începe livrarea bazalei.</string>
     <string name="omnipod_init_pod_wizard_step4_title">Inserare canulă</string>
+    <string name="omnipod_init_pod_wizard_step4_action_header">Încercare de programare inițială a ratelor bazale si de insertie a canulei.\n\nCând toate elementele sunt gata, puteți apăsa <b>Următorul</b>.</string>
     <string name="omnipod_init_pod_wizard_pod_info_title">Informații Pod</string>
+    <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nPod-ul este acum activ.\n\nRatele bazale au fost programate și canula a fost introdusă.\n\nVă rugăm să verificați că acul a fost introdus corect. Dacă considerați ca nu, înlocuiți Pod-ul.</string>
     <string name="omnipod_remove_pod_wizard_step1_title">Dezactivare Pod</string>
+    <string name="omnipod_remove_pod_wizard_step2_title">Dezactivare Pod</string>
+    <string name="omnipod_init_pod_pair_pod">Împerechere Pod</string>
+    <string name="omnipod_init_pod_prime_pod">Amorsare Pod</string>
+    <string name="omnipod_init_pod_fill_cannula">Umplere Canulă</string>
+    <string name="omnipod_init_pod_set_basal_profile">Setează profilul bazalelor</string>
+    <string name="omnipod_deactivate_pod_cancel_delivery">Anulare livrare</string>
+    <string name="omnipod_deactivate_pod_deactivate_pod">Dezactivare Pod</string>
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod_dash">Integrare cu pompa pentru Omnipod Dash.</string>
+    <string name="omnipod_alert_expiration">Pod-ul va expira în curând</string>
+    <string name="omnipod_alert_expiration_advisory">Pod-ul va expira în curând</string>
+    <string name="omnipod_alert_shutdown_imminent">Oprirea este iminentă</string>
+    <string name="omnipod_alert_unknown_alert">Alertă necunoscută</string>
+    <string name="comapareprofile">Comparați cu profilul curent</string>
 </resources>
