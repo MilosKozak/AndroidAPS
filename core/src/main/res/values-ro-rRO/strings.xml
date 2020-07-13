@@ -5,6 +5,7 @@
     <string name="not_set_short">Nesetată</string>
     <string name="profile_set_ok">Profilul bazalei a fost modificat în pompă</string>
     <string name="invalidinput">Date de intrare incorecte</string>
+    <string name="tempbasaldeliveryerror">Eroare la livrare bazală temporară</string>
     <string name="waitingforpump">Se așteaptă pompa</string>
     <string name="connectingfor">Conectat de %1$d s</string>
     <string name="bolusdelivering">Se livrează %1$.2fU</string>
