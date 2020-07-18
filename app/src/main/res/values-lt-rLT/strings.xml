@@ -1223,6 +1223,7 @@
     <string name="clone_label">Klonuoti</string>
     <string name="saveorresetchangesfirst">Pirmiausia išsaugoti arba anuliuoti dabartinius pokyčius</string>
     <string name="deletecurrentprofile">Ištrinti esamą profilį?</string>
+    <string name="copytolocalprofile">Kurti naują vietinį profilį iš šito?</string>
     <string name="profilenamecontainsdot">Profilio pavadinime yra taškų.\nŠios funkcijos NS nepalaiko.\nProfilis neįkeltas į NS.</string>
     <string name="low_mark_comment">Mažiausia tikslinės srities vertė (tik rodymui)</string>
     <string name="high_mark_comment">Didžiausia tikslinės srities vertė (tik rodymui)</string>
@@ -1404,4 +1405,6 @@
     <string name="omnipod_bolus_failed_uncertain">Neįmanoma patikrinti, ar bolusas suleistas sėkmingai. Patikrinkite, ar jūsų POD leidžia bolusą, arba bolusą atšaukite.</string>
     <string name="omnipod_rl_stats">RL statistika</string>
     <string name="omnipod_read_pulse_log_short">Pulse žurnalas</string>
+    <string name="nav_profilehelper">Profilio pagalbininkas</string>
+    <string name="motoldefaultprofile">Numatytasis profilis</string>
 </resources>
