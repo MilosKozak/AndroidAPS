@@ -82,9 +82,14 @@
     <string name="nsprofileview_units_label">Units</string>
     <string name="nsprofileview_dia_label">DIA</string>
     <string name="nsprofileview_ic_label">IC</string>
+    <string name="nsprofileview_ic_label_units">IC [g/U]</string>
     <string name="nsprofileview_isf_label">ISF</string>
+    <string name="nsprofileview_isf_label_mmol">ISF [(mmol/l)/U]</string>
+    <string name="nsprofileview_isf_label_mgdl">ISF [(mg/dl)/U]</string>
     <string name="nsprofileview_basal_label">Basal</string>
     <string name="nsprofileview_target_label">Target</string>
+    <string name="nsprofileview_target_label_mmol">Target [mmol/l]</string>
+    <string name="nsprofileview_target_label_mgdl">Target [mg/dl]</string>
     <string name="noprofileset">NO PROFILE SET</string>
     <string name="treatments_insulin_label_string">Insulin:</string>
     <string name="treatments_carbs_label_string">Carbs:</string>
@@ -465,7 +470,7 @@
     <string name="danar_stats_olddata_Message">Old Data Please Press "RELOAD"</string>
     <string name="danar_stats_tbb">Total Base Basal</string>
     <string name="danar_stats_tbb2">TBB * 2</string>
-    <string name="initializing">Initializing ...</string>
+    <string name="initializing">Initializing&#8230;</string>
     <string name="actions_shortname">ACT</string>
     <string name="configbuilder_shortname">CONF</string>
     <string name="loop_shortname">LOOP</string>
@@ -1610,7 +1615,7 @@
     <string name="key_boluswizard_percentage" translatable="false">boluswizard_percentage</string>
     <string name="partialboluswizard">Deliver this part of bolus wizard result [%]</string>
     <string name="deliverpartofboluswizard">Bolus wizard performs calculation but only this part of calculated insulin is delivered. Useful with SMB algorithm.</string>
-    <string name="loading">Loading ...</string>
+    <string name="loading">Loading&#8230;</string>
     <string name="snooze">Snooze</string>
     <string name="time_range">Time range</string>
     <string name="timerange_value">Time is between %1$s and %2$s</string>
