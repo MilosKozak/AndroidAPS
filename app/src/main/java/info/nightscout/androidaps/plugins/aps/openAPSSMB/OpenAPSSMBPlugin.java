@@ -2,6 +2,9 @@ package info.nightscout.androidaps.plugins.aps.openAPSSMB;
 
 import android.content.Context;
 
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 
@@ -127,6 +130,40 @@ public class OpenAPSSMBPlugin extends PluginBase implements APSInterface, Constr
     @Override
     public long getLastAPSRun() {
         return lastAPSRun;
+    }
+
+    @Override
+    public void preprocessPreferences(@NotNull PreferenceFragmentCompat preferenceFragment) {
+        super.preprocessPreferences(preferenceFragment);
+        int smbprefkeys[] = {
+                R.string.key_use_smb,
+                R.string.key_smbinterval,
+                R.string.key_smbmaxminutes,
+                R.string.key_uamsmbmaxminutes,
+                R.string.key_enableSMB_with_COB,
+                R.string.key_enableSMB_with_temptarget,
+                R.string.key_allowSMB_with_high_temptarget,
+                R.string.key_enableSMB_after_carbs
+        };
+
+        Constraint<Boolean> cSMB = constraintChecker.isSMBModeAllowed();
+        Constraint<Boolean> cAS = constraintChecker.isAutosensModeAllowed();
+
+        for (int i=0; i<smbprefkeys.length; i++) {
+            Preference pref = preferenceFragment.findPreference(resourceHelper.gs(smbprefkeys[i]));
+            if (!cSMB.value()) {
+                if (pref != null) pref.setEnabled(false);
+            } else {
+                if (pref != null) pref.setEnabled(true);
+            }
+        }
+
+        Preference pref = preferenceFragment.findPreference(resourceHelper.gs(R.string.key_openapsama_useautosens));
+        if (!cAS.value()) {
+            if (pref != null) pref.setEnabled(false);
+        } else {
+            if (pref != null) pref.setEnabled(true);
+        }
     }
 
     @Override

@@ -214,6 +214,18 @@ class ConstraintsCheckerTest : TestBaseWithProfile() {
         Assert.assertEquals(false, c.value())
     }
 
+    // Safety & Objectives
+    @Test
+    fun isSMBModeAllowedTest() {
+        objectivesPlugin.objectives[ObjectivesPlugin.SMB_OBJECTIVE].startedOn = 0
+        `when`(sp.getBoolean(R.string.key_use_smb, false)).thenReturn(false)
+        `when`(sp.getString(R.string.key_aps_mode, "open")).thenReturn("open")
+        val c = constraintChecker.isSMBModeAllowed()
+        Assert.assertEquals(true, c.reasonList.size == 2) // 2x Safety & Objectives
+        Assert.assertEquals(true, c.mostLimitedReasonList.size == 2) // 2x Safety & Objectives
+        Assert.assertEquals(false, c.value())
+    }
+
     // applyBasalConstraints tests
     @Test
     fun basalRateShouldBeLimited() {
