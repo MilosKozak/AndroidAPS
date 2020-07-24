@@ -524,7 +524,6 @@ Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden d
     <string name="do_not_bolus_record_only">Bolusu sadece kayıt altına al</string>
     <string name="category">Kategori</string>
     <string name="subcategory">Alt kategori</string>
-    <string name="bolusrecordedonly">Bolus sadece kaydedilecek</string>
     <string name="ns_autobackfill_summary">Nightscout\'tan eksik kan şekeri değerlerini otomatik olarak yükleyin</string>
     <string name="loop_smbsetbypump_label">SMB (Supermicroboluses) pompa tarafından verildi</string>
     <string name="overview_show_sensitivity">Duyarlılık</string>
