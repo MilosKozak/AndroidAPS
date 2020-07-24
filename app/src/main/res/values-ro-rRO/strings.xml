@@ -795,7 +795,6 @@
     <string name="askforpermission">Solicitați permisiunea</string>
     <string name="needsystemwindowpermission">Aplicația are nevoie de permisiune la fereastra sistemului pentru a afișa notificări</string>
     <string name="needlocationpermission">Aplicația are nevoie sa acceseze locația pentru scanare Bluetooth și identificare WiFi</string>
-    <string name="needstoragepermission">Aplicația necesită permisiune de acces la mediul de stocare pentru a putea înregistra jurnalele</string>
     <string name="request">Cerință</string>
     <string name="insulinsourcesetup">Configurați plugin insulină</string>
     <string name="exit">Ieșire</string>
