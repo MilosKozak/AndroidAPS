@@ -1042,6 +1042,8 @@
     <string name="cobcompared">COB %1$s %2$.0f</string>
     <string name="taskname">Numele acțiunii</string>
     <string name="edit_short">EDITARE</string>
+    <string name="please_choose_an_action_type">Selectați tipul de acțiune</string>
+    <string name="please_choose_a_trigger_type">Selectați un tip de factor declanșator</string>
     <string name="triggers">Declanșatori:</string>
     <string name="remove_label">ȘTERGE</string>
     <string name="preconditions">Condiții pre-existente:</string>
@@ -1131,6 +1133,7 @@
     <string name="medtronic_error_pump_frequency_invalid">Frecvența pompei nesuportată.</string>
     <string name="medtronic_error_rileylink_address_invalid">Adresa RileyLink invalidă.</string>
     <string name="medtronic_error_pump_type_set_differs_from_detected">Tipul de pompă detectat nu corespunde cu cel configurat.</string>
+    <string name="medtronic_error_pump_basal_profiles_not_enabled">Setările de profil/șablon bazale nu sunt activate în pompă. Vă rugăm să le activați din pompă.</string>
     <string name="medtronic_error_pump_incorrect_basal_profile_selected">Tipul de profil bazal setat în pompă este incorect (trebuie să fie STD).</string>
     <string name="medtronic_error_pump_wrong_tbr_type_set">Tip incorect de RBT setat în pompă (trebuie să fie Absolut).</string>
     <string name="medtronic_error_pump_wrong_max_bolus_set">Bolus maxim setat incorect în pompă (trebuie să fie %1$.2f).</string>
@@ -1208,6 +1211,8 @@
     <string name="format_carbs">%1$dg</string>
     <string name="common_on">Pornit</string>
     <string name="common_off">Oprit</string>
+    <string name="objectives_button_unfinish">Șterge starea \"Terminat\"</string>
+    <string name="objectives_button_unstart">Șterge starea \"Început\"</string>
     <string name="doyouwantresetstart">Doriți să reîncepeți obiectivul? Vă puteți pierde progresul.</string>
     <string name="time_or_timezone_change">Schimbare oră și/sau fus orar în pompă</string>
     <string name="nopumpselected">Nicio pompă selectată</string>
@@ -1221,6 +1226,7 @@
     <string name="saveorresetchangesfirst">Salvează sau resetează modificările curente mai întâi</string>
     <string name="deletecurrentprofile">Ştergeţi profilul curent?</string>
     <string name="copytolocalprofile">Creați un profil local nou pe baza acestui profil?</string>
+    <string name="profilenamecontainsdot">Numele profilului conține puncte.\nAcest lucru nu este permis de NS.\nProfilul nu a fost înregistrat în NS.</string>
     <string name="low_mark_comment">Valoarea inferioară a intervalului țintă (doar afișare)</string>
     <string name="high_mark_comment">Valoarea superioară a intervalului țintă (doar afișare)</string>
     <string name="reorder_label">Reordonează</string>
@@ -1331,6 +1337,15 @@
     <string name="omnipod_driver_error_crc_mismatch">Comunicarea a eşuat: verificarea integrităţii mesajului a eşuat.</string>
     <string name="omnipod_driver_error_invalid_packet_type">Comunicarea a eşuat: a fost primit un pachet invalid de la Pod.</string>
     <string name="omnipod_driver_error_invalid_progress_state">Comunicarea a eșuat: Pod-ul este într-o stare incorectă.</string>
+    <string name="omnipod_driver_error_invalid_response">Comunicarea a eșuat: s-a primit un răspuns incorect de la Pod.</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Comunicarea a eșuat: s-a primit un mesaj cu un număr de secvență invalid de la Pod.</string>
+    <string name="omnipod_driver_error_invalid_message_address">Comunicarea a eșuat: s-a primit un mesaj cu o adresă invalidă de la Pod.</string>
+    <string name="omnipod_driver_error_message_decoding_failed">Comunicarea a eșuat: nu s-a reușit decodarea mesajului de la Pod.</string>
+    <string name="omnipod_driver_error_nonce_resync_failed">Comunicarea a eșuat: resincronizarea nonce nu a reușit.</string>
+    <string name="omnipod_driver_error_nonce_out_of_sync">Comunicarea a eșuat: nonce nu poate fi sincronizată.</string>
+    <string name="omnipod_driver_error_not_enough_data">Comunicarea a eşuat: nu s-au primit suficiente date de la Pod.</string>
+    <string name="omnipod_driver_error_pod_fault">A fost detectată o eroare a Pod-ului (%1$03d %2$s). Vă rugăm să îl dezactivați pe acesta și să porniți unul nou.</string>
+    <string name="omnipod_driver_error_pod_returned_error_response">Comunicarea a eșuat: Pod-ul a returnat un răspuns de eroare.</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_pod_mgmt_title">Gestionare Pod</string>
     <string name="omnipod_cmd_init_pod">Inițializare Pod</string>
@@ -1340,6 +1355,9 @@
     <string name="omnipod_cmd_set_bolus">Setează bolusul</string>
     <string name="omnipod_cmd_cancel_bolus">Anulați Bolus</string>
     <string name="omnipod_cmd_set_tbr">Setează bazala temporară</string>
+    <string name="omnipod_cmd_cancel_tbr">Anulați bazală temporară (la nivel intern de către driver)</string>
+    <string name="omnipod_cmd_cancel_tbr_forced">Anulați bazală temporară (impus de către utilizator)</string>
+    <string name="omnipod_cmd_set_basal_schedule">Programați ratele bazale</string>
     <string name="omnipod_cmd_get_pod_status">Obțineți Status Pod</string>
     <string name="omnipod_cmd_get_pod_info">Obțineți Informații Pod</string>
     <string name="omnipod_cmd_set_time">Setare timp</string>
@@ -1364,7 +1382,10 @@
     <string name="omnipod_init_pod_wizard_pod_info_title">Informații Pod</string>
     <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nPod-ul este acum activ.\n\nRatele bazale au fost programate și canula a fost introdusă.\n\nVă rugăm să verificați că acul a fost introdus corect. Dacă considerați ca nu, înlocuiți Pod-ul.</string>
     <string name="omnipod_remove_pod_wizard_step1_title">Dezactivare Pod</string>
+    <string name="omnipod_remove_pod_wizard_step1_desc">\nApăsați <b>Următorul</b> pentru a dezactiva Pod-ul.\n\n<b>Notă:</b> Acest lucru va suspenda orice livrare de insulină și va dezactiva Pod-ul.</string>
     <string name="omnipod_remove_pod_wizard_step2_title">Dezactivare Pod</string>
+    <string name="omnipod_remove_pod_wizard_step2_action_header">Dezactivare Pod.\n\nAtunci când toate elementele sunt gata, puteți apăsa <b>Următorul</b>.\n\n<b>Notă:</b> Dacă dezactivarea eșuează continuu, vă rugăm să apăsați <b>Anulează</b> și folosiți opțiunea <b>Resetare Pod</b> pentru a forța resetarea Pod-ului.</string>
+    <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod dezactivat.\n\nScoateți Pod-ul și aruncați-l.</string>
     <string name="omnipod_init_pod_pair_pod">Împerechere Pod</string>
     <string name="omnipod_init_pod_prime_pod">Amorsare Pod</string>
     <string name="omnipod_init_pod_fill_cannula">Umplere Canulă</string>
