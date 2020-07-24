@@ -556,7 +556,6 @@
     <string name="do_not_bolus_record_only">Moet nie bolus. Rekord alleen</string>
     <string name="category">Kategorie</string>
     <string name="subcategory">Subkategorie</string>
-    <string name="bolusrecordedonly">Bolus sal slegs opgeneem word</string>
     <string name="ns_autobackfill_summary">Autobackfill vermiste BGs vanaf NS</string>
     <string name="loop_smbsetbypump_label">SMB gestel deur pomp</string>
     <string name="overview_show_activity">Aktiwiteit</string>
