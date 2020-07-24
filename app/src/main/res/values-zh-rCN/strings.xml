@@ -553,7 +553,6 @@
     <string name="do_not_bolus_record_only">不打大剂量，只记录</string>
     <string name="category">类别</string>
     <string name="subcategory">子类别</string>
-    <string name="bolusrecordedonly">大剂量将仅被记录</string>
     <string name="ns_autobackfill_summary">Autobackfill 现在无法从NS获取血糖</string>
     <string name="loop_smbsetbypump_label">通过泵设置SMB微型大剂量</string>
     <string name="overview_show_activity">活动</string>
