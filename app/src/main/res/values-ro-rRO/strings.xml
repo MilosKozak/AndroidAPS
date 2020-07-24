@@ -1395,8 +1395,28 @@
     <!-- Omnipod Dash -->
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod_dash">Integrare cu pompa pentru Omnipod Dash.</string>
+    <string name="omnipod_alert_finish_pairing_reminder">Finalizare memento împerechere</string>
+    <string name="omnipod_alert_finish_setup_reminder_reminder">Finalizare memento setare</string>
     <string name="omnipod_alert_expiration">Pod-ul va expira în curând</string>
     <string name="omnipod_alert_expiration_advisory">Pod-ul va expira în curând</string>
     <string name="omnipod_alert_shutdown_imminent">Oprirea este iminentă</string>
+    <string name="omnipod_alert_low_reservoir">Nivel rezervor scăzut</string>
     <string name="omnipod_alert_unknown_alert">Alertă necunoscută</string>
+    <string name="omnipod_error_set_basal_failed_uncertain">Setarea ratelor bazale s-ar putea să fi eșuat. Livrarea ar putea fi suspendată! Vă rugăm să reactualizați starea Pod-ului.</string>
+    <string name="omnipod_error_set_temp_basal_failed_uncertain">Setarea ratelor bazale temporare s-ar putea să fi eșuat. Dacă a existat o bazală temporară în livrare, aceasta ar putea fi fost anulată! Vă rugăm să reactualizați starea Pod-ului.</string>
+    <string name="omnipod_error_set_time_failed_uncertain">Setarea datei și orei s-ar putea să fi eșuat. Livrarea ar putea fi suspendată! Vă rugăm să reactualizați starea Pod-ului.</string>
+    <string name="omnipod_bolus_failed_uncertain">Nu se poate verifica dacă bolusul a reușit. Verificați dacă Pod livrează ceva sau anulați bolusul.</string>
+    <string name="omnipod_rl_stats">Statistici RL</string>
+    <string name="omnipod_read_pulse_log_short">Jurnal Puls</string>
+    <string name="comapareprofile">Compară profilurile</string>
+    <string name="nav_profilehelper">Ajutor profil</string>
+    <string name="motoldefaultprofile">Profil implicit</string>
+    <string name="currentprofile">Profil curent</string>
+    <string name="availableprofile">Profil disponibil</string>
+    <string name="profiletype">Tip profil</string>
+    <string name="formatwithtdd">Vârstă: %1$.0f TDD: %2$.0f kg</string>
+    <string name="formatwittddandpct">Vârstă: %1$.0f TDD: %2$.0f U %3$d%%</string>
+    <string name="formatwithweight">Vârstă: %1$.0f Greutate: %2$.0f kg</string>
+    <string name="basalpctfromtdd_label">% din bazală</string>
+    <string name="dpvdefaultprofile">Profil implicit DPV</string>
 </resources>
