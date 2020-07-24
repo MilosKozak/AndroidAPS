@@ -679,7 +679,6 @@
     <string name="do_not_bolus_record_only">Geen bolus toedienen enkel in behandelingen zetten</string>
     <string name="category">Categorie</string>
     <string name="subcategory">Subcategorie</string>
-    <string name="bolusrecordedonly">Bolus zal enkel opgeslagen worden</string>
     <string name="ns_autobackfill_summary">Automatische onbekende BGs aanvullen van NS</string>
     <string name="loop_smbsetbypump_label">SMB op de pomp ingesteld</string>
     <string name="overview_show_activity">Activiteit</string>
