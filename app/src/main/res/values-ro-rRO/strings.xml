@@ -1303,6 +1303,7 @@
     <string name="omnipod_config_beep_smb_enabled">Bip pentru SMB Activat</string>
     <string name="omnipod_config_beep_tbr_enabled">Bip pentru TBR Activat</string>
     <string name="omnipod_config_pod_debugging_options_enabled">Opțiuni de depanare Pod Activate</string>
+    <string name="omnipod_config_timechange_enabled">Detectare DST/fus orar activată</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_mgmt">Pod Mgmt</string>
     <string name="omnipod_pod_status">Status Pod</string>
@@ -1313,12 +1314,23 @@
     <string name="omnipod_pod_name_no_info">Nu există informații</string>
     <string name="omnipod_pod_no_pod_connected">Niciun Pod conectat</string>
     <string name="omnipod_pod_not_initalized">Neiniţializat</string>
+    <string name="omnipod_pod_active_alerts">Alerte pod active</string>
     <string name="omnipod_ack_short">Alerte de confirmare</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_operation_not_possible_no_configuration">Operațiunea nu este posibilă.\n\nTrebuie să configuraţi Omnipod înainte de a putea efectua această operațiune.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">Operaţiunea nu este posibilă.\n\n Trebuie să aşteptaţi câteva minute până când AAPS încearcă să seteze profilul pentru prima dată.</string>
+    <string name="omnipod_error_illegal_init_action_type">Acțiune PodInitActionType ilegala: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Niciun Pod activ.</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Verificarea comenzii a eşuat.</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">A apărut o eroare neașteptată. Vă rugăm să o raportați! (tip: %1$s).</string>
+    <string name="omnipod_driver_error_invalid_parameters">Comunicarea a eșuat: s-au primit parametri de intrare incorecți.</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Comunicarea a eșuat: timpul a expirat.</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Comunicarea a eşuat: a apărut o eroare neaşteptată. Vă rugăm să o raportaţi!</string>
+    <string name="omnipod_driver_error_crc_mismatch">Comunicarea a eşuat: verificarea integrităţii mesajului a eşuat.</string>
+    <string name="omnipod_driver_error_invalid_packet_type">Comunicarea a eşuat: a fost primit un pachet invalid de la Pod.</string>
+    <string name="omnipod_driver_error_invalid_progress_state">Comunicarea a eșuat: Pod-ul este într-o stare incorectă.</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_pod_mgmt_title">Gestionare Pod</string>
     <string name="omnipod_cmd_init_pod">Inițializare Pod</string>
