@@ -122,6 +122,8 @@
     <!--    Temptarget-->
     <string name="mins">%1$dmin</string>
     <!--    TDD-->
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2fJI</b> Bol: <b>%3$.2fJI</b> Baz: <b>%4$.2fJI(%5$.0f%%)</b>]]></string>
+    <string name="tddwithcarbsformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2fJI</b> Bol: <b>%3$.2fJI</b> Baz: <b>%4$.2fJI(%5$.0f%%)</b> Sach.: <b>%6$.0fg</b>]]></string>
     <!--    Translator-->
     <string name="careportal_bgcheck">Kontrola glykémie</string>
     <string name="careportal_announcement">Oznámenie</string>
