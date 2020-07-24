@@ -14,7 +14,7 @@
     <string name="nav_exit">Esci</string>
     <string name="ns_sync_use_absolute_title">Utilizza sempre valori basali assoluti</string>
     <string name="alert_dialog_storage_permission_text">Per favore riavvia il tuo telefono oppure fai ripartire AndroidAPS dalle impostazioni di sistema \naltrimenti Android APS non farà il log (è importante monitorare e verificare che gli algoritmi stiano funzionando correttamente)!</string>
-    <string name="alert_dialog_permission_battery_optimization_failed">Questo dispositivo non sembra supportare la whitelist dell\'ottimizzazione della batteria: potrebbero verificarsi problemi di prestazioni.</string>
+    <string name="alert_dialog_permission_battery_optimization_failed">Questo dispositivo non sembra supportare la whitelist dell\'ottimizzazione batteria: potrebbero verificarsi problemi di prestazioni.</string>
     <string name="description_actions">Alcuni tasti per accedere rapidamente alle funzioni comuni</string>
     <string name="description_config_builder">Utilizzato per configurare i plugin attivi</string>
     <string name="description_objectives">Programma di apprendimento</string>
@@ -395,7 +395,7 @@
     <string name="status">Stato:</string>
     <string name="paused">In pausa</string>
     <string name="clearlog">Cancella log</string>
-    <string name="nowritepermission">NSCLIENT non ha il permesso di scrittura. API secret errato?</string>
+    <string name="nowritepermission">NSCLIENT non ha l\'autorizzazione di scrittura. API secret errato?</string>
     <string name="wear_settings">Impostazioni smartwatch</string>
     <string name="wear_detailedIOB_title">Mostra IOB dettagliato</string>
     <string name="wear_detailedIOB_summary">Dividi IOB in bolo e basale sulla watchface</string>
@@ -594,7 +594,7 @@
     <string name="overview_editquickwizard_usetemptarget">Calcolo target temporaneo</string>
     <string name="loopenabled">Loop abilitato</string>
     <string name="apsselected">APS selezionato</string>
-    <string name="nsclienthaswritepermission">NSClient ha il permesso di scrittura</string>
+    <string name="nsclienthaswritepermission">NSClient ha l\'autorizzazione di scrittura</string>
     <string name="closedmodeenabled">Modalità chiusa abilitata</string>
     <string name="maxiobset">Max IOB impostata correttamente</string>
     <string name="hasbgdata">BG disponibile da sorgente selezionata</string>
@@ -794,9 +794,9 @@
     <string name="setupwizard_profile_description">Seleziona il tipo di profilo. Se il paziente è un bambino dovresti utilizzare il profilo di NS. Se non c\'è nessuno a seguirti su Nightscout probabilmente preferirai il profilo locale. Ricorda che stai solo selezionando la sorgente del profilo. Per utilizzarlo devi attivarlo tramite l\'esecuzione del comando \"Cambio profilo\"</string>
     <string name="setupwizard_aps_description">Seleziona uno degli algoritmi disponibili. Sono ordinati dal più vecchio al più recente. L\'algoritmo più recente è solitamente più potente e più aggressivo. Pertanto, se sei un nuovo utente, probabilmente dovresti iniziare con AMA e non con l\'ultimo. Non dimenticare di leggere la documentazione di OpenAPS e di configurarlo prima dell\'uso.</string>
     <string name="startobjective">Avvia il tuo primo obiettivo</string>
-    <string name="permission">Permesso</string>
-    <string name="askforpermission">Chiedi il permesso</string>
-    <string name="needsystemwindowpermission">L\'applicazione richiede il permesso finestra di sistema per le notifiche</string>
+    <string name="permission">Autorizzazione</string>
+    <string name="askforpermission">Chiedi l\'autorizzazione</string>
+    <string name="needsystemwindowpermission">L\'applicazione richiede l\'autorizzazione \"finestra di sistema\" per le notifiche</string>
     <string name="needlocationpermission">L\'applicazione richiede l\'accesso alla posizione per la scansione bluetooth e l\'identificazione WiFi</string>
     <string name="needstoragepermission">L\'applicazione richiede l\'accesso alla memoria per memorizzare i file di log ed esportare le impostazioni</string>
     <string name="request">Richiesta</string>
