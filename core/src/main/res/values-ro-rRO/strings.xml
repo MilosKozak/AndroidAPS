@@ -154,6 +154,7 @@
     <!--    Command-->
     <string name="connectiontimedout">Conectare eșuată</string>
     <!--    PumpEnactResult-->
+    <string name="enacted">Executat</string>
     <string name="comment">Comentariu</string>
     <string name="success">Succes</string>
     <string name="percent">Procent</string>
@@ -163,7 +164,9 @@
     <string name="waitingforpumpresult">Se așteaptă rezultatul</string>
     <string name="smb_shortname">SMB</string>
     <!--    CarbsReq-->
+    <string name="carbsreq">%dg carbohidrați suplimentari necesari în %d minute</string>
     <!--    TDDStatsActivity-->
+    <string name="stats">Statistici</string>
     <string name="cumulative_tdd">TDD cumulat</string>
     <string name="expweight">TDD estimat exponențial</string>
     <string name="basalrate">Bazală</string>
@@ -172,7 +175,10 @@
     <string name="ratio">Rata</string>
     <string name="amount_days"># Zile</string>
     <string name="weight">Greutate</string>
+    <string name="warning_Message">Posibil fără acuratețe bună dacă folosiți bolus de insulină pentru amorsare/umplere!</string>
     <string name="olddata_Message">Date vechi, apăsați \"REÎNCĂRCARE\"</string>
+    <string name="tbb">Total bazală implicită</string>
     <string name="tbb2">TBB * 2</string>
     <!--    Ntp-->
+    <string name="timedetection">Detectare timp</string>
 </resources>
