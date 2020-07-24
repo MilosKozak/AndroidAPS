@@ -3,7 +3,13 @@
     <string name="app_name">AAPS</string>
     <string name="label_actions_activity">AAPS</string>
     <string name="label_xdrip">AAPS</string>
+    <string name="label_xdrip_large">AAPS(Mare)</string>
+    <string name="label_xdrip_big_chart">AAPS(GraficMare)</string>
+    <string name="label_xdrip_no_chart">AAPS(FărăGrafic)</string>
+    <string name="label_xdrip_circle">AAPS(Cerc)</string>
     <string name="label_xdrip_v2">AAPSv2</string>
+    <string name="label_xdrip_cockpit">AAPS(Bord)</string>
+    <string name="label_xdrip_steampunk">AAPS (Steampunk)</string>
     <string name="label_warning_sync">Nu există date!</string>
     <string name="label_warning_old">Date vechi!</string>
     <string name="label_warning_sync_aaps">Sincronizare cu AAPS!</string>
