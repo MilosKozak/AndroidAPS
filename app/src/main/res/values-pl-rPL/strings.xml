@@ -680,7 +680,6 @@
     <string name="do_not_bolus_record_only">Nie podawaj bolusa, tylko zapisz rekord</string>
     <string name="category">Kategoria</string>
     <string name="subcategory">Podkategoria</string>
-    <string name="bolusrecordedonly">Bolus zostanie tylko zapisany w rekordach</string>
     <string name="ns_autobackfill_summary">Automatycznie wypełnij brakujące BG z NS</string>
     <string name="loop_smbsetbypump_label">SMB ustawiony przez pompę</string>
     <string name="overview_show_activity">Aktywność</string>
