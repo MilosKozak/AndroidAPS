@@ -562,7 +562,6 @@
     <string name="do_not_bolus_record_only">Μην κάνετε bolus, μόνο να καταγράφετε</string>
     <string name="category">Κατηγορία</string>
     <string name="subcategory">Υποκατηγορία</string>
-    <string name="bolusrecordedonly">Το bolus θα εγγραφεί μόνο</string>
     <string name="ns_autobackfill_summary">Συμπληρώνεται αυτόματα η BG που λείπει από το NS</string>
     <string name="loop_smbsetbypump_label">Το SMB ρυθμίστηκε από την αντλία</string>
     <string name="overview_show_activity">Δραστηριότητα</string>
