@@ -679,7 +679,6 @@
     <string name="do_not_bolus_record_only">No bolo, solo record</string>
     <string name="category">Categoria</string>
     <string name="subcategory">Sottocategoria</string>
-    <string name="bolusrecordedonly">Il bolo sarà solo registrato</string>
     <string name="ns_autobackfill_summary">Riempimento automatico glicemie mancanti da NS</string>
     <string name="loop_smbsetbypump_label">SMB impostato dal micro</string>
     <string name="overview_show_activity">Attività</string>
@@ -819,7 +818,7 @@
     <string name="combo_invalid_setup">Configurazione micro non valida, controlla la documentazione e verifica che il menu Quick Info sia denominato QUICK INFO utilizzando \"360 configuration software\".</string>
     <string name="custom">Personalizzato</string>
     <string name="careportal_removestartedevents">Rimuovi gli eventi \"AndroidAPS avviato\"</string>
-    <string name="storedsettingsfound">Trovate impostazioni salvate</string>
+    <string name="storedsettingsfound">Trovate impostazioni memorizzate</string>
     <string name="allow_hardware_pump_text">Attenzione: se attivi e connetti un micro, AndroidAPS copierà le impostazioni della basale dal profilo al micro, sovrascrivendo la velocità basale esistente memorizzata sul micro. Assicurati di avere la giusta impostazione della basale in AndroidAPS. Se non sei sicuro o non vuoi sovrascrivere le impostazioni della basale sul micro, premi annulla e ripeti il processo in un altro momento.</string>
     <string name="error_adding_treatment_title">Dati trattamento incompleti</string>
     <string name="maintenance_settings">Impostazioni manutenzione</string>
