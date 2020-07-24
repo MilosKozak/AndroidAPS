@@ -680,7 +680,6 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="do_not_bolus_record_only">Ne pas administrer de bolus, enregistrer uniquement</string>
     <string name="category">Catégorie</string>
     <string name="subcategory">Sous-catégorie</string>
-    <string name="bolusrecordedonly">Le bolus sera seulement enregistré</string>
     <string name="ns_autobackfill_summary">Remplissage automatique des glycémies manquantes en utilisant NS</string>
     <string name="loop_smbsetbypump_label">SMB défini par la pompe</string>
     <string name="overview_show_activity">Activité</string>
