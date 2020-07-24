@@ -679,7 +679,6 @@
     <string name="do_not_bolus_record_only">No administrar Bolo, solo anotar</string>
     <string name="category">Categoría</string>
     <string name="subcategory">Subcategoría</string>
-    <string name="bolusrecordedonly">El Bolo sólo será anotado</string>
     <string name="ns_autobackfill_summary">Rellenar BGs perdidos desde NS</string>
     <string name="loop_smbsetbypump_label">SMB administrado por bomba</string>
     <string name="overview_show_activity">Actividad</string>
