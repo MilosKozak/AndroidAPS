@@ -1237,6 +1237,7 @@
     <string name="nav_survey">Prieskum</string>
     <string name="invalidage">Neplatný záznam veku</string>
     <string name="invalidweight">Neplatný záznam váhy</string>
+    <string name="invalidpct">Neplatný vstup %</string>
     <string name="tirformat"><![CDATA[<b>%1$s:</b> Pod: <b>%2$02d%%</b> V: <b>%3$02d%%</b> Nad: <b>%4$02d%%</b>]]></string>
     <string name="average">Priemer</string>
     <string name="tir">Čas v rozsahu</string>
@@ -1412,5 +1413,8 @@
     <string name="availableprofile">Dostupný profil</string>
     <string name="profiletype">Typ profilu</string>
     <string name="formatwithtdd">Vek: %1$.0f CDD: %2$.0f U</string>
+    <string name="formatwittddandpct">Vek: %1$.0f CDD: %2$.0f JI %3$d%%</string>
     <string name="formatwithweight">Vek: %1$.0f Hmotnosť: %2$.0f kg</string>
+    <string name="basalpctfromtdd_label">% bazálu</string>
+    <string name="dpvdefaultprofile">Predvolený DPV profil</string>
 </resources>
