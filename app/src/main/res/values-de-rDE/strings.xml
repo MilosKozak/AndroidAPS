@@ -173,7 +173,7 @@
     <string name="preferences_export_canceled">Export abgebrochen! Einstellungen wurden NICHT exportiert!</string>
     <string name="preferences_import_canceled">Import abgebrochen! Einstellungen wurden NICHT importiert!</string>
     <string name="preferences_import_impossible">Einstellungen können nicht importiert werden!</string>
-    <string name="goto_main_try_again">Bitte gehe zurück zurStartseite und versuche es erneut.</string>
+    <string name="goto_main_try_again">Bitte gehe zurück zur Startseite und versuche es erneut.</string>
     <string name="preferences_import_list_title">Wähle die zu importierende Datei</string>
     <string name="check_preferences_before_import">Überprüfe die Einstellungen vor dem Import:</string>
     <string name="check_preferences_cannot_import">Einstellungen können nicht importiert werden!</string>
