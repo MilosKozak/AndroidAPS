@@ -796,7 +796,6 @@
     <string name="askforpermission">Pedir permiso</string>
     <string name="needsystemwindowpermission">La aplicación necesita permiso de ventana del sistema para las notificaciones</string>
     <string name="needlocationpermission">La aplicación necesita permiso de ubicación para la exploración de BT e identificación de WiFi</string>
-    <string name="needstoragepermission">La aplicación necesita permiso para guardar los logs</string>
     <string name="request">Solicitar</string>
     <string name="insulinsourcesetup">Configurar complemento de insulina</string>
     <string name="exit">Salir</string>
