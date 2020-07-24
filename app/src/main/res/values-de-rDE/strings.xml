@@ -172,6 +172,8 @@
     <string name="password_preferences_decrypt_prompt">Du wirst nach dem Master-Passwort gefragt. Mit diesem werden die importierten Einstellungen entschlüsselt.</string>
     <string name="preferences_export_canceled">Export abgebrochen! Einstellungen wurden NICHT exportiert!</string>
     <string name="preferences_import_canceled">Import abgebrochen! Einstellungen wurden NICHT importiert!</string>
+    <string name="preferences_import_impossible">Einstellungen können nicht importiert werden!</string>
+    <string name="goto_main_try_again">Bitte gehe zurück zurStartseite und versuche es erneut.</string>
     <string name="preferences_import_list_title">Wähle die zu importierende Datei</string>
     <string name="check_preferences_before_import">Überprüfe die Einstellungen vor dem Import:</string>
     <string name="check_preferences_cannot_import">Einstellungen können nicht importiert werden!</string>
@@ -796,6 +798,7 @@
     <string name="askforpermission">Nach Berechtigung fragen</string>
     <string name="needsystemwindowpermission">Die App benötigt die Systemberechtigung für App-Benachrichtigungen</string>
     <string name="needlocationpermission">Die App benötigt die Berechtigung für den Standort, um Bluetooth und WLAN nutzen zu können</string>
+    <string name="needstoragepermission">Die App benötigt Zugriffsrechte für den Speicher um Log-Dateien zu sichern und die Einstellungen zu exportieren.</string>
     <string name="request">Anfordern</string>
     <string name="insulinsourcesetup">Insulin-Plugin konfigurieren</string>
     <string name="exit">Verlassen</string>
