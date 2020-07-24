@@ -679,7 +679,6 @@
     <string name="do_not_bolus_record_only">Не подавать болюс, только внести запись</string>
     <string name="category">Категория</string>
     <string name="subcategory">Подкатегория</string>
-    <string name="bolusrecordedonly">Болюс будет только записан</string>
     <string name="ns_autobackfill_summary">Заполнять пропущенные данные из NS</string>
     <string name="loop_smbsetbypump_label">Супер микро болюс SMB задан помпой</string>
     <string name="overview_show_activity">Нагрузка</string>
