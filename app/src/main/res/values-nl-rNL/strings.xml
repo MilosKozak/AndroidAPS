@@ -796,7 +796,6 @@
     <string name="askforpermission">Vragen om toestemming</string>
     <string name="needsystemwindowpermission">Toepassing vereist systeemvenstermachtiging voor meldingen</string>
     <string name="needlocationpermission">App heeft locatie toestemming nodig voor Bluetooth scan en WiFi identificatie</string>
-    <string name="needstoragepermission">Applicatie heeft toestemming nodig om log bestanden op te kunnen slaan</string>
     <string name="request">Verzoek</string>
     <string name="insulinsourcesetup">Gevoeligheid plugin configureren</string>
     <string name="exit">Afsluiten</string>
