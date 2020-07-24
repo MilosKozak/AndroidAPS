@@ -172,6 +172,8 @@
     <string name="password_preferences_decrypt_prompt">Será perguntado pela senha mestre, que será necessária para desencriptar preferências importadas.</string>
     <string name="preferences_export_canceled">Exportação cancelada! Preferências NÃO foram exportadas!</string>
     <string name="preferences_import_canceled">Importação cancelada! Preferências NÃO foram importadas!</string>
+    <string name="preferences_import_impossible">Não é possível importar as preferências!</string>
+    <string name="goto_main_try_again">Por favor, volte ao ecrã principal e tente novamente.</string>
     <string name="preferences_import_list_title">Seleccione o ficheiro para importação</string>
     <string name="check_preferences_before_import">Por favor, verifique as preferências antes da importação:</string>
     <string name="check_preferences_cannot_import">Preferências não podem ser importadas!</string>
@@ -796,6 +798,7 @@
     <string name="askforpermission">Pedir permissão</string>
     <string name="needsystemwindowpermission">Aplicação precisa de permissão de janela do sistema para notificações</string>
     <string name="needlocationpermission">Aplicação necessita de permissão de localização para pesquisa Bluetooth e identificação Wi-Fi</string>
+    <string name="needstoragepermission">Aplicação precisa da permissão de armazenamento para poder armazenar ficheiros de registo e exportar configurações</string>
     <string name="request">Pedido</string>
     <string name="insulinsourcesetup">Configurar plugin Insulina</string>
     <string name="exit">Sair</string>
