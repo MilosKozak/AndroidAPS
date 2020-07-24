@@ -681,7 +681,6 @@
     <string name="do_not_bolus_record_only">Bolus nur erfassen</string>
     <string name="category">Kategorie</string>
     <string name="subcategory">Unterkategorie</string>
-    <string name="bolusrecordedonly">Bolus wird nur erfasst.</string>
     <string name="ns_autobackfill_summary">Lade fehlende Blutzuckerwerte automatisch aus Nightscout nach.</string>
     <string name="loop_smbsetbypump_label">SMB von der Pumpe abgegeben</string>
     <string name="overview_show_activity">Aktivität</string>
