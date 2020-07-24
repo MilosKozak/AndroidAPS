@@ -679,7 +679,6 @@
     <string name="do_not_bolus_record_only">Boluso nesuleisti, tik įrašyti</string>
     <string name="category">Kategorija</string>
     <string name="subcategory">Subkategorija</string>
-    <string name="bolusrecordedonly">Bolusas bus tik įrašytas</string>
     <string name="ns_autobackfill_summary">Automatiškai atstatyti trūkstamus KG duomenis iš NS</string>
     <string name="loop_smbsetbypump_label">SMB nustatyta iš pompos</string>
     <string name="overview_show_activity">Aktyvumas</string>
