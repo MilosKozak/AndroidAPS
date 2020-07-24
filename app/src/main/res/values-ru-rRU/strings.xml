@@ -798,7 +798,6 @@ Context | Edit Context</string>
     <string name="askforpermission">Запросить права доступа</string>
     <string name="needsystemwindowpermission">Приложению требуется разрешение системного окна для уведомлений</string>
     <string name="needlocationpermission">Приложению требуется разрешение на доступ к местоположению для сканирования BT и идентификации WiFi</string>
-    <string name="needstoragepermission">Приложение нуждается в разрешении доступа к хранению данных для хранения лог-файлов</string>
     <string name="request">Запрос</string>
     <string name="insulinsourcesetup">Настроить плагин инсулина</string>
     <string name="exit">Выход</string>
