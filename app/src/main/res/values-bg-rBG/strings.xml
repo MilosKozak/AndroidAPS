@@ -679,6 +679,7 @@
     <string name="do_not_bolus_record_only">Не стартирай болус, а само запиши в базата данни</string>
     <string name="category">Категория</string>
     <string name="subcategory">Подкатегория</string>
+    <string name="bolusrecordedonly">Болус само ще се запише (няма да се стартира в помпа)</string>
     <string name="ns_autobackfill_summary">Допълни липсващи данни за КЗ от Nightscout</string>
     <string name="loop_smbsetbypump_label">SMB в помпата</string>
     <string name="overview_show_activity">Активност</string>
