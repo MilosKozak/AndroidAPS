@@ -525,7 +525,6 @@
     <string name="enablesmbwithtemptarget">启用带有临时目标的SMB</string>
     <string name="enablesmbwithtemptarget_summary">当临时目标处于活动状态时启用 SMB (很快吃饭, 运动)</string>
     <string name="enablesmbwithhightemptarget">启用具有高临时目标的 SMB</string>
-    <string name="enablesmbwithhightemptarget_summary">当临时目标处于活动状态（锻炼）时启用SMB</string>
     <string name="overview_insulin_label">胰岛素</string>
     <string name="overview_carbs_label">碳水</string>
     <string name="overview_buttons_selection">按钮</string>
