@@ -645,7 +645,6 @@
     <string name="enablesmbwithtemptarget">Įjungti SMB su laikinais tikslais</string>
     <string name="enablesmbwithtemptarget_summary">Įjungti SMB, kai laikinas tikslas aktyvuotas (Netrukus valgysiu, Aktyvumas)</string>
     <string name="enablesmbwithhightemptarget">Įjungti SMB su intensyviais laikinais tikslais</string>
-    <string name="enablesmbwithhightemptarget_summary">Įjungti SMB, kai intensyvūs laikini tikslai yra aktyvūs (sportuosite)</string>
     <string name="overview_insulin_label">Insulinas</string>
     <string name="overview_carbs_label">AV</string>
     <string name="overview_buttons_selection">Mygtukai</string>
