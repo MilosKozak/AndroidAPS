@@ -645,7 +645,6 @@
     <string name="enablesmbwithtemptarget">Gebruik SMB met tijdelijke streefdoelen</string>
     <string name="enablesmbwithtemptarget_summary">Gebruik SMB bij een actief tijdelijk streefdoel (eet binnenkort, activiteit)</string>
     <string name="enablesmbwithhightemptarget">Gebruik SMB met een hoog tijdelijk streefdoel</string>
-    <string name="enablesmbwithhightemptarget_summary">Gebruik SMB tijdens een verhoogd tijdelijk doel (Inspanningen)</string>
     <string name="overview_insulin_label">Insuline</string>
     <string name="overview_carbs_label">Koolhydraten</string>
     <string name="overview_buttons_selection">Knoppen</string>
