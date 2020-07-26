@@ -647,7 +647,6 @@
     <string name="enablesmbwithtemptarget">Povolit SMB s dočasnými cíli</string>
     <string name="enablesmbwithtemptarget_summary">Povolit SMB, pokud je aktivní dočasný cíl (aktivita, blížící se jídlo)</string>
     <string name="enablesmbwithhightemptarget">Povolit SMB s vysokými dočasnými cíli</string>
-    <string name="enablesmbwithhightemptarget_summary">Povolit SMB, pokud je aktivní vysoký dočasný cíl (aktivita)</string>
     <string name="overview_insulin_label">Inzulín</string>
     <string name="overview_carbs_label">Sacharidy</string>
     <string name="overview_buttons_selection">Tlačítka</string>
