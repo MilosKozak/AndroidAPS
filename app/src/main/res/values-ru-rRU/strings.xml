@@ -645,7 +645,6 @@
     <string name="enablesmbwithtemptarget">Включить супер микро болюс SMB с временными целями</string>
     <string name="enablesmbwithtemptarget_summary">Включить супер микро болюс SMB при активной временной цели (близкий прием пищи, нагрузка)</string>
     <string name="enablesmbwithhightemptarget">Включить супер микро болюс SMB с высокими значениями временных целей</string>
-    <string name="enablesmbwithhightemptarget_summary">Включить супер микро болюс SMB при высоком значении действующей временной цели (нагрузка)</string>
     <string name="overview_insulin_label">Инсулин</string>
     <string name="overview_carbs_label">Кол-во углеводов</string>
     <string name="overview_buttons_selection">Кнопки</string>
