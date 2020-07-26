@@ -645,7 +645,6 @@
     <string name="enablesmbwithtemptarget">Разреши SMB с временни цели</string>
     <string name="enablesmbwithtemptarget_summary">Разрешава SMB, когато има активна временна цел на КЗ</string>
     <string name="enablesmbwithhightemptarget">Разреши SMB с по-високи временни цели на КЗ</string>
-    <string name="enablesmbwithhightemptarget_summary">Разрешава SMB когато има активна по-висока временна цел </string>
     <string name="overview_insulin_label">Инсулин</string>
     <string name="overview_carbs_label">Въглехидрати</string>
     <string name="overview_buttons_selection">Бутони</string>
