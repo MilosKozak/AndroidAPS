@@ -646,7 +646,6 @@
     <string name="enablesmbwithtemptarget">Włącz SMB z tymczasowym poziomem docelowym (TT)</string>
     <string name="enablesmbwithtemptarget_summary">Włącz SMB gdy tymczasowy poziom docelowy (TT) jest aktywny (TT WkrótcePosiłek, TT ćwiczenia)</string>
     <string name="enablesmbwithhightemptarget">Włącz SMB z wysokim tymczasowym poziomem docelowym</string>
-    <string name="enablesmbwithhightemptarget_summary">Włącz SMB gdy wysoki tymczasowy poziom docelowy jest aktywny (TT ćwiczenia)</string>
     <string name="overview_insulin_label">Insulina</string>
     <string name="overview_carbs_label">Węglowod.</string>
     <string name="overview_buttons_selection">Przyciski</string>
