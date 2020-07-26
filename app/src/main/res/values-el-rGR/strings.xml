@@ -534,7 +534,6 @@
     <string name="enablesmbwithtemptarget">Ενεργοποίηση SMB με προσωρινούς στόχους</string>
     <string name="enablesmbwithtemptarget_summary">Ενεργοποίηση του SMB όταν υπάρχει ενεργός προσωρινός στόχος (τρώω σύντομα, άσκηση)</string>
     <string name="enablesmbwithhightemptarget">Ενεργοποίηση SMB με υψηλούς προσωρινούς στόχους</string>
-    <string name="enablesmbwithhightemptarget_summary">Ενεργοποίηση SMB όταν υπάρχει ενεργός υψηλός προσωρινός στόχος (άσκηση)</string>
     <string name="overview_insulin_label">Ινσουλίνη</string>
     <string name="overview_carbs_label">Υδατάνθρακες</string>
     <string name="overview_buttons_selection">Πλήκτρα</string>
