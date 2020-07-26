@@ -498,7 +498,6 @@ Aktif Karbonhidratın ne kadar hızlı sindirildiğine ve KŞ\'nin beklenenden d
     <string name="enablesmbwithtemptarget">Geçici hedeflerle SMB\'yi (Super Micro Bolus) etkinleştir</string>
     <string name="enablesmbwithtemptarget_summary">Geçici hedef aktif olduğunda SMB\'yi etkinleştir (yakında yeme, egzersiz)</string>
     <string name="enablesmbwithhightemptarget">Yüksek geçici bazal oran hedefleriyle SMB\'yi etkinleştir</string>
-    <string name="enablesmbwithhightemptarget_summary">Yüksek geçici bazal oran hedef etkin olduğunda SMB\'yi etkinleştirin (egzersiz)</string>
     <string name="overview_insulin_label">İnsülin</string>
     <string name="overview_carbs_label">Karbonhidrat</string>
     <string name="overview_buttons_selection">Tuşlar</string>
