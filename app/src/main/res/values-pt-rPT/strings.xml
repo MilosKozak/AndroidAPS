@@ -647,6 +647,7 @@
     <string name="enablesmbwithtemptarget">SMB activo com valores alvo temporários</string>
     <string name="enablesmbwithtemptarget_summary">SMB activo quando há valor alvo temporário activo (exercício, etc)</string>
     <string name="enablesmbwithhightemptarget">SMB activo com alvos temporários elevados</string>
+    <string name="enablesmbwithhightemptarget_summary">Activar SMB quando há alvo temporário elevado activo (exercício, acima de 100 mg/dl ou 5,5 mmol/l)</string>
     <string name="overview_insulin_label">Insulina</string>
     <string name="overview_carbs_label">Hidratos</string>
     <string name="overview_buttons_selection">Botões</string>
@@ -680,6 +681,7 @@
     <string name="do_not_bolus_record_only">Sem bólus, registar apenas</string>
     <string name="category">Categoria</string>
     <string name="subcategory">Subcategoria</string>
+    <string name="bolusrecordedonly">Bólus será registado apenas (não administrado pela bomba)</string>
     <string name="ns_autobackfill_summary">Preencher glicemias em falta com NS</string>
     <string name="loop_smbsetbypump_label">SMB definido pela bomba</string>
     <string name="overview_show_activity">Actividade</string>
