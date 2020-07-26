@@ -647,7 +647,6 @@
     <string name="enablesmbwithtemptarget">Abilita SMB con target temporanei</string>
     <string name="enablesmbwithtemptarget_summary">Abilita SMB quando è attivo un target temporaneo (pasto a breve, attività fisica)</string>
     <string name="enablesmbwithhightemptarget">Abilita SMB con target temporanei \"alti\"</string>
-    <string name="enablesmbwithhightemptarget_summary">Abilita SMB quando è attivo un target temporaneo \"alto\"</string>
     <string name="overview_insulin_label">Insulina</string>
     <string name="overview_carbs_label">CHO</string>
     <string name="overview_buttons_selection">Tasti</string>
