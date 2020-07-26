@@ -557,7 +557,6 @@
     <string name="enablesmbwithtemptarget">임시 목표에서 SMB 사용하기</string>
     <string name="enablesmbwithtemptarget_summary">활성화된 임시 목표(식사직전, 운동)가 있으면 SMB를 사용합니다.</string>
     <string name="enablesmbwithhightemptarget">높은 임시 목표에서 SMB 사용하기</string>
-    <string name="enablesmbwithhightemptarget_summary">활성화된 높은 임시 목표(운동)가 있으면 SMB를 사용합니다.</string>
     <string name="overview_insulin_label">인슐린</string>
     <string name="overview_carbs_label">탄수화물</string>
     <string name="overview_buttons_selection">버튼</string>
