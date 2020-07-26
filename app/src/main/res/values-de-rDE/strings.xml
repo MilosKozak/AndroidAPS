@@ -647,6 +647,7 @@
     <string name="enablesmbwithtemptarget">Aktiviere SMB bei aktiven temporären Zielen</string>
     <string name="enablesmbwithtemptarget_summary">Aktiviere SMB, wenn ein temporäres Ziel aktiv ist (bald essen, Aktivität)</string>
     <string name="enablesmbwithhightemptarget">Aktiviere SMB bei temporären Zielen oberhalb des regulären Ziels</string>
+    <string name="enablesmbwithhightemptarget_summary">Aktiviere SMB bei hohen temporären Zielen (Sport, über 100 mg/dl bzw. 5,5 mmol/L)</string>
     <string name="overview_insulin_label">Insulin</string>
     <string name="overview_carbs_label">Kohlenhydrate</string>
     <string name="overview_buttons_selection">Schaltflächen</string>
