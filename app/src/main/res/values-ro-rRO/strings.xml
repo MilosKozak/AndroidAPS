@@ -647,7 +647,6 @@
     <string name="enablesmbwithtemptarget">Activează SMB cu ținte temporare</string>
     <string name="enablesmbwithtemptarget_summary">Activează SMB chiar atunci când este o țintă temporară activă (mâncare in curând, exerciții fizice)</string>
     <string name="enablesmbwithhightemptarget">Activează SMB cu ținte temporare mari</string>
-    <string name="enablesmbwithhightemptarget_summary">Activează SMB atunci când există o țintă temporară mare activă (exerciții fizice)</string>
     <string name="overview_insulin_label">Insulină</string>
     <string name="overview_carbs_label">Carbohidrați</string>
     <string name="overview_buttons_selection">Butoane</string>
