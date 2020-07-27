@@ -648,6 +648,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="enablesmbwithtemptarget">Activer SMB avec les cibles temporaires</string>
     <string name="enablesmbwithtemptarget_summary">Activer SMB lorsqu\'il y a une cible temporaire active (repas imminent, exercise)</string>
     <string name="enablesmbwithhightemptarget">Activer SMB avec cibles temp. hautes</string>
+    <string name="enablesmbwithhightemptarget_summary">Activer les SMB quand il y a une cible temp haute active (exercise, au dessus de 100 mg/dl ou 5.5 mmol/l)</string>
     <string name="overview_insulin_label">Insuline</string>
     <string name="overview_carbs_label">Glucides</string>
     <string name="overview_buttons_selection">Boutons</string>
