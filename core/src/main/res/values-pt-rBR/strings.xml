@@ -171,6 +171,7 @@
     <!--    Ntp-->
     <string name="timedetection">Detecção de tempo</string>
     <!-- PumoCommon - Pump Abstract -->
+    <string name="pump_operation_not_yet_supported_by_pump">Operação não suportada ainda pela Bomba.</string>
     <!-- PumoCommon - Pump Status -->
     <!-- PumpCommon - History Group -->
     <!--    <string name="medtronic_pump_status_never_contacted">Never contacted</string>-->
