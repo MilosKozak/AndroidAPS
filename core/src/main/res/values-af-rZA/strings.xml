@@ -19,6 +19,7 @@
     <!--    TDDStatsActivity-->
     <!--    Ntp-->
     <!-- PumoCommon - Pump Abstract -->
+    <string name="pump_operation_not_yet_supported_by_pump">Operasie nog nie ondersteun deur pomp.</string>
     <!-- PumoCommon - Pump Status -->
     <!-- PumpCommon - History Group -->
     <!--    <string name="medtronic_pump_status_never_contacted">Never contacted</string>-->
