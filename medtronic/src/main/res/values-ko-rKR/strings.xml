@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Medtronic (MDT) - Base -->
+    <string name="description_pump_medtronic">메드트로닉 펌프 연동에는 RileyLink와 특정 펌프 모델이 필요합니다.</string>
+    <!-- MDT Configuration -->
+    <string name="medtronic_serial_number">펌프 일련번호</string>
+    <string name="medtronic_pump_type">펌프 타입</string>
+    <string name="medtronic_pump_frequency">펌프 주파수</string>
+    <string name="medtronic_pump_bolus_delay">Bolus 시작전 지연시간(초)</string>
+    <string name="medtronic_pump_max_bolus">펌프의 최대 Bolus(U)</string>
+    <string name="medtronic_pump_max_basal">펌프의 최대 Basal(U/h)</string>
+    <string name="medtronic_pump_encoding">메드트로닉 인코딩</string>
+    <string name="medtronic_pump_frequency_us_ca">미국 &amp; 캐나다(916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">타국가(868 Mhz)</string>
+    <string name="medtronic_pump_encoding_4b6b_local">소프트웨어 4b6b 인코딩</string>
+    <string name="medtronic_pump_encoding_4b6b_rileylink">하드웨어 4b6b 인코딩</string>
+    <string name="medtronic_custom_action_wake_and_tune">켜기 및 튜닝</string>
+    <string name="medtronic_custom_action_clear_bolus_block">Bolus 블록 삭제</string>
+    <string name="medtronic_custom_action_reset_rileylink">RileyLink 구성 재설정</string>
+    <string name="medtronic_pump_battery_select">배터리 타입(파워뷰)</string>
+    <string name="medtronic_pump_battery_no">선택되지 않음(심플뷰)</string>
+    <!-- MDT Errors -->
+    <!-- MDT History -->
+    <!--    <string name="medtronic_history_group_basal">Basals</string>-->
+    <!--    <string name="medtronic_history_group_configuration">Configurations</string>-->
+    <!--    <string name="medtronic_history_group_notification">Notifications</string>-->
+    <!--    <string name="medtronic_history_group_statistic">Statistics</string>-->
+    <!--    <string name="medtronic_history_group_unknown">Unknowns</string>-->
+    <!--    <string name="medtronic_history_group_all">All</string>-->
+    <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
+    <!-- medtronic_warning -->
+    <!-- combo_pump_connected_now -->
+    <!-- combo_notification_check_time_date -->
+</resources>
