@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SCANNER</string>
+    <string name="rileylink_scanner_scan_stop">ARRÊT</string>
+    <string name="rileylink_scanner_selected_device">Sélectionné</string>
+    <string name="rileylink_scanner_title">Scanner RileyLink</string>
+    <string name="location_yes">Activer</string>
+    <!-- RL Status Page -->
+    <!-- RL State -->
+    <!-- RL Errors -->
+    <!-- RL Target Device -->
+    <!--    <plurals name="objective_minutes">-->
+    <!--        <item quantity="one">%1$d minute</item>-->
+    <!--        <item quantity="other">%1$d minutes</item>-->
+    <!--    </plurals>-->
+</resources>
