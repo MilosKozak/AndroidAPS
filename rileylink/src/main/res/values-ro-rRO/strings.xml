@@ -17,9 +17,36 @@
     <string name="title_activity_rileylink_settings">Setări RileyLink</string>
     <string name="rileylink_title">RileyLink</string>
     <string name="rileylink_configured_address">Adresă configurate</string>
+    <string name="rileylink_connected_device">Dispozitiv conectat</string>
+    <string name="rileylink_connection_status">Stare conexiune</string>
+    <string name="rileylink_connection_error">Eroare conexiune</string>
+    <string name="rileylink_device">Dispozitiv</string>
+    <string name="rileylink_device_type">Tip dispozitiv</string>
+    <string name="rileylink_device_model">Model dispozitiv</string>
+    <string name="rileylink_last_used_frequency">Ultima frecvență utilizată</string>
+    <string name="rileylink_last_device_contact">Ultima conexiune cu dispozitivul</string>
+    <string name="rileylink_firmware_version">Firmware RL</string>
     <!-- RL State -->
+    <string name="rileylink_state_bt_init">Se inițializează conexiunea Bluetooth…</string>
+    <string name="rileylink_state_bt_error">Eroare Bluetooth</string>
+    <string name="rileylink_state_bt_ready">Conexiune Bluetooth pregătită</string>
+    <string name="rileylink_state_not_started">Nepornit</string>
+    <string name="rileylink_state_rl_init">Se inițializează RileyLink…</string>
+    <string name="rileylink_state_rl_error">Eroare RileyLink</string>
+    <string name="rileylink_state_pc_tune_up">Se îmbunătățește RileyLink și pompa</string>
+    <string name="rileylink_state_pc_error">Probleme la conectarea cu pompa</string>
     <!-- RL Errors -->
+    <string name="rileylink_error_not_rl">Dispozitivul nu este RileyLink</string>
+    <string name="rileylink_error_unreachable">Nu se poate găsi RileyLink</string>
+    <string name="rileylink_error_bt_disabled">Bluetooth dezactivat</string>
+    <string name="rileylink_error_no_bt_adapter">Nu există un adaptor Bluetooth</string>
+    <string name="rileylink_error_tuneup_failed">Conectare eșuată</string>
+    <string name="rileylink_error_pod_unreachable">Nu se poate comunica cu pod-ul</string>
     <!-- RL Target Device -->
+    <string name="rileylink_target_device_medtronic">Pompă Medtronic</string>
+    <string name="rileylink_target_device_omnipod">Omnipod</string>
+    <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
+    <string name="medtronic_pump_frequency_worldwide">Globală (868 Mhz)</string>
     <!--    <plurals name="objective_minutes">-->
     <!--        <item quantity="one">%1$d minute</item>-->
     <!--        <item quantity="other">%1$d minutes</item>-->
