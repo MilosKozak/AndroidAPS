@@ -14,4 +14,5 @@
     <!-- medtronic_warning -->
     <!-- combo_pump_connected_now -->
     <!-- combo_notification_check_time_date -->
+    <string name="pump_time_updated">Pompa zamanı güncellendi</string>
 </resources>
