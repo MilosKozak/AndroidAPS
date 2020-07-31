@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- RL BLE Scanning -->
+    <string name="rileylink_scanner_scan_scan">SCAN</string>
+    <string name="rileylink_scanner_scan_stop">STOP</string>
+    <string name="rileylink_scanner_selected_device">Selectat</string>
+    <string name="rileylink_scanner_title">Scanare RileyLink</string>
+    <string name="location_yes">Activează</string>
+    <string name="rileylink_scanner_scanning">Scanează</string>
+    <string name="rileylink_scanner_scanning_finished">Scanare terminată</string>
+    <string name="rileylink_scanner_scanning_error">Eroare la scanare: %1$d</string>
+    <!-- RL Status Page -->
+    <string name="rileylink_settings_tab1">Setări</string>
+    <string name="rileylink_settings_tab2">Istoric</string>
+    <string name="rileylink_status">Stare RileyLink</string>
+    <string name="medtronic_pump_status">Stare pompă</string>
+    <string name="title_activity_rileylink_settings">Setări RileyLink</string>
+    <string name="rileylink_title">RileyLink</string>
+    <string name="rileylink_configured_address">Adresă configurate</string>
+    <!-- RL State -->
+    <!-- RL Errors -->
+    <!-- RL Target Device -->
+    <!--    <plurals name="objective_minutes">-->
+    <!--        <item quantity="one">%1$d minute</item>-->
+    <!--        <item quantity="other">%1$d minutes</item>-->
+    <!--    </plurals>-->
+</resources>
