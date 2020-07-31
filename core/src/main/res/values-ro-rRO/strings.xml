@@ -183,6 +183,7 @@
     <string name="timedetection">Detectare timp</string>
     <string name="format_hour_minute">%1$dh %2$dm</string>
     <!-- PumoCommon - Pump Abstract -->
+    <string name="pump_operation_not_yet_supported_by_pump">Operațiunea nu este ÎNCĂ suportată de către pompă.</string>
     <!-- PumoCommon - Pump Status -->
     <!-- PumpCommon - History Group -->
     <!--    <string name="medtronic_pump_status_never_contacted">Never contacted</string>-->
