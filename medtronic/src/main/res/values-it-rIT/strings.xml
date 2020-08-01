@@ -25,6 +25,7 @@
     <string name="medtronic_pump_battery_nimh">NiMH (Extended view)</string>
     <string name="medtronic_bolus_debugging">Debug Bolo/Trattamenti</string>
     <!-- MDT Errors -->
+    <string name="medtronic_errors">Errori</string>
     <string name="medtronic_error_serial_not_set"># seriale non impostato.</string>
     <string name="medtronic_error_serial_invalid"># seriale non valido.</string>
     <string name="medtronic_error_pump_type_not_set">Tipo micro non impostato.</string>
