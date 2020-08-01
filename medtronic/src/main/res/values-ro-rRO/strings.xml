@@ -25,6 +25,7 @@
     <string name="medtronic_pump_battery_nimh">NiMH (Afișare extinsă)</string>
     <string name="medtronic_bolus_debugging">Depanare Bolus/Tratamente</string>
     <!-- MDT Errors -->
+    <string name="medtronic_errors">Erori</string>
     <string name="medtronic_error_serial_not_set">Număr serial nesetat.</string>
     <string name="medtronic_error_serial_invalid">Număr serial invalid.</string>
     <string name="medtronic_error_pump_type_not_set">Tipul pompei nesetat.</string>
@@ -47,6 +48,7 @@
     <!--    <string name="medtronic_history_group_statistic">Statistics</string>-->
     <!--    <string name="medtronic_history_group_unknown">Unknowns</string>-->
     <!--    <string name="medtronic_history_group_all">All</string>-->
+    <string name="medtronic_pump_history">Istoric pompă Medtronic</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
     <string name="medtronic_cmd_cancel_bolus_not_supported">Ați anulat un bolus după ce a fost deja transmis către pompă. Deoarece pompa Medtronic nu permite o anulare de bolus, va trebui să faceți acest lucru în mod manual, din pompă. Puneți pompa în modul Suspend și apoi Repornire (dacă totuși doriți să anulați bolusul). Aplicația se va sincroniza automat cu pompa la următoarea contactare a acesteia (în mai puțin de 5 minute).</string>
     <string name="medtronic_cmd_cant_read_tbr">Nu a putut fi citită RBT.</string>
@@ -68,8 +70,15 @@
     <string name="medtronic_cmd_desc_get_tbr">Preia bazala temporară</string>
     <string name="medtronic_cmd_desc_set_tbr">Setează bazala temporară</string>
     <string name="medtronic_cmd_desc_set_bolus">Setează bolusul</string>
+    <string name="medtronic_pump_status_pump_unreachable">Pompă indisponibilă</string>
+    <string name="medtronic_warning">Atenție</string>
     <!-- medtronic_warning -->
+    <string name="medtronic_pump_connected_now">Acum</string>
     <!-- combo_pump_connected_now -->
+    <string name="ago">în trecut</string>
+    <string name="medtronic_notification_check_time_date">Ceasul pompei trebuie ajustat</string>
     <!-- combo_notification_check_time_date -->
+    <string name="common_on">Pornit</string>
+    <string name="common_off">Oprit</string>
     <string name="pump_time_updated">Timpul din pompă a fost actualizat</string>
 </resources>
