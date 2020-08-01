@@ -31,27 +31,12 @@
     <!-- RL State -->
     <string name="rileylink_state_bt_init">Inizializzazione bluetooth…</string>
     <string name="rileylink_state_bt_error">Errore bluetooth</string>
-    <string name="rileylink_state_bt_ready">Bluetooth pronto</string>
-    <string name="rileylink_state_not_started">Non avviato</string>
-    <string name="rileylink_state_rl_init">Inializzazione RileyLink…</string>
-    <string name="rileylink_state_rl_error">Errore RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">Sintonizzazione RileyLink e micro</string>
-    <string name="rileylink_state_pc_error">Problema di connessione al micro</string>
     <string name="rileylink_state_connected">Connesso</string>
     <!-- RL Errors -->
-    <string name="rileylink_error_not_rl">Il dispositivo non è RileyLink</string>
-    <string name="rileylink_error_unreachable">RileyLink non raggiungibile</string>
-    <string name="rileylink_error_bt_disabled">Bluetooth disabilitato</string>
-    <string name="rileylink_error_no_bt_adapter">Nessun adattatore bluetooth</string>
-    <string name="rileylink_error_tuneup_failed">Sintonizzazione fallita</string>
+    <string name="rileylink_error_unreachable">RileyLink irraggiungibile</string>
     <string name="rileylink_error_pump_unreachable">Micro irraggiungibile</string>
-    <string name="rileylink_error_pod_unreachable">Pod irraggiungibile</string>
     <!-- RL Target Device -->
-    <string name="rileylink_target_device_medtronic">Micro Medtronic</string>
-    <string name="rileylink_target_device_omnipod">Omnipod</string>
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
-    <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
-    <string name="medtronic_pump_frequency_worldwide">Globale (868 Mhz)</string>
     <plurals name="duration_days">
         <item quantity="one">%1$d giorno</item>
         <item quantity="other">%1$d giorni</item>
