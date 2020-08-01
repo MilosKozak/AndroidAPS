@@ -181,8 +181,11 @@
     <!--    Ntp-->
     <string name="timedetection">Определение времени</string>
     <!-- PumoCommon - Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Операция не поддерживается помпой и/или драйвером.</string>
     <string name="pump_operation_not_yet_supported_by_pump">Операция ЕЩЕ не поддерживается помпой.</string>
+    <string name="common_resultok">OK</string>
     <!-- PumoCommon - Pump Status -->
+    <string name="pump_status_never_contacted">Никогда не подключалась</string>
     <!-- PumpCommon - History Group -->
     <!--    <string name="medtronic_pump_status_never_contacted">Never contacted</string>-->
     <!--    <string name="medtronic_pump_status_waking_up">Waking up</string>-->
