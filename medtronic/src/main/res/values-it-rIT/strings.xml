@@ -48,6 +48,7 @@
     <!--    <string name="medtronic_history_group_statistic">Statistics</string>-->
     <!--    <string name="medtronic_history_group_unknown">Unknowns</string>-->
     <!--    <string name="medtronic_history_group_all">All</string>-->
+    <string name="medtronic_pump_history">Storico micro Medtronic</string>
     <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
     <string name="medtronic_cmd_cancel_bolus_not_supported">Hai cancellato il bolo, dopo che era già stato impostato sul micro. Dal momento che il micro Medtronic non supporta la cancellazione, avrai bisogno di cancellare il bolo manualmente. Metti il micro in modalità sospensione e poi fallo ripartire (se vuoi ancora cancellare il bolo). L\'applicazione rileverà le modifiche al prossimo aggiornamento (in meno di 5 minuti).</string>
     <string name="medtronic_cmd_cant_read_tbr">Impossibile leggere il TBR corrente.</string>
@@ -69,8 +70,15 @@
     <string name="medtronic_cmd_desc_get_tbr">Ottieni basale temporanea</string>
     <string name="medtronic_cmd_desc_set_tbr">Imposta basale temporanea</string>
     <string name="medtronic_cmd_desc_set_bolus">Imposta bolo</string>
+    <string name="medtronic_pump_status_pump_unreachable">Micro irraggiungibile</string>
+    <string name="medtronic_warning">Avviso</string>
     <!-- medtronic_warning -->
+    <string name="medtronic_pump_connected_now">Adesso</string>
     <!-- combo_pump_connected_now -->
+    <string name="ago">fa</string>
+    <string name="medtronic_notification_check_time_date">Necessario aggiornare orologio micro</string>
     <!-- combo_notification_check_time_date -->
+    <string name="common_on">On</string>
+    <string name="common_off">Off</string>
     <string name="pump_time_updated">Ora del micro aggiornata</string>
 </resources>
