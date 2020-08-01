@@ -75,6 +75,7 @@
     <!-- medtronic_warning -->
     <string name="medtronic_pump_connected_now">Maintenant</string>
     <!-- combo_pump_connected_now -->
+    <string name="ago">passé(e)s</string>
     <string name="medtronic_notification_check_time_date">Mise à jour nécessaire de l\'heure de la pompe</string>
     <!-- combo_notification_check_time_date -->
     <string name="common_on">Activé</string>
