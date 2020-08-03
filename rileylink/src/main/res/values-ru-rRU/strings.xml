@@ -52,6 +52,18 @@
     <string name="omnipod_frequency">Omnipod (433.91 МГц)</string>
     <string name="medtronic_pump_frequency_us_ca">US &amp; Canada (916 MHz)</string>
     <string name="medtronic_pump_frequency_worldwide">Глобальн (868 Мгц)</string>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d день</item>
+        <item quantity="few">%1$d дня</item>
+        <item quantity="many">%1$d дней</item>
+        <item quantity="other">%1$d дн</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d час</item>
+        <item quantity="few">%1$d ч</item>
+        <item quantity="many">%1$d ч</item>
+        <item quantity="other">%1$d ч</item>
+    </plurals>
     <!--    <plurals name="objective_minutes">-->
     <!--        <item quantity="one">%1$d minute</item>-->
     <!--        <item quantity="other">%1$d minutes</item>-->
