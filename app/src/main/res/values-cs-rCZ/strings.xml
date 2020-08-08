@@ -156,7 +156,7 @@
     <string name="overview_tempbasal_button">Dočasný bazál</string>
     <string name="overview_extendedbolus_button">Prodloužený bolus</string>
     <string name="configbuilder_nightscoutversion_label">Verze Nightscoutu:</string>
-    <string name="missing_carbs">Chybí %1$dg</string>
+    <string name="missing_carbs">Chybí %1$d g</string>
     <string name="exported">Nastavení exportováno</string>
     <string name="export_to">Exportovat nastavení do</string>
     <string name="import_from">Importovat nastavení z</string>
@@ -235,10 +235,10 @@
     <string name="smscommunicator_remotebolusmindistance_summary">Minimální počet minut, které musí uplynout mezi dvěma bolusy podanými přes vzdálené řízení</string>
     <string name="smscommunicator_remotebolusmindistance">Kolik minut (minimálně) musí uplynout mezi dvěma bolusy</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">Úprava tohoto nastavení v zájmu vaší bezpečnosti vyžaduje, abyste zadali alespoň 2 telefonní čísla.</string>
-    <string name="bolusdelivered">Bolus %1$.2fU aplikován úspěšně</string>
+    <string name="bolusdelivered">Bolus %1$.2f U aplikován úspěšně</string>
     <string name="bolusrequested">Podávání %1$.2fU inzulínu</string>
-    <string name="smscommunicator_bolusdelivered">Bolus %1$.2fU aplikován úspěšně</string>
-    <string name="smscommunicator_mealbolusdelivered">Bolus na jídlo %1$.2fU byl úspěšně aplikován</string>
+    <string name="smscommunicator_bolusdelivered">Bolus %1$.2f U aplikován úspěšně</string>
+    <string name="smscommunicator_mealbolusdelivered">Bolus na jídlo %1$.2f U byl úspěšně aplikován</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Cíl %1$s na %2$d minut</string>
     <string name="smscommunicator_tt_set">Cíl %1$s na %2$d minut byl úspěšně nastaven</string>
     <string name="smscommunicator_tt_canceled">Dočasný cíl byl úspěšně zrušen</string>
@@ -1077,7 +1077,7 @@
     <string name="selected_profile">Vybráno:</string>
     <string name="unitsnosemicolon">Jednotky</string>
     <string name="doyouwantswitchprofile">Chcete přepnout profil a zahodit změny provedené v aktuálním profilu?</string>
-    <string name="format_carbs">%1$dg</string>
+    <string name="format_carbs">%1$d g</string>
     <string name="common_on">ZAP</string>
     <string name="common_off">VYP</string>
     <string name="objectives_button_unfinish">Vymazat dokončeno</string>
