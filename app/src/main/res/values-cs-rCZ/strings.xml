@@ -236,7 +236,7 @@
     <string name="smscommunicator_remotebolusmindistance">Kolik minut (minimálně) musí uplynout mezi dvěma bolusy</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">Úprava tohoto nastavení v zájmu vaší bezpečnosti vyžaduje, abyste zadali alespoň 2 telefonní čísla.</string>
     <string name="bolusdelivered">Bolus %1$.2f U aplikován úspěšně</string>
-    <string name="bolusrequested">Podávání %1$.2fU inzulínu</string>
+    <string name="bolusrequested">Podávání %1$.2f U inzulínu</string>
     <string name="smscommunicator_bolusdelivered">Bolus %1$.2f U aplikován úspěšně</string>
     <string name="smscommunicator_mealbolusdelivered">Bolus na jídlo %1$.2f U byl úspěšně aplikován</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Cíl %1$s na %2$d minut</string>
