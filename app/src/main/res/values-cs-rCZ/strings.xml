@@ -273,8 +273,8 @@
     <string name="smscommunicator_loopdisablereplywithcode">Chcete-li zakázat smyčku, odpovězte SMS s kódem %1$s</string>
     <string name="smscommunicator_tempbasalset">Dočasný bazál %1$.2fU/h na %2$d minut spuštěn</string>
     <string name="smscommunicator_extendedset">Prodloužený bolus %1$.2fU na %2$d min úspěšně spuštěn</string>
-    <string name="smscommunicator_carbsset">Sacharidy %1$dg byly úspěšně zadány</string>
-    <string name="smscommunicator_carbsfailed">Zadání %1$dg sacharidů se nezdařilo</string>
+    <string name="smscommunicator_carbsset">Sacharidy %1$d g byly úspěšně zadány</string>
+    <string name="smscommunicator_carbsfailed">Zadání %1$d g sacharidů se nezdařilo</string>
     <string name="smscommunicator_tempbasalset_percent">Dočasný bazál %1$d%% na %2$d minut úspěšně spuštěn</string>
     <string name="smscommunicator_tempbasalfailed">Spuštění dočasného bazálu selhalo</string>
     <string name="smscommunicator_extendedfailed">Spuštění prodlouženého bolusu selhalo</string>
