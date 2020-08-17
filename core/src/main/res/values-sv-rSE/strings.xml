@@ -122,6 +122,8 @@
     <!--    Temptarget-->
     <string name="mins">%1$d min</string>
     <!--    TDD-->
+    <string name="tddformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2fU</b> Bol: <b>%3$.2fU</b> Bas: <b>%4$.2fU(%5$.0f%%)</b>]]></string>
+    <string name="tddwithcarbsformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2fU</b> Bol: <b>%3$.2fU</b> Bas: <b>%4$.2fU(%5$.0f%%)</b> KH: <b>%6$.0fg</b>]]></string>
     <!--    Translator-->
     <string name="careportal_bgcheck">BG-kontroll</string>
     <string name="careportal_announcement">Meddelande</string>
@@ -178,10 +180,31 @@
     <string name="tbb2">TDB * 2</string>
     <!--    Ntp-->
     <string name="timedetection">Tidsdetektering</string>
+    <string name="format_hour_minute">%1$dh %2$dm</string>
     <!-- PumoCommon - Pump Abstract -->
+    <string name="pump_operation_not_supported_by_pump_driver">Operation stöds inte av pumpen/pumpdrivrutinen.</string>
     <string name="pump_operation_not_yet_supported_by_pump">Operationen stöds inte av pumpen ännu.</string>
+    <string name="common_resultok">OK</string>
     <!-- PumoCommon - Pump Status -->
+    <string name="pump_status_never_contacted">Aldrig ansluten</string>
+    <string name="pump_status_waking_up">Väcker</string>
+    <string name="pump_status_error_comm">Kommunikationsfel</string>
+    <string name="pump_status_timeout_comm">Kommunikationstimeout</string>
+    <string name="pump_status_pump_unreachable">Pumpen kan inte nås</string>
+    <string name="pump_status_invalid_config">Felaktig konfiguration</string>
+    <string name="pump_status_active">Aktiv</string>
+    <string name="pump_status_sleeping">Sover</string>
     <!-- PumpCommon - History Group -->
+    <string name="history_group_basal">Basaldoser</string>
+    <string name="history_group_configuration">Konfigurationer</string>
+    <string name="history_group_notification">Notiser</string>
+    <string name="history_group_statistic">Statistik</string>
+    <string name="history_group_unknown">Okända</string>
+    <string name="history_group_all">Alla</string>
+    <string name="history_group_bolus">Bolusar</string>
+    <string name="history_group_prime">Förfyllningar</string>
+    <string name="history_group_alarm">Larm</string>
+    <string name="history_group_glucose">Glukos</string>
     <!--    <string name="medtronic_pump_status_never_contacted">Never contacted</string>-->
     <!--    <string name="medtronic_pump_status_waking_up">Waking up</string>-->
     <!--    <string name="medtronic_pump_status_error_comm">Error with communication</string>-->
