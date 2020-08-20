@@ -156,6 +156,7 @@
     <string name="overview_tempbasal_button">Basal Temporaire</string>
     <string name="overview_extendedbolus_button">Bolus étendu</string>
     <string name="configbuilder_nightscoutversion_label">Version Nightscout :</string>
+    <string name="missing_carbs">%1$d g manquants</string>
     <string name="exported">Préférences exportées</string>
     <string name="export_to">Exporter les paramètres au</string>
     <string name="import_from">Importer les paramètres depuis</string>
