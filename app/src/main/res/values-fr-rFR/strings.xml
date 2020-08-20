@@ -237,7 +237,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="smscommunicator_remotebolusmindistance">Combien de minutes doit-il y avoir, au minimum, entre un bolus et le suivant</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">Pour votre sécurité, pour modifier cette préférence vous devez ajouter au moins 2 numéros de téléphone.</string>
     <string name="bolusdelivered">Bolus de %1$.2f U délivré avec succès</string>
-    <string name="bolusrequested">%1$.2f U en cours d\'injection</string>
+    <string name="bolusrequested">%1$.2f U vont être injectées</string>
     <string name="smscommunicator_bolusdelivered">Bolus de %1$.2f U délivré avec succès</string>
     <string name="smscommunicator_mealbolusdelivered">Bolus repas de %1$.2f U délivré avec succès</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Cible %1$s pendant %2$d minutes</string>
