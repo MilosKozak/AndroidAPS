@@ -234,6 +234,8 @@
     <string name="smscommunicator_remotebolusmindistance_summary">Numero minimo di minuti che devono trascorrere tra un bolo remoto e il successivo</string>
     <string name="smscommunicator_remotebolusmindistance">Quanti minuti devono trascorrere, almeno, tra un bolo e il successivo</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">Per la tua sicurezza, per modificare questa preferenza hai bisogno di aggiungere almeno 2 numeri di telefono.</string>
+    <string name="bolusdelivered">Bolo di %1$.2f U erogato con successo</string>
+    <string name="bolusrequested">Sto per erogare %1$.2fU</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Target %1$s per %2$d minuti</string>
     <string name="smscommunicator_tt_set">Target %1$s per %2$d minuti impostato con successo</string>
     <string name="smscommunicator_tt_canceled">Temp-Target cancellato con successo</string>
