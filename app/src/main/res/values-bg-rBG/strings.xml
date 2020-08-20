@@ -156,6 +156,7 @@
     <string name="overview_tempbasal_button">Временен базал</string>
     <string name="overview_extendedbolus_button">Удължен болус</string>
     <string name="configbuilder_nightscoutversion_label">Nightscout версия:</string>
+    <string name="missing_carbs">Нужни %1$d гр</string>
     <string name="exported">Настройките са експортирани</string>
     <string name="export_to">Експортирай настройките в </string>
     <string name="import_from">Импорт на настройки от</string>
@@ -234,6 +235,10 @@
     <string name="smscommunicator_remotebolusmindistance_summary">Минимално време в минути, което трябва да е изминало след отдалечен болус, преди да може да бъде доставен следващият</string>
     <string name="smscommunicator_remotebolusmindistance">Колко най-малко минути трябва да минат между доставката на два болуса</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">За вашата сигурност, променете тази настройка, трябва да добавите най-малко 2 телефонни номера.</string>
+    <string name="bolusdelivered">Болус от %1$.2fЕ доставен успешно</string>
+    <string name="bolusrequested">Ще стартира %1$.2fЕ болус</string>
+    <string name="smscommunicator_bolusdelivered">Болус от %1$.2fЕ доставен успешно</string>
+    <string name="smscommunicator_mealbolusdelivered">Болус от %1$.2fЕ доставен успешно</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Временна цел от %1$s за %2$d минути</string>
     <string name="smscommunicator_tt_set">Временна цел от %1$s за %2$d минути стартирана успешно</string>
     <string name="smscommunicator_tt_canceled">Временна цел успешно спряна</string>
@@ -257,7 +262,9 @@
     <string name="smscommunicator_reconnect">Връзката с помпа е възстановена</string>
     <string name="smscommunicator_remotecommandnotallowed">Отдалеченото управление е забранено</string>
     <string name="smscommunicator_remotebolusnotallowed">Отдалечено стартиране на болус не е възможно. Опитайте отново по-късно.</string>
+    <string name="smscommunicator_basalreplywithcode">За да стартирате базал от %1$.2fЕ/ч за %2$d мин отговорете с код %3$s</string>
     <string name="smscommunicator_profilereplywithcode">За да превключите профила към %1$s %2$d%% отговорете с код %3$s</string>
+    <string name="smscommunicator_extendedreplywithcode">За да започнете удължен болус %1$.2fЕ за %2$d мин отговорете с код %3$s</string>
     <string name="smscommunicator_carbsreplywithcode">За да въведете %1$dг в %2$s отговорете с код %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">За да стартирате базал от %1$d%%Е/ч за %2$d мин отговорете с код %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">За да спрете APS за %1$d минути отговорете с код %2$s</string>
@@ -266,6 +273,7 @@
     <string name="smscommunicator_loopdisablereplywithcode">За изключване на кръга отговорете с код %1$s</string>
     <string name="smscommunicator_tempbasalset">Временен базал от %1$.2fЕ/ч за %2$d мин стартиран успешно</string>
     <string name="smscommunicator_extendedset">Удължен болус %1$.2fU за %2$d мин стартиран успешно</string>
+    <string name="smscommunicator_carbsset">Въглехидрати %1$dг въведени</string>
     <string name="smscommunicator_carbsfailed">Въвеждане на%1$dг въглехидрати - НЕУСПЕШНО</string>
     <string name="smscommunicator_tempbasalset_percent">Временен базал от %1$d%%Е/ч за %2$d мин стартиран успешно</string>
     <string name="smscommunicator_tempbasalfailed">Неуспешно стартиране на временен базал</string>
@@ -846,6 +854,7 @@
     <string name="code_compare">Съвпадат ли кодовете, показани на това устройство и на Вашата помпа?</string>
     <string name="insight_pairing">Insight свързване</string>
     <string name="insight_local">Accu-Chek Insight</string>
+    <string name="insight_delivered">%1$.2fЕ / %2$.2fЕ доставени</string>
     <string name="insight_alert_formatter">%1$s:%2$s</string>
     <string name="tube_changed">Тръба сменена</string>
     <string name="pump_time_updated">Актуализирано време на помпата</string>
@@ -903,6 +912,7 @@
     <string name="short_status_extended">Удължен: %1$.2f / %2$.2f U за %3$d мин</string>
     <string name="short_status_multiwave">Удължен: %1$.2f / %2$.2f U за %3$d мин</string>
     <string name="short_status_tdd">ТДД: %1$.2f</string>
+    <string name="short_status_reservoir">Рез.: %1$.2fE</string>
     <string name="short_status_battery">Бат.: %1$d%%</string>
     <string name="max_recovery_duration">Макс време за възстановяване [сек]</string>
     <string name="min_recovery_duration">Мин време за възстановяване [сек]</string>
@@ -1045,6 +1055,8 @@
     <string name="sendsmsactionlabel">Изпращане на SMS с текст %1$s</string>
     <string name="sendsmsactiondescription">Изпратете SMS на всички</string>
     <string name="sendsmsactiontext">Изпрати SMS с текст</string>
+    <string name="cobvsiob">COB срещу IOB</string>
+    <string name="bolusconstraintappliedwarn">Ограничение на болус: от %1$.2f Е на %2$.2f Е</string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Бавна абсорбция на въглехидрати: %2$d%% от времето. Проверете въведените данни. Може да има голяма грешка !!!!!</font>]]></string>
     <string name="partialboluswizard">Стартирай част от резултата в калкулатора [%]</string>
     <string name="deliverpartofboluswizard">Калкулатора изчислява нужния инсулин, но само тази част ще бъде доставена. Полезно със SMB алгоритъма.</string>
