@@ -92,6 +92,7 @@
     <string name="unit_weeks">semanas</string>
     <string name="shortminute">m</string>
     <string name="shortday">d</string>
+    <!--    Protection-->
     <!--    Profile-->
     <string name="basalprofilenotaligned">Valores basales no alineados a las horas: %1$s</string>
     <string name="minimalbasalvaluereplaced">Valor basal reemplazado por el valor mínimo soportado: %1$s</string>
