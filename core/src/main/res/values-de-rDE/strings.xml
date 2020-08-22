@@ -101,6 +101,7 @@
     <string name="unit_weeks">Wochen</string>
     <string name="shortminute">min</string>
     <string name="shortday">d</string>
+    <!--    Protection-->
     <!--    Profile-->
     <string name="basalprofilenotaligned">Basalraten beginnen nicht zur vollen Stunde: %1$s</string>
     <string name="minimalbasalvaluereplaced">Basal-Wert wurde durch den kleinst möglichen Wert ersetzt: %1$s</string>
