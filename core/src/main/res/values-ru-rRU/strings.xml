@@ -128,11 +128,11 @@
     <string name="tddwithcarbsformat"><![CDATA[<b>%1$s</b>∑: <b>%2$.2fед</b> Бол: <b>%3$.2fед</b> Баз: <b>%4$.2fед(%5$.0f%%)</b> Угл: <b>%6$.0fг</b>]]></string>
     <!--    Translator-->
     <string name="careportal_bgcheck">Проверка ГК</string>
-    <string name="careportal_announcement">Оовещение</string>
+    <string name="careportal_announcement">Оповещение</string>
     <string name="careportal_note">Примечание</string>
     <string name="careportal_question">Вопрос</string>
-    <string name="careportal_exercise">Нгрузка</string>
-    <string name="careportal_pumpsitechange">Сена места катетера помпы</string>
+    <string name="careportal_exercise">Нагрузка</string>
+    <string name="careportal_pumpsitechange">Смена места катетера помпы</string>
     <string name="careportal_cgmsensorinsert">Установка сенсора мониторинга глюкозы</string>
     <string name="careportal_cgmsensorstart">Сарт сенсора</string>
     <string name="careportal_insulincartridgechange">Замена картриджа инсулина</string>
