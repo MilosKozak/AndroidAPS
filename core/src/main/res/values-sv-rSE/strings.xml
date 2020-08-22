@@ -92,6 +92,7 @@
     <string name="unit_weeks">veckor</string>
     <string name="shortminute">m</string>
     <string name="shortday">d</string>
+    <!--    Protection-->
     <!--    Profile-->
     <string name="basalprofilenotaligned">Profilens basaler är inte satta på hel timme: %1$s</string>
     <string name="minimalbasalvaluereplaced">Basalvärdet ersatt med det lägsta tillåtna: %1$s</string>
