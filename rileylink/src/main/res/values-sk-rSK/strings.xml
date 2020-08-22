@@ -38,6 +38,7 @@
     <string name="rileylink_state_pc_tune_up">Ladenie RileyLinku a pumpy</string>
     <string name="rileylink_state_pc_error">Problém s pripojením k pumpe</string>
     <string name="rileylink_state_connected">Pripojené</string>
+    <string name="rileylink_state_rl_ready">RileyLink pripravený</string>
     <!-- RL Errors -->
     <string name="rileylink_error_not_rl">Zariadenie nie je RileyLink</string>
     <string name="rileylink_error_unreachable">RileyLink nedostupný</string>
