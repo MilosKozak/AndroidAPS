@@ -156,7 +156,6 @@
     <string name="overview_tempbasal_button">BazaTymczasowa</string>
     <string name="overview_extendedbolus_button">Bolus Przedłużony</string>
     <string name="configbuilder_nightscoutversion_label">Wersja Nightscout:</string>
-    <string name="missing_carbs">Brakuje %1$dg</string>
     <string name="exported">Ustawienia wyeksportowane</string>
     <string name="export_to">Eksportuj ustawienia do</string>
     <string name="import_from">Importuj ustawienia z</string>
@@ -233,10 +232,6 @@
     <string name="smscommunicator_remotebolusmindistance_summary">Minimalna liczba minut która musi upłynąć pomiędzy jednym a drugim zdalnie podawanym bolusem</string>
     <string name="smscommunicator_remotebolusmindistance">Ile co najmniej minut musi upłynąć pomiędzy jednym a drugim bolusem</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">Dla twojego bezpieczeństwa, aby zmienić to ustawienie musisz dodać co najmniej 2 numery telefonów.</string>
-    <string name="bolusdelivered">Bolus %1$.2fU dostarczony prawidłowo</string>
-    <string name="bolusrequested">Zamierzam podać %1$.2fU</string>
-    <string name="smscommunicator_bolusdelivered">Bolus %1$.2fU dostarczony prawidłowo</string>
-    <string name="smscommunicator_mealbolusdelivered">Pomyślnie podano %1$.2fU bolusa posiłkowego</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Cel %1$s na %2$d minut</string>
     <string name="smscommunicator_tt_set">Pomyślnie ustawiono cel %1$s na %2$d minuty</string>
     <string name="smscommunicator_tt_canceled">Pomyślnie anulowano cel tymczasowy</string>
@@ -260,9 +255,7 @@
     <string name="smscommunicator_reconnect">Pompa ponownie podłączona</string>
     <string name="smscommunicator_remotecommandnotallowed">Zdalne komendy nie są dozwolone</string>
     <string name="smscommunicator_remotebolusnotallowed">Bolus zdalny niedostępny. Spróbuj ponownie później.</string>
-    <string name="smscommunicator_basalreplywithcode">Aby rozpocząć bazę %1$.2fU/h przez %2$d min. odpowiedz kodem %3$s</string>
     <string name="smscommunicator_profilereplywithcode">Aby przełączyć profil na %1$s %2$d%% odpowiedz kodem %3$s</string>
-    <string name="smscommunicator_extendedreplywithcode">Aby rozpocząć bolus przedłużony %1$.2fU przez %2$d min. odpowiedz kodem %3$s</string>
     <string name="smscommunicator_carbsreplywithcode">Aby wprowadzić %1$dg o %2$s odeślij w SMS kod %3$s</string>
     <string name="smscommunicator_basalpctreplywithcode">Aby rozpocząć bolus przedłużony %1$d%% przez %2$d min. odpowiedz kodem %3$s</string>
     <string name="smscommunicator_suspendreplywithcode">Aby wstrzymać pętle na %1$d minut odpowiedz kodem %2$s</string>
@@ -271,7 +264,6 @@
     <string name="smscommunicator_loopdisablereplywithcode">Aby wyłączyć pętlę odpowiedz kodem %1$s</string>
     <string name="smscommunicator_tempbasalset">Tymczasowa baza %1$.2fU/h przez %2$d min rozpoczęta</string>
     <string name="smscommunicator_extendedset">Bolus przedłużony %1$.2fU na %2$d min. rozpoczęty pomyślnie</string>
-    <string name="smscommunicator_carbsset">Pomyślnie wprowadzono %1$dg węglowodanów</string>
     <string name="smscommunicator_carbsfailed">Próba wprowadzenia %1$dg węglowodanów nie powiodła się</string>
     <string name="smscommunicator_tempbasalset_percent">Tymczasowa baza %1$d%% przez %2$d min. pomyślnie rozpoczęta</string>
     <string name="smscommunicator_tempbasalfailed">Rozpoczęcie tymczasowej bazy nie powiodło się</string>
@@ -646,7 +638,6 @@
     <string name="enablesmbwithtemptarget">Włącz SMB z tymczasowym poziomem docelowym (TT)</string>
     <string name="enablesmbwithtemptarget_summary">Włącz SMB gdy tymczasowy poziom docelowy (TT) jest aktywny (TT WkrótcePosiłek, TT ćwiczenia)</string>
     <string name="enablesmbwithhightemptarget">Włącz SMB z wysokim tymczasowym poziomem docelowym</string>
-    <string name="enablesmbwithhightemptarget_summary">Włącz SMB gdy wysoki tymczasowy poziom docelowy jest aktywny (TT ćwiczenia)</string>
     <string name="overview_insulin_label">Insulina</string>
     <string name="overview_carbs_label">Węglowod.</string>
     <string name="overview_buttons_selection">Przyciski</string>
@@ -680,7 +671,6 @@
     <string name="do_not_bolus_record_only">Nie podawaj bolusa, tylko zapisz rekord</string>
     <string name="category">Kategoria</string>
     <string name="subcategory">Podkategoria</string>
-    <string name="bolusrecordedonly">Bolus zostanie tylko zapisany w rekordach</string>
     <string name="ns_autobackfill_summary">Automatycznie wypełnij brakujące BG z NS</string>
     <string name="loop_smbsetbypump_label">SMB ustawiony przez pompę</string>
     <string name="overview_show_activity">Aktywność</string>
@@ -797,7 +787,6 @@
     <string name="askforpermission">Zapytaj o uprawnienia</string>
     <string name="needsystemwindowpermission">Aplikacja wymaga uprawnienia systemowego okna dla powiadomień</string>
     <string name="needlocationpermission">Aplikacja wymaga dostępu do lokalizacji dla zarządzania bluetoothem i identyfikacją Wi-Fi</string>
-    <string name="needstoragepermission">Aplikacja wymaga dostępu do magazynu plików, aby móc przechować pliki logów</string>
     <string name="request">Żądanie</string>
     <string name="insulinsourcesetup">Skonfiguruj wtyczkę insuliny</string>
     <string name="exit">Wyjście</string>
@@ -853,7 +842,6 @@
     <string name="code_compare">Czy kody wyświetlone na tym urządzeniu i na twojej pompie pasują?</string>
     <string name="insight_pairing">Parowanie Insight</string>
     <string name="insight_local">Accu-Chek Insight</string>
-    <string name="insight_delivered">%1$.2fU / %2$.2fU dostarczone</string>
     <string name="insight_alert_formatter">%1$s: %2$s</string>
     <string name="tube_changed">Dren zmieniony</string>
     <string name="pump_time_updated">Czas pompy uaktualniony</string>
@@ -911,7 +899,6 @@
     <string name="short_status_extended">Przedłużony: %1$.2f / %2$.2f U na %3$d min</string>
     <string name="short_status_multiwave">Multiwave (zwykły + przedłużony): %1$.2f / %2$.2f U for %3$d min</string>
     <string name="short_status_tdd">TDD: %1$.2f</string>
-    <string name="short_status_reservoir">Zbiornik: %1$.2fU</string>
     <string name="short_status_battery">Bat.: %1$d%%</string>
     <string name="max_recovery_duration">Max. czas odzyskiwania [s]</string>
     <string name="min_recovery_duration">Min. czas odzyskiwania [s]</string>
@@ -1046,137 +1033,6 @@
     <string name="triggers">Wyzwalacz:</string>
     <string name="remove_label">USUŃ</string>
     <string name="preconditions">Warunki wstępne:</string>
-    <!-- Pump Abstract -->
-    <string name="pump_operation_not_supported_by_pump_driver">Operacja nie jest wspierana przez pompę i/lub sterownik pompy.</string>
-    <string name="pump_operation_not_yet_supported_by_pump">Operacja nie jest JESZCZE wspierana przez pompę.</string>
-    <!-- Medtronic (MDT) - Base -->
-    <string name="description_pump_medtronic">Integracja pompy Medtronic wymaga urządzenia RileyLink i odpowiedniego modelu pompy</string>
-    <!-- MDT Configuration -->
-    <string name="medtronic_serial_number">Numer seryjny pompy</string>
-    <string name="medtronic_pump_type">Typ pompy</string>
-    <string name="medtronic_pump_frequency">Częstotliwość pompy</string>
-    <string name="medtronic_pump_bolus_delay">Opóźnienie przed rozpoczęciem bolusa(s)</string>
-    <string name="medtronic_pump_max_bolus">Max bolus w pompie (U)</string>
-    <string name="medtronic_pump_max_basal">Max dawka bazowa w pompie (U/h)</string>
-    <string name="medtronic_pump_encoding">Kodowanie Medtronic</string>
-    <string name="medtronic_pump_frequency_us_ca">US &amp; Kanada (916 MHz)</string>
-    <string name="medtronic_pump_frequency_worldwide">Reszta świata (868 Mhz)</string>
-    <string name="medtronic_pump_encoding_4b6b_local">Kodowanie oprogramowania 4b6b</string>
-    <string name="medtronic_pump_encoding_4b6b_rileylink">Kodowanie urządzenia 4b6b</string>
-    <string name="medtronic_custom_action_wake_and_tune">Wzbudź i dostrój</string>
-    <string name="medtronic_custom_action_clear_bolus_block">Wyczyść blok bolusa</string>
-    <string name="medtronic_custom_action_reset_rileylink">Przywróć konfigurację RileyLink</string>
-    <string name="medtronic_pump_battery_select">Typ baterii (podgląd mocy)</string>
-    <string name="medtronic_pump_battery_no">Nie wybrany (widok prosty)</string>
-    <string name="medtronic_pump_battery_alkaline">Alkaliczne (widok rozszerzony)</string>
-    <string name="medtronic_pump_battery_lithium">Litowe (widok rozszerzony)</string>
-    <string name="medtronic_pump_battery_nizn">NiZn (widok rozszerzony)</string>
-    <string name="medtronic_pump_battery_nimh">NiMH (widok rozszerzony)</string>
-    <string name="medtronic_bolus_debugging">Bolus/Leczenie - debugowanie</string>
-    <!-- RL BLE Scanning -->
-    <string name="rileylink_scanner_scan_scan">SKANUJ</string>
-    <string name="rileylink_scanner_scan_stop">ZATRZYMAJ</string>
-    <string name="rileylink_scanner_selected_device">Wybrany</string>
-    <string name="rileylink_scanner_title">Skan RileyLink</string>
-    <string name="location_yes">Uruchom</string>
-    <string name="location_no">Nie</string>
-    <string name="rileylink_scanner_scanning">Skanowanie</string>
-    <string name="rileylink_scanner_scanning_finished">Skanowanie zakończono</string>
-    <string name="rileylink_scanner_scanning_error">Błąd skanowania: %1$d</string>
-    <string name="common_never">Nigdy</string>
-    <!-- RL Status Page -->
-    <string name="rileylink_settings_tab1">Ustawienia</string>
-    <string name="rileylink_settings_tab2">Historia</string>
-    <string name="rileylink_status">Stan RileyLink</string>
-    <string name="medtronic_pump_status">Stan pompy</string>
-    <string name="title_activity_rileylink_settings">Ustawienia RileyLink</string>
-    <string name="rileylink_title">RileyLink</string>
-    <string name="rileylink_configured_address">Ustawiony adres</string>
-    <string name="rileylink_connected_device">Połączone urządzenie</string>
-    <string name="rileylink_connection_status">Status połączenia</string>
-    <string name="rileylink_connection_error">Błąd połączenia</string>
-    <string name="rileylink_device">Urządzenie</string>
-    <string name="rileylink_device_type">Typ urządzenia</string>
-    <string name="rileylink_device_model">Model urządzenia</string>
-    <string name="rileylink_last_used_frequency">Ostatnio używana częstotliwość</string>
-    <string name="rileylink_last_device_contact">Ostatnie połączenie z urządzeniem</string>
-    <string name="rileylink_firmware_version">Oprogramowanie RL</string>
-    <!-- RL State -->
-    <string name="rileylink_state_bt_init">Uruchamianie Bluetooth…</string>
-    <string name="rileylink_state_bt_error">Błąd Bluetooth</string>
-    <string name="rileylink_state_bt_ready">Bluetooth gotowy</string>
-    <string name="rileylink_state_not_started">Nie rozpoczęto</string>
-    <string name="rileylink_state_rl_init">Uruchamianie RileyLink…</string>
-    <string name="rileylink_state_rl_error">Błąd RileyLink</string>
-    <string name="rileylink_state_pc_tune_up">Dostrojenie RileyLink i pompy</string>
-    <string name="rileylink_state_pc_error">Problem z połączeniem z pompą</string>
-    <string name="rileylink_state_connected">Połączono</string>
-    <!-- RL Errors -->
-    <string name="rileylink_error_not_rl">Urządzenie to nie RileyLink</string>
-    <string name="rileylink_error_unreachable">RileyLink nie osiągalny</string>
-    <string name="rileylink_error_bt_disabled">Bluetooth wyłączony</string>
-    <string name="rileylink_error_no_bt_adapter">Brak modułu Bluetooth</string>
-    <string name="rileylink_error_tuneup_failed">Dostrojenie nie powiodło się</string>
-    <string name="rileylink_error_pump_unreachable">Pompa nieosiągalna</string>
-    <string name="rileylink_error_pod_unreachable">Pod nieosiągalny</string>
-    <!-- RL Target Device -->
-    <string name="rileylink_target_device_medtronic">Pompa Medtronic</string>
-    <string name="rileylink_target_device_omnipod">Omnipod</string>
-    <!-- MDT Errors -->
-    <string name="medtronic_errors">Błędy</string>
-    <string name="medtronic_error_serial_not_set">Numer seryjny # nie ustawiony.</string>
-    <string name="medtronic_error_serial_invalid">Numer seryjny # nieprawidłowy.</string>
-    <string name="medtronic_error_pump_type_not_set">Tyo pompy nie ustawiony.</string>
-    <string name="medtronic_error_pump_type_invalid">Typ pompy nie obsługiwany.</string>
-    <string name="medtronic_error_pump_frequency_not_set">Częstotliwość pompy nie ustawiona.</string>
-    <string name="medtronic_error_pump_frequency_invalid">Częstotliwość pompy nie wspierana.</string>
-    <string name="medtronic_error_rileylink_address_invalid">Adres RileyLink niewłaściwy.</string>
-    <string name="medtronic_error_pump_type_set_differs_from_detected">Wykryty typ pompy jest inny niż ustawiony.</string>
-    <string name="medtronic_error_pump_basal_profiles_not_enabled">Ustawienia bazy/ wzorców nie są włączone w pompie. Włącz je na pompie.</string>
-    <string name="medtronic_error_pump_incorrect_basal_profile_selected">Profil bazowy ustawiony na pompie nie jest właściwy (musi być STD).</string>
-    <string name="medtronic_error_pump_wrong_tbr_type_set">Ustawiony na pompie typ dawki tymczasowej jest niewłaściwy (musi być całkowity - Absolute).</string>
-    <string name="medtronic_error_pump_wrong_max_bolus_set">Ustawiony na pompie typ Bolus Maksymalny jest niewłaściwy (musi być %1$.2f).</string>
-    <string name="medtronic_error_pump_wrong_max_basal_set">Ustawiony na pompie typ Bolus Maksymalny jest niewłaściwy (musi być %1$.2f).</string>
-    <string name="medtronic_error_operation_not_possible_no_configuration">To działanie nie jest możliwe.\n\n Musisz skonfigurować pompę Medtronic Pump, przed uruchomieniem tego działania.</string>
-    <string name="medtronic_error_pump_24h_time_change_requested">Wymagana jest zmiana ustawień czasu na 24h.</string>
-    <!-- MDT History -->
-    <string name="medtronic_history_group_basal">Dawki bazowe</string>
-    <string name="medtronic_history_group_configuration">Ustawienia</string>
-    <string name="medtronic_history_group_notification">Powiadomienia</string>
-    <string name="medtronic_history_group_statistic">Statystyki</string>
-    <string name="medtronic_history_group_unknown">Nieznane</string>
-    <string name="medtronic_history_group_all">Wszystko</string>
-    <string name="medtronic_pump_history">Historia pompy Medtronic</string>
-    <!-- MDT Pump Status -->
-    <string name="medtronic_pump_status_never_contacted">Nigdy nie połączona</string>
-    <string name="medtronic_pump_status_waking_up">Wybudzanie</string>
-    <string name="medtronic_pump_status_error_comm">Błąd komunikacji</string>
-    <string name="medtronic_pump_status_timeout_comm">Przekroczony limit czasu połączenia</string>
-    <string name="medtronic_pump_status_pump_unreachable">Pompa nieosiągalna</string>
-    <string name="medtronic_pump_status_invalid_config">Nieprawidłowe ustawienia</string>
-    <string name="medtronic_pump_status_active">Aktywna</string>
-    <string name="medtronic_pump_status_sleeping">Uśpiona</string>
-    <!-- <string name="medtronic_cmd_profile_not_set">Remote Basal profile setting is not supported. Please modify Basal profile on your pump manually.</string> -->
-    <string name="medtronic_cmd_cancel_bolus_not_supported">Anulowałeś bolus po jego ustawieniu na pompie. Ponieważ pompa Medtronic nie wspiera polecenia anuluj, musisz wprowadzić zmianę ręcznie. Wprowadź pompę w stan zawieszenia, a następnie przywróć jej działanie (jeżeli wciąż chcesz anulować). Aplikacja pobierze zmiany przy następnym uaktualnieniu (poniżej 5 minut).</string>
-    <string name="medtronic_cmd_cant_read_tbr">Nie udało się odczytać aktualnej dawki tymczasowej (TBR).</string>
-    <string name="medtronic_cmd_cant_cancel_tbr_stop_op">Nie udało się anulować aktualnej dawki tymczasowej (TBR). Operacja zatrzymania.</string>
-    <string name="medtronic_cmd_set_profile_pattern_overflow">Ustawienia Profilu nie powiodły się ponieważ następująca wartość jest za duża: %1$s</string>
-    <string name="medtronic_cmd_bolus_could_not_be_delivered">Nie udało się dostarczyć bolusa.</string>
-    <string name="medtronic_cmd_bolus_could_not_be_delivered_no_insulin">Bolus nie mógł być dostarczony ponieważ Ilość dostępnej insuliny (%1$.2f) jest mniejsza niż wymagany bolus (%2$.2f).</string>
-    <string name="medtronic_cmd_tbr_could_not_be_delivered">Nie udało się ustawić dawki tymczasowej (TBR).</string>
-    <string name="medtronic_cmd_cant_cancel_tbr">Nie udało się anulować bazy tymczasowej (TBR).</string>
-    <string name="medtronic_cmd_basal_profile_could_not_be_set">Profil bazy nie został ustawiony.</string>
-    <string name="medtronic_cmd_basal_profile_not_set_is_same">Profil bazy jest taki sam, więc nie ustawiono ponownie.</string>
-    <string name="medtronic_cmd_desc_get_history">Pobierz historię - strona %1$d (%2$d/16)</string>
-    <string name="medtronic_cmd_desc_get_history_request">Pobierz historię - strona %1$d</string>
-    <string name="medtronic_cmd_desc_get_time">Pobierz czas pompy</string>
-    <string name="medtronic_cmd_desc_get_settings">Pobierz ustawienia</string>
-    <string name="medtronic_cmd_desc_get_model">Pobierz model pompy</string>
-    <string name="medtronic_cmd_desc_get_basal_profile">Pobierz profil dawki bazowej</string>
-    <string name="medtronic_cmd_desc_set_basal_profile">Ustaw profil dawki bazowej</string>
-    <string name="medtronic_cmd_desc_get_tbr">Pobierz tymczasową dawkę bazową</string>
-    <string name="medtronic_cmd_desc_set_tbr">Ustaw tymczasową dawkę bazową</string>
-    <string name="medtronic_cmd_desc_set_bolus">Ustaw bolus</string>
     <string name="profilename">Zmień profil na</string>
     <string name="changengetoprofilename">Zmień profil na %1$s</string>
     <string name="automation_trigger_pump_last_connection_label">Ostatnie połączenie z pompą</string>
@@ -1185,8 +1041,6 @@
     <string name="sendsmsactionlabel">Wyślij SMS: %1$s</string>
     <string name="sendsmsactiondescription">Wyślij SMS do wszystkich numerów</string>
     <string name="sendsmsactiontext">Wyślij SMS z tekstem</string>
-    <string name="insulinFromCob"><![CDATA[COB vs IOB: <font color=\'%1$s\'>%2$+.2fU</font>]]></string>
-    <string name="bolusconstraintappliedwarning"><![CDATA[<font color=\'%1$s\'>Wprowadzono ograniczenie bolusa: %2$.2fU to %3$.2fU</font>]]></string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! Wykryto powolne wchłanianie węglowodanów: %2$d%% czasu. Sprawdź ponownie swoje obliczenia. COB mogły być przeszacowane przez co mogło być podane zbyt dużo insuliny !!!!!</font>]]></string>
     <string name="partialboluswizard">Dostarcz tą część dawki insuliny z wyniku kalkulatora bolusa [%]</string>
     <string name="deliverpartofboluswizard">Kreator bolusa wykonuje obliczenia, ale tylko ta część obliczonej dawki insuliny jest dostarczana. Pomocne z algorytmem SMB.</string>
@@ -1207,7 +1061,6 @@
     <string name="selected_profile">Wybrany:</string>
     <string name="unitsnosemicolon">Jednostki</string>
     <string name="doyouwantswitchprofile">Czy chcesz przełączyć profil i porzucić zmiany wprowadzone w bieżącym profilu?</string>
-    <string name="format_carbs">%1$dg</string>
     <string name="common_on">Włącz</string>
     <string name="common_off">Wyłącz</string>
     <string name="objectives_button_unfinish">Wyczyść skończone</string>
@@ -1298,6 +1151,15 @@
     <string name="buttonson_description">Przyciski są zawsze wyświetlane na dole ekranu</string>
     <string name="largedisplay_description">Duży ekran</string>
     <string name="skin">Motyw</string>
+    <!-- MDT Pump Status - removed when PodDeviceState is removed -->
+    <string name="medtronic_pump_status_never_contacted">Nigdy nie połączona</string>
+    <string name="medtronic_pump_status_waking_up">Wybudzanie</string>
+    <string name="medtronic_pump_status_error_comm">Błąd komunikacji</string>
+    <string name="medtronic_pump_status_timeout_comm">Przekroczony limit czasu połączenia</string>
+    <string name="medtronic_pump_status_pump_unreachable">Pompa nieosiągalna</string>
+    <string name="medtronic_pump_status_invalid_config">Nieprawidłowe ustawienia</string>
+    <string name="medtronic_pump_status_active">Aktywna</string>
+    <string name="medtronic_pump_status_sleeping">Uśpiona</string>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod">Integracja pompy Omnipod, wymaga RileyLink (z firmwarem 2.0 lub wyższym).</string>
