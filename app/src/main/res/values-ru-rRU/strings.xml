@@ -80,12 +80,12 @@
     <string name="glucose">гликемия</string>
     <string name="delta">изменение</string>
     <string name="sms_delta">дельта:</string>
-    <string name="configbuilder">конфигуратор</string>
-    <string name="overview">начало</string>
-    <string name="nsprofile">профиль NS</string>
+    <string name="configbuilder">Конфигуратор</string>
+    <string name="overview">Начало</string>
+    <string name="nsprofile">Профиль NS</string>
     <string name="simpleprofile">простой профиль</string>
     <string name="treatments">Терапия</string>
-    <string name="virtualpump">виртуальная помпа</string>
+    <string name="virtualpump">Виртуальная помпа</string>
     <string name="careportal">Портал лечения / назначений</string>
     <string name="configbuilder_pump">помпа</string>
     <string name="configbuilder_pump_description">Какой помпой вы хотели бы пользоваться с AndroidAPS?</string>
@@ -99,7 +99,7 @@
     <string name="configbuilder_general_description">Это некоторые общепринятые плагины которые могут пригодиться.</string>
     <string name="configbuilder_constraints_description">Какие ограничения применяются?</string>
     <string name="constraints">ограничения</string>
-    <string name="loop">замкнутый цикл</string>
+    <string name="loop">Замкнутый цикл</string>
     <string name="configbuilder_loop">замкнутый цикл</string>
     <string name="configbuilder_loop_description">Используйте, чтобы активировать интеграцию AndroidAPS в цикл ИПЖ.</string>
     <string name="loop_aps_label">Система ИПЖ</string>
@@ -122,7 +122,7 @@
     <string name="changeyourinput">измените введенные данные</string>
     <string name="configbuilder_bgsource">источник СК</string>
     <string name="configbuilder_bgsource_description">Откуда должен получать данные AndroidAPS?</string>
-    <string name="xdrip">xdrip</string>
+    <string name="xdrip">xDrip</string>
     <string name="apsmode_title">режим APS</string>
     <string name="closedloop">замкнутый цикл</string>
     <string name="openloop">открытый цикл</string>
@@ -295,7 +295,7 @@
     <string name="overview_quickwizard_item_remove_button">удалить</string>
     <string name="mealbolus">болюс на еду</string>
     <string name="correctionbous">коррекция</string>
-    <string name="actions">действия</string>
+    <string name="actions">Действия</string>
     <string name="ns_upload_only">только передача в NS (синхронизация отсутствует)</string>
     <string name="ns_upload_only_summary">только передача в NS. работает в SGV только если выбран местный источник вроде xdrip. не работает в профилях при действующем профиле NS</string>
     <string name="pumpNotInitialized">помпа не инициализирована</string>
@@ -326,7 +326,7 @@
     <string name="ongoingnotificaction">текущие уведомления</string>
     <string name="old_data">старые данные</string>
     <string name="sms_minago">%1$d мин. назад</string>
-    <string name="localprofile">локальный профиль</string>
+    <string name="localprofile">Локальный профиль</string>
     <string name="openapsama">Помощник болюса OpenAPS AMA</string>
     <string name="short_avgdelta">краткосрочная средняя дельта</string>
     <string name="long_avgdelta">Долгосрочная средняя дельта</string>
@@ -464,11 +464,11 @@
     <string name="activity_shortname">НАГР</string>
     <string name="abs_insulin_shortname">НАДО</string>
     <string name="devslope_shortname">ЛИНОТКЛН</string>
-    <string name="nav_about">о приложении</string>
+    <string name="nav_about">О приложении</string>
     <string name="smscommunicator_missingsmspermission">отсутствует смс подтверждение</string>
     <string name="smscommunicator_missingphonestatepermission">Отсутствует разрешение телефона</string>
     <string name="xdripstatus_settings">состояние xdrip (часы)</string>
-    <string name="xdripstatus">строка состояния xdrip (часы)</string>
+    <string name="xdripstatus">Строка состояния xdrip (часы)</string>
     <string name="xdripstatus_shortname">Статус xDrip</string>
     <string name="wear_showbgi_title">показать BGI</string>
     <string name="wear_showbgi_summary">добавить BGI в строку состояния</string>
@@ -510,7 +510,7 @@
     <string name="keep_screen_on_title">Не отключать экран</string>
     <string name="keep_screen_on_summary">Не давать системе Android отключать экран. Это увеличит потребление энергии при отключенной сети питания.</string>
     <string name="sensitivity_warning">Активируя Autosense не забывайте вводить все съеденные углеводы. Иначе отклонения в углеводах будут неверно определены как изменение чувствительности !!</string>
-    <string name="sensitivityweightedaverage">средневзвешенная чувствительность</string>
+    <string name="sensitivityweightedaverage">Средневзвешенная чувствительность</string>
     <string name="mdtp_ok">OK</string>
     <string name="mdtp_cancel">отмена</string>
     <string name="notloadedplugins">не все профили загружены!</string>
@@ -530,7 +530,7 @@
     <string name="insulin_oref_peak">Время пика действующего инс IOB</string>
     <string name="insulin_peak_time">время пика (в мин.)</string>
     <string name="free_peak_oref">Свободный от пиков Oref</string>
-    <string name="rapid_acting_oref">быстро действующий Oref</string>
+    <string name="rapid_acting_oref">Быстро действующий Oref</string>
     <string name="ultrarapid_oref">Сверхбыстрый Oref</string>
     <string name="dia_too_short">Значение длительности работы инс %1$f слишком мало - применено %2$f!</string>
     <string name="activate_profile">АКТИВИРОВАТЬ ПРОФИЛЬ</string>
