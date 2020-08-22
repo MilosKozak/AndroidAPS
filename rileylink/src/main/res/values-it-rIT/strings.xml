@@ -38,6 +38,7 @@
     <string name="rileylink_state_pc_tune_up">Sintonizzazione RileyLink e micro</string>
     <string name="rileylink_state_pc_error">Problema di connessione al micro</string>
     <string name="rileylink_state_connected">Connesso</string>
+    <string name="rileylink_state_rl_ready">RileyLink pronto</string>
     <!-- RL Errors -->
     <string name="rileylink_error_not_rl">Il dispositivo non è RileyLink</string>
     <string name="rileylink_error_unreachable">RileyLink irraggiungibile</string>
