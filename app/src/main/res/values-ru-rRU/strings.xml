@@ -42,7 +42,7 @@
     <string name="description_source_glimp">Получать данные гликемии от Glimp.</string>
     <string name="description_source_mm640g">Получать данные гликемии от 600SeriesAndroidUploader.</string>
     <string name="description_source_ns_client">Получать данные гликемии с сайта Nightscout</string>
-    <string name="description_source_xdrip">Получать данные гликемии от xDrip.</string>
+    <string name="description_source_xdrip">Получать данные гликемии от xDrip+.</string>
     <string name="description_treatments">Сохраняет все выполненные назначения</string>
     <string name="description_wear">Мониторить и контролировать AndroidAPS при помощи часов WearOS.</string>
     <string name="description_xdrip_status_line">Показать информацию о работе алгоритма ИПЖ на экране смарт-часов xDrip+.</string>
@@ -122,7 +122,7 @@
     <string name="changeyourinput">измените введенные данные</string>
     <string name="configbuilder_bgsource">источник СК</string>
     <string name="configbuilder_bgsource_description">Откуда должен получать данные AndroidAPS?</string>
-    <string name="xdrip">xDrip</string>
+    <string name="xdrip">xDrip+</string>
     <string name="apsmode_title">режим APS</string>
     <string name="closedloop">замкнутый цикл</string>
     <string name="openloop">открытый цикл</string>
@@ -368,7 +368,7 @@
     <string name="openapsama_link_to_preferncejson_doc_txt">Внимание! Обычно нет необходимости изменять приведенные ниже величины. Нажмите ЗДЕСЬ, ПРОЧТИТЕ и убедитесь что вы ПОНИМАЕТЕ изложенное прежде чем менять какую-либо из этих величин</string>
     <string name="smscommunicator_invalidphonennumber">неверный номер телефона для смс</string>
     <string name="overview_calibration">калибровка</string>
-    <string name="send_calibration">Отправить калибровку %1$.1f на xDrip?</string>
+    <string name="send_calibration">Отправить калибровку %1$.1f на xDrip+?</string>
     <string name="xdripnotinstalled">xdrip+ не установлен</string>
     <string name="calibrationsent">калибровка передается на xdrip</string>
     <string name="smscommunicator_calibrationsent">калибровка отправлена. в xdrip должен быть активирован прием</string>
@@ -469,7 +469,7 @@
     <string name="smscommunicator_missingphonestatepermission">Отсутствует разрешение телефона</string>
     <string name="xdripstatus_settings">состояние xdrip (часы)</string>
     <string name="xdripstatus">Строка состояния xdrip (часы)</string>
-    <string name="xdripstatus_shortname">Статус xDrip</string>
+    <string name="xdripstatus_shortname">Статус xDrip+</string>
     <string name="wear_showbgi_title">показать BGI</string>
     <string name="wear_showbgi_summary">добавить BGI в строку состояния</string>
     <string name="ns_noupload">данные не передаются в NS</string>
@@ -515,7 +515,7 @@
     <string name="mdtp_cancel">отмена</string>
     <string name="notloadedplugins">не все профили загружены!</string>
     <string name="valuesnotstored">Данные не сохранены!</string>
-    <string name="ns_localbroadcasts">Включить трансляцию для других приложений (например, xDrip). Не включайте, если установлено несколько экземпляров приложений AAPS или NSClient!</string>
+    <string name="ns_localbroadcasts">Включить трансляцию для других приложений (например, xDrip+). Не включайте, если установлено несколько экземпляров приложений AAPS или NSClient!</string>
     <string name="ns_localbroadcasts_title">Активировать локальную передачу</string>
     <string name="careportal_activity_label">АКТИВНОСТЬ</string>
     <string name="careportal_carbsandbolus_label">УГЛЕВОДЫ ; БОЛЮС</string>
@@ -579,7 +579,7 @@
     <string name="carbsReqThreshold">Минимальный порог для напоминания о необходимых углеводах</string>
     <string name="carbsReqThreshold_summary">Минимум граммов для активации предложения углеводов. Предложения ниже этой величины не будут инициировать уведомление.</string>
     <string name="dexcomg5_xdripupload_title">Отправить данные СК на xDrip+</string>
-    <string name="dexcomg5_xdripupload_summary">В xDrip + выберите источник данных 640g/Eversense</string>
+    <string name="dexcomg5_xdripupload_summary">В xDrip+ выберите источник данных 640g/Eversense</string>
     <string name="nsclientbg">СК с клиента Nightscout</string>
     <string name="overview_editquickwizard_usebg">Вычисление СК</string>
     <string name="overview_editquickwizard_usebolusiob">Расчет болюсного активного инсулина IOB</string>
@@ -652,7 +652,7 @@
     <string name="overview_carbs_label">Кол-во углеводов</string>
     <string name="overview_buttons_selection">Кнопки</string>
     <string name="show_calibration_button_summary">Отправить калибровки на xDrip+ или открыть диалоговое окно калибровки G5</string>
-    <string name="show_cgm_button_summary">Открывает xDrip +, кнопка назад возвращает в AAPS</string>
+    <string name="show_cgm_button_summary">Открывает xDrip+, кнопка назад возвращает в AAPS</string>
     <string name="carb_increment_button_message">Количество вводимых углеводов при нажатии кнопки</string>
     <string name="insulin_increment_button_message">Количество инсулина, вводимого при нажатии кнопки</string>
     <string name="error_starting_cgm">Не удалось запустить приложения мониторинга СК. Убедитесь, что оно установлено.</string>
