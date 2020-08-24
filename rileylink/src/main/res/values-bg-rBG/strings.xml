@@ -38,6 +38,7 @@
     <string name="rileylink_state_pc_tune_up">Настройка на RileyLink и помпа</string>
     <string name="rileylink_state_pc_error">Проблем при връзка с помпата</string>
     <string name="rileylink_state_connected">Свързан</string>
+    <string name="rileylink_state_rl_ready">RileyLink готов</string>
     <!-- RL Errors -->
     <string name="rileylink_error_not_rl">Устройството не е RileyLink</string>
     <string name="rileylink_error_unreachable">RileyLink недостъпен</string>
