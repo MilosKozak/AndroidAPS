@@ -38,6 +38,7 @@
     <string name="rileylink_state_pc_tune_up">Justerar Riley Link mot pump</string>
     <string name="rileylink_state_pc_error">Problem att ansluta till pumpen</string>
     <string name="rileylink_state_connected">Ansluten</string>
+    <string name="rileylink_state_rl_ready">Riley Link redo</string>
     <!-- RL Errors -->
     <string name="rileylink_error_not_rl">Enheten är inte en Riley Link</string>
     <string name="rileylink_error_unreachable">Riley Link kan inte nås</string>
