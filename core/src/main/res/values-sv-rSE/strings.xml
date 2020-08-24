@@ -93,6 +93,8 @@
     <string name="shortminute">m</string>
     <string name="shortday">d</string>
     <!--    Protection-->
+    <string name="wrongpassword">Fel lösenord</string>
+    <string name="passwords_dont_match">Lösenorden stämmer inte överens</string>
     <!--    Profile-->
     <string name="basalprofilenotaligned">Profilens basaler är inte satta på hel timme: %1$s</string>
     <string name="minimalbasalvaluereplaced">Basalvärdet ersatt med det lägsta tillåtna: %1$s</string>
