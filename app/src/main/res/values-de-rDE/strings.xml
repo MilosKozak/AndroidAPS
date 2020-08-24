@@ -400,7 +400,7 @@
     <string name="wear_detailedIOB_title">Zeige detailliertes IOB</string>
     <string name="wear_detailedIOB_summary">Differenziere IOB in Bolus- und Basal-IOB auf dem Watchface</string>
     <string name="nosuccess">Nicht erfolgreich - bitte Telefon prüfen</string>
-    <string name="notavailable">nicht verfügbar</string>
+    <string name="notavailable">n/a</string>
     <string name="patientage">Patientenalter</string>
     <string name="child">Kind</string>
     <string name="teenage">Teenager</string>
