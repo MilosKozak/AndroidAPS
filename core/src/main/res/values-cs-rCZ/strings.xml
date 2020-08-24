@@ -102,6 +102,8 @@
     <string name="shortminute">m</string>
     <string name="shortday">d</string>
     <!--    Protection-->
+    <string name="wrongpassword">Chybné heslo</string>
+    <string name="passwords_dont_match">Hesla se neshodují</string>
     <!--    Profile-->
     <string name="basalprofilenotaligned">Hodnoty bazálů nejsou zarovnané na celé hodiny: %1$s</string>
     <string name="minimalbasalvaluereplaced">Hodnota bazálu nahrazena minimální možnou: %1$s</string>
