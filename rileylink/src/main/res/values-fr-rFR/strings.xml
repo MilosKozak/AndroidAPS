@@ -38,6 +38,7 @@
     <string name="rileylink_state_pc_tune_up">Association du RileyLink et de la Pompe</string>
     <string name="rileylink_state_pc_error">Problème communication avec la pompe</string>
     <string name="rileylink_state_connected">Connecté</string>
+    <string name="rileylink_state_rl_ready">RileyLink prêt</string>
     <!-- RL Errors -->
     <string name="rileylink_error_not_rl">L\'appareil n\'est pas RileyLink</string>
     <string name="rileylink_error_unreachable">RileyLink non accessible</string>
