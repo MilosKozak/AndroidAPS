@@ -156,6 +156,7 @@
     <string name="overview_tempbasal_button">BasalTemp</string>
     <string name="overview_extendedbolus_button">Bólus Prolongado</string>
     <string name="configbuilder_nightscoutversion_label">Versão Nightscout:</string>
+    <string name="missing_carbs">A faltar %1$d g</string>
     <string name="exported">Preferências exportadas</string>
     <string name="export_to">Exportar configurações para</string>
     <string name="import_from">Importar configurações de</string>
@@ -234,6 +235,7 @@
     <string name="smscommunicator_remotebolusmindistance_summary">Número mínimo de minutos que deve decorrer entre um bólus remoto e o próximo</string>
     <string name="smscommunicator_remotebolusmindistance">Quantos minutos deve decorrer, pelo menos, entre um bólus e o próximo</string>
     <string name="smscommunicator_remotebolusmindistance_caveat">Para sua segurança, para editar esta preferência você precisa adicionar pelo menos 2 números de telefone.</string>
+    <string name="bolusdelivered">Bólus %1$.2f U administrador com sucesso</string>
     <string name="smscommunicator_mealbolusdelivered_tt">Alvo %1$s para %2$d minutos</string>
     <string name="smscommunicator_tt_set">Alvo %1$s para %2$d minutos definido com sucesso</string>
     <string name="smscommunicator_tt_canceled">Alvo Temp cancelado com êxito</string>
