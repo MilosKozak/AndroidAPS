@@ -18,8 +18,8 @@
     <string name="disconnected">Frånkopplad</string>
     <string name="disconnecting">Kopplar från</string>
     <string name="androidaps_start">AndroidAPS startad</string>
-    <string name="formatinsulinunits1">%1$.1f U</string>
-    <string name="formatinsulinunits">%1$.2f U</string>
+    <string name="formatinsulinunits1">%1$.1fU</string>
+    <string name="formatinsulinunits">%1$.2fU</string>
     <string name="formatsignedinsulinunits">%1$+.2f U</string>
     <string name="format_carbs">%1$dg</string>
     <string name="reservoirvalue">%1$.0f / %2$d U</string>
