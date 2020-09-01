@@ -560,6 +560,7 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="pump_unreachable">Pompe hors de portée</string>
     <string name="missed_bg_readings">Valeurs de glycémie manquantes</string>
     <string name="raise_notifications_as_android_notifications">Utiliser les notifications système pour les alertes et notifications</string>
+    <string name="gradually_increase_notification_volume">Augmentation progressive du volume pour les alertes et les notifications</string>
     <string name="localalertsettings_title">Alertes locales</string>
     <string name="enable_missed_bg_readings_alert">Alerte pas nouvelle donnée glycémique</string>
     <string name="enable_pump_unreachable_alert">Alerte si la pompe est hors de portée</string>
