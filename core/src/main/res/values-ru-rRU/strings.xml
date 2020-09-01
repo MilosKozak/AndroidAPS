@@ -132,7 +132,7 @@
     <!--    Translator-->
     <string name="careportal_bgcheck">Проверка ГК</string>
     <string name="careportal_mbg">Ввести значение ГК или калибровку</string>
-    <string name="careportal_announcement">Оовещение</string>
+    <string name="careportal_announcement">Оповещение</string>
     <string name="careportal_note">Примечание</string>
     <string name="careportal_question">Вопрос</string>
     <string name="careportal_exercise">Нгрузка</string>
