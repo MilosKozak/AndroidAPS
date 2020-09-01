@@ -227,7 +227,7 @@ Eversense-appen.</string>
     <string name="smscommunicator_allowednumbers_summary">+4670XXXXXXX; +4670YYYYYYY</string>
     <string name="smscommunicator_bolusreplywithcode">För att ge bolus %1$.2f enheter, svara med kod %2$s</string>
     <string name="smscommunicator_mealbolusreplywithcode">För att ge bolus %1$.2f enheter, svara med kod: %2$s</string>
-    <string name="smscommunicator_temptargetwithcode">För att sätta ett temporärt mål på %1$s, svara med kod: %2$s</string>
+    <string name="smscommunicator_temptargetwithcode">För att sätta ett temporärt mål på %1$s svara med kod %2$s</string>
     <string name="smscommunicator_temptargetcancel">För att avbryta temporärt mål, svara med kod: %1$s</string>
     <string name="smscommunicator_stopsmswithcode">För att inaktivera fjärrkommandon via SMS, svara med kod: %1$s \n\nTänk på att måste ha tillgång till huvudtelefonen för att kunna återaktivera.</string>
     <string name="smscommunicator_stoppedsms">Fjärrkommandon via SMS stoppas. För att återaktivera detta, använd Konfigurationsverktyget på huvudtelefonen.</string>
@@ -560,6 +560,7 @@ Eversense-appen.</string>
     <string name="pump_unreachable">Pumpen kan inte nås</string>
     <string name="missed_bg_readings">BG-värden saknas</string>
     <string name="raise_notifications_as_android_notifications">Systemaviseringar för larm &amp; info</string>
+    <string name="gradually_increase_notification_volume">Öka volymen gradvis för larm och aviseringar</string>
     <string name="localalertsettings_title">Lokala larm</string>
     <string name="enable_missed_bg_readings_alert">Varna om BG-data saknas</string>
     <string name="enable_pump_unreachable_alert">Varna om pumpen inte går att nå</string>
