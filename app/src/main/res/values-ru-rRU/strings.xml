@@ -71,7 +71,7 @@
     <string name="openapsma_glucosestatus_label">статус гликемии</string>
     <string name="openapsma_currenttemp_label">текущий врем базал</string>
     <string name="openapsma_iobdata_label">данные IOB (активн инс)</string>
-    <string name="openapsma_profile_label">профиль</string>
+    <string name="openapsma_profile_label">Профиль</string>
     <string name="openapsma_mealdata_label">данные приема пищи</string>
     <string name="result">результат</string>
     <string name="result_insulin_carbs">Результат: %1$s %2$s</string>
@@ -80,12 +80,12 @@
     <string name="glucose">гликемия</string>
     <string name="delta">изменение</string>
     <string name="sms_delta">дельта:</string>
-    <string name="configbuilder">конфигуратор</string>
-    <string name="overview">начало</string>
+    <string name="configbuilder">Конфигуратор</string>
+    <string name="overview">Начало</string>
     <string name="nsprofile">профиль NS</string>
     <string name="simpleprofile">простой профиль</string>
     <string name="treatments">Терапия</string>
-    <string name="virtualpump">виртуальная помпа</string>
+    <string name="virtualpump">Виртуальная помпа</string>
     <string name="careportal">Портал лечения / назначений</string>
     <string name="configbuilder_pump">помпа</string>
     <string name="configbuilder_pump_description">Какой помпой вы хотели бы пользоваться с AndroidAPS?</string>
@@ -122,9 +122,9 @@
     <string name="changeyourinput">измените введенные данные</string>
     <string name="configbuilder_bgsource">источник СК</string>
     <string name="configbuilder_bgsource_description">Откуда должен получать данные AndroidAPS?</string>
-    <string name="xdrip">xdrip</string>
+    <string name="xdrip">xDrip +</string>
     <string name="apsmode_title">режим APS</string>
-    <string name="closedloop">замкнутый цикл</string>
+    <string name="closedloop">Замкнутый цикл</string>
     <string name="openloop">открытый цикл</string>
     <string name="lowglucosesuspend">Приостановка помпы на низкой ГК</string>
     <string name="disabledloop">цикличность неактивирована</string>
@@ -510,7 +510,7 @@
     <string name="keep_screen_on_title">Не отключать экран</string>
     <string name="keep_screen_on_summary">Не давать системе Android отключать экран. Это увеличит потребление энергии при отключенной сети питания.</string>
     <string name="sensitivity_warning">Активируя Autosense не забывайте вводить все съеденные углеводы. Иначе отклонения в углеводах будут неверно определены как изменение чувствительности !!</string>
-    <string name="sensitivityweightedaverage">средневзвешенная чувствительность</string>
+    <string name="sensitivityweightedaverage">Средневзвешенная чувствительность</string>
     <string name="mdtp_ok">OK</string>
     <string name="mdtp_cancel">отмена</string>
     <string name="notloadedplugins">не все профили загружены!</string>
@@ -530,7 +530,7 @@
     <string name="insulin_oref_peak">Время пика действующего инс IOB</string>
     <string name="insulin_peak_time">время пика (в мин.)</string>
     <string name="free_peak_oref">Свободный от пиков Oref</string>
-    <string name="rapid_acting_oref">быстро действующий Oref</string>
+    <string name="rapid_acting_oref">Быстро действующий Oref</string>
     <string name="ultrarapid_oref">Сверхбыстрый Oref</string>
     <string name="dia_too_short">Значение длительности работы инс %1$f слишком мало - применено %2$f!</string>
     <string name="activate_profile">АКТИВИРОВАТЬ ПРОФИЛЬ</string>
@@ -559,6 +559,7 @@
     <string name="pump_unreachable">Помпа недоступна</string>
     <string name="missed_bg_readings">Пропущенные данные СК</string>
     <string name="raise_notifications_as_android_notifications">Использовать системные уведомления для предупреждений и уведомлений</string>
+    <string name="gradually_increase_notification_volume">Постепенно увеличивать громкость оповещений и уведомлений</string>
     <string name="localalertsettings_title">Локальные оповещения</string>
     <string name="enable_missed_bg_readings_alert">Оповещать при отсутствии данных СК</string>
     <string name="enable_pump_unreachable_alert">Оповещать в случае недоступности помпы</string>
