@@ -131,6 +131,7 @@
     <string name="tddwithcarbsformat"><![CDATA[<b>%1$s:</b> ∑: <b>%2$.2fЕ</b> Бол: <b>%3$.2fЕ</b> Баз: <b>%4$.2fЕ(%5$.0f%%)</b> Въгл: <b>%6$.0fгр</b>]]></string>
     <!--    Translator-->
     <string name="careportal_bgcheck">Проверка на КЗ</string>
+    <string name="careportal_mbg">Калибрация или ръчна КЗ</string>
     <string name="careportal_announcement">Известие</string>
     <string name="careportal_note">Бележка</string>
     <string name="careportal_question">Въпрос</string>
