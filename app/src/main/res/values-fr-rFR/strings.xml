@@ -174,6 +174,9 @@
     <string name="preferences_import_canceled">Import annulé ! Les préférences n\'ont PAS été importées !</string>
     <string name="preferences_import_impossible">Impossible d\'importer les préférences !</string>
     <string name="goto_main_try_again">Veuillez retourner à l\'écran principal et réessayer.</string>
+    <string name="old_master_password">Ancien mot de passe principal</string>
+    <string name="different_password_used">Ce fichier a été exporté et chiffré avec un mot de passe principal différent. Veuillez renseigner votre ancien mot de passe principal pour déchiffrer le fichier.</string>
+    <string name="master_password_will_be_replaced">Suite à l\'importation réussie, le mot de place principal actuel SERA REMPLACÉ par cet ancien mot de passe!</string>
     <string name="preferences_import_list_title">Sélectionner le fichier à importer</string>
     <string name="check_preferences_before_import">Vérifiez les préférences avant d\'importer :</string>
     <string name="check_preferences_cannot_import">Les préférences ne peuvent pas être importées !</string>
