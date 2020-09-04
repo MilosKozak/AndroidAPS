@@ -175,6 +175,9 @@ Eversense-appen.</string>
     <string name="preferences_import_canceled">Importen avbröts. Inställningarna har inte importerats!</string>
     <string name="preferences_import_impossible">Kan inte importera inställningar!</string>
     <string name="goto_main_try_again">Vänligen gå tillbaka till huvudskärmen och försök igen.</string>
+    <string name="old_master_password">Gamla huvudlösenordet</string>
+    <string name="different_password_used">Den här filen har exporterats och krypterats med ett annat lösenord. Ange det gamla lösenordet för att dekryptera filen.</string>
+    <string name="master_password_will_be_replaced">OBS! Som ett resultat av en lyckad import, kommer det nuvarande huvudlösenordet att ersättas av det gamla huvudlösenordet!</string>
     <string name="preferences_import_list_title">Välj fil att importera</string>
     <string name="check_preferences_before_import">Vänligen kontrollera inställningarna innan du importerar:</string>
     <string name="check_preferences_cannot_import">Inställningarna kan inte importeras!</string>
