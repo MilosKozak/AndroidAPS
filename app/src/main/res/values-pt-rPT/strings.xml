@@ -175,6 +175,7 @@
     <string name="preferences_import_impossible">Não é possível importar as preferências!</string>
     <string name="goto_main_try_again">Por favor, volte ao ecrã principal e tente novamente.</string>
     <string name="old_master_password">Senha mestra antiga</string>
+    <string name="different_password_used">Este ficheiro foi exportado e criptografado com senha mestra diferente. Forneça a senha mestra antiga para descriptografar o ficheiro.</string>
     <string name="master_password_will_be_replaced">Como resultado da importação bem sucedida senha mestra actual VAI SER SUBSTITUÍDA com a antiga senha mestra!</string>
     <string name="preferences_import_list_title">Seleccione o ficheiro para importação</string>
     <string name="check_preferences_before_import">Por favor, verifique as preferências antes da importação:</string>
