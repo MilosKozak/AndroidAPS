@@ -174,6 +174,9 @@
     <string name="preferences_import_canceled">Import zrušený! Nastavenia neboli importované!</string>
     <string name="preferences_import_impossible">Nastavenia sa nedajú importovať!</string>
     <string name="goto_main_try_again">Prosím, vráťte se späť na hlavnú obrazovku a skúste to znovu.</string>
+    <string name="old_master_password">Staré hlavné heslo</string>
+    <string name="different_password_used">Tento súbor bol exportovaný a zašifrovaný iným hlavným heslom. Pre dešifrovanie súboru použite staré hlavné heslo.</string>
+    <string name="master_password_will_be_replaced">V dôsledku úspešného importu bude aktuálne hlavné heslo NAHRADENÉ týmto starým hlavným heslom!</string>
     <string name="preferences_import_list_title">Vyberte súbor, ktorý chcete importovať</string>
     <string name="check_preferences_before_import">Prosím skontrolujte nastavenia predtým, ako importujete:</string>
     <string name="check_preferences_cannot_import">Nastavenia nemôžu byť importované!</string>
