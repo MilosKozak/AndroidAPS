@@ -168,12 +168,14 @@
     <string name="openapsma_maxbasal_summary">Este valor é chamado max basal no contexto do OpenAPS</string>
     <string name="openapsma_maxiob_title">Basal Máxima IOB que OpenAPS pode administrar [U]</string>
     <string name="openapsma_maxiob_summary">Este valor é denominado Max IOB em contexto OpenAPS \nEste é o valor máximo de insulina em [U] que APS pode administrar de uma vez.</string>
-    <string name="password_preferences_encrypt_prompt">Será perguntado pela senha mestre, que será usada para encriptar preferências exportadas.</string>
-    <string name="password_preferences_decrypt_prompt">Será perguntado pela senha mestre, que será necessária para desencriptar preferências importadas.</string>
+    <string name="password_preferences_encrypt_prompt">Será perguntado pela senha mestra, que será usada para encriptar preferências exportadas.</string>
+    <string name="password_preferences_decrypt_prompt">Será perguntado pela senha mestra, que será necessária para desencriptar preferências importadas.</string>
     <string name="preferences_export_canceled">Exportação cancelada! Preferências NÃO foram exportadas!</string>
     <string name="preferences_import_canceled">Importação cancelada! Preferências NÃO foram importadas!</string>
     <string name="preferences_import_impossible">Não é possível importar as preferências!</string>
     <string name="goto_main_try_again">Por favor, volte ao ecrã principal e tente novamente.</string>
+    <string name="old_master_password">Senha mestra antiga</string>
+    <string name="master_password_will_be_replaced">Como resultado da importação bem sucedida senha mestra actual VAI SER SUBSTITUÍDA com a antiga senha mestra!</string>
     <string name="preferences_import_list_title">Seleccione o ficheiro para importação</string>
     <string name="check_preferences_before_import">Por favor, verifique as preferências antes da importação:</string>
     <string name="check_preferences_cannot_import">Preferências não podem ser importadas!</string>
@@ -208,7 +210,7 @@
     <string name="prefdecrypt_issue_missing_file_hash">Ficheiro de verificação (hash) em falta, não é possível verificar a autenticidade de configurações!</string>
     <string name="prefdecrypt_issue_modified">Ficheiro foi modificado após exportação!</string>
     <string name="prefdecrypt_issue_parsing">Erro Desencriptação, a análise de preferências falhou!</string>
-    <string name="prefdecrypt_issue_wrong_pass">Erro de Desencriptação, a senha é inválida ou configurações de arquivo foram modificadas! Pode acontecer que o ficheiro importado foi exportado com uma Senha Mestre diferente.</string>
+    <string name="prefdecrypt_issue_wrong_pass">Erro de Desencriptação, a senha é inválida ou configurações de arquivo foram modificadas! Pode acontecer que o ficheiro importado foi exportado com uma Senha Mestra diferente.</string>
     <string name="prefdecrypt_issue_wrong_format">Configuração de encriptação ausente, formato de configurações é inválido!</string>
     <string name="prefdecrypt_issue_wrong_algorithm">Algoritmo de encriptação não suportado ou não especificado!</string>
     <string name="exported_today">exportado hoje</string>
@@ -1159,7 +1161,7 @@
     <string name="authorizationfailed">Falha na autorização</string>
     <string name="overview_show_absinsulin">Insulina absoluta</string>
     <string name="master_password_summary">Senha Mestre é usada para encriptação da cópia de segurança e substituir segurança na aplicação. Lembre-se dela ou guarde-a em um lugar seguro.</string>
-    <string name="current_master_password">Senha Mestre actual</string>
+    <string name="current_master_password">Senha Mestra actual</string>
     <string name="statuslights">Luzes de Estado</string>
     <string name="statuslights_copy_ns">Copiar definições do NS</string>
     <string name="copyexistingvalues">Copiar definições do NS (se existir)?</string>
