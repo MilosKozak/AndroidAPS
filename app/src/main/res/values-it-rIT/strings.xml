@@ -1189,6 +1189,7 @@
     <string name="your_phone_is_upload_data">Il tuo telefono sta caricando ora i dati su Open Humans.</string>
     <string name="setup_failed">Configurazione fallita</string>
     <string name="there_was_an_error">Si è verificato un errore. Prova ad accedere di nuovo per procedere.</string>
+    <string name="open_humans_terms">Questo è uno strumento open source che copierà i tuoi dati su Open Humans. Non ci riserviamo alcun diritto di condividere i tuoi dati con terze parti senza la tua esplicita autorizzazione. I dati che il progetto e l\'app ricevono vengono identificati tramite un ID utente casuale e verranno trasmessi in modo sicuro a un account Open Humans solo con la tua autorizzazione per tale processo. Puoi interrompere il caricamento ed eliminare i dati di caricamento in qualsiasi momento tramite www.openhumans.org.</string>
     <string name="i_understand_and_agree">Comprendo e accetto.</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
