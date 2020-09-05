@@ -1198,6 +1198,8 @@
     <string name="not_logged_in">Accesso non effettuato</string>
     <string name="you_need_to_accept_the_of_use_first">Devi prima accettare i termini di utilizzo.</string>
     <string name="successfully_logged_in">Accesso riuscito</string>
+    <string name="setup_will_continue_in_background">La configurazione verrà ora completata in background. Grazie per il caricamento dei tuoi dati.\n\nPer completare la configurazione, mantieni questo plugin attivo e il telefono acceso per un po\' di tempo.</string>
+    <string name="completing_login">Completamento accesso…</string>
     <string name="donate_your_data_to_science">Dona i tuoi dati alla scienza</string>
     <string name="open_humans_short">OH</string>
     <string name="you_have_been_signed_out_of_open_humans">Sei stato disconnesso da Open Humans</string>
