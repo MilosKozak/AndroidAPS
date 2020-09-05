@@ -1193,6 +1193,7 @@
     <string name="login">Login</string>
     <string name="logout">Logout</string>
     <string name="oh_logout_confirmation">Vuoi davvero fare il logout e smettere di donare dati alla scienza?</string>
+    <string name="queue_size">Dimensione coda: %d</string>
     <string name="terms_of_use">Termini di utilizzo</string>
     <string name="not_logged_in">Accesso non effettuato</string>
     <string name="you_need_to_accept_the_of_use_first">Devi prima accettare i termini di utilizzo.</string>
