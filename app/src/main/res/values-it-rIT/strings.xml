@@ -1183,4 +1183,5 @@
     <string name="dpvdefaultprofile">Profilo DPV predefinito</string>
     <string name="open_humans">Open Humans</string>
     <string name="setup_failed">Configurazione fallita</string>
+    <string name="open_humans_short">OH</string>
 </resources>
