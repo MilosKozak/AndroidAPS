@@ -1410,4 +1410,7 @@
     <string name="basalpctfromtdd_label">% of basal</string>
     <string name="dpvdefaultprofile">DPV Default profile</string>
 
+    <string name="diabox">DiaBox</string>
+    <string name="description_source_diabox">Receive BG values from DiaBox.</string>
+
 </resources>

@@ -339,6 +339,12 @@ abstract class PluginsModule {
     @IntKey(480)
     abstract fun bindConfigBuilderPlugin(plugin: ConfigBuilderPlugin): PluginBase
 
+    @Binds
+    @AllConfigs
+    @IntoMap
+    @IntKey(490)
+    abstract fun bindDiaBoxPlugin(plugin: DiaBoxPlugin): PluginBase
+
     @Qualifier
     annotation class AllConfigs
 

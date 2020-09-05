@@ -28,6 +28,7 @@ import info.nightscout.androidaps.plugins.general.overview.notifications.Notific
 import info.nightscout.androidaps.plugins.general.smsCommunicator.SmsCommunicatorPlugin;
 import info.nightscout.androidaps.plugins.profile.ns.NSProfilePlugin;
 import info.nightscout.androidaps.plugins.source.DexcomPlugin;
+import info.nightscout.androidaps.plugins.source.DiaBoxPlugin;
 import info.nightscout.androidaps.plugins.source.EversensePlugin;
 import info.nightscout.androidaps.plugins.source.GlimpPlugin;
 import info.nightscout.androidaps.plugins.source.MM640gPlugin;
@@ -56,6 +57,7 @@ public class DataService extends DaggerIntentService {
     @Inject XdripPlugin xdripPlugin;
     @Inject NSProfilePlugin nsProfilePlugin;
     @Inject ActivePluginProvider activePlugin;
+    @Inject DiaBoxPlugin diaBoxPlugin;
     @Inject Config config;
 
     public DataService() {
@@ -65,7 +67,7 @@ public class DataService extends DaggerIntentService {
 
     @Override
     protected void onHandleIntent(final Intent intent) {
-        aapsLogger.debug(LTag.DATASERVICE, "onHandleIntent " + intent);
+        aapsLogger.error(LTag.DATASERVICE, "onHandleIntent " + intent);
         aapsLogger.debug(LTag.DATASERVICE, "onHandleIntent " + BundleLogger.log(intent.getExtras()));
 
 
@@ -74,6 +76,8 @@ public class DataService extends DaggerIntentService {
         final String action = intent.getAction();
         if (Intents.ACTION_NEW_BG_ESTIMATE.equals(action)) {
             xdripPlugin.handleNewData(intent);
+        } else if (Intents.DIABOX_ACTION_NEW_BG_ESTIMATE.equals(action)) {
+            diaBoxPlugin.handleNewData(intent);
         } else if (Intents.NS_EMULATOR.equals(action)) {
             mm640GPlugin.handleNewData(intent);
         } else if (Intents.GLIMP_BG.equals(action)) {
