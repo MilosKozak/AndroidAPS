@@ -174,6 +174,9 @@
     <string name="preferences_import_canceled">Импорт отменен! Настройки не импортированы!</string>
     <string name="preferences_import_impossible">Не удается импортировать настройки!</string>
     <string name="goto_main_try_again">Вернитесь на главный экран и повторите попытку.</string>
+    <string name="old_master_password">Старый главный пароль</string>
+    <string name="different_password_used">Этот файл был экспортирован и зашифрован с использованием другого главного пароля. Укажите старый главный пароль для расшифровки файла.</string>
+    <string name="master_password_will_be_replaced">В результате успешного импорта текущий главный пароль БУДЕТ ЗАМЕНЁН на старый главный пароль!</string>
     <string name="preferences_import_list_title">Выберите файл для импорта</string>
     <string name="check_preferences_before_import">Проверьте настройки перед импортом:</string>
     <string name="check_preferences_cannot_import">Не удается импортировать настройки!</string>
@@ -1203,4 +1206,11 @@ Context | Edit Context</string>
     <string name="completing_login">Завершение входа в систему…</string>
     <string name="donate_your_data_to_science">Передайте свои данные исследователям</string>
     <string name="open_humans_short">OH</string>
+    <string name="you_have_been_signed_out_of_open_humans">Вы вышли из Open Humans</string>
+    <string name="click_here_to_sign_in_again_if_this_wasnt_on_purpose">Нажмите здесь, чтобы снова войти в систему, если выход произошел случайно.</string>
+    <string name="only_upload_if_connected_to_wifi">Загружать только при подключении к WiFi</string>
+    <string name="only_upload_if_charging">Загружать только при зарядке</string>
+    <string name="worker_state">Рабочее состояние: %s</string>
+    <string name="uploaded_data">Загруженные данные</string>
+    <string name="the_following_data_will_be_uploaded_to_your_open_humans_account">На ваш аккаунт Open Humans будут загружены следующие данные: значения ГК, события careportal (за исключением примечаний), пролонгированные болюсы, переключения профиля, суммарные суточные дозы, временные базалы, временные цели, настройки, версии приложения, модель устройства и размеры экрана. Секретная или конфиденциальная информация, такая как адрес вашего сайта Nightscout или API secret, не будет загружена.</string>
 </resources>
