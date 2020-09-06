@@ -1181,4 +1181,16 @@
     <string name="formatwithweight">Amžius: %1$.0f Svoris: %2$.0f kg</string>
     <string name="basalpctfromtdd_label">% bazės</string>
     <string name="dpvdefaultprofile">Numatytasis profilis</string>
+    <string name="open_humans">Open Humans</string>
+    <string name="finishing_open_humans_setup">Baigiama Open Humans sąranka…</string>
+    <string name="this_may_take_a_while">Tai gali užtrukti. Neišjunkite telefono ar šio papildinio.</string>
+    <string name="setup_finished">Sąranka baigta</string>
+    <string name="your_phone_will_upload_data">Netrukus jūsų telefonas įkels duomenis į Open Human.</string>
+    <string name="your_phone_is_upload_data">Jūsų telefonas įkelia duomenis į Open Human.</string>
+    <string name="setup_failed">Sąranka nepavyko</string>
+    <string name="there_was_an_error">Įvyko klaida. Norėdami tęsti, prisijunkite dar kartą. Atsiprašome &amp; Ačiū!</string>
+    <string name="open_humans_terms">Tai yra atviro kodo įrankis, kuris nukopijuoja jūsų duomenis į Open Humans. Mes neturime teisės perduoti jūsų duomenų trečiosioms šalims be aiškaus jūsų sutikimo. Duomenys, kuriuos gauna projektas ir programa, identifikuojami pagal atsitiktinį vartotojo ID ir tik tada saugiai perkeliami į Open Humans paskyrą, jei sutinkate su šiuo procesu. Galite bet kada sustabdyti įkėlimą ir ištrinti savo įkeltus duomenis apsilankę www.openhumans.org.</string>
+    <string name="i_understand_and_agree">Aš suprantu ir sutinku.</string>
+    <string name="login">Prisijungti</string>
+    <string name="logout">Atsijungti</string>
 </resources>
