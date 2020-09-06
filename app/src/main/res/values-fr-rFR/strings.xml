@@ -1182,4 +1182,5 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="formatwithweight">Âge: %1$.0f Poids: %2$.0f kg</string>
     <string name="basalpctfromtdd_label">% de basal</string>
     <string name="dpvdefaultprofile">Profil par défaut DPV</string>
+    <string name="uploaded_data">Données transférées</string>
 </resources>
