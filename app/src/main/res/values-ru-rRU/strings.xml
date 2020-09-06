@@ -1180,4 +1180,6 @@ Context | Edit Context</string>
     <string name="formatwithweight">Возраст: %1$.0f Вес: %2$.0f кг</string>
     <string name="basalpctfromtdd_label">% базального</string>
     <string name="dpvdefaultprofile">Значение для профиля по умолчанию</string>
+    <string name="open_humans">Проект Open Humans</string>
+    <string name="finishing_open_humans_setup">Завершение установки Open Humans…</string>
 </resources>
