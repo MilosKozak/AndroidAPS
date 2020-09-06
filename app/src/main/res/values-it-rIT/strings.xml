@@ -763,7 +763,7 @@
     <string name="cgm">CGM</string>
     <string name="ns_wifionly">Usa solo connessione WiFi</string>
     <string name="ns_wifi_ssids">WiFi SSID</string>
-    <string name="ns_chargingonly">Solo durante la ricarica</string>
+    <string name="ns_chargingonly">Solo se in carica</string>
     <string name="connectionsettings_title">Impostazioni connessione</string>
     <string name="ns_wifi_allowedssids">SSID ammessi (separati da punto e virgola)</string>
     <string name="ns_allowroaming">Consenti connessione in roaming</string>
@@ -1206,6 +1206,8 @@
     <string name="open_humans_short">OH</string>
     <string name="you_have_been_signed_out_of_open_humans">Sei stato disconnesso da Open Humans</string>
     <string name="click_here_to_sign_in_again_if_this_wasnt_on_purpose">Fare click qui per accedere di nuovo.</string>
+    <string name="only_upload_if_connected_to_wifi">Upload solo se connesso a WiFi</string>
+    <string name="only_upload_if_charging">Upload solo se in carica</string>
     <string name="worker_state">Worker State: %s</string>
     <string name="uploaded_data">Dati caricati</string>
     <string name="the_following_data_will_be_uploaded_to_your_open_humans_account">I seguenti dati verranno caricati sul tuo account Open Humans: valori glicemia, eventi portale (eccetto note), boli estesi, cambi profilo, dosi giornaliere totali (TDD), basali temporanee, target temporanei, preferenze, versione dell\'applicazione, modello del dispositivo e dimensioni dello schermo. Informazioni segrete o private come l\'URL di Nightscout o l\'API secret non verranno caricate.</string>
