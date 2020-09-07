@@ -1203,5 +1203,13 @@ L\'ENSEMBLE DES RISQUES LIÉS À LA QUALITÉ ET À LA PERFORMANCE DU PROGRAMME S
     <string name="successfully_logged_in">Connexion réussie</string>
     <string name="setup_will_continue_in_background">La configuration sera terminée en arrière-plan. Merci de télécharger vos données.\n\nVeuillez conserver ce plug-in et votre téléphone allumés pendant un petit moment pour que la configuration se termine.</string>
     <string name="completing_login">Fin de la connexion…</string>
+    <string name="donate_your_data_to_science">Donner vos données à la science</string>
+    <string name="open_humans_short">OH</string>
+    <string name="you_have_been_signed_out_of_open_humans">Vous avez été déconnecté d\'Open Humans</string>
+    <string name="click_here_to_sign_in_again_if_this_wasnt_on_purpose">Cliquez ici pour vous connecter à nouveau si ce n\'était pas volontaire.</string>
+    <string name="only_upload_if_connected_to_wifi">Ne télécharger que si connecté au WiFi</string>
+    <string name="only_upload_if_charging">Ne télécharger que si en charge</string>
+    <string name="worker_state">État du travail : %s</string>
     <string name="uploaded_data">Données transférées</string>
+    <string name="the_following_data_will_be_uploaded_to_your_open_humans_account">Les données suivantes seront téléchargées sur votre compte Open Humans : glycémie, événements Careportal (sauf les notes), bolus étendus, changements de profil, doses quotidiennes totales, basales temporaires, cibles temporaires, préférences, version de l\'application, modèle de l\'appareil et dimensions de l\'écran. Les informations secrètes ou privées telles que votre URL Nightscout ou votre API secret ne seront pas téléchargés.</string>
 </resources>
