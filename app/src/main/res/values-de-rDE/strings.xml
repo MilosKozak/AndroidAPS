@@ -174,7 +174,9 @@
     <string name="preferences_import_canceled">Import abgebrochen! Einstellungen wurden NICHT importiert!</string>
     <string name="preferences_import_impossible">Einstellungen können nicht importiert werden!</string>
     <string name="goto_main_try_again">Bitte gehe zurück zur Startseite und versuche es erneut.</string>
+    <string name="old_master_password">Altes Master-Passwort</string>
     <string name="different_password_used">Diese Datei wurde mit einem anderen Master-Passwort exportiert und verschlüsselt. Gib zum Entschlüsseln Dein altes Master-Passwort ein.</string>
+    <string name="master_password_will_be_replaced">Der erfolgreiche Import führt dazu, dass Dein aktuelles Master-Passwort durch das alte Master-Passwort ERSETZT wird!</string>
     <string name="preferences_import_list_title">Wähle die zu importierende Datei</string>
     <string name="check_preferences_before_import">Überprüfe die Einstellungen vor dem Import:</string>
     <string name="check_preferences_cannot_import">Einstellungen können nicht importiert werden!</string>
