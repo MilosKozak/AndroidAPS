@@ -9,10 +9,9 @@
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_cmd_init_pod">Inizializza pod</string>
     <string name="omnipod_init_pod_wizard_step3_title">Attacca il pod</string>
-    <string name="omnipod_init_pod_wizard_step3_desc">\nPrepara il sito di infusione. Rimuovi la protezione dell\'ago del pod e il supporto adesivo e attacca il pod al sito di infusione.\n\nSe la cannula fuoriesce premi <b>Annulla</b> e cambia il tuo pod.\n\nPremi <b>Avanti</b> per inserire la cannula e iniziare l\'erogazione della basale.</string>
+    <string name="omnipod_init_pod_wizard_step3_desc">\nPrepara il sito di infusione. Rimuovi la protezione dell\'ago del pod e il supporto adesivo e attacca il pod al sito di infusione.\n\nSe la cannula fuoriesce premi <b>Annulla</b> e cambia pod.\n\nPremi <b>Avanti</b> per inserire la cannula e iniziare l\'erogazione della basale.</string>
     <string name="omnipod_init_pod_wizard_step4_title">Inserimento cannula</string>
     <string name="omnipod_init_pod_wizard_step4_action_header">Prova impostazione piano basale iniziale e inserimento cannula.\n\nQuando tutti gli elementi sono stati controllati, puoi premere <b>Avanti</b>.</string>
-    <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nIl pod è adesso attivo.\n\nIl tuo piano basale è stato programmato e la cannula è stata inserita.\n\nVerifica che la cannula sia stata inserita correttamente e sostituisci il tuo pod se avverti il contrario.</string>
     <string name="omnipod_remove_pod_wizard_step1_desc">\nPremi <b>Avanti</b> per disattivare il pod.\n\n<b>Nota:</b> Questo sospenderà tutta l\'erogazione di insulina e disattiverà il pod.</string>
     <string name="omnipod_remove_pod_wizard_step2_title">Disattivazione del pod</string>
     <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod disattivato.\n\nRimuovi il pod dal tuo corpo e gettalo.</string>
