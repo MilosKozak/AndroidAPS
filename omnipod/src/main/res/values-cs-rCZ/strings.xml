@@ -2,10 +2,38 @@
 <resources>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Integrace pumpy pro Omnipod, vyžaduje zařízení RileyLink (s firmwarem alespoň 2.0).</string>
     <!-- Omnipod Configuration -->
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_reservoir_left">Zbývá %1$.2f U</string>
+    <string name="omnipod_reservoir_over50">Více než 50 U</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433,91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_illegal_init_action_type">Neplatný atribut PodInitActionType: %1$s</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">Došlo k neočekávané chybě. Nahlaste ji! (typ: %1$s).</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Komunikace se nezdařila: došlo k neočekávané chybě. Prosím nahlašte!</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_init_pod">Inicializovat Pod</string>
+    <string name="omnipod_cmd_deactivate_pod">Deaktivovat Pod</string>
+    <string name="omnipod_cmd_pod_history_na">Historie Podu není v daném okamžiku k dispozici.</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Naplňte Pod</string>
+    <string name="omnipod_init_pod_wizard_step2_title">Plnění</string>
+    <string name="omnipod_init_pod_wizard_step3_title">Nasaďte Pod</string>
+    <string name="omnipod_init_pod_wizard_step3_desc">\nPřipravte infuzní místo. Odstraňte krytku jehly a náplasti a nalepte Pod.\n\nPokud se kanyla odlepí, stiskněte <b>Zrušit</b> a zahoďte Pod.\n\nStiskněte <b>Další</b> pro vložení kanyly a spuštění bazálů.</string>
+    <string name="omnipod_init_pod_wizard_step4_title">Vkládání kanyly</string>
+    <string name="omnipod_init_pod_wizard_step4_action_header">Snažím se nastavit počáteční základní bazální plán a vložit kanylu.\n\nPři zaškrtnutí všech položek můžete stisknout tlačítko <b>Další</b>.</string>
+    <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nPod je nyní aktivní.\n\nVáš bazál byl naprogramován a kanyla byla vložena.\n\nOvěřte, prosím, že kanyla byla vložena správně a případně vyměňte Pod.</string>
+    <string name="omnipod_remove_pod_wizard_step1_desc">\nStiskněte <b>Další</b> pro deaktivaci Podu.\n\n<b>Poznámka:</b> Zastavíte veškerý výdej inzulínu a deaktivujete Pod.</string>
+    <string name="omnipod_remove_pod_wizard_step2_title">Deaktivace Podu</string>
+    <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod deaktivován.\n\nOdstraňte Pod z těla a znehodnoťte jej.</string>
+    <string name="omnipod_init_pod_pair_pod">Párování Podu</string>
+    <string name="omnipod_init_pod_prime_pod">Plnění Podu</string>
     <!-- Omnipod - Base -->
+    <string name="omnipod_alert_finish_setup_reminder_reminder">Upomínka dokončení nastavení</string>
+    <string name="omnipod_alert_expiration">Životnost Podu brzy skončí</string>
+    <string name="omnipod_alert_expiration_advisory">Pod brzy vyprší</string>
+    <string name="omnipod_alert_shutdown_imminent">Blíží se vypnutí</string>
+    <string name="omnipod_alert_low_reservoir">Nízký stav zásobníku</string>
+    <string name="omnipod_alert_unknown_alert">Neznámá výstraha</string>
 </resources>
