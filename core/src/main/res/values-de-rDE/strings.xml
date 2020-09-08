@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pairing">Koppeln</string>
+    <!--    Keys-->
     <!--    General-->
     <string name="error">Fehler</string>
     <string name="not_set_short">Nicht angegeben</string>
@@ -65,6 +65,7 @@
     <string name="bluetooth">Bluetooth</string>
     <string name="btwatchdog_title">BT Watchdog</string>
     <string name="btwatchdog_summary">Deaktiviert Bluetooth kurzzeitig, falls keine Verbindung zur Pumpe besteht. Dies kann für Smartphones mit Verbindungsproblemen nützlich sein.</string>
+    <string name="pairing">Koppeln</string>
     <!--    Constraints-->
     <string name="limitingbasalratio">Begrenzung der max. Basalrate auf %1$.2f IE/h wegen %2$s</string>
     <string name="pumplimit">Limit der Pumpe</string>
