@@ -1094,7 +1094,7 @@
     <string name="isf_short">ISF</string>
     <string name="target_short">TARG</string>
     <string name="clone_label">Clona</string>
-    <string name="saveorresetchangesfirst">Salva o reimposta prima le modifiche correnti</string>
+    <string name="saveorresetchangesfirst">Salva o resetta prima le modifiche correnti</string>
     <string name="deletecurrentprofile">Rimuovere il profilo corrente?</string>
     <string name="copytolocalprofile">Creare un nuovo profilo locale da questo profilo?</string>
     <string name="profilenamecontainsdot">Il nome profilo contiene dei punti.\nQuesto non è supportato da NS.\nIl profilo non viene caricato in NS.</string>
