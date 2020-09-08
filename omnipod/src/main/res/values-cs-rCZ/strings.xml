@@ -4,9 +4,32 @@
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod">Integrace pumpy pro Omnipod, vyžaduje zařízení RileyLink (s firmwarem alespoň 2.0).</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_time_change_enabled">Letní čas / Detekce časového pásma povoleno</string>
+    <string name="omnipod_config_expiration_reminder_enabled">Připomenutí vypršení platnosti povoleno</string>
+    <string name="omnipod_config_expiration_reminder_hours_before_shutdown">Hodiny před vypnutím</string>
+    <string name="omnipod_config_low_reservoir_alert_enabled">Upozornění na nízký stav zásobníku povoleno</string>
+    <string name="omnipod_config_low_reservoir_alert_units">Počet jednotek</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_moments_ago">před chvílí</string>
+    <string name="omnipod_pod_mgmt">Správa Podu</string>
+    <string name="omnipod_pod_status">Stav Podu</string>
+    <string name="omnipod_total_delivered_label">Celkem dodáno</string>
+    <string name="omnipod_total_delivered">%1$.2f U</string>
     <string name="omnipod_reservoir_left">Zbývá %1$.2f U</string>
     <string name="omnipod_reservoir_over50">Více než 50 U</string>
+    <string name="omnipod_pod_address">Adresa Podu</string>
+    <string name="omnipod_pod_expiry">Expirace Podu</string>
+    <string name="omnipod_warning">Varování</string>
+    <string name="omnipod_pod_status_no_active_pod">Žádný aktivní Pod</string>
+    <string name="omnipod_pod_status_waiting_for_pair_and_prime">Instalace probíhá (čekání na párování a plnění)</string>
+    <string name="omnipod_pod_status_waiting_for_cannula_insertion">Instalace probíhá (čeká se na vložení kanyly)</string>
+    <string name="omnipod_pod_status_running">Běží</string>
+    <string name="omnipod_pod_status_suspended">Pozastaveno</string>
+    <string name="omnipod_pod_status_pod_fault">Chyba Podu</string>
+    <string name="omnipod_pod_status_activation_time_exceeded">Byl překročen čas aktivace</string>
+    <string name="omnipod_pod_status_inactive">Neaktivní</string>
+    <string name="omnipod_pod_status_pod_fault_description">Chyba Podu: %1$s %2$s</string>
+    <string name="omnipod_pod_active_alerts">Výstrahy aktivního Podu</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433,91 MHz)</string>
     <!-- Omnipod - Error -->
