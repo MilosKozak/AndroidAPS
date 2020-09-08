@@ -8,16 +8,21 @@
     <string name="omnipod_config_basal_beeps_enabled">BIP basale abilitato</string>
     <string name="omnipod_config_smb_beeps_enabled">BIP SMB abilitato</string>
     <string name="omnipod_config_tbr_beeps_enabled">BIP TBR abilitato</string>
+    <string name="omnipod_config_low_reservoir_alert_units">Numero di unità</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_mgmt">GSTN pod</string>
     <string name="omnipod_pod_status">Stato pod</string>
+    <string name="omnipod_total_delivered_label">Totale erogato</string>
     <string name="omnipod_reservoir_left">%1$.2f U rimanenti</string>
     <string name="omnipod_reservoir_over50">Oltre 50 U</string>
+    <string name="omnipod_pod_address">Indirizzo pod</string>
     <string name="omnipod_pod_expiry">Scadenza pod</string>
     <string name="omnipod_pod_status_no_active_pod">Nessun pod attivo</string>
+    <string name="omnipod_pod_status_suspended">Sospeso</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_rileylink_address_invalid">Indirizzo RileyLink non valido.</string>
     <string name="omnipod_error_illegal_init_action_type">Illegal PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Nessun pod attivo</string>
     <string name="omnipod_driver_error_unexpected_exception_type">Si è verificato un errore imprevisto. Segnalalo! (%1$s).</string>
@@ -26,6 +31,14 @@
     <string name="omnipod_pod_mgmt_title">Gestione pod</string>
     <string name="omnipod_cmd_init_pod">Inizializza pod</string>
     <string name="omnipod_cmd_deactivate_pod">Disattiva pod</string>
+    <string name="omnipod_cmd_pod_history">Storico pod</string>
+    <string name="omnipod_cmd_get_pod_status">Ottieni stato pod</string>
+    <string name="omnipod_cmd_get_pod_info">Ottieni info pod</string>
+    <string name="omnipod_cmd_configure_alerts">Configura avvisi</string>
+    <string name="omnipod_cmd_suspend_delivery">Sospendi erogazione</string>
+    <string name="omnipod_cmd_resume_delivery">Riprendi erogazione</string>
+    <string name="omnipod_cmd_unknown_entry">Inserimento sconosciuto</string>
+    <string name="omnipod_cmd_tbr_value">Tasso: %1$.2f U, durata: %2$d min</string>
     <string name="omnipod_cmd_pod_history_na">Storico pod non disponibile al momento.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Riempi il pod</string>
     <string name="omnipod_init_pod_wizard_step2_title">Caricamento</string>
@@ -33,18 +46,23 @@
     <string name="omnipod_init_pod_wizard_step3_desc">\nPrepara il sito di infusione. Rimuovi la protezione dell\'ago del pod e il supporto adesivo e attacca il pod al sito di infusione.\n\nSe la cannula fuoriesce premi <b>Annulla</b> e cambia pod.\n\nPremi <b>Avanti</b> per inserire la cannula e iniziare l\'erogazione della basale.</string>
     <string name="omnipod_init_pod_wizard_step4_title">Inserimento cannula</string>
     <string name="omnipod_init_pod_wizard_step4_action_header">Prova impostazione piano basale iniziale e inserimento cannula.\n\nQuando tutti gli elementi sono stati controllati, puoi premere <b>Avanti</b>.</string>
+    <string name="omnipod_init_pod_wizard_pod_info_title">Info pod</string>
     <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nIl pod è adesso attivo.\n\nIl tuo piano basale è stato programmato e la cannula è stata inserita.\n\nVerifica che la cannula sia stata inserita correttamente e sostituisci il tuo pod se avverti il contrario.</string>
     <string name="omnipod_remove_pod_wizard_step1_desc">\nPremi <b>Avanti</b> per disattivare il pod.\n\n<b>Nota:</b> Questo sospenderà tutta l\'erogazione di insulina e disattiverà il pod.</string>
     <string name="omnipod_remove_pod_wizard_step2_title">Disattivazione del pod</string>
     <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod disattivato.\n\nRimuovi il pod dal tuo corpo e gettalo.</string>
     <string name="omnipod_init_pod_pair_pod">Associa pod</string>
     <string name="omnipod_init_pod_prime_pod">Carica pod</string>
+    <string name="omnipod_init_pod_fill_cannula">Riempi cannula</string>
+    <string name="omnipod_init_pod_set_basal_profile">Imposta profilo basale</string>
     <!-- Omnipod - Base -->
     <string name="omnipod_alert_finish_setup_reminder_reminder">Fine promemoria configurazione</string>
     <string name="omnipod_alert_shutdown_imminent">L\'arresto è imminente</string>
     <string name="omnipod_alert_low_reservoir">Livello serbatoio basso</string>
     <string name="omnipod_alert_unknown_alert">Avviso sconosciuto</string>
     <string name="omnipod_rl_stats">Statistiche RL</string>
+    <string name="omnipod_pod_firmware_version">Versione firmware</string>
+    <string name="omnipod_composite_time">%1$s e %2$s</string>
     <string name="omnipod_time_ago">%1$s fa</string>
     <string name="omnipod_resume_delivery">Riprendi erogazione</string>
     <string name="omnipod_error_pod_suspended">Pod sospeso</string>
