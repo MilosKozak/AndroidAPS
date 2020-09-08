@@ -30,12 +30,22 @@
     <string name="omnipod_pod_status_inactive">Neaktivní</string>
     <string name="omnipod_pod_status_pod_fault_description">Chyba Podu: %1$s %2$s</string>
     <string name="omnipod_pod_active_alerts">Výstrahy aktivního Podu</string>
+    <string name="omnipod_acknowledge_active_alerts_short">Potrvdit upozornění</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433,91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_rileylink_address_invalid">Chybná adresa RileyLinku.</string>
+    <string name="omnipod_error_operation_not_possible_no_configuration">Operace není možná.\n\nNejdříve je nutné nakonfigurovat Omnipod, než bude možné tuto funkci použít.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">Operace není možná.\n\n Je třeba několik minut počkat, dokud se AAPS nepokusí poprvé nastavit profil.</string>
     <string name="omnipod_error_illegal_init_action_type">Neplatný atribut PodInitActionType: %1$s</string>
+    <string name="omnipod_error_pod_not_attached">Žádný aktivní Pod</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Ověření příkazu se nezdařilo</string>
     <string name="omnipod_driver_error_unexpected_exception_type">Došlo k neočekávané chybě. Nahlaste ji! (typ: %1$s).</string>
+    <string name="omnipod_driver_error_invalid_parameters">Komunikace selhala: byly přijaty neplatné vstupní parametry</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Komunikace selhala: časový limit vypršel</string>
     <string name="omnipod_driver_error_communication_failed_unexpected_exception">Komunikace se nezdařila: došlo k neočekávané chybě. Prosím nahlašte!</string>
+    <string name="omnipod_driver_error_crc_mismatch">Komunikace selhala: ověření integrity zprávy se nezdařilo</string>
+    <string name="omnipod_driver_error_invalid_packet_type">Komunikace selhala: byly přijaty neplatné pakety z podu</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_cmd_init_pod">Inicializovat Pod</string>
     <string name="omnipod_cmd_deactivate_pod">Deaktivovat Pod</string>
