@@ -2,10 +2,36 @@
 <resources>
     <!-- Omnipod -->
     <!-- Omnipod - Base -->
+    <string name="description_pump_omnipod">Integrare pompa pentru Omnipod, necesită dispozitivul RileyLink (cu versiune firmware de cel puțin 2.0).</string>
     <!-- Omnipod Configuration -->
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_reservoir_left">%1$.2f U rămase</string>
+    <string name="omnipod_reservoir_over50">Peste 50 U</string>
     <!-- Omnipod - Dialogs -->
+    <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
+    <string name="omnipod_error_illegal_init_action_type">Acțiune PodInitActionType ilegala: %1$s</string>
+    <string name="omnipod_driver_error_unexpected_exception_type">A apărut o eroare neașteptată. Vă rugăm să o raportați! (tip: %1$s).</string>
+    <string name="omnipod_driver_error_communication_failed_unexpected_exception">Comunicarea a eşuat: a apărut o eroare neaşteptată. Vă rugăm să o raportaţi!</string>
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_init_pod">Inițializare Pod</string>
+    <string name="omnipod_cmd_deactivate_pod">Dezactivare Pod</string>
+    <string name="omnipod_cmd_pod_history_na">Istoricul Pod-ului nu este disponibil momentan.</string>
+    <string name="omnipod_init_pod_wizard_step1_title">Umpleţi Pod-ul</string>
+    <string name="omnipod_init_pod_wizard_step2_title">Amorsare</string>
+    <string name="omnipod_init_pod_wizard_step3_title">Atașați Pod-ul</string>
+    <string name="omnipod_init_pod_wizard_step3_desc">\nPregătiți setul de infuzie. Scoateți capacul acului și suport adeziv și atașați Pod-ul la locul de infuzie.\n\nDacă, canula pare in neregulă, apăsați <b>Anulare</b> și aruncați Pod-ul.\n\nApăsați <b>Următorul</b> pentru a introduce canula și a începe livrarea bazalei.</string>
+    <string name="omnipod_init_pod_wizard_step4_title">Inserare canulă</string>
+    <string name="omnipod_init_pod_wizard_step4_action_header">Încercare de programare inițială a ratelor bazale si de insertie a canulei.\n\nCând toate elementele sunt gata, puteți apăsa <b>Următorul</b>.</string>
+    <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nPod-ul este acum activ.\n\nRatele bazale au fost programate și canula a fost introdusă.\n\nVă rugăm să verificați că acul a fost introdus corect. Dacă considerați ca nu, înlocuiți Pod-ul.</string>
+    <string name="omnipod_remove_pod_wizard_step1_desc">\nApăsați <b>Următorul</b> pentru a dezactiva Pod-ul.\n\n<b>Notă:</b> Acest lucru va suspenda orice livrare de insulină și va dezactiva Pod-ul.</string>
+    <string name="omnipod_remove_pod_wizard_step2_title">Dezactivare Pod</string>
+    <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod dezactivat.\n\nScoateți Pod-ul și aruncați-l.</string>
+    <string name="omnipod_init_pod_pair_pod">Împerechere Pod</string>
+    <string name="omnipod_init_pod_prime_pod">Amorsare Pod</string>
     <!-- Omnipod - Base -->
+    <string name="omnipod_alert_finish_setup_reminder_reminder">Finalizare memento setare</string>
+    <string name="omnipod_alert_shutdown_imminent">Oprirea este iminentă</string>
+    <string name="omnipod_alert_low_reservoir">Nivel rezervor scăzut</string>
+    <string name="omnipod_alert_unknown_alert">Alertă necunoscută</string>
 </resources>
