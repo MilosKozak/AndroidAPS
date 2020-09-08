@@ -7,5 +7,6 @@
     <!-- Omnipod - Dialogs -->
     <!-- Omnipod - Error -->
     <!-- Omnipod - Pod Mgmt -->
+    <string name="omnipod_cmd_deactivate_pod">Desativado Pod</string>
     <!-- Omnipod - Base -->
 </resources>
