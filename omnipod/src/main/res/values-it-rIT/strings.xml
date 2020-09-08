@@ -19,6 +19,8 @@
     <string name="omnipod_pod_expiry">Scadenza pod</string>
     <string name="omnipod_pod_status_no_active_pod">Nessun pod attivo</string>
     <string name="omnipod_pod_status_suspended">Sospeso</string>
+    <string name="omnipod_pod_status_inactive">Inattivo</string>
+    <string name="omnipod_pod_active_alerts">Attiva avvisi pod</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
