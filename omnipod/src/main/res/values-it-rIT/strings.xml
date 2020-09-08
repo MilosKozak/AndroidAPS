@@ -21,7 +21,9 @@
     <string name="omnipod_pod_status_no_active_pod">Nessun pod attivo</string>
     <string name="omnipod_pod_status_running">In esecuzione</string>
     <string name="omnipod_pod_status_suspended">Sospeso</string>
+    <string name="omnipod_pod_status_pod_fault">Guasto pod</string>
     <string name="omnipod_pod_status_inactive">Inattivo</string>
+    <string name="omnipod_pod_status_pod_fault_description">Guasto pod: %1$s %2$s</string>
     <string name="omnipod_pod_active_alerts">Attiva avvisi pod</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
@@ -32,7 +34,20 @@
     <string name="omnipod_driver_error_setup_action_verification_failed">Verifica comando fallita</string>
     <string name="omnipod_driver_error_unexpected_exception_type">Si è verificato un errore imprevisto. Segnalalo! (%1$s).</string>
     <string name="omnipod_driver_error_invalid_parameters">Comunicazione fallita: ricevuti parametri di input non validi</string>
+    <string name="omnipod_driver_error_communication_failed_timeout">Comunicazione fallita: timeout</string>
     <string name="omnipod_driver_error_communication_failed_unexpected_exception">Comunicazione fallita: si è verificato un errore imprevisto. Segnalalo!</string>
+    <string name="omnipod_driver_error_crc_mismatch">Comunicazione fallita: verifica dell\'integrità del messaggio fallita</string>
+    <string name="omnipod_driver_error_invalid_packet_type">Comunicazione fallita: ricevuto un pacchetto non valido dal pod</string>
+    <string name="omnipod_driver_error_invalid_progress_state">Comunicazione fallita: il pod è in uno stato non corretto</string>
+    <string name="omnipod_driver_error_invalid_response">Comunicazione fallita: ricevuta una risposta non valida dal pod</string>
+    <string name="omnipod_driver_error_invalid_message_sequence_number">Comunicazione fallita: ricevuto dal pod un messaggio con una sequenza numerica non valida</string>
+    <string name="omnipod_driver_error_invalid_message_address">Comunicazione fallita: ricevuto dal pod un messaggio con un indirizzo non valido</string>
+    <string name="omnipod_driver_error_message_decoding_failed">Comunicazione fallita: non si è riuscito a decodificare il messaggio dal pod</string>
+    <string name="omnipod_driver_error_nonce_resync_failed">Comunicazione fallita: risincronizzazione \'nonce\' non riuscita</string>
+    <string name="omnipod_driver_error_nonce_out_of_sync">Comunicazione fallita: \'nonce\' non sincronizzato</string>
+    <string name="omnipod_driver_error_not_enough_data">Comunicazione fallita: non abbastanza dati ricevuti dal pod</string>
+    <string name="omnipod_driver_error_pod_fault">È stato rilevato un guasto al pod (%1$03d %2$s). Disattiva il tuo pod e avviane uno nuovo</string>
+    <string name="omnipod_driver_error_pod_returned_error_response">Comunicazione fallita: il pod ha restituito una risposta di errore</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_pod_mgmt_title">Gestione pod</string>
     <string name="omnipod_cmd_init_pod">Inizializza pod</string>
@@ -87,7 +102,23 @@
     <string name="omnipod_preference_category_other">Altro</string>
     <string name="omnipod_preference_category_alerts">Avvisi</string>
     <string name="omnipod_preference_category_confirmation_beeps">Beep di conferma</string>
+    <string name="omnipod_wizard_button_exit">Esci</string>
+    <string name="omnipod_wizard_button_previous">Indietro</string>
+    <string name="omnipod_wizard_button_next">Avanti</string>
     <string name="omnipod_history_item_description">Descrizione</string>
     <string name="omnipod_history_item_source">Fonte</string>
+    <string name="omnipod_history_item_date">Data</string>
     <string name="omnipod_history_type">Tipo:</string>
+    <plurals name="omnipod_minutes">
+        <item quantity="one">%1$d minuto</item>
+        <item quantity="other">%1$d minuti</item>
+    </plurals>
+    <plurals name="omnipod_hours">
+        <item quantity="one">%1$d ora</item>
+        <item quantity="other">%1$d ore</item>
+    </plurals>
+    <plurals name="omnipod_days">
+        <item quantity="one">%1$d giorno</item>
+        <item quantity="other">%1$d giorni</item>
+    </plurals>
 </resources>
