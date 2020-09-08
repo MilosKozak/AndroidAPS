@@ -8,6 +8,7 @@
     <string name="omnipod_config_basal_beeps_enabled">BIP basale abilitato</string>
     <string name="omnipod_config_smb_beeps_enabled">BIP SMB abilitato</string>
     <string name="omnipod_config_tbr_beeps_enabled">BIP TBR abilitato</string>
+    <string name="omnipod_config_expiration_reminder_enabled">Promemoria scadenza abilitato</string>
     <string name="omnipod_config_low_reservoir_alert_units">Numero di unità</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_mgmt">GSTN pod</string>
@@ -105,6 +106,7 @@
     <string name="omnipod_wizard_button_exit">Esci</string>
     <string name="omnipod_wizard_button_previous">Indietro</string>
     <string name="omnipod_wizard_button_next">Avanti</string>
+    <string name="omnipod_wizard_button_finish">Fine</string>
     <string name="omnipod_history_item_description">Descrizione</string>
     <string name="omnipod_history_item_source">Fonte</string>
     <string name="omnipod_history_item_date">Data</string>
