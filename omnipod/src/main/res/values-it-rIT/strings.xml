@@ -13,11 +13,13 @@
     <string name="omnipod_pod_mgmt">GSTN pod</string>
     <string name="omnipod_pod_status">Stato pod</string>
     <string name="omnipod_total_delivered_label">Totale erogato</string>
+    <string name="omnipod_total_delivered">%1$.2f U</string>
     <string name="omnipod_reservoir_left">%1$.2f U rimanenti</string>
     <string name="omnipod_reservoir_over50">Oltre 50 U</string>
     <string name="omnipod_pod_address">Indirizzo pod</string>
     <string name="omnipod_pod_expiry">Scadenza pod</string>
     <string name="omnipod_pod_status_no_active_pod">Nessun pod attivo</string>
+    <string name="omnipod_pod_status_running">In esecuzione</string>
     <string name="omnipod_pod_status_suspended">Sospeso</string>
     <string name="omnipod_pod_status_inactive">Inattivo</string>
     <string name="omnipod_pod_active_alerts">Attiva avvisi pod</string>
@@ -27,7 +29,9 @@
     <string name="omnipod_error_rileylink_address_invalid">Indirizzo RileyLink non valido.</string>
     <string name="omnipod_error_illegal_init_action_type">Illegal PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Nessun pod attivo</string>
+    <string name="omnipod_driver_error_setup_action_verification_failed">Verifica comando fallita</string>
     <string name="omnipod_driver_error_unexpected_exception_type">Si è verificato un errore imprevisto. Segnalalo! (%1$s).</string>
+    <string name="omnipod_driver_error_invalid_parameters">Comunicazione fallita: ricevuti parametri di input non validi</string>
     <string name="omnipod_driver_error_communication_failed_unexpected_exception">Comunicazione fallita: si è verificato un errore imprevisto. Segnalalo!</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_pod_mgmt_title">Gestione pod</string>
@@ -40,6 +44,7 @@
     <string name="omnipod_cmd_suspend_delivery">Sospendi erogazione</string>
     <string name="omnipod_cmd_resume_delivery">Riprendi erogazione</string>
     <string name="omnipod_cmd_unknown_entry">Inserimento sconosciuto</string>
+    <string name="omnipod_cmd_bolus_value">%1$.2f U</string>
     <string name="omnipod_cmd_tbr_value">Tasso: %1$.2f U, durata: %2$d min</string>
     <string name="omnipod_cmd_pod_history_na">Storico pod non disponibile al momento.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Riempi il pod</string>
@@ -50,6 +55,7 @@
     <string name="omnipod_init_pod_wizard_step4_action_header">Prova impostazione piano basale iniziale e inserimento cannula.\n\nQuando tutti gli elementi sono stati controllati, puoi premere <b>Avanti</b>.</string>
     <string name="omnipod_init_pod_wizard_pod_info_title">Info pod</string>
     <string name="omnipod_init_pod_wizard_pod_info_init_pod_description">\nIl pod è adesso attivo.\n\nIl tuo piano basale è stato programmato e la cannula è stata inserita.\n\nVerifica che la cannula sia stata inserita correttamente e sostituisci il tuo pod se avverti il contrario.</string>
+    <string name="omnipod_remove_pod_wizard_step1_title">Disattiva pod</string>
     <string name="omnipod_remove_pod_wizard_step1_desc">\nPremi <b>Avanti</b> per disattivare il pod.\n\n<b>Nota:</b> Questo sospenderà tutta l\'erogazione di insulina e disattiverà il pod.</string>
     <string name="omnipod_remove_pod_wizard_step2_title">Disattivazione del pod</string>
     <string name="omnipod_init_pod_wizard_pod_info_remove_pod_description">Pod disattivato.\n\nRimuovi il pod dal tuo corpo e gettalo.</string>
@@ -57,18 +63,28 @@
     <string name="omnipod_init_pod_prime_pod">Carica pod</string>
     <string name="omnipod_init_pod_fill_cannula">Riempi cannula</string>
     <string name="omnipod_init_pod_set_basal_profile">Imposta profilo basale</string>
+    <string name="omnipod_deactivate_pod_deactivate_pod">Disattiva pod</string>
     <!-- Omnipod - Base -->
+    <string name="omnipod_alert_finish_pairing_reminder">Fine promemoria associazione</string>
     <string name="omnipod_alert_finish_setup_reminder_reminder">Fine promemoria configurazione</string>
+    <string name="omnipod_alert_expiration">Il pod scadrà presto</string>
+    <string name="omnipod_alert_expiration_advisory">Il pod scadrà presto</string>
     <string name="omnipod_alert_shutdown_imminent">L\'arresto è imminente</string>
     <string name="omnipod_alert_low_reservoir">Livello serbatoio basso</string>
     <string name="omnipod_alert_unknown_alert">Avviso sconosciuto</string>
     <string name="omnipod_rl_stats">Statistiche RL</string>
     <string name="omnipod_pod_firmware_version">Versione firmware</string>
+    <string name="omnipod_errors">Errori</string>
+    <string name="omnipod_cmd_basal_profile_not_set_is_same">Il profilo basale è lo stesso, non sarà impostato di nuovo.</string>
     <string name="omnipod_composite_time">%1$s e %2$s</string>
     <string name="omnipod_time_ago">%1$s fa</string>
+    <string name="omnipod_refresh">Ricarica</string>
     <string name="omnipod_resume_delivery">Riprendi erogazione</string>
     <string name="omnipod_error_pod_suspended">Pod sospeso</string>
     <string name="omnipod_less_than_a_minute_ago">Meno di un minuto fa</string>
+    <string name="omnipod_suspend_delivery_short">Sospendi</string>
+    <string name="omnipod_preference_category_rileylink">RileyLink</string>
+    <string name="omnipod_preference_category_other">Altro</string>
     <string name="omnipod_preference_category_alerts">Avvisi</string>
     <string name="omnipod_preference_category_confirmation_beeps">Beep di conferma</string>
     <string name="omnipod_history_item_description">Descrizione</string>
