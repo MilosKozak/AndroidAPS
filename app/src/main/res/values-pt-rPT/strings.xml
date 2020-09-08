@@ -1185,13 +1185,17 @@
     <string name="finishing_open_humans_setup">A terminar configuração Open Humans...</string>
     <string name="setup_finished">Configuração terminada</string>
     <string name="setup_failed">Falha na configuração</string>
+    <string name="i_understand_and_agree">Compreendo e concordo.</string>
     <string name="login">Login</string>
     <string name="logout">Terminar Sessão</string>
+    <string name="queue_size">Tamanho da Fila: %d</string>
     <string name="terms_of_use">Termos de Utilização</string>
     <string name="not_logged_in">Não tem sessão iniciada</string>
     <string name="successfully_logged_in">Login bem sucedido</string>
     <string name="completing_login">A completar o login…</string>
     <string name="donate_your_data_to_science">Doar seus dados para a ciência</string>
     <string name="open_humans_short">OH</string>
+    <string name="only_upload_if_connected_to_wifi">Apenas enviar se ligado ao Wi-Fi</string>
+    <string name="only_upload_if_charging">Apenas enviar se estiver a carregar</string>
     <string name="uploaded_data">Dados Enviados</string>
 </resources>
