@@ -8,6 +8,7 @@
     <string name="omnipod_config_basal_beeps_enabled">BIP basale abilitato</string>
     <string name="omnipod_config_smb_beeps_enabled">BIP SMB abilitato</string>
     <string name="omnipod_config_tbr_beeps_enabled">BIP TBR abilitato</string>
+    <string name="omnipod_config_time_change_enabled">Rilevamento ora legale/fuso orario abilitato</string>
     <string name="omnipod_config_expiration_reminder_enabled">Promemoria scadenza abilitato</string>
     <string name="omnipod_config_low_reservoir_alert_units">Numero di unità</string>
     <!-- Omnipod - Fragment -->
@@ -55,6 +56,7 @@
     <string name="omnipod_cmd_deactivate_pod">Disattiva pod</string>
     <string name="omnipod_cmd_pod_history">Storico pod</string>
     <string name="omnipod_cmd_set_bolus">Imposta bolo</string>
+    <string name="omnipod_cmd_set_basal_schedule">Imposta piano basale</string>
     <string name="omnipod_cmd_get_pod_status">Ottieni stato pod</string>
     <string name="omnipod_cmd_get_pod_info">Ottieni info pod</string>
     <string name="omnipod_cmd_configure_alerts">Configura avvisi</string>
@@ -100,6 +102,7 @@
     <string name="omnipod_error_pod_suspended">Pod sospeso</string>
     <string name="omnipod_less_than_a_minute_ago">Meno di un minuto fa</string>
     <string name="omnipod_suspend_delivery_short">Sospendi</string>
+    <string name="omnipod_expiration_alerts_updated">Configurazione avviso aggiornata nel pod</string>
     <string name="omnipod_preference_category_rileylink">RileyLink</string>
     <string name="omnipod_preference_category_other">Altro</string>
     <string name="omnipod_preference_category_alerts">Avvisi</string>
