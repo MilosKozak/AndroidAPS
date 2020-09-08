@@ -54,6 +54,7 @@
     <string name="omnipod_cmd_init_pod">Inizializza pod</string>
     <string name="omnipod_cmd_deactivate_pod">Disattiva pod</string>
     <string name="omnipod_cmd_pod_history">Storico pod</string>
+    <string name="omnipod_cmd_set_bolus">Imposta bolo</string>
     <string name="omnipod_cmd_get_pod_status">Ottieni stato pod</string>
     <string name="omnipod_cmd_get_pod_info">Ottieni info pod</string>
     <string name="omnipod_cmd_configure_alerts">Configura avvisi</string>
