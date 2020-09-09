@@ -1137,10 +1137,15 @@
     <string name="loop_tbrexecution_time_label">Čas provedení dočasného bazálu</string>
     <string name="insight_alert_notification_channel">Upozornění pumpy Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">z aplikace Authenticator pro: %1$s následováno kódem PIN</string>
     <string name="smscommunicator_otp_enabled">Povolit Autentikátor</string>
     <string name="smscommunicator_otp_enabled_summary">Ověření příkazů pomocí jednočasových hesel generovaných Google Authenticator nebo podobných 2FA aplikací.</string>
+    <string name="smscommunicator_otp_pin">Další povinný kód PIN na konci tokenu</string>
     <string name="smscommunicator_otp_pin_summary">Další číslice, které by měly být zapamatovány a přidány na konec každého vygenerovaného jednorázového hesla</string>
     <string name="smscomunicator_tab_otp_label">Nastavení Autentikátoru</string>
+    <string name="smscommunicator_code_verify_label">Kód pro kontrolu:</string>
+    <string name="smscommunicator_code_verify_hint">OTP + PIN</string>
+    <string name="smscommunicator_code_verify_info">Ověřovací kód se skládá ze 6 číslic zobrazených aplikací Authenticator (známé jako OTP) následované 3 nebo více číslicemi povinného kódu PIN.</string>
     <string name="smscommunicator_otp_verify_label">OTP pro kontrolu:</string>
     <string name="smscommunicator_otp_reset_btn">Resetovat autentikátory</string>
     <string name="smscommunicator_otp_reset_title">Resetovat klíč pro autentikátory</string>
