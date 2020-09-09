@@ -35,6 +35,7 @@
     <!-- Omnipod - Error -->
     <string name="omnipod_error_rileylink_address_invalid">Indirizzo RileyLink non valido.</string>
     <string name="omnipod_error_operation_not_possible_no_configuration">Operazione non possibile.\n\nDevi prima configurare Omnipod.</string>
+    <string name="omnipod_error_operation_not_possible_no_profile">Operazione non possibile.\n\n Devi attendere qualche minuto che AAPS imposti il profilo basale per la prima volta.</string>
     <string name="omnipod_error_illegal_init_action_type">Illegal PodInitActionType: %1$s</string>
     <string name="omnipod_error_pod_not_attached">Nessun pod attivo</string>
     <string name="omnipod_driver_error_setup_action_verification_failed">Verifica comando fallita</string>
@@ -102,11 +103,13 @@
     <string name="omnipod_custom_action_reset_rileylink">Reset config.ne RileyLink</string>
     <string name="omnipod_composite_time">%1$s e %2$s</string>
     <string name="omnipod_time_ago">%1$s fa</string>
+    <string name="omnipod_bolus_did_not_succeed">Il bolo non è riuscito</string>
     <string name="omnipod_refresh">Ricarica</string>
     <string name="omnipod_resume_delivery">Riprendi erogazione</string>
     <string name="omnipod_error_pod_suspended">Pod sospeso</string>
     <string name="omnipod_less_than_a_minute_ago">Meno di un minuto fa</string>
     <string name="omnipod_suspend_delivery_short">Sospendi</string>
+    <string name="omnipod_cmd_fill_cannula_set_basal_profile">Riempi cannula e imposta profilo basale</string>
     <string name="omnipod_expiration_alerts_updated">Configurazione avviso aggiornata nel pod</string>
     <string name="omnipod_preference_category_rileylink">RileyLink</string>
     <string name="omnipod_preference_category_other">Altro</string>
