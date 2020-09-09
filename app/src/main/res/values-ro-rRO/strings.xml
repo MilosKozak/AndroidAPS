@@ -562,6 +562,7 @@
     <string name="pump_unreachable">Pompă indisponibilă</string>
     <string name="missed_bg_readings">Lipsesc date glicemie</string>
     <string name="raise_notifications_as_android_notifications">Se folosesc notificările sistemului pentru alerte și notificări</string>
+    <string name="gradually_increase_notification_volume">Creşterea treptată a volumului pentru alerte şi notificări</string>
     <string name="localalertsettings_title">Alerte locale</string>
     <string name="enable_missed_bg_readings_alert">Alarmează dacă nu se primesc glicemii</string>
     <string name="enable_pump_unreachable_alert">Se alertează dacă pompa este indisponibilă</string>
@@ -857,6 +858,7 @@
     <string name="code_compare">Sunt identice codurile afișate aici și cele de pe pompă?</string>
     <string name="insight_pairing">Asociere Insight</string>
     <string name="insight_local">Accu-Chek Insight</string>
+    <string name="insight_delivered">%1$.2f U din %2$.2f U livrate</string>
     <string name="insight_alert_formatter">%1$s:%2$s</string>
     <string name="tube_changed">Canulă schimbată</string>
     <string name="pump_time_updated">Timpul din pompă a fost actualizat</string>
@@ -914,6 +916,7 @@
     <string name="short_status_extended">Extins: %1$.2f / %2$.2f U pentru %3$d min</string>
     <string name="short_status_multiwave">Multiwave: %1$.2f / %2$.2f U pentru %3$d min</string>
     <string name="short_status_tdd">TDD: %1$.2f</string>
+    <string name="short_status_reservoir">Rezervor: %1$.2fU</string>
     <string name="short_status_battery">Bat.: %1$d%%</string>
     <string name="max_recovery_duration">Timpul maxim de restabilire [s]</string>
     <string name="min_recovery_duration">Timpul minim de restabilire [s]</string>
@@ -1056,6 +1059,8 @@
     <string name="sendsmsactionlabel">Trimite SMS: %1$s</string>
     <string name="sendsmsactiondescription">Trimite SMS către toate numerele</string>
     <string name="sendsmsactiontext">Trimite SMS cu text</string>
+    <string name="cobvsiob">COB vs IOB</string>
+    <string name="bolusconstraintappliedwarn">Este aplicatâ limitarea bolusului %1$.2f U la %2$.2f U</string>
     <string name="slowabsorptiondetected"><![CDATA[<font color=\'%1$s\'>!!!!! A fost detectată o absorbție lentă a carbohidraților: %2$d%% din timp. Reverificați calculele. COB poate fi supraestimat, astfel că este posibilă administrarea de mai multă insulină !!!!!</font>]]></string>
     <string name="partialboluswizard">Livrați doar partea aceasta din rezultatul sugerat de wizard [%]</string>
     <string name="deliverpartofboluswizard">Wizard bolus face un calcul, dar numai o parte din insulina calculată este și livrată. Este mai eficient când se folosește cu algoritmul SMB.</string>
@@ -1132,10 +1137,15 @@
     <string name="loop_tbrexecution_time_label">Timpul de execuție al bazalei temporare</string>
     <string name="insight_alert_notification_channel">Alerte pompă Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">de la aplicația Authenticator pentru: %1$s urmat de PIN</string>
     <string name="smscommunicator_otp_enabled">Activare Authenticator</string>
     <string name="smscommunicator_otp_enabled_summary">Autentificați comenzile folosind o parolă unica generată de Google Authenticator sau alte aplicații 2FA similare.</string>
+    <string name="smscommunicator_otp_pin">PIN obligatoriu suplimentar la sfârșitul token-ului</string>
     <string name="smscommunicator_otp_pin_summary">Cifre suplimentare care ar trebui să fie memorate și adăugate la sfârșitul fiecărei parole unice generate</string>
     <string name="smscomunicator_tab_otp_label">Setare Authenticator</string>
+    <string name="smscommunicator_code_verify_label">Cod de verificat:</string>
+    <string name="smscommunicator_code_verify_hint">OTP + cod PIN</string>
+    <string name="smscommunicator_code_verify_info">Codul de verificare constă din 6 cifre afişate de către aplicaţia Authentificator (cunoscută ca OTP), urmat de 3 sau mai multe cifre de PIN obligatoriu.</string>
     <string name="smscommunicator_otp_verify_label">Parola unică pentru verificare:</string>
     <string name="smscommunicator_otp_reset_btn">Resetați Authenticatori</string>
     <string name="smscommunicator_otp_reset_title">Resetați cheia pentru Authenticator</string>
@@ -1174,4 +1184,23 @@
     <string name="formatwithweight">Vârstă: %1$.0f Greutate: %2$.0f kg</string>
     <string name="basalpctfromtdd_label">% din bazală</string>
     <string name="dpvdefaultprofile">Profil implicit DPV</string>
+    <string name="open_humans">Open Humans</string>
+    <string name="finishing_open_humans_setup">Finalizare configurare Open Humans…</string>
+    <string name="this_may_take_a_while">Acest lucru poate dura un timp. Nu opriți telefonul și nici acest plugin.</string>
+    <string name="setup_finished">Configurare terminată</string>
+    <string name="your_phone_will_upload_data">Telefonul tău va încărca date către Open Humans în curând.</string>
+    <string name="your_phone_is_upload_data">Telefonul tău încarcă date în Open Humans acum.</string>
+    <string name="setup_failed">Configurare eșuată</string>
+    <string name="there_was_an_error">A apărut o eroare. Te rugăm să încerci să te autentifici din nou pentru a continua. Ne pare rău. Mulțumim!</string>
+    <string name="open_humans_terms">Aceasta este un instrument open source care va copia datele tale în Open Humans. Nu avem dreptul sa împărtășim datele tale cu terțe părți fără autorizație explicită. Datele pe care le primesc proiectul și aplicația sunt identificate printr-un ID de utilizator aleatoriu și vor fi transmise în siguranță într-un cont Open Humans numai cu autorizarea acestui proces. Poți înceta încărcarea și șterge datele oricând folosind www.openhumans.org.</string>
+    <string name="i_understand_and_agree">Înţeleg şi sunt de acord.</string>
+    <string name="login">Autentificare</string>
+    <string name="logout">Deconectare</string>
+    <string name="oh_logout_confirmation">Sigur doriți să vă deconectați și să încetați să donați date in scopuri științifice?</string>
+    <string name="project_member_id">ID Membru proiect: %s</string>
+    <string name="queue_size">Dimensiunea cozii: %d</string>
+    <string name="terms_of_use">Condiții de utilizare</string>
+    <string name="not_logged_in">Nu ești autentificat(ă)</string>
+    <string name="you_need_to_accept_the_of_use_first">Trebuie mai întâi să acceptați condițiile de utilizare.</string>
+    <string name="successfully_logged_in">Conectare reușită</string>
 </resources>
