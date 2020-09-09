@@ -1139,8 +1139,12 @@
     <!-- SMS Communicator & OTP Authenticator -->
     <string name="smscommunicator_otp_enabled">Povoliť Autentifikátor</string>
     <string name="smscommunicator_otp_enabled_summary">Autentifikačné príkazy používajú jednorázové heslá generované Google Authenticator, alebo podobnými 2FA aplikáciami.</string>
+    <string name="smscommunicator_otp_pin">Ďalší povinný kód PIN na konci tokenu</string>
     <string name="smscommunicator_otp_pin_summary">Ďalšie číslice, ktoré by mali byť zapamätané a pridané na koniec každého vygenerovaného jednorázového hesla</string>
     <string name="smscomunicator_tab_otp_label">Nastavenie autentifikátora</string>
+    <string name="smscommunicator_code_verify_label">Kód pre kontrolu:</string>
+    <string name="smscommunicator_code_verify_hint">OTP + PIN</string>
+    <string name="smscommunicator_code_verify_info">Overovací kód sa skladá zo 6 číslic zobrazených aplikáciou Authenticator (známej ako OTP) nasledované 3, alebo viacerými číslicami povinného kódu PIN.</string>
     <string name="smscommunicator_otp_verify_label">OTP pre kontrolu:</string>
     <string name="smscommunicator_otp_reset_btn">Resetovať autentifikátory</string>
     <string name="smscommunicator_otp_reset_title">Resetovať autentifikačný kľúč</string>
