@@ -4,6 +4,10 @@
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod">Integrare pompa pentru Omnipod, necesită dispozitivul RileyLink (cu versiune firmware de cel puțin 2.0).</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_bolus_beeps_enabled">Bip pentru Bolus activat</string>
+    <string name="omnipod_config_basal_beeps_enabled">Bip pentru Bazală activat</string>
+    <string name="omnipod_config_smb_beeps_enabled">Bip pentru SMB activat</string>
+    <string name="omnipod_config_suspend_delivery_button_enabled">Butonul \"Suspendare Livrare\" activat</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_reservoir_left">%1$.2f U rămase</string>
     <string name="omnipod_reservoir_over50">Peste 50 U</string>
