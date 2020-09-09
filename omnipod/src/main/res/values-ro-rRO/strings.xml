@@ -11,9 +11,31 @@
     <string name="omnipod_config_suspend_delivery_button_enabled">Butonul \"Suspendare Livrare\" activat</string>
     <string name="omnipod_config_pulse_log_button_enabled">Butonul \"Pulse Log\" activat</string>
     <string name="omnipod_config_time_change_enabled">Detectare fusului orar activată</string>
+    <string name="omnipod_config_expiration_reminder_enabled">Notificare expirare activat</string>
+    <string name="omnipod_config_expiration_reminder_hours_before_shutdown">Numar de ore înainte de oprire</string>
+    <string name="omnipod_config_low_reservoir_alert_enabled">Alertă rezervor aproape gol activată</string>
+    <string name="omnipod_config_low_reservoir_alert_units">Număr unități</string>
     <!-- Omnipod - Fragment -->
+    <string name="omnipod_moments_ago">Acum câteva momente</string>
+    <string name="omnipod_pod_mgmt">Managementul POD-ului</string>
+    <string name="omnipod_pod_status">Statusul POD-ului</string>
+    <string name="omnipod_total_delivered_label">Total livrat</string>
+    <string name="omnipod_total_delivered">%1$.2f U</string>
     <string name="omnipod_reservoir_left">%1$.2f U rămase</string>
     <string name="omnipod_reservoir_over50">Peste 50 U</string>
+    <string name="omnipod_pod_address">Adresă Pod</string>
+    <string name="omnipod_pod_expiry">Pod-ul expiră</string>
+    <string name="omnipod_warning">Atenție</string>
+    <string name="omnipod_pod_status_no_active_pod">Niciun Pod activ</string>
+    <string name="omnipod_pod_status_waiting_for_pair_and_prime">Inițializarea este în curs (se așteaptă împerecherea și amorsarea)</string>
+    <string name="omnipod_pod_status_waiting_for_cannula_insertion">Inițializarea este în curs (se așteaptă inserarea canulei)</string>
+    <string name="omnipod_pod_status_running">Rulează</string>
+    <string name="omnipod_pod_status_suspended">Suspendat</string>
+    <string name="omnipod_pod_status_pod_fault">Defecțiune Pod</string>
+    <string name="omnipod_pod_status_activation_time_exceeded">Timp de activare depăşit</string>
+    <string name="omnipod_pod_status_inactive">Inactiv</string>
+    <string name="omnipod_pod_status_pod_fault_description">Pod defect: %1$s %2$s</string>
+    <string name="omnipod_pod_active_alerts">Alerte active Pod</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
