@@ -1137,10 +1137,8 @@
     <string name="loop_tbrexecution_time_label">Čas spustenia dočasného bazálu</string>
     <string name="insight_alert_notification_channel">Výstrahy pumpy Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
-    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">z aplikácie Authenticator pre: %1$s</string>
     <string name="smscommunicator_otp_enabled">Povoliť Autentifikátor</string>
     <string name="smscommunicator_otp_enabled_summary">Autentifikačné príkazy používajú jednorázové heslá generované Google Authenticator, alebo podobnými 2FA aplikáciami.</string>
-    <string name="smscommunicator_otp_pin">Ďalší PIN na konci tokenu</string>
     <string name="smscommunicator_otp_pin_summary">Ďalšie číslice, ktoré by mali byť zapamätané a pridané na koniec každého vygenerovaného jednorázového hesla</string>
     <string name="smscomunicator_tab_otp_label">Nastavenie autentifikátora</string>
     <string name="smscommunicator_otp_verify_label">OTP pre kontrolu:</string>
