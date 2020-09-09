@@ -1203,4 +1203,6 @@
     <string name="not_logged_in">Nu ești autentificat(ă)</string>
     <string name="you_need_to_accept_the_of_use_first">Trebuie mai întâi să acceptați condițiile de utilizare.</string>
     <string name="successfully_logged_in">Conectare reușită</string>
+    <string name="setup_will_continue_in_background">Setarea va fi finalizată în fundal acum. Vă mulțumim pentru încărcarea datelor.\n\nVă rugăm să păstrați acest plugin și telefonul pornit pentru o scurtă perioadă de timp astfel încât setarea să se finalizeze.</string>
+    <string name="completing_login">Finalizare autentificare…</string>
 </resources>
