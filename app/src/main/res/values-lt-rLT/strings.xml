@@ -1137,10 +1137,8 @@
     <string name="loop_tbrexecution_time_label">Laikinos bazės įvykdymo laikas</string>
     <string name="insight_alert_notification_channel">Insight pompos aliarmai</string>
     <!-- SMS Communicator & OTP Authenticator -->
-    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">iš tapatybės nustatymo programos: %1$s</string>
     <string name="smscommunicator_otp_enabled">Įgalinti tapatybės nustatymo funkciją</string>
     <string name="smscommunicator_otp_enabled_summary">Autentifikuokite komandas naudodami vienkartinius slaptažodžius, sugeneruotus Google Authenticator ar panašiose 2FA programose.</string>
-    <string name="smscommunicator_otp_pin">Papildomas PIN kodas žymeklio gale</string>
     <string name="smscommunicator_otp_pin_summary">Papildomi skaitmenys, kuriuos reikia atsiminti ir pridėti kiekvieno sugeneruoto slaptažodžio pabaigoje</string>
     <string name="smscomunicator_tab_otp_label">Autentifikavimo sąrankos nustatymas</string>
     <string name="smscommunicator_otp_verify_label">OTP tikrinimas:</string>
