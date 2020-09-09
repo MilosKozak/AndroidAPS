@@ -11,6 +11,7 @@
     <string name="omnipod_config_time_change_enabled">Rilevamento ora legale/fuso orario abilitato</string>
     <string name="omnipod_config_expiration_reminder_enabled">Promemoria scadenza abilitato</string>
     <string name="omnipod_config_expiration_reminder_hours_before_shutdown">Ore prima dell\'arresto</string>
+    <string name="omnipod_config_low_reservoir_alert_enabled">Avviso livello serbatoio basso abilitato</string>
     <string name="omnipod_config_low_reservoir_alert_units">Numero di unità</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_mgmt">GSTN pod</string>
@@ -62,11 +63,13 @@
     <string name="omnipod_cmd_deactivate_pod">Disattiva pod</string>
     <string name="omnipod_cmd_pod_history">Storico pod</string>
     <string name="omnipod_cmd_set_bolus">Imposta bolo</string>
+    <string name="omnipod_cmd_set_tbr">Imposta basale temporanea</string>
     <string name="omnipod_cmd_set_basal_schedule">Imposta piano basale</string>
     <string name="omnipod_cmd_get_pod_status">Ottieni stato pod</string>
     <string name="omnipod_cmd_get_pod_info">Ottieni info pod</string>
     <string name="omnipod_cmd_set_time">Imposta ora</string>
     <string name="omnipod_cmd_configure_alerts">Configura avvisi</string>
+    <string name="omnipod_cmd_acknowledge_alerts">Conferma avvisi</string>
     <string name="omnipod_cmd_suspend_delivery">Sospendi erogazione</string>
     <string name="omnipod_cmd_resume_delivery">Riprendi erogazione</string>
     <string name="omnipod_cmd_unknown_entry">Inserimento sconosciuto</string>
