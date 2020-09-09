@@ -10,6 +10,7 @@
     <string name="omnipod_config_tbr_beeps_enabled">BIP TBR abilitato</string>
     <string name="omnipod_config_time_change_enabled">Rilevamento ora legale/fuso orario abilitato</string>
     <string name="omnipod_config_expiration_reminder_enabled">Promemoria scadenza abilitato</string>
+    <string name="omnipod_config_expiration_reminder_hours_before_shutdown">Ore prima dell\'arresto</string>
     <string name="omnipod_config_low_reservoir_alert_units">Numero di unità</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_pod_mgmt">GSTN pod</string>
