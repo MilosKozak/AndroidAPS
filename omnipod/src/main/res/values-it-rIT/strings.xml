@@ -30,6 +30,7 @@
     <string name="omnipod_pod_status_inactive">Inattivo</string>
     <string name="omnipod_pod_status_pod_fault_description">Guasto pod: %1$s %2$s</string>
     <string name="omnipod_pod_active_alerts">Attiva avvisi pod</string>
+    <string name="omnipod_acknowledge_active_alerts_short">Conferma avvisi</string>
     <!-- Omnipod - Dialogs -->
     <string name="omnipod_frequency">Omnipod (433.91 MHz)</string>
     <!-- Omnipod - Error -->
@@ -64,11 +65,13 @@
     <string name="omnipod_cmd_set_basal_schedule">Imposta piano basale</string>
     <string name="omnipod_cmd_get_pod_status">Ottieni stato pod</string>
     <string name="omnipod_cmd_get_pod_info">Ottieni info pod</string>
+    <string name="omnipod_cmd_set_time">Imposta ora</string>
     <string name="omnipod_cmd_configure_alerts">Configura avvisi</string>
     <string name="omnipod_cmd_suspend_delivery">Sospendi erogazione</string>
     <string name="omnipod_cmd_resume_delivery">Riprendi erogazione</string>
     <string name="omnipod_cmd_unknown_entry">Inserimento sconosciuto</string>
     <string name="omnipod_cmd_bolus_value">%1$.2f U</string>
+    <string name="omnipod_cmd_bolus_value_with_carbs">%1$.2f U, CHO=%2$.1f g</string>
     <string name="omnipod_cmd_tbr_value">Tasso: %1$.2f U, durata: %2$d min</string>
     <string name="omnipod_cmd_pod_history_na">Storico pod non disponibile al momento.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Riempi il pod</string>
@@ -109,6 +112,7 @@
     <string name="omnipod_error_pod_suspended">Pod sospeso</string>
     <string name="omnipod_less_than_a_minute_ago">Meno di un minuto fa</string>
     <string name="omnipod_suspend_delivery_short">Sospendi</string>
+    <string name="omnipod_cmd_pair_and_prime">Associa e carica</string>
     <string name="omnipod_cmd_fill_cannula_set_basal_profile">Riempi cannula e imposta profilo basale</string>
     <string name="omnipod_expiration_alerts_updated">Configurazione avviso aggiornata nel pod</string>
     <string name="omnipod_preference_category_rileylink">RileyLink</string>
