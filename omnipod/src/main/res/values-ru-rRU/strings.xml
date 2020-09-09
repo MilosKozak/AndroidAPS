@@ -4,6 +4,8 @@
     <!-- Omnipod - Base -->
     <string name="description_pump_omnipod">Для интеграции с помпой Omnipod требуется устройство RileyLink (с прошивкой 2.0 и выше).</string>
     <!-- Omnipod Configuration -->
+    <string name="omnipod_config_time_change_enabled">Включено обнаружение часового пояса</string>
+    <string name="omnipod_config_expiration_reminder_enabled">Включено напоминание об истечении срока действия</string>
     <!-- Omnipod - Fragment -->
     <string name="omnipod_reservoir_left">%1$.2f ед. осталось</string>
     <string name="omnipod_reservoir_over50">Более 50 ед.</string>
