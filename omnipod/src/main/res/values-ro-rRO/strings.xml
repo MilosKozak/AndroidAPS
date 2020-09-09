@@ -164,4 +164,19 @@
     <string name="omnipod_history_item_source">Sursă</string>
     <string name="omnipod_history_item_date">Data</string>
     <string name="omnipod_history_type">Tip:</string>
+    <plurals name="omnipod_minutes">
+        <item quantity="one">%1$d minut</item>
+        <item quantity="few">%1$d minute</item>
+        <item quantity="other">%1$d minute</item>
+    </plurals>
+    <plurals name="omnipod_hours">
+        <item quantity="one">%1$d oră</item>
+        <item quantity="few">%1$d ore</item>
+        <item quantity="other">%1$d ore</item>
+    </plurals>
+    <plurals name="omnipod_days">
+        <item quantity="one">%1$d zi</item>
+        <item quantity="few">%1$d zile</item>
+        <item quantity="other">%1$d zile</item>
+    </plurals>
 </resources>
