@@ -1121,10 +1121,8 @@
     <string name="loop_tbrexecution_time_label">Timpul de execuție al bazalei temporare</string>
     <string name="insight_alert_notification_channel">Alerte pompă Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
-    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">de la aplicația Authenticator pentru: %1$s</string>
     <string name="smscommunicator_otp_enabled">Activare Authenticator</string>
     <string name="smscommunicator_otp_enabled_summary">Autentificați comenzile folosind o parolă unica generată de Google Authenticator sau alte aplicații 2FA similare.</string>
-    <string name="smscommunicator_otp_pin">PIN adițional la sfârșitul token-ului</string>
     <string name="smscommunicator_otp_pin_summary">Cifre suplimentare care ar trebui să fie memorate și adăugate la sfârșitul fiecărei parole unice generate</string>
     <string name="smscomunicator_tab_otp_label">Setare Authenticator</string>
     <string name="smscommunicator_otp_verify_label">Parola unică pentru verificare:</string>
