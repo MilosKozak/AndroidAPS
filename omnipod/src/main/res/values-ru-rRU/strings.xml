@@ -52,6 +52,9 @@
     <string name="omnipod_driver_error_invalid_message_sequence_number">Ошибка связи: получено сообщение с недопустимым порядковым номером от Pod</string>
     <string name="omnipod_driver_error_invalid_message_address">Ошибка связи: получено сообщение с некорректным адресом от Pod</string>
     <string name="omnipod_driver_error_message_decoding_failed">Ошибка связи: не удалось декодировать сообщение от Pod</string>
+    <string name="omnipod_driver_error_nonce_resync_failed">Ошибка связи: не удалось выполнить повторную синхронизацию nonce</string>
+    <string name="omnipod_driver_error_nonce_out_of_sync">Ошибка соединения: вне синхронизации</string>
+    <string name="omnipod_driver_error_not_enough_data">Ошибка связи: недостаточно данных от Pod</string>
     <!-- Omnipod - Pod Mgmt -->
     <string name="omnipod_cmd_init_pod">Инициализировать Pod</string>
     <string name="omnipod_cmd_deactivate_pod">Деактивировать Pod</string>
