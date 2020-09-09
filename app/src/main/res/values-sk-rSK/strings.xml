@@ -13,7 +13,7 @@
     <string name="reset_db_confirm">Naozaj chcete vymazať databázu?</string>
     <string name="nav_exit">Ukončiť</string>
     <string name="ns_sync_use_absolute_title">Vždy používaj absolútne hodnoty bazálov</string>
-    <string name="alert_dialog_storage_permission_text">Prosím reštartuj svoj telefón, alebo reštartuj AndroidAPS zo systémových nastavení, v opačnom prípade AndroidAPS nebude mocť zapisovať údaje (dôležité kvôli sledovaniu a overovaniu, že algoritmus pracuje správne)!</string>
+    <string name="alert_dialog_storage_permission_text">Prosím reštartuj svoj telefón, alebo reštartuj AndroidAPS zo systémových nastavení \nv opačnom prípade AndroidAPS nebude mocť zapisovať údaje (dôležité kvôli sledovaniu a overovaniu, že algoritmus pracuje správne)!</string>
     <string name="alert_dialog_permission_battery_optimization_failed">Toto zariadenie zrejme neumožňuje vypnúť optimalizáciu batérie - môže dochádzať k problémom s výkonom.</string>
     <string name="description_actions">Niektoré tlačidlá na rýchly prístup do spoločných funkcií</string>
     <string name="description_config_builder">Používané na konfiguráciu aktívnych pluginov</string>
@@ -1137,6 +1137,7 @@
     <string name="loop_tbrexecution_time_label">Čas spustenia dočasného bazálu</string>
     <string name="insight_alert_notification_channel">Výstrahy pumpy Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">z aplikácie Authenticator pre: %1$s nasledované kódom PIN</string>
     <string name="smscommunicator_otp_enabled">Povoliť Autentifikátor</string>
     <string name="smscommunicator_otp_enabled_summary">Autentifikačné príkazy používajú jednorázové heslá generované Google Authenticator, alebo podobnými 2FA aplikáciami.</string>
     <string name="smscommunicator_otp_pin">Ďalší povinný kód PIN na konci tokenu</string>
@@ -1191,6 +1192,7 @@
     <string name="your_phone_is_upload_data">Váš telefón práve nahráva dáta na Open Humans.</string>
     <string name="setup_failed">Nastavenie zlyhalo</string>
     <string name="there_was_an_error">Vyskytla sa chyba. Prosím, skúste sa znova prihlásiť, aby ste mohli pokračovať. Prepáčte &amp; Ďakujem!</string>
+    <string name="open_humans_terms">Jedná sa o open source nástroj, ktorý skopíruje vaše dáta do Open Humans. Zachovávame práva na zdieľanie vašich údajov s tretími stranami bez vašeho výslovného povolenia. Dáta, ktoré projekt a aplikácia obdržia, sú identifikované pomocou náhodného ID užívateľa a budú bezpečne prenášané iba na účet Open Humans a len s vaším povolením. Môžete kedykoľvek zastaviť odosielanie a zmazať Vaše dáta prostredníctvom adresy www.openhumans.org.</string>
     <string name="i_understand_and_agree">Rozumiem a potvrdzujem.</string>
     <string name="login">Prihlásenie</string>
     <string name="logout">Odhlásiť</string>
@@ -1209,5 +1211,7 @@
     <string name="click_here_to_sign_in_again_if_this_wasnt_on_purpose">Kliknite sem, ak sa chcete prihlásiť znova, v prípade, že sa to nestalo omylom.</string>
     <string name="only_upload_if_connected_to_wifi">Odoslať iba ak ste pripojený k Wi-Fi</string>
     <string name="only_upload_if_charging">Odoslať iba pri nabíjaní</string>
+    <string name="worker_state">Stav procesu: %s</string>
     <string name="uploaded_data">Odoslané údaje</string>
+    <string name="the_following_data_will_be_uploaded_to_your_open_humans_account">Nasledujúce dáta budú nahrané na váš účet Open Humans: hodnoty glykémie, udalosti starostlivosti (okrem poznámok), rozložené bolusy, prepnutia profilu, celkové denné dávky, dočasné bazály, nastavenia, verzie aplikácie, model zariadenia a rozmery obrazovky. Tajné, alebo súkromné informácie, ako je URL, alebo API heslo vašeho Nightscoutu, nahrané nebudú.</string>
 </resources>
