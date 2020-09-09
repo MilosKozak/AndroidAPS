@@ -1137,6 +1137,7 @@
     <string name="loop_tbrexecution_time_label">Esecuzione basale temporanea (momento)</string>
     <string name="insight_alert_notification_channel">Avvisi micro Insight</string>
     <!-- SMS Communicator & OTP Authenticator -->
+    <string name="smscommunicator_code_from_authenticator_for" comment="This is continuation of sentence: To [ACTION] reply with code">da app autenticatore: %1$s seguito da PIN</string>
     <string name="smscommunicator_otp_enabled">Abilita autenticatore</string>
     <string name="smscommunicator_otp_enabled_summary">Autentica i comandi utilizzando OTP (One Time Password) generate da Google Authenticator o app 2FA simili.</string>
     <string name="smscommunicator_otp_pin">PIN obbligatorio aggiuntivo a fine token</string>
