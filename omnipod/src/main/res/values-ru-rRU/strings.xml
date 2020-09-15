@@ -60,7 +60,9 @@
     <string name="omnipod_cmd_deactivate_pod">Деактивировать Pod</string>
     <string name="omnipod_cmd_pod_history_na">В настоящее время история помпы недоступна.</string>
     <string name="omnipod_init_pod_wizard_step1_title">Заполнить Pod</string>
+    <string name="omnipod_init_pod_wizard_step1_desc">\nЗаполните новый Pod запасом инсулина на 3 дня.\n\nПоступят два звуковых сигнала от помпы во время заправки. Это означает, что минимальное количество 85U заправлено. Не забудьте опустошить заправочный шприц даже после того, как услышите два звуковых сигнала.\n\nПосле заполнения Pod нажмите <b>Next</b>.\n\n<b>Примечание:</b> Пока не снимайте с помпы колпачок с иглой.\n<b>Примечание:</b>поставьте RileyLink вертикально рядом с Pod.</string>
     <string name="omnipod_init_pod_wizard_step2_title">Первичное заполнение инфузионной секции пода</string>
+    <string name="omnipod_init_pod_wizard_step2_action_header">Попытка сопряжения с новым Podом и первичного заполнения инфузионного отсека..\n\n После проверки всех \'nfgjd можно нажать <b>Далее</b>.\n\n<b>Примечание:</b> В это время RileyLink должен находиться в вертикальном положении рядом с Pod.</string>
     <string name="omnipod_init_pod_wizard_step3_title">Подключить Под</string>
     <string name="omnipod_init_pod_wizard_step3_desc">\nПодготовьте место инфузии. Удалите колпачок с иглы и защиту липкого слоя, Установите Pod на тело.\n\nесли канюля выступает, нажмите <b>отменить</b> и утилизируйте Pod.\n\Нажмите <b>Далее</b> чтобы вставить канюлю и начать подачу базала.</string>
     <string name="omnipod_init_pod_wizard_step4_title">Установка канюли (катетера) </string>
@@ -83,4 +85,6 @@
     <string name="omnipod_alert_shutdown_imminent">Остановка неизбежна</string>
     <string name="omnipod_alert_low_reservoir">В резервуаре мало инсулина</string>
     <string name="omnipod_alert_unknown_alert">Неизвестное оповещение</string>
+    <string name="omnipod_error_set_basal_failed_delivery_might_be_suspended">Не удалось задать базовый профиль. Подача инсулина может быть приостановлена! Обновите вручную состояние Pod на вкладке Omnipod и при необходимости возобновите процесс подачи.</string>
+    <string name="omnipod_error_set_basal_might_have_failed_delivery_might_be_suspended">Возможно не удалось задать базовый профиль. Подача инсулина может быть приостановлена! Обновите вручную состояние Pod на вкладке Omnipod и при необходимости возобновите процесс подачи.</string>
 </resources>
