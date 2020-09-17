@@ -164,4 +164,22 @@
     <string name="omnipod_history_item_source">Источник</string>
     <string name="omnipod_history_item_date">дата</string>
     <string name="omnipod_history_type">Тип:</string>
+    <plurals name="omnipod_minutes">
+        <item quantity="one">%1$d минута</item>
+        <item quantity="few">%1$d мин</item>
+        <item quantity="many">%1$d мин</item>
+        <item quantity="other">%1$d мин</item>
+    </plurals>
+    <plurals name="omnipod_hours">
+        <item quantity="one">%1$d час</item>
+        <item quantity="few">%1$d ч</item>
+        <item quantity="many">%1$d ч</item>
+        <item quantity="other">%1$d час</item>
+    </plurals>
+    <plurals name="omnipod_days">
+        <item quantity="one">%1$d день</item>
+        <item quantity="few">%1$d дня</item>
+        <item quantity="many">%1$d дней</item>
+        <item quantity="other">%1$d дн</item>
+    </plurals>
 </resources>
