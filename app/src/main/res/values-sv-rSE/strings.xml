@@ -1209,5 +1209,4 @@ Eversense-appen.</string>
     <string name="only_upload_if_charging">Ladda bara upp vid laddning</string>
     <string name="worker_state">Jobbstatus: %s</string>
     <string name="uploaded_data">Uppladdad data</string>
-    <string name="the_following_data_will_be_uploaded_to_your_open_humans_account">Följande data kommer att överföras till ditt Open Humans-konto: Glukosvärden, careportalhändelser (utom anteckningar), utökade bolusar, profilbyten, totala dagliga doser, temp basaler, temp mål, inställningar, appversion, enhetsmodell och skärmstorlek. Hemlig eller privat information, t. ex. din Nightscout-adress eller API-hemlighet, kommer inte att överföras.</string>
 </resources>
