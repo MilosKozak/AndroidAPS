@@ -1213,5 +1213,4 @@
     <string name="only_upload_if_charging">Încărca numai dacă telefonul este la încărcat</string>
     <string name="worker_state">Stare prelucrare: %s</string>
     <string name="uploaded_data">Date încărcate</string>
-    <string name="the_following_data_will_be_uploaded_to_your_open_humans_account">Următoarele date vor fi încărcate în contul Open Humans: glicemii, evenimente careportal (cu excepția notelor), bolusuri extinse, schimbări de profil, doze zilnice totale, bazale temporare, ținte temporare, preferințe, versiunea aplicației, model dispozitiv și dimensiunile ecranului. Informațiile secrete sau private, cum ar fi URL-ul Nightscout sau secretul API, nu vor fi încărcate.</string>
 </resources>
