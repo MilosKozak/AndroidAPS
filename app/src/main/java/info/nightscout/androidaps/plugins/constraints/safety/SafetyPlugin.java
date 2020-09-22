@@ -99,10 +99,18 @@ public class SafetyPlugin extends PluginBase implements ConstraintsInterface {
     }
 
     @NonNull @Override
-    public Constraint<Boolean> isClosedLoopAllowed(@NonNull Constraint<Boolean> value) {
+    public Constraint<Boolean> isClosedLoopEnabled(@NonNull Constraint<Boolean> value) {
         String mode = sp.getString(R.string.key_aps_mode, "open");
         if ((mode.equals("open")))
             value.set(getAapsLogger(), false, getResourceHelper().gs(R.string.closedmodedisabledinpreferences), this);
+
+        return this.isClosedLoopAllowed(value);
+
+    }
+
+    @NonNull @Override
+    public Constraint<Boolean> isClosedLoopAllowed(@NonNull Constraint<Boolean> value) {
+        String mode = sp.getString(R.string.key_aps_mode, "open");
 
         if (!buildHelper.isEngineeringModeOrRelease()) {
             if (value.value()) {
@@ -131,7 +139,7 @@ public class SafetyPlugin extends PluginBase implements ConstraintsInterface {
         boolean enabled = sp.getBoolean(R.string.key_use_smb, false);
         if (!enabled)
             value.set(getAapsLogger(), false, getResourceHelper().gs(R.string.smbdisabledinpreferences), this);
-        Constraint<Boolean> closedLoop = constraintChecker.isClosedLoopAllowed();
+        Constraint<Boolean> closedLoop = constraintChecker.isClosedLoopEnabled();
         if (!closedLoop.value())
             value.set(getAapsLogger(), false, getResourceHelper().gs(R.string.smbnotallowedinopenloopmode), this);
         return value;
