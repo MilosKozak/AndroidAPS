@@ -1,12 +1,10 @@
 package info.nightscout.androidaps.watchfaces;
 
-import android.content.Intent;
 import android.support.wearable.watchface.WatchFaceStyle;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.interaction.menus.MainMenuActivity;
 
 /**
  * Created by andrew-warrington on 18/11/2017.
@@ -14,27 +12,12 @@ import info.nightscout.androidaps.interaction.menus.MainMenuActivity;
 
 public class Cockpit extends BaseWatchFace {
 
-    private long sgvTapTime = 0;
-
     @Override
     public void onCreate() {
         super.onCreate();
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         layoutView = inflater.inflate(R.layout.activity_cockpit, null);
         performViewSetup();
-    }
-
-    @Override
-    protected void onTapCommand(int tapType, int x, int y, long eventTime) {
-
-        if (tapType == TAP_TYPE_TAP ) {
-            if (eventTime - sgvTapTime < 800) {
-                Intent intent = new Intent(this, MainMenuActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-            sgvTapTime = eventTime;
-        }
     }
 
     @Override

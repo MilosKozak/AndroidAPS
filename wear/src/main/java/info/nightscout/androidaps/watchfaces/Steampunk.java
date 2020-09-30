@@ -1,6 +1,5 @@
 package info.nightscout.androidaps.watchfaces;
 
-import android.content.Intent;
 import androidx.core.content.ContextCompat;
 import android.support.wearable.watchface.WatchFaceStyle;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.interaction.menus.MainMenuActivity;
 import info.nightscout.androidaps.interaction.utils.SafeParse;
 /**
  * Created by andrew-warrington on 01/12/2017.
@@ -17,8 +15,6 @@ import info.nightscout.androidaps.interaction.utils.SafeParse;
 
 public class Steampunk extends BaseWatchFace {
 
-    private long chartTapTime = 0;
-    private long mainMenuTapTime = 0;
     private float lastEndDegrees = 0f;
     private float deltaRotationAngle = 0f;
 
@@ -29,33 +25,19 @@ public class Steampunk extends BaseWatchFace {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         layoutView = inflater.inflate(R.layout.activity_steampunk, null);
         performViewSetup();
+        resizePointSize = true;
+        chartOk = true;
     }
 
     @Override
-    protected void onTapCommand(int tapType, int x, int y, long eventTime) {
-
-        if (tapType == TAP_TYPE_TAP&&
-                x >= mChartTap.getLeft() &&
-                x <= mChartTap.getRight()&&
-                y >= mChartTap.getTop() &&
-                y <= mChartTap.getBottom()){
-            if (eventTime - chartTapTime < 800){
-                changeChartTimeframe();
-            }
-            chartTapTime = eventTime;
-
-        } else if (tapType == TAP_TYPE_TAP&&
-                x >= mMainMenuTap.getLeft() &&
-                x <= mMainMenuTap.getRight()&&
-                y >= mMainMenuTap.getTop() &&
-                y <= mMainMenuTap.getBottom()){
-            if (eventTime - mainMenuTapTime < 800){
-                Intent intent = new Intent(this, MainMenuActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-            mainMenuTapTime = eventTime;
-        }
+    public void getTapZones(){
+        // tap zones for direct actions
+        tapxlow = mRelativeLayout.getWidth()/3;
+        tapylow = mRelativeLayout.getHeight()/3;
+        tapcharttop = 2*tapylow;
+        tapchartbottom = mRelativeLayout.getHeight();   // disable DOWN action
+        tapchartleft = tapxlow;
+        tapchartright = 2*tapxlow;
     }
 
     @Override
@@ -255,15 +237,4 @@ public class Steampunk extends BaseWatchFace {
         }
     }
 
-    private void changeChartTimeframe() {
-        int timeframe = Integer.parseInt(sharedPrefs.getString("chart_timeframe", "3"));
-        timeframe = (timeframe%5) + 1;
-        if (timeframe < 3) {
-            pointSize = 2;
-        } else {
-            pointSize = 1;
-        }
-        setupCharts();
-        sharedPrefs.edit().putString("chart_timeframe", "" + timeframe).commit();
-    }
 }
