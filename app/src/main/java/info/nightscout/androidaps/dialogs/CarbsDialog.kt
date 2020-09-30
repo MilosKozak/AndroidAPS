@@ -127,8 +127,16 @@ class CarbsDialog : DialogFragmentWithDate() {
             validateInputs()
         }
 
+        var lowTTRunning = false
+        val tempTarget = treatmentsPlugin.tempTargetFromHistory?.target()
+        val units = profileFunction.getUnits()
+        var multiplier = 1
+        if (units == Constants.MMOL) multiplier = 18
+        if (tempTarget != null && tempTarget >= defaultValueHelper.determineHypoTT() * multiplier)
+            lowTTRunning = true
+
         iobCobCalculatorPlugin.actualBg()?.let { bgReading ->
-            if (bgReading.value < 72)
+            if (bgReading.value < 72 && lowTTRunning != true)
                 overview_carbs_hypo_tt.isChecked = true
         }
         overview_carbs_hypo_tt.setOnClickListener {
