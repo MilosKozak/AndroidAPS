@@ -20,10 +20,15 @@ class ReceiverStatusStore @Inject constructor(val context: Context, val rxBus: R
         get() = lastNetworkEvent?.wifiConnected ?: false || lastNetworkEvent?.mobileConnected ?: false
 
     fun updateNetworkStatus() {
+        // TODO: don't send broadcast. Callers expect it to be blocking
         context.sendBroadcast(Intent(context, NetworkChangeReceiver::class.java))
     }
 
     var lastChargingEvent: EventChargingState? = null
+        set(value) {
+            field = value
+            value?.let { rxBus.send(it) }
+        }
 
     val isCharging: Boolean
         get() = lastChargingEvent?.isCharging ?: false
@@ -31,7 +36,7 @@ class ReceiverStatusStore @Inject constructor(val context: Context, val rxBus: R
     val batteryLevel: Int
         get() = lastChargingEvent?.batterLevel ?: 0
 
-    fun broadcastChargingState() {
+    fun broadcastChargingState() { // TODO make atomic: override setter? called when network state changes, not charging state?
         lastChargingEvent?.let { rxBus.send(it) }
     }
 }

@@ -29,9 +29,9 @@ import info.nightscout.androidaps.queue.Callback
 import info.nightscout.androidaps.utils.DateUtil
 import info.nightscout.androidaps.utils.DecimalFormatter
 import info.nightscout.androidaps.utils.FabricPrivacy
-import info.nightscout.androidaps.utils.extensions.plusAssign
+import io.reactivex.rxkotlin.plusAssign
 import info.nightscout.androidaps.utils.resources.ResourceHelper
-import io.reactivex.android.schedulers.AndroidSchedulers
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.danar_historyactivity.*
 import java.util.*
@@ -45,6 +45,7 @@ class DanaHistoryActivity : NoSplashAppCompatActivity() {
     @Inject lateinit var fabricPrivacy: FabricPrivacy
     @Inject lateinit var activePlugin: ActivePluginProvider
     @Inject lateinit var commandQueue: CommandQueueProvider
+    @Inject lateinit var aapsSchedulers: AapsSchedulers
     @Inject lateinit var databaseHelper: DatabaseHelperInterface
     @Inject lateinit var dateUtil: DateUtil
 
@@ -61,11 +62,11 @@ class DanaHistoryActivity : NoSplashAppCompatActivity() {
         super.onResume()
         disposable += rxBus
             .toObservable(EventPumpStatusChanged::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ danar_history_status.text = it.getStatus(resourceHelper) }) { fabricPrivacy.logException(it) }
         disposable += rxBus
             .toObservable(EventDanaRSyncStatus::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({
                 aapsLogger.debug(LTag.PUMP, "EventDanaRSyncStatus: " + it.message)
                 danar_history_status.text = it.message

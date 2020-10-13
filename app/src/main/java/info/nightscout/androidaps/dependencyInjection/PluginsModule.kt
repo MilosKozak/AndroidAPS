@@ -25,12 +25,14 @@ import info.nightscout.androidaps.plugins.general.dataBroadcaster.DataBroadcastP
 import info.nightscout.androidaps.plugins.general.food.FoodPlugin
 import info.nightscout.androidaps.plugins.general.maintenance.MaintenancePlugin
 import info.nightscout.androidaps.plugins.general.nsclient.NSClientPlugin
+import info.nightscout.androidaps.plugins.general.nsclient2.NSClient2Plugin
 import info.nightscout.androidaps.plugins.general.openhumans.OpenHumansUploader
 import info.nightscout.androidaps.plugins.general.overview.OverviewPlugin
 import info.nightscout.androidaps.plugins.general.persistentNotification.PersistentNotificationPlugin
 import info.nightscout.androidaps.plugins.general.smsCommunicator.SmsCommunicatorPlugin
 import info.nightscout.androidaps.plugins.general.wear.WearPlugin
 import info.nightscout.androidaps.plugins.general.xdripStatusline.StatusLinePlugin
+import info.nightscout.androidaps.plugins.insulin.InsulinLyumjevPlugin
 import info.nightscout.androidaps.plugins.insulin.InsulinOrefFreePeakPlugin
 import info.nightscout.androidaps.plugins.insulin.InsulinOrefRapidActingPlugin
 import info.nightscout.androidaps.plugins.insulin.InsulinOrefUltraRapidActingPlugin
@@ -81,6 +83,12 @@ abstract class PluginsModule {
     @IntoMap
     @IntKey(40)
     abstract fun bindInsulinOrefUltraRapidActingPlugin(plugin: InsulinOrefUltraRapidActingPlugin): PluginBase
+
+    @Binds
+    @AllConfigs
+    @IntoMap
+    @IntKey(42)
+    abstract fun bindInsulinLyumjevPlugin(plugin: InsulinLyumjevPlugin): PluginBase
 
     @Binds
     @AllConfigs
@@ -267,6 +275,12 @@ abstract class PluginsModule {
     @IntoMap
     @IntKey(360)
     abstract fun bindNSClientPlugin(plugin: NSClientPlugin): PluginBase
+
+    @Binds
+    @AllConfigs
+    @IntoMap
+    @IntKey(361)
+    abstract fun bindNSClient2Plugin(plugin: NSClient2Plugin): PluginBase
 
     @Binds
     @AllConfigs

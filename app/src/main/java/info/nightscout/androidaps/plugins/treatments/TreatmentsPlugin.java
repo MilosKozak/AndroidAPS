@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -30,6 +31,8 @@ import info.nightscout.androidaps.data.NonOverlappingIntervals;
 import info.nightscout.androidaps.data.OverlappingIntervals;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.ProfileIntervals;
+import info.nightscout.androidaps.database.AppRepository;
+import info.nightscout.androidaps.database.entities.TemporaryTarget;
 import info.nightscout.androidaps.db.Treatment;
 import info.nightscout.androidaps.interfaces.ProfileStore;
 import info.nightscout.androidaps.db.ExtendedBolus;
@@ -77,6 +80,7 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
     private final NSUpload nsUpload;
     private final FabricPrivacy fabricPrivacy;
     private final DateUtil dateUtil;
+    private final AppRepository repository;
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
@@ -103,7 +107,8 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
             ActivePluginProvider activePlugin,
             NSUpload nsUpload,
             FabricPrivacy fabricPrivacy,
-            DateUtil dateUtil
+            DateUtil dateUtil,
+            AppRepository repository
     ) {
         super(new PluginDescription()
                         .mainType(PluginType.TREATMENT)
@@ -122,6 +127,7 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
         this.profileFunction = profileFunction;
         this.activePlugin = activePlugin;
         this.fabricPrivacy = fabricPrivacy;
+        this.repository = repository;
         this.dateUtil = dateUtil;
         this.nsUpload = nsUpload;
     }
@@ -152,9 +158,8 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
         disposable.add(rxBus
                 .toObservable(EventTempTargetChange.class)
                 .observeOn(Schedulers.io())
-                .subscribe(event -> initializeTempTargetData(range()),
-                        fabricPrivacy::logException
-                ));
+                .debounce(1L, TimeUnit.SECONDS)
+                .subscribe(event -> initializeTempTargetData(range()), fabricPrivacy::logException));
         disposable.add(rxBus
                 .toObservable(EventReloadTempBasalData.class)
                 .observeOn(Schedulers.io())
@@ -219,7 +224,11 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
     private void initializeTempTargetData(long range) {
         getAapsLogger().debug(LTag.DATATREATMENTS, "initializeTempTargetData");
         synchronized (tempTargets) {
-            tempTargets.reset().add(MainApp.getDbHelper().getTemptargetsDataFromTime(DateUtil.now() - range, false));
+            List<TemporaryTarget> temporaryTargets = repository.compatGetTemporaryTargetDataFromTime(DateUtil.now() - range, false).blockingGet();
+            tempTargets.reset();
+            for (TemporaryTarget temporaryTarget : temporaryTargets) {
+                tempTargets.add(new TempTarget(temporaryTarget));
+            }
         }
     }
 
@@ -719,13 +728,6 @@ public class TreatmentsPlugin extends PluginBase implements TreatmentsInterface 
         synchronized (tempTargets) {
             return new OverlappingIntervals<>(tempTargets);
         }
-    }
-
-    @Override
-    public void addToHistoryTempTarget(TempTarget tempTarget) {
-        //log.debug("Adding new TemporaryBasal record" + profileSwitch.log());
-        MainApp.getDbHelper().createOrUpdate(tempTarget);
-        nsUpload.uploadTempTarget(tempTarget, profileFunction);
     }
 
     @Override

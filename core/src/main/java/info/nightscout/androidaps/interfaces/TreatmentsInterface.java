@@ -71,8 +71,6 @@ public interface TreatmentsInterface {
 
     Intervals<TempTarget> getTempTargetsFromHistory();
 
-    void addToHistoryTempTarget(TempTarget tempTarget);
-
     ProfileSwitch getProfileSwitchFromHistory(long time);
 
     ProfileIntervals<ProfileSwitch> getProfileSwitchesFromHistory();

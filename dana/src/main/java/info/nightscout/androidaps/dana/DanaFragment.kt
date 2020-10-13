@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import dagger.android.support.DaggerFragment
 import info.nightscout.androidaps.activities.TDDStatsActivity
+import info.nightscout.androidaps.dana.events.EventDanaRNewStatus
 import info.nightscout.androidaps.dialogs.ProfileViewerDialog
 import info.nightscout.androidaps.events.EventExtendedBolusChange
 import info.nightscout.androidaps.events.EventInitializationChanged
@@ -24,13 +25,13 @@ import info.nightscout.androidaps.queue.events.EventQueueChanged
 import info.nightscout.androidaps.utils.DateUtil
 import info.nightscout.androidaps.utils.FabricPrivacy
 import info.nightscout.androidaps.utils.T
+import io.reactivex.rxkotlin.plusAssign
 import info.nightscout.androidaps.utils.WarnColors
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog
-import info.nightscout.androidaps.utils.extensions.plusAssign
 import info.nightscout.androidaps.utils.extensions.toVisibility
 import info.nightscout.androidaps.utils.resources.ResourceHelper
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import info.nightscout.androidaps.utils.sharedPreferences.SP
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.danar_fragment.*
 import javax.inject.Inject
@@ -44,6 +45,7 @@ class DanaFragment : DaggerFragment() {
     @Inject lateinit var activePlugin: ActivePluginProvider
     @Inject lateinit var danaPump: DanaPump
     @Inject lateinit var resourceHelper: ResourceHelper
+    @Inject lateinit var aapsSchedulers: AapsSchedulers
     @Inject lateinit var sp: SP
     @Inject lateinit var warnColors: WarnColors
     @Inject lateinit var dateUtil: DateUtil
@@ -111,27 +113,27 @@ class DanaFragment : DaggerFragment() {
         loopHandler.postDelayed(refreshLoop, T.mins(1).msecs())
         disposable += rxBus
             .toObservable(EventInitializationChanged::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateGUI() }, { fabricPrivacy.logException(it) })
         disposable += rxBus
-            .toObservable(info.nightscout.androidaps.dana.events.EventDanaRNewStatus::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .toObservable(EventDanaRNewStatus::class.java)
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateGUI() }, { fabricPrivacy.logException(it) })
         disposable += rxBus
             .toObservable(EventExtendedBolusChange::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateGUI() }, { fabricPrivacy.logException(it) })
         disposable += rxBus
             .toObservable(EventTempBasalChange::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateGUI() }, { fabricPrivacy.logException(it) })
         disposable += rxBus
             .toObservable(EventQueueChanged::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateGUI() }, { fabricPrivacy.logException(it) })
         disposable += rxBus
             .toObservable(EventPumpStatusChanged::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({
                 when {
                     it.status == EventPumpStatusChanged.Status.CONNECTING   ->

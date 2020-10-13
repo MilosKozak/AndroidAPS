@@ -30,6 +30,7 @@ import info.nightscout.androidaps.Config
 import info.nightscout.androidaps.Constants
 import info.nightscout.androidaps.R
 import info.nightscout.androidaps.data.Profile
+import info.nightscout.androidaps.db.BgReading
 import info.nightscout.androidaps.dialogs.CalibrationDialog
 import info.nightscout.androidaps.dialogs.CarbsDialog
 import info.nightscout.androidaps.dialogs.InsulinDialog
@@ -64,13 +65,14 @@ import info.nightscout.androidaps.skins.SkinProvider
 import info.nightscout.androidaps.utils.*
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog
 import info.nightscout.androidaps.utils.buildHelper.BuildHelper
+import info.nightscout.androidaps.utils.extensions.directionToIcon
 import info.nightscout.androidaps.utils.extensions.toVisibility
 import info.nightscout.androidaps.utils.protection.ProtectionCheck
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.sharedPreferences.SP
 import info.nightscout.androidaps.utils.ui.UIRunnable
 import info.nightscout.androidaps.utils.wizard.QuickWizard
-import io.reactivex.android.schedulers.AndroidSchedulers
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.overview_buttons_layout.*
@@ -128,6 +130,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
     @Inject lateinit var treatmentsPlugin: TreatmentsPlugin
     @Inject lateinit var iobCobCalculatorPlugin: IobCobCalculatorPlugin
     @Inject lateinit var dexcomPlugin: DexcomPlugin
+    @Inject lateinit var dexcomMediator: DexcomPlugin.DexcomMediator
     @Inject lateinit var xdripPlugin: XdripPlugin
     @Inject lateinit var notificationStore: NotificationStore
     @Inject lateinit var actionStringHandler: ActionStringHandler
@@ -141,6 +144,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
     @Inject lateinit var config: Config
     @Inject lateinit var dateUtil: DateUtil
     @Inject lateinit var databaseHelper: DatabaseHelperInterface
+    @Inject lateinit var aapsSchedulers: AapsSchedulers
 
     private val disposable = CompositeDisposable()
 
@@ -222,6 +226,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
     override fun onPause() {
         super.onPause()
         disposable.clear()
+        overviewMenus.compositeDisposable.clear()
         loopHandler.removeCallbacksAndMessages(null)
         overview_apsmode_llayout?.let { unregisterForContextMenu(it) }
         overview_activeprofile?.let { unregisterForContextMenu(it) }
@@ -232,7 +237,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
         super.onResume()
         disposable.add(rxBus
             .toObservable(EventRefreshOverview::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({
                 prepareGraphs()
                 if (it.now) updateGUI(it.from)
@@ -284,11 +289,11 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
             .subscribe({ scheduleUpdateGUI("EventNewOpenLoopNotification") }) { fabricPrivacy.logException(it) })
         disposable.add(rxBus
             .toObservable(EventPumpStatusChanged::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updatePumpStatus(it) }) { fabricPrivacy.logException(it) })
         disposable.add(rxBus
             .toObservable(EventIobCalculationProgress::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ overview_iobcalculationprogess?.text = it.progress }) { fabricPrivacy.logException(it) })
 
         refreshLoop = Runnable {
@@ -328,7 +333,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
                     if (xdripPlugin.isEnabled(PluginType.BGSOURCE))
                         openCgmApp("com.eveningoutpost.dexdrip")
                     else if (dexcomPlugin.isEnabled(PluginType.BGSOURCE)) {
-                        dexcomPlugin.findDexcomPackageName()?.let {
+                        dexcomMediator.findDexcomPackageName()?.let {
                             openCgmApp(it)
                         }
                             ?: ToastUtils.showToastInUiThread(activity, resourceHelper.gs(R.string.dexcom_app_not_installed))
@@ -340,7 +345,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
                         CalibrationDialog().show(childFragmentManager, "CalibrationDialog")
                     } else if (dexcomPlugin.isEnabled(PluginType.BGSOURCE)) {
                         try {
-                            dexcomPlugin.findDexcomPackageName()?.let {
+                            dexcomMediator.findDexcomPackageName()?.let {
                                 startActivity(Intent("com.dexcom.cgm.activities.MeterEntryActivity").setPackage(it))
                             }
                                 ?: ToastUtils.showToastInUiThread(activity, resourceHelper.gs(R.string.dexcom_app_not_installed))
@@ -566,9 +571,9 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
                 else                                  -> resourceHelper.gc(R.color.inrange)
             }
 
-            overview_bg?.text = lastBG.valueToUnitsToString(units)
+            overview_bg?.text = lastBG.valueToUnitsString(units)
             overview_bg?.setTextColor(color)
-            overview_arrow?.setImageResource(lastBG.directionToIcon(databaseHelper))
+            overview_arrow?.setImageResource(lastBG.trendArrow.directionToIcon())
             overview_arrow?.setColorFilter(color)
 
             val glucoseStatus = GlucoseStatus(injector).glucoseStatusData
@@ -590,8 +595,8 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
                 } else flag and Paint.STRIKE_THRU_TEXT_FLAG.inv()
                 overview_bg.paintFlags = flag
             }
-            overview_timeago?.text = DateUtil.minAgo(resourceHelper, lastBG.date)
-            overview_timeagoshort?.text = "(" + DateUtil.minAgoShort(lastBG.date) + ")"
+            overview_timeago?.text = DateUtil.minAgo(resourceHelper, lastBG.timestamp)
+            overview_timeagoshort?.text = "(" + DateUtil.minAgoShort(lastBG.timestamp) + ")"
 
         }
         val closedLoopEnabled = constraintChecker.isClosedLoopAllowed()
@@ -652,7 +657,7 @@ class OverviewFragment : DaggerFragment(), View.OnClickListener, OnLongClickList
         if (tempTarget != null) {
             overview_temptarget?.setTextColor(resourceHelper.gc(R.color.ribbonTextWarning))
             overview_temptarget?.setBackgroundColor(resourceHelper.gc(R.color.ribbonWarning))
-            overview_temptarget?.text = Profile.toTargetRangeString(tempTarget.low, tempTarget.high, Constants.MGDL, units) + " " + DateUtil.untilString(tempTarget.end(), resourceHelper)
+            overview_temptarget?.text = Profile.toTargetRangeString(tempTarget.data.lowTarget, tempTarget.data.highTarget, Constants.MGDL, units) + " " + DateUtil.untilString(tempTarget.end(), resourceHelper)
         } else {
             // If the target is not the same as set in the profile then oref has overridden it
             val targetUsed = lastRun?.constraintsProcessed?.targetBG ?: 0.0

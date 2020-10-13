@@ -45,6 +45,7 @@
     <string name="description_food">Displays the food presets defined in Nightscout</string>
     <string name="description_insulin_rapid">Insulin preset for Humalog and NovoRapid / NovoLog</string>
     <string name="description_insulin_ultra_rapid">Insulin preset for Fiasp</string>
+    <string name="description_insulin_lyumjev">Insulin preset for Lyumjev</string>
     <string name="description_insulin_free_peak">Allows you to define the peak of the insulin activity and should only be used by advanced users</string>
     <string name="description_loop">Activate or deactivate the implementation triggering the loop.</string>
     <string name="description_ns_client">Synchronizes your data with Nightscout</string>
@@ -433,8 +434,10 @@
     <string name="virtualpump_settings">Virtual pump settings</string>
     <string name="virtualpump_uploadstatus_title">Upload status to NS</string>
     <string name="nsclientinternal">NSClient</string>
+    <string name="nsclientinternal2">NSClientREST</string>
+    <string name="nsclientinternal2_shortname">NSCR</string>
     <string name="nsclientinternal_shortname">NSCI</string>
-    <string name="nsclientinternal_url">URL:</string>
+    <string name="nsclient_url">URL:</string>
     <string name="nsclientinternal_autoscroll">Autoscroll</string>
     <string name="restart">Restart</string>
     <string name="nsclientinternal_title">NSClient</string>
@@ -451,9 +454,16 @@
     <string name="paused">Paused</string>
     <string name="key_nsclientinternal_url" translatable="false">nsclientinternal_url</string>
     <string name="key_nsclientinternal_api_secret" translatable="false">nsclientinternal_api_secret</string>
+
+    <string name="key_nsclient2_baseurl" translatable="false">nsclient2_baseurl</string>
+    <string name="key_nsclient2_token" translatable="false">nsclient2_token</string>
+    <string name="nsclient2_token_title">NS access token</string>
+    <string name="nsclient2_token_dialogtitle">NS access token</string>
+    <string name="nsclient2_token_dialogmessage">Enter NS access token (From Roles in Admin panel)</string>
+
     <string name="clearlog">Clear log</string>
     <string name="key_nsclientinternal_autoscroll" translatable="false">nsclientinternal_autoscroll</string>
-    <string name="key_nsclientinternal_paused" translatable="false">nsclientinternal_paused</string>
+    <string name="key_nsclient_paused" translatable="false">nsclientinternal_paused</string>
     <string name="nowritepermission">NSCLIENT has no write permission. Wrong API secret?</string>
     <string name="wear_settings">Wear settings</string>
     <string name="wear_detailedIOB_title">Show detailed IOB</string>
@@ -630,6 +640,7 @@
     <string name="free_peak_oref">Free-Peak Oref</string>
     <string name="rapid_acting_oref">Rapid-Acting Oref</string>
     <string name="ultrarapid_oref">Ultra-Rapid Oref</string>
+    <string name="lyumjev">Lyumjev</string>
     <string name="dia_too_short">DIA of %1$f too short - using %2$f instead!</string>
     <string name="activate_profile">Activate profile</string>
     <string name="invalid">INVALID</string>
@@ -949,6 +960,8 @@
     <string name="bgsourcesetup">Configure BG source</string>
     <string name="setupwizard_profile_description">Please select source of profile. If patient is a child you should use NS profile. If there is nobody following you on Nightscout you will probably prefer Local profile. Please remember that you are only selecting the profile source. To use it you must activate it by executing \"Profile switch\"</string>
     <string name="setupwizard_aps_description">Select one from availables algorithms. They are sorted from oldest to newest. Newer algorithm is usually more powerful and more aggressive. Thus if you are new looper you may probably start with AMA and not with latest one. Do not forget to read the OpenAPS documentation and configure it before use.</string>
+    <string name="setupwizard_pump_waiting_for_riley_link_connection">Waiting for RileyLink connection…\n</string>
+    <string name="setupwizard_pump_pump_not_initialized"><b>Note:</b> You can continue setup once the pump has been initialized.\n</string>
     <string name="startobjective">Start your first objective</string>
     <string name="permission">Permission</string>
     <string name="askforpermission">Ask for permission</string>
@@ -1146,7 +1159,6 @@
     <string name="title_tidepool_username">Login User Name</string>
     <string name="summary_tidepool_password">Your Tidepool login password</string>
     <string name="title_tidepool_password">Login Password</string>
-    <string name="title_tidepool_test_login">Test Tidepool Login</string>
     <string name="summary_tidepool_dev_servers">If enabled, uploads will go to https://int-app.tidepool.org instead of the regular https://app.tidepool.org/</string>
     <string name="title_tidepool_dev_servers">Use Integration (test) servers</string>
     <string name="tidepool">Tidepool</string>
@@ -1388,6 +1400,36 @@
     <string name="overview_show_absinsulin">Absolute insulin</string>
     <string name="master_password_summary">Master password is used for backup encryption and to override security in application. Remember it or store on a safe place.</string>
     <string name="current_master_password">Current master password</string>
+    <string name="fullsync">Full sync</string>
+    <string name="key_nsclient_test_login">nsclient_test_login</string>
+    <string name="title_verify_credentials">Verify credentials</string>
+    <string name="connection_verified">Connection verified</string>
+    <string name="cgmdata">CGM data</string>
+    <string name="key_ns_cgm" translatable="false">ns_cgm</string>
+    <string name="key_ns_food" translatable="false">ns_food</string>
+    <string name="key_ns_profile" translatable="false">ns_profile</string>
+    <string name="key_ns_insulin" translatable="false">ns_insulin</string>
+    <string name="key_ns_carbs" translatable="false">ns_carbs</string>
+    <string name="key_ns_temptargets" translatable="false">ns_temptargets</string>
+    <string name="key_ns_careportal" translatable="false">ns_careportal</string>
+    <string name="key_ns_profileswitch" translatable="false">ns_profileswitch</string>
+    <string name="key_ns_temporarybasal" translatable="false">ns_temporarybasal</string>
+    <string name="key_ns_extendedbolus" translatable="false">ns_extendedbolus</string>
+    <string name="key_ns_settings" translatable="false">ns_settings</string>
+    <string name="ssidnotmatch">SSID not match</string>
+    <string name="roamingnotallowed">Roaming not allowed</string>
+    <string name="notcharging">Not charging</string>
+    <string name="wifinotconnected">WiFi not connected</string>
+    <string name="ready">Ready</string>
+    <string name="recordcreated">Record created</string>
+    <string name="recordexist">Record already exists</string>
+    <string name="malformatedrequest">Malformated request</string>
+    <string name="unauthorized">Unauthorized</string>
+    <string name="collectionnotfound">Collection not found</string>
+    <string name="forbidden">Forbidden</string>
+    <string name="unprocessableentity">Unprocessable entity</string>
+    <string name="missingpermissions">Missing permissions</string>
+    <string name="documentdeleted">Document deleted</string>
     <string name="statuslights">Status lights</string>
     <string name="statuslights_copy_ns">Copy settings from NS</string>
     <string name="key_statuslights_copy_ns" translatable="false">statuslights_copy_ns</string>

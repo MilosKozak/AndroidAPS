@@ -20,11 +20,11 @@ import info.nightscout.androidaps.interfaces.*
 import info.nightscout.androidaps.plugins.bus.RxBusWrapper
 import info.nightscout.androidaps.plugins.configBuilder.events.EventConfigBuilderUpdateGui
 import info.nightscout.androidaps.utils.FabricPrivacy
-import info.nightscout.androidaps.utils.extensions.plusAssign
-import info.nightscout.androidaps.utils.extensions.toVisibility
+import io.reactivex.rxkotlin.plusAssign
 import info.nightscout.androidaps.utils.protection.ProtectionCheck
 import info.nightscout.androidaps.utils.resources.ResourceHelper
-import io.reactivex.android.schedulers.AndroidSchedulers
+import info.nightscout.androidaps.utils.extensions.toVisibility
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.configbuilder_fragment.*
 import java.util.*
@@ -37,6 +37,7 @@ class ConfigBuilderFragment : DaggerFragment() {
     @Inject lateinit var fabricPrivacy: FabricPrivacy
     @Inject lateinit var activePlugin: ActivePluginProvider
     @Inject lateinit var protectionCheck: ProtectionCheck
+    @Inject lateinit var aapsSchedulers: AapsSchedulers
     @Inject lateinit var config: Config
 
     private var disposable: CompositeDisposable = CompositeDisposable()
@@ -72,7 +73,7 @@ class ConfigBuilderFragment : DaggerFragment() {
         super.onResume()
         disposable += rxBus
             .toObservable(EventConfigBuilderUpdateGui::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({
                 for (pluginViewHolder in pluginViewHolders) pluginViewHolder.update()
             }, { fabricPrivacy.logException(it) })

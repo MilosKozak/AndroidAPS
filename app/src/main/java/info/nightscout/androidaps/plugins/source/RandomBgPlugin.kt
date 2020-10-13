@@ -4,24 +4,23 @@ import android.content.Intent
 import android.os.Handler
 import android.os.HandlerThread
 import dagger.android.HasAndroidInjector
-import info.nightscout.androidaps.MainApp
 import info.nightscout.androidaps.R
-import info.nightscout.androidaps.db.BgReading
+import info.nightscout.androidaps.database.AppRepository
+import info.nightscout.androidaps.database.entities.GlucoseValue
+import info.nightscout.androidaps.database.transactions.CgmSourceTransaction
 import info.nightscout.androidaps.interfaces.BgSourceInterface
 import info.nightscout.androidaps.interfaces.PluginBase
 import info.nightscout.androidaps.interfaces.PluginDescription
 import info.nightscout.androidaps.interfaces.PluginType
 import info.nightscout.androidaps.logging.AAPSLogger
-import info.nightscout.androidaps.logging.LTag
-import info.nightscout.androidaps.plugins.general.automation.AutomationPlugin
-import info.nightscout.androidaps.plugins.general.nsclient.NSUpload
 import info.nightscout.androidaps.plugins.pump.virtual.VirtualPumpPlugin
 import info.nightscout.androidaps.utils.DateUtil
 import info.nightscout.androidaps.utils.T
 import info.nightscout.androidaps.utils.buildHelper.BuildHelper
 import info.nightscout.androidaps.utils.extensions.isRunningTest
 import info.nightscout.androidaps.utils.resources.ResourceHelper
-import info.nightscout.androidaps.utils.sharedPreferences.SP
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.plusAssign
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -35,8 +34,7 @@ class RandomBgPlugin @Inject constructor(
     aapsLogger: AAPSLogger,
     private val virtualPumpPlugin: VirtualPumpPlugin,
     private val buildHelper: BuildHelper,
-    private val sp: SP,
-    private val nsUpload: NSUpload
+    private val repository: AppRepository
 ) : PluginBase(PluginDescription()
     .mainType(PluginType.BGSOURCE)
     .fragmentClass(BGSourceFragment::class.java.name)
@@ -47,6 +45,7 @@ class RandomBgPlugin @Inject constructor(
     aapsLogger, resourceHelper, injector
 ), BgSourceInterface {
 
+    private val disposable = CompositeDisposable()
     private val loopHandler : Handler = Handler(HandlerThread(RandomBgPlugin::class.java.simpleName + "Handler").also { it.start() }.looper)
     private lateinit var refreshLoop: Runnable
 
@@ -72,6 +71,7 @@ class RandomBgPlugin @Inject constructor(
 
     override fun onStop() {
         super.onStop()
+        disposable.clear()
         loopHandler.removeCallbacks(refreshLoop)
     }
 
@@ -86,18 +86,16 @@ class RandomBgPlugin @Inject constructor(
 
         val cal = GregorianCalendar()
         val currentMinute = cal.get(Calendar.MINUTE) + (cal.get(Calendar.HOUR_OF_DAY) % 2) * 60
-        val bgMgdl = min + ((max - min) + (max - min) * sin(currentMinute / 120.0 * 2 * PI))/2
+        val bgMgdl = min + ((max - min) + (max - min) * sin(currentMinute / 120.0 * 2 * PI)) / 2
 
-        val bgReading = BgReading()
-        bgReading.value = bgMgdl
-        bgReading.date = DateUtil.now()
-        bgReading.raw = bgMgdl
-        if (MainApp.getDbHelper().createIfNotExists(bgReading, "RandomBG")) {
-            if (sp.getBoolean(R.string.key_dexcomg5_nsupload, false))
-                nsUpload.uploadBg(bgReading, "AndroidAPS-RandomBG")
-            if (sp.getBoolean(R.string.key_dexcomg5_xdripupload, false))
-                nsUpload.sendToXdrip(bgReading)
-        }
-        aapsLogger.debug(LTag.BGSOURCE, "Generated BG: $bgReading")
+        val glucoseValue = CgmSourceTransaction.TransactionGlucoseValue(
+            timestamp = DateUtil.now(),
+            value = bgMgdl,
+            raw = bgMgdl,
+            noise = 0.0,
+            trendArrow = GlucoseValue.TrendArrow.NONE,
+            sourceSensor = GlucoseValue.SourceSensor.RANDOM
+        )
+        disposable += repository.runTransactionForResult(CgmSourceTransaction(mutableListOf(glucoseValue), emptyList(), null)).subscribe()
     }
 }

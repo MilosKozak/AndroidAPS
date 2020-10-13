@@ -32,8 +32,8 @@ class NsClientReceiverDelegateTest : TestBase() {
     @Mock lateinit var sp: SP
     @Mock lateinit var resourceHelper: ResourceHelper
 
-    lateinit var receiverStatusStore: ReceiverStatusStore
-    val rxBus: RxBusWrapper = RxBusWrapper()
+    private lateinit var receiverStatusStore: ReceiverStatusStore
+    val rxBus: RxBusWrapper = RxBusWrapper(aapsSchedulers)
 
     private var sut: NsClientReceiverDelegate? = null
 
@@ -44,7 +44,7 @@ class NsClientReceiverDelegateTest : TestBase() {
         `when`(sp.getInt(anyInt(), anyInt())).thenReturn(0)
         `when`(sp.getString(anyInt(), anyString())).thenReturn("")
 
-        sut = NsClientReceiverDelegate(rxBus, resourceHelper, sp, receiverStatusStore)
+        sut = NsClientReceiverDelegate(rxBus, resourceHelper, sp)
     }
 
     @Test fun testCalculateStatusChargingState() {

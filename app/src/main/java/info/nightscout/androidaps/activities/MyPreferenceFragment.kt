@@ -31,6 +31,7 @@ import info.nightscout.androidaps.plugins.constraints.safety.SafetyPlugin
 import info.nightscout.androidaps.plugins.general.automation.AutomationPlugin
 import info.nightscout.androidaps.plugins.general.maintenance.MaintenancePlugin
 import info.nightscout.androidaps.plugins.general.nsclient.NSClientPlugin
+import info.nightscout.androidaps.plugins.general.nsclient2.NSClient2Plugin
 import info.nightscout.androidaps.plugins.general.nsclient.data.NSSettingsStatus
 import info.nightscout.androidaps.plugins.general.openhumans.OpenHumansUploader
 import info.nightscout.androidaps.plugins.general.smsCommunicator.SmsCommunicatorPlugin
@@ -46,7 +47,6 @@ import info.nightscout.androidaps.plugins.sensitivity.SensitivityAAPSPlugin
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityOref1Plugin
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityWeightedAveragePlugin
 import info.nightscout.androidaps.plugins.source.DexcomPlugin
-import info.nightscout.androidaps.plugins.source.EversensePlugin
 import info.nightscout.androidaps.plugins.source.GlimpPlugin
 import info.nightscout.androidaps.plugins.source.PoctechPlugin
 import info.nightscout.androidaps.plugins.source.TomatoPlugin
@@ -80,6 +80,7 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
     @Inject lateinit var localInsightPlugin: LocalInsightPlugin
     @Inject lateinit var medtronicPumpPlugin: MedtronicPumpPlugin
     @Inject lateinit var nsClientPlugin: NSClientPlugin
+    @Inject lateinit var nsClient2Plugin: NSClient2Plugin
     @Inject lateinit var openAPSAMAPlugin: OpenAPSAMAPlugin
     @Inject lateinit var openAPSSMBPlugin: OpenAPSSMBPlugin
     @Inject lateinit var safetyPlugin: SafetyPlugin
@@ -87,7 +88,6 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
     @Inject lateinit var sensitivityOref1Plugin: SensitivityOref1Plugin
     @Inject lateinit var sensitivityWeightedAveragePlugin: SensitivityWeightedAveragePlugin
     @Inject lateinit var dexcomPlugin: DexcomPlugin
-    @Inject lateinit var eversensePlugin: EversensePlugin
     @Inject lateinit var glimpPlugin: GlimpPlugin
     @Inject lateinit var poctechPlugin: PoctechPlugin
     @Inject lateinit var tomatoPlugin: TomatoPlugin
@@ -157,7 +157,6 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
             addPreferencesFromResource(R.xml.pref_general, rootKey)
             addPreferencesFromResource(R.xml.pref_overview, rootKey)
             addPreferencesFromResourceIfEnabled(safetyPlugin, rootKey)
-            addPreferencesFromResourceIfEnabled(eversensePlugin, rootKey)
             addPreferencesFromResourceIfEnabled(dexcomPlugin, rootKey)
             addPreferencesFromResourceIfEnabled(tomatoPlugin, rootKey)
             addPreferencesFromResourceIfEnabled(poctechPlugin, rootKey)
@@ -178,6 +177,7 @@ class MyPreferenceFragment : PreferenceFragmentCompat(), OnSharedPreferenceChang
             addPreferencesFromResourceIfEnabled(virtualPumpPlugin, rootKey, !config.NSCLIENT)
             addPreferencesFromResourceIfEnabled(insulinOrefFreePeakPlugin, rootKey)
             addPreferencesFromResourceIfEnabled(nsClientPlugin, rootKey)
+            addPreferencesFromResourceIfEnabled(nsClient2Plugin, rootKey)
             addPreferencesFromResourceIfEnabled(tidepoolPlugin, rootKey)
             addPreferencesFromResourceIfEnabled(smsCommunicatorPlugin, rootKey)
             addPreferencesFromResourceIfEnabled(automationPlugin, rootKey)

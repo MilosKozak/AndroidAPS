@@ -12,6 +12,7 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.CompoundButton
+import dagger.android.HasAndroidInjector
 import androidx.fragment.app.FragmentManager
 import dagger.android.support.DaggerDialogFragment
 import info.nightscout.androidaps.Constants
@@ -37,7 +38,7 @@ import info.nightscout.androidaps.utils.extensions.toVisibility
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.sharedPreferences.SP
 import info.nightscout.androidaps.utils.wizard.BolusWizard
-import io.reactivex.android.schedulers.AndroidSchedulers
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.dialog_wizard.*
 import java.text.DecimalFormat
@@ -58,6 +59,8 @@ class WizardDialog : DaggerDialogFragment() {
     @Inject lateinit var treatmentsPlugin: TreatmentsPlugin
     @Inject lateinit var activePlugin: ActivePluginProvider
     @Inject lateinit var iobCobCalculatorPlugin: IobCobCalculatorPlugin
+    @Inject lateinit var injector: HasAndroidInjector
+    @Inject lateinit var aapsSchedulers: AapsSchedulers
 
     private var wizard: BolusWizard? = null
 
@@ -172,7 +175,7 @@ class WizardDialog : DaggerDialogFragment() {
         // bus
         disposable.add(rxBus
             .toObservable(EventAutosensCalculationFinished::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({
                 activity?.runOnUiThread { calculateInsulin() }
             }, { fabricPrivacy.logException(it) })
@@ -244,7 +247,7 @@ class WizardDialog : DaggerDialogFragment() {
         val lastBg = iobCobCalculatorPlugin.actualBg()
 
         if (lastBg != null) {
-            treatments_wizard_bg_input.value = lastBg.valueToUnits(units)
+            treatments_wizard_bg_input.value = BgReading(injector, lastBg).valueToUnits(units)
         } else {
             treatments_wizard_bg_input.value = 0.0
         }
@@ -313,7 +316,7 @@ class WizardDialog : DaggerDialogFragment() {
             treatment_wizard_notes.text.toString(), carbTime)
 
         wizard?.let { wizard ->
-            treatments_wizard_bg.text = String.format(resourceHelper.gs(R.string.format_bg_isf), BgReading().value(Profile.toMgdl(bg, profileFunction.getUnits())).valueToUnitsToString(profileFunction.getUnits()), wizard.sens)
+            treatments_wizard_bg.text = String.format(resourceHelper.gs(R.string.format_bg_isf), BgReading(injector).value(Profile.toMgdl(bg, profileFunction.getUnits())).valueToUnitsToString(profileFunction.getUnits()), wizard.sens)
             treatments_wizard_bginsulin.text = resourceHelper.gs(R.string.formatinsulinunits, wizard.insulinFromBG)
 
             treatments_wizard_carbs.text = String.format(resourceHelper.gs(R.string.format_carbs_ic), carbs.toDouble(), wizard.ic)

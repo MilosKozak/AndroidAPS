@@ -16,9 +16,9 @@ import info.nightscout.androidaps.logging.AAPSLogger
 import info.nightscout.androidaps.logging.LTag
 import info.nightscout.androidaps.plugins.bus.RxBusWrapper
 import info.nightscout.androidaps.plugins.common.ManufacturerType
-import info.nightscout.androidaps.interfaces.ProfileFunction
 import info.nightscout.androidaps.plugins.general.actions.defs.CustomAction
 import info.nightscout.androidaps.plugins.general.actions.defs.CustomActionType
+import info.nightscout.androidaps.queue.commands.CustomCommand
 import info.nightscout.androidaps.plugins.general.overview.events.EventNewNotification
 import info.nightscout.androidaps.plugins.general.overview.events.EventOverviewBolusProgress
 import info.nightscout.androidaps.plugins.general.overview.notifications.Notification
@@ -29,10 +29,10 @@ import info.nightscout.androidaps.utils.DateUtil
 import info.nightscout.androidaps.utils.FabricPrivacy
 import info.nightscout.androidaps.utils.InstanceId.instanceId
 import info.nightscout.androidaps.utils.TimeChangeType
-import info.nightscout.androidaps.utils.extensions.plusAssign
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.sharedPreferences.SP
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.schedulers.Schedulers
 import org.json.JSONException
 import org.json.JSONObject
@@ -133,6 +133,11 @@ class VirtualPumpPlugin @Inject constructor(
     }
 
     override fun executeCustomAction(customActionType: CustomActionType) {}
+
+    override fun executeCustomCommand(customCommand: CustomCommand?): PumpEnactResult? {
+        return null
+    }
+
     override fun isInitialized(): Boolean {
         return true
     }

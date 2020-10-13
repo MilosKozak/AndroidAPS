@@ -16,6 +16,8 @@ import org.jetbrains.annotations.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -30,7 +32,7 @@ import info.nightscout.androidaps.activities.ErrorHelperActivity;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
-import info.nightscout.androidaps.db.BgReading;
+import info.nightscout.androidaps.database.entities.GlucoseValue;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.db.TemporaryBasal;
@@ -179,10 +181,12 @@ public class LoopPlugin extends PluginBase implements LoopInterface {
         super.onStart();
         disposable.add(rxBus
                 .toObservable(EventTempTargetChange.class)
+                .debounce(1L, TimeUnit.SECONDS)
                 .observeOn(Schedulers.io())
                 .subscribe(event -> invoke("EventTempTargetChange", true), fabricPrivacy::logException)
         );
-        /**
+
+        /*
          * This method is triggered once autosens calculation has completed, so the LoopPlugin
          * has current data to work with. However, autosens calculation can be triggered by multiple
          * sources and currently only a new BG should trigger a loop run. Hence we return early if
@@ -196,13 +200,13 @@ public class LoopPlugin extends PluginBase implements LoopInterface {
                     // Autosens calculation not triggered by a new BG
                     if (!(event.getCause() instanceof EventNewBG)) return;
 
-                    BgReading bgReading = iobCobCalculatorPlugin.actualBg();
+                    GlucoseValue bgReading = iobCobCalculatorPlugin.actualBg();
                     // BG outdated
                     if (bgReading == null) return;
                     // already looped with that value
-                    if (bgReading.date <= lastBgTriggeredRun) return;
+                    if (bgReading.getTimestamp() <= lastBgTriggeredRun) return;
 
-                    lastBgTriggeredRun = bgReading.date;
+                    lastBgTriggeredRun = bgReading.getTimestamp();
                     invoke("AutosenseCalculation for " + bgReading, true);
                 }, fabricPrivacy::logException)
         );

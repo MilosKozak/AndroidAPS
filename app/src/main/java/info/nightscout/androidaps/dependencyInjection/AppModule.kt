@@ -16,6 +16,8 @@ import info.nightscout.androidaps.plugins.general.nsclient.UploadQueue
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin
 import info.nightscout.androidaps.queue.CommandQueue
 import info.nightscout.androidaps.utils.androidNotification.NotificationHolder
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
+import info.nightscout.androidaps.utils.rx.DefaultAapsSchedulers
 import info.nightscout.androidaps.utils.storage.FileStorage
 import info.nightscout.androidaps.utils.storage.Storage
 import javax.inject.Singleton
@@ -45,6 +47,10 @@ open class AppModule {
         return FileStorage()
     }
 
+    @Provides
+    @Singleton
+    internal fun provideSchedulers(): AapsSchedulers = DefaultAapsSchedulers()
+
     @Module
     interface AppBindings {
 
@@ -53,10 +59,16 @@ open class AppModule {
         @Binds fun bindActivePluginProvider(pluginStore: PluginStore): ActivePluginProvider
         @Binds fun bindCommandQueueProvider(commandQueue: CommandQueue): CommandQueueProvider
         @Binds fun bindConfigInterface(config: Config): ConfigInterface
-        @Binds fun bindConfigBuilderInterface(configBuilderPlugin: ConfigBuilderPlugin): ConfigBuilderInterface
+
+        @Binds
+        fun bindConfigBuilderInterface(configBuilderPlugin: ConfigBuilderPlugin): ConfigBuilderInterface
         @Binds fun bindTreatmentInterface(treatmentsPlugin: TreatmentsPlugin): TreatmentsInterface
-        @Binds fun bindDatabaseHelperInterface(databaseHelperProvider: DatabaseHelperProvider): DatabaseHelperInterface
+
+        @Binds
+        fun bindDatabaseHelperInterface(databaseHelperProvider: DatabaseHelperProvider): DatabaseHelperInterface
         @Binds fun bindUploadQueueInterface(uploadQueue: UploadQueue): UploadQueueInterface
-        @Binds fun bindNotificationHolderInterface(notificationHolder: NotificationHolder): NotificationHolderInterface
+
+        @Binds
+        fun bindNotificationHolderInterface(notificationHolder: NotificationHolder): NotificationHolderInterface
     }
 }

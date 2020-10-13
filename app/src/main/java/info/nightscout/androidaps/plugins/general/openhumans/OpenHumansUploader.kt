@@ -16,6 +16,8 @@ import dagger.android.HasAndroidInjector
 import info.nightscout.androidaps.BuildConfig
 import info.nightscout.androidaps.MainApp
 import info.nightscout.androidaps.R
+import info.nightscout.androidaps.database.AppRepository
+import info.nightscout.androidaps.database.entities.TemporaryTarget
 import info.nightscout.androidaps.db.*
 import info.nightscout.androidaps.events.EventPreferenceChange
 import info.nightscout.androidaps.interfaces.PluginBase
@@ -25,7 +27,6 @@ import info.nightscout.androidaps.logging.AAPSLogger
 import info.nightscout.androidaps.logging.LTag
 import info.nightscout.androidaps.plugins.bus.RxBusWrapper
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin
-import info.nightscout.androidaps.utils.extensions.plusAssign
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.sharedPreferences.SP
 import io.reactivex.Completable
@@ -33,6 +34,7 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.schedulers.Schedulers
 import org.json.JSONArray
 import org.json.JSONException
@@ -55,7 +57,8 @@ class OpenHumansUploader @Inject constructor(
     val sp: SP,
     val rxBus: RxBusWrapper,
     val context: Context,
-    val treatmentsPlugin: TreatmentsPlugin
+    val treatmentsPlugin: TreatmentsPlugin,
+    val repository: AppRepository
 ) : PluginBase(
     PluginDescription()
         .mainType(PluginType.GENERAL)
@@ -159,13 +162,13 @@ class OpenHumansUploader @Inject constructor(
 
     fun enqueueBGReading(bgReading: BgReading?) = bgReading?.let {
         insertQueueItem("BgReadings") {
-            put("date", bgReading.date)
-            put("isValid", bgReading.isValid)
-            put("value", bgReading.value)
-            put("direction", bgReading.direction)
-            put("raw", bgReading.raw)
-            put("source", bgReading.source)
-            put("nsId", bgReading._id)
+            put("date", bgReading.data.dateCreated)
+            put("isValid", bgReading.data.isValid)
+            put("value", bgReading.data.value)
+            put("direction", bgReading.data.trendArrow)
+            put("raw", bgReading.data.raw)
+            put("source", bgReading.data.sourceSensor)
+            put("nsId", bgReading.data.interfaceIDs.nightscoutId)
         }
     }
 
@@ -261,16 +264,15 @@ class OpenHumansUploader @Inject constructor(
     }
 
     @JvmOverloads
-    fun enqueueTempTarget(tempTarget: TempTarget?, deleted: Boolean = false) = tempTarget?.let {
+    fun enqueueTempTarget(tempTarget: TemporaryTarget?, deleted: Boolean = false) = tempTarget?.let {
         insertQueueItem("TempTargets") {
-            put("date", tempTarget.date)
+            put("date", tempTarget.dateCreated)
             put("isValid", tempTarget.isValid)
-            put("source", tempTarget.source)
-            put("nsId", tempTarget._id)
-            put("low", tempTarget.low)
-            put("high", tempTarget.high)
+            put("nsId", tempTarget.interfaceIDs_backing?.nightscoutId)
+            put("low", tempTarget.lowTarget)
+            put("high", tempTarget.highTarget)
             put("reason", tempTarget.reason)
-            put("durationInMinutes", tempTarget.durationInMinutes)
+            put("duration", tempTarget.duration)
             put("isDeletion", deleted)
         }
     }
@@ -377,7 +379,7 @@ class OpenHumansUploader @Inject constructor(
             .andThen(Observable.defer { Observable.fromIterable(MainApp.getDbHelper().allTemporaryBasals) })
             .map { enqueueTemporaryBasal(it); increaseCounter() }
             .ignoreElements()
-            .andThen(Observable.defer { Observable.fromIterable(MainApp.getDbHelper().allTempTargets) })
+            .andThen(Observable.defer { Observable.fromIterable(repository.compatGetTemporaryTargetData()) })
             .map { enqueueTempTarget(it); increaseCounter() }
             .ignoreElements()
             .doOnSubscribe {

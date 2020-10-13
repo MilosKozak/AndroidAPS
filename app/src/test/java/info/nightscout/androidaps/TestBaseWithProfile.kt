@@ -29,7 +29,7 @@ open class TestBaseWithProfile : TestBase() {
     @Mock lateinit var defaultValueHelper: DefaultValueHelper
     @Mock lateinit var dateUtil: DateUtil
 
-    val rxBus = RxBusWrapper()
+    val rxBus = RxBusWrapper(aapsSchedulers)
 
     val profileInjector = HasAndroidInjector {
         AndroidInjector {

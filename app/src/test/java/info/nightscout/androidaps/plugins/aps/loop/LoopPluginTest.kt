@@ -37,7 +37,7 @@ import org.powermock.modules.junit4.PowerMockRunner
 class LoopPluginTest : TestBase() {
 
     @Mock lateinit var sp: SP
-    private val rxBus: RxBusWrapper = RxBusWrapper()
+    private val rxBus: RxBusWrapper = RxBusWrapper(aapsSchedulers)
     @Mock lateinit var constraintChecker: ConstraintChecker
     @Mock lateinit var resourceHelper: ResourceHelper
     @Mock lateinit var profileFunction: ProfileFunction

@@ -1,22 +1,18 @@
 package info.nightscout.androidaps.plugins.general.nsclient;
 
+import android.content.SharedPreferences;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
-import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -26,6 +22,7 @@ import info.nightscout.androidaps.core.R;
 import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.data.Profile;
+import info.nightscout.androidaps.interfaces.ProfileStore;
 import info.nightscout.androidaps.db.BgReading;
 import info.nightscout.androidaps.db.CareportalEvent;
 import info.nightscout.androidaps.db.DbRequest;
@@ -292,25 +289,6 @@ public class NSUpload {
         }
     }
 
-    public void uploadTempTarget(TempTarget tempTarget, ProfileFunction profileFunction) {
-        try {
-            JSONObject data = new JSONObject();
-            data.put("eventType", CareportalEvent.TEMPORARYTARGET);
-            data.put("duration", tempTarget.durationInMinutes);
-            if (tempTarget.low > 0) {
-                data.put("reason", tempTarget.reason);
-                data.put("targetBottom", Profile.fromMgdlToUnits(tempTarget.low, profileFunction.getUnits()));
-                data.put("targetTop", Profile.fromMgdlToUnits(tempTarget.high, profileFunction.getUnits()));
-                data.put("units", profileFunction.getUnits());
-            }
-            data.put("created_at", DateUtil.toISOString(tempTarget.date));
-            data.put("enteredBy", "AndroidAPS");
-            uploadCareportalEntryToNS(data);
-        } catch (JSONException e) {
-            aapsLogger.error("Unhandled exception", e);
-        }
-    }
-
     public void updateProfileSwitch(ProfileSwitch profileSwitch) {
         try {
             JSONObject data = getJson(profileSwitch);
@@ -396,21 +374,6 @@ public class NSUpload {
         uploadQueue.add(new DbRequest("dbAdd", "treatments", data));
     }
 
-    public void uploadBg(BgReading reading, String source) {
-        JSONObject data = new JSONObject();
-        try {
-            data.put("device", source);
-            data.put("date", reading.date);
-            data.put("dateString", DateUtil.toISOString(reading.date));
-            data.put("sgv", reading.value);
-            data.put("direction", reading.direction);
-            data.put("type", "sgv");
-        } catch (JSONException e) {
-            aapsLogger.error("Unhandled exception", e);
-        }
-        uploadQueue.add(new DbRequest("dbAdd", "entries", data));
-    }
-
     public void uploadAppStart() {
         if (sp.getBoolean(R.string.key_ns_logappstartedevent, true)) {
             JSONObject data = new JSONObject();
@@ -450,46 +413,6 @@ public class NSUpload {
         try {
             uploadQueue.add(new DbRequest("dbRemove", "food", _id));
         } catch (Exception e) {
-            aapsLogger.error("Unhandled exception", e);
-        }
-
-    }
-
-    public void sendToXdrip(BgReading bgReading) {
-        final String XDRIP_PLUS_NS_EMULATOR = "com.eveningoutpost.dexdrip.NS_EMULATOR";
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.US);
-
-        try {
-            final JSONArray entriesBody = new JSONArray();
-            JSONObject json = new JSONObject();
-            json.put("sgv", bgReading.value);
-            if (bgReading.direction == null) {
-                json.put("direction", "NONE");
-            } else {
-                json.put("direction", bgReading.direction);
-            }
-            json.put("device", "G5");
-            json.put("type", "sgv");
-            json.put("date", bgReading.date);
-            json.put("dateString", format.format(bgReading.date));
-            entriesBody.put(json);
-
-            final Bundle bundle = new Bundle();
-            bundle.putString("action", "add");
-            bundle.putString("collection", "entries");
-            bundle.putString("data", entriesBody.toString());
-            final Intent intent = new Intent(XDRIP_PLUS_NS_EMULATOR);
-            intent.putExtras(bundle).addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-            context.sendBroadcast(intent);
-            List<ResolveInfo> receivers = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-            if (receivers.size() < 1) {
-                aapsLogger.debug("No xDrip receivers found. ");
-            } else {
-                aapsLogger.debug(receivers.size() + " xDrip receivers");
-            }
-
-
-        } catch (JSONException e) {
             aapsLogger.error("Unhandled exception", e);
         }
 

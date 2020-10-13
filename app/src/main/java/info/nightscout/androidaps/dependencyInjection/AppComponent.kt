@@ -9,7 +9,10 @@ import info.nightscout.androidaps.core.di.CoreModule
 import info.nightscout.androidaps.dana.di.DanaModule
 import info.nightscout.androidaps.danar.di.DanaRModule
 import info.nightscout.androidaps.danars.di.DanaRSModule
+import info.nightscout.androidaps.database.DatabaseModule
+import info.nightscout.androidaps.dependencyInjection.networking.NetModule
 import info.nightscout.androidaps.plugins.pump.common.dagger.RileyLinkModule
+import info.nightscout.androidaps.plugins.pump.omnipod.dagger.OmnipodModule
 import javax.inject.Singleton
 
 @Singleton
@@ -21,14 +24,17 @@ import javax.inject.Singleton
         ActivitiesModule::class,
         FragmentsModule::class,
         AppModule::class,
+        NetModule::class,
         ReceiversModule::class,
         ServicesModule::class,
+        DatabaseModule::class,
         AutomationModule::class,
         CommandQueueModule::class,
         ObjectivesModule::class,
         WizardModule::class,
         RileyLinkModule::class,
         MedtronicModule::class,
+        OmnipodModule::class,
         APSModule::class,
         PreferencesModule::class,
         OverviewModule::class,
@@ -39,6 +45,7 @@ import javax.inject.Singleton
         DanaModule::class,
         DanaRModule::class,
         DanaRSModule::class,
+        DatabaseModule::class,
         OHUploaderModule::class
     ]
 )

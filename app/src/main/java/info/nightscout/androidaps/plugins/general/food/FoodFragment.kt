@@ -22,7 +22,7 @@ import info.nightscout.androidaps.plugins.general.nsclient.NSUpload
 import info.nightscout.androidaps.utils.FabricPrivacy
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog.showConfirmation
 import info.nightscout.androidaps.utils.resources.ResourceHelper
-import io.reactivex.android.schedulers.AndroidSchedulers
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.food_fragment.*
 import java.util.*
@@ -36,6 +36,7 @@ class FoodFragment : DaggerFragment() {
     @Inject lateinit var fabricPrivacy: FabricPrivacy
     @Inject lateinit var foodPlugin: FoodPlugin
     @Inject lateinit var nsUpload: NSUpload
+    @Inject lateinit var aapsSchedulers: AapsSchedulers
 
     private val disposable = CompositeDisposable()
     private lateinit var unfiltered: List<Food>
@@ -96,7 +97,7 @@ class FoodFragment : DaggerFragment() {
         super.onResume()
         disposable.add(rxBus
             .toObservable(EventFoodDatabaseChanged::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateGui() }) { fabricPrivacy.logException(it) }
         )
         updateGui()

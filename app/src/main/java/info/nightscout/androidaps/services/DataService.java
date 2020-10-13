@@ -28,10 +28,8 @@ import info.nightscout.androidaps.plugins.general.overview.notifications.Notific
 import info.nightscout.androidaps.plugins.general.smsCommunicator.SmsCommunicatorPlugin;
 import info.nightscout.androidaps.plugins.profile.ns.NSProfilePlugin;
 import info.nightscout.androidaps.plugins.source.DexcomPlugin;
-import info.nightscout.androidaps.plugins.source.EversensePlugin;
 import info.nightscout.androidaps.plugins.source.GlimpPlugin;
 import info.nightscout.androidaps.plugins.source.MM640gPlugin;
-import info.nightscout.androidaps.plugins.source.NSClientSourcePlugin;
 import info.nightscout.androidaps.plugins.source.PoctechPlugin;
 import info.nightscout.androidaps.plugins.source.TomatoPlugin;
 import info.nightscout.androidaps.plugins.source.XdripPlugin;
@@ -47,10 +45,8 @@ public class DataService extends DaggerIntentService {
     @Inject NSUpload nsUpload;
     @Inject SmsCommunicatorPlugin smsCommunicatorPlugin;
     @Inject DexcomPlugin dexcomPlugin;
-    @Inject EversensePlugin eversensePlugin;
     @Inject GlimpPlugin glimpPlugin;
     @Inject MM640gPlugin mm640GPlugin;
-    @Inject NSClientSourcePlugin nsClientSourcePlugin;
     @Inject PoctechPlugin poctechPlugin;
     @Inject TomatoPlugin tomatoPlugin;
     @Inject XdripPlugin xdripPlugin;
@@ -84,10 +80,8 @@ public class DataService extends DaggerIntentService {
             poctechPlugin.handleNewData(intent);
         } else if (Intents.TOMATO_BG.equals(action)) {
             tomatoPlugin.handleNewData(intent);
-        } else if (Intents.EVERSENSE_BG.equals(action)) {
-            eversensePlugin.handleNewData(intent);
-        } else if (Intents.ACTION_NEW_SGV.equals(action)) {
-            nsClientSourcePlugin.handleNewData(intent);
+//        } else if (Intents.ACTION_NEW_SGV.equals(action)) {
+//            nsClientSourcePlugin.handleNewData();
         } else if (Intents.ACTION_NEW_PROFILE.equals(action)) {
             // always handle Profile if NSProfile is enabled without looking at nsUploadOnly
             nsProfilePlugin.handleNewData(intent);
@@ -186,7 +180,7 @@ public class DataService extends DaggerIntentService {
         rxBus.send(evtTreatment);
         // old DB model
         String _id = JsonHelper.safeGetString(json, "_id");
-        MainApp.getDbHelper().deleteTempTargetById(_id);
+        //MainApp.getDbHelper().deleteTempTargetById(_id);
         MainApp.getDbHelper().deleteTempBasalById(_id);
         MainApp.getDbHelper().deleteExtendedBolusById(_id);
         MainApp.getDbHelper().deleteCareportalEventById(_id);
@@ -206,8 +200,6 @@ public class DataService extends DaggerIntentService {
         if (insulin > 0 || carbs > 0) {
             EventNsTreatment evtTreatment = new EventNsTreatment(mode, json);
             rxBus.send(evtTreatment);
-        } else if (eventType.equals(CareportalEvent.TEMPORARYTARGET)) {
-            MainApp.getDbHelper().createTemptargetFromJsonIfNotExists(json);
         } else if (eventType.equals(CareportalEvent.TEMPBASAL)) {
             MainApp.getDbHelper().createTempBasalFromJsonIfNotExists(json);
         } else if (eventType.equals(CareportalEvent.COMBOBOLUS)) {

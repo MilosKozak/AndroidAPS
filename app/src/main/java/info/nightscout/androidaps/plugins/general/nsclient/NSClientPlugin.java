@@ -40,6 +40,7 @@ import info.nightscout.androidaps.plugins.general.nsclient.events.EventNSClientR
 import info.nightscout.androidaps.plugins.general.nsclient.events.EventNSClientStatus;
 import info.nightscout.androidaps.plugins.general.nsclient.events.EventNSClientUpdateGUI;
 import info.nightscout.androidaps.plugins.general.nsclient.services.NSClientService;
+import info.nightscout.androidaps.receivers.ReceiverStatusStore;
 import info.nightscout.androidaps.utils.FabricPrivacy;
 import info.nightscout.androidaps.utils.HtmlHelper;
 import info.nightscout.androidaps.utils.ToastUtils;
@@ -59,6 +60,7 @@ public class NSClientPlugin extends PluginBase {
     private final FabricPrivacy fabricPrivacy;
     private final SP sp;
     private final Config config;
+    private final ReceiverStatusStore receiverStatusStore;
 
     public Handler handler;
 
@@ -84,7 +86,8 @@ public class NSClientPlugin extends PluginBase {
             FabricPrivacy fabricPrivacy,
             SP sp,
             NsClientReceiverDelegate nsClientReceiverDelegate,
-            Config config
+            Config config,
+            ReceiverStatusStore receiverStatusStore
     ) {
         super(new PluginDescription()
                         .mainType(PluginType.GENERAL)
@@ -104,6 +107,7 @@ public class NSClientPlugin extends PluginBase {
         this.sp = sp;
         this.nsClientReceiverDelegate = nsClientReceiverDelegate;
         this.config = config;
+        this.receiverStatusStore = receiverStatusStore;
 
         if (config.getNSCLIENT()) {
             getPluginDescription().alwaysEnabled(true).visibleByDefault(true);
@@ -123,14 +127,14 @@ public class NSClientPlugin extends PluginBase {
 
     @Override
     protected void onStart() {
-        paused = sp.getBoolean(R.string.key_nsclientinternal_paused, false);
+        paused = sp.getBoolean(R.string.key_nsclient_paused, false);
         autoscroll = sp.getBoolean(R.string.key_nsclientinternal_autoscroll, true);
 
         Intent intent = new Intent(context, NSClientService.class);
         context.bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
         super.onStart();
 
-        nsClientReceiverDelegate.grabReceiversState();
+        receiverStatusStore.updateNetworkStatus();
         disposable.add(rxBus
                 .toObservable(EventNSClientStatus.class)
                 .observeOn(Schedulers.io())
@@ -147,7 +151,16 @@ public class NSClientPlugin extends PluginBase {
         disposable.add(rxBus
                 .toObservable(EventPreferenceChange.class)
                 .observeOn(Schedulers.io())
-                .subscribe(event -> nsClientReceiverDelegate.onStatusEvent(event), fabricPrivacy::logException)
+                .subscribe(event -> {
+                    if (event.isChanged(resourceHelper, R.string.key_ns_wifionly) ||
+                            event.isChanged(resourceHelper, R.string.key_ns_wifi_ssids) ||
+                            event.isChanged(resourceHelper, R.string.key_ns_allowroaming)
+                    ) {
+                        receiverStatusStore.updateNetworkStatus();
+                    } else if (event.isChanged(resourceHelper, R.string.key_ns_chargingonly)) {
+                        receiverStatusStore.broadcastChargingState();
+                    }
+                }, fabricPrivacy::logException)
         );
         disposable.add(rxBus
                 .toObservable(EventAppExit.class)
@@ -251,9 +264,9 @@ public class NSClientPlugin extends PluginBase {
     }
 
     public void pause(boolean newState) {
-        sp.putBoolean(R.string.key_nsclientinternal_paused, newState);
+        sp.putBoolean(R.string.key_nsclient_paused, newState);
         paused = newState;
-        rxBus.send(new EventPreferenceChange(resourceHelper, R.string.key_nsclientinternal_paused));
+        rxBus.send(new EventPreferenceChange(resourceHelper, R.string.key_nsclient_paused));
     }
 
     public String url() {

@@ -42,7 +42,7 @@ open class TriggerTestBase : TestBaseWithProfile() {
         AndroidInjector {
             if (it is Trigger) {
                 it.aapsLogger = aapsLogger
-                it.rxBus = RxBusWrapper()
+                it.rxBus = RxBusWrapper(aapsSchedulers)
                 it.resourceHelper = resourceHelper
                 it.profileFunction = profileFunction
                 it.sp = sp
@@ -84,7 +84,6 @@ open class TriggerTestBase : TestBaseWithProfile() {
                 it.resourceHelper = resourceHelper
             }
             if (it is BgReading) {
-                it.dateUtil = dateUtil
             }
         }
     }

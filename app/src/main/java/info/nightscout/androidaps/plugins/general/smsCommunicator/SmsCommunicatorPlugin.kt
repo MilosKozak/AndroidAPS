@@ -13,8 +13,11 @@ import info.nightscout.androidaps.Constants
 import info.nightscout.androidaps.R
 import info.nightscout.androidaps.data.DetailedBolusInfo
 import info.nightscout.androidaps.data.Profile
+import info.nightscout.androidaps.database.AppRepository
+import info.nightscout.androidaps.database.entities.TemporaryTarget
+import info.nightscout.androidaps.database.transactions.CancelCurrentTemporaryTargetIfAnyTransaction
+import info.nightscout.androidaps.database.transactions.InsertTemporaryTargetAndCancelCurrentTransaction
 import info.nightscout.androidaps.db.Source
-import info.nightscout.androidaps.db.TempTarget
 import info.nightscout.androidaps.events.EventPreferenceChange
 import info.nightscout.androidaps.events.EventRefreshOverview
 import info.nightscout.androidaps.interfaces.*
@@ -23,7 +26,6 @@ import info.nightscout.androidaps.logging.LTag
 import info.nightscout.androidaps.plugins.aps.loop.LoopPlugin
 import info.nightscout.androidaps.plugins.bus.RxBusWrapper
 import info.nightscout.androidaps.plugins.configBuilder.ConstraintChecker
-import info.nightscout.androidaps.interfaces.ProfileFunction
 import info.nightscout.androidaps.plugins.general.nsclient.events.EventNSClientRestart
 import info.nightscout.androidaps.plugins.general.overview.events.EventNewNotification
 import info.nightscout.androidaps.plugins.general.overview.notifications.Notification
@@ -34,15 +36,16 @@ import info.nightscout.androidaps.plugins.iob.iobCobCalculator.IobCobCalculatorP
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin
 import info.nightscout.androidaps.queue.Callback
 import info.nightscout.androidaps.utils.*
-import info.nightscout.androidaps.utils.extensions.plusAssign
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.sharedPreferences.SP
 import info.nightscout.androidaps.utils.textValidator.ValidatingEditTextPreference
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.schedulers.Schedulers
 import org.apache.commons.lang3.StringUtils
 import java.text.Normalizer
 import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -63,7 +66,8 @@ class SmsCommunicatorPlugin @Inject constructor(
     private val xdripCalibrations: XdripCalibrations,
     private var otp: OneTimePassword,
     private val config: Config,
-    private val dateUtil: DateUtil
+    private val dateUtil: DateUtil,
+    private val repository: AppRepository
 ) : PluginBase(PluginDescription()
     .mainType(PluginType.GENERAL)
     .fragmentClass(SmsCommunicatorFragment::class.java.name)
@@ -284,11 +288,11 @@ class SmsCommunicatorPlugin @Inject constructor(
         var reply = ""
         val units = profileFunction.getUnits()
         if (actualBG != null) {
-            reply = resourceHelper.gs(R.string.sms_actualbg) + " " + actualBG.valueToUnitsToString(units) + ", "
+            reply = resourceHelper.gs(R.string.sms_actualbg) + " " + actualBG.valueToUnitsString(units) + ", "
         } else if (lastBG != null) {
-            val agoMsec = System.currentTimeMillis() - lastBG.date
+            val agoMsec = System.currentTimeMillis() - lastBG.timestamp
             val agoMin = (agoMsec / 60.0 / 1000.0).toInt()
-            reply = resourceHelper.gs(R.string.sms_lastbg) + " " + lastBG.valueToUnitsToString(units) + " " + String.format(resourceHelper.gs(R.string.sms_minago), agoMin) + ", "
+            reply = resourceHelper.gs(R.string.sms_lastbg) + " " + lastBG.valueToUnitsString(units) + " " + String.format(resourceHelper.gs(R.string.sms_minago), agoMin) + ", "
         }
         val glucoseStatus = GlucoseStatus(injector).getGlucoseStatusData()
         if (glucoseStatus != null) reply += resourceHelper.gs(R.string.sms_delta) + " " + Profile.toUnitsString(glucoseStatus.delta, glucoseStatus.delta * Constants.MGDL_TO_MMOLL, units) + " " + units + ", "
@@ -740,14 +744,13 @@ class SmsCommunicatorPlugin @Inject constructor(
                                                     if (eatingSoonTT > 0) eatingSoonTT
                                                     else if (currentProfile.units == Constants.MMOL) Constants.defaultEatingSoonTTmmol
                                                     else Constants.defaultEatingSoonTTmgdl
-                                                val tempTarget = TempTarget()
-                                                    .date(System.currentTimeMillis())
-                                                    .duration(eatingSoonTTDuration)
-                                                    .reason(resourceHelper.gs(R.string.eatingsoon))
-                                                    .source(Source.USER)
-                                                    .low(Profile.toMgdl(eatingSoonTT, currentProfile.units))
-                                                    .high(Profile.toMgdl(eatingSoonTT, currentProfile.units))
-                                                activePlugin.activeTreatments.addToHistoryTempTarget(tempTarget)
+                                                disposable += repository.runTransaction(InsertTemporaryTargetAndCancelCurrentTransaction(
+                                                    timestamp = System.currentTimeMillis(),
+                                                    duration = TimeUnit.MINUTES.toMillis(eatingSoonTTDuration.toLong()),
+                                                    reason = TemporaryTarget.Reason.EATING_SOON,
+                                                    lowTarget = Profile.toMgdl(eatingSoonTT, currentProfile.units),
+                                                    highTarget = Profile.toMgdl(eatingSoonTT, currentProfile.units)
+                                                )).subscribe()
                                                 val tt = if (currentProfile.units == Constants.MMOL) {
                                                     DecimalFormatter.to1Decimal(eatingSoonTT)
                                                 } else DecimalFormatter.to0Decimal(eatingSoonTT)
@@ -863,14 +866,13 @@ class SmsCommunicatorPlugin @Inject constructor(
                     var tt = sp.getDouble(keyTarget, if (units == Constants.MMOL) defaultTargetMMOL else defaultTargetMGDL)
                     tt = Profile.toCurrentUnits(profileFunction, tt)
                     tt = if (tt > 0) tt else if (units == Constants.MMOL) defaultTargetMMOL else defaultTargetMGDL
-                    val tempTarget = TempTarget()
-                        .date(System.currentTimeMillis())
-                        .duration(ttDuration)
-                        .reason(resourceHelper.gs(R.string.eatingsoon))
-                        .source(Source.USER)
-                        .low(Profile.toMgdl(tt, units))
-                        .high(Profile.toMgdl(tt, units))
-                    activePlugin.activeTreatments.addToHistoryTempTarget(tempTarget)
+                    disposable += repository.runTransaction(InsertTemporaryTargetAndCancelCurrentTransaction(
+                        timestamp = System.currentTimeMillis(),
+                        duration = TimeUnit.MINUTES.toMillis(ttDuration.toLong()),
+                        reason = TemporaryTarget.Reason.EATING_SOON,
+                        lowTarget = Profile.toMgdl(tt, units),
+                        highTarget = Profile.toMgdl(tt, units)
+                    )).subscribe()
                     val ttString = if (units == Constants.MMOL) DecimalFormatter.to1Decimal(tt) else DecimalFormatter.to0Decimal(tt)
                     val replyText = String.format(resourceHelper.gs(R.string.smscommunicator_tt_set), ttString, ttDuration)
                     sendSMSToAllNumbers(Sms(receivedSms.phoneNumber, replyText))
@@ -882,13 +884,7 @@ class SmsCommunicatorPlugin @Inject constructor(
             receivedSms.processed = true
             messageToConfirm = AuthRequest(injector, receivedSms, reply, passCode, object : SmsAction() {
                 override fun run() {
-                    val tempTarget = TempTarget()
-                        .source(Source.USER)
-                        .date(DateUtil.now())
-                        .duration(0)
-                        .low(0.0)
-                        .high(0.0)
-                    activePlugin.activeTreatments.addToHistoryTempTarget(tempTarget)
+                    disposable += repository.runTransaction(CancelCurrentTemporaryTargetIfAnyTransaction(System.currentTimeMillis())).subscribe();
                     val replyText = String.format(resourceHelper.gs(R.string.smscommunicator_tt_canceled))
                     sendSMSToAllNumbers(Sms(receivedSms.phoneNumber, replyText))
                 }

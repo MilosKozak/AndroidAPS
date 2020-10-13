@@ -1,26 +1,30 @@
 package info.nightscout.androidaps.plugins.general.tidepool.comm
 
+import dagger.android.HasAndroidInjector
 import info.nightscout.androidaps.MainApp
 import info.nightscout.androidaps.R
 import info.nightscout.androidaps.data.Intervals
+import info.nightscout.androidaps.database.AppRepository
 import info.nightscout.androidaps.db.ProfileSwitch
 import info.nightscout.androidaps.db.TemporaryBasal
 import info.nightscout.androidaps.interfaces.ActivePluginProvider
+import info.nightscout.androidaps.interfaces.ProfileFunction
 import info.nightscout.androidaps.logging.AAPSLogger
 import info.nightscout.androidaps.logging.LTag
 import info.nightscout.androidaps.plugins.bus.RxBusWrapper
-import info.nightscout.androidaps.interfaces.ProfileFunction
 import info.nightscout.androidaps.plugins.general.tidepool.elements.*
 import info.nightscout.androidaps.plugins.general.tidepool.events.EventTidepoolStatus
 import info.nightscout.androidaps.plugins.general.tidepool.utils.GsonInstance
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin
 import info.nightscout.androidaps.utils.DateUtil
 import info.nightscout.androidaps.utils.T
+import info.nightscout.androidaps.utils.convertToBGReadings
 import info.nightscout.androidaps.utils.sharedPreferences.SP
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.math.max
+import kotlin.math.min
 
 @Singleton
 class UploadChunk @Inject constructor(
@@ -30,7 +34,9 @@ class UploadChunk @Inject constructor(
     private val profileFunction: ProfileFunction,
     private val treatmentsPlugin: TreatmentsPlugin,
     private val activePlugin: ActivePluginProvider,
-    private val dateUtil: DateUtil
+    private val dateUtil: DateUtil,
+    private val repository: AppRepository,
+    private val injector: HasAndroidInjector
 ) {
 
     private val MAX_UPLOAD_SIZE = T.days(7).msecs() // don't change this
@@ -40,12 +46,12 @@ class UploadChunk @Inject constructor(
             return null
 
         session.start = getLastEnd()
-        session.end = Math.min(session.start + MAX_UPLOAD_SIZE, DateUtil.now())
+        session.end = min(session.start + MAX_UPLOAD_SIZE, DateUtil.now())
 
         val result = get(session.start, session.end)
         if (result.length < 3) {
             aapsLogger.debug(LTag.TIDEPOOL, "No records in this time period, setting start to best end time")
-            setLastEnd(Math.max(session.end, getOldestRecordTimeStamp()))
+            setLastEnd(max(session.end, getOldestRecordTimeStamp()))
         }
         return result
     }
@@ -102,9 +108,11 @@ class UploadChunk @Inject constructor(
         val start: Long = 0
         val end = DateUtil.now()
 
-        val bgReadingList = MainApp.getDbHelper().getBgreadingsDataFromTime(start, end, true)
-        return if (bgReadingList.size > 0)
-            bgReadingList[0].date
+        val bgReadingList = repository.compatGetBgReadingsDataFromTime(start, end, true)
+            .blockingGet()
+            .convertToBGReadings(injector)
+        return if (bgReadingList.isNotEmpty())
+            bgReadingList[0].data.timestamp
         else -1
     }
 
@@ -131,7 +139,9 @@ class UploadChunk @Inject constructor(
     }
 
     private fun getBgReadings(start: Long, end: Long): List<SensorGlucoseElement> {
-        val readings = MainApp.getDbHelper().getBgreadingsDataFromTime(start, end, true)
+        val readings = repository.compatGetBgReadingsDataFromTime(start, end, true)
+            .blockingGet()
+            .convertToBGReadings(injector)
         val selection = SensorGlucoseElement.fromBgReadings(readings)
         if (selection.isNotEmpty())
             rxBus.send(EventTidepoolStatus("${selection.size} CGMs selected for upload"))
@@ -141,7 +151,7 @@ class UploadChunk @Inject constructor(
     private fun fromTemporaryBasals(tbrList: Intervals<TemporaryBasal>, start: Long, end: Long): List<BasalElement> {
         val results = LinkedList<BasalElement>()
         for (tbr in tbrList.list) {
-            if (tbr.date >= start && tbr.date <= end && tbr.durationInMinutes != 0)
+            if (tbr.date in start..end && tbr.durationInMinutes != 0)
                 results.add(BasalElement(tbr, profileFunction))
         }
         return results
@@ -156,7 +166,7 @@ class UploadChunk @Inject constructor(
         return selection
     }
 
-    fun newInstanceOrNull(ps: ProfileSwitch): ProfileElement? = try {
+    private fun newInstanceOrNull(ps: ProfileSwitch): ProfileElement? = try {
         ProfileElement(ps, activePlugin.activePump.serialNumber())
     } catch (e: Throwable) {
         null

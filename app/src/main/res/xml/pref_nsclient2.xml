@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:validate="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/nsclientinternal2"
+        app:initialExpandedChildrenCount="0">
+        <info.nightscout.androidaps.utils.textValidator.ValidatingEditTextPreference
+            android:defaultValue="https://{YOUR-SITE}.azurewebsites.net/"
+            android:dialogMessage="@string/nsclientinternal_url_dialogmessage"
+            android:inputType="textUri"
+            android:key="@string/key_nsclient2_baseurl"
+            android:selectAllOnFocus="true"
+            android:title="@string/nsclientinternal_url_title"
+            validate:testType="httpsUrl" />
+
+        <EditTextPreference
+            android:dialogMessage="@string/nsclient2_token_dialogmessage"
+            android:dialogTitle="@string/nsclient2_token_dialogtitle"
+            android:inputType="textPassword"
+            android:key="@string/key_nsclient2_token"
+            android:title="@string/nsclient2_token_title" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="@string/key_nsclient_test_login"
+        android:title="@string/title_verify_credentials" />
+
+    <ListPreference
+        android:defaultValue="PULL"
+        android:entries="@array/syncOptionsArray"
+        android:entryValues="@array/syncOptionsValues"
+        android:key="@string/key_ns_cgm"
+        android:title="@string/cgmdata" />
+
+    <ListPreference
+        android:defaultValue="PUSH"
+        android:entries="@array/syncOptionsArray"
+        android:entryValues="@array/syncOptionsValues"
+        android:key="@string/key_ns_temptargets"
+        android:title="@string/careportal_temporarytarget" />
+
+    <androidx.preference.PreferenceScreen
+        android:key="@string/connectionsettings_title"
+        android:title="@string/connectionsettings_title">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:disableDependentsState="true"
+            android:key="@string/key_ns_wifionly"
+            android:title="@string/ns_wifionly" />
+
+        <EditTextPreference
+            android:dialogMessage="@string/ns_wifi_allowedssids"
+            android:inputType="text"
+            android:key="@string/key_ns_wifi_ssids"
+            android:title="@string/ns_wifi_ssids" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:dependency="@string/key_ns_wifionly"
+            android:key="@string/key_ns_allowroaming"
+            android:title="@string/ns_allowroaming" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_ns_chargingonly"
+            android:title="@string/ns_chargingonly" />
+
+    </androidx.preference.PreferenceScreen>
+
+
+</androidx.preference.PreferenceScreen>

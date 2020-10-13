@@ -10,10 +10,13 @@ import info.nightscout.androidaps.R
 import info.nightscout.androidaps.dana.DanaPump
 import info.nightscout.androidaps.data.DetailedBolusInfo
 import info.nightscout.androidaps.data.Profile
+import info.nightscout.androidaps.database.AppRepository
+import info.nightscout.androidaps.database.entities.TemporaryTarget
+import info.nightscout.androidaps.database.transactions.CancelCurrentTemporaryTargetIfAnyTransaction
+import info.nightscout.androidaps.database.transactions.InsertTemporaryTargetAndCancelCurrentTransaction
 import info.nightscout.androidaps.db.CareportalEvent
 import info.nightscout.androidaps.db.Source
 import info.nightscout.androidaps.db.TDD
-import info.nightscout.androidaps.db.TempTarget
 import info.nightscout.androidaps.interfaces.ActivePluginProvider
 import info.nightscout.androidaps.interfaces.CommandQueueProvider
 import info.nightscout.androidaps.interfaces.Constraint
@@ -31,18 +34,17 @@ import info.nightscout.androidaps.danaRv2.DanaRv2Plugin
 import info.nightscout.androidaps.plugins.pump.insight.LocalInsightPlugin
 import info.nightscout.androidaps.plugins.treatments.CarbsGenerator
 import info.nightscout.androidaps.queue.Callback
-import info.nightscout.androidaps.utils.DateUtil
-import info.nightscout.androidaps.utils.DecimalFormatter
-import info.nightscout.androidaps.utils.HardLimits
-import info.nightscout.androidaps.utils.SafeParse
-import info.nightscout.androidaps.utils.ToastUtils
+import info.nightscout.androidaps.utils.*
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.sharedPreferences.SP
 import info.nightscout.androidaps.utils.wizard.BolusWizard
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.plusAssign
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -69,13 +71,15 @@ class ActionStringHandler @Inject constructor(
     private val hardLimits: HardLimits,
     private val carbsGenerator: CarbsGenerator,
     private val dateUtil: DateUtil,
-    private val config: Config
+    private val config: Config,
+    private val repository: AppRepository
 ) {
 
     private val TIMEOUT = 65 * 1000
     private var lastSentTimestamp: Long = 0
     private var lastConfirmActionString: String? = null
     private var lastBolusWizard: BolusWizard? = null
+    private val compositeDisposable = CompositeDisposable()
 
     // TODO Adrian use RxBus instead of Lazy + cross dependency
     @Synchronized
@@ -431,7 +435,7 @@ class ActionStringHandler @Inject constructor(
             //Check for Temp-Target:
             val tempTarget = activePlugin.activeTreatments.tempTargetFromHistory
             if (tempTarget != null) {
-                ret += "Temp Target: " + Profile.toTargetRangeString(tempTarget.low, tempTarget.low, Constants.MGDL, profileFunction.getUnits())
+                ret += "Temp Target: " + Profile.toTargetRangeString(tempTarget.data.lowTarget, tempTarget.data.highTarget, Constants.MGDL, profileFunction.getUnits())
                 ret += "\nuntil: " + dateUtil.timeString(tempTarget.originalEnd())
                 ret += "\n\n"
             }
@@ -555,17 +559,17 @@ class ActionStringHandler @Inject constructor(
     }
 
     private fun generateTempTarget(duration: Int, low: Double, high: Double) {
-        val tempTarget = TempTarget()
-            .date(System.currentTimeMillis())
-            .duration(duration)
-            .reason("WearPlugin")
-            .source(Source.USER)
-        if (tempTarget.durationInMinutes != 0) {
-            tempTarget.low(low).high(high)
+        compositeDisposable += if (duration == 0) {
+            repository.runTransaction(CancelCurrentTemporaryTargetIfAnyTransaction(System.currentTimeMillis())).subscribe()
         } else {
-            tempTarget.low(0.0).high(0.0)
+            repository.runTransaction(InsertTemporaryTargetAndCancelCurrentTransaction(
+                timestamp = System.currentTimeMillis(),
+                duration = TimeUnit.MINUTES.toMillis(duration.toLong()),
+                reason = TemporaryTarget.Reason.CUSTOM,
+                lowTarget = low,
+                highTarget = high
+            )).subscribe()
         }
-        activePlugin.activeTreatments.addToHistoryTempTarget(tempTarget)
     }
 
     private fun doFillBolus(amount: Double) {

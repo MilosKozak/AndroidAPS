@@ -28,8 +28,8 @@ import info.nightscout.androidaps.utils.T
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog
 import info.nightscout.androidaps.utils.extensions.toVisibility
 import info.nightscout.androidaps.utils.resources.ResourceHelper
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import info.nightscout.androidaps.utils.sharedPreferences.SP
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.treatments_profileswitch_fragment.*
 import javax.inject.Inject
@@ -45,6 +45,7 @@ class TreatmentsProfileSwitchFragment : DaggerFragment() {
     @Inject lateinit var nsUpload: NSUpload
     @Inject lateinit var uploadQueue: UploadQueue
     @Inject lateinit var dateUtil: DateUtil
+    @Inject lateinit var aapsSchedulers: AapsSchedulers
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -73,7 +74,7 @@ class TreatmentsProfileSwitchFragment : DaggerFragment() {
         super.onResume()
         disposable.add(rxBus
             .toObservable(EventProfileNeedsUpdate::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateGUI() }) { fabricPrivacy.logException(it) }
         )
         updateGUI()

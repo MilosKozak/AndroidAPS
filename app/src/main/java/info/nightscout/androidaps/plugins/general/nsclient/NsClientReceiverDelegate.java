@@ -10,7 +10,6 @@ import info.nightscout.androidaps.events.EventChargingState;
 import info.nightscout.androidaps.events.EventNetworkChange;
 import info.nightscout.androidaps.events.EventPreferenceChange;
 import info.nightscout.androidaps.plugins.bus.RxBusWrapper;
-import info.nightscout.androidaps.receivers.ReceiverStatusStore;
 import info.nightscout.androidaps.utils.resources.ResourceHelper;
 import info.nightscout.androidaps.utils.sharedPreferences.SP;
 
@@ -24,36 +23,16 @@ class NsClientReceiverDelegate {
     private RxBusWrapper rxBus;
     private ResourceHelper resourceHelper;
     private SP sp;
-    private ReceiverStatusStore receiverStatusStore;
 
     @Inject
     public NsClientReceiverDelegate(
             RxBusWrapper rxBus,
             ResourceHelper resourceHelper,
-            SP sp,
-            ReceiverStatusStore receiverStatusStore
+            SP sp
     ) {
         this.rxBus = rxBus;
         this.resourceHelper = resourceHelper;
         this.sp = sp;
-        this.receiverStatusStore = receiverStatusStore;
-    }
-
-    void grabReceiversState() {
-
-        receiverStatusStore.updateNetworkStatus();
-    }
-
-    void onStatusEvent(EventPreferenceChange ev) {
-        if (ev.isChanged(resourceHelper, R.string.key_ns_wifionly) ||
-                ev.isChanged(resourceHelper, R.string.key_ns_wifi_ssids) ||
-                ev.isChanged(resourceHelper, R.string.key_ns_allowroaming)
-        ) {
-            receiverStatusStore.updateNetworkStatus();
-            onStatusEvent(receiverStatusStore.getLastNetworkEvent());
-        } else if (ev.isChanged(resourceHelper, R.string.key_ns_chargingonly)) {
-            receiverStatusStore.broadcastChargingState();
-        }
     }
 
     void onStatusEvent(final EventChargingState ev) {
@@ -78,7 +57,7 @@ class NsClientReceiverDelegate {
         boolean newAllowedState = allowedChargingState && allowedNetworkState;
         if (newAllowedState != allowed) {
             allowed = newAllowedState;
-            rxBus.send(new EventPreferenceChange(resourceHelper.gs(R.string.key_nsclientinternal_paused)));
+            rxBus.send(new EventPreferenceChange(resourceHelper.gs(R.string.key_nsclient_paused)));
         }
     }
 

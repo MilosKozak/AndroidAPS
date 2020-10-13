@@ -16,15 +16,17 @@ import info.nightscout.androidaps.events.EventPumpStatusChanged
 import info.nightscout.androidaps.plugins.bus.RxBusWrapper
 import info.nightscout.androidaps.plugins.general.nsclient.events.EventNSClientStatus
 import info.nightscout.androidaps.plugins.profile.local.LocalProfilePlugin
+import info.nightscout.androidaps.plugins.pump.common.events.EventRileyLinkDeviceStatusChange
 import info.nightscout.androidaps.setupwizard.elements.SWItem
 import info.nightscout.androidaps.setupwizard.events.EventSWUpdate
 import info.nightscout.androidaps.utils.AndroidPermission
 import info.nightscout.androidaps.utils.FabricPrivacy
-import info.nightscout.androidaps.utils.locale.LocaleHelper.update
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog.show
 import info.nightscout.androidaps.utils.alertDialogs.OKDialog.showConfirmation
+import info.nightscout.androidaps.utils.locale.LocaleHelper.update
 import info.nightscout.androidaps.utils.resources.ResourceHelper
 import info.nightscout.androidaps.utils.sharedPreferences.SP
+import info.nightscout.androidaps.utils.rx.AapsSchedulers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_setupwizard.*
@@ -41,6 +43,7 @@ class SetupWizardActivity : NoSplashAppCompatActivity() {
     @Inject lateinit var resourceHelper: ResourceHelper
     @Inject lateinit var sp: SP
     @Inject lateinit var fabricPrivacy: FabricPrivacy
+    @Inject lateinit var aapsSchedulers: AapsSchedulers
 
     private val disposable = CompositeDisposable()
     private lateinit var screens: List<SWScreen>
@@ -78,32 +81,38 @@ class SetupWizardActivity : NoSplashAppCompatActivity() {
         swDefinition.activity = this
         disposable.add(rxBus
             .toObservable(EventPumpStatusChanged::class.java)
+            .observeOn(aapsSchedulers.main)
+            .subscribe({ updateButtons() }) { fabricPrivacy.logException(it) }
+        )
+        disposable.add(rxBus
+            .toObservable(EventRileyLinkDeviceStatusChange::class.java)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ updateButtons() }) { fabricPrivacy.logException(it) }
         )
         disposable.add(rxBus
             .toObservable(EventNSClientStatus::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateButtons() }) { fabricPrivacy.logException(it) }
         )
         disposable.add(rxBus
             .toObservable(EventProfileNeedsUpdate::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateButtons() }) { fabricPrivacy.logException(it) }
         )
         disposable.add(rxBus
             .toObservable(EventProfileStoreChanged::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ updateButtons() }) { fabricPrivacy.logException(it) }
         )
         disposable.add(rxBus
             .toObservable(EventSWUpdate::class.java)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(aapsSchedulers.main)
             .subscribe({ event: EventSWUpdate ->
                 if (event.redraw) generateLayout()
                 updateButtons()
             }) { fabricPrivacy.logException(it) }
         )
+        updateButtons()
     }
 
     private fun generateLayout() {
@@ -172,7 +181,7 @@ class SetupWizardActivity : NoSplashAppCompatActivity() {
         finish()
     }
 
-    @Suppress("UNUSED_PARAMETER","SameParameterValue")
+    @Suppress("UNUSED_PARAMETER", "SameParameterValue")
     private fun nextPage(view: View?): Int {
         var page = currentWizardPage + 1
         while (page < screens.size) {
@@ -182,7 +191,7 @@ class SetupWizardActivity : NoSplashAppCompatActivity() {
         return min(currentWizardPage, screens.size - 1)
     }
 
-    @Suppress("UNUSED_PARAMETER","SameParameterValue")
+    @Suppress("UNUSED_PARAMETER", "SameParameterValue")
     private fun previousPage(view: View?): Int {
         var page = currentWizardPage - 1
         while (page >= 0) {
