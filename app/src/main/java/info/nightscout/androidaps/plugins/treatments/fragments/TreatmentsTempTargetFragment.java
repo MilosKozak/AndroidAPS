@@ -1,51 +1,48 @@
 package info.nightscout.androidaps.plugins.treatments.fragments;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.squareup.otto.Subscribe;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
-import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
-import info.nightscout.androidaps.services.Intents;
 import info.nightscout.androidaps.data.Intervals;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.db.TempTarget;
 import info.nightscout.androidaps.events.EventTempTargetChange;
-import info.nightscout.androidaps.plugins.common.SubscriberFragment;
+import info.nightscout.androidaps.plugins.bus.RxBus;
+import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
+import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
 import info.nightscout.androidaps.plugins.general.nsclient.UploadQueue;
+import info.nightscout.androidaps.plugins.general.nsclient.events.EventNSClientRestart;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DecimalFormatter;
-import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
+import info.nightscout.androidaps.utils.FabricPrivacy;
+import info.nightscout.androidaps.utils.OKDialog;
 import info.nightscout.androidaps.utils.SP;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 
 /**
  * Created by mike on 13/01/17.
  */
 
-public class TreatmentsTempTargetFragment extends SubscriberFragment implements View.OnClickListener {
+public class TreatmentsTempTargetFragment extends Fragment {
+    private CompositeDisposable disposable = new CompositeDisposable();
 
-    RecyclerView recyclerView;
-    LinearLayoutManager llm;
-    Button refreshFromNS;
-
-    Context context;
+    private RecyclerView recyclerView;
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.TempTargetsViewHolder> {
 
@@ -57,16 +54,16 @@ public class TreatmentsTempTargetFragment extends SubscriberFragment implements 
             currentlyActiveTarget = tempTargetList.getValueByInterval(System.currentTimeMillis());
         }
 
+        @NonNull
         @Override
         public TempTargetsViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.treatments_temptarget_item, viewGroup, false);
-            TempTargetsViewHolder TempTargetsViewHolder = new TempTargetsViewHolder(v);
-            return TempTargetsViewHolder;
+            return new TempTargetsViewHolder(v);
         }
 
         @Override
         public void onBindViewHolder(TempTargetsViewHolder holder, int position) {
-            String units = ProfileFunctions.getInstance().getProfileUnits();
+            String units = ProfileFunctions.getSystemUnits();
             TempTarget tempTarget = tempTargetList.getReversed(position);
             holder.ph.setVisibility(tempTarget.source == Source.PUMP ? View.VISIBLE : View.GONE);
             holder.ns.setVisibility(NSUpload.isIdValid(tempTarget._id) ? View.VISIBLE : View.GONE);
@@ -101,11 +98,11 @@ public class TreatmentsTempTargetFragment extends SubscriberFragment implements 
         }
 
         @Override
-        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
             super.onAttachedToRecyclerView(recyclerView);
         }
 
-        public class TempTargetsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        class TempTargetsViewHolder extends RecyclerView.ViewHolder {
             CardView cv;
             TextView date;
             TextView duration;
@@ -120,31 +117,23 @@ public class TreatmentsTempTargetFragment extends SubscriberFragment implements 
 
             TempTargetsViewHolder(View itemView) {
                 super(itemView);
-                cv = (CardView) itemView.findViewById(R.id.temptargetrange_cardview);
-                date = (TextView) itemView.findViewById(R.id.temptargetrange_date);
-                duration = (TextView) itemView.findViewById(R.id.temptargetrange_duration);
-                low = (TextView) itemView.findViewById(R.id.temptargetrange_low);
-                high = (TextView) itemView.findViewById(R.id.temptargetrange_high);
-                reason = (TextView) itemView.findViewById(R.id.temptargetrange_reason);
-                reasonLabel = (TextView) itemView.findViewById(R.id.temptargetrange_reason_label);
-                reasonColon = (TextView) itemView.findViewById(R.id.temptargetrange_reason_colon);
-                ph = (TextView) itemView.findViewById(R.id.pump_sign);
-                ns = (TextView) itemView.findViewById(R.id.ns_sign);
-                remove = (TextView) itemView.findViewById(R.id.temptargetrange_remove);
-                remove.setOnClickListener(this);
-                remove.setPaintFlags(remove.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            }
-
-            @Override
-            public void onClick(View v) {
-                final TempTarget tempTarget = (TempTarget) v.getTag();
-                switch (v.getId()) {
-                    case R.id.temptargetrange_remove:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setTitle(MainApp.gs(R.string.confirmation));
-                        builder.setMessage(MainApp.gs(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(tempTarget.date));
-                        builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
+                cv = itemView.findViewById(R.id.temptargetrange_cardview);
+                date = itemView.findViewById(R.id.temptargetrange_date);
+                duration = itemView.findViewById(R.id.temptargetrange_duration);
+                low = itemView.findViewById(R.id.temptargetrange_low);
+                high = itemView.findViewById(R.id.temptargetrange_high);
+                reason = itemView.findViewById(R.id.temptargetrange_reason);
+                reasonLabel = itemView.findViewById(R.id.temptargetrange_reason_label);
+                reasonColon = itemView.findViewById(R.id.temptargetrange_reason_colon);
+                ph = itemView.findViewById(R.id.pump_sign);
+                ns = itemView.findViewById(R.id.ns_sign);
+                remove = itemView.findViewById(R.id.temptargetrange_remove);
+                remove.setOnClickListener(v -> {
+                    final TempTarget tempTarget = (TempTarget) v.getTag();
+                    OKDialog.showConfirmation(getContext(), MainApp.gs(R.string.removerecord),
+                            MainApp.gs(R.string.careportal_temporarytarget) + ": " + tempTarget.friendlyDescription(ProfileFunctions.getSystemUnits()) +
+                                    "\n" + DateUtil.dateAndTimeString(tempTarget.date),
+                            (dialog, id) -> {
                                 final String _id = tempTarget._id;
                                 if (NSUpload.isIdValid(_id)) {
                                     NSUpload.removeCareportalEntryFromNS(_id);
@@ -152,12 +141,9 @@ public class TreatmentsTempTargetFragment extends SubscriberFragment implements 
                                     UploadQueue.removeID("dbAdd", _id);
                                 }
                                 MainApp.getDbHelper().delete(tempTarget);
-                            }
-                        });
-                        builder.setNegativeButton(MainApp.gs(R.string.cancel), null);
-                        builder.show();
-                        break;
-                }
+                            }, null);
+                });
+                remove.setPaintFlags(remove.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             }
         }
     }
@@ -167,62 +153,46 @@ public class TreatmentsTempTargetFragment extends SubscriberFragment implements 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.treatments_temptarget_fragment, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.temptargetrange_recyclerview);
+        recyclerView = view.findViewById(R.id.temptargetrange_recyclerview);
         recyclerView.setHasFixedSize(true);
-        llm = new LinearLayoutManager(view.getContext());
+        LinearLayoutManager llm = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(llm);
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getTempTargetsFromHistory());
         recyclerView.setAdapter(adapter);
 
-        refreshFromNS = (Button) view.findViewById(R.id.temptargetrange_refreshfromnightscout);
-        refreshFromNS.setOnClickListener(this);
+        Button refreshFromNS = view.findViewById(R.id.temptargetrange_refreshfromnightscout);
+        refreshFromNS.setOnClickListener(v ->
+                OKDialog.showConfirmation(getContext(), MainApp.gs(R.string.refresheventsfromnightscout) + " ?", () -> {
+                    MainApp.getDbHelper().resetTempTargets();
+                    RxBus.INSTANCE.send(new EventNSClientRestart());
+                }));
 
-        context = getContext();
-
-        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, false);
+        boolean nsUploadOnly = SP.getBoolean(R.string.key_ns_upload_only, true);
         if (nsUploadOnly)
             refreshFromNS.setVisibility(View.GONE);
 
-        updateGUI();
         return view;
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.temptargetrange_refreshfromnightscout:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
-                builder.setTitle(MainApp.gs(R.string.confirmation));
-                builder.setMessage(MainApp.gs(R.string.refresheventsfromnightscout) + " ?");
-                builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        MainApp.getDbHelper().resetTempTargets();
-                        Intent restartNSClient = new Intent(Intents.ACTION_RESTART);
-                        MainApp.instance().getApplicationContext().sendBroadcast(restartNSClient);
-                    }
-                });
-                builder.setNegativeButton(MainApp.gs(R.string.cancel), null);
-                builder.show();
-                break;
-        }
-
-    }
-
-    @Subscribe
-    public void onStatusEvent(final EventTempTargetChange ev) {
-        updateGUI();
+    public synchronized void onResume() {
+        super.onResume();
+        disposable.add(RxBus.INSTANCE
+                .toObservable(EventTempTargetChange.class)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(event -> updateGui(), FabricPrivacy::logException)
+        );
+        updateGui();
     }
 
     @Override
-    protected void updateGUI() {
-        Activity activity = getActivity();
-        if (activity != null)
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    recyclerView.swapAdapter(new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getTempTargetsFromHistory()), false);
-                }
-            });
+    public synchronized void onPause() {
+        super.onPause();
+        disposable.clear();
+    }
+
+    private void updateGui() {
+        recyclerView.swapAdapter(new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getTempTargetsFromHistory()), false);
     }
 }

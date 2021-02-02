@@ -1,6 +1,6 @@
 package info.nightscout.androidaps.plugins.sensitivity;
 
-import android.support.v4.util.LongSparseArray;
+import androidx.collection.LongSparseArray;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -164,7 +164,7 @@ public class SensitivityWeightedAveragePlugin extends AbstractSensitivityPlugin 
             return new AutosensResult();
         }
 
-        double sens = profile.getIsf();
+        double sens = profile.getIsfMgdl();
 
         String ratioLimit = "";
         String sensResult;
@@ -173,7 +173,7 @@ public class SensitivityWeightedAveragePlugin extends AbstractSensitivityPlugin 
             log.debug("Records: " + index + "   " + pastSensitivity);
 
         double average = weightedsum / weights;
-        double basalOff = average * (60 / 5) / Profile.toMgdl(sens, profile.getUnits());
+        double basalOff = average * (60 / 5.0) / sens;
         double ratio = 1 + (basalOff / profile.getMaxDailyBasal());
 
         if (average < 0) { // sensitive

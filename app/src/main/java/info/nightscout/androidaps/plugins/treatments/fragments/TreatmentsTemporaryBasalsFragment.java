@@ -1,21 +1,18 @@
 package info.nightscout.androidaps.plugins.treatments.fragments;
 
-import android.app.Activity;
-import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.squareup.otto.Subscribe;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
@@ -25,7 +22,7 @@ import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.events.EventTempBasalChange;
-import info.nightscout.androidaps.plugins.common.SubscriberFragment;
+import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.configBuilder.ProfileFunctions;
 import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
 import info.nightscout.androidaps.plugins.general.nsclient.UploadQueue;
@@ -33,15 +30,18 @@ import info.nightscout.androidaps.plugins.iob.iobCobCalculator.events.EventAutos
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DecimalFormatter;
+import info.nightscout.androidaps.utils.FabricPrivacy;
+import info.nightscout.androidaps.utils.OKDialog;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 
 
-public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
-    RecyclerView recyclerView;
-    LinearLayoutManager llm;
+public class TreatmentsTemporaryBasalsFragment extends Fragment {
+    private CompositeDisposable disposable = new CompositeDisposable();
 
-    TextView tempBasalTotalView;
+    private RecyclerView recyclerView;
 
-    Context context;
+    private TextView tempBasalTotalView;
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.TempBasalsViewHolder> {
 
@@ -51,6 +51,7 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
             this.tempBasalList = tempBasalList;
         }
 
+        @NonNull
         @Override
         public TempBasalsViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.treatments_tempbasals_item, viewGroup, false);
@@ -119,11 +120,11 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
         }
 
         @Override
-        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
             super.onAttachedToRecyclerView(recyclerView);
         }
 
-        public class TempBasalsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        class TempBasalsViewHolder extends RecyclerView.ViewHolder {
             CardView cv;
             TextView date;
             TextView duration;
@@ -140,45 +141,37 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
 
             TempBasalsViewHolder(View itemView) {
                 super(itemView);
-                cv = (CardView) itemView.findViewById(R.id.tempbasals_cardview);
-                date = (TextView) itemView.findViewById(R.id.tempbasals_date);
-                duration = (TextView) itemView.findViewById(R.id.tempbasals_duration);
-                absolute = (TextView) itemView.findViewById(R.id.tempbasals_absolute);
-                percent = (TextView) itemView.findViewById(R.id.tempbasals_percent);
-                realDuration = (TextView) itemView.findViewById(R.id.tempbasals_realduration);
-                netRatio = (TextView) itemView.findViewById(R.id.tempbasals_netratio);
-                netInsulin = (TextView) itemView.findViewById(R.id.tempbasals_netinsulin);
-                iob = (TextView) itemView.findViewById(R.id.tempbasals_iob);
-                extendedFlag = (TextView) itemView.findViewById(R.id.tempbasals_extendedflag);
-                ph = (TextView) itemView.findViewById(R.id.pump_sign);
-                ns = (TextView) itemView.findViewById(R.id.ns_sign);
-                remove = (TextView) itemView.findViewById(R.id.tempbasals_remove);
-                remove.setOnClickListener(this);
+                cv = itemView.findViewById(R.id.tempbasals_cardview);
+                date = itemView.findViewById(R.id.tempbasals_date);
+                duration = itemView.findViewById(R.id.tempbasals_duration);
+                absolute = itemView.findViewById(R.id.tempbasals_absolute);
+                percent = itemView.findViewById(R.id.tempbasals_percent);
+                realDuration = itemView.findViewById(R.id.tempbasals_realduration);
+                netRatio = itemView.findViewById(R.id.tempbasals_netratio);
+                netInsulin = itemView.findViewById(R.id.tempbasals_netinsulin);
+                iob = itemView.findViewById(R.id.tempbasals_iob);
+                extendedFlag = itemView.findViewById(R.id.tempbasals_extendedflag);
+                ph = itemView.findViewById(R.id.pump_sign);
+                ns = itemView.findViewById(R.id.ns_sign);
+                remove = itemView.findViewById(R.id.tempbasals_remove);
+                remove.setOnClickListener(v -> {
+                    final TemporaryBasal tempBasal = (TemporaryBasal) v.getTag();
+                    OKDialog.showConfirmation(getContext(), MainApp.gs(R.string.removerecord),
+                            MainApp.gs(R.string.pump_tempbasal_label) + ": " + tempBasal.toStringFull() +
+                                    "\n" + MainApp.gs(R.string.date) + ": " + DateUtil.dateAndTimeString(tempBasal.date),
+                            ((dialog, id) -> {
+                                final String _id = tempBasal._id;
+                                if (NSUpload.isIdValid(_id)) {
+                                    NSUpload.removeCareportalEntryFromNS(_id);
+                                } else {
+                                    UploadQueue.removeID("dbAdd", _id);
+                                }
+                                MainApp.getDbHelper().delete(tempBasal);
+                            }), null);
+                });
                 remove.setPaintFlags(remove.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             }
 
-            @Override
-            public void onClick(View v) {
-                final TemporaryBasal tempBasal = (TemporaryBasal) v.getTag();
-                switch (v.getId()) {
-                    case R.id.tempbasals_remove:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setTitle(MainApp.gs(R.string.confirmation));
-                        builder.setMessage(MainApp.gs(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(tempBasal.date));
-                        builder.setPositiveButton(MainApp.gs(R.string.ok), (dialog, id) -> {
-                            final String _id = tempBasal._id;
-                            if (NSUpload.isIdValid(_id)) {
-                                NSUpload.removeCareportalEntryFromNS(_id);
-                            } else {
-                                UploadQueue.removeID("dbAdd", _id);
-                            }
-                            MainApp.getDbHelper().delete(tempBasal);
-                        });
-                        builder.setNegativeButton(MainApp.gs(R.string.cancel), null);
-                        builder.show();
-                        break;
-                }
-            }
         }
     }
 
@@ -187,42 +180,46 @@ public class TreatmentsTemporaryBasalsFragment extends SubscriberFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.treatments_tempbasals_fragment, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.tempbasals_recyclerview);
+        recyclerView = view.findViewById(R.id.tempbasals_recyclerview);
         recyclerView.setHasFixedSize(true);
-        llm = new LinearLayoutManager(view.getContext());
+        LinearLayoutManager llm = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(llm);
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getTemporaryBasalsFromHistory());
         recyclerView.setAdapter(adapter);
 
-        tempBasalTotalView = (TextView) view.findViewById(R.id.tempbasals_totaltempiob);
+        tempBasalTotalView = view.findViewById(R.id.tempbasals_totaltempiob);
 
-        context = getContext();
-
-        updateGUI();
         return view;
     }
 
-    @Subscribe
-    public void onStatusEvent(final EventTempBasalChange ignored) {
-        updateGUI();
-    }
-
-    @Subscribe
-    public void onStatusEvent(final EventAutosensCalculationFinished ignored) {
-        updateGUI();
+    @Override
+    public synchronized void onResume() {
+        super.onResume();
+        disposable.add(RxBus.INSTANCE
+                .toObservable(EventTempBasalChange.class)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(event -> updateGui(), FabricPrivacy::logException)
+        );
+        disposable.add(RxBus.INSTANCE
+                .toObservable(EventAutosensCalculationFinished.class)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(event -> updateGui(), FabricPrivacy::logException)
+        );
+        updateGui();
     }
 
     @Override
-    protected void updateGUI() {
-        Activity activity = getActivity();
-        if (activity != null)
-            activity.runOnUiThread(() -> {
-                recyclerView.swapAdapter(new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getTemporaryBasalsFromHistory()), false);
-                IobTotal tempBasalsCalculation = TreatmentsPlugin.getPlugin().getLastCalculationTempBasals();
-                if (tempBasalsCalculation != null)
-                    tempBasalTotalView.setText(DecimalFormatter.to2Decimal(tempBasalsCalculation.basaliob, " U"));
-            });
+    public synchronized void onPause() {
+        super.onPause();
+        disposable.clear();
+    }
+
+    private void updateGui() {
+        recyclerView.swapAdapter(new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getTemporaryBasalsFromHistory()), false);
+        IobTotal tempBasalsCalculation = TreatmentsPlugin.getPlugin().getLastCalculationTempBasals();
+        if (tempBasalsCalculation != null)
+            tempBasalTotalView.setText(DecimalFormatter.to2Decimal(tempBasalsCalculation.basaliob, " U"));
     }
 
 }

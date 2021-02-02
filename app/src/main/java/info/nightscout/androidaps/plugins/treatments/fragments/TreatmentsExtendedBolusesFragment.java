@@ -1,21 +1,18 @@
 package info.nightscout.androidaps.plugins.treatments.fragments;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.squareup.otto.Subscribe;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import info.nightscout.androidaps.MainApp;
 import info.nightscout.androidaps.R;
@@ -24,20 +21,23 @@ import info.nightscout.androidaps.data.IobTotal;
 import info.nightscout.androidaps.db.ExtendedBolus;
 import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.events.EventExtendedBolusChange;
-import info.nightscout.androidaps.plugins.common.SubscriberFragment;
+import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.general.nsclient.NSUpload;
 import info.nightscout.androidaps.plugins.general.nsclient.UploadQueue;
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.events.EventAutosensCalculationFinished;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
 import info.nightscout.androidaps.utils.DateUtil;
 import info.nightscout.androidaps.utils.DecimalFormatter;
+import info.nightscout.androidaps.utils.FabricPrivacy;
+import info.nightscout.androidaps.utils.OKDialog;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 
 
-public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
-    RecyclerView recyclerView;
-    LinearLayoutManager llm;
+public class TreatmentsExtendedBolusesFragment extends Fragment {
+    private CompositeDisposable disposable = new CompositeDisposable();
 
-    Context context;
+    private RecyclerView recyclerView;
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ExtendedBolusesViewHolder> {
 
@@ -47,6 +47,7 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
             this.extendedBolusList = extendedBolusList;
         }
 
+        @NonNull
         @Override
         public ExtendedBolusesViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.treatments_extendedbolus_item, viewGroup, false);
@@ -97,11 +98,11 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
         }
 
         @Override
-        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
             super.onAttachedToRecyclerView(recyclerView);
         }
 
-        public class ExtendedBolusesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        class ExtendedBolusesViewHolder extends RecyclerView.ViewHolder {
             CardView cv;
             TextView date;
             TextView duration;
@@ -116,31 +117,22 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
 
             ExtendedBolusesViewHolder(View itemView) {
                 super(itemView);
-                cv = (CardView) itemView.findViewById(R.id.extendedboluses_cardview);
-                date = (TextView) itemView.findViewById(R.id.extendedboluses_date);
-                duration = (TextView) itemView.findViewById(R.id.extendedboluses_duration);
-                insulin = (TextView) itemView.findViewById(R.id.extendedboluses_insulin);
-                realDuration = (TextView) itemView.findViewById(R.id.extendedboluses_realduration);
-                ratio = (TextView) itemView.findViewById(R.id.extendedboluses_ratio);
-                insulinSoFar = (TextView) itemView.findViewById(R.id.extendedboluses_netinsulin);
-                iob = (TextView) itemView.findViewById(R.id.extendedboluses_iob);
-                ph = (TextView) itemView.findViewById(R.id.pump_sign);
-                ns = (TextView) itemView.findViewById(R.id.ns_sign);
-                remove = (TextView) itemView.findViewById(R.id.extendedboluses_remove);
-                remove.setOnClickListener(this);
-                remove.setPaintFlags(remove.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            }
-
-            @Override
-            public void onClick(View v) {
-                final ExtendedBolus extendedBolus = (ExtendedBolus) v.getTag();
-                switch (v.getId()) {
-                    case R.id.extendedboluses_remove:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setTitle(MainApp.gs(R.string.confirmation));
-                        builder.setMessage(MainApp.gs(R.string.removerecord) + "\n" + DateUtil.dateAndTimeString(extendedBolus.date));
-                        builder.setPositiveButton(MainApp.gs(R.string.ok), new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
+                cv = itemView.findViewById(R.id.extendedboluses_cardview);
+                date = itemView.findViewById(R.id.extendedboluses_date);
+                duration = itemView.findViewById(R.id.extendedboluses_duration);
+                insulin = itemView.findViewById(R.id.extendedboluses_insulin);
+                realDuration = itemView.findViewById(R.id.extendedboluses_realduration);
+                ratio = itemView.findViewById(R.id.extendedboluses_ratio);
+                insulinSoFar = itemView.findViewById(R.id.extendedboluses_netinsulin);
+                iob = itemView.findViewById(R.id.extendedboluses_iob);
+                ph = itemView.findViewById(R.id.pump_sign);
+                ns = itemView.findViewById(R.id.ns_sign);
+                remove = itemView.findViewById(R.id.extendedboluses_remove);
+                remove.setOnClickListener(v -> {
+                    final ExtendedBolus extendedBolus = (ExtendedBolus) v.getTag();
+                    OKDialog.showConfirmation(getContext(), MainApp.gs(R.string.removerecord),
+                            MainApp.gs(R.string.extended_bolus)
+                                    + "\n" + MainApp.gs(R.string.date) + ": " + DateUtil.dateAndTimeString(extendedBolus.date), (dialog, id) -> {
                                 final String _id = extendedBolus._id;
                                 if (NSUpload.isIdValid(_id)) {
                                     NSUpload.removeCareportalEntryFromNS(_id);
@@ -148,12 +140,9 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
                                     UploadQueue.removeID("dbAdd", _id);
                                 }
                                 MainApp.getDbHelper().delete(extendedBolus);
-                            }
-                        });
-                        builder.setNegativeButton(MainApp.gs(R.string.cancel), null);
-                        builder.show();
-                        break;
-                }
+                            }, null);
+                });
+                remove.setPaintFlags(remove.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             }
         }
     }
@@ -163,40 +152,40 @@ public class TreatmentsExtendedBolusesFragment extends SubscriberFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.treatments_extendedbolus_fragment, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.extendedboluses_recyclerview);
+        recyclerView = view.findViewById(R.id.extendedboluses_recyclerview);
         recyclerView.setHasFixedSize(true);
-        llm = new LinearLayoutManager(view.getContext());
+        LinearLayoutManager llm = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(llm);
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getExtendedBolusesFromHistory());
         recyclerView.setAdapter(adapter);
 
-        context = getContext();
-
-        updateGUI();
         return view;
     }
 
-    @Subscribe
-    public void onStatusEvent(final EventExtendedBolusChange ev) {
-        updateGUI();
-    }
-
-    @Subscribe
-    public void onStatusEvent(final EventAutosensCalculationFinished ev) {
-        updateGUI();
+    @Override
+    public synchronized void onResume() {
+        super.onResume();
+        disposable.add(RxBus.INSTANCE
+                .toObservable(EventExtendedBolusChange.class)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(event -> updateGui(), FabricPrivacy::logException)
+        );
+        disposable.add(RxBus.INSTANCE
+                .toObservable(EventAutosensCalculationFinished.class)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(event -> updateGui(), FabricPrivacy::logException)
+        );
+        updateGui();
     }
 
     @Override
-    protected void updateGUI() {
-        Activity activity = getActivity();
-        if (activity != null && recyclerView != null)
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    recyclerView.swapAdapter(new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getExtendedBolusesFromHistory()), false);
-                }
-            });
+    public synchronized void onPause() {
+        super.onPause();
+        disposable.clear();
     }
 
+    private void updateGui() {
+        recyclerView.swapAdapter(new RecyclerViewAdapter(TreatmentsPlugin.getPlugin().getExtendedBolusesFromHistory()), false);
+    }
 }
