@@ -11,10 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import app.aaps.core.ui.compose.banner.ErrorBanner
 import app.aaps.core.ui.compose.pump.WizardButton
-import app.aaps.core.ui.compose.pump.WizardErrorBanner
 import app.aaps.core.ui.compose.pump.WizardStepLayout
 import app.aaps.pump.equil.R
 import app.aaps.pump.equil.compose.EquilUiConstants
@@ -39,9 +38,13 @@ internal fun ChangeInsulinStep(
     )
 }
 
+/**
+ * @see ChangeInsulinStepPreview
+ * @see ChangeInsulinStepLoadingPreview
+ */
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-private fun ChangeInsulinStepContent(
+internal fun ChangeInsulinStepContent(
     isLoading: Boolean,
     errorMessage: String?,
     @DrawableRes imageRes: Int,
@@ -73,31 +76,7 @@ private fun ChangeInsulinStepContent(
             contentScale = ContentScale.Fit
         )
         if (errorMessage != null) {
-            WizardErrorBanner(message = errorMessage)
+            ErrorBanner(message = errorMessage)
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun ChangeInsulinStepPreview() {
-    ChangeInsulinStepContent(
-        isLoading = false,
-        errorMessage = null,
-        imageRes = R.drawable.equil_animation_wizard_detach,
-        onNext = {},
-        onCancel = {}
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun ChangeInsulinStepLoadingPreview() {
-    ChangeInsulinStepContent(
-        isLoading = true,
-        errorMessage = null,
-        imageRes = R.drawable.equil_animation_wizard_detach,
-        onNext = {},
-        onCancel = {}
-    )
 }

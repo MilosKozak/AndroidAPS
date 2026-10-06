@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="eopatch">EOPatch2</string>
-    <string name="eopatch_shortname">EOP2</string>
     <string name="eopatch_pump_description">Integracja z pompą EOPatch2 / GlucoMen Day</string>
     <string name="low_reservoir">Alarmy niskiego poziomu zbiornika</string>
     <string name="patch_expiration_reminders">Przypomnienie o wygaśnięciu Patcha</string>
@@ -12,7 +11,6 @@
     <string name="eopatch_base_basal_rate">Podstawowa dawka bazowa</string>
     <string name="eopatch_temp_basal_rate">Tymczasowa dawka bazowa</string>
     <string name="invalid_basal_rate">Dawka bazowa w profilu jest mniejsza niż 0,05 U/godz. Minimalna pojemność iniekcji na pompie EOPatch wynosi 0.05 U. Skoryguj profil używając dawek bazy większych niż minimalne możliwe do wstrzyknięcia i spróbuj ponownie.</string>
-    <string name="no_profile_selected">Nie wybrano profilu. Wybierz profil i spróbuj ponownie.</string>
     <string name="symbol_day">dzień</string>
     <string name="symbol_plus">+</string>
     <string name="symbol_minus">-</string>
@@ -81,5 +79,4 @@
     <string name="string_resumed_insulin_delivery_message">Podawanie insuliny zostało wznowione.</string>
     <string name="string_temp_basal_remained_hhmm">pozostały czas: %1$s:%2$s</string>
     <string name="string_resume_failed">Wznowienie nie powiodło się.</string>
-    <!-- Permission rationales -->
 </resources>

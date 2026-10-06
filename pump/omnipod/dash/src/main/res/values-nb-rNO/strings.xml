@@ -22,13 +22,16 @@
     <string name="omnipod_dash_unknown">Ukjent tilstand for kommandoen</string>
     <string name="omnipod_common_history_tbr_value">%1$.2f E/t, %2$d minutter</string>
     <string name="omnipod_common_history_bolus_value">%1$.2f E</string>
+    <string name="omnipod_common_history_bolus_value_labeled" comment="%1$s=already formatted bolus amount with unit (see omnipod_common_history_bolus_value), %2$s=bolus type label. Example: 0.05 U (Basal correction)">%1$s (%2$s)</string>
+    <string name="omnipod_common_bolus_type_smb">SMB</string>
+    <string name="omnipod_common_bolus_type_basal_correction">Basalkorreksjon</string>
+    <string name="omnipod_common_bolus_type_priming">Priming</string>
     <string name="omnipod_common_alert_delivery_suspended">Insulinlevering er pauset</string>
     <string name="omnipod_common_history_total_delivered">Totalt levert: %1$.2f E</string>
     <string name="omnipod_dash_bolus_already_in_progress">En annen bolus holder på å leveres</string>
     <string name="omnipod_dash_not_enough_insulin">Ikke nok insulin igjen i reservoaret</string>
     <string name="unconfirmed_command" comment="26 characters max for translation">Kommando er ikke bekreftet</string>
     <string name="requested_by_user" comment="26 characters max for translation">Forespurt av bruker</string>
-    <string name="profile_set_ok">Profilen ble angitt</string>
     <string name="suspend_delivery_is_unconfirmed">Pausing av insulinlevering ble ikke bekreftet! Vennligst oppdater Podstatus fra Omnipod-fanen og gjenoppta insulinlevering om nødvendig.</string>
     <string name="insulin_delivery_suspended">Insulinlevering er pauset</string>
     <string name="timezone_on_pod_is_different_from_the_timezone">Tidssone på pod er forskjellig fra tidssonen på telefon. Basaldoser er feil. Bytt profil for å korrigere</string>

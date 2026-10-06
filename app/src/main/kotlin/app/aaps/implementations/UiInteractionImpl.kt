@@ -2,226 +2,141 @@ package app.aaps.implementations
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import androidx.annotation.RawRes
-import androidx.annotation.StringRes
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import app.aaps.MainActivity
-import app.aaps.activities.HistoryBrowseActivity
-import app.aaps.activities.MyPreferenceFragment
-import app.aaps.activities.PreferencesActivity
-import app.aaps.core.data.model.ICfg
-import app.aaps.core.interfaces.protection.ProtectionCheck
-import app.aaps.core.interfaces.rx.bus.RxBus
+import android.os.Looper
+import android.widget.Toast
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ProcessLifecycleOwner
+import app.aaps.ComposeMainActivity
+import app.aaps.core.data.model.TE
+import app.aaps.core.data.ue.Action
+import app.aaps.core.data.ue.Sources
+import app.aaps.core.data.ue.ValueWithUnit
+import app.aaps.core.interfaces.configuration.Config
+import app.aaps.core.interfaces.db.PersistenceLayer
+import app.aaps.core.interfaces.di.ApplicationScope
+import app.aaps.core.interfaces.logging.AAPSLogger
+import app.aaps.core.interfaces.logging.LTag
+import app.aaps.core.interfaces.notifications.AlarmIntent
+import app.aaps.core.interfaces.notifications.AlarmSound
+import app.aaps.core.interfaces.notifications.NotificationManager
 import app.aaps.core.interfaces.ui.UiInteraction
-import app.aaps.core.keys.interfaces.Preferences
-import app.aaps.core.objects.extensions.toJson
-import app.aaps.plugins.configuration.activities.SingleFragmentActivity
+import app.aaps.core.objects.extensions.asAnnouncement
+import app.aaps.implementation.androidNotification.AlarmNotificationManager
 import app.aaps.ui.activities.ErrorActivity
-import app.aaps.ui.activities.ProfileViewerActivity
-import app.aaps.ui.activities.QuickWizardListActivity
-import app.aaps.ui.activities.TDDStatsActivity
-import app.aaps.ui.dialogs.AlertDialogs
-import app.aaps.ui.dialogs.CalibrationDialog
-import app.aaps.ui.dialogs.CarbsDialog
-import app.aaps.ui.dialogs.CareDialog
-import app.aaps.ui.dialogs.ExtendedBolusDialog
-import app.aaps.ui.dialogs.FillDialog
-import app.aaps.ui.dialogs.InsulinDialog
-import app.aaps.ui.dialogs.LoopDialog
-import app.aaps.ui.dialogs.ProfileSwitchDialog
-import app.aaps.ui.dialogs.SiteRotationDialog
-import app.aaps.ui.dialogs.TempBasalDialog
-import app.aaps.ui.dialogs.TempTargetDialog
-import app.aaps.ui.dialogs.TreatmentDialog
-import app.aaps.ui.dialogs.WizardDialog
-import app.aaps.ui.services.AlarmSoundService
-import app.aaps.ui.services.AlarmSoundServiceHelper
-import app.aaps.ui.widget.Widget
-import dagger.Lazy
-import dagger.Reusable
-import javax.inject.Inject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import dev.zacsweers.metro.Inject
+import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.ContributesBinding
+import dev.zacsweers.metro.SingleIn
+import kotlin.reflect.KClass
 
-@Suppress("DEPRECATION")
-@Reusable
-class UiInteractionImpl @Inject constructor(
+@ContributesBinding(AppScope::class)
+@SingleIn(AppScope::class)
+@Inject
+class UiInteractionImpl(
     private val context: Context,
-    rxBus: RxBus,
-    private val alarmSoundServiceHelper: AlarmSoundServiceHelper,
-    private val protectionCheck: Lazy<ProtectionCheck>,
-    preferences: Preferences
+    private val alarmNotificationManager: AlarmNotificationManager,
+    private val notificationManager: () -> NotificationManager,
+    private val aapsLogger: AAPSLogger,
+    private val persistenceLayer: PersistenceLayer,
+    private val config: Config,
+    @ApplicationScope private val appScope: CoroutineScope
 ) : UiInteraction {
 
-    private val alertDialogs: AlertDialogs = AlertDialogs(preferences, rxBus)
+    override val mainActivity: KClass<*> = ComposeMainActivity::class
+    override val errorHelperActivity: KClass<*> = ErrorActivity::class
 
-    override val mainActivity: Class<*> = MainActivity::class.java
-    override val tddStatsActivity: Class<*> = TDDStatsActivity::class.java
-    override val historyBrowseActivity: Class<*> = HistoryBrowseActivity::class.java
-    override val errorHelperActivity: Class<*> = ErrorActivity::class.java
-    override val singleFragmentActivity: Class<*> = SingleFragmentActivity::class.java
-    override val preferencesActivity: Class<*> = PreferencesActivity::class.java
-    override val myPreferenceFragment: Class<*> = MyPreferenceFragment::class.java
-    override val quickWizardListActivity: Class<*> = QuickWizardListActivity::class.java
-
-    override val unitsEntries = arrayOf<CharSequence>("mg/dL", "mmol/L")
-    override val unitsValues = arrayOf<CharSequence>("mg/dl", "mmol")
-
-    override fun runAlarm(status: String, title: String, @RawRes soundId: Int) {
-        val i = Intent(context, errorHelperActivity)
-        i.putExtra(AlarmSoundService.SOUND_ID, soundId)
-        i.putExtra(AlarmSoundService.STATUS, status)
-        i.putExtra(AlarmSoundService.TITLE, title)
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(i)
-    }
-
-    override fun updateWidget(context: Context, from: String) {
-        Widget.updateWidget(context, from)
-    }
-
-    override fun runWizardDialog(fragmentManager: FragmentManager, carbs: Int?, name: String?) {
-        WizardDialog().also { dialog ->
-            dialog.arguments = Bundle().also { bundle ->
-                carbs?.let { bundle.putDouble("carbs_input", carbs.toDouble()) }
-                name?.let { bundle.putString("notes_input", " $name - ${carbs}g") }
+    override fun runAlarm(status: String, title: String, sound: AlarmSound?) {
+        // Persist the error as an announcement at fire time — gated by the NS-announcement
+        // preference + APS build. Done here (not in ErrorActivity) so the record is written for
+        // every alarm with the true trigger time, regardless of whether/how it is later
+        // acknowledged (phone activity, Wear mute, OS-trimmed notification, or never opened).
+        if (config.APS)
+            appScope.launch {
+                persistenceLayer.insertPumpTherapyEventIfNewByTimestamp(
+                    therapyEvent = TE.asAnnouncement(status),
+                    action = Action.CAREPORTAL,
+                    source = Sources.Aaps,
+                    note = status,
+                    listValues = listOf(ValueWithUnit.TEType(TE.Type.ANNOUNCEMENT))
+                )
             }
-        }.show(fragmentManager, "Food Item")
 
-    }
-
-    override fun runLoopDialog(fragmentManager: FragmentManager, showOkCancel: Int) {
-        LoopDialog()
-            .also { it.arguments = Bundle().also { bundle -> bundle.putInt("showOkCancel", showOkCancel) } }
-            .show(fragmentManager, "LoopDialog")
-    }
-
-    override fun runProfileSwitchDialog(fragmentManager: FragmentManager, profileName: String?, iCfg: ICfg?) {
-        ProfileSwitchDialog()
-            .also {
-                it.arguments = Bundle().also { bundle ->
-                    bundle.putString("profileName", profileName)
-                    iCfg?.let { bundle.putString("iCfg", it.toJson().toString()) }
-                }
-            }
-            .show(fragmentManager, "ProfileSwitchDialog")
-    }
-
-    override fun runTempBasalDialog(fragmentManager: FragmentManager) {
-        TempBasalDialog()
-            .show(fragmentManager, "TempBasalDialog")
-    }
-
-    override fun runTreatmentDialog(fragmentManager: FragmentManager) {
-        TreatmentDialog()
-            .show(fragmentManager, "TreatmentDialog")
-    }
-
-    override fun runInsulinDialog(fragmentManager: FragmentManager) {
-        InsulinDialog()
-            .show(fragmentManager, "InsulinDialog")
-    }
-
-    override fun runCalibrationDialog(fragmentManager: FragmentManager) {
-        CalibrationDialog()
-            .show(fragmentManager, "CalibrationDialog")
-    }
-
-    override fun runCarbsDialog(fragmentManager: FragmentManager) {
-        CarbsDialog()
-            .show(fragmentManager, "CarbsDialog")
-    }
-
-    override fun runTempTargetDialog(fragmentManager: FragmentManager) {
-        TempTargetDialog()
-            .show(fragmentManager, "TempTargetDialog")
-    }
-
-    override fun runExtendedBolusDialog(fragmentManager: FragmentManager) {
-        ExtendedBolusDialog()
-            .show(fragmentManager, "ExtendedBolusDialog")
-    }
-
-    override fun runFillDialog(fragmentManager: FragmentManager) {
-        FillDialog(fragmentManager)
-            .show(fragmentManager, "FillDialog")
-    }
-
-    override fun runSiteRotationDialog(fragmentManager: FragmentManager) {
-        SiteRotationDialog()
-            .show(fragmentManager, "SiteRotationDialog")
-    }
-
-    override fun runProfileViewerActivity(context: Context, time: Long, mode: UiInteraction.Mode, customProfile: String?, customProfileName: String?, customProfile2: String?) {
-        val intent = Intent(context, ProfileViewerActivity::class.java).apply {
-            putExtra("time", time)
-            putExtra("mode", mode.ordinal)
-            putExtra("customProfile", customProfile)
-            putExtra("customProfileName", customProfileName)
-            putExtra("customProfile2", customProfile2)
+        // ProcessLifecycleOwner.currentState requires main-thread access (officially @MainThread).
+        // BLE callbacks, RxJava workers, and coroutine non-main dispatchers all call runAlarm
+        // from non-main threads. From those contexts we skip the foreground-direct optimization
+        // entirely and use the FSI path, which is safe from any thread.
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            aapsLogger.debug(LTag.CORE, "runAlarm (off-main → FSI): $title - $status (sound=$sound)")
+            alarmNotificationManager.postFullScreenAlarm(status = status, title = title, sound = sound)
+            return
         }
-        context.startActivity(intent)
-    }
 
-    override fun runCareDialog(fragmentManager: FragmentManager, options: UiInteraction.EventType, @StringRes event: Int) {
-        CareDialog(fragmentManager)
-            .also {
-                it.arguments = Bundle().also { bundle ->
-                    bundle.putInt("event", event)
-                    bundle.putInt("options", options.ordinal)
-                }
+        if (isAppInForeground()) {
+            // Foreground path — launch the activity directly. No notification needed:
+            //   • Avoids channel-sound vs activity-ramp conflict.
+            //   • Activity opens instantly, owns ramped audio from 0.
+            //   • Works because the caller's process is already foreground (Android's
+            //     background-activity-start restriction does not apply).
+            aapsLogger.debug(LTag.CORE, "runAlarm (foreground direct): $title - $status (sound=$sound)")
+            val intent = Intent(context, errorHelperActivity.java).apply {
+                putExtra(AlarmIntent.EXTRA_SOUND, sound?.name)
+                putExtra(AlarmIntent.EXTRA_STATUS, status)
+                putExtra(AlarmIntent.EXTRA_TITLE, title)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
             }
-            .show(fragmentManager, "CareDialog")
-    }
-
-    override fun runPreferencesForPlugin(activity: FragmentActivity, pluginSimpleName: String?) {
-        pluginSimpleName ?: return
-        protectionCheck.get().queryProtection(activity, ProtectionCheck.Protection.PREFERENCES, {
-            activity.startActivity(
-                Intent(activity, PreferencesActivity::class.java)
-                    .setAction("info.nightscout.androidaps.MainActivity")
-                    .putExtra(UiInteraction.PLUGIN_NAME, pluginSimpleName)
-            )
-        })
-    }
-
-    override fun startAlarm(@RawRes sound: Int, reason: String) {
-        alarmSoundServiceHelper.startAlarm(sound, reason)
+            try {
+                context.startActivity(intent)
+            } catch (ex: Exception) {
+                // Defensive: if the activity start is rejected for any reason, fall back to
+                // the FSI notification path so the alert is never silently lost.
+                aapsLogger.error(LTag.CORE, "runAlarm: direct startActivity failed, falling back to FSI", ex)
+                postFsiFallback(status, title, sound)
+            }
+        } else {
+            // Background path — the full-screen alarm ("FSI" in the names here, although it no
+            // longer uses a full-screen intent): a notification with channel sound plus the looping
+            // alarm sound, and a setAlarmClock screen wake that brings up the activity when exact
+            // alarms are allowed.
+            aapsLogger.debug(LTag.CORE, "runAlarm (background via FSI): $title - $status (sound=$sound)")
+            alarmNotificationManager.postFullScreenAlarm(status = status, title = title, sound = sound)
+        }
     }
 
     override fun stopAlarm(reason: String) {
-        alarmSoundServiceHelper.stopAlarm(reason)
+        aapsLogger.debug(LTag.CORE, "stopAlarm: $reason")
+        // Route through the registry owner so all audible alarms are actually silenced: clears the
+        // internal AlarmSoundPlayer (Wear snooze used to only cancel the system notification, leaving
+        // the ramping audio playing), stops the full-screen audio, and cancels the notifications.
+        notificationManager().muteAllAlarms()
     }
 
-    override fun showOkDialog(context: Context, title: String, message: String, onFinish: (() -> Unit)?) {
-        alertDialogs.showOkDialog(context, title, message, onFinish)
+    /**
+     * Posts an FSI alarm notification with an additional last-resort Toast safety net.
+     * If `POST_NOTIFICATIONS` is also revoked, `postFullScreenAlarm`'s catch block already
+     * logs the failure but the alarm is otherwise lost — the Toast provides at least a
+     * visible signal that something tried to alarm. Best-effort; Toast can also fail (e.g.
+     * if a system overlay permission is denied) but it costs nothing to try.
+     */
+    private fun postFsiFallback(status: String, title: String, sound: AlarmSound?) {
+        alarmNotificationManager.postFullScreenAlarm(status = status, title = title, sound = sound)
+        // Toast must be created on the main thread (we are — runAlarm guards above).
+        runCatching {
+            Toast.makeText(context, "ALARM: $title — $status", Toast.LENGTH_LONG).show()
+        }.onFailure {
+            aapsLogger.error(LTag.CORE, "runAlarm: Toast fallback also failed; alarm not user-visible", it)
+        }
     }
 
-    override fun showOkDialog(context: Context, title: Int, message: Int, onFinish: (() -> Unit)?) {
-        alertDialogs.showOkDialog(context, title, message, onFinish)
-    }
-
-    override fun showOkCancelDialog(context: Context, title: Int, message: Int, ok: (() -> Unit)?, cancel: (() -> Unit)?, icon: Int?) {
-        alertDialogs.showOkCancelDialog(context, title, message, ok, cancel, icon)
-    }
-
-    override fun showOkCancelDialog(context: Context, title: String, message: String, ok: (() -> Unit)?, cancel: (() -> Unit)?, icon: Int?) {
-        alertDialogs.showOkCancelDialog(context, title, message, ok, cancel, icon)
-    }
-
-    override fun showOkCancelDialog(context: Context, title: String, message: String, secondMessage: String, ok: (() -> Unit)?, cancel: (() -> Unit)?, icon: Int?) {
-        alertDialogs.showOkCancelDialog(context, title, message, secondMessage, ok, cancel, icon)
-    }
-
-    override fun showYesNoCancel(context: Context, title: Int, message: Int, yes: (() -> Unit)?, no: (() -> Unit)?) {
-        alertDialogs.showYesNoCancel(context, title, message, yes, no)
-    }
-
-    override fun showYesNoCancel(context: Context, title: String, message: String, yes: (() -> Unit)?, no: (() -> Unit)?) {
-        alertDialogs.showYesNoCancel(context, title, message, yes, no)
-    }
-
-    override fun showError(context: Context, title: String, message: String, positiveButton: Int?, ok: (() -> Unit)?, cancel: (() -> Unit)?) {
-        alertDialogs.showError(context, title, message, positiveButton, ok, cancel)
-    }
+    /**
+     * True when the AAPS process has at least one STARTED activity — meaning Android's
+     * background-activity-start restriction does not apply and we can [Context.startActivity]
+     * without going through a notification PendingIntent.
+     *
+     * **Must only be called from the main thread.** `Lifecycle.currentState` is officially
+     * `@MainThread`; callers are guarded in [runAlarm].
+     */
+    private fun isAppInForeground(): Boolean =
+        ProcessLifecycleOwner.get().lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)
 }

@@ -30,6 +30,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -40,9 +41,8 @@ import app.aaps.core.interfaces.utils.DateUtil
 import app.aaps.core.ui.compose.AapsCard
 import app.aaps.core.ui.compose.AapsSpacing
 import app.aaps.core.ui.compose.LocalDateUtil
-import androidx.compose.ui.tooling.preview.Preview
-import app.aaps.core.utils.DateTimeUtil
 import app.aaps.pump.common.defs.PumpHistoryEntryGroup
+import app.aaps.pump.omnipod.common.bledriver.pod.definition.BolusType
 import app.aaps.pump.omnipod.common.definition.OmnipodCommandType
 import app.aaps.pump.omnipod.dash.R
 import app.aaps.pump.omnipod.dash.history.data.BasalValuesRecord
@@ -115,7 +115,7 @@ fun DashPodHistoryScreen(
                     )
                 }
 
-                items(itemsForDay, key = { it.displayTimestamp() }) { record ->
+                items(itemsForDay, key = { it.id }) { record ->
                     DashHistoryCard(record, rh, profileUtil, dateUtil)
                 }
             }
@@ -131,14 +131,20 @@ private fun DashHistoryCard(
     dateUtil: DateUtil
 ) {
     HistoryCardContent(
-        commandName = rh.gs(record.commandType.resourceId),
+        commandName = stringResource(record.commandType.resourceId),
         time = dateUtil.timeString(record.displayTimestamp()),
         isSuccess = record.isSuccess(),
         description = formatValue(record, rh, profileUtil),
-        extra = record.totalAmountDelivered?.let { rh.gs(R.string.omnipod_common_history_total_delivered, it) }
+        extra = record.totalAmountDelivered?.let { stringResource(R.string.omnipod_common_history_total_delivered, it) }
     )
 }
 
+/**
+ * @see PreviewSuccessCard
+ * @see PreviewSuccessSimple
+ * @see PreviewFailure
+ * @see PreviewTbr
+ */
 @Composable
 internal fun HistoryCardContent(
     commandName: String,
@@ -206,82 +212,6 @@ internal fun HistoryCardContent(
     }
 }
 
-// region Previews
-
-@Preview(showBackground = true, name = "History Card - Success with details")
-@Composable
-private fun PreviewSuccessCard() {
-    MaterialTheme {
-        HistoryCardContent(
-            commandName = "Set Bolus",
-            time = "14:32",
-            isSuccess = true,
-            description = "2.50 U",
-            extra = "Total delivered: 48.25 U"
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "History Card - Success simple")
-@Composable
-private fun PreviewSuccessSimple() {
-    MaterialTheme {
-        HistoryCardContent(
-            commandName = "Acknowledge Alerts",
-            time = "09:15",
-            isSuccess = true
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "History Card - Failure")
-@Composable
-private fun PreviewFailure() {
-    MaterialTheme {
-        HistoryCardContent(
-            commandName = "Set Temporary Basal",
-            time = "11:47",
-            isSuccess = false,
-            description = "Command not received by the pod"
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "History Card - TBR")
-@Composable
-private fun PreviewTbr() {
-    MaterialTheme {
-        HistoryCardContent(
-            commandName = "Set Temporary Basal",
-            time = "08:00",
-            isSuccess = true,
-            description = "1.50 U/h for 60 min"
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "Filter Chips")
-@Composable
-private fun PreviewFilterChips() {
-    val groups = listOf("All", "Bolus", "Basal", "Prime", "Alarm", "Config")
-    MaterialTheme {
-        FlowRow(
-            modifier = Modifier.padding(AapsSpacing.extraLarge),
-            horizontalArrangement = Arrangement.spacedBy(AapsSpacing.medium)
-        ) {
-            groups.forEachIndexed { index, name ->
-                FilterChip(
-                    selected = index == 0,
-                    onClick = {},
-                    label = { Text(name) }
-                )
-            }
-        }
-    }
-}
-
-// endregion
-
 private fun formatValue(record: HistoryRecord, rh: ResourceHelper, profileUtil: ProfileUtil): String {
     if (!record.isSuccess()) {
         return rh.gs(translatedFailure(record))
@@ -294,7 +224,15 @@ private fun formatValue(record: HistoryRecord, rh: ResourceHelper, profileUtil: 
 
         OmnipodCommandType.SET_BOLUS           -> {
             val bolus = record.record as? BolusRecord
-            bolus?.let { rh.gs(R.string.omnipod_common_history_bolus_value, it.amout) } ?: ""
+            bolus?.let {
+                val amount = rh.gs(R.string.omnipod_common_history_bolus_value, it.amout)
+                when (it.bolusType) {
+                    BolusType.DEFAULT          -> amount
+                    BolusType.SMB              -> rh.gs(R.string.omnipod_common_history_bolus_value_labeled, amount, rh.gs(R.string.omnipod_common_bolus_type_smb))
+                    BolusType.BASAL_CORRECTION -> rh.gs(R.string.omnipod_common_history_bolus_value_labeled, amount, rh.gs(R.string.omnipod_common_bolus_type_basal_correction))
+                    BolusType.PRIMING          -> rh.gs(R.string.omnipod_common_history_bolus_value_labeled, amount, rh.gs(R.string.omnipod_common_bolus_type_priming))
+                }
+            } ?: ""
         }
 
         OmnipodCommandType.SET_BASAL_PROFILE,
@@ -320,23 +258,23 @@ private fun groupForCommandType(type: OmnipodCommandType): PumpHistoryEntryGroup
     OmnipodCommandType.INITIALIZE_POD,
     OmnipodCommandType.INSERT_CANNULA,
     OmnipodCommandType.DEACTIVATE_POD,
-    OmnipodCommandType.DISCARD_POD            -> PumpHistoryEntryGroup.Prime
+    OmnipodCommandType.DISCARD_POD        -> PumpHistoryEntryGroup.Prime
 
     OmnipodCommandType.CANCEL_TEMPORARY_BASAL,
     OmnipodCommandType.SET_BASAL_PROFILE,
     OmnipodCommandType.SET_TEMPORARY_BASAL,
     OmnipodCommandType.RESUME_DELIVERY,
-    OmnipodCommandType.SUSPEND_DELIVERY       -> PumpHistoryEntryGroup.Basal
+    OmnipodCommandType.SUSPEND_DELIVERY   -> PumpHistoryEntryGroup.Basal
 
     OmnipodCommandType.SET_BOLUS,
-    OmnipodCommandType.CANCEL_BOLUS           -> PumpHistoryEntryGroup.Bolus
+    OmnipodCommandType.CANCEL_BOLUS       -> PumpHistoryEntryGroup.Bolus
 
     OmnipodCommandType.ACKNOWLEDGE_ALERTS,
     OmnipodCommandType.CONFIGURE_ALERTS,
-    OmnipodCommandType.PLAY_TEST_BEEP         -> PumpHistoryEntryGroup.Alarm
+    OmnipodCommandType.PLAY_TEST_BEEP     -> PumpHistoryEntryGroup.Alarm
 
     OmnipodCommandType.GET_POD_STATUS,
-    OmnipodCommandType.SET_TIME               -> PumpHistoryEntryGroup.Configuration
+    OmnipodCommandType.SET_TIME           -> PumpHistoryEntryGroup.Configuration
 
-    OmnipodCommandType.READ_POD_PULSE_LOG     -> PumpHistoryEntryGroup.Unknown
+    OmnipodCommandType.READ_POD_PULSE_LOG -> PumpHistoryEntryGroup.Unknown
 }

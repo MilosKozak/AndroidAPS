@@ -46,7 +46,7 @@
 - Value format: "Now" when offset=0, or "17:55\n(+15 min)" with resolved time
 
 ### NumberInputRow Usage
-- Default `useSlider = false` — direct text input with +/- buttons
+- Direct text input with +/- buttons (no slider mode — use `SliderWithButtons` directly if a slider is needed)
 - No baked-in vertical padding — caller controls spacing via `modifier`/`itemModifier`
 - Range text shown as plain `Text` below field (not in `supportingText`) — aligned with TextField width
 - Empty field when value is 0 (not prefilled with "0")
@@ -89,7 +89,7 @@
 | 9 | ProfileActivationScreen | ✅ Done | `ui/.../profileManagement/` |
 | 10 | ProfileHelperScreen | ✅ Done | `ui/.../profileHelper/` |
 | 11 | InsulinManagementScreen | ✅ Done | `ui/.../insulinManagement/` |
-| 12 | DanaUserOptionsScreen | ✅ Done | `pump/dana/.../compose/` |
+| 12 | DanaUserOptionsScreen | ✅ Done | `pump/dana/common/.../compose/` |
 | 13 | CalibrationDialogScreen | ✅ New | `ui/.../calibrationDialog/` |
 
 ## Review Findings (2026-03-28)

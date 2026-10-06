@@ -30,9 +30,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import app.aaps.core.data.pump.defs.PumpType
 import app.aaps.core.interfaces.profile.Profile.ProfileValue
@@ -131,13 +131,19 @@ private fun ErosHistoryCard(
 ) {
     val entryType = PodHistoryEntryType.getByCode(record.podEntryTypeCode)
     ErosHistoryCardContent(
-        commandName = rh.gs(entryType.resourceId),
+        commandName = stringResource(entryType.resourceId),
         time = dateUtil.timeString(record.date),
         isSuccess = record.isSuccess,
         description = formatErosValue(record, entryType, rh, profileUtil, aapsOmnipodUtil)
     )
 }
 
+/**
+ * @see PreviewSuccess
+ * @see PreviewTbr
+ * @see PreviewFailure
+ * @see PreviewSimple
+ */
 @Composable
 internal fun ErosHistoryCardContent(
     commandName: String,
@@ -197,61 +203,6 @@ internal fun ErosHistoryCardContent(
         }
     }
 }
-
-// region Previews
-
-@Preview(showBackground = true, name = "Eros History - Success")
-@Composable
-private fun PreviewSuccess() {
-    MaterialTheme {
-        ErosHistoryCardContent(
-            commandName = "Set Bolus",
-            time = "14:32",
-            isSuccess = true,
-            description = "2.50 U (15 g carbs)"
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "Eros History - TBR")
-@Composable
-private fun PreviewTbr() {
-    MaterialTheme {
-        ErosHistoryCardContent(
-            commandName = "Set Temporary Basal",
-            time = "08:00",
-            isSuccess = true,
-            description = "1.50 U/h, 60 min"
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "Eros History - Failure")
-@Composable
-private fun PreviewFailure() {
-    MaterialTheme {
-        ErosHistoryCardContent(
-            commandName = "Deactivate Pod",
-            time = "11:47",
-            isSuccess = false,
-            description = "No response from RileyLink"
-        )
-    }
-}
-
-@Preview(showBackground = true, name = "Eros History - Simple")
-@Composable
-private fun PreviewSimple() {
-    MaterialTheme {
-        ErosHistoryCardContent(
-            commandName = "Get Pod Status",
-            time = "09:15",
-            isSuccess = true
-        )
-    }
-}
-
-// endregion
 
 private fun formatErosValue(
     record: ErosHistoryRecordEntity,

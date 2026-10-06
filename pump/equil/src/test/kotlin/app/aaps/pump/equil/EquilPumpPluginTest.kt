@@ -9,7 +9,6 @@ import app.aaps.core.interfaces.queue.CommandQueue
 import app.aaps.pump.equil.driver.definition.ActivationProgress
 import app.aaps.pump.equil.manager.EquilManager
 import app.aaps.shared.tests.TestBaseWithProfile
-import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.joda.time.DateTime
 import org.joda.time.Duration
@@ -45,15 +44,8 @@ class EquilPumpPluginTest : TestBaseWithProfile() {
         equilPumpPlugin =
             EquilPumpPlugin(
                 aapsLogger, rh, preferences, commandQueue, rxBus, context,
-                pumpSync, equilManager, pumpEnactResultProvider, constraintsChecker, notificationManager, protectionCheck, blePreCheck
+                pumpSync, equilManager, pumpEnactResultProvider, constraintsChecker, ch, notificationManager, protectionCheck, blePreCheck, config
             )
-    }
-
-    @Test
-    fun addPreferenceScreen() {
-        val screen = preferenceManager.createPreferenceScreen(context)
-        equilPumpPlugin.addPreferenceScreen(preferenceManager, screen, context, null)
-        assertThat(screen.preferenceCount).isGreaterThan(0)
     }
 
     @Test

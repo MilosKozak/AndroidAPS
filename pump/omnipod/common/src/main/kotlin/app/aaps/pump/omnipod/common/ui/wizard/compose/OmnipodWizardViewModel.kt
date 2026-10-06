@@ -3,12 +3,22 @@ package app.aaps.pump.omnipod.common.ui.wizard.compose
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Stable
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import app.aaps.core.data.model.ICfg
 import app.aaps.core.data.model.TE
+import app.aaps.core.data.time.T
+import app.aaps.core.data.ue.Action
+import app.aaps.core.data.ue.Sources
+import app.aaps.core.data.ue.ValueWithUnit
+import app.aaps.core.interfaces.db.PersistenceLayer
+import app.aaps.core.interfaces.insulin.InsulinManager
 import app.aaps.core.interfaces.logging.AAPSLogger
 import app.aaps.core.interfaces.logging.LTag
+import app.aaps.core.interfaces.profile.ProfileFunction
+import app.aaps.core.interfaces.profile.ProfileRepository
 import app.aaps.core.interfaces.pump.PumpEnactResult
 import app.aaps.core.interfaces.rx.AapsSchedulers
+import app.aaps.core.ui.compose.pump.ProfileGateStepHost
 import app.aaps.core.ui.compose.siteRotation.SiteLocationStepHost
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -18,7 +28,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import javax.inject.Provider
+import kotlinx.coroutines.launch
 
 /**
  * Activation type: LONG (full 5-step) or SHORT (3-step, resume after prime).
@@ -58,8 +68,12 @@ sealed class ActionState {
 abstract class OmnipodWizardViewModel(
     protected val logger: AAPSLogger,
     private val aapsSchedulers: AapsSchedulers,
-    protected val pumpEnactResultProvider: Provider<PumpEnactResult>
-) : ViewModel(), SiteLocationStepHost {
+    protected val pumpEnactResultProvider: () -> PumpEnactResult,
+    protected val profileFunction: ProfileFunction,
+    protected val profileRepository: ProfileRepository,
+    private val insulinManager: InsulinManager,
+    private val persistenceLayer: PersistenceLayer
+) : ViewModel(), SiteLocationStepHost, ProfileGateStepHost {
 
     // region Step navigation
 
@@ -129,6 +143,21 @@ abstract class OmnipodWizardViewModel(
         _selectedInsulin.value = insulins.find { it.insulinLabel == activeLabel } ?: insulins.firstOrNull()
     }
 
+    protected fun initializeWizard() {
+        viewModelScope.launch {
+            loadInsulins(
+                insulinManager.insulins.map { it.deepClone() },
+                profileFunction.getProfile()?.iCfg?.insulinLabel
+            )
+            _siteRotationEntries.value = persistenceLayer.getTherapyEventDataFromTime(
+                System.currentTimeMillis() - T.days(45).msecs(),
+                false
+            ).filter { it.type == TE.Type.CANNULA_CHANGE || it.type == TE.Type.SENSOR_CHANGE }
+            resolveProfileGate()
+            _ready.value = true
+        }
+    }
+
     // endregion
 
     // region Site location (SiteLocationStepHost)
@@ -138,6 +167,8 @@ abstract class OmnipodWizardViewModel(
 
     private val _siteArrow = MutableStateFlow(TE.Arrow.NONE)
     override val siteArrow: StateFlow<TE.Arrow> = _siteArrow
+
+    private val _siteRotationEntries = MutableStateFlow<List<TE>>(emptyList())
 
     override fun updateSiteLocation(location: TE.Location) {
         _siteLocation.value = location
@@ -166,6 +197,77 @@ abstract class OmnipodWizardViewModel(
     /** Get the selected site arrow (for persisting after activation). */
     fun getSelectedSiteArrow(): TE.Arrow = _siteArrow.value
 
+    override fun siteRotationEntries(): List<TE> = _siteRotationEntries.value
+
+    // endregion
+
+    // region Profile gate (ProfileGateStepHost)
+
+    private val _availableProfiles = MutableStateFlow<List<String>>(emptyList())
+    override val availableProfiles: StateFlow<List<String>> = _availableProfiles
+
+    private val _selectedProfile = MutableStateFlow<String?>(null)
+    override val selectedProfile: StateFlow<String?> = _selectedProfile
+
+    /** Resolved during init: true if no PS exists at activation time. */
+    private val _needsProfileGate = MutableStateFlow(false)
+
+    /** Source identifier for the user-entry log, set by concrete VMs (e.g. Sources.OmnipodEros). */
+    protected abstract val pumpSource: Sources
+
+    /** Fallback insulin config used when creating a PS via the gate. Concrete VMs return their first available insulin. */
+    protected fun fallbackICfg(): ICfg? = insulinManager.insulins.firstOrNull()
+
+    /** Concrete VMs call this from their init coroutine after profile data is available. */
+    protected suspend fun resolveProfileGate() {
+        _needsProfileGate.value = profileFunction.getRequestedProfile() == null
+        if (_needsProfileGate.value) {
+            val names = profileRepository.profiles.value.map { it.name }
+            _availableProfiles.value = names
+            if (_selectedProfile.value !in names) {
+                // Default to the currently active profile (matches what the user is running).
+                // getOriginalProfileName() returns the clean name without %/timeshift decoration.
+                val activeName = profileFunction.getOriginalProfileName()
+                _selectedProfile.value = activeName.takeIf { it in names } ?: names.firstOrNull()
+            }
+        }
+    }
+
+    override fun selectProfile(name: String) {
+        _selectedProfile.value = name
+    }
+
+    override fun activateSelectedProfile() {
+        val name = _selectedProfile.value ?: return
+        val store = profileRepository.profile.value ?: return
+        val iCfg = fallbackICfg() ?: return
+        viewModelScope.launch {
+            val result = profileFunction.createProfileSwitch(
+                profileStore = store,
+                profileName = name,
+                durationInMinutes = 0,
+                percentage = 100,
+                timeShiftInHours = 0,
+                timestamp = System.currentTimeMillis(),
+                action = Action.PROFILE_SWITCH,
+                source = pumpSource,
+                note = null,
+                listValues = listOf(ValueWithUnit.SimpleString(name)),
+                iCfg = iCfg
+            )
+            if (result == null) {
+                logger.error(LTag.PUMP, "ProfileGate: createProfileSwitch failed for $name")
+            } else {
+                _needsProfileGate.value = false
+                moveToNext()
+            }
+        }
+    }
+
+    override fun cancelGate() {
+        _events.tryEmit(OmnipodWizardEvent.Finish)
+    }
+
     // endregion
 
     // region Initialization
@@ -173,13 +275,14 @@ abstract class OmnipodWizardViewModel(
     fun initializeActivation(type: ActivationType) {
         wizardType = WizardType.ACTIVATION
         wizardPages = buildList {
+            if (_needsProfileGate.value) add(OmnipodWizardStep.PROFILE_GATE)
             if (type == ActivationType.LONG) {
                 add(OmnipodWizardStep.START_POD_ACTIVATION)
                 if (showInsulinStep) add(OmnipodWizardStep.SELECT_INSULIN)
                 add(OmnipodWizardStep.INITIALIZE_POD)
             }
-            add(OmnipodWizardStep.ATTACH_POD)
             if (showSiteLocationStep) add(OmnipodWizardStep.SITE_LOCATION)
+            add(OmnipodWizardStep.ATTACH_POD)
             add(OmnipodWizardStep.INSERT_CANNULA)
             add(OmnipodWizardStep.POD_ACTIVATED)
         }
@@ -253,7 +356,7 @@ abstract class OmnipodWizardViewModel(
                         _actionState.value = ActionState.Success(result)
                     } else {
                         _actionState.value = ActionState.Error(
-                            result.comment ?: "Unknown error"
+                            result.comment
                         )
                     }
                 },
@@ -305,10 +408,29 @@ abstract class OmnipodWizardViewModel(
     @StringRes abstract fun getTextForStep(step: OmnipodWizardStep): Int
 
     /** Execute insulin profile switch if insulin was changed during activation. */
-    abstract fun executeInsulinProfileSwitch()
+    fun executeInsulinProfileSwitch() {
+        val selected = selectedInsulin.value ?: return
+        if (selected.insulinLabel == activeInsulinLabel.value) return
+        viewModelScope.launch {
+            profileFunction.createProfileSwitchWithNewInsulin(selected, pumpSource)
+        }
+    }
 
     /** Persist site location to therapy event after successful activation. */
-    abstract fun saveSiteLocation()
+    fun saveSiteLocation() {
+        val location = getSelectedSiteLocation().takeIf { it != TE.Location.NONE } ?: return
+        val arrow = getSelectedSiteArrow().takeIf { it != TE.Arrow.NONE }
+        viewModelScope.launch {
+            try {
+                val now = System.currentTimeMillis()
+                persistenceLayer.getTherapyEventDataFromToTime(now - 60_000, now)
+                    .firstOrNull { it.type == TE.Type.CANNULA_CHANGE }
+                    ?.let { persistenceLayer.insertOrUpdateTherapyEvent(it.copy(location = location, arrow = arrow)) }
+            } catch (exception: Exception) {
+                logger.error(LTag.PUMP, "Failed to save pod site location", exception)
+            }
+        }
+    }
 
     // endregion
 
